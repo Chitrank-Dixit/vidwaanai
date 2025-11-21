@@ -1,0 +1,22 @@
+{
+  "scriptures": [
+    {
+      "chapter": 1,
+      "verse": 1,
+      "text": "karmany evadhikaras te",
+      "meaning": "You have a right to perform your prescribed duty"
+    },
+    {
+      "chapter": 2,
+      "verse": 47,
+      "text": "karmanye vadhikaras te ma phalesu kadacana",
+      "meaning": "You have a right to action but not to its fruits"
+    },
+    {
+      "chapter": 3,
+      "verse": 35,
+      "text": "sreyan sva-dharmo vigunah para-dharmat svanusthitat",
+      "meaning": "It is far better to discharge one's own prescribed duty"
+    }
+  ]
+}
