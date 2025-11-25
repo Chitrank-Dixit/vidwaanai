@@ -40,5 +40,15 @@ class Settings(BaseSettings):
     # Logging
     LOG_LEVEL: str = "INFO"
 
+    # Graph Database
+    NEO4J_URI: str = "bolt://localhost:7687"
+    NEO4J_USER: str = "neo4j"
+    NEO4J_PASSWORD: str = "vidwaan123"
+
+    # Graph RAG settings
+    ENABLE_GRAPH_RAG: bool = False
+    GRAPH_TRAVERSAL_DEPTH: int = 2
+    HYBRID_ALPHA: float = 0.5
+
 
 settings = Settings()

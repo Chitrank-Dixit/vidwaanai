@@ -269,3 +269,27 @@ class DatabaseManager:
 
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
+
+    def get_all_verses(self) -> List[Dict]:
+        """Get all verses from database."""
+        try:
+            conn = self._get_connection()
+            cursor = conn.cursor(cursor_factory=RealDictCursor)
+            
+            cursor.execute("""
+                SELECT v.id, v.verse_text as text, v.translation_en as translation, 
+                       s.name as scripture_name, v.chapter_number, v.verse_number
+                FROM verses v
+                JOIN scriptures s ON v.scripture_id = s.id
+                ORDER BY s.name, v.chapter_number, v.verse_number
+            """)
+            
+            rows = cursor.fetchall()
+            result = [dict(row) for row in rows]
+            
+            cursor.close()
+            conn.close()
+            return result
+        except Exception as e:
+            logger.error(f"Error getting all verses: {str(e)}")
+            return []

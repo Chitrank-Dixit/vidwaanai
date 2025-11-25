@@ -35,7 +35,10 @@ def get_agent() -> VidwaanAI:
                 db_url=settings.DATABASE_URL,
                 openai_key=settings.OPENAI_API_KEY,
                 lmstudio_url=settings.lmstudio_base_url,
-
+                enable_graph_rag=settings.ENABLE_GRAPH_RAG,
+                neo4j_uri=settings.NEO4J_URI,
+                neo4j_user=settings.NEO4J_USER,
+                neo4j_password=settings.NEO4J_PASSWORD
             )
         except Exception as e:
             console.print(f"[red]Error initializing agent: {str(e)}[/red]", file=sys.stderr)
