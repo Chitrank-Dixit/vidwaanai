@@ -1,0 +1,78 @@
+# VidwaanAI Docker Makefile
+# Fully containerized workflow
+
+.PHONY: help build up down logs shell first-run query test graph-build
+
+# Colors
+BOLD := \033[1m
+GREEN := \033[32m
+YELLOW := \033[33m
+CYAN := \033[36m
+RED := \033[31m
+RESET := \033[0m
+
+# Docker Compose command
+COMPOSE := docker compose -f docker-compose-full.yml
+
+help:
+	@echo "$(BOLD)VidwaanAI Docker Commands$(RESET)"
+	@echo
+	@echo "$(CYAN)Lifecycle:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker build$(RESET)      Build containers"
+	@echo "  $(GREEN)make -f Makefile-docker up$(RESET)         Start services (detached)"
+	@echo "  $(GREEN)make -f Makefile-docker down$(RESET)       Stop services"
+	@echo "  $(GREEN)make -f Makefile-docker logs$(RESET)       View logs"
+	@echo
+	@echo "$(CYAN)Setup:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker first-run$(RESET)  Initialize DB and load data"
+	@echo
+	@echo "$(CYAN)Usage:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker query Q=\"...\"$(RESET) Run a query"
+	@echo "  $(GREEN)make -f Makefile-docker shell$(RESET)      Open shell in app container"
+	@echo "  $(GREEN)make -f Makefile-docker test$(RESET)       Run tests inside container"
+	@echo
+	@echo "$(CYAN)Graph RAG:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker graph-build$(RESET) Populate knowledge graph"
+
+build:
+	@echo "$(YELLOW)Building containers...$(RESET)"
+	@$(COMPOSE) build
+
+up:
+	@echo "$(YELLOW)Starting services...$(RESET)"
+	@$(COMPOSE) up -d
+
+down:
+	@echo "$(YELLOW)Stopping services...$(RESET)"
+	@$(COMPOSE) down
+
+logs:
+	@$(COMPOSE) logs -f
+
+shell:
+	@echo "$(YELLOW)Opening shell...$(RESET)"
+	@$(COMPOSE) exec app /bin/bash
+
+first-run: up
+	@echo "$(YELLOW)Waiting for database...$(RESET)"
+	@sleep 5
+	@echo "$(YELLOW)Initializing database...$(RESET)"
+	@$(COMPOSE) exec app uv run python scripts/init_db.py
+	@echo "$(YELLOW)Loading sample data...$(RESET)"
+	@$(COMPOSE) exec app uv run python scripts/load_sample_data.py
+	@echo "$(GREEN)✓ Setup complete!$(RESET)"
+
+query:
+	@if [ -z "$(Q)" ]; then \
+		echo "$(RED)Error: Please provide a question using Q=\"...\"$(RESET)"; \
+	else \
+		$(COMPOSE) exec app uv run vidwaan query "$(Q)" --verbose; \
+	fi
+
+test:
+	@echo "$(YELLOW)Running tests inside container...$(RESET)"
+	@$(COMPOSE) exec app uv run pytest
+
+graph-build:
+	@echo "$(YELLOW)Building knowledge graph...$(RESET)"
+	@$(COMPOSE) exec app uv run python scripts/build_knowledge_graph.py
