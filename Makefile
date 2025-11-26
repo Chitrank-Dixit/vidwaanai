@@ -100,7 +100,7 @@ docker-down:
 
 db:
 	@echo "$(YELLOW)Initializing database...$(RESET)"
-	@$(PYTHON) scripts/init_db.py
+	@$(PYTHON) scripts/setup_db.py
 
 model:
 	@echo "$(YELLOW)Setting up models...$(RESET)"

@@ -57,7 +57,7 @@ first-run: up
 	@echo "$(YELLOW)Waiting for database...$(RESET)"
 	@sleep 5
 	@echo "$(YELLOW)Initializing database...$(RESET)"
-	@$(COMPOSE) exec app uv run python scripts/init_db.py
+	@$(COMPOSE) exec app uv run python scripts/setup_db.py
 	@echo "$(YELLOW)Loading sample data...$(RESET)"
 	@$(COMPOSE) exec app uv run python scripts/load_sample_data.py
 	@echo "$(GREEN)✓ Setup complete!$(RESET)"
@@ -66,7 +66,7 @@ query:
 	@if [ -z "$(Q)" ]; then \
 		echo "$(RED)Error: Please provide a question using Q=\"...\"$(RESET)"; \
 	else \
-		$(COMPOSE) exec app uv run vidwaan query "$(Q)" --verbose; \
+		$(COMPOSE) exec app uv run python -m src.main query "$(Q)" --verbose; \
 	fi
 
 test:

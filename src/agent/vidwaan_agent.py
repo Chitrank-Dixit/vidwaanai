@@ -13,6 +13,8 @@ from src.llm.lmstudio_client import LMStudioClient
 from src.graph.graph_retriever import GraphRetriever
 from src.graph.hybrid_search import HybridSearcher
 from src.graph.entity_extractor import EntityExtractor
+from src.rag.reranker import Reranker
+from src.core.monitoring import track_query_latency, record_retrieval_quality
 from neo4j import GraphDatabase
 
 logger = logging.getLogger(__name__)
@@ -34,9 +36,15 @@ class VidwaanAI:
         if use_lmstudio:
             self.llm = LMStudioClient(base_url=lmstudio_url or "http://localhost:8000")
         else:
-        else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()
+        
+        # Optimization: Reranker
+        try:
+            self.reranker = Reranker()
+        except Exception as e:
+            logger.warning(f"Failed to initialize reranker: {e}. Proceeding without reranking.")
+            self.reranker = None
         
         # Graph RAG setup
         self.enable_graph_rag = enable_graph_rag
@@ -55,6 +63,7 @@ class VidwaanAI:
 
         logger.info("VidwaanAI agent initialized")
 
+    @track_query_latency
     def query(
         self,
         question: str,
@@ -90,6 +99,18 @@ class VidwaanAI:
 
             if verbose:
                 logger.info(f"Retrieved {len(retrieved_verses)} verses")
+
+            # Optimization: Reranking
+            if self.reranker and retrieved_verses:
+                logger.info("Reranking retrieved verses...")
+                retrieved_verses = self.reranker.rerank(question, retrieved_verses, top_k=5)
+            
+            # Monitoring: Record retrieval quality
+            if retrieved_verses:
+                scores = [v.get('similarity', 0.0) for v in retrieved_verses]
+                # If reranked, use rerank_score if available, but similarity is what we have from vector DB
+                # Rerank score is different scale. Let's stick to vector similarity for now as a proxy for raw retrieval quality
+                record_retrieval_quality(scores)
 
             # Step 4: Format context for LLM
             context = self._format_context(retrieved_verses, detected_lang)

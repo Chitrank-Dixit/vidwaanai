@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   app:
@@ -16,11 +16,15 @@ services:
       - NEO4J_PASSWORD=vidwaan123
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ENABLE_GRAPH_RAG=${ENABLE_GRAPH_RAG:-true}
+      - LMSTUDIO_BASE_URL=http://host.docker.internal:1234
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./src:/app/src
       - ./scripts:/app/scripts
       - ./tests:/app/tests
       - ./data:/app/data
+      - ./database:/app/database
     entrypoint: ["tail", "-f", "/dev/null"] # Keep alive for exec commands
 
   db:

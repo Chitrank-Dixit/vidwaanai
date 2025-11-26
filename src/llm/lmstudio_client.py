@@ -8,6 +8,8 @@ class LMStudioClient:
     
     def __init__(self, base_url="http://localhost:1234", model_name="falcon-h1-7b-instruct"):
         self.base_url = base_url.rstrip('/')
+        if self.base_url.endswith('/v1'):
+            self.base_url = self.base_url[:-3]
         self.model_name = model_name
         logger.info(f"Initialized LMStudioClient: {self.base_url} with model {self.model_name}")
 

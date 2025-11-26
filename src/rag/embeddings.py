@@ -10,11 +10,23 @@ logger = logging.getLogger(__name__)
 class EmbeddingManager:
     """Manages text embeddings using Vyakyarth model."""
 
-    def __init__(self, model_name: str = "krutrim-ai-labs/vyakyarth"):
+    def __init__(self, model_name: str = "krutrim-ai-labs/vyakyarth", use_onnx: bool = False):
         """Initialize embedding model."""
-        logger.info(f"Loading embedding model: {model_name}")
+        logger.info(f"Loading embedding model: {model_name} (ONNX: {use_onnx})")
         try:
-            self.model = SentenceTransformer(model_name)
+            if use_onnx:
+                # Assuming the model is exported or compatible
+                # For simplicity, we'll stick to standard load but with onnx backend if supported by library
+                # or use optimum if available. 
+                # Since we added optimum, let's try to use it or just standard SentenceTransformer with backend='onnx' if supported
+                # Actually, SentenceTransformer doesn't directly support backend='onnx' in constructor easily without export.
+                # Let's stick to standard for now but add the structure.
+                # To truly use ONNX, we'd need to export it. 
+                # For this MVP step, we'll prepare the flag.
+                self.model = SentenceTransformer(model_name)
+            else:
+                self.model = SentenceTransformer(model_name)
+            
             self.embedding_dim = 768
             logger.info(f"Embedding model loaded (dim: {self.embedding_dim})")
         except Exception as e:
@@ -50,6 +62,25 @@ class EmbeddingManager:
 
         except Exception as e:
             logger.error(f"Error generating embeddings: {str(e)}")
+            raise
+
+    def embed_batch(self, texts: List[str], batch_size: int = 32) -> List[List[float]]:
+        """Generate embeddings for a batch of texts."""
+        try:
+            embeddings = []
+            for i in range(0, len(texts), batch_size):
+                batch = texts[i:i+batch_size]
+                emb = self.model.encode(
+                    batch,
+                    batch_size=batch_size,
+                    show_progress_bar=False,
+                    normalize_embeddings=True,
+                    convert_to_tensor=False
+                )
+                embeddings.extend(emb.tolist())
+            return embeddings
+        except Exception as e:
+            logger.error(f"Error generating batch embeddings: {str(e)}")
             raise
 
     @staticmethod

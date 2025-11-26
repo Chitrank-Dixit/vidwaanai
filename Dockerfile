@@ -29,6 +29,7 @@ RUN uv sync --frozen --no-dev || uv sync --no-dev
 COPY src/ src/
 COPY scripts/ scripts/
 COPY tests/ tests/
+COPY database/ database/
 COPY .env.example .env
 
 # Create non-root user
