@@ -1,5 +1,10 @@
 from typing import List, Dict
+import logging
+import logging
+import re
 import json
+
+logger = logging.getLogger(__name__)
 
 class EntityExtractor:
     """Extract entities and relationships from scripture verses."""
@@ -52,6 +57,15 @@ Return as JSON.
         
         response = self.llm.generate(prompt, max_tokens=800, temperature=0.3)
         try:
-            return json.loads(response)
-        except:
+            # Clean response if it contains markdown code blocks
+            cleaned_response = response.strip()
+            if "```json" in cleaned_response:
+                cleaned_response = cleaned_response.split("```json")[1].split("```")[0].strip()
+            elif "```" in cleaned_response:
+                cleaned_response = cleaned_response.split("```")[1].split("```")[0].strip()
+            
+            return json.loads(cleaned_response)
+        except Exception as e:
+            logger.error(f"Failed to parse entity extraction response: {e}")
+            logger.debug(f"Raw response: {response}")
             return {"entities": [], "relationships": []}

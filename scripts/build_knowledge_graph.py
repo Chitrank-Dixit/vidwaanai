@@ -61,20 +61,36 @@ def build_graph():
                 verse['scripture_name']
             )
             
+            # Helper to extract name string
+            def get_name_str(entity_name):
+                if isinstance(entity_name, str):
+                    return entity_name
+                if isinstance(entity_name, dict):
+                    return entity_name.get('primary', str(entity_name))
+                return str(entity_name)
+
             # Add to graph
             for entity in extracted.get('entities', []):
+                name = get_name_str(entity['name'])
                 if entity['type'] == 'Person':
-                    graph_builder.create_person(entity['name'], entity.get('attributes', {}))
+                    graph_builder.create_person(name, entity.get('attributes', {}))
                 elif entity['type'] == 'Concept':
-                    graph_builder.create_concept(entity['name'], entity.get('attributes', {}))
+                    graph_builder.create_concept(name, entity.get('attributes', {}))
                 elif entity['type'] == 'Event':
-                    graph_builder.create_event(entity['name'], entity.get('attributes', {}))
+                    graph_builder.create_event(name, entity.get('attributes', {}))
                 elif entity['type'] == 'Location':
-                    graph_builder.create_location(entity['name'], entity.get('attributes', {}))
+                    graph_builder.create_location(name, entity.get('attributes', {}))
             
             for rel in extracted.get('relationships', []):
+                if not all(k in rel for k in ('from', 'to', 'type')):
+                    logger.warning(f"Skipping incomplete relationship: {rel}")
+                    continue
+                    
+                from_name = get_name_str(rel['from'])
+                to_name = get_name_str(rel['to'])
+                
                 graph_builder.create_relationship(
-                    rel['from'], rel['to'], rel['type'], rel.get('attributes', {})
+                    from_name, to_name, rel['type'], rel.get('attributes', {})
                 )
             
             # Rate limiting if using OpenAI
