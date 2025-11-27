@@ -14,6 +14,12 @@ class GraphBuilder:
     def close(self):
         self.driver.close()
 
+    def clear_graph(self):
+        """Delete all nodes and relationships."""
+        with self.driver.session() as session:
+            session.run("MATCH (n) DETACH DELETE n")
+            logger.info("Graph cleared")
+
     def _sanitize_attributes(self, attributes):
         """Ensure attributes is a flat dictionary with valid Neo4j types."""
         if attributes is None:

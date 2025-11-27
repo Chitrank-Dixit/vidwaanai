@@ -69,10 +69,29 @@ query:
 		$(COMPOSE) exec app uv run python -m src.main query "$(Q)" --verbose; \
 	fi
 
-test:
-	@echo "$(YELLOW)Running tests inside container...$(RESET)"
-	@$(COMPOSE) exec app uv run pytest
+test: test-unit
+
+test-unit:
+	@echo "$(YELLOW)Running unit tests...$(RESET)"
+	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-unit
+
+test-functional:
+	@echo "$(YELLOW)Running functional tests...$(RESET)"
+	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-functional
+
+test-integration:
+	@echo "$(YELLOW)Running integration tests...$(RESET)"
+	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-integration
+
+test-e2e:
+	@echo "$(YELLOW)Running E2E tests...$(RESET)"
+	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-e2e
+
+test-all: test-unit test-functional test-integration test-e2e
+	@echo "$(GREEN)All tests passed!$(RESET)"
 
 graph-build:
 	@echo "$(YELLOW)Building knowledge graph...$(RESET)"
 	@$(COMPOSE) exec app uv run python scripts/build_knowledge_graph.py
+	@echo "$(GREEN)✓ Knowledge graph built!$(RESET)"
+
