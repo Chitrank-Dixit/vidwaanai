@@ -36,23 +36,23 @@ Scripture: {scripture_name}
 Original: {verse_text}
 Translation: {translation}
 
-Extract:
-1. PERSONS (deities, sages, warriors, kings)
-2. CONCEPTS (dharma, karma, yoga, moksha, etc.)
-3. EVENTS (wars, ceremonies, dialogues)
-4. LOCATIONS (cities, forests, mountains)
+Return ONLY valid JSON. For each relationship, provide:
+- "from": source entity name (e.g., "Krishna", "dharma")
+- "to": target entity name (e.g., "Arjuna", "karma")
+- "type": relationship type (TEACHES, RELATES_TO, APPEARS_IN, PERFORMS, etc.)
 
-For each entity, identify:
-- Type (Person/Concept/Event/Location)
-- Name (primary and aliases)
-- Attributes (description, role, etc.)
+Example:
+{{
+  "entities": [
+    {{"name": "Krishna", "type": "Person", "attributes": {{"description": "..."}}}},
+    {{"name": "dharma", "type": "Concept", "attributes": {{"description": "..."}}}}
+  ],
+  "relationships": [
+    {{"from": "Krishna", "to": "dharma", "type": "TEACHES", "attributes": {{"context": "..."}}}}
+  ]
+}}
 
-Also extract RELATIONSHIPS between entities:
-- Type (TEACHES, RELATES_TO, APPEARS_IN, etc.)
-- Direction (from → to)
-- Context
-
-Return as JSON.
+Ensure "from" and "to" are actual entity names, NOT descriptions or sentences.
 """
         
         response = self.llm.generate(prompt, max_tokens=800, temperature=0.3)

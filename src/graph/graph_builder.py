@@ -79,6 +79,17 @@ class GraphBuilder:
     def create_relationship(self, from_name: str, to_name: str, 
                            rel_type: str, attributes: Dict):
         attributes = self._sanitize_attributes(attributes)
+        
+        # Validate that from_name and to_name are actual entity names
+        if not from_name or not to_name:
+            logger.warning(f"Skipping relationship: missing from or to name")
+            return
+        
+        # Don't allow arrows or special chars that indicate unstructured text
+        if "→" in from_name or "→" in to_name:
+            logger.warning(f"Skipping relationship with arrow notation: {from_name} → {to_name}")
+            return
+
         with self.driver.session() as session:
             # Try to match nodes with any label, assuming names are unique across labels
             # Or we could be more specific if we knew the types of from/to nodes
