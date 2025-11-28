@@ -194,3 +194,9 @@ class VidwaanAI:
             )
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
+
+    def close(self):
+        """Close resources."""
+        if hasattr(self, 'neo4j_driver') and self.neo4j_driver:
+            self.neo4j_driver.close()
+            logger.info("Neo4j driver closed")

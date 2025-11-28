@@ -20,7 +20,10 @@ class TestCompleteQuery:
         uri = os.getenv("NEO4J_URI")
         user = os.getenv("NEO4J_USER")
         password = os.getenv("NEO4J_PASSWORD")
-        return GraphBuilder(uri, user, password)
+        password = os.getenv("NEO4J_PASSWORD")
+        builder = GraphBuilder(uri, user, password)
+        yield builder
+        builder.close()
 
     @pytest.fixture(scope="class")
     def embedding_manager(self):
@@ -93,3 +96,5 @@ class TestCompleteQuery:
                 assert "Yoga" in response["answer"]
                 # Verify DB log
                 # (Optional) check user_queries table
+                
+                agent.close()

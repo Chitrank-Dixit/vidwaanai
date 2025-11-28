@@ -15,7 +15,8 @@ class TestGraphOperations:
         password = os.getenv("NEO4J_PASSWORD")
         
         builder = GraphBuilder(uri, user, password)
-        return builder
+        yield builder
+        builder.close()
 
     @pytest.fixture(autouse=True)
     def clean_graph(self, graph_builder):
