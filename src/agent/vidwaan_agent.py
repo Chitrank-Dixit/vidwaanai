@@ -15,6 +15,7 @@ from src.graph.hybrid_search import HybridSearcher
 from src.graph.entity_extractor import EntityExtractor
 from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
+from src.utils.confidence import calculate_confidence_score
 from neo4j import GraphDatabase
 
 logger = logging.getLogger(__name__)
@@ -130,19 +131,39 @@ class VidwaanAI:
                 temperature=0.3
             )
 
-            # Step 6: Log query
+            # Step 6: Calculate Confidence
+            confidence_result = calculate_confidence_score(
+                question_embedding=query_embedding,
+                retrieved_verses=retrieved_verses,
+                generated_answer=response_text
+            )
+            
+            # Apply Low Confidence Handling
+            final_answer = response_text
+            if confidence_result["score"] < 30:
+                final_answer = (
+                    "⚠️ **Insufficient Information**\n\n"
+                    "I cannot confidently answer this question based on the available scriptures. "
+                    "The retrieved verses do not appear to be directly relevant.\n\n"
+                    "**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n"
+                    f"*(Original generated answer for reference: {response_text})*"
+                )
+            elif confidence_result["warning"]:
+                final_answer = f"⚠️ **{confidence_result['warning']}**\n\n{response_text}"
+
+            # Step 7: Log query
             self._log_query(
                 question=question,
-                response=response_text,
+                response=final_answer,
                 language=detected_lang,
                 retrieved_count=len(retrieved_verses)
             )
 
             return {
-                "answer": response_text,
+                "answer": final_answer,
                 "retrieved_verses": retrieved_verses,
                 "language": detected_lang,
-                "confidence": self._calculate_confidence(retrieved_verses),
+                "confidence": confidence_result, # detailed dict
                 "timestamp": datetime.now().isoformat()
             }
 
