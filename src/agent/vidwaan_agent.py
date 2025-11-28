@@ -10,6 +10,12 @@ from src.agent.query_router import QueryRouter
 from src.agent.prompt_templates import SCRIPTURE_PROMPT
 from src.llm.openai_client import OpenAIClient
 from src.llm.lmstudio_client import LMStudioClient
+from src.graph.graph_retriever import GraphRetriever
+from src.graph.hybrid_search import HybridSearcher
+from src.graph.entity_extractor import EntityExtractor
+from src.rag.reranker import Reranker
+from src.core.monitoring import track_query_latency, record_retrieval_quality
+from neo4j import GraphDatabase
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +27,8 @@ class VidwaanAI:
         db_url: str,
         openai_key: str,
         krutrim_key: Optional[str] = None,
-        use_lmstudio=True, lmstudio_url=None
+        use_lmstudio=True, lmstudio_url=None,
+        enable_graph_rag=False, neo4j_uri=None, neo4j_user=None, neo4j_password=None
     ):
         """Initialize VidwaanAI agent."""
         self.db = DatabaseManager(db_url)
@@ -31,9 +38,32 @@ class VidwaanAI:
         else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()
+        
+        # Optimization: Reranker
+        try:
+            self.reranker = Reranker()
+        except Exception as e:
+            logger.warning(f"Failed to initialize reranker: {e}. Proceeding without reranking.")
+            self.reranker = None
+        
+        # Graph RAG setup
+        self.enable_graph_rag = enable_graph_rag
+        if enable_graph_rag and neo4j_uri:
+            try:
+                self.neo4j_driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
+                self.graph_retriever = GraphRetriever(self.neo4j_driver)
+                self.entity_extractor = EntityExtractor(self.llm)
+                self.hybrid_search = HybridSearcher(
+                    self.graph_retriever, self.db, self.embeddings, self.entity_extractor
+                )
+                logger.info("Graph RAG enabled and initialized")
+            except Exception as e:
+                logger.error(f"Failed to initialize Graph RAG: {e}")
+                self.enable_graph_rag = False
 
         logger.info("VidwaanAI agent initialized")
 
+    @track_query_latency
     def query(
         self,
         question: str,
@@ -52,17 +82,40 @@ class VidwaanAI:
             query_embedding = self.embeddings.embed_text(question)
 
             # Step 3: Retrieve relevant verses
-            retrieved_verses = self.db.retrieve_verses(
-                query_embedding=query_embedding,
-                scripture_filter=scripture_filter,
-                top_k=5
-            )
+            if self.enable_graph_rag:
+                search_results = self.hybrid_search.search(question, top_k=5)
+                retrieved_verses = search_results['vector_results']
+                # We might want to use fused_context directly, but _format_context expects verses
+                # Let's adjust _format_context or pass fused_context
+                # For now, let's keep retrieved_verses for compatibility and append graph context
+                graph_context = search_results.get('fused_context', '')
+            else:
+                retrieved_verses = self.db.retrieve_verses(
+                    query_embedding=query_embedding,
+                    scripture_filter=scripture_filter,
+                    top_k=5
+                )
+                graph_context = ""
 
             if verbose:
                 logger.info(f"Retrieved {len(retrieved_verses)} verses")
 
+            # Optimization: Reranking
+            if self.reranker and retrieved_verses:
+                logger.info("Reranking retrieved verses...")
+                retrieved_verses = self.reranker.rerank(question, retrieved_verses, top_k=5)
+            
+            # Monitoring: Record retrieval quality
+            if retrieved_verses:
+                scores = [v.get('similarity', 0.0) for v in retrieved_verses]
+                # If reranked, use rerank_score if available, but similarity is what we have from vector DB
+                # Rerank score is different scale. Let's stick to vector similarity for now as a proxy for raw retrieval quality
+                record_retrieval_quality(scores)
+
             # Step 4: Format context for LLM
             context = self._format_context(retrieved_verses, detected_lang)
+            if self.enable_graph_rag and graph_context:
+                context = graph_context + "\n\n" + context
 
             # Step 5: Generate response
             prompt = SCRIPTURE_PROMPT.format(
@@ -141,3 +194,9 @@ class VidwaanAI:
             )
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
+
+    def close(self):
+        """Close resources."""
+        if hasattr(self, 'neo4j_driver') and self.neo4j_driver:
+            self.neo4j_driver.close()
+            logger.info("Neo4j driver closed")

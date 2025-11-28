@@ -35,11 +35,14 @@ def get_agent() -> VidwaanAI:
                 db_url=settings.DATABASE_URL,
                 openai_key=settings.OPENAI_API_KEY,
                 lmstudio_url=settings.lmstudio_base_url,
-
+                enable_graph_rag=settings.ENABLE_GRAPH_RAG,
+                neo4j_uri=settings.NEO4J_URI,
+                neo4j_user=settings.NEO4J_USER,
+                neo4j_password=settings.NEO4J_PASSWORD
             )
         except Exception as e:
-            console.print(f"[red]Error initializing agent: {str(e)}[/red]", file=sys.stderr)
-            console.print(f"[yellow]Make sure database is running: docker-compose up -d[/yellow]", file=sys.stderr)
+            console.print(f"[red]Error initializing agent: {str(e)}[/red]")
+            console.print(f"[yellow]Make sure database is running: docker-compose up -d[/yellow]")
             raise typer.Exit(1)
     return agent
 
@@ -76,7 +79,7 @@ def query(
         console.print(f"\n[dim]Confidence: {confidence}[/dim]")
 
     except Exception as e:
-        console.print(f"[red]Error: {str(e)}[/red]", file=sys.stderr)
+        console.print(f"[red]Error: {str(e)}[/red]")
         raise typer.Exit(1)
 
 @app.command()
@@ -107,7 +110,7 @@ def list_scriptures(
         console.print(table)
 
     except Exception as e:
-        console.print(f"[red]Error: {str(e)}[/red]", file=sys.stderre)
+        console.print(f"[red]Error: {str(e)}[/red]")
         raise typer.Exit(1)
 
 # @app.command()
@@ -148,7 +151,7 @@ def system(
             console.print(f"[yellow]Action '{action}' not implemented yet[/yellow]")
 
     except Exception as e:
-        console.print(f"[red]Error: {str(e)}[/red]", file=sys.stderr)
+        console.print(f"[red]Error: {str(e)}[/red]")
         raise typer.Exit(1)
 
 if __name__ == "__main__":

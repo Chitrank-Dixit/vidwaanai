@@ -1,0 +1,28 @@
+# Version control
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+.env
+
+# Data
+data/
+database/pgdata/
+neo4j_data/
+neo4j_logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
