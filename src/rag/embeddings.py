@@ -1,6 +1,7 @@
 """Embedding management using Vyakyarth."""
 
 from typing import List, Union
+import os
 import numpy as np
 from sentence_transformers import SentenceTransformer
 import logging
@@ -12,7 +13,12 @@ class EmbeddingManager:
 
     def __init__(self, model_name: str = "krutrim-ai-labs/vyakyarth", use_onnx: bool = False):
         """Initialize embedding model."""
+        # Use environment variables for cache
+        cache_dir = os.getenv("HF_HOME", os.path.expanduser("~/.cache/huggingface"))
+        
         logger.info(f"Loading embedding model: {model_name} (ONNX: {use_onnx})")
+        logger.info(f"Cache directory: {cache_dir}")
+        
         try:
             if use_onnx:
                 # Assuming the model is exported or compatible
@@ -23,9 +29,9 @@ class EmbeddingManager:
                 # Let's stick to standard for now but add the structure.
                 # To truly use ONNX, we'd need to export it. 
                 # For this MVP step, we'll prepare the flag.
-                self.model = SentenceTransformer(model_name)
+                self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
             else:
-                self.model = SentenceTransformer(model_name)
+                self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
             
             self.embedding_dim = 768
             logger.info(f"Embedding model loaded (dim: {self.embedding_dim})")

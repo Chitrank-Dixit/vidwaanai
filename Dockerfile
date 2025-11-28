@@ -12,6 +12,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+# Create non-root user
+RUN useradd -m appuser
+
+# Create cache directories and set permissions
+RUN mkdir -p /home/appuser/.cache/huggingface \
+    && mkdir -p /home/appuser/.cache/torch \
+    && mkdir -p /home/appuser/.cache/uv \
+    && mkdir -p /app/models \
+    && chown -R appuser:appuser /home/appuser/.cache \
+    && chown -R appuser:appuser /app
+
+# Set environment variables for model caching
+ENV HF_HOME=/home/appuser/.cache/huggingface
+ENV TORCH_HOME=/home/appuser/.cache/torch
+ENV SENTENCE_TRANSFORMERS_HOME=/home/appuser/.cache/huggingface/sentence-transformers
+ENV PYTHONWARNINGS="ignore:Using `TRANSFORMERS_CACHE` is deprecated"
+
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
@@ -33,7 +50,9 @@ COPY database/ database/
 COPY .env.example .env
 
 # Create non-root user
-RUN useradd -m appuser && chown -R appuser:appuser /app
+# Fix permissions for app directory (including venv created by uv sync)
+RUN chown -R appuser:appuser /app
+
 USER appuser
 
 # Entrypoint

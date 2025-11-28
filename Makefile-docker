@@ -95,3 +95,33 @@ graph-build:
 	@$(COMPOSE) exec app uv run python scripts/build_knowledge_graph.py
 	@echo "$(GREEN)✓ Knowledge graph built!$(RESET)"
 
+# Cache Management
+cache-status:
+	@echo "HuggingFace Cache:"
+	@du -sh ~/.cache/huggingface/ 2>/dev/null || echo "  Not yet created"
+	@echo "Torch Cache:"
+	@du -sh ~/.cache/torch/ 2>/dev/null || echo "  Not yet created"
+	@echo "Custom Models:"
+	@du -sh ./models/ 2>/dev/null || echo "  Not yet created"
+
+cache-clear:
+	@echo "Clearing model caches..."
+	rm -rf ~/.cache/huggingface/
+	rm -rf ~/.cache/torch/
+	rm -rf ./models/
+	@echo "Caches cleared"
+
+cache-prune:
+	docker volume rm huggingface-cache torch-cache vidwaan-models
+	@echo "Docker model volumes pruned"
+
+cache-info:
+	@echo "Docker Volumes:"
+	docker volume ls | grep cache || echo "No cache volumes found"
+	@echo ""
+	@echo "Volume Details:"
+	docker volume inspect huggingface-cache 2>/dev/null || echo "huggingface-cache not found"
+	docker volume inspect torch-cache 2>/dev/null || echo "torch-cache not found"
+
+clean-all: down cache-clear cache-prune
+	@echo "All cleanup complete"
