@@ -6,12 +6,14 @@ connection and offers methods to create various types of nodes (entities) and th
 relationships between them. It is designed to be used by scripts that extract structured
 information (like entities and relations) and need to persist them as a graph.
 """
+
 from neo4j import GraphDatabase
 from typing import Dict
 import logging
 import json
 
 logger = logging.getLogger(__name__)
+
 
 class GraphBuilder:
     """
@@ -102,10 +104,14 @@ class GraphBuilder:
         """
         attributes = self._sanitize_attributes(attributes)
         with self.driver.session() as session:
-            session.run("""
+            session.run(
+                """
                 MERGE (p:Person {name: $name})
                 SET p += $attributes
-            """, name=name, attributes=attributes)
+            """,
+                name=name,
+                attributes=attributes,
+            )
             logger.debug(f"Created/Merged Person: {name}")
 
     def create_concept(self, name: str, attributes: Dict):
@@ -118,10 +124,14 @@ class GraphBuilder:
         """
         attributes = self._sanitize_attributes(attributes)
         with self.driver.session() as session:
-            session.run("""
+            session.run(
+                """
                 MERGE (c:Concept {name: $name})
                 SET c += $attributes
-            """, name=name, attributes=attributes)
+            """,
+                name=name,
+                attributes=attributes,
+            )
             logger.debug(f"Created/Merged Concept: {name}")
 
     def create_event(self, name: str, attributes: Dict):
@@ -134,10 +144,14 @@ class GraphBuilder:
         """
         attributes = self._sanitize_attributes(attributes)
         with self.driver.session() as session:
-            session.run("""
+            session.run(
+                """
                 MERGE (e:Event {name: $name})
                 SET e += $attributes
-            """, name=name, attributes=attributes)
+            """,
+                name=name,
+                attributes=attributes,
+            )
             logger.debug(f"Created/Merged Event: {name}")
 
     def create_location(self, name: str, attributes: Dict):
@@ -150,14 +164,19 @@ class GraphBuilder:
         """
         attributes = self._sanitize_attributes(attributes)
         with self.driver.session() as session:
-            session.run("""
+            session.run(
+                """
                 MERGE (l:Location {name: $name})
                 SET l += $attributes
-            """, name=name, attributes=attributes)
+            """,
+                name=name,
+                attributes=attributes,
+            )
             logger.debug(f"Created/Merged Location: {name}")
 
-    def create_relationship(self, from_name: str, to_name: str,
-                           rel_type: str, attributes: Dict):
+    def create_relationship(
+        self, from_name: str, to_name: str, rel_type: str, attributes: Dict
+    ):
         """
         Creates or updates a relationship between two nodes.
 
@@ -174,13 +193,17 @@ class GraphBuilder:
         attributes = self._sanitize_attributes(attributes)
 
         if not from_name or not to_name:
-            logger.warning("Skipping relationship creation due to missing start or end node name.")
+            logger.warning(
+                "Skipping relationship creation due to missing start or end node name."
+            )
             return
 
         # Avoid creating relationships from unstructured text extractions that may
         # contain arrows or other non-entity patterns.
         if "→" in from_name or "→" in to_name:
-            logger.warning(f"Skipping relationship with arrow notation: {from_name} → {to_name}")
+            logger.warning(
+                f"Skipping relationship with arrow notation: {from_name} → {to_name}"
+            )
             return
 
         with self.driver.session() as session:
@@ -189,11 +212,17 @@ class GraphBuilder:
             # `MERGE` ensures that the same relationship is not created multiple times.
             # `SET r += $attributes` updates the relationship's properties.
             # This assumes that node names are unique across the entire graph.
-            session.run(f"""
+            session.run(
+                f"""
                 MATCH (a {{name: $from_name}})
                 MATCH (b {{name: $to_name}})
                 MERGE (a)-[r:{rel_type}]->(b)
                 SET r += $attributes
-            """, from_name=from_name, to_name=to_name, attributes=attributes)
-            logger.debug(f"Created/Merged Relationship: {from_name} -[{rel_type}]-> {to_name}")
-
+            """,
+                from_name=from_name,
+                to_name=to_name,
+                attributes=attributes,
+            )
+            logger.debug(
+                f"Created/Merged Relationship: {from_name} -[{rel_type}]-> {to_name}"
+            )

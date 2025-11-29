@@ -5,6 +5,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class QueryRouter:
     """Routes queries based on language and content."""
 
@@ -25,10 +26,7 @@ class QueryRouter:
         return None
 
     def route_query(
-        self,
-        question: str,
-        language: str,
-        scripture_filter: Optional[str] = None
+        self, question: str, language: str, scripture_filter: Optional[str] = None
     ) -> Dict:
         """Route query with filtering strategy."""
         return {
@@ -36,5 +34,5 @@ class QueryRouter:
             "use_metadata_filter": scripture_filter is not None,
             "scripture_filter": scripture_filter,
             "retrieval_mode": "hybrid",
-            "top_k": 5
+            "top_k": 5,
         }

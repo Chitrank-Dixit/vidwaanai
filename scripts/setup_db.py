@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def setup_database():
     """Set up database tables and indexes."""
     db_url = os.getenv("DATABASE_URL")
@@ -32,11 +33,7 @@ def setup_database():
         print(f"Connecting to {host}:{port}/{dbname}...")
 
         conn = psycopg2.connect(
-            dbname=dbname,
-            user=user,
-            password=password,
-            host=host,
-            port=port
+            dbname=dbname, user=user, password=password, host=host, port=port
         )
 
         cursor = conn.cursor()
@@ -45,15 +42,14 @@ def setup_database():
         with open("database/init.sql", "r") as f:
             sql_commands = f.read()
 
-        statements = [stmt.strip() for stmt in sql_commands.split(';') if stmt.strip()]
-        
+        statements = [stmt.strip() for stmt in sql_commands.split(";") if stmt.strip()]
 
         # Execute commands one by one
         for command in statements:
             if command.strip():
                 cursor.execute(command)
 
-        #conn.commit()
+        # conn.commit()
 
         print("✓ Database initialized successfully!")
 
@@ -63,6 +59,7 @@ def setup_database():
     except Exception as e:
         print(f"ERROR: {str(e)}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     setup_database()

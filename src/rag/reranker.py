@@ -4,6 +4,7 @@ from sentence_transformers import CrossEncoder
 
 logger = logging.getLogger(__name__)
 
+
 class Reranker:
     """Reranks retrieved documents using a CrossEncoder."""
 
@@ -18,15 +19,17 @@ class Reranker:
             # Fallback or raise? For now, we'll raise as this is a critical component if enabled
             raise
 
-    def rerank(self, query: str, documents: List[Dict[str, Any]], top_k: int = 5) -> List[Dict[str, Any]]:
+    def rerank(
+        self, query: str, documents: List[Dict[str, Any]], top_k: int = 5
+    ) -> List[Dict[str, Any]]:
         """
         Rerank a list of documents based on the query.
-        
+
         Args:
             query: The user query.
             documents: List of document dictionaries. Must contain 'text' or 'verse_text'.
             top_k: Number of top documents to return.
-            
+
         Returns:
             List of reranked documents with 'score' field added/updated.
         """
@@ -38,7 +41,12 @@ class Reranker:
             # Handle different field names for text
             pairs = []
             for doc in documents:
-                text = doc.get('text') or doc.get('verse_text') or doc.get('translation') or ""
+                text = (
+                    doc.get("text")
+                    or doc.get("verse_text")
+                    or doc.get("translation")
+                    or ""
+                )
                 pairs.append([query, text])
 
             # Predict scores
@@ -46,10 +54,12 @@ class Reranker:
 
             # Add scores to documents
             for i, doc in enumerate(documents):
-                doc['rerank_score'] = float(scores[i])
+                doc["rerank_score"] = float(scores[i])
 
             # Sort by score descending
-            ranked_docs = sorted(documents, key=lambda x: x['rerank_score'], reverse=True)
+            ranked_docs = sorted(
+                documents, key=lambda x: x["rerank_score"], reverse=True
+            )
 
             return ranked_docs[:top_k]
 

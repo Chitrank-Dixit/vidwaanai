@@ -8,31 +8,34 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class EmbeddingManager:
     """Manages text embeddings using Vyakyarth model."""
 
-    def __init__(self, model_name: str = "krutrim-ai-labs/vyakyarth", use_onnx: bool = False):
+    def __init__(
+        self, model_name: str = "krutrim-ai-labs/vyakyarth", use_onnx: bool = False
+    ):
         """Initialize embedding model."""
         # Use environment variables for cache
         cache_dir = os.getenv("HF_HOME", os.path.expanduser("~/.cache/huggingface"))
-        
+
         logger.info(f"Loading embedding model: {model_name} (ONNX: {use_onnx})")
         logger.info(f"Cache directory: {cache_dir}")
-        
+
         try:
             if use_onnx:
                 # Assuming the model is exported or compatible
                 # For simplicity, we'll stick to standard load but with onnx backend if supported by library
-                # or use optimum if available. 
+                # or use optimum if available.
                 # Since we added optimum, let's try to use it or just standard SentenceTransformer with backend='onnx' if supported
                 # Actually, SentenceTransformer doesn't directly support backend='onnx' in constructor easily without export.
                 # Let's stick to standard for now but add the structure.
-                # To truly use ONNX, we'd need to export it. 
+                # To truly use ONNX, we'd need to export it.
                 # For this MVP step, we'll prepare the flag.
                 self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
             else:
                 self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
-            
+
             self.embedding_dim = 768
             logger.info(f"Embedding model loaded (dim: {self.embedding_dim})")
         except Exception as e:
@@ -40,9 +43,7 @@ class EmbeddingManager:
             raise
 
     def embed_text(
-        self,
-        text: Union[str, List[str]],
-        normalize: bool = True
+        self, text: Union[str, List[str]], normalize: bool = True
     ) -> Union[List[float], List[List[float]]]:
         """Generate embeddings for text."""
         try:
@@ -50,17 +51,17 @@ class EmbeddingManager:
                 text,
                 convert_to_tensor=False,
                 normalize_embeddings=normalize,
-                show_progress_bar=False
+                show_progress_bar=False,
             )
 
             if isinstance(text, str):
-                if hasattr(embeddings, 'tolist'):
+                if hasattr(embeddings, "tolist"):
                     return embeddings.tolist()
                 return list(embeddings)
             else:
                 result = []
                 for e in embeddings:
-                    if hasattr(e, 'tolist'):
+                    if hasattr(e, "tolist"):
                         result.append(e.tolist())
                     else:
                         result.append(list(e))
@@ -75,13 +76,13 @@ class EmbeddingManager:
         try:
             embeddings = []
             for i in range(0, len(texts), batch_size):
-                batch = texts[i:i+batch_size]
+                batch = texts[i : i + batch_size]
                 emb = self.model.encode(
                     batch,
                     batch_size=batch_size,
                     show_progress_bar=False,
                     normalize_embeddings=True,
-                    convert_to_tensor=False
+                    convert_to_tensor=False,
                 )
                 embeddings.extend(emb.tolist())
             return embeddings

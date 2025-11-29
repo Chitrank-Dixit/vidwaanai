@@ -4,6 +4,7 @@ import logging
 import sys
 from src.core.config import settings
 
+
 def get_logger(name: str) -> logging.Logger:
     """Get configured logger."""
     logger = logging.getLogger(name)
@@ -13,7 +14,7 @@ def get_logger(name: str) -> logging.Logger:
         handler.setLevel(settings.LOG_LEVEL)
 
         formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
         handler.setFormatter(formatter)
 

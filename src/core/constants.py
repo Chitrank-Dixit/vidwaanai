@@ -7,13 +7,9 @@ SUPPORTED_LANGUAGES = {
     "te": "telugu",
     "ml": "malayalam",
     "kn": "kannada",
-    "sa": "sanskrit"
+    "sa": "sanskrit",
 }
 
-SCRIPTURE_NAMES = [
-    "Ramayana",
-    "Mahabharata",
-    "Bhagavad Gita"
-]
+SCRIPTURE_NAMES = ["Ramayana", "Mahabharata", "Bhagavad Gita"]
 
 EMBEDDING_DIMENSION = 768
