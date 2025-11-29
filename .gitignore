@@ -23,6 +23,7 @@ ENV/
 pgdata/
 *.db
 *.sql
+!scripts/schema.sql
 
 # Logs
 *.log

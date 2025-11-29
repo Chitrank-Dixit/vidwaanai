@@ -50,6 +50,57 @@ jobs:
         run: pip install uv
       - name: Install dependencies
         run: uv sync --all-extras --dev
+      - name: Wait for PostgreSQL
+        run: |
+          python -c "
+          import psycopg2
+          import time
+          import os
+          
+          max_attempts = 30
+          attempt = 0
+          
+          while attempt < max_attempts:
+              try:
+                  conn = psycopg2.connect(
+                      host='localhost',
+                      user='vidwaan_user',
+                      password='vidwaan_password',
+                      database='vidwaan_test'
+                  )
+                  conn.close()
+                  print('PostgreSQL is ready')
+                  break
+              except Exception as e:
+                  attempt += 1
+                  if attempt == max_attempts:
+                      raise
+                  print(f'Waiting for PostgreSQL... (attempt {attempt}/{max_attempts})')
+                  time.sleep(1)
+          "
+        env:
+          PGPASSWORD: vidwaan_password
+
+      - name: Initialize database schema
+        env:
+          DATABASE_URL: postgresql://vidwaan_user:vidwaan_password@localhost:5432/vidwaan_test
+        run: |
+          python -c "
+          from src.db.db_manager import DatabaseManager
+          import os
+          
+          # Initialize DB manager
+          db_mgr = DatabaseManager(os.environ['DATABASE_URL'])
+          
+          # Execute schema script
+          with db_mgr._get_connection() as conn:
+              with conn.cursor() as cur:
+                  with open('scripts/schema.sql', 'r') as f:
+                      cur.execute(f.read())
+                  conn.commit()
+          print('Database schema initialized')
+          "
+
       - name: Run functional tests
         env:
           DATABASE_URL: postgresql://vidwaan_user:vidwaan_password@localhost:5432/vidwaan_test
