@@ -22,6 +22,8 @@ services:
       - LMSTUDIO_BASE_URL=http://host.docker.internal:1234/v1
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    networks:
+      - test-network
     entrypoint: []
 
   # Unit Tests - No external dependencies
@@ -46,7 +48,7 @@ services:
       postgres-test:
         condition: service_healthy
       neo4j-test:
-        condition: service_started
+        condition: service_healthy
     command: uv run pytest tests/integration -v
     profiles: ["integration"]
 
@@ -57,7 +59,7 @@ services:
       postgres-test:
         condition: service_healthy
       neo4j-test:
-        condition: service_started
+        condition: service_healthy
     command: uv run pytest tests/e2e -v
     profiles: ["e2e"]
 
@@ -79,6 +81,8 @@ services:
       - /var/lib/postgresql/data
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - test-network
 
   # Test Graph Database
   neo4j-test:
@@ -91,6 +95,17 @@ services:
     ports:
       - "7688:7687" # Avoid conflict with dev db
       - "7475:7474"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     tmpfs:
       - /data
       - /logs
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge

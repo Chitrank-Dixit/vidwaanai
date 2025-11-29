@@ -8,32 +8,23 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class EmbeddingManager:
-    """Manages text embeddings using Vyakyarth model."""
+from src.core.profiler import profile_function
 
-    def __init__(self, model_name: str = "krutrim-ai-labs/vyakyarth", use_onnx: bool = False):
-        """Initialize embedding model."""
+class EmbeddingManager:
+    """Manages text embeddings using Sentence Transformers."""
+
+    def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
+        """Initialize embedding manager."""
         # Use environment variables for cache
         cache_dir = os.getenv("HF_HOME", os.path.expanduser("~/.cache/huggingface"))
         
-        logger.info(f"Loading embedding model: {model_name} (ONNX: {use_onnx})")
+        logger.info(f"Loading embedding model: {model_name}")
         logger.info(f"Cache directory: {cache_dir}")
         
         try:
-            if use_onnx:
-                # Assuming the model is exported or compatible
-                # For simplicity, we'll stick to standard load but with onnx backend if supported by library
-                # or use optimum if available. 
-                # Since we added optimum, let's try to use it or just standard SentenceTransformer with backend='onnx' if supported
-                # Actually, SentenceTransformer doesn't directly support backend='onnx' in constructor easily without export.
-                # Let's stick to standard for now but add the structure.
-                # To truly use ONNX, we'd need to export it. 
-                # For this MVP step, we'll prepare the flag.
-                self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
-            else:
-                self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
+            self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
             
-            self.embedding_dim = 768
+            self.embedding_dim = self.model.get_sentence_embedding_dimension()
             logger.info(f"Embedding model loaded (dim: {self.embedding_dim})")
         except Exception as e:
             logger.error(f"Error loading embedding model: {str(e)}")

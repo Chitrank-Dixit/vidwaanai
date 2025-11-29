@@ -1,18 +1,20 @@
 from typing import Dict, List, Any
 import logging
+from src.core.profiler import profile_function
 
 logger = logging.getLogger(__name__)
 
-class HybridSearcher:
-    """Combine graph traversal with vector search."""
+class HybridSearch:
+    """Hybrid search combining Graph RAG and Vector Search."""
     
-    def __init__(self, graph_retriever, vector_db, embeddings, entity_extractor, alpha=0.5):
+    def __init__(self, graph_retriever, vector_db, embedding_generator, entity_extractor, alpha: float = 0.5):
         self.graph = graph_retriever
         self.vector = vector_db
-        self.embeddings = embeddings
+        self.embeddings = embedding_generator
         self.extractor = entity_extractor
         self.alpha = alpha  # balance between graph and vector
     
+    @profile_function
     def search(self, query: str, top_k: int = 5) -> Dict[str, Any]:
         """
         Hybrid search combining graph and vector results.

@@ -11,6 +11,7 @@ import sys
 
 from src.core.config import settings
 from src.core.logger import get_logger
+from src.core.profiler import profile_function
 from src.agent.vidwaan_agent import VidwaanAI
 
 # Initialize
@@ -47,7 +48,8 @@ def get_agent() -> VidwaanAI:
     return agent
 
 @app.command()
-def query(
+@profile_function
+def query_handler(
     question: str = typer.Argument(..., help="Question about Indian scriptures"),
     language: Optional[str] = typer.Option("en", "--language", "-l", help="Query language"),
     scripture: Optional[str] = typer.Option(None, "--scripture", "-s", help="Specific scripture"),

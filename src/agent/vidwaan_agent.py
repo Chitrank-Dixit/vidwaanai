@@ -11,12 +11,14 @@ from src.agent.prompt_templates import SCRIPTURE_PROMPT
 from src.llm.openai_client import OpenAIClient
 from src.llm.lmstudio_client import LMStudioClient
 from src.graph.graph_retriever import GraphRetriever
-from src.graph.hybrid_search import HybridSearcher
+from src.graph.hybrid_search import HybridSearch
 from src.graph.entity_extractor import EntityExtractor
 from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
 from src.utils.confidence import calculate_confidence_score
 from neo4j import GraphDatabase
+
+from src.cache.query_cache import QueryCache
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +41,7 @@ class VidwaanAI:
         else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()
+        self.cache = QueryCache()
         
         # Optimization: Reranker
         try:
@@ -54,7 +57,7 @@ class VidwaanAI:
                 self.neo4j_driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
                 self.graph_retriever = GraphRetriever(self.neo4j_driver)
                 self.entity_extractor = EntityExtractor(self.llm)
-                self.hybrid_search = HybridSearcher(
+                self.hybrid_search = HybridSearch(
                     self.graph_retriever, self.db, self.embeddings, self.entity_extractor
                 )
                 logger.info("Graph RAG enabled and initialized")
@@ -78,6 +81,11 @@ class VidwaanAI:
             # Step 1: Detect language
             detected_lang = self.router.detect_language(question) or language
             logger.info(f"Query language: {detected_lang}")
+
+            # Check Cache
+            cached_result = self.cache.get(question, detected_lang, scripture_filter)
+            if cached_result:
+                return cached_result
 
             # Step 2: Generate embedding for query
             query_embedding = self.embeddings.embed_text(question)
@@ -159,13 +167,18 @@ class VidwaanAI:
                 retrieved_count=len(retrieved_verses)
             )
 
-            return {
+            result = {
                 "answer": final_answer,
                 "retrieved_verses": retrieved_verses,
                 "language": detected_lang,
                 "confidence": confidence_result, # detailed dict
                 "timestamp": datetime.now().isoformat()
             }
+            
+            # Store in cache
+            self.cache.set(question, detected_lang, result, scripture_filter)
+            
+            return result
 
         except Exception as e:
             logger.error(f"Error processing query: {str(e)}")
