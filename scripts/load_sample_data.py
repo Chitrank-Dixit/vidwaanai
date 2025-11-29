@@ -12,6 +12,7 @@ load_dotenv()
 # Add src to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/..")
 
+
 def load_sample_data():
     """Load sample scriptures."""
     try:
@@ -29,7 +30,7 @@ def load_sample_data():
                         "text": "karmany evadhikaras te ma phalesu kadacana",
                         "translation": "You have a right to perform your prescribed duty, but you are not entitled to the fruits of action.",
                         "themes": ["karma", "duty"],
-                        "speakers": ["Krishna"]
+                        "speakers": ["Krishna"],
                     },
                     {
                         "chapter": 2,
@@ -37,9 +38,9 @@ def load_sample_data():
                         "text": "yavat artha udapane sarvatah samplutodake",
                         "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
                         "themes": ["karma yoga", "duty"],
-                        "speakers": ["Krishna"]
-                    }
-                ]
+                        "speakers": ["Krishna"],
+                    },
+                ],
             },
             "Ramayana": {
                 "language": "sanskrit",
@@ -50,9 +51,9 @@ def load_sample_data():
                         "text": "tapasya swa-niyamair yuktah",
                         "translation": "Lord Rama performed tapasya (austerity) with self-discipline.",
                         "themes": ["dharma", "virtue"],
-                        "speakers": ["Narrator"]
+                        "speakers": ["Narrator"],
                     }
-                ]
+                ],
             },
             "Mahabharata": {
                 "language": "sanskrit",
@@ -63,10 +64,10 @@ def load_sample_data():
                         "text": "nara-narayana-sahitam",
                         "translation": "The great war of the Mahabharata with Nara and Narayana.",
                         "themes": ["dharma", "war"],
-                        "speakers": ["Vyasa"]
+                        "speakers": ["Vyasa"],
                     }
-                ]
-            }
+                ],
+            },
         }
 
         print("Loading sample data...")
@@ -78,7 +79,7 @@ def load_sample_data():
             scripture_id = db_manager.add_scripture(
                 name=scripture_name,
                 language=data["language"],
-                description=f"{scripture_name} - Sample Data"
+                description=f"{scripture_name} - Sample Data",
             )
 
             # Add verses and embeddings
@@ -90,7 +91,7 @@ def load_sample_data():
                     text=verse_data["text"],
                     translation=verse_data["translation"],
                     themes=verse_data["themes"],
-                    speakers=verse_data["speakers"]
+                    speakers=verse_data["speakers"],
                 )
 
                 # Generate and store embeddings
@@ -98,14 +99,10 @@ def load_sample_data():
                 embedding_sa = embeddings.embed_text(verse_data["text"])
 
                 db_manager.add_embedding(
-                    verse_id=verse_id,
-                    embedding=embedding_en,
-                    language="en"
+                    verse_id=verse_id, embedding=embedding_en, language="en"
                 )
                 db_manager.add_embedding(
-                    verse_id=verse_id,
-                    embedding=embedding_sa,
-                    language="sa"
+                    verse_id=verse_id, embedding=embedding_sa, language="sa"
                 )
 
             print(f"✓ {scripture_name}: {len(data['verses'])} verses loaded")
@@ -115,8 +112,10 @@ def load_sample_data():
     except Exception as e:
         print(f"ERROR: {str(e)}")
         import traceback
+
         traceback.print_exc()
         sys.exit(1)
+
 
 if __name__ == "__main__":
     load_sample_data()

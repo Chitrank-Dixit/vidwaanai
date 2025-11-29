@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def test_imports():
     """Test if all imports work."""
     print("Testing imports...")
@@ -16,17 +17,20 @@ def test_imports():
         import llama_index  # noqa: F401
         from sentence_transformers import SentenceTransformer  # noqa: F401
         import psycopg2  # noqa: F401
+
         print("✓ All imports successful")
         return True
     except ImportError as e:
         print(f"✗ Import failed: {e}")
         return False
 
+
 def test_database():
     """Test database connection."""
     print("\nTesting database connection...")
     try:
         import psycopg2
+
         db_url = os.getenv("DATABASE_URL")
 
         if not db_url:
@@ -44,7 +48,7 @@ def test_database():
             user=user_pass[0],
             password=user_pass[1],
             host=host_port[0],
-            port=host_port[1] if len(host_port) > 1 else "5432"
+            port=host_port[1] if len(host_port) > 1 else "5432",
         )
         conn.close()
         print("✓ Database connection successful")
@@ -53,19 +57,22 @@ def test_database():
         print(f"✗ Database connection failed: {e}")
         return False
 
+
 def test_embeddings():
     """Test embedding model download."""
     print("\nTesting embeddings model...")
     try:
         from sentence_transformers import SentenceTransformer
+
         print("  Downloading Vyakyarth model (first run may take time)...")
-        model = SentenceTransformer('krutrim-ai-labs/vyakyarth')
+        model = SentenceTransformer("krutrim-ai-labs/vyakyarth")
         embedding = model.encode("test")
         print(f"✓ Embeddings model working (dim: {len(embedding)})")
         return True
     except Exception as e:
         print(f"✗ Embeddings model failed: {e}")
         return False
+
 
 def test_openai():
     """Test OpenAI API key."""
@@ -81,6 +88,7 @@ def test_openai():
         print(f"✗ OpenAI API test failed: {e}")
         return False
 
+
 if __name__ == "__main__":
     print("=" * 50)
     print("VidwaanAI Setup Test")
@@ -90,7 +98,7 @@ if __name__ == "__main__":
         "Imports": test_imports(),
         "Database": test_database(),
         "Embeddings": test_embeddings(),
-        "OpenAI": test_openai()
+        "OpenAI": test_openai(),
     }
 
     print("\n" + "=" * 50)
