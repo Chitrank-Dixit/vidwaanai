@@ -2,7 +2,6 @@ import pytest
 from src.agent.vidwaan_agent import VidwaanAI
 from src.db.db_manager import DatabaseManager
 from src.graph.graph_builder import GraphBuilder
-from src.rag.embeddings import EmbeddingManager
 import os
 from unittest.mock import MagicMock, patch
 

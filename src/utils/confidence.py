@@ -59,7 +59,7 @@ def calculate_confidence_score(
                 import json
                 try:
                     emb = json.loads(emb)
-                except:
+                except (json.JSONDecodeError, TypeError):
                     emb = [] # Fail gracefully
             retrieved_embeddings.append(emb)
     

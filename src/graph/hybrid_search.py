@@ -103,12 +103,12 @@ class HybridSearcher:
         [{{"name": "Krishna", "type": "Person"}}, {{"name": "dharma", "type": "Concept"}}]
         """
         try:
-            response = self.extractor.llm.generate(prompt, max_tokens=200)
             import json
+            response = self.extractor.llm.generate(prompt, max_tokens=200)
             # Basic cleanup if needed
             response = response.replace("```json", "").replace("```", "").strip()
             return json.loads(response)
-        except:
+        except (json.JSONDecodeError, ValueError):
             return []
 
     def _fuse_context(self, graph_results: List[Dict], vector_results: List[Dict]) -> str:

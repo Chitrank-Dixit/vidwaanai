@@ -4,14 +4,13 @@
 import os
 import sys
 from dotenv import load_dotenv
+from src.db.db_manager import DatabaseManager
+from src.rag.embeddings import EmbeddingManager
 
 load_dotenv()
 
 # Add src to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/..")
-
-from src.db.db_manager import DatabaseManager
-from src.rag.embeddings import EmbeddingManager
 
 def load_sample_data():
     """Load sample scriptures."""

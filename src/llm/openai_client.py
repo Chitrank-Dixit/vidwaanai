@@ -1,6 +1,5 @@
 """OpenAI LLM client."""
 
-from typing import Optional
 import logging
 import openai
 

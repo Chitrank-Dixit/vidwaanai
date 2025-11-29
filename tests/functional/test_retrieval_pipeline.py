@@ -1,6 +1,5 @@
 import pytest
 from src.db.db_manager import DatabaseManager
-from src.rag.embeddings import EmbeddingManager
 import os
 
 # Mark as functional test
