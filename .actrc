@@ -1,4 +1,3 @@
-Contents:
-– container-architecture linux/amd64
-– network host
-– reuse
+--container-architecture=linux/amd64
+--network=host
+--reuse
