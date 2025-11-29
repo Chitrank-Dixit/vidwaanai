@@ -1,0 +1,60 @@
+{
+  "total_queries": 10,
+  "min_time": 37.297353982925415,
+  "max_time": 90.22709393501282,
+  "avg_time": 62.66690707206726,
+  "p95_time": 90.22709393501282,
+  "p99_time": 90.22709393501282,
+  "results": [
+    {
+      "query": "Who is Krishna?",
+      "total_time": 83.50295996665955,
+      "timestamp": 1764449824.71393
+    },
+    {
+      "query": "What is Dharma?",
+      "total_time": 90.22709393501282,
+      "timestamp": 1764449914.94106
+    },
+    {
+      "query": "Explain the concept of Karma Yoga.",
+      "total_time": 87.91462779045105,
+      "timestamp": 1764450002.85571
+    },
+    {
+      "query": "Who are the Pandavas?",
+      "total_time": 75.26487398147583,
+      "timestamp": 1764450078.1206322
+    },
+    {
+      "query": "What did Krishna say to Arjuna?",
+      "total_time": 73.08683609962463,
+      "timestamp": 1764450151.207499
+    },
+    {
+      "query": "Tell me about the Battle of Kurukshetra.",
+      "total_time": 49.80915689468384,
+      "timestamp": 1764450201.016681
+    },
+    {
+      "query": "What is the significance of the Bhagavad Gita?",
+      "total_time": 46.42639183998108,
+      "timestamp": 1764450247.4430878
+    },
+    {
+      "query": "Who is Duryodhana?",
+      "total_time": 41.82628321647644,
+      "timestamp": 1764450289.269396
+    },
+    {
+      "query": "What are the four varnas?",
+      "total_time": 37.297353982925415,
+      "timestamp": 1764450326.5667799
+    },
+    {
+      "query": "Describe the relationship between Krishna and Arjuna.",
+      "total_time": 41.31349301338196,
+      "timestamp": 1764450367.880314
+    }
+  ]
+}

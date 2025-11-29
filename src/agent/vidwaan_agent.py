@@ -11,7 +11,7 @@ from src.agent.prompt_templates import SCRIPTURE_PROMPT
 from src.llm.openai_client import OpenAIClient
 from src.llm.lmstudio_client import LMStudioClient
 from src.graph.graph_retriever import GraphRetriever
-from src.graph.hybrid_search import HybridSearcher
+from src.graph.hybrid_search import HybridSearch
 from src.graph.entity_extractor import EntityExtractor
 from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
@@ -54,7 +54,7 @@ class VidwaanAI:
                 self.neo4j_driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
                 self.graph_retriever = GraphRetriever(self.neo4j_driver)
                 self.entity_extractor = EntityExtractor(self.llm)
-                self.hybrid_search = HybridSearcher(
+                self.hybrid_search = HybridSearch(
                     self.graph_retriever, self.db, self.embeddings, self.entity_extractor
                 )
                 logger.info("Graph RAG enabled and initialized")

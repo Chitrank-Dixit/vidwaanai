@@ -1,0 +1,83 @@
+import time
+import json
+import sys
+import os
+
+# Add project root to path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from src.main import query_handler
+from src.core.logger import get_logger
+
+logger = get_logger(__name__)
+
+class QueryProfiler:
+    def __init__(self):
+        self.results = []
+    
+    def profile_query(self, query_text):
+        start_time = time.time()
+        
+        try:
+            # We need to mock the context or ensure query_handler can run in isolation
+            # For now assuming query_handler takes the query string
+            result = query_handler(query_text)
+            total_time = time.time() - start_time
+            
+            profile_data = {
+                'query': query_text,
+                'total_time': total_time,
+                'timestamp': time.time()
+            }
+            
+            self.results.append(profile_data)
+            return profile_data
+        
+        except Exception as e:
+            logger.error(f"Error profiling query: {e}")
+            return None
+    
+    def profile_queries_from_file(self, file_path):
+        with open(file_path, 'r') as f:
+            queries = f.readlines()
+        
+        for query in queries:
+            if query.strip():
+                print(f"Profiling: {query.strip()}")
+                self.profile_query(query.strip())
+    
+    def generate_report(self):
+        if not self.results:
+            return "No results to report"
+        
+        times = [r['total_time'] for r in self.results]
+        
+        report = {
+            'total_queries': len(self.results),
+            'min_time': min(times),
+            'max_time': max(times),
+            'avg_time': sum(times) / len(times),
+            'p95_time': sorted(times)[int(len(times) * 0.95)],
+            'p99_time': sorted(times)[int(len(times) * 0.99)],
+            'results': self.results
+        }
+        
+        return report
+
+if __name__ == '__main__':
+    profiler = QueryProfiler()
+    test_queries_path = os.path.join(os.path.dirname(__file__), 'test_queries.txt')
+    
+    if os.path.exists(test_queries_path):
+        profiler.profile_queries_from_file(test_queries_path)
+        report = profiler.generate_report()
+        
+        print(json.dumps(report, indent=2))
+        
+        docs_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'docs')
+        os.makedirs(docs_dir, exist_ok=True)
+        
+        with open(os.path.join(docs_dir, 'profiling_results.json'), 'w') as f:
+            json.dump(report, f, indent=2)
+    else:
+        print(f"Test queries file not found at {test_queries_path}")

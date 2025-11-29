@@ -1,10 +1,12 @@
 """OpenAI LLM client."""
 
-from typing import Optional
-import logging
-import openai
+import os
+from typing import List, Dict, Any, Optional
+from openai import OpenAI
+from src.core.logger import get_logger
+from src.core.profiler import profile_function
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 class OpenAIClient:
     """OpenAI API client for LLM calls."""
@@ -15,6 +17,7 @@ class OpenAIClient:
         self.model = model
         logger.info(f"OpenAI client initialized with model: {model}")
 
+    @profile_function
     def generate(
         self,
         prompt: str,
