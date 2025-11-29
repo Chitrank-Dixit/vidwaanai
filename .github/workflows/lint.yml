@@ -23,5 +23,7 @@ jobs:
         run: uv run ruff check .
       - name: Run Ruff (Format Check)
         run: uv run ruff format --check .
+      - name: Run Black (Format Check)
+        run: uv run black --check --diff src/ tests/
       - name: Run Mypy
         run: uv run mypy .
