@@ -1,4 +1,5 @@
 from typing import List, Dict, Any
+from src.core.profiler import profile_function
 
 class TextChunker:
     """Splits text into chunks with overlap."""
@@ -7,6 +8,7 @@ class TextChunker:
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
         
+    @profile_function
     def chunk_text(self, text: str) -> List[str]:
         """Split text into overlapping chunks."""
         if not text:

@@ -73,21 +73,25 @@ test: test-unit
 
 test-unit:
 	@echo "$(YELLOW)Running unit tests...$(RESET)"
-	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-unit
+	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-unit
 
 test-functional:
 	@echo "$(YELLOW)Running functional tests...$(RESET)"
-	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-functional
+	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-functional
 
 test-integration:
 	@echo "$(YELLOW)Running integration tests...$(RESET)"
-	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-integration
+	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-integration
 
 test-e2e:
 	@echo "$(YELLOW)Running E2E tests...$(RESET)"
-	@docker compose -f docker-compose-test.yml run --rm vidwaan-test-e2e
+	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-e2e
 
-test-all: test-unit test-functional test-integration test-e2e
+test-cleanup:
+	@echo "$(YELLOW)Cleaning up test environment...$(RESET)"
+	@docker compose -p vidwaan-test -f docker-compose-test.yml down -v
+
+test-all: test-cleanup test-unit test-functional test-integration test-e2e test-cleanup
 	@echo "$(GREEN)All tests passed!$(RESET)"
 
 graph-build:
