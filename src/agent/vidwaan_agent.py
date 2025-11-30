@@ -11,7 +11,9 @@ from src.agent.prompt_templates import SCRIPTURE_PROMPT
 from src.llm.openai_client import OpenAIClient
 from src.llm.lmstudio_client import LMStudioClient
 from src.graph.graph_retriever import GraphRetriever
-from src.graph.hybrid_search import HybridSearch
+from src.graph.hybrid_search import HybridSearch as GraphHybridSearch
+from src.retrieval.bm25_search import BM25Search
+from src.retrieval.hybrid_search import HybridSearch
 from src.graph.entity_extractor import EntityExtractor
 from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
@@ -50,6 +52,27 @@ class VidwaanAI:
             logger.warning(f"Failed to initialize reranker: {e}. Proceeding without reranking.")
             self.reranker = None
         
+        # Hybrid Search (BM25 + Vector)
+        try:
+            verses = self.db.get_all_verses()
+            self.bm25_search = BM25Search(verses)
+            
+            def vector_search_func(query, top_k):
+                emb = self.embeddings.embed_text(query)
+                results = self.db.retrieve_verses(emb, top_k=top_k)
+                for r in results:
+                    r['score'] = r.get('similarity', 0.0)
+                return results
+                
+            self.hybrid_retriever = HybridSearch(
+                bm25_search=self.bm25_search,
+                vector_search_func=vector_search_func
+            )
+            logger.info("Hybrid Retriever (BM25 + Vector) initialized")
+        except Exception as e:
+            logger.error(f"Failed to initialize Hybrid Retriever: {e}")
+            self.hybrid_retriever = None
+
         # Graph RAG setup
         self.enable_graph_rag = enable_graph_rag
         if enable_graph_rag and neo4j_uri:
@@ -57,7 +80,7 @@ class VidwaanAI:
                 self.neo4j_driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
                 self.graph_retriever = GraphRetriever(self.neo4j_driver)
                 self.entity_extractor = EntityExtractor(self.llm)
-                self.hybrid_search = HybridSearch(
+                self.graph_search = GraphHybridSearch(
                     self.graph_retriever, self.db, self.embeddings, self.entity_extractor
                 )
                 logger.info("Graph RAG enabled and initialized")
@@ -91,20 +114,25 @@ class VidwaanAI:
             query_embedding = self.embeddings.embed_text(question)
 
             # Step 3: Retrieve relevant verses
-            if self.enable_graph_rag:
-                search_results = self.hybrid_search.search(question, top_k=5)
-                retrieved_verses = search_results['vector_results']
-                # We might want to use fused_context directly, but _format_context expects verses
-                # Let's adjust _format_context or pass fused_context
-                # For now, let's keep retrieved_verses for compatibility and append graph context
-                graph_context = search_results.get('fused_context', '')
+            if self.hybrid_retriever:
+                retrieved_verses = self.hybrid_retriever.search(question, top_k=5)
             else:
+                # Fallback to vector only if hybrid failed to init
                 retrieved_verses = self.db.retrieve_verses(
                     query_embedding=query_embedding,
                     scripture_filter=scripture_filter,
                     top_k=5
                 )
-                graph_context = ""
+
+            graph_context = ""
+            if self.enable_graph_rag:
+                # We use graph_search to get graph context, but ignore its vector results
+                # as we already have better ones from hybrid_retriever
+                try:
+                    graph_results = self.graph_search.search(question, top_k=5)
+                    graph_context = graph_results.get('fused_context', '')
+                except Exception as e:
+                    logger.error(f"Graph search failed: {e}")
 
             if verbose:
                 logger.info(f"Retrieved {len(retrieved_verses)} verses")

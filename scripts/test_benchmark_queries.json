@@ -1,0 +1,32 @@
+{
+    "queries": [
+        {
+            "query": "What is my duty regarding work?",
+            "relevant_verses": [
+                1
+            ],
+            "expected_topic": "karma_yoga"
+        },
+        {
+            "query": "Who is Lord Rama?",
+            "relevant_verses": [
+                3
+            ],
+            "expected_topic": "ramayana"
+        },
+        {
+            "query": "Tell me about the Mahabharata war",
+            "relevant_verses": [
+                4
+            ],
+            "expected_topic": "mahabharata"
+        },
+        {
+            "query": "Explain the concept of action and fruits",
+            "relevant_verses": [
+                1
+            ],
+            "expected_topic": "karma"
+        }
+    ]
+}
