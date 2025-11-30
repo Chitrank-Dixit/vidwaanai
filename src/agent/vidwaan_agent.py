@@ -18,8 +18,7 @@ from src.graph.entity_extractor import EntityExtractor
 from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
 from src.utils.confidence import calculate_confidence_score
-from neo4j import GraphDatabase
-
+from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 from src.cache.query_cache import QueryCache
 
 logger = logging.getLogger(__name__)
@@ -38,19 +37,13 @@ class VidwaanAI:
         """Initialize VidwaanAI agent."""
         self.db = DatabaseManager(db_url)
         self.embeddings = EmbeddingManager()
+        
         if use_lmstudio:
             self.llm = LMStudioClient(base_url=lmstudio_url or "http://localhost:8000")
         else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()
         self.cache = QueryCache()
-        
-        # Optimization: Reranker
-        try:
-            self.reranker = Reranker()
-        except Exception as e:
-            logger.warning(f"Failed to initialize reranker: {e}. Proceeding without reranking.")
-            self.reranker = None
         
         # Hybrid Search (BM25 + Vector)
         try:
@@ -68,9 +61,14 @@ class VidwaanAI:
                 bm25_search=self.bm25_search,
                 vector_search_func=vector_search_func
             )
-            logger.info("Hybrid Retriever (BM25 + Vector) initialized")
+            
+            # Initialize Advanced Pipeline
+            self.retrieval_pipeline = AdvancedRetrievalPipeline(self.hybrid_retriever)
+            logger.info("Advanced Retrieval Pipeline initialized")
+            
         except Exception as e:
-            logger.error(f"Failed to initialize Hybrid Retriever: {e}")
+            logger.error(f"Failed to initialize Retrieval Pipeline: {e}")
+            self.retrieval_pipeline = None
             self.hybrid_retriever = None
 
         # Graph RAG setup
@@ -114,10 +112,14 @@ class VidwaanAI:
             query_embedding = self.embeddings.embed_text(question)
 
             # Step 3: Retrieve relevant verses
-            if self.hybrid_retriever:
+            if self.retrieval_pipeline:
+                # Use Advanced Pipeline
+                retrieved_verses = self.retrieval_pipeline.retrieve(question, top_k=5)
+            elif self.hybrid_retriever:
+                # Fallback to Hybrid
                 retrieved_verses = self.hybrid_retriever.search(question, top_k=5)
             else:
-                # Fallback to vector only if hybrid failed to init
+                # Fallback to vector only
                 retrieved_verses = self.db.retrieve_verses(
                     query_embedding=query_embedding,
                     scripture_filter=scripture_filter,
@@ -136,11 +138,6 @@ class VidwaanAI:
 
             if verbose:
                 logger.info(f"Retrieved {len(retrieved_verses)} verses")
-
-            # Optimization: Reranking
-            if self.reranker and retrieved_verses:
-                logger.info("Reranking retrieved verses...")
-                retrieved_verses = self.reranker.rerank(question, retrieved_verses, top_k=5)
             
             # Monitoring: Record retrieval quality
             if retrieved_verses:
