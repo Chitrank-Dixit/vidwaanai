@@ -14,7 +14,10 @@ class LanguageDetector:
         'gu': 'Gujarati',
         'ta': 'Tamil',
         'te': 'Telugu',
-        'kn': 'Kannada'
+        'kn': 'Kannada',
+        'ml': 'Malayalam',
+        'bn': 'Bengali',
+        'mr': 'Marathi'
     }
     
     @staticmethod

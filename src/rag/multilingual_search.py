@@ -6,6 +6,9 @@ from src.language.gujarati_processor import GujaratiProcessor
 from src.language.tamil_processor import TamilProcessor
 from src.language.telugu_processor import TeluguProcessor
 from src.language.kannada_processor import KannadaProcessor
+from src.language.malayalam_processor import MalayalamProcessor
+from src.language.bengali_processor import BengaliProcessor
+from src.language.marathi_processor import MarathiProcessor
 from src.rag.multilingual_embeddings import MultilingualEmbeddings
 from src.core.logger import get_logger
 
@@ -20,7 +23,10 @@ class MultilingualSearch:
             'gu': GujaratiProcessor(),
             'ta': TamilProcessor(),
             'te': TeluguProcessor(),
-            'kn': KannadaProcessor()
+            'kn': KannadaProcessor(),
+            'ml': MalayalamProcessor(),
+            'bn': BengaliProcessor(),
+            'mr': MarathiProcessor()
         }
     
     def process_query(self, query: str) -> Dict[str, Any]:
