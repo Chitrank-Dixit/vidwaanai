@@ -1,0 +1,62 @@
+{
+  "Hindi": {
+    "num_queries": 2,
+    "avg_top_score": 0.95,
+    "results": [
+      {
+        "query": "\u0927\u0930\u094d\u092e \u0915\u094d\u092f\u093e \u0939\u0948?",
+        "num_retrieved": 4,
+        "top_score": 0.95
+      },
+      {
+        "query": "\u0915\u0943\u0937\u094d\u0923 \u0915\u0940 \u092d\u0942\u092e\u093f\u0915\u093e \u0915\u094d\u092f\u093e \u0939\u0948?",
+        "num_retrieved": 4,
+        "top_score": 0.95
+      }
+    ]
+  },
+  "Gujarati": {
+    "num_queries": 1,
+    "avg_top_score": 0.95,
+    "results": [
+      {
+        "query": "\u0aa7\u0ab0\u0acd\u0aae \u0ab6\u0ac1\u0a82 \u0a9b\u0ac7?",
+        "num_retrieved": 4,
+        "top_score": 0.95
+      }
+    ]
+  },
+  "Tamil": {
+    "num_queries": 1,
+    "avg_top_score": 0.95,
+    "results": [
+      {
+        "query": "\u0ba4\u0bb0\u0bcd\u0bae\u0bae\u0bbe\u0ba9 \u0b95\u0b9f\u0bae\u0bc8 \u0b8e\u0ba9\u0bcd\u0ba9?",
+        "num_retrieved": 4,
+        "top_score": 0.95
+      }
+    ]
+  },
+  "Telugu": {
+    "num_queries": 1,
+    "avg_top_score": 0.95,
+    "results": [
+      {
+        "query": "\u0c27\u0c30\u0c4d\u0c2e \u0c05\u0c02\u0c1f\u0c47 \u0c0f\u0c2e\u0c3f\u0c1f\u0c3f?",
+        "num_retrieved": 4,
+        "top_score": 0.95
+      }
+    ]
+  },
+  "Kannada": {
+    "num_queries": 1,
+    "avg_top_score": 0.95,
+    "results": [
+      {
+        "query": "\u0ca7\u0cb0\u0ccd\u0cae \u0c8e\u0c82\u0ca6\u0cb0\u0cc7\u0ca8\u0cc1?",
+        "num_retrieved": 4,
+        "top_score": 0.95
+      }
+    ]
+  }
+}

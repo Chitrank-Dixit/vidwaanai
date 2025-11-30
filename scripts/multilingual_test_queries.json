@@ -1,0 +1,34 @@
+{
+    "queries": [
+        {
+            "query": "धर्म क्या है?",
+            "language": "Hindi",
+            "expected_topic": "dharma"
+        },
+        {
+            "query": "कृष्ण की भूमिका क्या है?",
+            "language": "Hindi",
+            "expected_topic": "krishna"
+        },
+        {
+            "query": "ધર્મ શું છે?",
+            "language": "Gujarati",
+            "expected_topic": "dharma"
+        },
+        {
+            "query": "தர்மமான கடமை என்ன?",
+            "language": "Tamil",
+            "expected_topic": "dharma"
+        },
+        {
+            "query": "ధర్మ అంటే ఏమిటి?",
+            "language": "Telugu",
+            "expected_topic": "dharma"
+        },
+        {
+            "query": "ಧರ್ಮ ಎಂದರೇನು?",
+            "language": "Kannada",
+            "expected_topic": "dharma"
+        }
+    ]
+}
