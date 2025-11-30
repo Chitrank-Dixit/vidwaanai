@@ -14,14 +14,29 @@ logger = get_logger(__name__)
 class QueryProfiler:
     def __init__(self):
         self.results = []
-    
+        logger.info("Initializing VidwaanAI agent...")
+        try:
+            from src.core.config import settings
+            from src.agent.vidwaan_agent import VidwaanAI
+            self.agent = VidwaanAI(
+                db_url=settings.DATABASE_URL,
+                openai_key=settings.OPENAI_API_KEY,
+                lmstudio_url=settings.lmstudio_base_url,
+                enable_graph_rag=settings.ENABLE_GRAPH_RAG,
+                neo4j_uri=settings.NEO4J_URI,
+                neo4j_user=settings.NEO4J_USER,
+                neo4j_password=settings.NEO4J_PASSWORD
+            )
+        except Exception as e:
+            logger.error(f"Failed to initialize agent: {e}")
+            raise
+
     def profile_query(self, query_text):
         start_time = time.time()
         
         try:
-            # We need to mock the context or ensure query_handler can run in isolation
-            # For now assuming query_handler takes the query string
-            result = query_handler(query_text)
+            # Use the initialized agent directly
+            result = self.agent.query(question=query_text)
             total_time = time.time() - start_time
             
             profile_data = {

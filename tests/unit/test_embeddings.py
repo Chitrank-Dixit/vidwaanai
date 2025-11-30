@@ -10,12 +10,15 @@ class TestEmbeddingManager:
         with patch('src.rag.embeddings.SentenceTransformer') as mock_model:
             # Mock the encode method to return a dummy vector
             mock_model.return_value.encode.return_value = np.array([0.1] * 384)
-            manager = EmbeddingManager(model_name="all-MiniLM-L6-v2", use_onnx=False)
+            # Mock dimension
+            mock_model.return_value.get_sentence_embedding_dimension.return_value = 384
+            
+            manager = EmbeddingManager(model_name="all-MiniLM-L6-v2")
             return manager
 
     def test_initialization(self, embedding_manager):
         assert embedding_manager.model is not None
-        assert embedding_manager.embedding_dim == 768
+        assert embedding_manager.embedding_dim == 384
 
     def test_embed_text(self, embedding_manager):
         text = "This is a test sentence."
