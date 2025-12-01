@@ -15,7 +15,6 @@ from src.graph.hybrid_search import HybridSearch as GraphHybridSearch
 from src.retrieval.bm25_search import BM25Search
 from src.retrieval.hybrid_search import HybridSearch
 from src.graph.entity_extractor import EntityExtractor
-from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
 from src.utils.confidence import calculate_confidence_score
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline

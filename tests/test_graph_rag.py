@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.graph.graph_builder import GraphBuilder
 from src.graph.graph_retriever import GraphRetriever
-from src.graph.hybrid_search import HybridSearcher
+from src.graph.hybrid_search import HybridSearch
 from src.graph.entity_extractor import EntityExtractor
 
 class TestGraphRAG(unittest.TestCase):
@@ -43,13 +43,13 @@ class TestGraphRAG(unittest.TestCase):
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0]['entities'][0]['name'], "Krishna")
 
-    def test_hybrid_searcher(self):
+    def test_hybrid_search(self):
         mock_graph = MagicMock()
         mock_vector = MagicMock()
         mock_embeddings = MagicMock()
         mock_extractor = MagicMock()
         
-        searcher = HybridSearcher(mock_graph, mock_vector, mock_embeddings, mock_extractor)
+        searcher = HybridSearch(mock_graph, mock_vector, mock_embeddings, mock_extractor)
         
         # Mock extraction
         mock_extractor.llm.generate.return_value = '[{"name": "Krishna", "type": "Person"}]'

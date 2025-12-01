@@ -38,3 +38,32 @@ class TestConfidenceScore:
         result = calculate_confidence_score([], [], "")
         assert result["score"] == 0.0
         assert result["level"] == "Low"
+
+    def test_calculate_confidence_score_no_embedding(self):
+        """Test when verses have no embeddings"""
+        question_embedding = [0.1, 0.2, 0.3]
+        retrieved_verses = [{"text": "Some text"}] # Missing embedding
+        generated_answer = "Some answer"
+        
+        result = calculate_confidence_score(question_embedding, retrieved_verses, generated_answer)
+        # Should handle gracefully, likely low score due to 0 similarity
+        assert result["score"] >= 0
+
+    def test_calculate_confidence_score_short_answer(self):
+        """Test with very short answer"""
+        question_embedding = [0.1] * 384
+        retrieved_verses = [{"text": "text", "embedding": [0.1]*384}]
+        generated_answer = "Yes"
+        
+        result = calculate_confidence_score(question_embedding, retrieved_verses, generated_answer)
+        assert result is not None
+
+    def test_calculate_confidence_score_exact_match(self):
+        """Test when answer exactly matches verse text"""
+        question_embedding = [0.1] * 384
+        text = "Exact match text."
+        retrieved_verses = [{"text": text, "embedding": [0.1]*384}]
+        generated_answer = text
+        
+        result = calculate_confidence_score(question_embedding, retrieved_verses, generated_answer)
+        assert result["score"] > 80

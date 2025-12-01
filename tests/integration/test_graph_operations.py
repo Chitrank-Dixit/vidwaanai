@@ -9,10 +9,11 @@ class TestGraphOperations:
     
     @pytest.fixture(scope="class")
     def graph_builder(self):
-        # Use test Neo4j URI from environment
-        uri = os.getenv("NEO4J_URI")
-        user = os.getenv("NEO4J_USER")
-        password = os.getenv("NEO4J_PASSWORD")
+        # Use test Neo4j URI from settings
+        from src.core.config import settings
+        uri = settings.NEO4J_URI
+        user = settings.NEO4J_USER
+        password = settings.NEO4J_PASSWORD
         
         builder = GraphBuilder(uri, user, password)
         yield builder

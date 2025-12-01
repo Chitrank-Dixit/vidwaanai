@@ -12,13 +12,13 @@ class MultilingualEmbeddings:
         self.model_name = model_name
         self.embedding_dim = 1024  # For e5-large
     
-    def embed_text(self, text: str, language: str = 'en') -> List[float]:
+    def embed_text(self, text: str, language: str = 'en', is_document: bool = False) -> List[float]:
         """
         Embed text in multilingual space
         Works for any language supported by model
         """
         # E5 models expect "query: " prefix for asymmetric tasks
-        prefix = "query: "
+        prefix = "passage: " if is_document else "query: "
         
         embedding = self.model.encode(
             prefix + text,
