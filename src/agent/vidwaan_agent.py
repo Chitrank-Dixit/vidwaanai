@@ -19,6 +19,9 @@ from src.rag.reranker import Reranker
 from src.core.monitoring import track_query_latency, record_retrieval_quality
 from src.utils.confidence import calculate_confidence_score
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
+from neo4j import GraphDatabase
+from src.rag.multilingual_search import MultilingualSearch
+
 from src.cache.query_cache import QueryCache
 
 logger = logging.getLogger(__name__)
@@ -37,6 +40,10 @@ class VidwaanAI:
         """Initialize VidwaanAI agent."""
         self.db = DatabaseManager(db_url)
         self.embeddings = EmbeddingManager()
+        # Use MultilingualSearch for embeddings and language processing
+        self.multilingual_search = MultilingualSearch()
+        # Keep EmbeddingManager for legacy support if needed, but MultilingualSearch handles embedding now
+        # self.embeddings = EmbeddingManager()
         
         if use_lmstudio:
             self.llm = LMStudioClient(base_url=lmstudio_url or "http://localhost:8000")
@@ -51,7 +58,9 @@ class VidwaanAI:
             self.bm25_search = BM25Search(verses)
             
             def vector_search_func(query, top_k):
-                emb = self.embeddings.embed_text(query)
+                # Use multilingual embedding
+                query_data = self.multilingual_search.process_query(query)
+                emb = query_data['embedding']
                 results = self.db.retrieve_verses(emb, top_k=top_k)
                 for r in results:
                     r['score'] = r.get('similarity', 0.0)
@@ -79,7 +88,7 @@ class VidwaanAI:
                 self.graph_retriever = GraphRetriever(self.neo4j_driver)
                 self.entity_extractor = EntityExtractor(self.llm)
                 self.graph_search = GraphHybridSearch(
-                    self.graph_retriever, self.db, self.embeddings, self.entity_extractor
+                    self.graph_retriever, self.db, self.multilingual_search.embeddings, self.entity_extractor
                 )
                 logger.info("Graph RAG enabled and initialized")
             except Exception as e:
@@ -99,17 +108,17 @@ class VidwaanAI:
         """Process a user query and return response."""
 
         try:
-            # Step 1: Detect language
-            detected_lang = self.router.detect_language(question) or language
+            # Step 1: Detect language and process query
+            query_data = self.multilingual_search.process_query(question)
+            detected_lang = query_data['language_code']
+            query_embedding = query_data['embedding']
+            
             logger.info(f"Query language: {detected_lang}")
 
             # Check Cache
             cached_result = self.cache.get(question, detected_lang, scripture_filter)
             if cached_result:
                 return cached_result
-
-            # Step 2: Generate embedding for query
-            query_embedding = self.embeddings.embed_text(question)
 
             # Step 3: Retrieve relevant verses
             if self.retrieval_pipeline:
