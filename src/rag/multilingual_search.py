@@ -9,6 +9,13 @@ from src.language.kannada_processor import KannadaProcessor
 from src.language.malayalam_processor import MalayalamProcessor
 from src.language.bengali_processor import BengaliProcessor
 from src.language.marathi_processor import MarathiProcessor
+from src.language.rajasthani_processor import RajasthaniProcessor
+from src.language.haryanvi_processor import HaryanviProcessor
+from src.language.bhojpuri_processor import BhojpuriProcessor
+from src.language.maithili_processor import MaithiliProcessor
+from src.language.chhattisgarhi_processor import ChhattisgarhiProcessor
+from src.language.dogri_processor import DogriProcessor
+from src.language.konkani_processor import KonkaniProcessor
 from src.rag.multilingual_embeddings import MultilingualEmbeddings
 from src.core.logger import get_logger
 
@@ -26,7 +33,14 @@ class MultilingualSearch:
             'kn': KannadaProcessor(),
             'ml': MalayalamProcessor(),
             'bn': BengaliProcessor(),
-            'mr': MarathiProcessor()
+            'mr': MarathiProcessor(),
+            'raj': RajasthaniProcessor(),
+            'bgc': HaryanviProcessor(),
+            'bho': BhojpuriProcessor(),
+            'mai': MaithiliProcessor(),
+            'hne': ChhattisgarhiProcessor(),
+            'doi': DogriProcessor(),
+            'kok': KonkaniProcessor()
         }
     
     def process_query(self, query: str) -> Dict[str, Any]:

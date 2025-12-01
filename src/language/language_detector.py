@@ -17,7 +17,14 @@ class LanguageDetector:
         'kn': 'Kannada',
         'ml': 'Malayalam',
         'bn': 'Bengali',
-        'mr': 'Marathi'
+        'mr': 'Marathi',
+        'raj': 'Rajasthani',
+        'bgc': 'Haryanvi',
+        'bho': 'Bhojpuri',
+        'mai': 'Maithili',
+        'hne': 'Chhattisgarhi',
+        'doi': 'Dogri',
+        'kok': 'Konkani'
     }
     
     @staticmethod
