@@ -13,14 +13,15 @@ class TestCompleteQuery:
     
     @pytest.fixture(scope="class")
     def db_manager(self):
-        return DatabaseManager(os.getenv("DATABASE_URL"))
+        from src.core.config import settings
+        return DatabaseManager(settings.DATABASE_URL)
 
     @pytest.fixture(scope="class")
     def graph_builder(self):
-        uri = os.getenv("NEO4J_URI")
-        user = os.getenv("NEO4J_USER")
-        password = os.getenv("NEO4J_PASSWORD")
-        password = os.getenv("NEO4J_PASSWORD")
+        from src.core.config import settings
+        uri = settings.NEO4J_URI
+        user = settings.NEO4J_USER
+        password = settings.NEO4J_PASSWORD
         builder = GraphBuilder(uri, user, password)
         yield builder
         builder.close()
@@ -68,20 +69,36 @@ class TestCompleteQuery:
     def test_query_flow(self, db_manager, graph_builder):
         """Test the full query flow."""
         # Mock LLM client to avoid external calls
-        with patch('src.agent.vidwaan_agent.LMStudioClient') as MockClient:
+        with patch('src.agent.vidwaan_agent.LMStudioClient') as MockClient, \
+             patch('src.retrieval.advanced_retrieval_pipeline.ContextAwareReranker') as MockReranker, \
+             patch('src.agent.vidwaan_agent.MultilingualSearch') as MockMultiSearch:
+            
+            # Setup Reranker mock
+            mock_reranker_instance = MockReranker.return_value
+            mock_reranker_instance.rerank.side_effect = lambda q, docs, top_k=5: docs[:top_k]
+
+            # Setup MultilingualSearch mock
+            mock_search_instance = MockMultiSearch.return_value
+            mock_search_instance.process_query.return_value = {
+                'language_code': 'en',
+                'embedding': [0.1] * 384,
+                'processed_text': 'What is Yoga?'
+            }
+
             mock_llm = MockClient.return_value
             mock_llm.generate.return_value = "Yoga is a spiritual practice."
             
             # Initialize Agent
+            from src.core.config import settings
             agent = VidwaanAI(
-                db_url=os.getenv("DATABASE_URL"),
+                db_url=settings.DATABASE_URL,
                 openai_key="test-key",
                 use_lmstudio=True,
                 lmstudio_url="http://localhost:1234/v1",
                 enable_graph_rag=True,
-                neo4j_uri=os.getenv("NEO4J_URI"),
-                neo4j_user=os.getenv("NEO4J_USER"),
-                neo4j_password=os.getenv("NEO4J_PASSWORD")
+                neo4j_uri=settings.NEO4J_URI,
+                neo4j_user=settings.NEO4J_USER,
+                neo4j_password=settings.NEO4J_PASSWORD
             )
             # Inject mocked embedding manager if possible, or patch it
             # VidwaanAI initializes its own EmbeddingManager. We should patch it.
