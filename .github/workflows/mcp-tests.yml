@@ -1,0 +1,37 @@
+name: MCP Server Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'src/mcp/**'
+      - 'tests/mcp/**'
+      - 'Dockerfile.mcp'
+      - 'docker-compose-mcp.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'src/mcp/**'
+      - 'tests/mcp/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build MCP Server Image
+      run: |
+        docker build -t mcp-server -f Dockerfile.mcp .
+
+    - name: Run MCP Unit Tests
+      # We run tests inside the container to ensure environment consistency
+      # Using a simple run command instead of compose for unit tests to save time if deps aren't strictly needed for unit tests
+      # However, our unit tests import modules that might need deps.
+      # Let's use the test command we defined in docker-compose if possible, or just run pytest in the built image.
+      run: |
+        docker run --rm mcp-server pytest tests/mcp/unit/ -v

@@ -1,0 +1,726 @@
+HOW TO RUN VIDWAAN AI WITH MCP SERVER
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+1. Quick Start (5 minutes)
+2. Prerequisites
+3. Running with Docker (Recommended)
+4. Running Locally
+5. Testing the Setup
+6. Common Commands Reference
+7. Troubleshooting
+8. Architecture Overview
+
+================================================================================
+QUICK START (5 MINUTES)
+================================================================================
+
+One-liner to get everything running:
+
+docker-compose -f docker-compose-mcp.yml up -d && sleep 30 && curl http://localhost:3000/health
+
+Then verify:
+
+docker-compose -f docker-compose-mcp.yml ps
+
+You should see all services HEALTHY or UP.
+
+================================================================================
+PREREQUISITES
+================================================================================
+
+Required:
+- Docker (version 20.10+)
+- Docker Compose (version 1.29+)
+- 4GB RAM minimum
+- 20GB disk space for databases
+
+Verify installation:
+
+docker --version
+docker-compose --version
+
+Optional (for local development):
+- Python 3.11+
+- Git
+- curl or Postman (for testing)
+
+================================================================================
+OPTION 1: RUNNING WITH DOCKER (RECOMMENDED)
+================================================================================
+
+This is the easiest and most reliable way to run VidwaanAI with MCP.
+
+Step 1: Clone or navigate to project directory
+
+cd /path/to/vidwaan-ai
+
+Step 2: Start all services
+
+docker-compose -f docker-compose-mcp.yml up -d
+
+What this does:
+- Builds MCP server image
+- Starts PostgreSQL database
+- Starts Neo4j graph database
+- Starts Redis cache
+- Starts MCP server
+- All on network: mcp-network
+
+Expected output:
+
+Creating vidwaan-mcp-server ... done
+Creating vidwaan-postgres-mcp ... done
+Creating vidwaan-neo4j-mcp ... done
+Creating vidwaan-redis-mcp ... done
+
+Step 3: Wait for services to be healthy (30-60 seconds)
+
+docker-compose -f docker-compose-mcp.yml ps
+
+Expected status:
+
+NAME                    STATUS
+vidwaan-mcp-server      Up (healthy)
+vidwaan-postgres-mcp    Up (healthy)
+vidwaan-neo4j-mcp       Up (healthy)
+vidwaan-redis-mcp       Up (healthy)
+
+Step 4: Verify MCP server is running
+
+curl http://localhost:3000/health
+
+Expected response:
+
+{"status": "healthy"}
+
+Or check available tools:
+
+curl http://localhost:3000/tools
+
+Expected response:
+
+{
+  "tools": [
+    {"name": "detect_language", ...},
+    {"name": "search_documents", ...},
+    ...
+  ]
+}
+
+Done! MCP server is running!
+
+---
+
+Accessing Different Services:
+
+MCP Server:
+- URL: http://localhost:3000
+- Health: http://localhost:3000/health
+
+PostgreSQL:
+- Host: localhost
+- Port: 5434
+- User: vidwaan_user
+- Password: vidwaan_password
+- Database: vidwaan_mcp
+
+Neo4j Browser:
+- URL: http://localhost:7475
+- Username: neo4j
+- Password: vidwaan123_mcp
+
+Redis CLI:
+- Port: 6380
+- Command: redis-cli -p 6380
+
+---
+
+Step 5: Run tests (optional)
+
+# Run unit tests
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test
+
+Expected output:
+
+tests/mcp/unit/ ====== 350 passed in 45s ======
+tests/mcp/integration/ ====== 200 passed in 60s ======
+
+Step 6: Stop services when done
+
+docker-compose -f docker-compose-mcp.yml down
+
+Or stop and remove volumes (reset database):
+
+docker-compose -f docker-compose-mcp.yml down -v
+
+================================================================================
+OPTION 2: RUNNING LOCALLY (ADVANCED)
+================================================================================
+
+This option requires more setup but gives you more control.
+
+Step 1: Install Python dependencies
+
+pip install -r requirements.txt
+pip install mcp anthropic pytest pytest-cov
+
+Step 2: Start only the databases in Docker
+
+docker-compose -f docker-compose-mcp.yml up postgres-mcp neo4j-mcp redis-mcp -d
+
+Step 3: Create .env.local file
+
+cat > .env.local << EOF
+DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@localhost:5434/vidwaan_mcp
+NEO4J_URI=bolt://localhost:7689
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=vidwaan123_mcp
+REDIS_URL=redis://localhost:6380
+PYTHONPATH=/path/to/vidwaan-ai
+MCP_LOG_LEVEL=INFO
+EOF
+
+Step 4: Load environment variables
+
+source .env.local
+
+Step 5: Run MCP server locally
+
+python -m src.mcp.server
+
+Expected output:
+
+MCP Server starting...
+Tools registered: detect_language, search_documents, rerank_results, ...
+Server listening on stdio
+Ready to accept connections
+
+Step 6: In another terminal, test the server
+
+# Detect language
+python -c "
+import requests
+import json
+
+payload = {
+    'jsonrpc': '2.0',
+    'method': 'tools/call',
+    'params': {
+        'name': 'detect_language',
+        'arguments': {'query': 'à¤¨à¤®à¤¸à¥à¤¤à¥‡'}
+    }
+}
+
+response = requests.post('http://localhost:3000/rpc', json=payload)
+print(json.dumps(response.json(), indent=2))
+"
+
+Expected output:
+
+{
+  "language": "Hindi",
+  "confidence": 0.99,
+  "script": "Devanagari"
+}
+
+Step 7: Run tests locally
+
+pytest tests/mcp/unit/ -v
+pytest tests/mcp/integration/ -v
+pytest tests/mcp/ --cov=src/mcp
+
+Step 8: Stop databases
+
+docker-compose -f docker-compose-mcp.yml down
+
+================================================================================
+TESTING THE SETUP
+================================================================================
+
+Test 1: MCP Server Health
+
+curl http://localhost:3000/health
+
+Expected response:
+{"status": "healthy"}
+
+---
+
+Test 2: List Available Tools
+
+curl http://localhost:3000/tools
+
+Expected response shows all available tools with descriptions.
+
+---
+
+Test 3: Call a Tool (Language Detection)
+
+curl -X POST http://localhost:3000/rpc \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "name": "detect_language",
+      "arguments": {"query": "à¤¨à¤®à¤¸à¥à¤¤à¥‡ à¤•à¥ˆà¤¸à¥‡ à¤¹à¥‹"}
+    }
+  }'
+
+Expected response:
+{
+  "language": "Hindi",
+  "confidence": 0.99,
+  "script": "Devanagari"
+}
+
+---
+
+Test 4: Search Documents
+
+curl -X POST http://localhost:3000/rpc \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "name": "search_documents",
+      "arguments": {
+        "query": "à¤­à¤¾à¤°à¤¤à¥€à¤¯ à¤¸à¤‚à¤¸à¥à¤•à¥ƒà¤¤à¤¿",
+        "language": "hi",
+        "top_k": 5
+      }
+    }
+  }'
+
+Expected response:
+[
+  {"id": "doc1", "content": "...", "score": 0.95},
+  {"id": "doc2", "content": "...", "score": 0.92},
+  ...
+]
+
+---
+
+Test 5: Run Full Test Suite
+
+# Option A: Docker
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test
+
+# Option B: Local
+pytest tests/mcp/ -v --cov=src/mcp
+
+Expected output:
+tests/mcp/unit/ ====== 350 passed in 45s ======
+tests/mcp/integration/ ====== 200 passed in 60s ======
+Overall coverage: 87%+
+
+---
+
+Test 6: Connect with Claude (AI Agent)
+
+python << 'EOF'
+from anthropic import Anthropic
+
+client = Anthropic(
+    mcp_servers={
+        "vidwaan": {
+            "command": "python",
+            "args": ["-m", "src.mcp.server"],
+            "env": {"PYTHONPATH": "/path/to/vidwaan-ai"}
+        }
+    }
+)
+
+response = client.messages.create(
+    model="claude-3-5-sonnet-20241022",
+    max_tokens=1024,
+    messages=[{
+        "role": "user",
+        "content": "What language is this: à¤¨à¤®à¤¸à¥à¤¤à¥‡"
+    }]
+)
+
+print(response.content[0].text)
+EOF
+
+Expected response:
+Claude will automatically:
+1. Discover the detect_language tool
+2. Call it with your text
+3. Return: "This is Hindi"
+
+================================================================================
+COMMON COMMANDS REFERENCE
+================================================================================
+
+START / STOP:
+
+# Start all services
+docker-compose -f docker-compose-mcp.yml up -d
+
+# Start specific service
+docker-compose -f docker-compose-mcp.yml up -d mcp-server
+
+# Stop all services
+docker-compose -f docker-compose-mcp.yml down
+
+# Stop and remove volumes (reset database)
+docker-compose -f docker-compose-mcp.yml down -v
+
+# Restart all services
+docker-compose -f docker-compose-mcp.yml restart
+
+---
+
+VIEWING STATUS:
+
+# Check service status
+docker-compose -f docker-compose-mcp.yml ps
+
+# View logs for all services
+docker-compose -f docker-compose-mcp.yml logs
+
+# View logs for specific service
+docker-compose -f docker-compose-mcp.yml logs mcp-server
+
+# View logs in real-time
+docker-compose -f docker-compose-mcp.yml logs -f mcp-server
+
+# View last 100 lines
+docker-compose -f docker-compose-mcp.yml logs --tail=100 mcp-server
+
+---
+
+TESTING:
+
+# Run all tests
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test
+
+# Run specific test file
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test \
+  pytest tests/mcp/unit/test_language_tools.py -v
+
+# Run with coverage
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test \
+  pytest tests/mcp/ -v --cov=src/mcp --cov-report=html
+
+# Run tests in parallel
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test \
+  pytest tests/mcp/ -v -n 4
+
+---
+
+DATABASE ACCESS:
+
+# Connect to PostgreSQL
+docker-compose -f docker-compose-mcp.yml exec postgres-mcp \
+  psql -U vidwaan_user -d vidwaan_mcp
+
+# Connect to Neo4j (via browser)
+# http://localhost:7475
+
+# Redis CLI
+docker-compose -f docker-compose-mcp.yml exec redis-mcp redis-cli
+
+---
+
+BUILDING / REBUILDING:
+
+# Build MCP server image
+docker-compose -f docker-compose-mcp.yml build mcp-server
+
+# Rebuild without cache
+docker-compose -f docker-compose-mcp.yml build --no-cache mcp-server
+
+# Rebuild and restart
+docker-compose -f docker-compose-mcp.yml up -d --build mcp-server
+
+---
+
+CLEANING UP:
+
+# Remove all containers
+docker-compose -f docker-compose-mcp.yml down
+
+# Remove containers and volumes (WARNING: deletes database!)
+docker-compose -f docker-compose-mcp.yml down -v
+
+# Remove unused images
+docker image prune -a
+
+# Remove stopped containers
+docker container prune
+
+# Full cleanup
+docker system prune -a --volumes
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Problem 1: "Cannot connect to Docker daemon"
+
+Solution:
+# Start Docker
+systemctl start docker  # Linux
+open -a Docker  # macOS
+# On Windows: Start Docker Desktop
+
+# Verify Docker is running
+docker ps
+
+---
+
+Problem 2: "Port already in use"
+
+Error: Error response from daemon: Ports are not available
+
+Solution:
+# Find what's using port 3000
+lsof -i :3000  # macOS/Linux
+netstat -aon | findstr :3000  # Windows
+
+# Kill the process
+kill -9 <PID>  # macOS/Linux
+taskkill /PID <PID> /F  # Windows
+
+Or change ports in docker-compose-mcp.yml:
+services:
+  mcp-server:
+    ports:
+      - "3001:3000"  # Change from 3000 to 3001
+
+---
+
+Problem 3: "Services not becoming healthy"
+
+Solution:
+# Check logs
+docker-compose -f docker-compose-mcp.yml logs mcp-server
+
+# Wait longer (30-60 seconds)
+sleep 60
+docker-compose -f docker-compose-mcp.yml ps
+
+# If still not healthy, rebuild
+docker-compose -f docker-compose-mcp.yml down -v
+docker-compose -f docker-compose-mcp.yml build --no-cache
+docker-compose -f docker-compose-mcp.yml up -d
+
+---
+
+Problem 4: "Health check failing"
+
+Error: unhealthy or starting
+
+Solution:
+# Check server logs
+docker-compose -f docker-compose-mcp.yml logs mcp-server
+
+# Check database connectivity
+docker-compose -f docker-compose-mcp.yml exec mcp-server \
+  python -c "import psycopg2; print('DB OK')"
+
+# Restart container
+docker-compose -f docker-compose-mcp.yml restart mcp-server
+
+---
+
+Problem 5: "Cannot reach http://localhost:3000"
+
+Solution:
+# Check if container is running
+docker-compose -f docker-compose-mcp.yml ps
+
+# Check firewall
+# macOS: System Preferences > Security & Privacy > Firewall
+# Linux: sudo ufw allow 3000
+# Windows: Windows Defender Firewall
+
+# Try from inside container
+docker-compose -f docker-compose-mcp.yml exec mcp-server \
+  curl http://localhost:3000/health
+
+---
+
+Problem 6: "Tests failing"
+
+Solution:
+# Rebuild everything
+docker-compose -f docker-compose-mcp.yml down -v
+docker-compose -f docker-compose-mcp.yml build --no-cache
+docker-compose -f docker-compose-mcp.yml up -d
+sleep 30
+
+# Run tests again
+docker-compose -f docker-compose-mcp.yml --profile test run mcp-test
+
+# Check logs for errors
+docker-compose -f docker-compose-mcp.yml logs -f
+
+---
+
+Problem 7: "Out of disk space"
+
+Solution:
+# Check disk usage
+docker system df
+
+# Clean up
+docker system prune -a --volumes
+
+# Or manually remove images
+docker rmi $(docker images -q)
+
+---
+
+Problem 8: "Memory issues"
+
+Solution:
+# Reduce services
+# Edit docker-compose-mcp.yml and add memory limits
+
+services:
+  mcp-server:
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+
+Or reduce the number of running services.
+
+================================================================================
+ARCHITECTURE OVERVIEW
+================================================================================
+
+How VidwaanAI with MCP Works:
+
+Request Flow:
+
+User/Agent Query
+    |
+    v
+MCP Server (3000)
+    |
+    +--- Detect Language Tool
+    |        |
+    |        v
+    |    Language Detection
+    |
+    +--- Search Tool
+    |        |
+    |        v
+    |    Query Vector DB
+    |
+    +--- Rerank Tool
+    |        |
+    |        v
+    |    Score Results
+    |
+    +--- Generate Tool
+             |
+             v
+         Generate Answer
+
+Data Flow:
+
+MCP Server
+    |
+    +--- PostgreSQL (5434)
+    |    - Documents
+    |    - Metadata
+    |    - Vectors
+    |
+    +--- Neo4j (7689)
+    |    - Knowledge Graph
+    |    - Relationships
+    |    - Entities
+    |
+    +--- Redis (6380)
+         - Cache
+         - Sessions
+
+Network:
+
+All services communicate on: mcp-network
+Ports mapped to localhost for external access:
+- MCP Server: localhost:3000
+- PostgreSQL: localhost:5434
+- Neo4j: localhost:7475 (browser), localhost:7689 (bolt)
+- Redis: localhost:6380
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Verify Setup
+   docker-compose -f docker-compose-mcp.yml ps
+
+2. Check Health
+   curl http://localhost:3000/health
+
+3. Run Tests
+   docker-compose -f docker-compose-mcp.yml --profile test run mcp-test
+
+4. Try a Tool
+   curl http://localhost:3000/tools
+
+5. Read Documentation
+   - See MCP-IMPLEMENTATION-CLEAN.md for details
+   - See MCP-QUICK-START-CLEAN.md for setup
+   - See MCP-MODULARITY-BENEFITS-CLEAN.md for architecture
+
+6. Connect an Agent
+   - Use Claude API with MCP
+   - Agent will auto-discover tools
+   - Start making queries!
+
+================================================================================
+QUICK REFERENCE TABLE
+================================================================================
+
+Action                  Command
+-------------------     -------------------
+Start all              docker-compose -f docker-compose-mcp.yml up -d
+Stop all               docker-compose -f docker-compose-mcp.yml down
+Check status           docker-compose -f docker-compose-mcp.yml ps
+View logs              docker-compose -f docker-compose-mcp.yml logs -f
+Run tests              docker-compose -f docker-compose-mcp.yml --profile test run mcp-test
+Health check           curl http://localhost:3000/health
+List tools             curl http://localhost:3000/tools
+Reset database         docker-compose -f docker-compose-mcp.yml down -v
+Rebuild images         docker-compose -f docker-compose-mcp.yml build --no-cache
+
+================================================================================
+SUPPORT
+================================================================================
+
+If you encounter issues:
+
+1. Check logs
+   docker-compose -f docker-compose-mcp.yml logs
+
+2. Review troubleshooting section above
+
+3. Check prerequisites are installed
+   docker --version
+   docker-compose --version
+
+4. Try rebuilding
+   docker-compose -f docker-compose-mcp.yml down -v
+   docker-compose -f docker-compose-mcp.yml up -d
+
+5. Check documentation
+   - MCP-IMPLEMENTATION-CLEAN.md
+   - DOCKER-TEST-TROUBLESHOOTING.md
+   - MCP-QUICK-START-CLEAN.md
+
+================================================================================
+END OF RUNNING GUIDE
+================================================================================
