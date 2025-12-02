@@ -1,0 +1,67 @@
+import asyncio
+import sys
+from typing import Optional, Dict, Any, List
+from contextlib import asynccontextmanager
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+class VidwaanMCPClient:
+    """
+    A client for the VidwaanAI MCP Server.
+    Wraps the MCP ClientSession to provide easy access to tools.
+    """
+    def __init__(self, server_script_path: str = "src/mcp/server.py"):
+        self.server_params = StdioServerParameters(
+            command=sys.executable,
+            args=[server_script_path],
+            env=None # Inherit env
+        )
+        self.session: Optional[ClientSession] = None
+        self._exit_stack = None
+
+    @asynccontextmanager
+    async def connect(self):
+        """
+        Connects to the MCP server via stdio.
+        """
+        async with stdio_client(self.server_params) as (read, write):
+            async with ClientSession(read, write) as session:
+                self.session = session
+                await session.initialize()
+                yield self
+
+    async def list_tools(self) -> List[Any]:
+        """
+        Lists available tools.
+        """
+        if not self.session:
+            raise RuntimeError("Client not connected")
+        result = await self.session.list_tools()
+        return result.tools
+
+    async def call_tool(self, name: str, arguments: Dict[str, Any]) -> Any:
+        """
+        Calls a tool by name with arguments.
+        """
+        if not self.session:
+            raise RuntimeError("Client not connected")
+        result = await self.session.call_tool(name, arguments)
+        return result
+
+async def main():
+    # Example usage
+    client = VidwaanMCPClient()
+    async with client.connect() as c:
+        print("Connected to MCP Server")
+        
+        tools = await c.list_tools()
+        print(f"Found {len(tools)} tools")
+        
+        # Test language detection
+        print("\nTesting detect_language...")
+        result = await c.call_tool("detect_language", {"query": "नमस्ते भारत"})
+        print(f"Result: {result}")
+
+if __name__ == "__main__":
+    asyncio.run(main())

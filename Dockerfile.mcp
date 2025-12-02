@@ -1,0 +1,33 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies if needed
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy project files
+COPY pyproject.toml .
+COPY requirements.txt .
+
+# Install dependencies
+# We'll use pip for simplicity in the container, assuming requirements.txt or pyproject.toml
+# If using uv, we might want to install uv, but for now let's stick to pip if possible or just install the new deps
+RUN pip install --no-cache-dir mcp anthropic langdetect
+
+# Copy source code
+COPY src/ /app/src/
+COPY tests/ /app/tests/
+
+# Set python path
+ENV PYTHONPATH=/app
+
+# Health check (if we expose HTTP, but MCP is stdio by default, 
+# however FastMCP might expose SSE/HTTP if configured. 
+# For stdio, healthcheck is harder from outside, but we can check if process runs)
+# The user plan mentions port 3000, so we assume FastMCP or a wrapper exposes HTTP/SSE.
+# FastMCP default is stdio, but can be run with SSE.
+# We'll assume we might need to run it with a specific command to expose HTTP if that's the goal for Docker.
+# For now, let's just set the CMD to run the server script.
+CMD ["python", "-m", "src.mcp.server"]
