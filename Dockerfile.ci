@@ -1,5 +1,3 @@
-Dockerfile.ci
-
 # Multi-stage Dockerfile for CI/CD - Linting and Testing
 
 # ============================================================================
