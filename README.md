@@ -76,6 +76,31 @@ python -m src.main system status
 | `settings show` | Show current settings |
 | `system status` | Check system health |
 
+## MCP Server (Agent Integration)
+
+VidwaanAI now supports the **Model Context Protocol (MCP)**, allowing AI agents (like Claude) to autonomously discover and use its tools.
+
+### Features
+- **Language Tools**: `detect_language`, `preprocess_text`
+- **Search Tools**: `search_documents`, `hybrid_search`
+- **RAG Pipeline**: `execute_rag_pipeline`
+- **Knowledge Graph**: `query_knowledge_graph`
+
+### Quick Start (Docker)
+
+```bash
+# Start MCP Server
+make -f Makefile-docker mcp-up
+
+# Check Health
+curl http://localhost:3000/health
+
+# Run Tests
+make -f Makefile-docker mcp-test
+```
+
+For detailed instructions, see [HOW-TO-RUN-MCP](HOW-TO-RUN-MCP).
+
 ## Supported Languages
 - English (en)
 - Hindi (hi)

@@ -33,6 +33,13 @@ help:
 	@echo
 	@echo "$(CYAN)Graph RAG:$(RESET)"
 	@echo "  $(GREEN)make -f Makefile-docker graph-build$(RESET) Populate knowledge graph"
+	@echo
+	@echo "$(CYAN)MCP Server:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-build$(RESET)  Build MCP containers"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-up$(RESET)     Start MCP server"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-down$(RESET)   Stop MCP server"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-test$(RESET)   Run MCP unit tests"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-int$(RESET)    Run MCP integration tests"
 
 build:
 	@echo "$(YELLOW)Building containers...$(RESET)"
@@ -129,3 +136,30 @@ cache-info:
 
 clean-all: down cache-clear cache-prune
 	@echo "All cleanup complete"
+
+# MCP Server Commands
+MCP_COMPOSE := docker compose -f docker-compose-mcp.yml
+
+mcp-build:
+	@echo "$(YELLOW)Building MCP containers...$(RESET)"
+	@$(MCP_COMPOSE) build
+
+mcp-up:
+	@echo "$(YELLOW)Starting MCP services...$(RESET)"
+	@$(MCP_COMPOSE) up -d
+
+mcp-down:
+	@echo "$(YELLOW)Stopping MCP services...$(RESET)"
+	@$(MCP_COMPOSE) down
+
+mcp-logs:
+	@$(MCP_COMPOSE) logs -f
+
+mcp-test:
+	@echo "$(YELLOW)Running MCP unit tests...$(RESET)"
+	@$(MCP_COMPOSE) run --rm mcp-server pytest tests/mcp/unit/ -v
+
+mcp-int:
+	@echo "$(YELLOW)Running MCP integration tests...$(RESET)"
+	@$(MCP_COMPOSE) run --rm mcp-server pytest tests/mcp/integration/ -v
+

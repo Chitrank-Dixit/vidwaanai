@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@postgres-mcp:5432/vidwaan_mcp
+      - NEO4J_URI=bolt://neo4j-mcp:7687
+      - REDIS_URL=redis://redis-mcp:6379
+      - MCP_LOG_LEVEL=INFO
+    depends_on:
+      postgres-mcp:
+        condition: service_healthy
+      neo4j-mcp:
+        condition: service_healthy
+      redis-mcp:
+        condition: service_started
+    # If we want to expose it via HTTP/SSE for testing from host
+    ports:
+      - "3000:3000"
+    networks:
+      - mcp-network
+    volumes:
+      - ./src/mcp:/app/src/mcp
+      - ./tests/mcp:/app/tests/mcp
+
+  postgres-mcp:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: vidwaan_user
+      POSTGRES_PASSWORD: vidwaan_password
+      POSTGRES_DB: vidwaan_mcp
+    ports:
+      - "5434:5432"
+    networks:
+      - mcp-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vidwaan_user -d vidwaan_mcp"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  neo4j-mcp:
+    image: neo4j:5.15-community
+    environment:
+      NEO4J_AUTH: neo4j/vidwaan123_mcp
+    ports:
+      - "7689:7687"
+      - "7476:7474"
+    networks:
+      - mcp-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis-mcp:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    networks:
+      - mcp-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  mcp-network:
+    driver: bridge
