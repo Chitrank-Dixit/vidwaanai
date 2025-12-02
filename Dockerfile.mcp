@@ -14,7 +14,7 @@ COPY requirements.txt .
 # Install dependencies
 # We'll use pip for simplicity in the container, assuming requirements.txt or pyproject.toml
 # If using uv, we might want to install uv, but for now let's stick to pip if possible or just install the new deps
-RUN pip install --no-cache-dir mcp anthropic langdetect
+RUN pip install --no-cache-dir mcp anthropic langdetect pytest pytest-asyncio
 
 # Copy source code
 COPY src/ /app/src/

@@ -1,5 +1,6 @@
 import pytest
 import asyncio
+import json
 from src.mcp.client import VidwaanMCPClient
 
 @pytest.mark.asyncio

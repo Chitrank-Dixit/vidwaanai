@@ -15,7 +15,7 @@ def test_detect_language_hindi():
     assert result["confidence"] > 0.0
 
 def test_detect_language_english():
-    result = detect_language("Hello world")
+    result = detect_language("Hello world, this is a longer sentence to ensure correct detection.")
     assert result["language_code"] == "en"
     assert result["is_supported"] is True
 

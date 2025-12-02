@@ -12,9 +12,11 @@ class VidwaanMCPClient:
     Wraps the MCP ClientSession to provide easy access to tools.
     """
     def __init__(self, server_script_path: str = "src/mcp/server.py"):
+        # We want to run as a module to ensure imports work correctly
+        # Ignore the path argument for now or use it if it's a path, but default to module execution
         self.server_params = StdioServerParameters(
             command=sys.executable,
-            args=[server_script_path],
+            args=["-m", "src.mcp.server"],
             env=None # Inherit env
         )
         self.session: Optional[ClientSession] = None
