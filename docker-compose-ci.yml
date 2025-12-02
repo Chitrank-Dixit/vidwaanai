@@ -1,0 +1,254 @@
+# Docker Compose file for CI/CD testing environment
+# Used by GitHub Actions and local testing
+# Provides isolated test environment with all dependencies
+
+services:
+  # ============================================================================
+  # VIDWAAN AI APPLICATION (TEST)
+  # ============================================================================
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    container_name: vidwaan-app-test
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      - REDIS_URL=redis://cache:6379
+      - LOG_LEVEL=DEBUG
+      - CI=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test-key}
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    networks:
+      - test-network
+    volumes:
+      - .:/app:ro
+      - /app/.pytest_cache
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    command: >
+      bash -c "
+        echo 'Waiting for database...' &&
+        /app/scripts/wait-for-db.sh &&
+        pytest tests/ -v --cov=src --cov-report=xml --timeout=300
+      "
+
+  # ============================================================================
+  # POSTGRESQL DATABASE (TEST)
+  # ============================================================================
+
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: vidwaan-db-test
+    environment:
+      POSTGRES_USER: vidwaan_user
+      POSTGRES_PASSWORD: vidwaan_password
+      POSTGRES_DB: vidwaan_test
+    ports:
+      - "5432:5432"
+    networks:
+      - test-network
+    volumes:
+      - db-test-data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vidwaan_user -d vidwaan_test"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_preload_libraries=vector"
+
+  # ============================================================================
+  # REDIS CACHE (TEST)
+  # ============================================================================
+
+  cache:
+    image: redis:7-alpine
+    container_name: vidwaan-cache-test
+    ports:
+      - "6379:6379"
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    command:
+      - "redis-server"
+      - "--appendonly"
+      - "no"
+      - "--save"
+      - ""
+
+  # ============================================================================
+  # TEST RUNNER (For parallel test execution)
+  # ============================================================================
+
+  test-runner-unit:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-test-unit
+    environment:
+      DATABASE_URL: postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      REDIS_URL: redis://cache:6379
+      PYTHONPATH: /workspace
+      CI: "true"
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command:
+      - pytest
+      - tests/unit/
+      - -v
+      - --cov=src
+      - --cov-report=xml
+      - --timeout=300
+      - -n
+      - "auto"
+
+  test-runner-functional:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-test-functional
+    environment:
+      DATABASE_URL: postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      REDIS_URL: redis://cache:6379
+      PYTHONPATH: /workspace
+      CI: "true"
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command:
+      - pytest
+      - tests/functional/
+      - -v
+      - --cov=src
+      - --cov-report=xml
+      - --timeout=300
+      - -n
+      - "auto"
+
+  test-runner-integration:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-test-integration
+    environment:
+      DATABASE_URL: postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      REDIS_URL: redis://cache:6379
+      PYTHONPATH: /workspace
+      CI: "true"
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command:
+      - pytest
+      - tests/integration/
+      - -v
+      - --cov=src
+      - --cov-report=xml
+      - --timeout=300
+
+  # ============================================================================
+  # LINTING SERVICES
+  # ============================================================================
+
+  linter-ruff:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: ruff
+    container_name: vidwaan-ruff
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command: ruff check src/
+
+  linter-black:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: black
+    container_name: vidwaan-black
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command: black --check src/ tests/
+
+  linter-mypy:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: mypy
+    container_name: vidwaan-mypy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command: mypy src/ --ignore-missing-imports
+
+  # ============================================================================
+  # SECURITY SCANNER
+  # ============================================================================
+
+  security-scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: security
+    container_name: vidwaan-security
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command: >
+      sh -c "
+        echo 'Running Bandit...' &&
+        bandit -r src/ &&
+        echo 'Running Safety...' &&
+        safety check
+      "
+
+volumes:
+  db-test-data:
+    driver: local
+
+networks:
+  test-network:
+    driver: bridge

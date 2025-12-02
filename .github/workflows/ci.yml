@@ -1,0 +1,94 @@
+name: CI - VidwaanAI Linting
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+  VIDWAAN_IMAGE: vidwaan-ci
+  MCP_IMAGE: vidwaan-mcp-ci
+
+jobs:
+  # ============================================================================
+  # LINTING JOBS (Docker-based)
+  # ============================================================================
+
+  lint-ruff:
+    name: Lint with Ruff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Ruff linter image
+        run: |
+          docker build \
+            -f Dockerfile.ci \
+            -t ${{ env.REGISTRY }}/${{ github.repository }}:ruff-${{ github.sha }} \
+            --target ruff \
+            .
+
+      - name: Run Ruff linter
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.REGISTRY }}/${{ github.repository }}:ruff-${{ github.sha }} \
+            ruff check src/
+
+      - name: Upload Ruff report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: ruff-report
+          path: ruff-report.json
+
+  lint-black:
+    name: Format check with Black
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Black formatter image
+        run: |
+          docker build \
+            -f Dockerfile.ci \
+            -t ${{ env.REGISTRY }}/${{ github.repository }}:black-${{ github.sha }} \
+            --target black \
+            .
+
+      - name: Check Black formatting
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.REGISTRY }}/${{ github.repository }}:black-${{ github.sha }} \
+            black --check src/ tests/
+
+  lint-mypy:
+    name: Type check with mypy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build mypy type checker image
+        run: |
+          docker build \
+            -f Dockerfile.ci \
+            -t ${{ env.REGISTRY }}/${{ github.repository }}:mypy-${{ github.sha }} \
+            --target mypy \
+            .
+
+      - name: Run mypy type checking
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.REGISTRY }}/${{ github.repository }}:mypy-${{ github.sha }} \
+            mypy src/ --ignore-missing-imports
+
+      - name: Upload mypy report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: mypy-report
+          path: mypy-report.json
