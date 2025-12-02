@@ -63,3 +63,25 @@ class TestDocumentIngestion:
         assert docs[1].metadata["id"] == 1 # Wait, check implementation. 
         # Implementation: documents.append(Document(chunk, metadata.copy()))
         # So it IS a copy.
+        
+    def test_chunk_overlap_larger_than_size(self):
+        """Test behavior when overlap is larger than chunk size"""
+        chunker = TextChunker(chunk_size=10, chunk_overlap=12)
+        text = "1234567890ABC"
+        # Should handle gracefully, likely treating overlap as smaller or advancing by 1
+        chunks = chunker.chunk_text(text)
+        assert len(chunks) > 0
+        
+    def test_chunk_exact_size(self, chunker):
+        """Test text exactly equal to chunk size"""
+        text = "1234567890"
+        chunks = chunker.chunk_text(text)
+        assert len(chunks) == 1
+        assert chunks[0] == text
+
+    def test_chunk_small_text(self, chunker):
+        """Test text smaller than chunk size"""
+        text = "123"
+        chunks = chunker.chunk_text(text)
+        assert len(chunks) == 1
+        assert chunks[0] == text

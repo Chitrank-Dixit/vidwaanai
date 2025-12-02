@@ -67,3 +67,20 @@ class TestAPIEndpoints:
         response = client.post("/query", json=payload)
         assert response.status_code == 500
         assert "Internal error" in response.json()["detail"]
+
+    def test_get_agent_dependency(self):
+        """Test the get_agent dependency function directly"""
+        with patch("src.api.VidwaanAI") as MockVidwaanAI:
+            # Clear app.state.agent if it exists
+            if hasattr(app.state, "agent"):
+                del app.state.agent
+            
+            # First call should initialize agent
+            agent1 = get_agent()
+            assert agent1 is not None
+            MockVidwaanAI.assert_called_once()
+            
+            # Second call should return cached agent
+            agent2 = get_agent()
+            assert agent2 is agent1
+            MockVidwaanAI.assert_called_once() # Should still be called only once

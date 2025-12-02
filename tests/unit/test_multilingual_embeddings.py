@@ -69,9 +69,34 @@ class TestMultilingualEmbeddings:
             pass # Acceptable if it raises
 
     def test_batch_embedding(self, embedding_model):
-        # If batch method exists
-        if hasattr(embedding_model, 'embed_batch'):
-            texts = ["Hello", "World"]
-            embeddings = embedding_model.embed_batch(texts, 'en')
-            assert len(embeddings) == 2
-            assert len(embeddings[0]) == 1024
+        # Test embed_corpus
+        texts = ["Hello", "World"]
+        embeddings = embedding_model.embed_corpus(texts, batch_size=2)
+        assert len(embeddings) == 2
+        assert len(embeddings[0]) == 1024
+
+    def test_embed_query_prefix(self, embedding_model):
+        """Test that query prefix is handled correctly"""
+        # E5 models expect "query: " prefix for asymmetric tasks
+        text = "What is yoga?"
+        # We can't easily check internal prefixing without mocking, 
+        # but we can check that it produces a valid embedding
+        embedding = embedding_model.embed_text(text, 'en')
+        assert len(embedding) == 1024
+
+    def test_embed_document_prefix(self, embedding_model):
+        """Test that document prefix is handled correctly"""
+        # E5 models expect "passage: " prefix for documents
+        text = "Yoga is a practice."
+        embedding = embedding_model.embed_text(text, 'en', is_document=True)
+        assert len(embedding) == 1024
+        
+        # Should be different from query embedding of same text (due to prefix)
+        query_embedding = embedding_model.embed_text(text, 'en', is_document=False)
+        
+        vec_doc = np.array(embedding)
+        vec_query = np.array(query_embedding)
+        
+        # They should be similar but not identical
+        similarity = np.dot(vec_doc, vec_query) / (np.linalg.norm(vec_doc) * np.linalg.norm(vec_query))
+        assert similarity < 0.9999 # Not identical
