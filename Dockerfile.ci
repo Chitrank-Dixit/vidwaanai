@@ -1,0 +1,122 @@
+# Multi-stage Dockerfile for CI/CD - Linting and Testing using uv
+
+# ============================================================================
+# BASE STAGE - Common dependencies
+# ============================================================================
+
+FROM python:3.11-slim as base
+
+WORKDIR /workspace
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    postgresql-client \
+    libpq-dev \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies
+# --frozen: sync exactly from uv.lock
+# --all-groups: install dev dependencies too (needed for tests/linting)
+ENV UV_PROJECT_ENVIRONMENT="/opt/venv"
+RUN uv sync --frozen --all-groups
+
+# Set environment to use uv's venv
+ENV PATH="/opt/venv/bin:$PATH"
+ENV PYTHONPATH=/workspace
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# ============================================================================
+# RUFF LINTING STAGE
+# ============================================================================
+
+FROM base as ruff
+COPY src/ src/
+CMD ["ruff", "check", "src/"]
+
+# ============================================================================
+# BLACK FORMATTING STAGE
+# ============================================================================
+
+FROM base as black
+COPY src/ src/
+COPY tests/ tests/
+CMD ["black", "--check", "src/", "tests/"]
+
+# ============================================================================
+# MYPY TYPE CHECKING STAGE
+# ============================================================================
+
+FROM base as mypy
+COPY src/ src/
+CMD ["mypy", "src/", "--ignore-missing-imports"]
+
+# ============================================================================
+# TEST STAGE - Unit, Functional, Integration Tests
+# ============================================================================
+
+FROM base as test
+
+# Copy entire project
+COPY . .
+
+# Create test results directory
+RUN mkdir -p test-results
+
+# Run pytest with coverage
+CMD ["pytest", \
+     "tests/", \
+     "-v", \
+     "--cov=src", \
+     "--cov-report=xml:coverage.xml", \
+     "--cov-report=term", \
+     "--cov-report=html:htmlcov", \
+     "--junit-xml=test-results/junit.xml", \
+     "--timeout=300", \
+     "-n", "auto"]
+
+# ============================================================================
+# SECURITY SCAN STAGE
+# ============================================================================
+
+FROM base as security
+COPY src/ src/
+CMD ["sh", "-c", "bandit -r src/ && safety check"]
+
+# ============================================================================
+# DOCUMENTATION BUILD STAGE
+# ============================================================================
+
+FROM base as docs
+COPY docs/ docs/
+COPY src/ src/
+CMD ["sphinx-build", "-b", "html", "docs", "docs/_build/html"]
+
+# ============================================================================
+# ALL-IN-ONE CI STAGE
+# ============================================================================
+
+FROM base as ci
+
+# Copy entire project
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p \
+    test-results \
+    coverage-reports \
+    security-reports \
+    lint-reports
+
+# Default: show help
+CMD ["pytest", "--help"]

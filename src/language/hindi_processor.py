@@ -1,38 +1,63 @@
-from src.language.language_processor import LanguageProcessor
-import regex
+from typing import Any, Dict, List
+
 import nltk
-from typing import List
+import regex
+
+from src.language.language_processor import LanguageProcessor
+
 
 class HindiProcessor(LanguageProcessor):
-    def __init__(self):
+    def __init__(self) -> None:
         try:
-            nltk.data.find('corpora/stopwords')
+            nltk.data.find("corpora/stopwords")
         except LookupError:
-            nltk.download('stopwords')
-        
+            nltk.download("stopwords")
+
         # Hindi stop words
-        self.stop_words = set([
-            'है', 'हैं', 'का', 'की', 'के', 'को', 'में', 'पर',
-            'से', 'और', 'या', 'यह', 'वह', 'इस', 'उस', 'जो',
-            'क्या', 'क्यों', 'कहाँ', 'कब', 'कैसे', 'तो', 'भी'
-        ])
-    
+        self.stop_words = set(
+            [
+                "है",
+                "हैं",
+                "का",
+                "की",
+                "के",
+                "को",
+                "में",
+                "पर",
+                "से",
+                "और",
+                "या",
+                "यह",
+                "वह",
+                "इस",
+                "उस",
+                "जो",
+                "क्या",
+                "क्यों",
+                "कहाँ",
+                "कब",
+                "कैसे",
+                "तो",
+                "भी",
+            ]
+        )
+
     def normalize(self, text: str) -> str:
         """Normalize Hindi text"""
         # Remove extra spaces
-        normalized = regex.sub(r'\s+', ' ', text).strip()
-        return normalized
-    
+        normalized = regex.sub(r"\s+", " ", text).strip()
+        return str(normalized)
+
     def tokenize(self, text: str) -> List[str]:
         """Tokenize Hindi text"""
         # Split on whitespace and punctuation
-        tokens = regex.findall(r'\b\w+\b', text)
-        return tokens
-    
+        tokens = regex.findall(r"\b\w+\b", text)
+        return list(tokens)
+
     def remove_stopwords(self, tokens: List[str]) -> List[str]:
         """Remove Hindi stop words"""
         return [token for token in tokens if token.lower() not in self.stop_words]
 
     # Legacy support for existing calls (if any)
-    def preprocess_hindi(self, text: str) -> dict:
+    def preprocess_hindi(self, text: str) -> Dict[str, Any]:
         return self.preprocess(text)

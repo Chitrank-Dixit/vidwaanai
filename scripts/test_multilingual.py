@@ -6,23 +6,24 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
-from src.language.language_detector import LanguageDetector
-from src.language.hindi_processor import HindiProcessor
-from src.rag.multilingual_search import MultilingualSearch
+from src.language.language_detector import LanguageDetector  # noqa: E402
+from src.language.hindi_processor import HindiProcessor  # noqa: E402
+from src.rag.multilingual_search import MultilingualSearch  # noqa: E402
 
-def test_language_detection():
+
+def test_language_detection() -> None:
     print("\n--- Testing Language Detection ---")
     detector = LanguageDetector()
-    
+
     test_cases = [
         ("This is an English sentence.", "en"),
         ("यह एक हिंदी वाक्य है।", "hi"),
         ("આ એક ગુજરાતી વાક્ય છે.", "gu"),
         ("இது ஒரு தமிழ் வாக்கியம்.", "ta"),
         ("ఇది తెలుగు వాక్యం.", "te"),
-        ("ಇದು ಕನ್ನಡ ವಾಕ್ಯ.", "kn")
+        ("ಇದು ಕನ್ನಡ ವಾಕ್ಯ.", "kn"),
     ]
-    
+
     for text, expected in test_cases:
         code, name, conf = detector.detect_language(text)
         script = detector.detect_script(text)
@@ -33,42 +34,48 @@ def test_language_detection():
         else:
             print(f"❌ FAIL (Expected {expected})")
 
-def test_hindi_processing():
+
+def test_hindi_processing() -> None:
     print("\n--- Testing Hindi Processing ---")
     processor = HindiProcessor()
-    
+
     text = "धर्म क्या है? और कृष्ण की भूमिका क्या है?"
     print(f"Original: {text}")
-    
+
     processed = processor.preprocess_hindi(text)
     print(f"Normalized: {processed['normalized']}")
     print(f"Tokens: {processed['tokens']}")
     print(f"Filtered (No Stopwords): {processed['filtered_tokens']}")
-    
+
     # Check stopword removal
-    if 'है' not in processed['filtered_tokens'] and 'और' not in processed['filtered_tokens']:
+    if (
+        "है" not in processed["filtered_tokens"]
+        and "और" not in processed["filtered_tokens"]
+    ):
         print("✅ Stopwords removed correctly")
     else:
         print("❌ Stopword removal failed")
 
-def test_multilingual_search_flow():
+
+def test_multilingual_search_flow() -> None:
     print("\n--- Testing Multilingual Search Flow ---")
     ms = MultilingualSearch()
-    
+
     query = "धर्म क्या है?"
     print(f"Processing Query: {query}")
-    
+
     result = ms.process_query(query)
     print(f"Detected Language: {result['language']}")
     print(f"Processed Text: {result['processed_text']}")
     print(f"Embedding Shape: {len(result['embedding'])}")
-    
-    if len(result['embedding']) == 1024:
+
+    if len(result["embedding"]) == 1024:
         print("✅ Embedding generated (1024 dim)")
     else:
         print(f"❌ Embedding dimension mismatch: {len(result['embedding'])}")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     test_language_detection()
     test_hindi_processing()
     test_multilingual_search_flow()

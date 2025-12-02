@@ -1,14 +1,14 @@
 """Embedding management using Vyakyarth."""
 
-from typing import List, Union
+import logging
 import os
+from typing import List, Union
+
 import numpy as np
 from sentence_transformers import SentenceTransformer
-import logging
 
 logger = logging.getLogger(__name__)
 
-from src.core.profiler import profile_function
 
 class EmbeddingManager:
     """Manages text embeddings using Sentence Transformers."""
@@ -17,13 +17,13 @@ class EmbeddingManager:
         """Initialize embedding manager."""
         # Use environment variables for cache
         cache_dir = os.getenv("HF_HOME", os.path.expanduser("~/.cache/huggingface"))
-        
+
         logger.info(f"Loading embedding model: {model_name}")
         logger.info(f"Cache directory: {cache_dir}")
-        
+
         try:
             self.model = SentenceTransformer(model_name, cache_folder=cache_dir)
-            
+
             self.embedding_dim = self.model.get_sentence_embedding_dimension()
             logger.info(f"Embedding model loaded (dim: {self.embedding_dim})")
         except Exception as e:
@@ -31,9 +31,7 @@ class EmbeddingManager:
             raise
 
     def embed_text(
-        self,
-        text: Union[str, List[str]],
-        normalize: bool = True
+        self, text: Union[str, List[str]], normalize: bool = True
     ) -> Union[List[float], List[List[float]]]:
         """Generate embeddings for text."""
         try:
@@ -41,17 +39,17 @@ class EmbeddingManager:
                 text,
                 convert_to_tensor=False,
                 normalize_embeddings=normalize,
-                show_progress_bar=False
+                show_progress_bar=False,
             )
 
             if isinstance(text, str):
-                if hasattr(embeddings, 'tolist'):
-                    return embeddings.tolist()
+                if hasattr(embeddings, "tolist"):
+                    return list(embeddings.tolist())
                 return list(embeddings)
             else:
                 result = []
                 for e in embeddings:
-                    if hasattr(e, 'tolist'):
+                    if hasattr(e, "tolist"):
                         result.append(e.tolist())
                     else:
                         result.append(list(e))
@@ -66,13 +64,13 @@ class EmbeddingManager:
         try:
             embeddings = []
             for i in range(0, len(texts), batch_size):
-                batch = texts[i:i+batch_size]
+                batch = texts[i : i + batch_size]
                 emb = self.model.encode(
                     batch,
                     batch_size=batch_size,
                     show_progress_bar=False,
                     normalize_embeddings=True,
-                    convert_to_tensor=False
+                    convert_to_tensor=False,
                 )
                 embeddings.extend(emb.tolist())
             return embeddings
