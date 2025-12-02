@@ -6,12 +6,12 @@ class MarathiProcessor(HindiProcessor):
     def __init__(self):
         # Override Hindi stop words with Marathi stop words
         self.stop_words = set([
-            'ahe', 'aahet', 'hote', 'hoti', 'hota',
-            'ha', 'hi', 'he', 'ya', 'tyaa',
-            'v', 'kinva', 'parantu', 'kaaran', 'mhanun',
-            'aasanya', 'tari', 'saare', 'pratyek', 'kahi',
-            'pan', 'tyala', 'tila', 'mi', 'tumhi', 'apan',
-            'aahe', 'nahit', 'nahi', 'aahes', 'hoto'
+            'आहे', 'आहेत', 'होते', 'होती', 'होता',
+            'हा', 'ही', 'हे', 'या', 'त्या',
+            'व', 'किंवा', 'परंतु', 'कारण', 'म्हणून',
+            'असून', 'तरी', 'सारे', 'प्रत्येक', 'काही',
+            'पण', 'त्याला', 'तिला', 'मी', 'तुम्ही', 'आपण',
+            'नाही', 'नाहीत', 'आहेस', 'होतो'
         ])
     
     # Inherits normalize, tokenize, remove_stopwords from HindiProcessor

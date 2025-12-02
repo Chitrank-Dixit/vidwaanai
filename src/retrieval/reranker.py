@@ -4,15 +4,21 @@ from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 
+try:
+    from sentence_transformers import CrossEncoder
+except ImportError:
+    CrossEncoder = None
+
 class ContextAwareReranker:
     def __init__(self, model_name: str = 'cross-encoder/ms-marco-MiniLM-L-6-v2'):
-        try:
-            from sentence_transformers import CrossEncoder
-            self.model = CrossEncoder(model_name)
-            logger.info(f"Initialized ContextAwareReranker with model: {model_name}")
-        except ImportError:
+        if CrossEncoder is None:
             logger.error("sentence-transformers not installed. Reranking disabled.")
             self.model = None
+            return
+
+        try:
+            self.model = CrossEncoder(model_name)
+            logger.info(f"Initialized ContextAwareReranker with model: {model_name}")
         except Exception as e:
             logger.error(f"Failed to load reranker model: {e}")
             self.model = None

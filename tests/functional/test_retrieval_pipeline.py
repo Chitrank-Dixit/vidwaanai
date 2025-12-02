@@ -10,8 +10,9 @@ class TestRetrievalPipeline:
     
     @pytest.fixture(scope="class")
     def db_manager(self):
-        # Use test database URL from environment
-        db_url = os.getenv("DATABASE_URL")
+        # Use test database URL from settings
+        from src.core.config import settings
+        db_url = settings.DATABASE_URL
         manager = DatabaseManager(db_url)
         return manager
 

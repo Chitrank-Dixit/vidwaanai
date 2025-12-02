@@ -41,3 +41,53 @@ class TestEmbeddingManager:
             assert len(embeddings[0]) == 384
             assert embeddings[0][0] == 0.1
             assert embeddings[1][0] == 0.2
+
+    def test_embed_text_list_input(self, embedding_manager):
+        """Test embed_text with list input"""
+        texts = ["Text 1", "Text 2"]
+        with patch.object(embedding_manager.model, 'encode') as mock_encode:
+            mock_encode.return_value = np.array([[0.1]*384, [0.2]*384])
+            
+            embeddings = embedding_manager.embed_text(texts)
+            assert isinstance(embeddings, list)
+            assert len(embeddings) == 2
+            assert len(embeddings[0]) == 384
+
+    def test_similarity(self):
+        """Test similarity calculation"""
+        vec1 = [1.0, 0.0, 0.0]
+        vec2 = [1.0, 0.0, 0.0]
+        vec3 = [0.0, 1.0, 0.0]
+        
+        # Exact match
+        sim1 = EmbeddingManager.similarity(vec1, vec2)
+        assert abs(sim1 - 1.0) < 0.0001
+        
+        # Orthogonal
+        sim2 = EmbeddingManager.similarity(vec1, vec3)
+        assert abs(sim2 - 0.0) < 0.0001
+        
+        # Zero vector handling
+        sim3 = EmbeddingManager.similarity(vec1, [0.0, 0.0, 0.0])
+        assert sim3 == 0.0
+
+    def test_embed_text_error(self, embedding_manager):
+        """Test error handling in embed_text"""
+        with patch.object(embedding_manager.model, 'encode', side_effect=Exception("Model error")):
+            with pytest.raises(Exception) as exc:
+                embedding_manager.embed_text("text")
+            assert "Model error" in str(exc.value)
+
+    def test_embed_batch_error(self, embedding_manager):
+        """Test error handling in embed_batch"""
+        with patch.object(embedding_manager.model, 'encode', side_effect=Exception("Batch error")):
+            with pytest.raises(Exception) as exc:
+                embedding_manager.embed_batch(["text"])
+            assert "Batch error" in str(exc.value)
+
+    def test_initialization_error(self):
+        """Test initialization error"""
+        with patch('src.rag.embeddings.SentenceTransformer', side_effect=Exception("Init failed")):
+            with pytest.raises(Exception) as exc:
+                EmbeddingManager()
+            assert "Init failed" in str(exc.value)
