@@ -3,7 +3,7 @@ from src.agent.vidwaan_agent import VidwaanAI
 from src.db.db_manager import DatabaseManager
 from src.graph.graph_builder import GraphBuilder
 from unittest.mock import MagicMock, patch
-from typing import Generator, Any
+from typing import Generator
 
 # Mark as e2e test
 pytestmark = pytest.mark.e2e

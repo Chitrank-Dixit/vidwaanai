@@ -1,6 +1,6 @@
 import pytest
 import time
-from typing import Generator, cast
+from typing import Generator
 from unittest.mock import patch, MagicMock
 from src.agent.vidwaan_agent import VidwaanAI
 

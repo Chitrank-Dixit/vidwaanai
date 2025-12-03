@@ -3,10 +3,10 @@ from functools import wraps
 
 from src.core.logger import get_logger
 
+from typing import Any, Callable, TypeVar
+
 logger = get_logger(__name__)
 
-
-from typing import Any, Callable, TypeVar
 
 F = TypeVar("F", bound=Callable[..., Any])
 

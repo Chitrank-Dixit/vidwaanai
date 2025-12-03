@@ -20,7 +20,6 @@ class TestRetrievalPipeline:
     def embedding_manager(self) -> Any:
         # Mock embedding manager to return 384 dim vectors to match DB schema
         from unittest.mock import MagicMock
-        from typing import Any
 
         manager = MagicMock()
         manager.embed_text.side_effect = lambda text: [0.1] * 384

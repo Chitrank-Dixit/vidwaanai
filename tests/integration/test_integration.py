@@ -1,5 +1,5 @@
 import pytest
-from typing import Generator, cast, Any
+from typing import Generator, cast
 from unittest.mock import patch, MagicMock
 from src.agent.vidwaan_agent import VidwaanAI
 

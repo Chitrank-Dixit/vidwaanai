@@ -2,6 +2,7 @@ import functools
 import time
 
 from prometheus_client import Counter, Gauge, Histogram
+from typing import Any, Callable, List, TypeVar
 
 # Metrics definitions
 QUERY_COUNTER = Counter(
@@ -16,9 +17,6 @@ RETRIEVAL_QUALITY = Gauge(
 DB_CONNECTION_POOL = Gauge(
     "vidwaan_db_pool_size", "Current database connection pool usage"
 )
-
-
-from typing import Any, Callable, List, TypeVar
 
 F = TypeVar("F", bound=Callable[..., Any])
 
