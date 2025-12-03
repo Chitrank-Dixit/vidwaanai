@@ -26,7 +26,7 @@ jobs:
 
     - name: Build MCP Server Image
       run: |
-        docker build -t mcp-server -f Dockerfile.mcp .
+        docker build -t mcp-server -f Dockerfile.mcp --target test .
 
     - name: Run MCP Unit Tests
       # We run tests inside the container to ensure environment consistency

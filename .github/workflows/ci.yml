@@ -425,7 +425,7 @@ jobs:
           docker build \
             -f Dockerfile.mcp \
             -t ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
-            --target runtime \
+            --target test \
           .
 
       - name: Run MCP integration tests

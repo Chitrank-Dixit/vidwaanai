@@ -27,10 +27,11 @@ COPY pyproject.toml uv.lock ./
 # Install dependencies
 # --frozen: sync exactly from uv.lock
 # --all-groups: install dev dependencies too (needed for tests/linting)
+ENV UV_PROJECT_ENVIRONMENT="/opt/venv"
 RUN uv sync --frozen --all-groups
 
 # Set environment to use uv's venv
-ENV PATH="/workspace/.venv/bin:$PATH"
+ENV PATH="/opt/venv/bin:$PATH"
 ENV PYTHONPATH=/workspace
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
