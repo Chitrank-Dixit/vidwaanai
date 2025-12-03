@@ -1,4 +1,7 @@
 import json
+
+# ruff: noqa: E402
+
 import os
 import sys
 from dotenv import load_dotenv
@@ -8,7 +11,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
 from src.evaluation.retriever_evaluator import RetrieverEvaluator  # noqa: E402
-from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline  # noqa: E402
+from src.retrieval.advanced_retrieval_pipeline import (
+    AdvancedRetrievalPipeline,
+)  # noqa: E402
 from src.retrieval.bm25_search import BM25Search  # noqa: E402
 from src.retrieval.hybrid_search import HybridSearch  # noqa: E402
 from src.db.db_manager import DatabaseManager  # noqa: E402
