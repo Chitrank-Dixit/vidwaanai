@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for CI/CD - Linting and Testing
+# Multi-stage Dockerfile for CI/CD - Linting and Testing using uv
 
 # ============================================================================
 # BASE STAGE - Common dependencies
@@ -14,25 +14,33 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     postgresql-client \
+    libpq-dev \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies
+# --frozen: sync exactly from uv.lock
+# --all-groups: install dev dependencies too (needed for tests/linting)
+RUN uv sync --frozen --all-groups
+
+# Set environment to use uv's venv
+ENV PATH="/workspace/.venv/bin:$PATH"
+ENV PYTHONPATH=/workspace
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # ============================================================================
 # RUFF LINTING STAGE
 # ============================================================================
 
 FROM base as ruff
-
-# Install ruff (ultra-fast Python linter)
-RUN pip install --no-cache-dir ruff
-
-# Set working directory
-WORKDIR /workspace
-
-# Command will be overridden by docker run
+COPY src/ src/
 CMD ["ruff", "check", "src/"]
 
 # ============================================================================
@@ -40,13 +48,8 @@ CMD ["ruff", "check", "src/"]
 # ============================================================================
 
 FROM base as black
-
-# Install black (code formatter)
-RUN pip install --no-cache-dir black
-
-WORKDIR /workspace
-
-# Check if code is formatted
+COPY src/ src/
+COPY tests/ tests/
 CMD ["black", "--check", "src/", "tests/"]
 
 # ============================================================================
@@ -54,17 +57,7 @@ CMD ["black", "--check", "src/", "tests/"]
 # ============================================================================
 
 FROM base as mypy
-
-# Install mypy and type stubs
-RUN pip install --no-cache-dir \
-    mypy \
-    types-requests \
-    types-redis \
-    types-PyYAML
-
-WORKDIR /workspace
-
-# Run mypy type checking
+COPY src/ src/
 CMD ["mypy", "src/", "--ignore-missing-imports"]
 
 # ============================================================================
@@ -73,32 +66,8 @@ CMD ["mypy", "src/", "--ignore-missing-imports"]
 
 FROM base as test
 
-# Install test dependencies
-RUN pip install --no-cache-dir \
-    pytest \
-    pytest-cov \
-    pytest-asyncio \
-    pytest-timeout \
-    pytest-xdist \
-    responses \
-    factory-boy \
-    faker
-
-# Install dev dependencies
-RUN pip install --no-cache-dir \
-    black \
-    ruff \
-    mypy
-
-WORKDIR /workspace
-
 # Copy entire project
 COPY . .
-
-# Set environment for testing
-ENV PYTHONPATH=/workspace
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
 
 # Create test results directory
 RUN mkdir -p test-results
@@ -120,15 +89,7 @@ CMD ["pytest", \
 # ============================================================================
 
 FROM base as security
-
-# Install security scanning tools
-RUN pip install --no-cache-dir \
-    bandit \
-    safety
-
-WORKDIR /workspace
-
-# Run security checks
+COPY src/ src/
 CMD ["sh", "-c", "bandit -r src/ && safety check"]
 
 # ============================================================================
@@ -136,16 +97,8 @@ CMD ["sh", "-c", "bandit -r src/ && safety check"]
 # ============================================================================
 
 FROM base as docs
-
-# Install documentation tools
-RUN pip install --no-cache-dir \
-    sphinx \
-    sphinx-rtd-theme \
-    sphinx-autodoc-typehints
-
-WORKDIR /workspace
-
-# Build documentation
+COPY docs/ docs/
+COPY src/ src/
 CMD ["sphinx-build", "-b", "html", "docs", "docs/_build/html"]
 
 # ============================================================================
@@ -153,29 +106,6 @@ CMD ["sphinx-build", "-b", "html", "docs", "docs/_build/html"]
 # ============================================================================
 
 FROM base as ci
-
-# Install all CI tools and dependencies
-RUN pip install --no-cache-dir \
-    pytest \
-    pytest-cov \
-    pytest-asyncio \
-    pytest-timeout \
-    pytest-xdist \
-    pytest-benchmark \
-    responses \
-    factory-boy \
-    faker \
-    black \
-    ruff \
-    mypy \
-    types-requests \
-    types-redis \
-    types-PyYAML \
-    bandit \
-    safety \
-    coverage
-
-WORKDIR /workspace
 
 # Copy entire project
 COPY . .
@@ -186,11 +116,6 @@ RUN mkdir -p \
     coverage-reports \
     security-reports \
     lint-reports
-
-# Set environment
-ENV PYTHONPATH=/workspace
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
 
 # Default: show help
 CMD ["pytest", "--help"]
