@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
 
+
 class Settings(BaseSettings):
     # tell pydantic-settings to read .env and ignore any keys you haven't modeled yet
     model_config = SettingsConfigDict(
@@ -14,7 +15,9 @@ class Settings(BaseSettings):
     KRUTRIM_API_KEY: Optional[str] = None
 
     # Database
-    DATABASE_URL: str = "postgresql://vidwaan_user:vidwaan_password@localhost:5432/vidwaan_db"
+    DATABASE_URL: str = (
+        "postgresql://vidwaan_user:vidwaan_password@localhost:5432/vidwaan_db"
+    )
 
     # LLM / embeddings
     EMBEDDING_MODEL: str = "krutrim-ai-labs/Vyakyarth"

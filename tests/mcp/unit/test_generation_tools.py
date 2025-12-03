@@ -1,5 +1,10 @@
 import pytest
-from src.mcp.tools.generation_tools import generate_answer, summarize_results, translate_answer
+from src.mcp.tools.generation_tools import (
+    generate_answer,
+    summarize_results,
+    translate_answer,
+)
+
 
 def test_generate_answer():
     context = ["Context 1", "Context 2"]
@@ -7,11 +12,13 @@ def test_generate_answer():
     assert "answer" in result
     assert "citations" in result
 
+
 def test_summarize_results():
     docs = ["Doc 1", "Doc 2"]
     result = summarize_results(docs, "en")
     assert "summary" in result
     assert "key_points" in result
+
 
 def test_translate_answer():
     result = translate_answer("Hello", "hi")

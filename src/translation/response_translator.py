@@ -4,28 +4,31 @@ from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 
+
 class ResponseTranslator:
     def __init__(self):
         # Load translation models lazily or on init
         # For MVP, we'll load on demand or keep a cache
         self.models = {}
         self.tokenizers = {}
-        
+
         # Supported pairs (Source -> Target)
         # Using Helsinki-NLP models from Hugging Face
         self.model_map = {
-            'en_to_hi': 'Helsinki-NLP/opus-mt-en-hi',
-            'hi_to_en': 'Helsinki-NLP/opus-mt-hi-en',
+            "en_to_hi": "Helsinki-NLP/opus-mt-en-hi",
+            "hi_to_en": "Helsinki-NLP/opus-mt-hi-en",
             # Note: Direct models for other Indian languages might be limited in Opus-MT
             # We might need to pivot through English or use a multilingual model like NLLB later
             # For now, let's stick to what's reliably available or fallback to English
         }
-        
+
     def _load_model(self, model_name: str):
         if model_name not in self.models:
             logger.info(f"Loading translation model: {model_name}")
             try:
-                self.tokenizers[model_name] = MarianTokenizer.from_pretrained(model_name)
+                self.tokenizers[model_name] = MarianTokenizer.from_pretrained(
+                    model_name
+                )
                 self.models[model_name] = MarianMTModel.from_pretrained(model_name)
             except Exception as e:
                 logger.error(f"Failed to load model {model_name}: {e}")
@@ -36,27 +39,29 @@ class ResponseTranslator:
         """Translate text from source to target language"""
         if source_lang == target_lang:
             return text
-            
+
         key = f"{source_lang}_to_{target_lang}"
         model_name = self.model_map.get(key)
-        
+
         if not model_name:
             logger.warning(f"No translation model found for {key}")
             return text
-            
+
         model = self._load_model(model_name)
         if not model:
             return text
-            
+
         tokenizer = self.tokenizers[model_name]
-        
+
         # Tokenize
-        inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=512)
-        
+        inputs = tokenizer(
+            text, return_tensors="pt", padding=True, truncation=True, max_length=512
+        )
+
         # Generate
         with torch.no_grad():
             translated = model.generate(**inputs)
-            
+
         # Decode
         result = tokenizer.decode(translated[0], skip_special_tokens=True)
         return result

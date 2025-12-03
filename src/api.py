@@ -6,6 +6,7 @@ from src.core.config import settings
 
 app = FastAPI(title="VidwaanAI API", description="API for VidwaanAI Agent")
 
+
 # Dependency to get agent
 def get_agent():
     # In a real app, we might want to reuse the agent instance or use a dependency injection framework
@@ -19,14 +20,16 @@ def get_agent():
             enable_graph_rag=settings.ENABLE_GRAPH_RAG,
             neo4j_uri=settings.NEO4J_URI,
             neo4j_user=settings.NEO4J_USER,
-            neo4j_password=settings.NEO4J_PASSWORD
+            neo4j_password=settings.NEO4J_PASSWORD,
         )
     return app.state.agent
+
 
 class QueryRequest(BaseModel):
     text: str
     language: Optional[str] = "en"
     scripture_filter: Optional[str] = None
+
 
 class QueryResponse(BaseModel):
     answer: str
@@ -35,9 +38,11 @@ class QueryResponse(BaseModel):
     confidence: Dict[str, Any]
     timestamp: str
 
+
 @app.get("/health")
 def health_check():
     return {"status": "healthy"}
+
 
 @app.post("/query", response_model=QueryResponse)
 def query(request: QueryRequest, agent: VidwaanAI = Depends(get_agent)):
@@ -45,7 +50,7 @@ def query(request: QueryRequest, agent: VidwaanAI = Depends(get_agent)):
         response = agent.query(
             question=request.text,
             language=request.language,
-            scripture_filter=request.scripture_filter
+            scripture_filter=request.scripture_filter,
         )
         return response
     except Exception as e:

@@ -8,6 +8,7 @@ from src.core.profiler import profile_function
 
 logger = get_logger(__name__)
 
+
 class OpenAIClient:
     """OpenAI API client for LLM calls."""
 
@@ -19,21 +20,21 @@ class OpenAIClient:
 
     @profile_function
     def generate(
-        self,
-        prompt: str,
-        max_tokens: int = 500,
-        temperature: float = 0.3
+        self, prompt: str, max_tokens: int = 500, temperature: float = 0.3
     ) -> str:
         """Generate response from LLM."""
         try:
             response = openai.ChatCompletion.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "You are a knowledgeable assistant about Indian scriptures."},
-                    {"role": "user", "content": prompt}
+                    {
+                        "role": "system",
+                        "content": "You are a knowledgeable assistant about Indian scriptures.",
+                    },
+                    {"role": "user", "content": prompt},
                 ],
                 max_tokens=max_tokens,
-                temperature=temperature
+                temperature=temperature,
             )
 
             return response.choices[0].message.content.strip()

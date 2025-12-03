@@ -11,6 +11,7 @@ import json
 
 logger = logging.getLogger(__name__)
 
+
 class DatabaseManager:
     """Manages database connections and operations."""
 
@@ -18,14 +19,14 @@ class DatabaseManager:
         """Initialize database manager."""
         self.db_url = db_url
         logger.info("Database manager initialized")
-        
+
         # Parse connection string
         try:
             parts = self.db_url.replace("postgresql://", "").split("@")
             user_pass = parts[0].split(":")
             host_db = parts[1].split("/")
             host_port = host_db[0].split(":")
-            
+
             self.pool = ThreadedConnectionPool(
                 minconn=2,
                 maxconn=10,
@@ -33,7 +34,7 @@ class DatabaseManager:
                 user=user_pass[0],
                 password=user_pass[1],
                 host=host_port[0],
-                port=host_port[1] if len(host_port) > 1 else "5432"
+                port=host_port[1] if len(host_port) > 1 else "5432",
             )
         except Exception as e:
             logger.error(f"Failed to create connection pool: {str(e)}")
@@ -53,11 +54,9 @@ class DatabaseManager:
             if conn:
                 self.pool.putconn(conn)
 
-
-
     def get_scriptures(self) -> List[Dict]:
         """Get all loaded scriptures."""
-        # This method implementation seems broken in original file (references undefined 'name'), 
+        # This method implementation seems broken in original file (references undefined 'name'),
         # but I will update the connection usage pattern regardless.
         # Actually, looking at the original code, get_scriptures seems to have copy-pasted logic from add_scripture?
         # It tries to INSERT... that's wrong for get_scriptures.
@@ -86,13 +85,15 @@ class DatabaseManager:
                         ON CONFLICT (name) DO NOTHING
                         RETURNING id
                         """,
-                        (name, language, description)
+                        (name, language, description),
                     )
                     result = cursor.fetchone()
                     if result:
                         scripture_id = result[0]
                     else:
-                        cursor.execute("SELECT id FROM scriptures WHERE name = %s", (name,))
+                        cursor.execute(
+                            "SELECT id FROM scriptures WHERE name = %s", (name,)
+                        )
                         scripture_id = cursor.fetchone()[0]
                     conn.commit()
                     return scripture_id
@@ -111,7 +112,7 @@ class DatabaseManager:
         text: str,
         translation: str,
         themes: List[str],
-        speakers: List[str]
+        speakers: List[str],
     ) -> int:
         """Add a verse to database."""
         try:
@@ -124,13 +125,24 @@ class DatabaseManager:
                         ON CONFLICT (scripture_id, chapter_number, verse_number) DO NOTHING
                         RETURNING id
                         """,
-                        (scripture_id, chapter, verse_num, text, translation, themes, speakers)
+                        (
+                            scripture_id,
+                            chapter,
+                            verse_num,
+                            text,
+                            translation,
+                            themes,
+                            speakers,
+                        ),
                     )
                     result = cursor.fetchone()
                     if result:
                         verse_id = result[0]
                     else:
-                        cursor.execute("SELECT id FROM verses WHERE scripture_id = %s AND chapter_number = %s AND verse_number = %s", (scripture_id, chapter, verse_num))
+                        cursor.execute(
+                            "SELECT id FROM verses WHERE scripture_id = %s AND chapter_number = %s AND verse_number = %s",
+                            (scripture_id, chapter, verse_num),
+                        )
                         verse_id = cursor.fetchone()[0]
                     conn.commit()
                     return verse_id
@@ -141,7 +153,9 @@ class DatabaseManager:
             logger.error(f"Error adding verse: {str(e)}")
             raise
 
-    def add_embedding(self, verse_id: int, embedding: List[float], language: str) -> None:
+    def add_embedding(
+        self, verse_id: int, embedding: List[float], language: str
+    ) -> None:
         """Add embedding for a verse."""
         try:
             with self._get_connection() as conn:
@@ -155,7 +169,7 @@ class DatabaseManager:
                         VALUES (%s, %s, %s, %s, %s)
                         ON CONFLICT (verse_id, language, chunk_index) DO UPDATE SET embedding = EXCLUDED.embedding, processed = EXCLUDED.processed;
                         """,
-                        (verse_id, embedding_str, language, 0, False)
+                        (verse_id, embedding_str, language, 0, False),
                     )
                     conn.commit()
         except Exception as e:
@@ -170,19 +184,21 @@ class DatabaseManager:
         self,
         query_embedding: List[float],
         scripture_filter: Optional[str] = None,
-        top_k: int = 5
+        top_k: int = 5,
     ) -> List[Dict]:
         """Retrieve verses similar to query embedding."""
         try:
             with self._get_connection() as conn:
                 with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-                    embedding_str = "[" + ",".join(str(e) for e in query_embedding) + "]"
+                    embedding_str = (
+                        "[" + ",".join(str(e) for e in query_embedding) + "]"
+                    )
 
                     # Build query with vector similarity
                     where_clause = ""
                     # Params for WHERE and LIMIT
                     middle_params = []
-                    
+
                     if scripture_filter:
                         where_clause = "AND s.name = %s"
                         middle_params.append(scripture_filter)
@@ -214,22 +230,24 @@ class DatabaseManager:
                         result = [dict(row) for row in rows]
                     except Exception as e:
                         # Fallback if vector search fails
-                        logger.warning(f"Vector search failed: {e}, returning sample results")
-                        conn.rollback() # Rollback transaction to recover from error
+                        logger.warning(
+                            f"Vector search failed: {e}, returning sample results"
+                        )
+                        conn.rollback()  # Rollback transaction to recover from error
                         cursor.execute(
                             f"""SELECT v.id, s.name as scripture, v.chapter_number as chapter, v.verse_number as verse,
                                    v.verse_text as text, v.translation_en as translation
                                FROM verses v
                                JOIN scriptures s ON v.scripture_id = s.id
-                               {where_clause.replace('AND ', 'WHERE ')}
+                               {where_clause.replace("AND ", "WHERE ")}
                                ORDER BY v.id DESC LIMIT %s""",
-                            [scripture_filter] if scripture_filter else [top_k]
+                            [scripture_filter] if scripture_filter else [top_k],
                         )
                         rows = cursor.fetchall()
                         result = [dict(row) for row in rows]
                         for row in result:
-                            row['similarity'] = 0.95
-                    
+                            row["similarity"] = 0.95
+
                     return result
 
         except Exception as e:
@@ -242,7 +260,7 @@ class DatabaseManager:
         response_text: str,
         language: str,
         retrieved_count: int,
-        timestamp: datetime
+        timestamp: datetime,
     ) -> None:
         """Log user query."""
         try:
@@ -251,7 +269,7 @@ class DatabaseManager:
                     cursor.execute(
                         """INSERT INTO user_queries (query_text, language, response_text, retrieved_verse_ids)
                            VALUES (%s, %s, %s, %s)""",
-                        (query_text, language, response_text, [])
+                        (query_text, language, response_text, []),
                     )
                     conn.commit()
         except Exception as e:
@@ -265,14 +283,16 @@ class DatabaseManager:
         try:
             with self._get_connection() as conn:
                 with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-                    cursor.execute("""
+                    cursor.execute(
+                        """
                         SELECT v.id, v.verse_text as text, v.translation_en as translation, 
                                s.name as scripture_name, v.chapter_number, v.verse_number
                         FROM verses v
                         JOIN scriptures s ON v.scripture_id = s.id
                         ORDER BY s.name, v.chapter_number, v.verse_number
-                    """)
-                    
+                    """
+                    )
+
                     rows = cursor.fetchall()
                     return [dict(row) for row in rows]
         except Exception as e:

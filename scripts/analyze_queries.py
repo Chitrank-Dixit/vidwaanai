@@ -13,6 +13,7 @@ from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 
+
 def analyze_queries():
     db_url = os.getenv("DATABASE_URL")
     if not db_url:
@@ -27,13 +28,20 @@ def analyze_queries():
         try:
             cursor.execute("SELECT * FROM pg_stat_statements LIMIT 1")
         except psycopg2.errors.UndefinedTable:
-            logger.warning("pg_stat_statements extension not enabled or not accessible.")
-            logger.info("To enable: CREATE EXTENSION pg_stat_statements; in your database.")
-            logger.info("Note: It must also be added to shared_preload_libraries in postgresql.conf")
+            logger.warning(
+                "pg_stat_statements extension not enabled or not accessible."
+            )
+            logger.info(
+                "To enable: CREATE EXTENSION pg_stat_statements; in your database."
+            )
+            logger.info(
+                "Note: It must also be added to shared_preload_libraries in postgresql.conf"
+            )
             return
 
         print("\n--- Top 10 Slowest Queries ---")
-        cursor.execute("""
+        cursor.execute(
+            """
             SELECT 
                 substring(query, 1, 50) as query_snippet,
                 calls,
@@ -43,8 +51,9 @@ def analyze_queries():
             FROM pg_stat_statements
             ORDER BY mean_exec_time DESC
             LIMIT 10
-        """)
-        
+        """
+        )
+
         rows = cursor.fetchall()
         if rows:
             print(tabulate(rows, headers="keys", tablefmt="pretty"))
@@ -52,7 +61,8 @@ def analyze_queries():
             print("No query stats available.")
 
         print("\n--- Top 10 Most Frequent Queries ---")
-        cursor.execute("""
+        cursor.execute(
+            """
             SELECT 
                 substring(query, 1, 50) as query_snippet,
                 calls,
@@ -61,8 +71,9 @@ def analyze_queries():
             FROM pg_stat_statements
             ORDER BY calls DESC
             LIMIT 10
-        """)
-        
+        """
+        )
+
         rows = cursor.fetchall()
         if rows:
             print(tabulate(rows, headers="keys", tablefmt="pretty"))
@@ -70,8 +81,9 @@ def analyze_queries():
     except Exception as e:
         logger.error(f"Analysis failed: {e}")
     finally:
-        if 'conn' in locals() and conn:
+        if "conn" in locals() and conn:
             conn.close()
+
 
 if __name__ == "__main__":
     analyze_queries()

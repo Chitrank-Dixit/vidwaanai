@@ -11,6 +11,7 @@ from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 
+
 def explain_query(query_text: str, params: tuple = None):
     db_url = os.getenv("DATABASE_URL")
     if not db_url:
@@ -22,11 +23,11 @@ def explain_query(query_text: str, params: tuple = None):
         cursor = conn.cursor()
 
         print(f"\n--- Explaining Query ---\n{query_text}\n")
-        
+
         # Use EXPLAIN (ANALYZE, BUFFERS) for detailed stats
         # Note: This actually executes the query!
         cursor.execute(f"EXPLAIN (ANALYZE, BUFFERS) {query_text}", params)
-        
+
         plan = cursor.fetchall()
         for row in plan:
             print(row[0])
@@ -34,8 +35,9 @@ def explain_query(query_text: str, params: tuple = None):
     except Exception as e:
         logger.error(f"Explain failed: {e}")
     finally:
-        if 'conn' in locals() and conn:
+        if "conn" in locals() and conn:
             conn.close()
+
 
 if __name__ == "__main__":
     # Example usage with a common retrieval query

@@ -8,8 +8,8 @@ from src.language.malayalam_processor import MalayalamProcessor
 from src.language.bengali_processor import BengaliProcessor
 from src.language.marathi_processor import MarathiProcessor
 
-class TestLanguageProcessors:
 
+class TestLanguageProcessors:
     # --- Hindi Processor Tests ---
     @pytest.fixture
     def hindi_processor(self):
@@ -35,9 +35,9 @@ class TestLanguageProcessors:
     def test_hindi_preprocess(self, hindi_processor):
         text = "राम स्कूल जाता है।"
         result = hindi_processor.preprocess(text)
-        assert result['original'] == text
-        assert "है" not in result['filtered_tokens']
-        assert "राम" in result['filtered_tokens']
+        assert result["original"] == text
+        assert "है" not in result["filtered_tokens"]
+        assert "राम" in result["filtered_tokens"]
 
     # --- Gujarati Processor Tests ---
     @pytest.fixture
@@ -45,12 +45,12 @@ class TestLanguageProcessors:
         return GujaratiProcessor()
 
     def test_gujarati_preprocess(self, gujarati_processor):
-        text = "તમે કેમ છો?" # "How are you?"
+        text = "તમે કેમ છો?"  # "How are you?"
         result = gujarati_processor.preprocess(text)
-        assert result['original'] == text
+        assert result["original"] == text
         # Assuming 'cho' or similar might be stopword, verifying structure
-        assert isinstance(result['tokens'], list)
-        assert len(result['tokens']) > 0
+        assert isinstance(result["tokens"], list)
+        assert len(result["tokens"]) > 0
 
     # --- Tamil Processor Tests ---
     @pytest.fixture
@@ -58,10 +58,10 @@ class TestLanguageProcessors:
         return TamilProcessor()
 
     def test_tamil_preprocess(self, tamil_processor):
-        text = "வணக்கம் உலகம்" # Hello World
+        text = "வணக்கம் உலகம்"  # Hello World
         result = tamil_processor.preprocess(text)
-        assert result['normalized'] == "வணக்கம் உலகம்"
-        assert len(result['tokens']) == 2
+        assert result["normalized"] == "வணக்கம் உலகம்"
+        assert len(result["tokens"]) == 2
 
     # --- Telugu Processor Tests ---
     @pytest.fixture
@@ -71,7 +71,7 @@ class TestLanguageProcessors:
     def test_telugu_preprocess(self, telugu_processor):
         text = "నమస్కారం"
         result = telugu_processor.preprocess(text)
-        assert len(result['tokens']) == 1
+        assert len(result["tokens"]) == 1
 
     # --- Kannada Processor Tests ---
     @pytest.fixture
@@ -81,7 +81,7 @@ class TestLanguageProcessors:
     def test_kannada_preprocess(self, kannada_processor):
         text = "ನಮಸ್ಕಾರ"
         result = kannada_processor.preprocess(text)
-        assert len(result['tokens']) == 1
+        assert len(result["tokens"]) == 1
 
     # --- Malayalam Processor Tests ---
     @pytest.fixture
@@ -91,8 +91,8 @@ class TestLanguageProcessors:
     def test_malayalam_preprocess(self, malayalam_processor):
         text = "നമസ്കാരം"
         result = malayalam_processor.preprocess(text)
-        assert len(result['tokens']) == 1
-        
+        assert len(result["tokens"]) == 1
+
     # --- Bengali Processor Tests ---
     @pytest.fixture
     def bengali_processor(self):
@@ -101,7 +101,7 @@ class TestLanguageProcessors:
     def test_bengali_preprocess(self, bengali_processor):
         text = "নমস্কার"
         result = bengali_processor.preprocess(text)
-        assert len(result['tokens']) == 1
+        assert len(result["tokens"]) == 1
 
     # --- Marathi Processor Tests ---
     @pytest.fixture
@@ -111,8 +111,8 @@ class TestLanguageProcessors:
     def test_marathi_preprocess(self, marathi_processor):
         text = "नमस्कार"
         result = marathi_processor.preprocess(text)
-        assert len(result['tokens']) == 1
-        
+        assert len(result["tokens"]) == 1
+
     def test_marathi_stopwords(self, marathi_processor):
         # 'aahe' is a stopword in Marathi
         tokens = ["पुस्तक", "येथे", "आहे"]

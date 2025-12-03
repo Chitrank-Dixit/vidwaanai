@@ -1,8 +1,8 @@
 import pytest
 from src.rag.chunking import TextChunker
 
+
 class TestDocumentIngestion:
-    
     @pytest.fixture
     def chunker(self):
         return TextChunker(chunk_size=10, chunk_overlap=2)
@@ -36,34 +36,34 @@ class TestDocumentIngestion:
         assert chunks[1] == "DEFG"
         assert chunks[2] == "G"
         # Check overlap
-        assert chunks[0][-2:] == chunks[1][:2] # "DE"
+        assert chunks[0][-2:] == chunks[1][:2]  # "DE"
 
     def test_empty_text(self, chunker):
         chunks = chunker.chunk_text("")
         assert chunks == []
 
     def test_none_text(self, chunker):
-        chunks = chunker.chunk_text(None) # type: ignore
+        chunks = chunker.chunk_text(None)  # type: ignore
         assert chunks == []
 
     def test_create_documents(self, chunker):
         text = "1234567890ABC"
         metadata = {"source": "test", "id": 1}
         docs = chunker.create_documents(text, metadata)
-        
+
         assert len(docs) == 2
         assert docs[0].text == "1234567890"
         assert docs[0].metadata == metadata
         assert docs[1].text == "90ABC"
         assert docs[1].metadata == metadata
-        
-        # Verify metadata copy (modifying one shouldn't affect other if deep copy needed, 
+
+        # Verify metadata copy (modifying one shouldn't affect other if deep copy needed,
         # but here it's shallow copy of dict, which is fine as long as dict itself is new object)
         docs[0].metadata["id"] = 2
-        assert docs[1].metadata["id"] == 1 # Wait, check implementation. 
+        assert docs[1].metadata["id"] == 1  # Wait, check implementation.
         # Implementation: documents.append(Document(chunk, metadata.copy()))
         # So it IS a copy.
-        
+
     def test_chunk_overlap_larger_than_size(self):
         """Test behavior when overlap is larger than chunk size"""
         chunker = TextChunker(chunk_size=10, chunk_overlap=12)
@@ -71,7 +71,7 @@ class TestDocumentIngestion:
         # Should handle gracefully, likely treating overlap as smaller or advancing by 1
         chunks = chunker.chunk_text(text)
         assert len(chunks) > 0
-        
+
     def test_chunk_exact_size(self, chunker):
         """Test text exactly equal to chunk size"""
         text = "1234567890"
