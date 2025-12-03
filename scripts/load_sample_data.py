@@ -10,8 +10,8 @@ load_dotenv()
 # Add src to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/..")
 
-from src.db.db_manager import DatabaseManager
-from src.rag.embeddings import EmbeddingManager
+from src.db.db_manager import DatabaseManager  # noqa: E402
+from src.rag.embeddings import EmbeddingManager  # noqa: E402
 
 
 def load_sample_data():

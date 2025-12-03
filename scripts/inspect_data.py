@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
-from src.db.db_manager import DatabaseManager
+from src.db.db_manager import DatabaseManager  # noqa: E402
 
 
 def inspect_data():

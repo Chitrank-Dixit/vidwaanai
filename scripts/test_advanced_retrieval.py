@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
-from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
-from src.retrieval.bm25_search import BM25Search
-from src.retrieval.hybrid_search import HybridSearch
-from src.db.db_manager import DatabaseManager
-from src.rag.embeddings import EmbeddingManager
-from src.core.logger import get_logger
+from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline  # noqa: E402
+from src.retrieval.bm25_search import BM25Search  # noqa: E402
+from src.retrieval.hybrid_search import HybridSearch  # noqa: E402
+from src.db.db_manager import DatabaseManager  # noqa: E402
+from src.rag.embeddings import EmbeddingManager  # noqa: E402
+from src.core.logger import get_logger  # noqa: E402
 
 logger = get_logger(__name__)
 

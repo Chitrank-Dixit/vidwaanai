@@ -12,11 +12,11 @@ def test_imports():
     """Test if all imports work."""
     print("Testing imports...")
     try:
-        import fastapi
-        import typer
-        import llama_index
-        from sentence_transformers import SentenceTransformer
-        import psycopg2
+        import fastapi  # noqa: F401
+        import typer  # noqa: F401
+        import llama_index  # noqa: F401
+        from sentence_transformers import SentenceTransformer  # noqa: F401
+        import psycopg2  # noqa: F401
 
         print("✓ All imports successful")
         return True

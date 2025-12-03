@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
-from src.language.language_detector import LanguageDetector
-from src.language.hindi_processor import HindiProcessor
-from src.rag.multilingual_search import MultilingualSearch
+from src.language.language_detector import LanguageDetector  # noqa: E402
+from src.language.hindi_processor import HindiProcessor  # noqa: E402
+from src.rag.multilingual_search import MultilingualSearch  # noqa: E402
 
 
 def test_language_detection():

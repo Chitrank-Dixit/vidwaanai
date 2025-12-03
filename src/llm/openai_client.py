@@ -2,6 +2,7 @@
 
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
+import openai
 
 logger = get_logger(__name__)
 

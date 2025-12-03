@@ -15,8 +15,8 @@ load_dotenv()
 
 logger = get_logger(__name__)
 
-from src.retrieval.bm25_search import BM25Search
-from src.retrieval.hybrid_search import HybridSearch
+from src.retrieval.bm25_search import BM25Search  # noqa: E402
+from src.retrieval.hybrid_search import HybridSearch  # noqa: E402
 
 
 def run_evaluation():

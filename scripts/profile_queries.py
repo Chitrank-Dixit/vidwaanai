@@ -37,7 +37,7 @@ class QueryProfiler:
 
         try:
             # Use the initialized agent directly
-            result = self.agent.query(question=query_text)
+            _ = self.agent.query(question=query_text)
             total_time = time.time() - start_time
 
             profile_data = {

@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
-from src.rag.multilingual_search import MultilingualSearch
-from src.db.db_manager import DatabaseManager
-from src.core.logger import get_logger
+from src.rag.multilingual_search import MultilingualSearch  # noqa: E402
+from src.db.db_manager import DatabaseManager  # noqa: E402
+from src.core.logger import get_logger  # noqa: E402
 
 logger = get_logger(__name__)
 
