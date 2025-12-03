@@ -14,7 +14,7 @@ from src.retrieval.reranker import ContextAwareReranker
 class TestContextAwareReranker(unittest.TestCase):
     def setUp(self) -> None:
         # Patch CrossEncoder to avoid loading real model
-        self.patcher = patch("sentence_transformers.CrossEncoder")
+        self.patcher = patch("src.retrieval.reranker.CrossEncoder")
         self.MockCrossEncoder = self.patcher.start()
         self.mock_model = self.MockCrossEncoder.return_value
 

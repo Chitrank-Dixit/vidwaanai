@@ -28,11 +28,8 @@ class TextChunker:
             chunks.append(chunk)
 
             # Move start pointer, accounting for overlap
-            start += self.chunk_size - self.chunk_overlap
-
-            # Prevent infinite loop if overlap >= chunk_size (though init should prevent this)
-            if self.chunk_overlap >= self.chunk_size:
-                start += 1
+            step = self.chunk_size - self.chunk_overlap
+            start += max(1, step)
 
         return chunks
 
