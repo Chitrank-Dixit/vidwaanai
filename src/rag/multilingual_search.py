@@ -25,10 +25,10 @@ logger = get_logger(__name__)
 
 
 class MultilingualSearch:
-    def __init__(self):
+    def __init__(self) -> None:
         self.detector = LanguageDetector()
         self.embeddings = MultilingualEmbeddings()
-        self.processors = {
+        self.processors: Dict[str, Any] = {
             "hi": HindiProcessor(),
             "gu": GujaratiProcessor(),
             "ta": TamilProcessor(),

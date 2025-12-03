@@ -1,7 +1,7 @@
 """Query routing and language detection."""
 
 import logging
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class QueryRouter:
 
     def route_query(
         self, question: str, language: str, scripture_filter: Optional[str] = None
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """Route query with filtering strategy."""
         return {
             "language": language,

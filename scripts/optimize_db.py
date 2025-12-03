@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def optimize_database():
+def optimize_database() -> None:
     """Create HNSW index for faster vector search."""
     db = DatabaseManager(settings.DATABASE_URL)
 

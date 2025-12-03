@@ -1,10 +1,12 @@
+from typing import List
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 
 
 class SynonymHandler:
-    def __init__(self):
+    def __init__(self) -> None:
         # Domain-specific synonyms for Indian scriptures
         self.synonyms = {
             "dharma": ["duty", "righteousness", "law", "virtue", "ethics"],
@@ -29,7 +31,7 @@ class SynonymHandler:
             "gita": ["bhagavad gita", "song of god"],
         }
 
-    def get_synonyms(self, term: str) -> list:
+    def get_synonyms(self, term: str) -> List[str]:
         """Get synonyms for a term"""
         term_lower = term.lower()
 
@@ -63,8 +65,10 @@ class SynonymHandler:
 
         # Remove duplicates while preserving order
         seen = set()
-        unique_terms = [
-            x for x in expanded_terms if not (x.lower() in seen or seen.add(x.lower()))
-        ]
+        unique_terms = []
+        for x in expanded_terms:
+            if x.lower() not in seen:
+                seen.add(x.lower())
+                unique_terms.append(x)
 
         return " ".join(unique_terms)

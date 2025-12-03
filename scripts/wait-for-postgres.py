@@ -5,7 +5,7 @@ import psycopg2
 from psycopg2 import OperationalError
 
 
-def wait_for_db():
+def wait_for_db() -> None:
     """Waits for the PostgreSQL database to be ready."""
     db_url = os.getenv("DATABASE_URL")
     if not db_url:

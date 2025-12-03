@@ -11,12 +11,12 @@ class HybridSearch:
 
     def __init__(
         self,
-        graph_retriever,
-        vector_db,
-        embedding_generator,
-        entity_extractor,
+        graph_retriever: Any,
+        vector_db: Any,
+        embedding_generator: Any,
+        entity_extractor: Any,
         alpha: float = 0.5,
-    ):
+    ) -> None:
         self.graph = graph_retriever
         self.vector = vector_db
         self.embeddings = embedding_generator
@@ -107,7 +107,7 @@ class HybridSearch:
                     "sources": [],
                 }
 
-    def _extract_query_entities(self, query: str) -> List[Dict]:
+    def _extract_query_entities(self, query: str) -> List[Dict[str, Any]]:
         """Extract entities from query using the extractor's LLM."""
         # This is a placeholder. Ideally we extend EntityExtractor.
         # For now, let's try to use the extractor's LLM to parse the query.
@@ -124,13 +124,13 @@ class HybridSearch:
 
             # Basic cleanup if needed
             response = response.replace("```json", "").replace("```", "").strip()
-            return json.loads(response)
+            return list(json.loads(response))
         except Exception as e:
             logger.error(f"Error extracting entities: {str(e)}")
             return []
 
     def _fuse_context(
-        self, graph_results: List[Dict], vector_results: List[Dict]
+        self, graph_results: List[Dict[str, Any]], vector_results: List[Dict[str, Any]]
     ) -> str:
         """Combine graph and vector results into a context string."""
         context_parts = []
@@ -153,7 +153,7 @@ class HybridSearch:
 
         return "\n".join(context_parts)
 
-    def _format_vector_context(self, vector_results: List[Dict]) -> str:
+    def _format_vector_context(self, vector_results: List[Dict[str, Any]]) -> str:
         parts = ["--- Scripture Verses ---"]
         for verse in vector_results:
             parts.append(

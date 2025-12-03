@@ -1,5 +1,5 @@
 import random
-from typing import Callable, Dict, List
+from typing import Any, Callable, Dict, List, Optional
 
 from src.core.logger import get_logger
 
@@ -7,17 +7,17 @@ logger = get_logger(__name__)
 
 
 class ABTesting:
-    def __init__(self):
-        self.variant_a_results = []
-        self.variant_b_results = []
+    def __init__(self) -> None:
+        self.variant_a_results: List[Dict[str, Any]] = []
+        self.variant_b_results: List[Dict[str, Any]] = []
 
     def run_test(
         self,
         queries: List[str],
-        variant_a: Callable,
-        variant_b: Callable,
-        num_samples: int = None,
-    ) -> Dict:
+        variant_a: Callable[[str], Dict[str, Any]],
+        variant_b: Callable[[str], Dict[str, Any]],
+        num_samples: Optional[int] = None,
+    ) -> Dict[str, Any]:
         """Run A/B test on variants"""
 
         if num_samples is None:
@@ -35,7 +35,9 @@ class ABTesting:
 
         return self.generate_report()
 
-    def evaluate_variant(self, query: str, variant_func: Callable) -> Dict:
+    def evaluate_variant(
+        self, query: str, variant_func: Callable[[str], Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """Evaluate single query with variant"""
         import time
 
@@ -69,9 +71,9 @@ class ABTesting:
                 "time": time.time() - start_time,
             }
 
-    def generate_report(self) -> Dict:
+    def generate_report(self) -> Dict[str, Any]:
         """Generate A/B test report"""
-        report = {
+        report: Dict[str, Any] = {
             "variant_a": {
                 "avg_time": self.calculate_avg("time", self.variant_a_results),
                 "success_rate": self.calculate_success_rate(self.variant_a_results),
@@ -101,12 +103,12 @@ class ABTesting:
 
         return report
 
-    def calculate_avg(self, metric: str, results: List[Dict]) -> float:
+    def calculate_avg(self, metric: str, results: List[Dict[str, Any]]) -> float:
         """Calculate average metric"""
         valid = [r[metric] for r in results if r.get("success") and metric in r]
         return sum(valid) / len(valid) if valid else 0.0
 
-    def calculate_success_rate(self, results: List[Dict]) -> float:
+    def calculate_success_rate(self, results: List[Dict[str, Any]]) -> float:
         """Calculate success rate"""
         if not results:
             return 0.0

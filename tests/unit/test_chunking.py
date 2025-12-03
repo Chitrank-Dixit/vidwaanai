@@ -4,21 +4,21 @@ from src.rag.chunking import TextChunker
 
 class TestTextChunker:
     @pytest.fixture
-    def chunker(self):
+    def chunker(self) -> TextChunker:
         return TextChunker(chunk_size=100, chunk_overlap=20)
 
-    def test_initialization(self, chunker):
+    def test_initialization(self, chunker: TextChunker) -> None:
         assert chunker.chunk_size == 100
         assert chunker.chunk_overlap == 20
 
-    def test_chunk_text_simple(self, chunker):
+    def test_chunk_text_simple(self, chunker: TextChunker) -> None:
         text = "This is a short text."
         chunks = chunker.chunk_text(text)
 
         assert len(chunks) == 1
         assert chunks[0] == text
 
-    def test_chunk_text_long(self, chunker):
+    def test_chunk_text_long(self, chunker: TextChunker) -> None:
         # Create text longer than chunk_size
         text = "word " * 30
         chunks = chunker.chunk_text(text)
@@ -27,7 +27,7 @@ class TestTextChunker:
         # Verify overlap (simplified check)
         # In a real scenario, we'd check exact overlap characters
 
-    def test_chunk_with_metadata(self, chunker):
+    def test_chunk_with_metadata(self, chunker: TextChunker) -> None:
         text = "This is a test text."
         metadata = {"source": "test"}
         chunks = chunker.create_documents(text, metadata)

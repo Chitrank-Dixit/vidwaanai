@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def test_imports():
+def test_imports() -> bool:
     """Test if all imports work."""
     print("Testing imports...")
     try:
@@ -25,7 +25,7 @@ def test_imports():
         return False
 
 
-def test_database():
+def test_database() -> bool:
     """Test database connection."""
     print("\nTesting database connection...")
     try:
@@ -58,7 +58,7 @@ def test_database():
         return False
 
 
-def test_embeddings():
+def test_embeddings() -> bool:
     """Test embedding model download."""
     print("\nTesting embeddings model...")
     try:
@@ -74,7 +74,7 @@ def test_embeddings():
         return False
 
 
-def test_openai():
+def test_openai() -> bool:
     """Test OpenAI API key."""
     print("\nTesting OpenAI API...")
     try:

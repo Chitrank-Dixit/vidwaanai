@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Any, Dict, List
 
 from src.core.logger import get_logger
 
@@ -7,7 +7,7 @@ logger = get_logger(__name__)
 try:
     from sentence_transformers import CrossEncoder
 except ImportError:
-    CrossEncoder = None
+    CrossEncoder = None  # type: ignore
 
 
 class ContextAwareReranker:
@@ -24,7 +24,9 @@ class ContextAwareReranker:
             logger.error(f"Failed to load reranker model: {e}")
             self.model = None
 
-    def rerank(self, query: str, documents: List[Dict], top_k: int = 5) -> List[Dict]:
+    def rerank(
+        self, query: str, documents: List[Dict[str, Any]], top_k: int = 5
+    ) -> List[Dict[str, Any]]:
         """Rerank documents using cross-encoder model"""
         if not self.model or not documents:
             return documents[:top_k]

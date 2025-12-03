@@ -1,4 +1,5 @@
 import json
+from typing import Any
 import os
 import sys
 
@@ -19,7 +20,7 @@ from src.retrieval.bm25_search import BM25Search  # noqa: E402
 from src.retrieval.hybrid_search import HybridSearch  # noqa: E402
 
 
-def run_evaluation():
+def run_evaluation() -> None:
     logger.info("Starting retrieval evaluation...")
 
     # Initialize components
@@ -37,9 +38,11 @@ def run_evaluation():
     verses = db_manager.get_all_verses()
     bm25_search = BM25Search(verses)
 
-    def vector_search_func(query, top_k):
+    def vector_search_func(query: str, top_k: int) -> list[dict[str, Any]]:
         emb = embedding_manager.embed_text(query)
-        results = db_manager.retrieve_verses(emb, top_k=top_k)
+        if isinstance(emb[0], list):
+            emb = emb[0]  # Handle batch case if it happens
+        results = db_manager.retrieve_verses(emb, top_k=top_k)  # type: ignore
         for r in results:
             r["score"] = r.get("similarity", 0.0)
         return results

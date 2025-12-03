@@ -12,7 +12,8 @@ query_embedding = embeddings.embed_text(query)
 print(f"Query: {query}")
 print(f"Embedding dimension: {query_embedding[0]}")
 
-results = db.search_similar_verses(query_embedding[0], top_k=3)
+from typing import cast, List
+results = db.retrieve_verses(cast(List[float], query_embedding), top_k=3)
 print(f"\nFound {len(results)} results:")
 for r in results:
     print(f"  - {r}")

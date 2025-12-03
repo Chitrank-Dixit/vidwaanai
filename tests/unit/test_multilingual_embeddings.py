@@ -5,16 +5,16 @@ from src.rag.multilingual_embeddings import MultilingualEmbeddings
 
 class TestMultilingualEmbeddings:
     @pytest.fixture(scope="class")
-    def embedding_model(self):
+    def embedding_model(self) -> MultilingualEmbeddings:
         # Initialize once for the class to save time
         return MultilingualEmbeddings()
 
-    def test_embedding_dimension(self, embedding_model):
+    def test_embedding_dimension(self, embedding_model: MultilingualEmbeddings) -> None:
         text = "Hello world"
         embedding = embedding_model.embed_text(text, "en")
         assert len(embedding) == 1024  # intfloat/multilingual-e5-large is 1024 dim
 
-    def test_embedding_type(self, embedding_model):
+    def test_embedding_type(self, embedding_model: MultilingualEmbeddings) -> None:
         text = "Hello world"
         embedding = embedding_model.embed_text(text, "en")
         assert isinstance(
@@ -22,7 +22,7 @@ class TestMultilingualEmbeddings:
         )  # The method returns list, not numpy array directly usually
         assert all(isinstance(x, float) for x in embedding)
 
-    def test_multilingual_embedding(self, embedding_model):
+    def test_multilingual_embedding(self, embedding_model: MultilingualEmbeddings) -> None:
         # Embed Hindi text
         text_hi = "नमस्ते दुनिया"
         embedding_hi = embedding_model.embed_text(text_hi, "hi")
@@ -33,7 +33,7 @@ class TestMultilingualEmbeddings:
         embedding_ta = embedding_model.embed_text(text_ta, "ta")
         assert len(embedding_ta) == 1024
 
-    def test_embedding_similarity(self, embedding_model):
+    def test_embedding_similarity(self, embedding_model: MultilingualEmbeddings) -> None:
         # "Hello world" in English and Hindi should be similar
         emb_en = embedding_model.embed_text("Hello world", "en")
         emb_hi = embedding_model.embed_text("नमस्ते दुनिया", "hi")
@@ -48,7 +48,7 @@ class TestMultilingualEmbeddings:
 
         assert similarity > 0.7  # Should be highly similar
 
-    def test_embedding_dissimilarity(self, embedding_model):
+    def test_embedding_dissimilarity(self, embedding_model: MultilingualEmbeddings) -> None:
         # Compare relative similarity
         emb_anchor = embedding_model.embed_text("Apple", "en")
         emb_positive = embedding_model.embed_text("Fruit", "en")
@@ -67,7 +67,7 @@ class TestMultilingualEmbeddings:
 
         assert sim_pos > sim_neg  # Apple should be closer to Fruit than Car
 
-    def test_empty_text(self, embedding_model):
+    def test_empty_text(self, embedding_model: MultilingualEmbeddings) -> None:
         # Depending on implementation, might raise error or return zero vector or handle gracefully
         # Let's check behavior. Usually sentence-transformers handles empty string but might warn.
         try:
@@ -76,14 +76,14 @@ class TestMultilingualEmbeddings:
         except Exception:
             pass  # Acceptable if it raises
 
-    def test_batch_embedding(self, embedding_model):
+    def test_batch_embedding(self, embedding_model: MultilingualEmbeddings) -> None:
         # Test embed_corpus
         texts = ["Hello", "World"]
         embeddings = embedding_model.embed_corpus(texts, batch_size=2)
         assert len(embeddings) == 2
         assert len(embeddings[0]) == 1024
 
-    def test_embed_query_prefix(self, embedding_model):
+    def test_embed_query_prefix(self, embedding_model: MultilingualEmbeddings) -> None:
         """Test that query prefix is handled correctly"""
         # E5 models expect "query: " prefix for asymmetric tasks
         text = "What is yoga?"
@@ -92,7 +92,7 @@ class TestMultilingualEmbeddings:
         embedding = embedding_model.embed_text(text, "en")
         assert len(embedding) == 1024
 
-    def test_embed_document_prefix(self, embedding_model):
+    def test_embed_document_prefix(self, embedding_model: MultilingualEmbeddings) -> None:
         """Test that document prefix is handled correctly"""
         # E5 models expect "passage: " prefix for documents
         text = "Yoga is a practice."

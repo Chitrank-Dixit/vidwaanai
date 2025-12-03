@@ -5,7 +5,7 @@ from src.mcp.client import VidwaanMCPClient
 
 
 @pytest.mark.asyncio
-async def test_tool_discovery():
+async def test_tool_discovery() -> None:
     """
     Test that the client can connect and list tools.
     """
@@ -20,7 +20,7 @@ async def test_tool_discovery():
 
 
 @pytest.mark.asyncio
-async def test_simple_workflow():
+async def test_simple_workflow() -> None:
     """
     Test a simple workflow: Detect Language -> Search
     """
@@ -58,7 +58,7 @@ async def test_simple_workflow():
 
 
 @pytest.mark.asyncio
-async def test_rag_pipeline_workflow():
+async def test_rag_pipeline_workflow() -> None:
     """
     Test the full RAG pipeline tool.
     """

@@ -33,7 +33,7 @@ def get_agent() -> VidwaanAI:
         try:
             agent = VidwaanAI(
                 db_url=settings.DATABASE_URL,
-                openai_key=settings.OPENAI_API_KEY,
+                openai_key=settings.OPENAI_API_KEY or "",
                 lmstudio_url=settings.lmstudio_base_url,
                 enable_graph_rag=settings.ENABLE_GRAPH_RAG,
                 neo4j_uri=settings.NEO4J_URI,
@@ -62,7 +62,7 @@ def query_handler(
     verbose: bool = typer.Option(
         False, "--verbose", "-v", help="Show retrieval details"
     ),
-):
+) -> None:
     """Query VidwaanAI about Indian scriptures."""
     try:
         agent = get_agent()
@@ -70,7 +70,7 @@ def query_handler(
 
         response = agent.query(
             question=question,
-            language=language,
+            language=language or "en",
             scripture_filter=scripture,
             verbose=verbose,
         )
@@ -96,7 +96,7 @@ def query_handler(
 @app.command()
 def list_scriptures(
     detailed: bool = typer.Option(False, "--detailed", "-d", help="Show detailed info"),
-):
+) -> None:
     """List all loaded scriptures."""
     try:
         agent = get_agent()
@@ -150,7 +150,7 @@ def list_scriptures(
 @app.command()
 def system(
     action: str = typer.Argument("status", help="status, health, or info"),
-):
+) -> None:
     """System administration commands."""
     try:
         if action == "status":

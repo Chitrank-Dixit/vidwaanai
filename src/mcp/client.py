@@ -25,7 +25,7 @@ class VidwaanMCPClient:
         self._exit_stack = None
 
     @asynccontextmanager
-    async def connect(self):
+    async def connect(self) -> Any:
         """
         Connects to the MCP server via stdio.
         """
@@ -42,7 +42,7 @@ class VidwaanMCPClient:
         if not self.session:
             raise RuntimeError("Client not connected")
         result = await self.session.list_tools()
-        return result.tools
+        return list(result.tools)
 
     async def call_tool(self, name: str, arguments: Dict[str, Any]) -> Any:
         """
@@ -54,7 +54,7 @@ class VidwaanMCPClient:
         return result
 
 
-async def main():
+async def main() -> None:
     # Example usage
     client = VidwaanMCPClient()
     async with client.connect() as c:

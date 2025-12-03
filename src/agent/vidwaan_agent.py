@@ -2,7 +2,7 @@
 
 import logging
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from neo4j import GraphDatabase
 
@@ -34,12 +34,12 @@ class VidwaanAI:
         db_url: str,
         openai_key: str,
         krutrim_key: Optional[str] = None,
-        use_lmstudio=True,
-        lmstudio_url=None,
-        enable_graph_rag=False,
-        neo4j_uri=None,
-        neo4j_user=None,
-        neo4j_password=None,
+        use_lmstudio: bool = True,
+        lmstudio_url: Optional[str] = None,
+        enable_graph_rag: bool = False,
+        neo4j_uri: Optional[str] = None,
+        neo4j_user: Optional[str] = None,
+        neo4j_password: Optional[str] = None,
     ):
         """Initialize VidwaanAI agent."""
         self.db = DatabaseManager(db_url)
@@ -49,19 +49,22 @@ class VidwaanAI:
         # Keep EmbeddingManager for legacy support if needed, but MultilingualSearch handles embedding now
         # self.embeddings = EmbeddingManager()
 
+        self.llm: Union[LMStudioClient, OpenAIClient]
         if use_lmstudio:
             self.llm = LMStudioClient(base_url=lmstudio_url or "http://localhost:8000")
         else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()
         self.cache = QueryCache()
+        self.retrieval_pipeline: Optional[AdvancedRetrievalPipeline] = None
+        self.hybrid_retriever: Optional[HybridSearch] = None
 
         # Hybrid Search (BM25 + Vector)
         try:
             verses = self.db.get_all_verses()
             self.bm25_search = BM25Search(verses)
 
-            def vector_search_func(query, top_k):
+            def vector_search_func(query: str, top_k: int) -> List[Dict[str, Any]]:
                 # Use multilingual embedding
                 query_data = self.multilingual_search.process_query(query)
                 emb = query_data["embedding"]
@@ -85,7 +88,7 @@ class VidwaanAI:
 
         # Graph RAG setup
         self.enable_graph_rag = enable_graph_rag
-        if enable_graph_rag and neo4j_uri:
+        if enable_graph_rag and neo4j_uri and neo4j_user and neo4j_password:
             try:
                 self.neo4j_driver = GraphDatabase.driver(
                     neo4j_uri, auth=(neo4j_user, neo4j_password)
@@ -112,7 +115,7 @@ class VidwaanAI:
         language: str = "en",
         scripture_filter: Optional[str] = None,
         verbose: bool = False,
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """Process a user query and return response."""
 
         try:
@@ -224,11 +227,11 @@ class VidwaanAI:
             logger.error(f"Error processing query: {str(e)}")
             raise
 
-    def get_loaded_scriptures(self) -> List[Dict]:
+    def get_loaded_scriptures(self) -> List[Dict[str, Any]]:
         """Get list of loaded scriptures."""
         return self.db.get_scriptures()
 
-    def _format_context(self, verses: List[Dict], language: str) -> str:
+    def _format_context(self, verses: List[Dict[str, Any]], language: str) -> str:
         """Format retrieved verses as context."""
         if not verses:
             return "No relevant verses found."
@@ -241,7 +244,7 @@ class VidwaanAI:
 
         return "\n\n".join(context_parts)
 
-    def _calculate_confidence(self, verses: List[Dict]) -> str:
+    def _calculate_confidence(self, verses: List[Dict[str, Any]]) -> str:
         """Calculate confidence score."""
         if not verses:
             return "0%"
@@ -265,7 +268,7 @@ class VidwaanAI:
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
 
-    def close(self):
+    def close(self) -> None:
         """Close resources."""
         if hasattr(self, "neo4j_driver") and self.neo4j_driver:
             self.neo4j_driver.close()

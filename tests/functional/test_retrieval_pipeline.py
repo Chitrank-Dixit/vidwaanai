@@ -1,5 +1,6 @@
 import pytest
 from src.db.db_manager import DatabaseManager
+from typing import Any
 
 # Mark as functional test
 pytestmark = pytest.mark.functional
@@ -7,7 +8,7 @@ pytestmark = pytest.mark.functional
 
 class TestRetrievalPipeline:
     @pytest.fixture(scope="class")
-    def db_manager(self):
+    def db_manager(self) -> DatabaseManager:
         # Use test database URL from settings
         from src.core.config import settings
 
@@ -16,17 +17,18 @@ class TestRetrievalPipeline:
         return manager
 
     @pytest.fixture(scope="class")
-    def embedding_manager(self):
+    def embedding_manager(self) -> Any:
         # Mock embedding manager to return 384 dim vectors to match DB schema
         from unittest.mock import MagicMock
-
+        from typing import Any
+        
         manager = MagicMock()
         manager.embed_text.side_effect = lambda text: [0.1] * 384
         manager.embed_batch.side_effect = lambda texts: [[0.1] * 384 for _ in texts]
         return manager
 
     @pytest.fixture(autouse=True)
-    def setup_data(self, db_manager, embedding_manager):
+    def setup_data(self, db_manager: DatabaseManager, embedding_manager: Any) -> None:
         """Insert sample data for testing."""
         # Clear existing data
         with db_manager._get_connection() as conn:
@@ -71,7 +73,7 @@ class TestRetrievalPipeline:
                     )
             conn.commit()
 
-    def test_vector_search(self, db_manager, embedding_manager):
+    def test_vector_search(self, db_manager: DatabaseManager, embedding_manager: Any) -> None:
         """Test retrieving similar verses."""
         query = "What is duty?"
         query_embedding = embedding_manager.embed_text(query)
@@ -83,7 +85,7 @@ class TestRetrievalPipeline:
         # Dharma verse should be relevant to duty
         assert any("Dharma" in r["text"] for r in results)
 
-    def test_keyword_search(self, db_manager):
+    def test_keyword_search(self, db_manager: DatabaseManager) -> None:
         """Test simple keyword filtering (if implemented) or just DB retrieval."""
         # This assumes retrieve_verses handles vector search primarily
         # But we can test basic DB fetch

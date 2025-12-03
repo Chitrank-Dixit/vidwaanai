@@ -12,7 +12,7 @@ class QueryCache:
 
     def __init__(self, capacity: int = 100):
         self.capacity = capacity
-        self.cache: OrderedDict = OrderedDict()
+        self.cache: OrderedDict[str, Dict[str, Any]] = OrderedDict()
         logger.info(f"Query cache initialized with capacity {capacity}")
 
     def _generate_key(

@@ -3,6 +3,7 @@ from src.agent.vidwaan_agent import VidwaanAI
 from src.db.db_manager import DatabaseManager
 from src.graph.graph_builder import GraphBuilder
 from unittest.mock import MagicMock, patch
+from typing import Generator, Any
 
 # Mark as e2e test
 pytestmark = pytest.mark.e2e
@@ -10,13 +11,13 @@ pytestmark = pytest.mark.e2e
 
 class TestCompleteQuery:
     @pytest.fixture(scope="class")
-    def db_manager(self):
+    def db_manager(self) -> DatabaseManager:
         from src.core.config import settings
 
         return DatabaseManager(settings.DATABASE_URL)
 
     @pytest.fixture(scope="class")
-    def graph_builder(self):
+    def graph_builder(self) -> Generator[GraphBuilder, None, None]:
         from src.core.config import settings
 
         uri = settings.NEO4J_URI
@@ -27,7 +28,7 @@ class TestCompleteQuery:
         builder.close()
 
     @pytest.fixture(scope="class")
-    def embedding_manager(self):
+    def embedding_manager(self) -> MagicMock:
         # Mock embedding manager to return 384 dim vectors
         manager = MagicMock()
         manager.embed_text.side_effect = lambda text: [0.1] * 384
@@ -35,7 +36,7 @@ class TestCompleteQuery:
         return manager
 
     @pytest.fixture(autouse=True)
-    def setup_system(self, db_manager, graph_builder, embedding_manager):
+    def setup_system(self, db_manager: DatabaseManager, graph_builder: GraphBuilder, embedding_manager: MagicMock) -> None:
         """Setup full system with data."""
         # Clean DB
         with db_manager._get_connection() as conn:
@@ -68,7 +69,7 @@ class TestCompleteQuery:
         graph_builder.clear_graph()
         graph_builder.create_concept("Yoga", {"description": "Union"})
 
-    def test_query_flow(self, db_manager, graph_builder):
+    def test_query_flow(self, db_manager: DatabaseManager, graph_builder: GraphBuilder) -> None:
         """Test the full query flow."""
         # Mock LLM client to avoid external calls
         with (

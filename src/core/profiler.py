@@ -6,9 +6,14 @@ from src.core.logger import get_logger
 logger = get_logger(__name__)
 
 
-def profile_function(func):
+from typing import Any, Callable, TypeVar
+
+F = TypeVar("F", bound=Callable[..., Any])
+
+
+def profile_function(func: F) -> F:
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         start_time = time.time()
 
         try:
@@ -24,4 +29,4 @@ def profile_function(func):
             logger.error(f"{func.__name__} failed after {execution_time:.3f}s: {e}")
             raise
 
-    return wrapper
+    return wrapper  # type: ignore

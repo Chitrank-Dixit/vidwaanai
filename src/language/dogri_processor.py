@@ -4,7 +4,7 @@ from src.language.hindi_processor import HindiProcessor
 class DogriProcessor(HindiProcessor):
     """Dogri processor - extends Hindi"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Add Dogri-specific stop words
         dogri_stops = {

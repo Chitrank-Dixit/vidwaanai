@@ -1,26 +1,27 @@
 import pytest
-from unittest.mock import patch
+from typing import Generator, cast, Any
+from unittest.mock import patch, MagicMock
 from src.agent.vidwaan_agent import VidwaanAI
 
 
 class TestIntegration:
     @pytest.fixture
-    def mock_db(self):
+    def mock_db(self) -> Generator[MagicMock, None, None]:
         with patch("src.agent.vidwaan_agent.DatabaseManager") as mock:
             yield mock
 
     @pytest.fixture
-    def mock_llm(self):
+    def mock_llm(self) -> Generator[MagicMock, None, None]:
         with patch("src.agent.vidwaan_agent.OpenAIClient") as mock:
             yield mock
 
     @pytest.fixture
-    def mock_multilingual(self):
+    def mock_multilingual(self) -> Generator[MagicMock, None, None]:
         with patch("src.agent.vidwaan_agent.MultilingualSearch") as mock:
             yield mock
 
     @pytest.fixture
-    def agent(self, mock_db, mock_llm, mock_multilingual):
+    def agent(self, mock_db: MagicMock, mock_llm: MagicMock, mock_multilingual: MagicMock) -> VidwaanAI:
         # Setup mock DB
         db_instance = mock_db.return_value
         db_instance.get_all_verses.return_value = []  # For BM25 init
@@ -42,9 +43,13 @@ class TestIntegration:
         )
         return agent
 
-    def test_end_to_end_query_flow(self, agent):
+    def test_end_to_end_query_flow(self, agent: VidwaanAI) -> None:
         # 1. Setup mocks for retrieval
-        agent.db.retrieve_verses.return_value = [
+        mock_db = cast(MagicMock, agent.db)
+        mock_llm = cast(MagicMock, agent.llm)
+        mock_multi = cast(MagicMock, agent.multilingual_search)
+
+        mock_db.retrieve_verses.return_value = [
             {
                 "scripture": "Gita",
                 "chapter": 1,
@@ -57,7 +62,7 @@ class TestIntegration:
         ]
 
         # 2. Setup mock for LLM
-        agent.llm.generate.return_value = "Karma is the law of action."
+        mock_llm.generate.return_value = "Karma is the law of action."
 
         # 3. Execute Query
         response = agent.query("What is Karma?", language="en")
@@ -68,21 +73,25 @@ class TestIntegration:
         assert len(response["retrieved_verses"]) == 1
 
         # Verify flow
-        agent.multilingual_search.process_query.assert_called_with("What is Karma?")
-        agent.db.retrieve_verses.assert_called()
-        agent.llm.generate.assert_called()
-        agent.db.log_query.assert_called()
+        mock_multi.process_query.assert_called_with("What is Karma?")
+        mock_db.retrieve_verses.assert_called()
+        mock_llm.generate.assert_called()
+        mock_db.log_query.assert_called()
 
-    def test_cross_lingual_flow(self, agent):
+    def test_cross_lingual_flow(self, agent: VidwaanAI) -> None:
         # Setup Hindi detection
-        agent.multilingual_search.process_query.return_value = {
+        mock_db = cast(MagicMock, agent.db)
+        mock_llm = cast(MagicMock, agent.llm)
+        mock_multi = cast(MagicMock, agent.multilingual_search)
+
+        mock_multi.process_query.return_value = {
             "language_code": "hi",
             "embedding": [0.1] * 384,
             "processed_text": "कर्म",
         }
 
         # Mock retrieval returning English verse (cross-lingual)
-        agent.db.retrieve_verses.return_value = [
+        mock_db.retrieve_verses.return_value = [
             {
                 "scripture": "Gita",
                 "chapter": 2,
@@ -94,7 +103,7 @@ class TestIntegration:
             }
         ]
 
-        agent.llm.generate.return_value = "कर्म का अर्थ है कर्तव्य।"
+        mock_llm.generate.return_value = "कर्म का अर्थ है कर्तव्य।"
 
         response = agent.query("कर्म क्या है?")
 
@@ -102,14 +111,17 @@ class TestIntegration:
         assert "कर्म" in response["answer"]
 
         # Verify prompt contained Hindi instruction (implicitly via generate call args if we checked)
-        args = agent.llm.generate.call_args[1]
+        args = mock_llm.generate.call_args[1]
         assert (
             "Hindi" in args["prompt"] or "hi" in args["prompt"]
         )  # Depending on prompt template
 
-    def test_low_confidence_flow(self, agent):
+    def test_low_confidence_flow(self, agent: VidwaanAI) -> None:
         # Mock low similarity results
-        agent.db.retrieve_verses.return_value = [
+        mock_db = cast(MagicMock, agent.db)
+        mock_llm = cast(MagicMock, agent.llm)
+
+        mock_db.retrieve_verses.return_value = [
             {
                 "scripture": "Gita",
                 "chapter": 1,
@@ -120,7 +132,7 @@ class TestIntegration:
             }
         ]
 
-        agent.llm.generate.return_value = "Some answer based on irrelevant text."
+        mock_llm.generate.return_value = "Some answer based on irrelevant text."
 
         response = agent.query("Unknown topic")
 

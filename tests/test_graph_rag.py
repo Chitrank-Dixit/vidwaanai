@@ -12,12 +12,12 @@ from src.graph.hybrid_search import HybridSearch
 
 
 class TestGraphRAG(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.mock_driver = MagicMock()
         self.session = MagicMock()
         self.mock_driver.session.return_value.__enter__.return_value = self.session
 
-    def test_graph_builder(self):
+    def test_graph_builder(self) -> None:
         builder = GraphBuilder("bolt://localhost:7687", "neo4j", "password")
         builder.driver = self.mock_driver
 
@@ -29,7 +29,7 @@ class TestGraphRAG(unittest.TestCase):
         self.assertIn("MERGE (p:Person {name: $name})", args[0][0])
         self.assertEqual(args[1]["name"], "Krishna")
 
-    def test_graph_retriever(self):
+    def test_graph_retriever(self) -> None:
         retriever = GraphRetriever(self.mock_driver)
 
         # Mock result
@@ -42,7 +42,7 @@ class TestGraphRAG(unittest.TestCase):
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0]["entities"][0]["name"], "Krishna")
 
-    def test_hybrid_search(self):
+    def test_hybrid_search(self) -> None:
         mock_graph = MagicMock()
         mock_vector = MagicMock()
         mock_embeddings = MagicMock()

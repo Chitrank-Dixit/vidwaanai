@@ -1,19 +1,20 @@
 import pytest
+from typing import Generator
 from unittest.mock import MagicMock, patch
 from src.db.db_manager import DatabaseManager
 
 
 class TestVectorDB:
     @pytest.fixture
-    def mock_pool(self):
+    def mock_pool(self) -> Generator[MagicMock, None, None]:
         with patch("src.db.db_manager.ThreadedConnectionPool") as mock_pool_cls:
             yield mock_pool_cls
 
     @pytest.fixture
-    def db_manager(self, mock_pool):
+    def db_manager(self, mock_pool: MagicMock) -> DatabaseManager:
         return DatabaseManager("postgresql://user:pass@localhost:5432/db")
 
-    def test_add_embedding(self, db_manager):
+    def test_add_embedding(self, db_manager: DatabaseManager) -> None:
         # Mock connection and cursor
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -40,7 +41,7 @@ class TestVectorDB:
         mock_conn.commit.assert_called_once()
         db_manager.pool.putconn.assert_called_with(mock_conn)
 
-    def test_retrieve_verses(self, db_manager):
+    def test_retrieve_verses(self, db_manager: DatabaseManager) -> None:
         # Mock connection and cursor
         mock_conn = MagicMock()
         mock_cursor = MagicMock()
@@ -79,7 +80,7 @@ class TestVectorDB:
         assert params[0] == "[0.1,0.2,0.3]"
         assert params[-1] == 5
 
-    def test_retrieve_verses_fallback(self, db_manager):
+    def test_retrieve_verses_fallback(self, db_manager: DatabaseManager) -> None:
         # Simulate vector search failure
         mock_conn = MagicMock()
         mock_cursor = MagicMock()

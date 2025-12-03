@@ -21,7 +21,7 @@ class CrosslingualSearch:
         target_languages: List[str],
         corpus_embeddings: Any,
         top_k: int = 10,
-    ) -> Dict[str, List[Dict]]:
+    ) -> Dict[str, List[Dict[str, Any]]]:
         """
         Search for same concept across multiple languages.
 

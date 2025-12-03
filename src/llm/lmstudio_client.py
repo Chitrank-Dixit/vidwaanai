@@ -1,6 +1,6 @@
 import logging
 
-import requests
+import requests  # type: ignore
 
 logger = logging.getLogger(__name__)
 
@@ -9,7 +9,9 @@ class LMStudioClient:
     """OpenAI-compatible client for LM Studio local inference server."""
 
     def __init__(
-        self, base_url="http://localhost:1234", model_name="falcon-h1-7b-instruct"
+        self,
+        base_url: str = "http://localhost:1234",
+        model_name: str = "falcon-h1-7b-instruct",
     ):
         self.base_url = base_url.rstrip("/")
         if self.base_url.endswith("/v1"):
@@ -19,7 +21,9 @@ class LMStudioClient:
             f"Initialized LMStudioClient: {self.base_url} with model {self.model_name}"
         )
 
-    def generate(self, prompt: str, max_tokens=512, temperature=0.7) -> str:
+    def generate(
+        self, prompt: str, max_tokens: int = 512, temperature: float = 0.7
+    ) -> str:
         """Generate text using LM Studio's OpenAI-compatible chat completions endpoint."""
         try:
             # LM Studio uses OpenAI-compatible /v1/chat/completions endpoint
@@ -41,8 +45,7 @@ class LMStudioClient:
 
             # Extract the generated text from OpenAI-compatible response
             if "choices" in data and len(data["choices"]) > 0:
-                message = data["choices"][0].get("message", {})
-                text = message.get("content", "").strip()
+                text = str(data["choices"][0].get("message", {}).get("content", "")).strip()
                 logger.debug(f"Generated response: {text[:100]}...")
                 return text
             else:
@@ -61,7 +64,7 @@ class LMStudioClient:
             logger.error(f"LM Studio request failed: {e}")
             raise
 
-    def check_connection(self):
+    def check_connection(self) -> bool:
         """Test if LM Studio server is accessible."""
         try:
             url = f"{self.base_url}/v1/models"

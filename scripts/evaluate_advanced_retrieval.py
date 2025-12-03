@@ -1,4 +1,5 @@
 import json
+from typing import Any
 
 # ruff: noqa: E402
 
@@ -23,7 +24,7 @@ from src.core.logger import get_logger  # noqa: E402
 logger = get_logger(__name__)
 
 
-def run_evaluation():
+def run_evaluation() -> None:
     logger.info("Starting advanced retrieval evaluation...")
 
     db_url = os.getenv("DATABASE_URL")
@@ -39,9 +40,11 @@ def run_evaluation():
     bm25_search = BM25Search(verses)
     embeddings = EmbeddingManager()
 
-    def vector_search_func(query, top_k):
+    def vector_search_func(query: str, top_k: int) -> list[dict[str, Any]]:
         emb = embeddings.embed_text(query)
-        results = db_manager.retrieve_verses(emb, top_k=top_k)
+        if isinstance(emb[0], list):
+            emb = emb[0]  # Handle batch case if it happens
+        results = db_manager.retrieve_verses(emb, top_k=top_k)  # type: ignore
         for r in results:
             r["score"] = r.get("similarity", 0.0)
         return results

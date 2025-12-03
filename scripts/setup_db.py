@@ -9,9 +9,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def setup_database():
+def setup_database() -> None:
     """Set up database tables and indexes."""
-    db_url = os.getenv("DATABASE_URL")
+    db_url = os.getenv("DATABASE_URL", "")
 
     if not db_url:
         print("ERROR: DATABASE_URL not set in .env")

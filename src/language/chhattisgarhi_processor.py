@@ -4,7 +4,7 @@ from src.language.hindi_processor import HindiProcessor
 class ChhattisgarhiProcessor(HindiProcessor):
     """Chhattisgarhi processor - extends Hindi"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Add Chhattisgarhi-specific stop words
         chhattisgarhi_stops = {

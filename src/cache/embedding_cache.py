@@ -10,7 +10,7 @@ logger = get_logger(__name__)
 class EmbeddingCache:
     """Cache for generated embeddings."""
 
-    def __init__(self, max_size=10000, ttl=86400):
+    def __init__(self, max_size: int = 10000, ttl: int = 86400) -> None:
         self.cache: Dict[str, Dict[str, Any]] = {}
         self.max_size = max_size
         self.ttl = ttl
@@ -26,12 +26,12 @@ class EmbeddingCache:
         if key in self.cache:
             entry = self.cache[key]
             if time.time() - entry["timestamp"] < self.ttl:
-                return entry["embedding"]
+                return list(entry["embedding"])
             else:
                 del self.cache[key]
         return None
 
-    def set(self, text: str, embedding: List[float]):
+    def set(self, text: str, embedding: List[float]) -> None:
         """Cache embedding."""
         if len(self.cache) >= self.max_size:
             # Simple eviction: remove oldest

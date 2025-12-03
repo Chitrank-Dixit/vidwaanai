@@ -4,7 +4,7 @@ from src.language.hindi_processor import HindiProcessor
 class HaryanviProcessor(HindiProcessor):
     """Haryanvi processor - extends Hindi"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Add Haryanvi-specific stop words
         haryanvi_stops = {

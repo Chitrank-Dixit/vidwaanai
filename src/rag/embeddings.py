@@ -44,7 +44,7 @@ class EmbeddingManager:
 
             if isinstance(text, str):
                 if hasattr(embeddings, "tolist"):
-                    return embeddings.tolist()
+                    return list(embeddings.tolist())
                 return list(embeddings)
             else:
                 result = []

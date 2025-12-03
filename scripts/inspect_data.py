@@ -9,8 +9,8 @@ load_dotenv()
 from src.db.db_manager import DatabaseManager  # noqa: E402
 
 
-def inspect_data():
-    db_url = os.getenv("DATABASE_URL")
+def inspect_data() -> None:
+    db_url = os.getenv("DATABASE_URL", "")
     if not db_url:
         print("DATABASE_URL not set")
         return

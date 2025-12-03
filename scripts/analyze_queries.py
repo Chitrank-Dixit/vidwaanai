@@ -3,7 +3,7 @@ import sys
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
-from tabulate import tabulate
+from tabulate import tabulate  # type: ignore
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,7 +14,7 @@ from src.core.logger import get_logger  # noqa: E402
 logger = get_logger(__name__)
 
 
-def analyze_queries():
+def analyze_queries() -> None:
     db_url = os.getenv("DATABASE_URL")
     if not db_url:
         logger.error("DATABASE_URL not set")

@@ -4,6 +4,7 @@
 import os
 import sys
 from dotenv import load_dotenv
+from typing import Any, Dict
 
 load_dotenv()
 
@@ -14,14 +15,14 @@ from src.db.db_manager import DatabaseManager  # noqa: E402
 from src.rag.embeddings import EmbeddingManager  # noqa: E402
 
 
-def load_sample_data():
+def load_sample_data() -> None:
     """Load sample scriptures."""
     try:
-        db_manager = DatabaseManager(os.getenv("DATABASE_URL"))
+        db_manager = DatabaseManager(os.getenv("DATABASE_URL", ""))
         embeddings = EmbeddingManager()
 
         # Sample verses for demonstration
-        sample_data = {
+        sample_data: Dict[str, Any] = {
             "Bhagavad Gita": {
                 "language": "sanskrit",
                 "verses": [
@@ -97,13 +98,17 @@ def load_sample_data():
 
                 # Generate and store embeddings
                 embedding_en = embeddings.embed_text(verse_data["translation"])
+                if isinstance(embedding_en[0], list):
+                    embedding_en = embedding_en[0]
                 embedding_sa = embeddings.embed_text(verse_data["text"])
+                if isinstance(embedding_sa[0], list):
+                    embedding_sa = embedding_sa[0]
 
                 db_manager.add_embedding(
-                    verse_id=verse_id, embedding=embedding_en, language="en"
+                    verse_id=verse_id, embedding=embedding_en, language="en"  # type: ignore
                 )
                 db_manager.add_embedding(
-                    verse_id=verse_id, embedding=embedding_sa, language="sa"
+                    verse_id=verse_id, embedding=embedding_sa, language="sa"  # type: ignore
                 )
 
             print(f"✓ {scripture_name}: {len(data['verses'])} verses loaded")

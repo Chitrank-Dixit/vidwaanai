@@ -1,12 +1,13 @@
 import pytest
 from unittest.mock import MagicMock, patch
+from typing import Generator, Dict, List, Any, Optional
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 from src.retrieval.hybrid_search import HybridSearch
 
 
 class TestAdvancedRetrievalIntegration:
     @pytest.fixture
-    def mock_components(self):
+    def mock_components(self) -> Generator[Dict[str, MagicMock], None, None]:
         # Mock heavy components
         with (
             patch("src.retrieval.reranker.ContextAwareReranker") as MockReranker,
@@ -16,7 +17,7 @@ class TestAdvancedRetrievalIntegration:
             mock_reranker_instance = MockReranker.return_value
 
             # Mock rerank to reverse the order for testing
-            def side_effect_rerank(query, docs, top_k=None):
+            def side_effect_rerank(query: str, docs: List[Dict[str, Any]], top_k: Optional[int] = None) -> List[Dict[str, Any]]:
                 return list(reversed(docs))[:top_k] if top_k else list(reversed(docs))
 
             mock_reranker_instance.rerank.side_effect = side_effect_rerank
@@ -30,7 +31,7 @@ class TestAdvancedRetrievalIntegration:
 
             yield {"reranker": mock_reranker_instance, "hybrid": mock_hybrid_instance}
 
-    def test_pipeline_flow(self, mock_components):
+    def test_pipeline_flow(self, mock_components: Dict[str, MagicMock]) -> None:
         """Test the full flow of the pipeline"""
         # Patch CrossEncoder inside Reranker to avoid model load
         with patch("src.retrieval.reranker.CrossEncoder") as MockModel:
@@ -61,7 +62,7 @@ class TestAdvancedRetrievalIntegration:
             assert results[0]["id"] == 2
             assert results[1]["id"] == 1
 
-    def test_fuzzy_matching_integration(self):
+    def test_fuzzy_matching_integration(self) -> None:
         """Test fuzzy matching integration"""
         mock_hybrid = MagicMock()
         mock_hybrid.search.return_value = []
@@ -82,7 +83,7 @@ class TestAdvancedRetrievalIntegration:
             # It might be expanded too: "dharma duty righteousness"
             assert "dharma" in args[0][0]
 
-    def test_synonym_expansion_integration(self):
+    def test_synonym_expansion_integration(self) -> None:
         """Test synonym expansion integration"""
         mock_hybrid = MagicMock()
         mock_hybrid.search.return_value = []
@@ -101,7 +102,7 @@ class TestAdvancedRetrievalIntegration:
             assert "duty" in query_arg
             assert "righteousness" in query_arg
 
-    def test_hybrid_search_integration(self):
+    def test_hybrid_search_integration(self) -> None:
         """Test HybridSearch class integration (BM25 + Vector)"""
         # This tests HybridSearch logic specifically
 

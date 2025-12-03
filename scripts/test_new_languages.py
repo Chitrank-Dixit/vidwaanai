@@ -8,7 +8,7 @@ from src.language.language_detector import LanguageDetector
 from src.rag.multilingual_search import MultilingualSearch
 
 
-def test_language(name, code, sample_text):
+def test_language(name: str, code: str, sample_text: str) -> None:
     print(f"\n--- Testing {name} ({code}) ---")
 
     # Test detection

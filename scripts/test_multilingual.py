@@ -11,7 +11,7 @@ from src.language.hindi_processor import HindiProcessor  # noqa: E402
 from src.rag.multilingual_search import MultilingualSearch  # noqa: E402
 
 
-def test_language_detection():
+def test_language_detection() -> None:
     print("\n--- Testing Language Detection ---")
     detector = LanguageDetector()
 
@@ -35,7 +35,7 @@ def test_language_detection():
             print(f"❌ FAIL (Expected {expected})")
 
 
-def test_hindi_processing():
+def test_hindi_processing() -> None:
     print("\n--- Testing Hindi Processing ---")
     processor = HindiProcessor()
 
@@ -57,7 +57,7 @@ def test_hindi_processing():
         print("❌ Stopword removal failed")
 
 
-def test_multilingual_search_flow():
+def test_multilingual_search_flow() -> None:
     print("\n--- Testing Multilingual Search Flow ---")
     ms = MultilingualSearch()
 

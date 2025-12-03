@@ -9,7 +9,7 @@ information (like entities and relations) and need to persist them as a graph.
 
 import json
 import logging
-from typing import Dict
+from typing import Any, Dict
 
 from neo4j import GraphDatabase
 
@@ -25,7 +25,7 @@ class GraphBuilder:
     transactional methods to ensure data integrity when modifying the graph.
     """
 
-    def __init__(self, uri, user, password):
+    def __init__(self, uri: str, user: str, password: str) -> None:
         """
         Initializes the GraphBuilder and connects to the Neo4j database.
 
@@ -36,11 +36,11 @@ class GraphBuilder:
         """
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
-    def close(self):
+    def close(self) -> None:
         """Closes the connection to the Neo4j database."""
         self.driver.close()
 
-    def clear_graph(self):
+    def clear_graph(self) -> None:
         """
         Deletes all nodes and relationships from the graph.
         Use with caution, as this is a destructive operation.
@@ -49,7 +49,7 @@ class GraphBuilder:
             session.run("MATCH (n) DETACH DELETE n")
             logger.info("Graph cleared")
 
-    def _sanitize_attributes(self, attributes: Dict) -> Dict:
+    def _sanitize_attributes(self, attributes: Dict[str, Any]) -> Dict[str, Any]:
         """
         Ensures that all attribute values are of a type that can be stored in Neo4j.
 
@@ -72,7 +72,7 @@ class GraphBuilder:
             # For any other non-dict type, convert to string.
             return {"value": str(attributes)}
 
-        sanitized = {}
+        sanitized: Dict[str, Any] = {}
         for k, v in attributes.items():
             if isinstance(v, (str, int, float, bool)):
                 # Primitive types are stored as is.
@@ -92,7 +92,7 @@ class GraphBuilder:
                 sanitized[k] = str(v)
         return sanitized
 
-    def create_person(self, name: str, attributes: Dict):
+    def create_person(self, name: str, attributes: Dict[str, Any]) -> None:
         """
         Creates or updates a 'Person' node in the graph.
 
@@ -115,7 +115,7 @@ class GraphBuilder:
             )
             logger.debug(f"Created/Merged Person: {name}")
 
-    def create_concept(self, name: str, attributes: Dict):
+    def create_concept(self, name: str, attributes: Dict[str, Any]) -> None:
         """
         Creates or updates a 'Concept' node in the graph.
 
@@ -135,7 +135,7 @@ class GraphBuilder:
             )
             logger.debug(f"Created/Merged Concept: {name}")
 
-    def create_event(self, name: str, attributes: Dict):
+    def create_event(self, name: str, attributes: Dict[str, Any]) -> None:
         """
         Creates or updates an 'Event' node in the graph.
 
@@ -155,7 +155,7 @@ class GraphBuilder:
             )
             logger.debug(f"Created/Merged Event: {name}")
 
-    def create_location(self, name: str, attributes: Dict):
+    def create_location(self, name: str, attributes: Dict[str, Any]) -> None:
         """
         Creates or updates a 'Location' node in the graph.
 
@@ -176,8 +176,8 @@ class GraphBuilder:
             logger.debug(f"Created/Merged Location: {name}")
 
     def create_relationship(
-        self, from_name: str, to_name: str, rel_type: str, attributes: Dict
-    ):
+        self, from_name: str, to_name: str, rel_type: str, attributes: Dict[str, Any]
+    ) -> None:
         """
         Creates or updates a relationship between two nodes.
 

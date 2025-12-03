@@ -4,7 +4,7 @@ from src.language.hindi_processor import HindiProcessor
 class MaithiliProcessor(HindiProcessor):
     """Maithili processor - extends Hindi"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Add Maithili-specific stop words
         maithili_stops = {

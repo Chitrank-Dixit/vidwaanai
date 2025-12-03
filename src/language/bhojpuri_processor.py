@@ -4,7 +4,7 @@ from src.language.hindi_processor import HindiProcessor
 class BhojpuriProcessor(HindiProcessor):
     """Bhojpuri processor - extends Hindi"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Add Bhojpuri-specific stop words
         bhojpuri_stops = {

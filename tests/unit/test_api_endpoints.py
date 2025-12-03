@@ -1,4 +1,5 @@
 import pytest
+from typing import Generator
 from unittest.mock import MagicMock, patch
 from fastapi.testclient import TestClient
 from src.api import app, get_agent
@@ -6,23 +7,23 @@ from src.api import app, get_agent
 
 class TestAPIEndpoints:
     @pytest.fixture
-    def client(self):
+    def client(self) -> TestClient:
         return TestClient(app)
 
     @pytest.fixture
-    def mock_agent(self):
+    def mock_agent(self) -> Generator[MagicMock, None, None]:
         # Override the get_agent dependency
         mock_agent_instance = MagicMock()
         app.dependency_overrides[get_agent] = lambda: mock_agent_instance
         yield mock_agent_instance
         app.dependency_overrides = {}
 
-    def test_health_check(self, client):
+    def test_health_check(self, client: TestClient) -> None:
         response = client.get("/health")
         assert response.status_code == 200
         assert response.json() == {"status": "healthy"}
 
-    def test_query_endpoint(self, client, mock_agent):
+    def test_query_endpoint(self, client: TestClient, mock_agent: MagicMock) -> None:
         # Mock agent response
         mock_agent.query.return_value = {
             "answer": "Test answer",
@@ -46,7 +47,7 @@ class TestAPIEndpoints:
         assert args["question"] == "What is life?"
         assert args["language"] == "en"
 
-    def test_query_endpoint_missing_field(self, client, mock_agent):
+    def test_query_endpoint_missing_field(self, client: TestClient, mock_agent: MagicMock) -> None:
         payload = {
             "language": "en"
             # Missing text
@@ -54,7 +55,7 @@ class TestAPIEndpoints:
         response = client.post("/query", json=payload)
         assert response.status_code == 422  # Validation error
 
-    def test_query_endpoint_error(self, client, mock_agent):
+    def test_query_endpoint_error(self, client: TestClient, mock_agent: MagicMock) -> None:
         mock_agent.query.side_effect = Exception("Internal error")
 
         payload = {"text": "Error query"}
@@ -63,7 +64,7 @@ class TestAPIEndpoints:
         assert response.status_code == 500
         assert "Internal error" in response.json()["detail"]
 
-    def test_get_agent_dependency(self):
+    def test_get_agent_dependency(self) -> None:
         """Test the get_agent dependency function directly"""
         with patch("src.api.VidwaanAI") as MockVidwaanAI:
             # Clear app.state.agent if it exists

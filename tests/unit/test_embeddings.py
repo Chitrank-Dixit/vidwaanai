@@ -6,7 +6,7 @@ from src.rag.embeddings import EmbeddingManager
 
 class TestEmbeddingManager:
     @pytest.fixture
-    def embedding_manager(self):
+    def embedding_manager(self) -> EmbeddingManager:
         with patch("src.rag.embeddings.SentenceTransformer") as mock_model:
             # Mock the encode method to return a dummy vector
             mock_model.return_value.encode.return_value = np.array([0.1] * 384)
@@ -16,11 +16,11 @@ class TestEmbeddingManager:
             manager = EmbeddingManager(model_name="all-MiniLM-L6-v2")
             return manager
 
-    def test_initialization(self, embedding_manager):
+    def test_initialization(self, embedding_manager: EmbeddingManager) -> None:
         assert embedding_manager.model is not None
         assert embedding_manager.embedding_dim == 384
 
-    def test_embed_text(self, embedding_manager):
+    def test_embed_text(self, embedding_manager: EmbeddingManager) -> None:
         text = "This is a test sentence."
         embedding = embedding_manager.embed_text(text)
 
@@ -28,7 +28,7 @@ class TestEmbeddingManager:
         assert len(embedding) == 384
         assert embedding[0] == 0.1
 
-    def test_embed_batch(self, embedding_manager):
+    def test_embed_batch(self, embedding_manager: EmbeddingManager) -> None:
         texts = ["Sentence 1", "Sentence 2"]
 
         # Mock batch encoding
@@ -42,7 +42,7 @@ class TestEmbeddingManager:
             assert embeddings[0][0] == 0.1
             assert embeddings[1][0] == 0.2
 
-    def test_embed_text_list_input(self, embedding_manager):
+    def test_embed_text_list_input(self, embedding_manager: EmbeddingManager) -> None:
         """Test embed_text with list input"""
         texts = ["Text 1", "Text 2"]
         with patch.object(embedding_manager.model, "encode") as mock_encode:
@@ -51,9 +51,11 @@ class TestEmbeddingManager:
             embeddings = embedding_manager.embed_text(texts)
             assert isinstance(embeddings, list)
             assert len(embeddings) == 2
-            assert len(embeddings[0]) == 384
+            first_embedding = embeddings[0]
+            assert isinstance(first_embedding, list)
+            assert len(first_embedding) == 384
 
-    def test_similarity(self):
+    def test_similarity(self) -> None:
         """Test similarity calculation"""
         vec1 = [1.0, 0.0, 0.0]
         vec2 = [1.0, 0.0, 0.0]
@@ -71,7 +73,7 @@ class TestEmbeddingManager:
         sim3 = EmbeddingManager.similarity(vec1, [0.0, 0.0, 0.0])
         assert sim3 == 0.0
 
-    def test_embed_text_error(self, embedding_manager):
+    def test_embed_text_error(self, embedding_manager: EmbeddingManager) -> None:
         """Test error handling in embed_text"""
         with patch.object(
             embedding_manager.model, "encode", side_effect=Exception("Model error")
@@ -80,7 +82,7 @@ class TestEmbeddingManager:
                 embedding_manager.embed_text("text")
             assert "Model error" in str(exc.value)
 
-    def test_embed_batch_error(self, embedding_manager):
+    def test_embed_batch_error(self, embedding_manager: EmbeddingManager) -> None:
         """Test error handling in embed_batch"""
         with patch.object(
             embedding_manager.model, "encode", side_effect=Exception("Batch error")
@@ -89,7 +91,7 @@ class TestEmbeddingManager:
                 embedding_manager.embed_batch(["text"])
             assert "Batch error" in str(exc.value)
 
-    def test_initialization_error(self):
+    def test_initialization_error(self) -> None:
         """Test initialization error"""
         with patch(
             "src.rag.embeddings.SentenceTransformer",

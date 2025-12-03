@@ -4,7 +4,7 @@ import random
 import sys
 import os
 from dotenv import load_dotenv
-from typing import List
+from typing import Any, Dict, List
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -19,11 +19,11 @@ logger = get_logger(__name__)
 class LoadTester:
     def __init__(
         self, queries: List[str], concurrency: int = 10, duration_sec: int = 30
-    ):
+    ) -> None:
         self.queries = queries
         self.concurrency = concurrency
         self.duration_sec = duration_sec
-        self.stats = {
+        self.stats: Dict[str, Any] = {
             "total_requests": 0,
             "successful_requests": 0,
             "failed_requests": 0,
@@ -32,7 +32,7 @@ class LoadTester:
         self.lock = threading.Lock()
         self.running = False
 
-    def _worker(self, agent):
+    def _worker(self, agent: Any) -> None:
         while self.running:
             query = random.choice(self.queries)
             start_time = time.time()
@@ -50,7 +50,7 @@ class LoadTester:
                     self.stats["total_requests"] += 1
                     self.stats["failed_requests"] += 1
 
-    def run(self):
+    def run(self) -> None:
         print("Initializing agent...")
         agent = get_agent()
         print(
@@ -72,8 +72,8 @@ class LoadTester:
 
         self._print_report()
 
-    def _print_report(self):
-        latencies = self.stats["latencies"]
+    def _print_report(self) -> None:
+        latencies: List[float] = self.stats["latencies"]
         if not latencies:
             print("No successful requests.")
             return

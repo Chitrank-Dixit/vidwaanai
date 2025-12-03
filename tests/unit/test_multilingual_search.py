@@ -5,27 +5,27 @@ from src.rag.multilingual_search import MultilingualSearch
 
 class TestMultilingualSearch:
     @pytest.fixture(scope="class")
-    def search_engine(self):
+    def search_engine(self) -> MultilingualSearch:
         return MultilingualSearch()
 
-    def test_process_english_query(self, search_engine):
+    def test_process_english_query(self, search_engine: MultilingualSearch) -> None:
         query = "What is the meaning of life?"
         result = search_engine.process_query(query)
         assert result["language_code"] == "en"
         assert len(result["embedding"]) == 1024
 
-    def test_process_hindi_query(self, search_engine):
+    def test_process_hindi_query(self, search_engine: MultilingualSearch) -> None:
         query = "जीवन का अर्थ क्या है?"
         result = search_engine.process_query(query)
         assert result["language_code"] == "hi"
         assert "जीवन" in result["processed_text"]
 
-    def test_process_tamil_query(self, search_engine):
+    def test_process_tamil_query(self, search_engine: MultilingualSearch) -> None:
         query = "வாழ்க்கையின் அர்த்தம் என்ன?"
         result = search_engine.process_query(query)
         assert result["language_code"] == "ta"
 
-    def test_process_mixed_query(self, search_engine):
+    def test_process_mixed_query(self, search_engine: MultilingualSearch) -> None:
         # "Meaning of dharma kya hai" (English + Hindi)
         # Should detect one of them.
         query = "Meaning of dharma kya hai"
@@ -33,7 +33,7 @@ class TestMultilingualSearch:
         # Just ensure it processes without error and returns embedding
         assert len(result["embedding"]) == 1024
 
-    def test_search_functionality(self, search_engine):
+    def test_search_functionality(self, search_engine: MultilingualSearch) -> None:
         # Mock corpus embeddings
         # 3 documents:
         # 1. "Apple is a fruit"
@@ -47,30 +47,30 @@ class TestMultilingualSearch:
         for doc in docs:
             corpus_embeddings.append(search_engine.embeddings.embed_text(doc, "en"))
 
-        corpus_embeddings = np.array(corpus_embeddings)
+        corpus_embeddings_array = np.array(corpus_embeddings)
 
         # Search for "fruit"
         query = "fruit"
-        results = search_engine.search(query, corpus_embeddings, top_k=1)
+        results = search_engine.search(query, corpus_embeddings_array, top_k=1)
 
         assert len(results) == 1
         assert results[0]["index"] == 0  # Should match "Apple is a fruit"
 
-    def test_cross_lingual_search(self, search_engine):
+    def test_cross_lingual_search(self, search_engine: MultilingualSearch) -> None:
         # Corpus: English documents
         docs = ["Apple is a fruit", "Car is a vehicle"]
         corpus_embeddings = []
         for doc in docs:
             corpus_embeddings.append(search_engine.embeddings.embed_text(doc, "en"))
-        corpus_embeddings = np.array(corpus_embeddings)
+        corpus_embeddings_array = np.array(corpus_embeddings)
 
         # Query in Hindi: "फल" (Fruit)
         query = "फल"
-        results = search_engine.search(query, corpus_embeddings, top_k=1)
+        results = search_engine.search(query, corpus_embeddings_array, top_k=1)
 
         assert results[0]["index"] == 0  # Should match "Apple is a fruit"
 
-    def test_empty_query(self, search_engine):
+    def test_empty_query(self, search_engine: MultilingualSearch) -> None:
         # Should handle gracefully
         try:
             result = search_engine.process_query("")

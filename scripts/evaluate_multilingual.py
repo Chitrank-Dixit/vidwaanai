@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from typing import Any
 from dotenv import load_dotenv
 
 # Add project root to path
@@ -14,7 +15,7 @@ from src.core.logger import get_logger  # noqa: E402
 logger = get_logger(__name__)
 
 
-def run_multilingual_eval():
+def run_multilingual_eval() -> None:
     logger.info("Starting multilingual evaluation...")
 
     db_url = os.getenv("DATABASE_URL")
@@ -36,7 +37,7 @@ def run_multilingual_eval():
         logger.error(f"Test file not found: {test_file}")
         return
 
-    results_by_language = {}
+    results_by_language: dict[str, list[dict[str, Any]]] = {}
 
     for test in test_data["queries"]:
         query = test["query"]
@@ -53,6 +54,8 @@ def run_multilingual_eval():
         query_data = multilingual_search.process_query(query)
         embedding = query_data["embedding"]
 
+        if isinstance(embedding[0], list):
+            embedding = embedding[0]
         retrieved = db_manager.retrieve_verses(embedding, top_k=5)
 
         logger.info(f"Retrieved {len(retrieved)} verses")

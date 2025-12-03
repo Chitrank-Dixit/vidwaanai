@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Any, Dict, List
 
 from src.core.logger import get_logger
 
@@ -6,8 +6,8 @@ logger = get_logger(__name__)
 
 
 class RetrieverEvaluator:
-    def __init__(self):
-        self.results = []
+    def __init__(self) -> None:
+        self.results: List[Dict[str, Any]] = []
 
     def precision_at_k(
         self, retrieved: List[str], relevant: List[str], k: int = 10
@@ -58,7 +58,7 @@ class RetrieverEvaluator:
 
     def evaluate_query(
         self, query: str, retrieved: List[str], relevant: List[str]
-    ) -> Dict:
+    ) -> Dict[str, Any]:
         """Evaluate single query"""
         return {
             "query": query,
@@ -70,7 +70,7 @@ class RetrieverEvaluator:
             "num_relevant": len(relevant),
         }
 
-    def generate_report(self) -> Dict:
+    def generate_report(self) -> Dict[str, Any]:
         """Generate aggregated evaluation report"""
         if not self.results:
             return {}

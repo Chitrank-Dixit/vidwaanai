@@ -1,4 +1,4 @@
-from typing import List
+from typing import Any, Dict, List
 
 import nltk
 import regex
@@ -7,7 +7,7 @@ from src.language.language_processor import LanguageProcessor
 
 
 class HindiProcessor(LanguageProcessor):
-    def __init__(self):
+    def __init__(self) -> None:
         try:
             nltk.data.find("corpora/stopwords")
         except LookupError:
@@ -46,18 +46,18 @@ class HindiProcessor(LanguageProcessor):
         """Normalize Hindi text"""
         # Remove extra spaces
         normalized = regex.sub(r"\s+", " ", text).strip()
-        return normalized
+        return str(normalized)
 
     def tokenize(self, text: str) -> List[str]:
         """Tokenize Hindi text"""
         # Split on whitespace and punctuation
         tokens = regex.findall(r"\b\w+\b", text)
-        return tokens
+        return list(tokens)
 
     def remove_stopwords(self, tokens: List[str]) -> List[str]:
         """Remove Hindi stop words"""
         return [token for token in tokens if token.lower() not in self.stop_words]
 
     # Legacy support for existing calls (if any)
-    def preprocess_hindi(self, text: str) -> dict:
+    def preprocess_hindi(self, text: str) -> Dict[str, Any]:
         return self.preprocess(text)

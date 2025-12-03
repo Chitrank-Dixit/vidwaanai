@@ -1,12 +1,13 @@
 import pytest
 import time
-from unittest.mock import patch
+from typing import Generator, cast
+from unittest.mock import patch, MagicMock
 from src.agent.vidwaan_agent import VidwaanAI
 
 
 class TestPerformance:
     @pytest.fixture
-    def mock_deps(self):
+    def mock_deps(self) -> Generator[tuple[MagicMock, MagicMock, MagicMock], None, None]:
         with (
             patch("src.agent.vidwaan_agent.DatabaseManager") as mock_db,
             patch("src.agent.vidwaan_agent.OpenAIClient") as mock_llm,
@@ -15,7 +16,7 @@ class TestPerformance:
             yield mock_db, mock_llm, mock_multi
 
     @pytest.fixture
-    def agent(self, mock_deps):
+    def agent(self, mock_deps: tuple[MagicMock, MagicMock, MagicMock]) -> VidwaanAI:
         mock_db, mock_llm, mock_multi = mock_deps
         mock_db.return_value.get_all_verses.return_value = []
 
@@ -37,7 +38,7 @@ class TestPerformance:
         )
         return agent
 
-    def test_query_overhead(self, agent):
+    def test_query_overhead(self, agent: VidwaanAI) -> None:
         # Measure time taken by agent logic excluding heavy DB/LLM (which are mocked and fast)
         # This tests the overhead of routing, formatting, logging, etc.
 
@@ -48,7 +49,7 @@ class TestPerformance:
         # Should be very fast with mocks (< 0.1s)
         assert duration < 0.1
 
-    def test_concurrent_overhead(self, agent):
+    def test_concurrent_overhead(self, agent: VidwaanAI) -> None:
         # Simulate sequential requests to check for memory leaks or accumulating latency
         start = time.time()
         for _ in range(100):

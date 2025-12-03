@@ -1,15 +1,15 @@
-from typing import Dict, List
+from typing import Any, Dict, List
 
 
 class GraphRetriever:
     """Retrieve relevant subgraphs for queries."""
 
-    def __init__(self, neo4j_driver):
+    def __init__(self, neo4j_driver: Any) -> None:
         self.driver = neo4j_driver
 
     def find_teachings(
         self, person_name: str, concept_name: str, depth: int = 2
-    ) -> List[Dict]:
+    ) -> List[Dict[str, Any]]:
         """Find all teachings by a person about a concept."""
         with self.driver.session() as session:
             result = session.run(
@@ -27,7 +27,9 @@ class GraphRetriever:
 
             return [record.data() for record in result]
 
-    def find_related_concepts(self, concept_name: str, depth: int = 2):
+    def find_related_concepts(
+        self, concept_name: str, depth: int = 2
+    ) -> List[Dict[str, Any]]:
         """Find concepts related to a given concept."""
         with self.driver.session() as session:
             result = session.run(
@@ -44,7 +46,9 @@ class GraphRetriever:
 
             return [record.data() for record in result]
 
-    def find_person_connections(self, person1: str, person2: str, depth: int = 3):
+    def find_person_connections(
+        self, person1: str, person2: str, depth: int = 3
+    ) -> List[Dict[str, Any]]:
         """Find how two persons are connected."""
         with self.driver.session() as session:
             result = session.run(

@@ -4,7 +4,7 @@ from src.language.hindi_processor import HindiProcessor
 class MarathiProcessor(HindiProcessor):
     """Marathi processor - extends Hindi due to same script (Devanagari)"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Override Hindi stop words with Marathi stop words
         self.stop_words = set(
             [

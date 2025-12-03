@@ -2,7 +2,7 @@ from src.utils.confidence import calculate_confidence_score
 
 
 class TestConfidenceScore:
-    def test_calculate_confidence_score_low(self):
+    def test_calculate_confidence_score_low(self) -> None:
         # Mock data for low confidence scenario
         question_embedding = [1.0, 0.0, 0.0]
         retrieved_verses = [
@@ -20,7 +20,7 @@ class TestConfidenceScore:
         assert "warning" in result
         assert result["warning"] is not None
 
-    def test_calculate_confidence_score_high(self):
+    def test_calculate_confidence_score_high(self) -> None:
         # Mock data for high confidence scenario
         question_embedding = [0.1, 0.2, 0.3]
         # Verse similar to question
@@ -46,12 +46,12 @@ class TestConfidenceScore:
         assert result["score"] > 60
         assert result["warning"] is None
 
-    def test_calculate_confidence_score_empty(self):
+    def test_calculate_confidence_score_empty(self) -> None:
         result = calculate_confidence_score([], [], "")
         assert result["score"] == 0.0
         assert result["level"] == "Low"
 
-    def test_calculate_confidence_score_no_embedding(self):
+    def test_calculate_confidence_score_no_embedding(self) -> None:
         """Test when verses have no embeddings"""
         question_embedding = [0.1, 0.2, 0.3]
         retrieved_verses = [{"text": "Some text"}]  # Missing embedding
@@ -63,7 +63,7 @@ class TestConfidenceScore:
         # Should handle gracefully, likely low score due to 0 similarity
         assert result["score"] >= 0
 
-    def test_calculate_confidence_score_short_answer(self):
+    def test_calculate_confidence_score_short_answer(self) -> None:
         """Test with very short answer"""
         question_embedding = [0.1] * 384
         retrieved_verses = [{"text": "text", "embedding": [0.1] * 384}]
@@ -74,7 +74,7 @@ class TestConfidenceScore:
         )
         assert result is not None
 
-    def test_calculate_confidence_score_exact_match(self):
+    def test_calculate_confidence_score_exact_match(self) -> None:
         """Test when answer exactly matches verse text"""
         question_embedding = [0.1] * 384
         text = "Exact match text."

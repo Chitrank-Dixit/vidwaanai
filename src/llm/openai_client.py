@@ -22,7 +22,7 @@ class OpenAIClient:
     ) -> str:
         """Generate response from LLM."""
         try:
-            response = openai.ChatCompletion.create(
+            response = openai.ChatCompletion.create(  # type: ignore
                 model=self.model,
                 messages=[
                     {
@@ -35,7 +35,7 @@ class OpenAIClient:
                 temperature=temperature,
             )
 
-            return response.choices[0].message.content.strip()
+            return str(response.choices[0].message.content.strip())
 
         except Exception as e:
             logger.error(f"Error generating response: {str(e)}")

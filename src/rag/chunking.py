@@ -44,7 +44,7 @@ class TextChunker:
         documents = []
 
         class Document:
-            def __init__(self, text, metadata):
+            def __init__(self, text: str, metadata: Dict[str, Any]) -> None:
                 self.text = text
                 self.metadata = metadata
 

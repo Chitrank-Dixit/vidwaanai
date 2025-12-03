@@ -18,11 +18,16 @@ DB_CONNECTION_POOL = Gauge(
 )
 
 
-def track_query_latency(func):
+from typing import Any, Callable, List, TypeVar
+
+F = TypeVar("F", bound=Callable[..., Any])
+
+
+def track_query_latency(func: F) -> F:
     """Decorator to track query latency."""
 
     @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
         start_time = time.time()
         try:
             result = func(*args, **kwargs)
@@ -35,10 +40,10 @@ def track_query_latency(func):
             duration = time.time() - start_time
             QUERY_LATENCY.observe(duration)
 
-    return wrapper
+    return wrapper  # type: ignore
 
 
-def record_retrieval_quality(scores: list[float]):
+def record_retrieval_quality(scores: List[float]) -> None:
     """Record average retrieval quality."""
     if scores:
         avg_score = sum(scores) / len(scores)

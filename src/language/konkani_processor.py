@@ -4,7 +4,7 @@ from src.language.marathi_processor import MarathiProcessor
 class KonkaniProcessor(MarathiProcessor):
     """Konkani processor - extends Marathi due to similarity and Devanagari script"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         # Add Konkani-specific stop words
         konkani_stops = {

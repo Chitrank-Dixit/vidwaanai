@@ -1,22 +1,23 @@
 import pytest
 from fastapi.testclient import TestClient
 from unittest.mock import MagicMock
+from typing import Generator
 from src.api import app, get_agent
 
 
 class TestE2E:
     @pytest.fixture
-    def client(self):
+    def client(self) -> TestClient:
         return TestClient(app)
 
     @pytest.fixture
-    def mock_agent(self):
+    def mock_agent(self) -> Generator[MagicMock, None, None]:
         mock = MagicMock()
         app.dependency_overrides[get_agent] = lambda: mock
         yield mock
         app.dependency_overrides = {}
 
-    def test_user_journey(self, client, mock_agent):
+    def test_user_journey(self, client: TestClient, mock_agent: MagicMock) -> None:
         """
         Simulate a user journey:
         1. User checks health.

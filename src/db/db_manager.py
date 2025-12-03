@@ -3,7 +3,7 @@
 import logging
 from contextlib import contextmanager
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from psycopg2.extras import RealDictCursor
 from psycopg2.pool import ThreadedConnectionPool
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class DatabaseManager:
     """Manages database connections and operations."""
 
-    def __init__(self, db_url: str):
+    def __init__(self, db_url: str) -> None:
         """Initialize database manager."""
         self.db_url = db_url
         logger.info("Database manager initialized")
@@ -40,7 +40,7 @@ class DatabaseManager:
             raise
 
     @contextmanager
-    def _get_connection(self):
+    def _get_connection(self) -> Any:
         """Get database connection from pool."""
         conn = None
         try:
@@ -53,7 +53,7 @@ class DatabaseManager:
             if conn:
                 self.pool.putconn(conn)
 
-    def get_scriptures(self) -> List[Dict]:
+    def get_scriptures(self) -> List[Dict[str, Any]]:
         """Get all loaded scriptures."""
         # This method implementation seems broken in original file (references undefined 'name'),
         # but I will update the connection usage pattern regardless.
@@ -95,7 +95,7 @@ class DatabaseManager:
                         )
                         scripture_id = cursor.fetchone()[0]
                     conn.commit()
-                    return scripture_id
+                    return int(scripture_id)
         except Exception as e:
             logger.error(f"Error adding scripture: {str(e)}")
             raise
@@ -144,7 +144,7 @@ class DatabaseManager:
                         )
                         verse_id = cursor.fetchone()[0]
                     conn.commit()
-                    return verse_id
+                    return int(verse_id)
         except Exception as e:
             logger.error(f"Error adding verse: {str(e)}")
             raise
@@ -184,7 +184,7 @@ class DatabaseManager:
         query_embedding: List[float],
         scripture_filter: Optional[str] = None,
         top_k: int = 5,
-    ) -> List[Dict]:
+    ) -> List[Dict[str, Any]]:
         """Retrieve verses similar to query embedding."""
         try:
             with self._get_connection() as conn:
@@ -240,7 +240,7 @@ class DatabaseManager:
                                JOIN scriptures s ON v.scripture_id = s.id
                                {where_clause.replace("AND ", "WHERE ")}
                                ORDER BY v.id DESC LIMIT %s""",
-                            [scripture_filter] if scripture_filter else [top_k],
+                            [scripture_filter] if scripture_filter else [top_k],  # type: ignore
                         )
                         rows = cursor.fetchall()
                         result = [dict(row) for row in rows]
@@ -277,7 +277,7 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
 
-    def get_all_verses(self) -> List[Dict]:
+    def get_all_verses(self) -> List[Dict[str, Any]]:
         """Get all verses from database."""
         try:
             with self._get_connection() as conn:

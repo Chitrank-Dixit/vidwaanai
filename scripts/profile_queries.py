@@ -1,7 +1,9 @@
 import time
 import json
-import sys
 import os
+import sys
+import time
+from typing import Any, Dict, List, Optional, Union
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -12,8 +14,8 @@ logger = get_logger(__name__)
 
 
 class QueryProfiler:
-    def __init__(self):
-        self.results = []
+    def __init__(self) -> None:
+        self.results: List[Dict[str, Any]] = []
         logger.info("Initializing VidwaanAI agent...")
         try:
             from src.core.config import settings
@@ -21,7 +23,7 @@ class QueryProfiler:
 
             self.agent = VidwaanAI(
                 db_url=settings.DATABASE_URL,
-                openai_key=settings.OPENAI_API_KEY,
+                openai_key=str(settings.OPENAI_API_KEY),
                 lmstudio_url=settings.lmstudio_base_url,
                 enable_graph_rag=settings.ENABLE_GRAPH_RAG,
                 neo4j_uri=settings.NEO4J_URI,
@@ -32,7 +34,7 @@ class QueryProfiler:
             logger.error(f"Failed to initialize agent: {e}")
             raise
 
-    def profile_query(self, query_text):
+    def profile_query(self, query_text: str) -> Optional[Dict[str, Any]]:
         start_time = time.time()
 
         try:
@@ -53,7 +55,7 @@ class QueryProfiler:
             logger.error(f"Error profiling query: {e}")
             return None
 
-    def profile_queries_from_file(self, file_path):
+    def profile_queries_from_file(self, file_path: str) -> None:
         with open(file_path, "r") as f:
             queries = f.readlines()
 
@@ -62,7 +64,7 @@ class QueryProfiler:
                 print(f"Profiling: {query.strip()}")
                 self.profile_query(query.strip())
 
-    def generate_report(self):
+    def generate_report(self) -> Union[str, Dict[str, Any]]:
         if not self.results:
             return "No results to report"
 

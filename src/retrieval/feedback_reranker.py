@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Any, Dict, List
 
 from src.core.logger import get_logger
 
@@ -6,11 +6,11 @@ logger = get_logger(__name__)
 
 
 class FeedbackReranker:
-    def __init__(self):
-        self.positive_feedback = {}
-        self.negative_feedback = {}
+    def __init__(self) -> None:
+        self.positive_feedback: Dict[str, List[str]] = {}
+        self.negative_feedback: Dict[str, List[str]] = {}
 
-    def add_positive_feedback(self, query: str, doc_id: str):
+    def add_positive_feedback(self, query: str, doc_id: str) -> None:
         """User marked result as helpful"""
         if query not in self.positive_feedback:
             self.positive_feedback[query] = []
@@ -18,7 +18,7 @@ class FeedbackReranker:
             self.positive_feedback[query].append(doc_id)
             logger.info(f"Added positive feedback for query '{query}', doc {doc_id}")
 
-    def add_negative_feedback(self, query: str, doc_id: str):
+    def add_negative_feedback(self, query: str, doc_id: str) -> None:
         """User marked result as unhelpful"""
         if query not in self.negative_feedback:
             self.negative_feedback[query] = []
@@ -43,7 +43,9 @@ class FeedbackReranker:
         # Simple Bayesian average-like score
         return (positive_count + doc_positive) / (positive_count + negative_count + 1)
 
-    def rerank_with_feedback(self, query: str, documents: List[Dict]) -> List[Dict]:
+    def rerank_with_feedback(
+        self, query: str, documents: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """Rerank considering user feedback"""
 
         for doc in documents:

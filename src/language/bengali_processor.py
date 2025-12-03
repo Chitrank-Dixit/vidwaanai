@@ -1,4 +1,5 @@
 import regex
+from typing import Any, Dict, List
 
 from src.language.language_processor import LanguageProcessor
 
@@ -6,7 +7,7 @@ from src.language.language_processor import LanguageProcessor
 class BengaliProcessor(LanguageProcessor):
     """Bengali language processor"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Bengali stop words
         self.stop_words = set(
             [
@@ -101,18 +102,18 @@ class BengaliProcessor(LanguageProcessor):
         # Remove extra spaces
         normalized = regex.sub(r"\s+", " ", normalized).strip()
 
-        return normalized
+        return str(normalized)
 
-    def tokenize(self, text: str) -> list:
+    def tokenize(self, text: str) -> List[str]:
         """Tokenize Bengali text"""
         tokens = regex.findall(r"\b\w+\b", text)
-        return tokens
+        return list(tokens)
 
-    def remove_stopwords(self, tokens: list) -> list:
+    def remove_stopwords(self, tokens: List[str]) -> List[str]:
         """Remove Bengali stop words"""
         return [token for token in tokens if token.lower() not in self.stop_words]
 
-    def preprocess(self, text: str) -> dict:
+    def preprocess(self, text: str) -> Dict[str, Any]:
         """Complete Bengali preprocessing"""
         normalized = self.normalize(text)
         tokens = self.tokenize(normalized)

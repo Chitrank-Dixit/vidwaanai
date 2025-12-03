@@ -6,7 +6,7 @@ from src.language.language_processor import LanguageProcessor
 
 
 class KannadaProcessor(LanguageProcessor):
-    def __init__(self):
+    def __init__(self) -> None:
         # Common Kannada stop words
         self.stop_words = set(
             [
@@ -32,13 +32,13 @@ class KannadaProcessor(LanguageProcessor):
         """Normalize Kannada text"""
         # Remove extra spaces
         normalized = regex.sub(r"\s+", " ", text).strip()
-        return normalized
+        return str(normalized)
 
     def tokenize(self, text: str) -> List[str]:
         """Tokenize Kannada text"""
         # Split on whitespace and punctuation
         tokens = regex.findall(r"\b\w+\b", text)
-        return tokens
+        return list(tokens)
 
     def remove_stopwords(self, tokens: List[str]) -> List[str]:
         """Remove Kannada stop words"""

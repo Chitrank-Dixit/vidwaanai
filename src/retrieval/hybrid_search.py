@@ -8,11 +8,11 @@ logger = get_logger(__name__)
 class HybridSearch:
     def __init__(
         self,
-        bm25_search,
-        vector_search_func,
+        bm25_search: Any,
+        vector_search_func: Any,
         bm25_weight: float = 0.3,
         semantic_weight: float = 0.7,
-    ):
+    ) -> None:
         """
         Initialize Hybrid Search.
 
@@ -48,8 +48,11 @@ class HybridSearch:
         return results
 
     def combine_results(
-        self, bm25_results: List[Dict], semantic_results: List[Dict], top_k: int = 10
-    ) -> List[Dict]:
+        self,
+        bm25_results: List[Dict[str, Any]],
+        semantic_results: List[Dict[str, Any]],
+        top_k: int = 10,
+    ) -> List[Dict[str, Any]]:
         """Combine and re-rank BM25 and semantic results."""
 
         # Normalize scores

@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+from typing import Any
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -16,7 +17,7 @@ from src.llm.openai_client import OpenAIClient
 logger = get_logger(__name__)
 
 
-def build_graph():
+def build_graph() -> None:
     """Build knowledge graph from existing scripture data."""
     logger.info("Starting graph population...")
 
@@ -36,10 +37,11 @@ def build_graph():
         return
 
     # Initialize LLM for extraction
+    llm: Any
     if settings.llm_backend == "lmstudio":
         llm = LMStudioClient(base_url=settings.lmstudio_base_url)
     else:
-        llm = OpenAIClient(api_key=settings.OPENAI_API_KEY)
+        llm = OpenAIClient(api_key=str(settings.OPENAI_API_KEY))
 
     entity_extractor = EntityExtractor(llm)
 
@@ -59,11 +61,11 @@ def build_graph():
             )
 
             # Helper to extract name string
-            def get_name_str(entity_name):
+            def get_name_str(entity_name: Any) -> str:
                 if isinstance(entity_name, str):
                     return entity_name
                 if isinstance(entity_name, dict):
-                    return entity_name.get("primary", str(entity_name))
+                    return str(entity_name.get("primary", str(entity_name)))
                 return str(entity_name)
 
             # Add to graph

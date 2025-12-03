@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.rag.multilingual_search import MultilingualSearch
 
 
-def test_dialect(name, code, sample_text):
+def test_dialect(name: str, code: str, sample_text: str) -> None:
     print(f"\n--- Testing {name} ({code}) ---")
 
     search = MultilingualSearch()

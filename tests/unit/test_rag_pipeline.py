@@ -6,18 +6,19 @@ from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 
 class TestRAGPipeline:
     @pytest.fixture
-    def mock_hybrid_search(self):
+    def mock_hybrid_search(self) -> MagicMock:
         return MagicMock()
 
     @pytest.fixture
-    def pipeline(self, mock_hybrid_search):
+    def pipeline(self, mock_hybrid_search: MagicMock) -> None:
         # We need to mock other components initialized in __init__
         # Since they are instantiated inside __init__, we might need to patch them
         # or use dependency injection if the class supported it.
         # The current implementation instantiates them directly.
         # We can use unittest.mock.patch to mock the classes during import or instantiation.
 
-        with pytest.warns(None):
+        import warnings
+        with warnings.catch_warnings(record=True):
             # We'll rely on mocking the methods of the instance after creation
             # or patching the classes. Patching is cleaner.
             pass
@@ -29,7 +30,7 @@ class TestRAGPipeline:
         # So we must patch.
         pass
 
-    def test_retrieve_flow(self):
+    def test_retrieve_flow(self) -> None:
         # Mock dependencies using patch context managers
         with (
             unittest.mock.patch(
@@ -75,7 +76,7 @@ class TestRAGPipeline:
             assert len(results) == 1
             assert results[0]["score"] == 0.9
 
-    def test_retrieve_no_correction(self):
+    def test_retrieve_no_correction(self) -> None:
         with (
             unittest.mock.patch(
                 "src.retrieval.advanced_retrieval_pipeline.ContextAwareReranker"
