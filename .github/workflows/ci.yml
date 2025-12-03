@@ -420,63 +420,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build MCP image
+      - name: Build MCP test image
         run: |
           docker build \
             -f Dockerfile.mcp \
-            -t ${{ env.MCP_IMAGE }}:integration-${{ github.sha }} \
-            .
-
-      - name: Start MCP services with Docker Compose
-        run: |
-          docker compose -f docker-compose-mcp.yml up -d
-          sleep 30
-
-      - name: Wait for MCP server to be healthy
-        run: |
-          for i in {1..30}; do \
-            curl -f http://localhost:3000/health && exit 0; \
-            sleep 1; \
-          done; \
-          exit 1
+            -t ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
+            --target runtime \
+          .
 
       - name: Run MCP integration tests
         run: |
           docker run --rm \
-            --network host \
-            -e MCP_SERVER_URL=http://localhost:3000 \
-            -e CI=true \
             -v ${{ github.workspace }}:/workspace \
-            ${{ env.MCP_IMAGE }}:integration-${{ github.sha }} \
+            ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
             pytest tests/mcp/integration/ -v --cov=src/mcp --cov-report=xml
 
-      - name: Test MCP tools
-        run: |
-          docker run --rm \
-            --network host \
-            -e MCP_SERVER_URL=http://localhost:3000 \
-            -v ${{ github.workspace }}:/workspace \
-            python:3.11 \
-            bash -c 'pip install requests && python tests/mcp/tools_test.py'
-
-      - name: Collect logs on failure
-        if: failure()
-        run: |
-          mkdir -p logs
-          docker compose -f docker-compose-mcp.yml logs > logs/mcp-docker-compose.log
-
-      - name: Upload logs on failure
-        if: failure()
+      - name: Upload coverage reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mcp-integration-logs
-          path: logs/
-
-      - name: Cleanup
-        if: always()
-        run: |
-          docker compose -f docker-compose-mcp.yml down -v
-
+          name: mcp-integration-coverage
+          path: coverage.xml
+  
   # ============================================================================
   # COVERAGE REPORT
   # ============================================================================

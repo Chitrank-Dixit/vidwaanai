@@ -15,15 +15,15 @@ def get_agent() -> VidwaanAI:
     # For now, we'll create a new one or use a singleton pattern if needed.
     # Since VidwaanAI init might be heavy (DB pool), singleton is better.
     if not hasattr(app.state, "agent"):
-            app.state.agent = VidwaanAI(
-                db_url=settings.DATABASE_URL,
-                openai_key=settings.OPENAI_API_KEY or "",
-                lmstudio_url=settings.lmstudio_base_url,
-                enable_graph_rag=settings.ENABLE_GRAPH_RAG,
-                neo4j_uri=settings.NEO4J_URI,
-                neo4j_user=settings.NEO4J_USER,
-                neo4j_password=settings.NEO4J_PASSWORD,
-            )
+        app.state.agent = VidwaanAI(
+            db_url=settings.DATABASE_URL,
+            openai_key=settings.OPENAI_API_KEY or "",
+            lmstudio_url=settings.lmstudio_base_url,
+            enable_graph_rag=settings.ENABLE_GRAPH_RAG,
+            neo4j_uri=settings.NEO4J_URI,
+            neo4j_user=settings.NEO4J_USER,
+            neo4j_password=settings.NEO4J_PASSWORD,
+        )
     return cast(VidwaanAI, app.state.agent)
 
 

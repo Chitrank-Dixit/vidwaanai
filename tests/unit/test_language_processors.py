@@ -88,7 +88,9 @@ class TestLanguageProcessors:
     def malayalam_processor(self) -> MalayalamProcessor:
         return MalayalamProcessor()
 
-    def test_malayalam_preprocess(self, malayalam_processor: MalayalamProcessor) -> None:
+    def test_malayalam_preprocess(
+        self, malayalam_processor: MalayalamProcessor
+    ) -> None:
         text = "നമസ്കാരം"
         result = malayalam_processor.preprocess(text)
         assert len(result["tokens"]) == 1

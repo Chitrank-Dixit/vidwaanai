@@ -45,7 +45,9 @@ class LMStudioClient:
 
             # Extract the generated text from OpenAI-compatible response
             if "choices" in data and len(data["choices"]) > 0:
-                text = str(data["choices"][0].get("message", {}).get("content", "")).strip()
+                text = str(
+                    data["choices"][0].get("message", {}).get("content", "")
+                ).strip()
                 logger.debug(f"Generated response: {text[:100]}...")
                 return text
             else:

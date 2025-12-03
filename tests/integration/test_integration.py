@@ -21,7 +21,9 @@ class TestIntegration:
             yield mock
 
     @pytest.fixture
-    def agent(self, mock_db: MagicMock, mock_llm: MagicMock, mock_multilingual: MagicMock) -> VidwaanAI:
+    def agent(
+        self, mock_db: MagicMock, mock_llm: MagicMock, mock_multilingual: MagicMock
+    ) -> VidwaanAI:
         # Setup mock DB
         db_instance = mock_db.return_value
         db_instance.get_all_verses.return_value = []  # For BM25 init

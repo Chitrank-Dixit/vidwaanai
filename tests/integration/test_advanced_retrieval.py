@@ -17,7 +17,9 @@ class TestAdvancedRetrievalIntegration:
             mock_reranker_instance = MockReranker.return_value
 
             # Mock rerank to reverse the order for testing
-            def side_effect_rerank(query: str, docs: List[Dict[str, Any]], top_k: Optional[int] = None) -> List[Dict[str, Any]]:
+            def side_effect_rerank(
+                query: str, docs: List[Dict[str, Any]], top_k: Optional[int] = None
+            ) -> List[Dict[str, Any]]:
                 return list(reversed(docs))[:top_k] if top_k else list(reversed(docs))
 
             mock_reranker_instance.rerank.side_effect = side_effect_rerank

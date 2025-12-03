@@ -18,6 +18,7 @@ class TestRAGPipeline:
         # We can use unittest.mock.patch to mock the classes during import or instantiation.
 
         import warnings
+
         with warnings.catch_warnings(record=True):
             # We'll rely on mocking the methods of the instance after creation
             # or patching the classes. Patching is cleaner.

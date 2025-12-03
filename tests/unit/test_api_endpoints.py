@@ -47,7 +47,9 @@ class TestAPIEndpoints:
         assert args["question"] == "What is life?"
         assert args["language"] == "en"
 
-    def test_query_endpoint_missing_field(self, client: TestClient, mock_agent: MagicMock) -> None:
+    def test_query_endpoint_missing_field(
+        self, client: TestClient, mock_agent: MagicMock
+    ) -> None:
         payload = {
             "language": "en"
             # Missing text
@@ -55,7 +57,9 @@ class TestAPIEndpoints:
         response = client.post("/query", json=payload)
         assert response.status_code == 422  # Validation error
 
-    def test_query_endpoint_error(self, client: TestClient, mock_agent: MagicMock) -> None:
+    def test_query_endpoint_error(
+        self, client: TestClient, mock_agent: MagicMock
+    ) -> None:
         mock_agent.query.side_effect = Exception("Internal error")
 
         payload = {"text": "Error query"}

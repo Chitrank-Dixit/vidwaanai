@@ -36,7 +36,12 @@ class TestCompleteQuery:
         return manager
 
     @pytest.fixture(autouse=True)
-    def setup_system(self, db_manager: DatabaseManager, graph_builder: GraphBuilder, embedding_manager: MagicMock) -> None:
+    def setup_system(
+        self,
+        db_manager: DatabaseManager,
+        graph_builder: GraphBuilder,
+        embedding_manager: MagicMock,
+    ) -> None:
         """Setup full system with data."""
         # Clean DB
         with db_manager._get_connection() as conn:
@@ -69,7 +74,9 @@ class TestCompleteQuery:
         graph_builder.clear_graph()
         graph_builder.create_concept("Yoga", {"description": "Union"})
 
-    def test_query_flow(self, db_manager: DatabaseManager, graph_builder: GraphBuilder) -> None:
+    def test_query_flow(
+        self, db_manager: DatabaseManager, graph_builder: GraphBuilder
+    ) -> None:
         """Test the full query flow."""
         # Mock LLM client to avoid external calls
         with (

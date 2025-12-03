@@ -22,7 +22,9 @@ class TestMultilingualEmbeddings:
         )  # The method returns list, not numpy array directly usually
         assert all(isinstance(x, float) for x in embedding)
 
-    def test_multilingual_embedding(self, embedding_model: MultilingualEmbeddings) -> None:
+    def test_multilingual_embedding(
+        self, embedding_model: MultilingualEmbeddings
+    ) -> None:
         # Embed Hindi text
         text_hi = "नमस्ते दुनिया"
         embedding_hi = embedding_model.embed_text(text_hi, "hi")
@@ -33,7 +35,9 @@ class TestMultilingualEmbeddings:
         embedding_ta = embedding_model.embed_text(text_ta, "ta")
         assert len(embedding_ta) == 1024
 
-    def test_embedding_similarity(self, embedding_model: MultilingualEmbeddings) -> None:
+    def test_embedding_similarity(
+        self, embedding_model: MultilingualEmbeddings
+    ) -> None:
         # "Hello world" in English and Hindi should be similar
         emb_en = embedding_model.embed_text("Hello world", "en")
         emb_hi = embedding_model.embed_text("नमस्ते दुनिया", "hi")
@@ -48,7 +52,9 @@ class TestMultilingualEmbeddings:
 
         assert similarity > 0.7  # Should be highly similar
 
-    def test_embedding_dissimilarity(self, embedding_model: MultilingualEmbeddings) -> None:
+    def test_embedding_dissimilarity(
+        self, embedding_model: MultilingualEmbeddings
+    ) -> None:
         # Compare relative similarity
         emb_anchor = embedding_model.embed_text("Apple", "en")
         emb_positive = embedding_model.embed_text("Fruit", "en")
@@ -92,7 +98,9 @@ class TestMultilingualEmbeddings:
         embedding = embedding_model.embed_text(text, "en")
         assert len(embedding) == 1024
 
-    def test_embed_document_prefix(self, embedding_model: MultilingualEmbeddings) -> None:
+    def test_embed_document_prefix(
+        self, embedding_model: MultilingualEmbeddings
+    ) -> None:
         """Test that document prefix is handled correctly"""
         # E5 models expect "passage: " prefix for documents
         text = "Yoga is a practice."
