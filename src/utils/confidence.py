@@ -1,6 +1,7 @@
+from typing import Any, Dict, List
+
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from typing import List, Dict, Any
 
 
 def calculate_confidence_score(
@@ -61,7 +62,7 @@ def calculate_confidence_score(
 
                 try:
                     emb = json.loads(emb)
-                except:
+                except Exception:
                     emb = []  # Fail gracefully
             retrieved_embeddings.append(emb)
 

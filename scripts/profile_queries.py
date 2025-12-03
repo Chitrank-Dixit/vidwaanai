@@ -6,7 +6,6 @@ import os
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.main import query_handler
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)

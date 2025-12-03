@@ -1,5 +1,6 @@
 import random
-from typing import Callable, Dict, List, Any
+from typing import Callable, Dict, List
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)

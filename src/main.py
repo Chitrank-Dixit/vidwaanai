@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 """VidwaanAI CLI Entry Point."""
 
+from typing import Optional
+
 import typer
-from pathlib import Path
 from rich.console import Console
 from rich.table import Table
-from typing import Optional
-import os
-import sys
 
+from src.agent.vidwaan_agent import VidwaanAI
 from src.core.config import settings
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
-from src.agent.vidwaan_agent import VidwaanAI
 
 # Initialize
 app = typer.Typer(
@@ -45,7 +43,7 @@ def get_agent() -> VidwaanAI:
         except Exception as e:
             console.print(f"[red]Error initializing agent: {str(e)}[/red]")
             console.print(
-                f"[yellow]Make sure database is running: docker-compose up -d[/yellow]"
+                "[yellow]Make sure database is running: docker-compose up -d[/yellow]"
             )
             raise typer.Exit(1)
     return agent
@@ -160,9 +158,9 @@ def system(
             console.print("[green]✓ CLI Ready[/green]")
             console.print("[green]✓ Configuration Loaded[/green]")
             try:
-                agent = get_agent()
+                get_agent()
                 console.print("[green]✓ Database Connected[/green]")
-            except:
+            except Exception:
                 console.print("[red]✗ Database Not Connected[/red]")
         else:
             console.print(f"[yellow]Action '{action}' not implemented yet[/yellow]")

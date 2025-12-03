@@ -1,23 +1,25 @@
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 import numpy as np
-from src.language.language_detector import LanguageDetector
-from src.language.hindi_processor import HindiProcessor
-from src.language.gujarati_processor import GujaratiProcessor
-from src.language.tamil_processor import TamilProcessor
-from src.language.telugu_processor import TeluguProcessor
-from src.language.kannada_processor import KannadaProcessor
-from src.language.malayalam_processor import MalayalamProcessor
+
+from src.core.logger import get_logger
 from src.language.bengali_processor import BengaliProcessor
-from src.language.marathi_processor import MarathiProcessor
-from src.language.rajasthani_processor import RajasthaniProcessor
-from src.language.haryanvi_processor import HaryanviProcessor
 from src.language.bhojpuri_processor import BhojpuriProcessor
-from src.language.maithili_processor import MaithiliProcessor
 from src.language.chhattisgarhi_processor import ChhattisgarhiProcessor
 from src.language.dogri_processor import DogriProcessor
+from src.language.gujarati_processor import GujaratiProcessor
+from src.language.haryanvi_processor import HaryanviProcessor
+from src.language.hindi_processor import HindiProcessor
+from src.language.kannada_processor import KannadaProcessor
 from src.language.konkani_processor import KonkaniProcessor
+from src.language.language_detector import LanguageDetector
+from src.language.maithili_processor import MaithiliProcessor
+from src.language.malayalam_processor import MalayalamProcessor
+from src.language.marathi_processor import MarathiProcessor
+from src.language.rajasthani_processor import RajasthaniProcessor
+from src.language.tamil_processor import TamilProcessor
+from src.language.telugu_processor import TeluguProcessor
 from src.rag.multilingual_embeddings import MultilingualEmbeddings
-from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 

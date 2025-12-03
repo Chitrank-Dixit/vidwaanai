@@ -1,8 +1,6 @@
-from typing import List, Dict
-import logging
-import logging
-import re
 import json
+import logging
+from typing import Dict
 
 logger = logging.getLogger(__name__)
 

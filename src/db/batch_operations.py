@@ -1,7 +1,9 @@
-from typing import List, Dict, Any
-from src.db.db_manager import DatabaseManager
-from src.core.logger import get_logger
+from typing import Any, Dict, List
+
 import psycopg2.extras
+
+from src.core.logger import get_logger
+from src.db.db_manager import DatabaseManager
 
 logger = get_logger(__name__)
 

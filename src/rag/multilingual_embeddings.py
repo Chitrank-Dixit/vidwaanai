@@ -1,6 +1,8 @@
-from sentence_transformers import SentenceTransformer
+from typing import List
+
 import numpy as np
-from typing import List, Union
+from sentence_transformers import SentenceTransformer
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)

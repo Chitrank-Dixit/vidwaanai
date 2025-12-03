@@ -1,6 +1,6 @@
 import pytest
 import time
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 from src.agent.vidwaan_agent import VidwaanAI
 
 

@@ -1,6 +1,7 @@
-from typing import List, Dict, Any
-from src.rag.multilingual_search import MultilingualSearch
+from typing import Any, Dict, List
+
 from src.core.logger import get_logger
+from src.rag.multilingual_search import MultilingualSearch
 
 logger = get_logger(__name__)
 
@@ -34,7 +35,7 @@ class CrosslingualSearch:
             Dictionary mapping language code to list of results
         """
         # Process query once
-        query_data = self.multilingual_search.process_query(query)
+        self.multilingual_search.process_query(query)
         # query_embedding = query_data['embedding'] # Not used directly here, search uses it internally
 
         # Perform search

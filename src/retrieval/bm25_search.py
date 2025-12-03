@@ -1,6 +1,8 @@
-from rank_bm25 import BM25Okapi
+from typing import Any, Dict, List
+
 import numpy as np
-from typing import List, Dict, Any
+from rank_bm25 import BM25Okapi
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)

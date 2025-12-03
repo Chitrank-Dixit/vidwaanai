@@ -1,14 +1,14 @@
 """Embedding management using Vyakyarth."""
 
-from typing import List, Union
+import logging
 import os
+from typing import List, Union
+
 import numpy as np
 from sentence_transformers import SentenceTransformer
-import logging
 
 logger = logging.getLogger(__name__)
 
-from src.core.profiler import profile_function
 
 
 class EmbeddingManager:

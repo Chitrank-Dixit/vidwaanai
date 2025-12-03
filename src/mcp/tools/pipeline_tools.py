@@ -1,4 +1,4 @@
-from typing import Dict, Any, List
+from typing import Any, Dict, List
 
 
 def execute_rag_pipeline(query: str, config: Dict[str, Any]) -> Dict[str, Any]:

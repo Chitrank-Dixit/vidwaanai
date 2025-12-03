@@ -7,10 +7,11 @@ relationships between them. It is designed to be used by scripts that extract st
 information (like entities and relations) and need to persist them as a graph.
 """
 
-from neo4j import GraphDatabase
-from typing import Dict
-import logging
 import json
+import logging
+from typing import Dict
+
+from neo4j import GraphDatabase
 
 logger = logging.getLogger(__name__)
 

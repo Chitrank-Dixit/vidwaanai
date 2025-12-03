@@ -1,6 +1,8 @@
-from src.language.language_processor import LanguageProcessor
-import regex
 from typing import List
+
+import regex
+
+from src.language.language_processor import LanguageProcessor
 
 
 class TeluguProcessor(LanguageProcessor):

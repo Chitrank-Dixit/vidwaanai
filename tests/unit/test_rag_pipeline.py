@@ -17,7 +17,7 @@ class TestRAGPipeline:
         # The current implementation instantiates them directly.
         # We can use unittest.mock.patch to mock the classes during import or instantiation.
 
-        with pytest.warns(None) as record:
+        with pytest.warns(None):
             # We'll rely on mocking the methods of the instance after creation
             # or patching the classes. Patching is cleaner.
             pass

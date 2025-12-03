@@ -1,7 +1,7 @@
 """Query routing and language detection."""
 
-from typing import Dict, Optional
 import logging
+from typing import Dict, Optional
 
 logger = logging.getLogger(__name__)
 

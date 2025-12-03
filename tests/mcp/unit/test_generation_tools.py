@@ -1,4 +1,3 @@
-import pytest
 from src.mcp.tools.generation_tools import (
     generate_answer,
     summarize_results,

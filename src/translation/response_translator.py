@@ -1,5 +1,6 @@
-from transformers import MarianMTModel, MarianTokenizer
 import torch
+from transformers import MarianMTModel, MarianTokenizer
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)

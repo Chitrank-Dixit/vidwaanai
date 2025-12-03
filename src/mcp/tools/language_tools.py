@@ -1,5 +1,6 @@
-from typing import Dict, List, Any
-from langdetect import detect, detect_langs
+from typing import Any, Dict, List
+
+from langdetect import detect_langs
 
 # Supported languages in VidwaanAI
 SUPPORTED_LANGUAGES = {

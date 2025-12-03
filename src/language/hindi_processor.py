@@ -1,7 +1,9 @@
-from src.language.language_processor import LanguageProcessor
-import regex
-import nltk
 from typing import List
+
+import nltk
+import regex
+
+from src.language.language_processor import LanguageProcessor
 
 
 class HindiProcessor(LanguageProcessor):

@@ -1,8 +1,5 @@
 """OpenAI LLM client."""
 
-import os
-from typing import List, Dict, Any, Optional
-from openai import OpenAI
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
 

@@ -1,4 +1,3 @@
-import pytest
 from src.mcp.tools.language_tools import (
     detect_language,
     preprocess_text,
@@ -9,8 +8,8 @@ from src.mcp.tools.language_tools import (
 def test_get_supported_languages():
     langs = get_supported_languages()
     assert len(langs) > 0
-    assert any(l["code"] == "hi" for l in langs)
-    assert any(l["code"] == "en" for l in langs)
+    assert any(hl["code"] == "hi" for hl in langs)
+    assert any(el["code"] == "en" for el in langs)
 
 
 def test_detect_language_hindi():

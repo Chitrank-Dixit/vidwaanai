@@ -1,6 +1,7 @@
-from prometheus_client import Counter, Histogram, Gauge
-import time
 import functools
+import time
+
+from prometheus_client import Counter, Gauge, Histogram
 
 # Metrics definitions
 QUERY_COUNTER = Counter(

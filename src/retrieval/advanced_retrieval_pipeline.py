@@ -1,9 +1,10 @@
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
+from src.core.logger import get_logger
+from src.retrieval.fuzzy_matcher import FuzzyMatcher
 from src.retrieval.hybrid_search import HybridSearch
 from src.retrieval.reranker import ContextAwareReranker
-from src.retrieval.fuzzy_matcher import FuzzyMatcher
 from src.retrieval.synonym_handler import SynonymHandler
-from src.core.logger import get_logger
 
 logger = get_logger(__name__)
 

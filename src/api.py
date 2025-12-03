@@ -1,6 +1,8 @@
-from fastapi import FastAPI, HTTPException, Depends
+from typing import Any, Dict, List, Optional
+
+from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import Optional, List, Dict, Any
+
 from src.agent.vidwaan_agent import VidwaanAI
 from src.core.config import settings
 

@@ -2,10 +2,6 @@ import pytest
 from unittest.mock import MagicMock, patch
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 from src.retrieval.hybrid_search import HybridSearch
-from src.retrieval.bm25_search import BM25Search
-from src.retrieval.reranker import ContextAwareReranker
-from src.retrieval.fuzzy_matcher import FuzzyMatcher
-from src.retrieval.synonym_handler import SynonymHandler
 
 
 class TestAdvancedRetrievalIntegration:
@@ -64,11 +60,6 @@ class TestAdvancedRetrievalIntegration:
             assert len(results) == 2
             assert results[0]["id"] == 2
             assert results[1]["id"] == 1
-
-    def test_fuzzy_matching_integration(self):
-        """Test fuzzy matching integration"""
-        mock_hybrid = MagicMock()
-        mock_hybrid.search.return_value = []
 
     def test_fuzzy_matching_integration(self):
         """Test fuzzy matching integration"""

@@ -1,4 +1,5 @@
 import regex
+
 from src.language.language_processor import LanguageProcessor
 
 

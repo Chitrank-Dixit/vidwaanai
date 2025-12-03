@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-from typing import List, Dict
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

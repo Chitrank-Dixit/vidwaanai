@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional
+from typing import Any, Dict, List
 
 
 def query_knowledge_graph(query: str, language: str = "en") -> List[Dict[str, Any]]:

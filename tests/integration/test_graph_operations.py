@@ -1,6 +1,5 @@
 import pytest
 from src.graph.graph_builder import GraphBuilder
-import os
 
 # Mark as integration test
 pytestmark = pytest.mark.integration

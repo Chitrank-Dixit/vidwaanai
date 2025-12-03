@@ -1,5 +1,6 @@
-from typing import Dict, List, Any
 import logging
+from typing import Any, Dict, List
+
 from src.core.profiler import profile_function
 
 logger = logging.getLogger(__name__)
@@ -124,7 +125,8 @@ class HybridSearch:
             # Basic cleanup if needed
             response = response.replace("```json", "").replace("```", "").strip()
             return json.loads(response)
-        except:
+        except Exception as e:
+            logger.error(f"Error extracting entities: {str(e)}")
             return []
 
     def _fuse_context(

@@ -1,5 +1,5 @@
-from langdetect import detect, detect_langs, DetectorFactory
-import regex
+from langdetect import DetectorFactory, detect_langs
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)

@@ -1,5 +1,5 @@
-from typing import List, Dict
-import numpy as np
+from typing import Dict, List
+
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)
