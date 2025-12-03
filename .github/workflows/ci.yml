@@ -639,7 +639,7 @@ jobs:
 
       - name: Create success badge
         if: success()
-        run: echo "CI Status: PASSED" > ci-status.txt
+        run: echo "CI Status PASSED" > ci-status.txt
 
       - name: Upload CI status
         if: always()
