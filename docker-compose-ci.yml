@@ -37,8 +37,7 @@ services:
       - test-network
     entrypoint: []
     volumes:
-      - .:/workspace:ro
-      - /workspace/.pytest_cache
+      - .:/workspace
       - /workspace/.venv
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
