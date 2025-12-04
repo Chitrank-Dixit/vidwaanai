@@ -40,6 +40,15 @@ help:
 	@echo "  $(GREEN)make -f Makefile-docker mcp-down$(RESET)   Stop MCP server"
 	@echo "  $(GREEN)make -f Makefile-docker mcp-test$(RESET)   Run MCP unit tests"
 	@echo "  $(GREEN)make -f Makefile-docker mcp-int$(RESET)    Run MCP integration tests"
+	@echo
+	@echo "$(CYAN)Quality Assurance:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker lint$(RESET)       Lint code (ruff)"
+	@echo "  $(GREEN)make -f Makefile-docker format$(RESET)     Format code (black, ruff)"
+	@echo "  $(GREEN)make -f Makefile-docker black-check$(RESET) Check formatting (black)"
+	@echo "  $(GREEN)make -f Makefile-docker black-format$(RESET) Format code (black only)"
+	@echo "  $(GREEN)make -f Makefile-docker check$(RESET)      Type check (mypy)"
+	@echo "  $(GREEN)make -f Makefile-docker security$(RESET)   Security check (bandit, safety)"
+	@echo "  $(GREEN)make -f Makefile-docker lint-all$(RESET)   Run all QA checks"
 
 build:
 	@echo "$(YELLOW)Building containers...$(RESET)"
@@ -76,7 +85,39 @@ query:
 		$(COMPOSE) exec app uv run python -m src.main query "$(Q)" --verbose; \
 	fi
 
+# --- Quality Assurance ---
+
+lint:
+	@echo "$(YELLOW)Linting code...$(RESET)"
+	@$(COMPOSE) run --rm --no-deps app uv run ruff check src tests scripts
+
+format:
+	@echo "$(YELLOW)Formatting code...$(RESET)"
+	@$(COMPOSE) run --rm --no-deps app uv run black src tests scripts
+	@$(COMPOSE) run --rm --no-deps app uv run ruff check --fix src tests scripts
+
+black-check:
+	@echo "$(YELLOW)Checking code formatting with Black...$(RESET)"
+	@$(COMPOSE) run --rm --no-deps app uv run black --check src tests scripts
+
+black-format:
+	@echo "$(YELLOW)Formatting code with Black...$(RESET)"
+	@$(COMPOSE) run --rm --no-deps app uv run black src tests scripts
+
+
+check:
+	@echo "$(YELLOW)Running type checks...$(RESET)"
+	@$(COMPOSE) run --rm --no-deps app uv run mypy src
+
+security:
+	@echo "$(YELLOW)Running security checks...$(RESET)"
+	@$(COMPOSE) run --rm --no-deps app uv run bandit -r src
+	@$(COMPOSE) run --rm --no-deps app uv run safety check
+
+lint-all: format lint check security
+
 test: test-unit
+
 
 test-unit:
 	@echo "$(YELLOW)Running unit tests...$(RESET)"
