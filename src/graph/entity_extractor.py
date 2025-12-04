@@ -73,3 +73,46 @@ Ensure "from" and "to" are actual entity names, NOT descriptions or sentences.
             logger.error(f"Failed to parse entity extraction response: {e}")
             logger.debug(f"Raw response: {response}")
             return {"entities": [], "relationships": []}
+
+    def extract_from_query(self, query: str) -> list[dict[str, Any]]:
+        """
+        Extract entities from a user query.
+        
+        Returns:
+        [
+            {"name": "Krishna", "type": "Person"},
+            {"name": "dharma", "type": "Concept"}
+        ]
+        """
+        prompt = f"""
+        Extract key entities from this user query for a knowledge graph search.
+        Identify Persons, Concepts, Places, or Events.
+        
+        Query: {query}
+        
+        Return ONLY valid JSON list of objects.
+        Example:
+        [
+          {{"name": "Krishna", "type": "Person"}},
+          {{"name": "karma", "type": "Concept"}}
+        ]
+        """
+        
+        response = self.llm.generate(prompt, max_tokens=300, temperature=0.1)
+        try:
+            cleaned_response = response.strip()
+            if "```json" in cleaned_response:
+                cleaned_response = cleaned_response.split("```json")[1].split("```")[0].strip()
+            elif "```" in cleaned_response:
+                cleaned_response = cleaned_response.split("```")[1].split("```")[0].strip()
+                
+            result = json.loads(cleaned_response)
+            if isinstance(result, list):
+                return result
+            if isinstance(result, dict) and "entities" in result:
+                return result["entities"]
+            return []
+        except Exception as e:
+            logger.error(f"Failed to extract entities from query: {e}")
+            return []
+

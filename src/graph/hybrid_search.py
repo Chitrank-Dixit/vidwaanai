@@ -108,26 +108,14 @@ class HybridSearch:
                 }
 
     def _extract_query_entities(self, query: str) -> List[Dict[str, Any]]:
-        """Extract entities from query using the extractor's LLM."""
-        # This is a placeholder. Ideally we extend EntityExtractor.
-        # For now, let's try to use the extractor's LLM to parse the query.
-        prompt = f"""
-        Extract entities from this query.
-        Query: {query}
+        """Extract entities from query using the extractor."""
+        if hasattr(self.extractor, "extract_from_query"):
+            return self.extractor.extract_from_query(query)
         
-        Return JSON with list of entities:
-        [{{"name": "Krishna", "type": "Person"}}, {{"name": "dharma", "type": "Concept"}}]
-        """
-        try:
-            response = self.extractor.llm.generate(prompt, max_tokens=200)
-            import json
+        # Fallback if extractor doesn't have the method (shouldn't happen with new code)
+        logger.warning("EntityExtractor missing extract_from_query method. Using fallback.")
+        return []
 
-            # Basic cleanup if needed
-            response = response.replace("```json", "").replace("```", "").strip()
-            return list(json.loads(response))
-        except Exception as e:
-            logger.error(f"Error extracting entities: {str(e)}")
-            return []
 
     def _fuse_context(
         self, graph_results: List[Dict[str, Any]], vector_results: List[Dict[str, Any]]
