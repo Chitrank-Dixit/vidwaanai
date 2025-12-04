@@ -370,36 +370,84 @@ jobs:
         with:
           path: coverage-reports/
 
+      - name: Debug - List downloaded files
+        run: |
+          echo "=== Downloaded artifacts ==="
+          find coverage-reports/ -type f -name "*.xml" -o -name "*.txt" | head -20
+          echo ""
+          echo "=== Directory structure ==="
+          tree coverage-reports/ || find coverage-reports/ -type f
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: Combine coverage reports
+      - name: Install coverage tools
         run: |
           pip install coverage
+
+      - name: Combine coverage reports
+        run: |
+          mkdir -p coverage-combined
           cd coverage-reports
-          coverage combine */coverage.xml || true
-          coverage report || true
-          coverage html || true
-          coverage report > ../combined-coverage.txt || true
+          
+          # Find all coverage.xml files and copy them to a common location
+          find . -name "coverage.xml" -exec cp {} ../coverage-combined/{}_$(date +%s).xml \;
+          
+          cd ../coverage-combined
+          
+          # If we found XML files, combine them
+          if ls *.xml 1> /dev/null 2>&1; then
+            echo "Found coverage files: $(ls -1 *.xml)"
+            coverage combine *.xml
+            coverage report
+            coverage report -m > ../coverage-report.txt
+            coverage html
+            echo "✅ Coverage reports generated"
+          else
+            echo "⚠️ No coverage.xml files found!"
+            echo "Generating placeholder report..."
+            cat > ../coverage-report.txt << 'EOF'
+          Coverage Report
+          ================
+          
+          No coverage data available from test runs.
+          
+          This may indicate:
+          - Tests did not run
+          - Coverage files were not generated
+          - Paths don't match the configured coverage scope
+          
+          Check individual test artifacts for details.
+          EOF
+          fi
+
+      - name: Display coverage report
+        run: |
+          echo "=== Coverage Report ==="
+          cat coverage-report.txt || echo "No report generated"
 
       - name: Upload combined coverage
         uses: actions/upload-artifact@v4
         with:
           name: combined-coverage-report
           path: htmlcov/
+          if-no-files-found: warn
 
       - name: Comment PR with coverage
-        if: |
-          github.event_name == 'pull_request' && 
-          github.event.pull_request.head.repo.full_name == github.repository
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/github-script@v6
         with:
           script: |
             try {
               const fs = require('fs');
-              const coverage = fs.readFileSync('combined-coverage.txt', 'utf8');
+              let coverage = "No coverage data available.";
+              
+              if (fs.existsSync('coverage-report.txt')) {
+                coverage = fs.readFileSync('coverage-report.txt', 'utf8');
+              }
+              
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
@@ -410,6 +458,7 @@ jobs:
             } catch (e) {
               console.log('⚠️ Could not create coverage comment:', e.message);
             }
+
 
 
   # ============================================================================
