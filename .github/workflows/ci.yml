@@ -358,6 +358,9 @@ jobs:
       - mcp-unit-tests
       - mcp-integration-tests
     if: always()
+    permissions:
+      contents: read
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -388,7 +391,9 @@ jobs:
           path: htmlcov/
 
       - name: Comment PR with coverage
-        if: github.event_name == 'pull_request'
+        if: |
+          github.event_name == 'pull_request' && 
+          github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/github-script@v6
         with:
           script: |
@@ -401,9 +406,11 @@ jobs:
                 repo: context.repo.repo,
                 body: `## Coverage Report\n\`\`\`\n${coverage}\n\`\`\``
               });
+              console.log('✅ Coverage comment posted');
             } catch (e) {
-              console.log('Could not create coverage comment');
+              console.log('⚠️ Could not create coverage comment:', e.message);
             }
+
 
   # ============================================================================
   # BUILD FINAL IMAGES FOR REGISTRY (Only on main branch)
