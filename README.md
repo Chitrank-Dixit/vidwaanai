@@ -317,11 +317,11 @@ Verse
     ▼                             ▼
 ┌─────────────────┐     ┌──────────────────────┐
 │  Entity          │     │  Vector Search       │
-│  Extraction      │     │  (Vyakyarth)         │
-│  (LLM)           │     │                      │
-│                  │     │  Top-K verses        │
-│  Extract:        │     │  about "duty"        │
-│  - Krishna       │     └──────────┬───────────┘
+│  Extraction      │ │  (Vyakyarth)         │
+│  (LLM)           │ │                      │
+│                  │ │  Top-K verses        │
+│  Extract:        │ │  about "duty"        │
+│  - Krishna       │ └──────────┬───────────┘
 │  - duty/dharma   │                │
 └────────┬─────────┘                │
          │                          │
@@ -355,7 +355,7 @@ Verse
          │                      │
          │  Rich, contextual    │
          │  answer with sources │
-         └──────────────────────┘
+         └──────────────────────┐
 ```
 
 ***
@@ -429,7 +429,7 @@ import json
 class EntityExtractor:
     """Extract entities and relationships from scripture verses."""
     
-    def __init__(self, llm_client):
+    def __init__(selfmll_client):
         self.llm = llm_client
         
     def extract_entities(self, verse_text: str, translation: str, 
@@ -801,3 +801,105 @@ python -m src.main query "Who learned from Krishna and what did they teach other
 This plan gives you a comprehensive roadmap. We can start with Phase 1-2 this week and iterate from there. Would you like to begin with setting up Neo4j and designing the initial graph schema?
 
 Sources
+## Local Makefile Commands
+
+This project uses a `Makefile` to streamline common development tasks. Below are some key commands for local development:
+
+### Setup
+- `make setup`: Install Python dependencies and create necessary directories.
+- `make setup-dev`: Install all dependencies, including development tools.
+
+### Testing
+- `make test-setup`: Prepares the test environment by starting Docker services (Postgres, Neo4j), initializing the database, and loading sample data. This ensures a clean and consistent state for your tests.
+- `make test`: Runs the main test suite. This command automatically calls `make test-setup` first.
+- `make test-verbose`: Runs the test suite with verbose output. Also automatically calls `make test-setup`.
+- `make test-cleanup`: Stops the Docker services and removes their data volumes, ensuring a clean slate after testing.
+- `make test-all`: Executes the complete testing workflow: sets up the environment, runs all tests, and then cleans up the environment. This is the recommended command for a full test cycle.
+
+### Code Quality
+- `make lint`: Run code linting using `ruff`.
+- `make format`: Format code using `black` and `ruff`.
+- `make check`: Run type checks using `mypy`.
+- `make test-code`: Run unit tests on the framework.
+
+### Workflows
+- `make workflow`: Runs the full development workflow: generates prompts, validates them, runs tests, analyzes results, and generates a report.
+- `make workflow-quick`: A quicker workflow for development: runs a dry run, analyzes results, and generates a report.
+- `make workflow-dev`: A development workflow: generates prompts, validates them, and runs a dry run.
+
+### Information
+- `make help`: Display all available commands and their descriptions.
+- `make show-languages`: List all supported languages.
+- `make show-categories`: List all test categories.
+- `make show-config`: Show the current configuration settings.
+
+### Cleanup
+- `make clean`: Remove temporary result and log files, but keeps generated prompts.
+- `make clean-cache`: Clear Python cache directories.
+- `make clean-all`: Remove all generated files, including prompts, and temporary files.
+## Docker Makefile Commands
+
+This project also provides a `Makefile-docker` for managing containerized development and testing workflows. This is particularly useful for ensuring a consistent environment and isolating dependencies.
+
+### Quick Start (Docker)
+- `make -f Makefile-docker docker-build`: Build all Docker containers.
+- `make -f Makefile-docker docker-up`: Start all Docker services in detached mode.
+- `make -f Makefile-docker docker-first-run`: Initialize the database and load sample data within the Docker environment.
+- `make -f Makefile-docker docker-test`: Run the full test suite within Docker.
+- `make -f Makefile-docker docker-analyze` and `make -f Makefile-docker docker-report`: Analyze test results and generate a comprehensive report.
+
+### Lifecycle
+- `make -f Makefile-docker docker-build`: Build all Docker containers.
+- `make -f Makefile-docker docker-up`: Start all Docker services in detached mode.
+- `make -f Makefile-docker docker-down`: Stop all Docker services.
+- `make -f Makefile-docker docker-logs`: View logs from all services.
+- `make -f Makefile-docker docker-shell`: Open a shell in the 'app' container.
+
+### Setup
+- `make -f Makefile-docker docker-first-run`: Initialize DB and load data.
+
+### Generate & Test
+- `make -f Makefile-docker docker-generate`: Generate prompts inside Docker.
+- `make -f Makefile-docker docker-test`: Run the full test suite inside Docker.
+- `make -f Makefile-docker docker-test-lang L=<lang_code>`: Test a specific language (e.g., `L=hi`).
+- `make -f Makefile-docker docker-test-category C=<category_name>`: Test a specific category (e.g., `C=ramayana`).
+
+### Analysis & Report
+- `make -f Makefile-docker docker-analyze`: Analyze test results.
+- `make -f Makefile-docker docker-report`: Generate comprehensive report.
+
+### Workflows
+- `make -f Makefile-docker docker-workflow`: Full workflow: generate → test → report.
+- `make -f Makefile-docker docker-workflow-quick`: Quick workflow version.
+
+### Knowledge Graph
+- `make -f Makefile-docker docker-graph-build`: Build knowledge graph.
+
+### Testing
+- `make -f Makefile-docker docker-test-unit`: Run unit tests.
+- `make -f Makefile-docker docker-test-functional`: Run functional tests.
+- `make -f Makefile-docker docker-test-integration`: Run integration tests.
+- `make -f Makefile-docker docker-test-e2e`: Run E2E tests.
+- `make -f Makefile-docker docker-test-all`: Run all tests.
+- `make -f Makefile-docker docker-test-cleanup`: Clean up the test environment.
+
+### Quality Assurance
+- `make -f Makefile-docker docker-lint`: Lint code.
+- `make -f Makefile-docker docker-format`: Format code.
+- `make -f Makefile-docker docker-check`: Type check.
+- `make -f Makefile-docker docker-security`: Security checks.
+- `make -f Makefile-docker docker-lint-all`: Run all QA checks.
+
+### Caching
+- `make -f Makefile-docker docker-cache-status`: Show cache status.
+- `make -f Makefile-docker docker-cache-clear`: Clear caches.
+- `make -f Makefile-docker docker-cache-prune`: Prune Docker volumes.
+- `make -f Makefile-docker docker-clean-all`: Full cleanup.
+
+### MCP Server
+- `make -f Makefile-docker mcp-build`: Build MCP containers.
+- `make -f Makefile-docker mcp-up`: Start MCP services.
+- `make -f Makefile-docker mcp-down`: Stop MCP services.
+- `make -f Makefile-docker mcp-logs`: View logs.
+- `make -f Makefile-docker mcp-test`: Run MCP unit tests.
+- `make -f Makefile-docker mcp-int`: Run MCP integration tests.

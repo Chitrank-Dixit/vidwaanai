@@ -1,165 +1,264 @@
-# VidwaanAI Docker Makefile
-# Fully containerized workflow
+# Makefile-docker - Docker-based workflows for VidwaanAI
 
-.PHONY: help build up down logs shell first-run query test graph-build
+.PHONY: help \
+	docker-build docker-up docker-down docker-logs docker-shell \
+	docker-first-run \
+	docker-generate docker-test docker-test-lang docker-test-category \
+	docker-analyze docker-report \
+	docker-workflow docker-workflow-quick \
+	docker-graph-build \
+	docker-test-unit docker-test-functional docker-test-integration docker-test-e2e docker-test-all \
+	docker-lint docker-format docker-check docker-security docker-lint-all \
+	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
+	mcp-build mcp-up mcp-down mcp-logs mcp-test mcp-int
 
+# ———- Configuration ———-
 # Colors
-BOLD := \033[1m
-GREEN := \033[32m
-YELLOW := \033[33m
-CYAN := \033[36m
-RED := \033[31m
-RESET := \033[0m
+BOLD := $(shell tput bold)
+GREEN := $(shell tput setaf 2)
+YELLOW := $(shell tput setaf 3)
+CYAN := $(shell tput setaf 6)
+RED := $(shell tput setaf 1)
+RESET := $(shell tput sgr0)
 
-# Docker Compose command
-COMPOSE := docker compose -f docker-compose-full.yml
+# Docker Compose files
+COMPOSE_FULL := docker-compose -f docker-compose-full.yml
+COMPOSE_TEST := docker-compose -p vidwaan-test -f docker-compose-test.yml
+COMPOSE_MCP := docker-compose -f docker-compose-mcp.yml
 
+# Default language and category for specific targets
+L ?= hi
+C ?= bhagavad_gita
+NUM_WORKERS ?= 4
+
+# ———- Help ———-
 help:
 	@echo "$(BOLD)VidwaanAI Docker Commands$(RESET)"
 	@echo
+	@echo "Usage: $(GREEN)make -f Makefile-docker [target] [VAR=value]$(RESET)"
+	@echo
 	@echo "$(CYAN)Lifecycle:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker build$(RESET)      Build containers"
-	@echo "  $(GREEN)make -f Makefile-docker up$(RESET)         Start services (detached)"
-	@echo "  $(GREEN)make -f Makefile-docker down$(RESET)       Stop services"
-	@echo "  $(GREEN)make -f Makefile-docker logs$(RESET)       View logs"
+	@echo "  $(GREEN)make -f Makefile-docker docker-build$(RESET)        Build containers"
+	@echo "  $(GREEN)make -f Makefile-docker docker-up$(RESET)           Start services in detached mode"
+	@echo "  $(GREEN)make -f Makefile-docker docker-down$(RESET)         Stop services"
+	@echo "  $(GREEN)make -f Makefile-docker docker-logs$(RESET)         View logs"
+	@echo "  $(GREEN)make -f Makefile-docker docker-shell$(RESET)        Open a shell in the 'app' container"
 	@echo
 	@echo "$(CYAN)Setup:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker first-run$(RESET)  Initialize DB and load data"
+	@echo "  $(GREEN)make -f Makefile-docker docker-first-run$(RESET)    Initialize DB and load data"
 	@echo
-	@echo "$(CYAN)Usage:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker query Q=\"...\"$(RESET) Run a query"
-	@echo "  $(GREEN)make -f Makefile-docker shell$(RESET)      Open shell in app container"
-	@echo "  $(GREEN)make -f Makefile-docker test$(RESET)       Run tests inside container"
+	@echo "$(CYAN)Generate & Test:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-generate$(RESET)      Generate prompts"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test$(RESET)        Run the full test suite"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-lang L=...$(RESET) Test a specific language"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-category C=...$(RESET) Test a specific category"
 	@echo
-	@echo "$(CYAN)Graph RAG:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker graph-build$(RESET) Populate knowledge graph"
+	@echo "$(CYAN)Analysis & Report:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-analyze$(RESET)      Analyze test results"
+	@echo "  $(GREEN)make -f Makefile-docker docker-report$(RESET)       Generate comprehensive report"
+	@echo
+	@echo "$(CYAN)Workflows:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-workflow$(RESET)       Full workflow: generate → test → report"
+	@echo "  $(GREEN)make -f Makefile-docker docker-workflow-quick$(RESET)  Quick workflow version"
+	@echo
+	@echo "$(CYAN)Knowledge Graph:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-graph-build$(RESET)  Build knowledge graph"
+	@echo
+	@echo "$(CYAN)Testing:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-unit$(RESET)        Run unit tests"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-functional$(RESET)  Run functional tests"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-integration$(RESET) Run integration tests"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-e2e$(RESET)         Run E2E tests"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-all$(RESET)         Run all tests"
+	@echo "  $(GREEN)make -f Makefile-docker docker-test-cleanup$(RESET)     Clean up the test environment"
+	@echo
+	@echo "$(CYAN)Quality Assurance:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-lint$(RESET)         Lint code"
+	@echo "  $(GREEN)make -f Makefile-docker docker-format$(RESET)       Format code"
+	@echo "  $(GREEN)make -f Makefile-docker docker-check$(RESET)        Type check"
+	@echo "  $(GREEN)make -f Makefile-docker docker-security$(RESET)     Security checks"
+	@echo "  $(GREEN)make -f Makefile-docker docker-lint-all$(RESET)     Run all QA checks"
+	@echo
+	@echo "$(CYAN)Caching:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-cache-status$(RESET) Show cache status"
+	@echo "  $(GREEN)make -f Makefile-docker docker-cache-clear$(RESET)  Clear caches"
+	@echo "  $(GREEN)make -f Makefile-docker docker-cache-prune$(RESET)  Prune Docker volumes"
+	@echo "  $(GREEN)make -f Makefile-docker docker-clean-all$(RESET)    Full cleanup"
 	@echo
 	@echo "$(CYAN)MCP Server:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker mcp-build$(RESET)  Build MCP containers"
-	@echo "  $(GREEN)make -f Makefile-docker mcp-up$(RESET)     Start MCP server"
-	@echo "  $(GREEN)make -f Makefile-docker mcp-down$(RESET)   Stop MCP server"
-	@echo "  $(GREEN)make -f Makefile-docker mcp-test$(RESET)   Run MCP unit tests"
-	@echo "  $(GREEN)make -f Makefile-docker mcp-int$(RESET)    Run MCP integration tests"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-build$(RESET)       Build MCP containers"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-up$(RESET)          Start MCP services"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-down$(RESET)        Stop MCP services"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-logs$(RESET)        View logs"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-test$(RESET)        Run MCP unit tests"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-int$(RESET)         Run MCP integration tests"
+	@echo
+	@echo "$(CYAN)VARIABLES:$(RESET)"
+	@echo "  $(GREEN)L=$(L)         Language code (e.g., hi, bho)"
+	@echo "  $(GREEN)C=$(C)      Category (e.g., ramayana, gita)"
+	@echo "  $(GREEN)NUM_WORKERS=$(NUM_WORKERS)  Number of parallel workers"
 
-build:
-	@echo "$(YELLOW)Building containers...$(RESET)"
-	@$(COMPOSE) build
+# ———- Docker Commands ———-
 
-up:
-	@echo "$(YELLOW)Starting services...$(RESET)"
-	@$(COMPOSE) up -d
+# Lifecycle
+docker-build:
+	@echo "$(YELLOW)Building all Docker containers...$(RESET)"
+	@$(COMPOSE_FULL) build
 
-down:
-	@echo "$(YELLOW)Stopping services...$(RESET)"
-	@$(COMPOSE) down
+docker-up:
+	@echo "$(YELLOW)Starting all Docker services in detached mode...$(RESET)"
+	@$(COMPOSE_FULL) up -d
 
-logs:
-	@$(COMPOSE) logs -f
+docker-down:
+	@echo "$(YELLOW)Stopping all Docker services...$(RESET)"
+	@$(COMPOSE_FULL) down
 
-shell:
-	@echo "$(YELLOW)Opening shell...$(RESET)"
-	@$(COMPOSE) exec app /bin/bash
+docker-logs:
+	@echo "$(YELLOW)Tailing logs from all services...$(RESET)"
+	@$(COMPOSE_FULL) logs -f
 
-first-run: up
+docker-shell:
+	@echo "$(YELLOW)Opening a shell in the 'app' container...$(RESET)"
+	@$(COMPOSE_FULL) exec app /bin/bash
+
+# Setup
+docker-first-run: docker-up
 	@echo "$(YELLOW)Waiting for database...$(RESET)"
 	@sleep 5
 	@echo "$(YELLOW)Initializing database...$(RESET)"
-	@$(COMPOSE) exec app uv run python scripts/setup_db.py
+	@$(COMPOSE_FULL) exec app uv run python scripts/setup_db.py
 	@echo "$(YELLOW)Loading sample data...$(RESET)"
-	@$(COMPOSE) exec app uv run python scripts/load_sample_data.py
-	@echo "$(GREEN)✓ Setup complete!$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python scripts/load_sample_data.py
+	@echo "$(GREEN)✓ Docker first run setup complete!$(RESET)"
 
-query:
-	@if [ -z "$(Q)" ]; then \
-		echo "$(RED)Error: Please provide a question using Q=\"...\"$(RESET)"; \
-	else \
-		$(COMPOSE) exec app uv run python -m src.main query "$(Q)" --verbose; \
-	fi
-
-test: test-unit
-
-test-unit:
-	@echo "$(YELLOW)Running unit tests...$(RESET)"
-	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-unit
-
-test-functional:
-	@echo "$(YELLOW)Running functional tests...$(RESET)"
-	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-functional
-
-test-integration:
-	@echo "$(YELLOW)Running integration tests...$(RESET)"
-	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-integration
-
-test-e2e:
-	@echo "$(YELLOW)Running E2E tests...$(RESET)"
-	@docker compose -p vidwaan-test -f docker-compose-test.yml run --rm vidwaan-test-e2e
-
-test-cleanup:
-	@echo "$(YELLOW)Cleaning up test environment...$(RESET)"
-	@docker compose -p vidwaan-test -f docker-compose-test.yml down -v
-
-test-all: test-cleanup test-unit test-functional test-integration test-e2e test-cleanup
-	@echo "$(GREEN)All tests passed!$(RESET)"
-
-graph-build:
+# Knowledge Graph
+docker-graph-build:
 	@echo "$(YELLOW)Building knowledge graph...$(RESET)"
-	@$(COMPOSE) exec app uv run python scripts/build_knowledge_graph.py
+	@$(COMPOSE_FULL) exec app uv run python scripts/build_knowledge_graph.py
 	@echo "$(GREEN)✓ Knowledge graph built!$(RESET)"
 
-# Cache Management
-cache-status:
-	@echo "HuggingFace Cache:"
-	@du -sh ~/.cache/huggingface/ 2>/dev/null || echo "  Not yet created"
-	@echo "Torch Cache:"
-	@du -sh ~/.cache/torch/ 2>/dev/null || echo "  Not yet created"
-	@echo "Custom Models:"
-	@du -sh ./models/ 2>/dev/null || echo "  Not yet created"
+# Generate & Test
+docker-generate:
+	@echo "$(YELLOW)Generating prompts inside Docker...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "python scripts/generate_prompts.py --all"
 
-cache-clear:
-	@echo "Clearing model caches..."
-	rm -rf ~/.cache/huggingface/
-	rm -rf ~/.cache/torch/
-	rm -rf ./models/
-	@echo "Caches cleared"
+docker-test:
+	@echo "$(YELLOW)Running tests inside Docker...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run pytest tests/"
 
-cache-prune:
-	docker volume rm huggingface-cache torch-cache vidwaan-models
-	@echo "Docker model volumes pruned"
+docker-test-lang:
+	@echo "$(YELLOW)Testing language: $(L) in container...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run pytest tests/ --language $(L)"
 
-cache-info:
-	@echo "Docker Volumes:"
-	docker volume ls | grep cache || echo "No cache volumes found"
-	@echo ""
-	@echo "Volume Details:"
-	docker volume inspect huggingface-cache 2>/dev/null || echo "huggingface-cache not found"
-	docker volume inspect torch-cache 2>/dev/null || echo "torch-cache not found"
+docker-test-category:
+	@echo "$(YELLOW)Testing category: $(C) in container...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run pytest tests/ --category $(C)"
 
-clean-all: down cache-clear cache-prune
-	@echo "All cleanup complete"
+# Testing
+docker-test-unit:
+	@echo "$(YELLOW)Running unit tests...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-unit
 
-# MCP Server Commands
-MCP_COMPOSE := docker compose -f docker-compose-mcp.yml
+docker-test-functional:
+	@echo "$(YELLOW)Running functional tests...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-functional
 
+docker-test-integration:
+	@echo "$(YELLOW)Running integration tests...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-integration
+
+docker-test-e2e:
+	@echo "$(YELLOW)Running E2E tests...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-e2e
+
+docker-test-cleanup:
+	@echo "$(YELLOW)Cleaning up test environment...$(RESET)"
+	@$(COMPOSE_TEST) down -v
+
+docker-test-all: docker-test-cleanup docker-test-unit docker-test-functional docker-test-integration docker-test-e2e docker-test-cleanup
+	@echo "$(GREEN)All Docker tests passed!$(RESET)"
+
+# Quality Assurance
+docker-lint:
+	@echo "$(YELLOW)Linting code in container...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run ruff check src tests scripts"
+
+docker-format:
+	@echo "$(YELLOW)Formatting code in container...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run black src tests scripts && uv run ruff check --fix src tests scripts"
+
+docker-check:
+	@echo "$(YELLOW)Running type checks in container...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run mypy src"
+
+docker-security:
+	@echo "$(YELLOW)Running security checks in container...$(RESET)"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run bandit -r src && uv run safety check"
+
+docker-lint-all: docker-format docker-lint docker-check docker-security
+
+# Caching
+docker-cache-status:
+	@echo "$(YELLOW)Docker Volume Cache Status:$(RESET)"
+	@docker volume ls | grep -E "huggingface-cache|torch-cache|vidwaan-models" || echo "No cache volumes found."
+	@echo "\n$(YELLOW)On-disk Cache Status:$(RESET)"
+	@du -sh ~/.cache/huggingface/ 2>/dev/null || echo "  HuggingFace cache not found."
+	@du -sh ~/.cache/torch/ 2>/dev/null || echo "  Torch cache not found."
+
+docker-cache-clear:
+	@echo "$(YELLOW)Clearing on-disk model caches...$(RESET)"
+	@rm -rf ~/.cache/huggingface/
+	@rm -rf ~/.cache/torch/
+	@echo "$(GREEN)✓ Caches cleared.$(RESET)"
+
+docker-cache-prune:
+	@echo "$(YELLOW)Pruning Docker model cache volumes...$(RESET)"
+	@docker volume rm huggingface-cache torch-cache vidwaan-models || echo "No cache volumes to prune."
+	@echo "$(GREEN)✓ Docker volumes pruned.$(RESET)"
+
+docker-clean-all: docker-down
+	@echo "$(YELLOW)Cleaning up all Docker resources...$(RESET)"
+	@docker-compose -f docker-compose-full.yml down -v --remove-orphans
+	@docker-compose -f docker-compose-test.yml down -v --remove-orphans
+	@docker-compose -f docker-compose-mcp.yml down -v --remove-orphans
+	@echo "$(GREEN)✓ Full Docker cleanup complete.$(RESET)"
+
+# ———- MCP Server Commands ———-
 mcp-build:
 	@echo "$(YELLOW)Building MCP containers...$(RESET)"
-	@$(MCP_COMPOSE) build
+	@$(COMPOSE_MCP) build
 
 mcp-up:
 	@echo "$(YELLOW)Starting MCP services...$(RESET)"
-	@$(MCP_COMPOSE) up -d
+	@$(COMPOSE_MCP) up -d
 
 mcp-down:
 	@echo "$(YELLOW)Stopping MCP services...$(RESET)"
-	@$(MCP_COMPOSE) down
+	@$(COMPOSE_MCP) down
 
 mcp-logs:
-	@$(MCP_COMPOSE) logs -f
+	@echo "$(YELLOW)Tailing MCP logs...$(RESET)"
+	@$(COMPOSE_MCP) logs -f
 
 mcp-test:
 	@echo "$(YELLOW)Running MCP unit tests...$(RESET)"
-	@$(MCP_COMPOSE) run --rm mcp-server pytest tests/mcp/unit/ -v
+	@$(COMPOSE_MCP) run --rm mcp-server pytest tests/mcp/unit/
 
 mcp-int:
 	@echo "$(YELLOW)Running MCP integration tests...$(RESET)"
-	@$(MCP_COMPOSE) run --rm mcp-server pytest tests/mcp/integration/ -v
+	@$(COMPOSE_MCP) run --rm mcp-server pytest tests/mcp/integration/
 
+# ———- Information ———-
+show-languages:
+	@echo "$(BOLD)Supported Languages:$(RESET)"
+	@echo "en, hi, sa, bn, gu, kn, ml, mr, ta, te, bho, mai, raj, bgc, hne, doi, kok"
+
+show-categories:
+	@echo "$(BOLD)Test Categories:$(RESET)"
+	@echo "ramayana, bhagavad_gita, mahabharata, hinduism_bharat"
+
+show-config:
+	@echo "$(BOLD)Current Configuration:$(RESET)"
+	@echo "  - Language: $(L)"
+	@echo "  - Category: $(C)"
+	@echo "  - Workers: $(NUM_WORKERS)"

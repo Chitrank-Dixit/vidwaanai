@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS verses (
 CREATE TABLE IF NOT EXISTS scripture_embeddings (
     id SERIAL PRIMARY KEY,
     verse_id INT REFERENCES verses(id) ON DELETE CASCADE,
-    embedding vector(384),
+    embedding vector(1024),
     language VARCHAR(50),
     chunk_index INT,
     processed BOOLEAN,

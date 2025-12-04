@@ -18,12 +18,12 @@ class TestRetrievalPipeline:
 
     @pytest.fixture(scope="class")
     def embedding_manager(self) -> Any:
-        # Mock embedding manager to return 384 dim vectors to match DB schema
+        # Mock embedding manager to return 1024 dim vectors to match DB schema
         from unittest.mock import MagicMock
 
         manager = MagicMock()
-        manager.embed_text.side_effect = lambda text: [0.1] * 384
-        manager.embed_batch.side_effect = lambda texts: [[0.1] * 384 for _ in texts]
+        manager.embed_text.side_effect = lambda text: [0.1] * 1024
+        manager.embed_batch.side_effect = lambda texts: [[0.1] * 1024 for _ in texts]
         return manager
 
     @pytest.fixture(autouse=True)

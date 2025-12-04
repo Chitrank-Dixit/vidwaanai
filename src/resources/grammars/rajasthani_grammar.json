@@ -1,0 +1,45 @@
+{
+    "language": "rajasthani",
+    "version": "0.1.0",
+    "syntax": {
+        "word_order": "SOV",
+        "sentence_structure": [
+            "Subject",
+            "Object",
+            "Verb"
+        ]
+    },
+    "case_markers": {
+        "ergative": "ने",
+        "accusative": "नै",
+        "instrumental": "सूं",
+        "dative": "नै",
+        "ablative": "सूं",
+        "genitive": [
+            "को",
+            "का",
+            "की",
+            "रो",
+            "रा",
+            "री"
+        ],
+        "locative": [
+            "में",
+            "माय"
+        ]
+    },
+    "pronouns": {
+        "first_person": [
+            "म्हूँ",
+            "म्हे"
+        ],
+        "second_person": [
+            "तूँ",
+            "थे"
+        ],
+        "third_person": [
+            "वो",
+            "वे"
+        ]
+    }
+}

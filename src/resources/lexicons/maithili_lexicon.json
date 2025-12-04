@@ -1,0 +1,51 @@
+{
+    "language": "maithili",
+    "version": "0.1.0",
+    "stop_words": [
+        "अछि",
+        "अइछ",
+        "छै",
+        "छल",
+        "हम",
+        "अहाँ",
+        "त",
+        "की",
+        "जे",
+        "से",
+        "मे",
+        "पर",
+        "ले",
+        "ला",
+        "क",
+        "र",
+        "chi",
+        "achi",
+        "aich",
+        "chhai",
+        "chhal",
+        "hum",
+        "aahan",
+        "to",
+        "ki",
+        "je",
+        "se",
+        "me",
+        "per",
+        "le",
+        "la",
+        "k",
+        "r"
+    ],
+    "words": [
+        {
+            "word": "विद्या",
+            "pos": "noun",
+            "meaning": "knowledge"
+        },
+        {
+            "word": "मिथिला",
+            "pos": "noun",
+            "meaning": "Mithila region"
+        }
+    ]
+}

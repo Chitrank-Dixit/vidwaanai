@@ -1,0 +1,11 @@
+{
+    "batch_size": 50,
+    "rate_limit_seconds": 2,
+    "timeout_seconds": 30,
+    "max_retries": 3,
+    "verbose": true,
+    "save_intermediate_every": 10,
+    "parallel_execution": false,
+    "languages_to_test": "all",
+    "categories_to_test": "all"
+}

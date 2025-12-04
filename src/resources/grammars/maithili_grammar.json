@@ -1,0 +1,39 @@
+{
+    "language": "maithili",
+    "version": "0.1.0",
+    "syntax": {
+        "word_order": "SOV",
+        "sentence_structure": [
+            "Subject",
+            "Object",
+            "Verb"
+        ]
+    },
+    "honorifics": {
+        "levels": [
+            "High",
+            "Mid",
+            "Low"
+        ],
+        "pronouns": {
+            "High": [
+                "अपने",
+                "अहाँ"
+            ],
+            "Mid": [
+                "तोहें"
+            ],
+            "Low": [
+                "तूँ",
+                "तोरा"
+            ]
+        }
+    },
+    "verb_conjugation": {
+        "present_tense": {
+            "suffix_high": "अछि",
+            "suffix_mid": "छह",
+            "suffix_low": "छै"
+        }
+    }
+}
