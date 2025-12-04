@@ -1,0 +1,370 @@
+# Docker Compose file for CI/CD testing environment
+# Used by GitHub Actions and local testing
+# Provides isolated test environment with all dependencies
+
+services:
+  # ============================================================================
+  # VIDWAAN AI APPLICATION (TEST)
+  # ============================================================================
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-app-test
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      - REDIS_URL=redis://cache:6379
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=vidwaan123_test
+      - LOG_LEVEL=DEBUG
+      - CI=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test-key}
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    networks:
+      - test-network
+    entrypoint: []
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    command: >
+      bash -c "
+        echo 'Waiting for database...' &&
+        uv pip list &&
+        python scripts/wait-for-postgres.py &&
+        uvicorn src.api:app --host 0.0.0.0 --port 8000
+      "
+
+  # ============================================================================
+  # POSTGRESQL DATABASE (TEST)
+  # ============================================================================
+
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: vidwaan-db-test
+    environment:
+      POSTGRES_USER: vidwaan_user
+      POSTGRES_PASSWORD: vidwaan_password
+      POSTGRES_DB: vidwaan_test
+    ports:
+      - "5432:5432"
+    networks:
+      - test-network
+    volumes:
+      - db-test-data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vidwaan_user -d vidwaan_test"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_preload_libraries=vector"
+
+  # ============================================================================
+  # REDIS CACHE (TEST)
+  # ============================================================================
+
+  cache:
+    image: redis:7-alpine
+    container_name: vidwaan-cache-test
+    ports:
+      - "6379:6379"
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    command:
+      - "redis-server"
+      - "--appendonly"
+      - "no"
+      - "--save"
+      - ""
+
+  # ============================================================================
+  # NEO4J GRAPH DATABASE (TEST)
+  # ============================================================================
+
+  neo4j:
+    image: neo4j:5.18.0-community
+    container_name: vidwaan-neo4j-test
+    environment:
+      NEO4J_AUTH: neo4j/vidwaan123_test
+      NEO4J_dbms_memory_heap_max__size: 512M
+      NEO4J_dbms_memory_pagecache_size: 256M
+    ports:
+      - "7474:7474" # HTTP
+      - "7687:7687" # Bolt
+    networks:
+      - test-network
+    volumes:
+      - neo4j-test-data:/data
+      - neo4j-test-logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:7474 || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  # ============================================================================
+  # TEST RUNNER (For parallel test execution)
+  # ============================================================================
+
+  test-runner-unit:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-unit-tests
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      - REDIS_URL=redis://cache:6379
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=vidwaan123_test
+      - LOG_LEVEL=DEBUG
+      - CI=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test-key}
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    depends_on:
+      app:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    command:
+      - pytest
+      - tests/unit/
+      - -v
+      - --cov=src
+      - --cov-report=xml
+      - --timeout=300
+      - -n
+      - "2"
+
+  test-runner-functional:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-functional-tests
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      - REDIS_URL=redis://cache:6379
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=vidwaan123_test
+      - LOG_LEVEL=DEBUG
+      - CI=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test-key}
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    depends_on:
+      app:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    command:
+      - pytest
+      - tests/functional/
+      - -v
+      - --cov=src
+      - --cov-report=xml
+      - --timeout=300
+      - -n
+      - "2"
+
+  test-runner-integration:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-integration-tests
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      - REDIS_URL=redis://cache:6379
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=vidwaan123_test
+      - LOG_LEVEL=DEBUG
+      - CI=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test-key}
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    depends_on:
+      app:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    command:
+      - pytest
+      - tests/integration/
+      - -v
+      - --cov=src
+      - --cov-report=xml
+      - --timeout=300
+      - -n
+      - "2"
+
+  test-runner-e2e:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: test
+    container_name: vidwaan-e2e-tests
+    environment:
+      - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_test
+      - REDIS_URL=redis://cache:6379
+      - NEO4J_URI=bolt://neo4j:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=vidwaan123_test
+      - LOG_LEVEL=DEBUG
+      - CI=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test-key}
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    depends_on:
+      app:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    command:
+      - pytest
+      - tests/e2e/
+      - -v
+      - --timeout=300
+      - -n
+      - "2"
+
+  # ============================================================================
+  # LINTING SERVICES
+  # ============================================================================
+
+  linter-ruff:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: ruff
+    container_name: vidwaan-ruff
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    command: ruff check src/
+
+  linter-black:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: black
+    container_name: vidwaan-black
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace
+      - /workspace/.venv
+    command: black --check src/ tests/
+
+  linter-mypy:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: mypy
+    container_name: vidwaan-mypy
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+      - /workspace/.venv
+    command: mypy src/ --ignore-missing-imports
+
+  # ============================================================================
+  # SECURITY SCANNER
+  # ============================================================================
+
+  security-scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+      target: security
+    container_name: vidwaan-security
+    networks:
+      - test-network
+    volumes:
+      - .:/workspace:ro
+    command: >
+      sh -c "
+        echo 'Running Bandit...' &&
+        bandit -r src/ &&
+        echo 'Running Safety...' &&
+        safety check
+      "
+
+
+
+volumes:
+  db-test-data:
+    driver: local
+  neo4j-test-data:
+    driver: local
+  neo4j-test-logs:
+    driver: local
+
+networks:
+  test-network:
+    driver: bridge

@@ -1,7 +1,7 @@
 import json
+from typing import Any
 import os
 import sys
-from typing import List, Dict
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -16,12 +16,13 @@ load_dotenv()
 
 logger = get_logger(__name__)
 
-from src.retrieval.bm25_search import BM25Search
-from src.retrieval.hybrid_search import HybridSearch
+from src.retrieval.bm25_search import BM25Search  # noqa: E402
+from src.retrieval.hybrid_search import HybridSearch  # noqa: E402
 
-def run_evaluation():
+
+def run_evaluation() -> None:
     logger.info("Starting retrieval evaluation...")
-    
+
     # Initialize components
     db_url = os.getenv("DATABASE_URL")
     if not db_url:
@@ -31,66 +32,75 @@ def run_evaluation():
     db_manager = DatabaseManager(db_url)
     embedding_manager = EmbeddingManager()
     evaluator = RetrieverEvaluator()
-    
+
     # Initialize Hybrid Search
     logger.info("Initializing Hybrid Search...")
     verses = db_manager.get_all_verses()
     bm25_search = BM25Search(verses)
-    
-    def vector_search_func(query, top_k):
+
+    def vector_search_func(query: str, top_k: int) -> list[dict[str, Any]]:
         emb = embedding_manager.embed_text(query)
-        results = db_manager.retrieve_verses(emb, top_k=top_k)
+        if isinstance(emb[0], list):
+            emb = emb[0]  # Handle batch case if it happens
+        results = db_manager.retrieve_verses(emb, top_k=top_k)  # type: ignore
         for r in results:
-            r['score'] = r.get('similarity', 0.0)
+            r["score"] = r.get("similarity", 0.0)
         return results
-        
+
     hybrid_search = HybridSearch(
         bm25_search=bm25_search,
         vector_search_func=vector_search_func,
         bm25_weight=0.3,
-        semantic_weight=0.7
+        semantic_weight=0.7,
     )
-    
+
     # Load benchmark queries
-    benchmark_file = os.path.join(os.path.dirname(__file__), 'test_benchmark_queries.json')
+    benchmark_file = os.path.join(
+        os.path.dirname(__file__), "test_benchmark_queries.json"
+    )
     try:
-        with open(benchmark_file, 'r') as f:
+        with open(benchmark_file, "r") as f:
             test_data = json.load(f)
     except FileNotFoundError:
         logger.error(f"Benchmark file not found: {benchmark_file}")
         return
-    
+
     logger.info(f"Loaded {len(test_data['queries'])} benchmark queries")
-    
-    for test_query in test_data['queries']:
-        query_text = test_query['query']
-        relevant_verses = test_query['relevant_verses']
-        
+
+    for test_query in test_data["queries"]:
+        query_text = test_query["query"]
+        relevant_verses = test_query["relevant_verses"]
+
         logger.info(f"Evaluating: {query_text}")
-        
+
         # Retrieve using Hybrid Search
         retrieved_docs = hybrid_search.search(query_text, top_k=10)
-        
+
         # Extract IDs
-        retrieved_ids = [str(doc['id']) for doc in retrieved_docs]
+        retrieved_ids = [str(doc["id"]) for doc in retrieved_docs]
         relevant_ids = [str(r) for r in relevant_verses]
-        
+
         # Evaluate
         result = evaluator.evaluate_query(query_text, retrieved_ids, relevant_ids)
         evaluator.results.append(result)
-        
-        logger.info(f"Precision@10: {result['precision_at_10']:.2f}, Recall@10: {result['recall_at_10']:.2f}")
-    
+
+        logger.info(
+            f"Precision@10: {result['precision_at_10']:.2f}, Recall@10: {result['recall_at_10']:.2f}"
+        )
+
     # Generate report
     report = evaluator.generate_report()
-    
+
     print(json.dumps(report, indent=2))
-    
-    output_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'docs', 'retrieval_baseline.json')
-    with open(output_file, 'w') as f:
+
+    output_file = os.path.join(
+        os.path.dirname(os.path.dirname(__file__)), "docs", "retrieval_baseline.json"
+    )
+    with open(output_file, "w") as f:
         json.dump(report, f, indent=2)
-    
+
     logger.info(f"Evaluation complete. Report saved to {output_file}")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     run_evaluation()

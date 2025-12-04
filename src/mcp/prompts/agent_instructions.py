@@ -19,11 +19,12 @@ Available Tools:
 - Pipeline: execute_rag_pipeline
 """
 
+
 def get_agent_prompt(agent_type: str = "standard") -> str:
     """
     Returns the system prompt for a specific agent type.
     """
     if agent_type == "minimal":
         return "You are a search assistant. Use search_documents to find information."
-    
+
     return AGENT_SYSTEM_PROMPT

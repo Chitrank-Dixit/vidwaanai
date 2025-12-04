@@ -1,0 +1,571 @@
+name: CI - VidwaanAI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+  CI_IMAGE: vidwaan-ci
+  MCP_IMAGE: vidwaan-mcp-ci
+
+jobs:
+  # ============================================================================
+  # BUILD JOB: Build Docker image once and push to registry
+  # ============================================================================
+
+  build-images:
+    name: Build & Push Test Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert repo name to lowercase
+        id: repo
+        run: echo "lowercase=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push test image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile.ci
+          push: true
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:buildcache,mode=max
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:latest
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:${{ github.sha }}
+
+      - name: Log image digest
+        run: echo "Image pushed successfully"
+
+  # ============================================================================
+  # LINTING JOBS: Pull pre-built image and run linting
+  # ============================================================================
+
+  lint-ruff:
+    name: Lint with Ruff
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert repo name to lowercase
+        id: repo
+        run: echo "lowercase=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Pull test image and run Ruff
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:latest \
+            ruff check src/
+
+      - name: Upload Ruff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ruff-report
+          path: ruff-report.json
+
+  lint-black:
+    name: Format check with Black
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert repo name to lowercase
+        id: repo
+        run: echo "lowercase=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Pull test image and run Black
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:latest \
+            black --check src/ tests/
+
+  lint-mypy:
+    name: Type check with mypy
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert repo name to lowercase
+        id: repo
+        run: echo "lowercase=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Pull test image and run mypy
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/${{ env.CI_IMAGE }}:latest \
+            mypy src/ --ignore-missing-imports
+
+      - name: Upload mypy report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mypy-report
+          path: mypy-report.json
+
+  # ============================================================================
+  # TEST JOBS: Pull pre-built image and run tests
+  # ============================================================================
+
+  unit-tests:
+    name: Unit Tests - VidwaanAI
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run unit tests with Docker Compose
+        run: |
+          docker compose -f docker-compose-ci.yml run --rm test-runner-unit
+
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-coverage
+          path: coverage.xml
+
+      - name: Cleanup
+        if: always()
+        run: docker compose -f docker-compose-ci.yml down -v
+
+  functional-tests:
+    name: Functional Tests - VidwaanAI
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run functional tests with Docker Compose
+        run: |
+          docker compose -f docker-compose-ci.yml run --rm test-runner-functional
+
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: functional-coverage
+          path: coverage.xml
+
+      - name: Cleanup
+        if: always()
+        run: docker compose -f docker-compose-ci.yml down -v
+
+  integration-tests:
+    name: Integration Tests - VidwaanAI
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run integration tests with Docker Compose
+        run: |
+          docker compose -f docker-compose-ci.yml run --rm test-runner-integration
+
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-coverage
+          path: coverage.xml
+
+      - name: Collect logs on failure
+        if: failure()
+        run: |
+          mkdir -p logs
+          docker compose -f docker-compose-ci.yml logs > logs/docker-compose.log
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-logs
+          path: logs/
+
+      - name: Cleanup
+        if: always()
+        run: docker compose -f docker-compose-ci.yml down -v
+
+  e2e-tests:
+    name: E2E Tests - VidwaanAI
+    runs-on: ubuntu-latest
+    needs: build-images
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run E2E tests with Docker Compose
+        run: |
+          docker compose -f docker-compose-ci.yml run --rm test-runner-e2e
+
+      - name: Collect metrics
+        if: always()
+        run: |
+          mkdir -p metrics
+          docker stats --no-stream > metrics/docker-stats.txt || true
+          docker compose -f docker-compose-ci.yml ps > metrics/services-status.txt || true
+
+      - name: Upload metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-metrics
+          path: metrics/
+
+      - name: Cleanup
+        if: always()
+        run: docker compose -f docker-compose-ci.yml down -v
+
+  # ============================================================================
+  # MCP UNIT TESTS (Docker-based)
+  # ============================================================================
+
+  mcp-unit-tests:
+    name: Unit Tests - MCP Server
+    runs-on: ubuntu-latest
+    services:
+      postgres-mcp:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: vidwaan_user
+          POSTGRES_PASSWORD: vidwaan_password
+          POSTGRES_DB: vidwaan_mcp_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5434:5432
+
+      redis-mcp:
+        image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6380:6379
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build MCP test image
+        run: |
+          docker build \
+            -f Dockerfile.mcp \
+            -t ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
+            --target test \
+            .
+
+      - name: Run MCP unit tests
+        env:
+          DATABASE_URL: postgresql://vidwaan_user:vidwaan_password@postgres-mcp:5432/vidwaan_mcp_test
+          REDIS_URL: redis://redis-mcp:6379
+        run: |
+          docker run --rm \
+            --network host \
+            -e DATABASE_URL=${{ env.DATABASE_URL }} \
+            -e REDIS_URL=${{ env.REDIS_URL }} \
+            -e CI=true \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
+            pytest tests/mcp/unit/ -v --cov=src/mcp --cov-report=xml
+
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mcp-unit-coverage
+          path: coverage.xml
+
+  # ============================================================================
+  # MCP INTEGRATION TESTS (Docker-based)
+  # ============================================================================
+
+  mcp-integration-tests:
+    name: Integration Tests - MCP Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build MCP test image
+        run: |
+          docker build \
+            -f Dockerfile.mcp \
+            -t ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
+            --target test \
+          .
+
+      - name: Run MCP integration tests
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/workspace \
+            ${{ env.MCP_IMAGE }}:test-${{ github.sha }} \
+            pytest tests/mcp/integration/ -v --cov=src/mcp --cov-report=xml
+
+      - name: Upload coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mcp-integration-coverage
+          path: coverage.xml
+  
+  # ============================================================================
+  # COVERAGE REPORT
+  # ============================================================================
+
+  coverage-report:
+    name: Generate Coverage Report
+    runs-on: ubuntu-latest
+    needs:
+      - unit-tests
+      - functional-tests
+      - integration-tests
+      - e2e-tests
+      - mcp-unit-tests
+      - mcp-integration-tests
+    if: always()
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all coverage reports
+        uses: actions/download-artifact@v4
+        with:
+          path: coverage-reports/
+
+      - name: Debug - List downloaded files
+        run: |
+          echo "=== Downloaded artifacts ==="
+          find coverage-reports/ -type f -name "*.xml" -o -name "*.txt" | head -20
+          echo ""
+          echo "=== Directory structure ==="
+          tree coverage-reports/ || find coverage-reports/ -type f
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install coverage tools
+        run: |
+          pip install coverage
+
+      - name: Combine coverage reports
+        run: |
+          mkdir -p coverage-combined
+          cd coverage-reports
+          
+          # Find all coverage.xml files and copy them to a common location
+          find . -name "coverage.xml" -exec cp {} ../coverage-combined/{}_$(date +%s).xml \;
+          
+          cd ../coverage-combined
+          
+          # If we found XML files, combine them
+          if ls *.xml 1> /dev/null 2>&1; then
+            echo "Found coverage files: $(ls -1 *.xml)"
+            coverage combine *.xml
+            coverage report
+            coverage report -m > ../coverage-report.txt
+            coverage html
+            echo "✅ Coverage reports generated"
+          else
+            echo "⚠️ No coverage.xml files found!"
+            echo "Generating placeholder report..."
+            cat > ../coverage-report.txt << 'EOF'
+          Coverage Report
+          ================
+          
+          No coverage data available from test runs.
+          
+          This may indicate:
+          - Tests did not run
+          - Coverage files were not generated
+          - Paths don't match the configured coverage scope
+          
+          Check individual test artifacts for details.
+          EOF
+          fi
+
+      - name: Display coverage report
+        run: |
+          echo "=== Coverage Report ==="
+          cat coverage-report.txt || echo "No report generated"
+
+      - name: Upload combined coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-coverage-report
+          path: htmlcov/
+          if-no-files-found: warn
+
+      - name: Comment PR with coverage
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v6
+        with:
+          script: |
+            try {
+              const fs = require('fs');
+              let coverage = "No coverage data available.";
+              
+              if (fs.existsSync('coverage-report.txt')) {
+                coverage = fs.readFileSync('coverage-report.txt', 'utf8');
+              }
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## Coverage Report\n\`\`\`\n${coverage}\n\`\`\``
+              });
+              console.log('✅ Coverage comment posted');
+            } catch (e) {
+              console.log('⚠️ Could not create coverage comment:', e.message);
+            }
+
+
+
+  # ============================================================================
+  # BUILD FINAL IMAGES FOR REGISTRY (Only on main branch)
+  # ============================================================================
+
+  build-and-push-final:
+    name: Build & Push Final Images
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs:
+      - lint-ruff
+      - lint-black
+      - lint-mypy
+      - unit-tests
+      - functional-tests
+      - integration-tests
+      - e2e-tests
+      - mcp-unit-tests
+      - mcp-integration-tests
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert repo name to lowercase
+        id: repo
+        run: echo "lowercase=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push VidwaanAI image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/vidwaan:latest
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/vidwaan:${{ github.sha }}
+
+      - name: Build and push MCP image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile.mcp
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/vidwaan-mcp:latest
+            ${{ env.REGISTRY }}/${{ steps.repo.outputs.lowercase }}/vidwaan-mcp:${{ github.sha }}
+
+  # ============================================================================
+  # STATUS CHECK
+  # ============================================================================
+
+  status-check:
+    name: CI Status Check
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - build-images
+      - lint-ruff
+      - lint-black
+      - lint-mypy
+      - unit-tests
+      - functional-tests
+      - integration-tests
+      - e2e-tests
+      - mcp-unit-tests
+      - mcp-integration-tests
+      - coverage-report
+
+    steps:
+      - name: Check CI status
+        run: |
+          if [ "${{ needs.build-images.result }}" = "failure" ] || \
+             [ "${{ needs.lint-ruff.result }}" = "failure" ] || \
+             [ "${{ needs.lint-black.result }}" = "failure" ] || \
+             [ "${{ needs.lint-mypy.result }}" = "failure" ] || \
+             [ "${{ needs.unit-tests.result }}" = "failure" ] || \
+             [ "${{ needs.functional-tests.result }}" = "failure" ] || \
+             [ "${{ needs.integration-tests.result }}" = "failure" ] || \
+             [ "${{ needs.e2e-tests.result }}" = "failure" ] || \
+             [ "${{ needs.mcp-unit-tests.result }}" = "failure" ] || \
+             [ "${{ needs.mcp-integration-tests.result }}" = "failure" ]; then
+            echo "CI Pipeline Failed"
+            exit 1
+          fi
+          echo "All CI checks passed!"
+
+      - name: Create success badge
+        if: success()
+        run: echo "CI Status PASSED" > ci-status.txt
+
+      - name: Upload CI status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-status
+          path: ci-status.txt

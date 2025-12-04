@@ -1,9 +1,10 @@
 """Query routing and language detection."""
 
-from typing import Dict, Optional
 import logging
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
+
 
 class QueryRouter:
     """Routes queries based on language and content."""
@@ -25,16 +26,13 @@ class QueryRouter:
         return None
 
     def route_query(
-        self,
-        question: str,
-        language: str,
-        scripture_filter: Optional[str] = None
-    ) -> Dict:
+        self, question: str, language: str, scripture_filter: Optional[str] = None
+    ) -> Dict[str, Any]:
         """Route query with filtering strategy."""
         return {
             "language": language,
             "use_metadata_filter": scripture_filter is not None,
             "scripture_filter": scripture_filter,
             "retrieval_mode": "hybrid",
-            "top_k": 5
+            "top_k": 5,
         }

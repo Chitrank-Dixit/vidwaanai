@@ -1,30 +1,29 @@
 #!/usr/bin/env python3
 """VidwaanAI CLI Entry Point."""
 
+from typing import Optional
+
 import typer
-from pathlib import Path
 from rich.console import Console
 from rich.table import Table
-from typing import Optional
-import os
-import sys
 
+from src.agent.vidwaan_agent import VidwaanAI
 from src.core.config import settings
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
-from src.agent.vidwaan_agent import VidwaanAI
 
 # Initialize
 app = typer.Typer(
     name="vidwaan",
     help="VidwaanAI - Multilingual AI Agent for Indian Scriptures",
-    rich_markup_mode="rich"
+    rich_markup_mode="rich",
 )
 console = Console()
 logger = get_logger(__name__)
 
 # Initialize agent (lazy loading)
 agent: Optional[VidwaanAI] = None
+
 
 def get_agent() -> VidwaanAI:
     """Get or initialize the VidwaanAI agent."""
@@ -34,27 +33,36 @@ def get_agent() -> VidwaanAI:
         try:
             agent = VidwaanAI(
                 db_url=settings.DATABASE_URL,
-                openai_key=settings.OPENAI_API_KEY,
+                openai_key=settings.OPENAI_API_KEY or "",
                 lmstudio_url=settings.lmstudio_base_url,
                 enable_graph_rag=settings.ENABLE_GRAPH_RAG,
                 neo4j_uri=settings.NEO4J_URI,
                 neo4j_user=settings.NEO4J_USER,
-                neo4j_password=settings.NEO4J_PASSWORD
+                neo4j_password=settings.NEO4J_PASSWORD,
             )
         except Exception as e:
             console.print(f"[red]Error initializing agent: {str(e)}[/red]")
-            console.print(f"[yellow]Make sure database is running: docker-compose up -d[/yellow]")
+            console.print(
+                "[yellow]Make sure database is running: docker-compose up -d[/yellow]"
+            )
             raise typer.Exit(1)
     return agent
+
 
 @app.command()
 @profile_function
 def query_handler(
     question: str = typer.Argument(..., help="Question about Indian scriptures"),
-    language: Optional[str] = typer.Option("en", "--language", "-l", help="Query language"),
-    scripture: Optional[str] = typer.Option(None, "--scripture", "-s", help="Specific scripture"),
-    verbose: bool = typer.Option(False, "--verbose", "-v", help="Show retrieval details"),
-):
+    language: Optional[str] = typer.Option(
+        "en", "--language", "-l", help="Query language"
+    ),
+    scripture: Optional[str] = typer.Option(
+        None, "--scripture", "-s", help="Specific scripture"
+    ),
+    verbose: bool = typer.Option(
+        False, "--verbose", "-v", help="Show retrieval details"
+    ),
+) -> None:
     """Query VidwaanAI about Indian scriptures."""
     try:
         agent = get_agent()
@@ -62,39 +70,42 @@ def query_handler(
 
         response = agent.query(
             question=question,
-            language=language,
+            language=language or "en",
             scripture_filter=scripture,
-            verbose=verbose
+            verbose=verbose,
         )
 
         console.print(f"\n[bold green]Answer:[/bold green]\n{response['answer']}")
 
-        if verbose and response.get('retrieved_verses'):
+        if verbose and response.get("retrieved_verses"):
             console.print("\n[bold yellow]Retrieved Verses:[/bold yellow]")
-            for i, verse in enumerate(response['retrieved_verses'][:3], 1):
+            for i, verse in enumerate(response["retrieved_verses"][:3], 1):
                 ref = f"{verse.get('scripture', 'N/A')} {verse.get('chapter', '')}:{verse.get('verse', '')}"
                 console.print(f"  {i}. {ref}")
-                text_preview = verse.get('translation', verse.get('text', 'N/A'))[:100]
+                text_preview = verse.get("translation", verse.get("text", "N/A"))[:100]
                 console.print(f"     {text_preview}...")
 
-        confidence = response.get('confidence', 'N/A')
+        confidence = response.get("confidence", "N/A")
         console.print(f"\n[dim]Confidence: {confidence}[/dim]")
 
     except Exception as e:
         console.print(f"[red]Error: {str(e)}[/red]")
         raise typer.Exit(1)
 
+
 @app.command()
 def list_scriptures(
     detailed: bool = typer.Option(False, "--detailed", "-d", help="Show detailed info"),
-):
+) -> None:
     """List all loaded scriptures."""
     try:
         agent = get_agent()
         scriptures = agent.get_loaded_scriptures()
 
         if not scriptures:
-            console.print("[yellow]No scriptures loaded yet. Load them with: python scripts/load_sample_data.py[/yellow]")
+            console.print(
+                "[yellow]No scriptures loaded yet. Load them with: python scripts/load_sample_data.py[/yellow]"
+            )
             return
 
         table = Table(title="[bold]Loaded Scriptures[/bold]")
@@ -104,9 +115,9 @@ def list_scriptures(
 
         for scripture in scriptures:
             table.add_row(
-                scripture.get('name', 'N/A'),
-                scripture.get('language', 'N/A'),
-                "✓ Indexed"
+                scripture.get("name", "N/A"),
+                scripture.get("language", "N/A"),
+                "✓ Indexed",
             )
 
         console.print(table)
@@ -114,6 +125,7 @@ def list_scriptures(
     except Exception as e:
         console.print(f"[red]Error: {str(e)}[/red]")
         raise typer.Exit(1)
+
 
 # @app.command()
 # def settings(
@@ -134,10 +146,11 @@ def list_scriptures(
 #         console.print(f"[red]Error: {str(e)}[/red]", file=sys.stderr)
 #         raise typer.Exit(1)
 
+
 @app.command()
 def system(
     action: str = typer.Argument("status", help="status, health, or info"),
-):
+) -> None:
     """System administration commands."""
     try:
         if action == "status":
@@ -145,9 +158,9 @@ def system(
             console.print("[green]✓ CLI Ready[/green]")
             console.print("[green]✓ Configuration Loaded[/green]")
             try:
-                agent = get_agent()
+                get_agent()
                 console.print("[green]✓ Database Connected[/green]")
-            except:
+            except Exception:
                 console.print("[red]✗ Database Not Connected[/red]")
         else:
             console.print(f"[yellow]Action '{action}' not implemented yet[/yellow]")
@@ -155,6 +168,7 @@ def system(
     except Exception as e:
         console.print(f"[red]Error: {str(e)}[/red]")
         raise typer.Exit(1)
+
 
 if __name__ == "__main__":
     app()

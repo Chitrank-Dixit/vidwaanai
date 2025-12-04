@@ -1,9 +1,38 @@
-import asyncio
 import logging
-import os
-from typing import Any, Dict, List, Optional
 
 from mcp.server.fastmcp import FastMCP
+
+from src.mcp.tools.generation_tools import (
+    generate_answer,
+    summarize_results,
+    translate_answer,
+)
+from src.mcp.tools.kg_tools import (
+    find_related_documents,
+    get_entity_context,
+    query_knowledge_graph,
+)
+from src.mcp.tools.language_tools import (
+    detect_language,
+    get_supported_languages,
+    preprocess_text,
+)
+from src.mcp.tools.pipeline_tools import (
+    execute_rag_pipeline,
+    get_pipeline_strategies,
+    validate_pipeline_config,
+)
+from src.mcp.tools.reranking_tools import (
+    calculate_relevance_score,
+    get_reranking_models,
+    rerank_results,
+)
+from src.mcp.tools.search_tools import (
+    generate_embeddings,
+    get_search_strategies,
+    hybrid_search,
+    search_documents,
+)
 
 # Initialize FastMCP server
 mcp = FastMCP("VidwaanAI MCP Server")
@@ -15,38 +44,6 @@ logger = logging.getLogger("mcp_server")
 # Import tools to register them
 # Note: We'll import these after defining the server to avoid circular imports if they need the mcp instance,
 # but typically tools are defined as functions decorated with @mcp.tool()
-
-from src.mcp.tools.language_tools import (
-    detect_language,
-    preprocess_text,
-    get_supported_languages,
-)
-from src.mcp.tools.search_tools import (
-    generate_embeddings,
-    search_documents,
-    hybrid_search,
-    get_search_strategies,
-)
-from src.mcp.tools.reranking_tools import (
-    rerank_results,
-    calculate_relevance_score,
-    get_reranking_models,
-)
-from src.mcp.tools.kg_tools import (
-    query_knowledge_graph,
-    find_related_documents,
-    get_entity_context,
-)
-from src.mcp.tools.generation_tools import (
-    generate_answer,
-    summarize_results,
-    translate_answer,
-)
-from src.mcp.tools.pipeline_tools import (
-    execute_rag_pipeline,
-    get_pipeline_strategies,
-    validate_pipeline_config,
-)
 
 # Register tools
 mcp.add_tool(detect_language)
