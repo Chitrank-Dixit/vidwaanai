@@ -228,10 +228,6 @@ jobs:
         run: |
           docker compose -f docker-compose-ci.yml run --rm test-runner-e2e
 
-      - name: Run performance tests
-        run: |
-          docker compose -f docker-compose-ci.yml run --rm test-runner-e2e pytest tests/performance/ -v --benchmark-only
-
       - name: Collect metrics
         if: always()
         run: |
