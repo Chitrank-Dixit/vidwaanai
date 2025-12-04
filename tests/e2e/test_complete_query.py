@@ -29,10 +29,10 @@ class TestCompleteQuery:
 
     @pytest.fixture(scope="class")
     def embedding_manager(self) -> MagicMock:
-        # Mock embedding manager to return 384 dim vectors
+        # Mock embedding manager to return 1024 dim vectors
         manager = MagicMock()
-        manager.embed_text.side_effect = lambda text: [0.1] * 384
-        manager.embed_batch.side_effect = lambda texts: [[0.1] * 384 for _ in texts]
+        manager.embed_text.side_effect = lambda text: [0.1] * 1024
+        manager.embed_batch.side_effect = lambda texts: [[0.1] * 1024 for _ in texts]
         return manager
 
     @pytest.fixture(autouse=True)
@@ -96,7 +96,7 @@ class TestCompleteQuery:
             mock_search_instance = MockMultiSearch.return_value
             mock_search_instance.process_query.return_value = {
                 "language_code": "en",
-                "embedding": [0.1] * 384,
+                "embedding": [0.1] * 1024,
                 "processed_text": "What is Yoga?",
             }
 
@@ -121,7 +121,7 @@ class TestCompleteQuery:
 
             with patch("src.agent.vidwaan_agent.EmbeddingManager") as MockEmbed:
                 mock_embed_instance = MockEmbed.return_value
-                mock_embed_instance.embed_text.return_value = [0.1] * 384
+                mock_embed_instance.embed_text.return_value = [0.1] * 1024
 
                 response = agent.query("What is Yoga?")
 

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "language_code": "ta",
+    "language_name": "Tamil",
+    "total_prompts": 4,
+    "generation_date": "2025-12-05",
+    "version": "1.0"
+  },
+  "prompts": [
+    {
+      "id": "ta_ramayana_001",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "இராமாயணத்தில் இராமனின் தந்தையின் பெயர் என்ன?",
+      "prompt_english": "What was the name of Ram's father in the Ramayana?",
+      "expected_answer_keywords": [
+        "தசரதன்",
+        "அரசன் தசரதன்"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "family",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "ta_ramayana_002",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "ராமன் எந்த நகரில் பிறந்தான்?",
+      "prompt_english": "In which city was Ram born?",
+      "expected_answer_keywords": [
+        "அயோத்தி"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "locations",
+        "birth",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "ta_ramayana_003",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "சீதை யாரால் கடத்தப்பட்டாள்?",
+      "prompt_english": "Who abducted Sita?",
+      "expected_answer_keywords": [
+        "இரணியன்"
+      ],
+      "context": "Ramayana - Aranyakanda",
+      "tags": [
+        "major_events",
+        "conflict",
+        "lanka"
+      ]
+    },
+    {
+      "id": "ta_ramayana_004",
+      "category": "ramayana",
+      "difficulty": "hard",
+      "prompt": "ராமாயணம் நமக்கு கர்தவ்யம் மற்றும் தர்மமைப் பற்றி என்ன கற்பிக்கிறது?",
+      "prompt_english": "What does Ramayana teach us about duty and dharma?",
+      "expected_answer_keywords": [
+        "கர்தவ்யம்",
+        "தியாகம்",
+        "நீதி",
+        "குடும்ப கர்தவ்யம்",
+        "கர்மா"
+      ],
+      "context": "Ramayana - Philosophy",
+      "tags": [
+        "philosophy",
+        "dharma",
+        "ethics"
+      ]
+    }
+  ]
+}
