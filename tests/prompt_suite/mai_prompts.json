@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "language_code": "mai",
+    "language_name": "Maithili",
+    "total_prompts": 2,
+    "generation_date": "2025-12-05",
+    "version": "1.0"
+  },
+  "prompts": [
+    {
+      "id": "mai_ramayana_001",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "रामायणमे रामक पिता केर नाम की छल?",
+      "prompt_english": "What was the name of Ram's father in the Ramayana?",
+      "expected_answer_keywords": [
+        "दशरथ"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "family",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "mai_ramayana_002",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "राम केर जन्मक समय कि नाम रखल गेल?",
+      "prompt_english": "What name was given to Ram at birth?",
+      "expected_answer_keywords": [
+        "राम"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "birth"
+      ]
+    }
+  ]
+}
