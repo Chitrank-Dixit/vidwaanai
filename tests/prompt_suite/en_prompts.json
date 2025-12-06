@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "language_code": "en",
+    "language_name": "English",
+    "total_prompts": 12,
+    "generation_date": "2025-12-05",
+    "version": "1.0"
+  },
+  "prompts": [
+    {
+      "id": "en_ramayana_001",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "Who was Ram's father in the Ramayana?",
+      "prompt_english": "Who was Ram's father in the Ramayana?",
+      "expected_answer_keywords": [
+        "Dasharatha",
+        "King Dasharatha"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "family",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "en_ramayana_002",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "In which city was Ram born?",
+      "prompt_english": "In which city was Ram born?",
+      "expected_answer_keywords": [
+        "Ayodhya"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "locations",
+        "birth",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "en_ramayana_003",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "Who was Ram's wife?",
+      "prompt_english": "Who was Ram's wife?",
+      "expected_answer_keywords": [
+        "Sita",
+        "Janaki"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "family",
+        "marriage"
+      ]
+    },
+    {
+      "id": "en_ramayana_004",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "Who abducted Sita?",
+      "prompt_english": "Who abducted Sita?",
+      "expected_answer_keywords": [
+        "Ravana"
+      ],
+      "context": "Ramayana - Aranyakanda",
+      "tags": [
+        "major_events",
+        "conflict",
+        "lanka"
+      ]
+    },
+    {
+      "id": "en_ramayana_005",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "Who was Ram's best friend?",
+      "prompt_english": "Who was Ram's best friend?",
+      "expected_answer_keywords": [
+        "Hanuman",
+        "Sugriva"
+      ],
+      "context": "Ramayana - Kishkindhakanda",
+      "tags": [
+        "characters",
+        "relationships",
+        "monkeys"
+      ]
+    },
+    {
+      "id": "en_ramayana_006",
+      "category": "ramayana",
+      "difficulty": "medium",
+      "prompt": "Why was Ram exiled from Ayodhya?",
+      "prompt_english": "Why was Ram exiled from Ayodhya?",
+      "expected_answer_keywords": [
+        "mother's wish",
+        "Kaikeyi",
+        "boon",
+        "kingdom"
+      ],
+      "context": "Ramayana - Ayodhyakanda",
+      "tags": [
+        "plot_points",
+        "exile",
+        "family"
+      ]
+    },
+    {
+      "id": "en_ramayana_007",
+      "category": "ramayana",
+      "difficulty": "medium",
+      "prompt": "What was the purpose of Ram's journey to Lanka?",
+      "prompt_english": "What was the purpose of Ram's journey to Lanka?",
+      "expected_answer_keywords": [
+        "rescue Sita",
+        "defeat Ravana",
+        "dharma"
+      ],
+      "context": "Ramayana - Yuddhakanda",
+      "tags": [
+        "plot_points",
+        "war",
+        "dharma"
+      ]
+    },
+    {
+      "id": "en_ramayana_008",
+      "category": "ramayana",
+      "difficulty": "medium",
+      "prompt": "What challenges did Ram face in the forest?",
+      "prompt_english": "What challenges did Ram face in the forest?",
+      "expected_answer_keywords": [
+        "demons",
+        "separation from Sita",
+        "hardship"
+      ],
+      "context": "Ramayana - Aranyakanda",
+      "tags": [
+        "plot_points",
+        "challenges",
+        "forest"
+      ]
+    },
+    {
+      "id": "en_ramayana_009",
+      "category": "ramayana",
+      "difficulty": "hard",
+      "prompt": "What does Ram's exile teach us about duty and dharma in Hindu philosophy?",
+      "prompt_english": "What does Ram's exile teach us about duty and dharma in Hindu philosophy?",
+      "expected_answer_keywords": [
+        "duty",
+        "sacrifice",
+        "righteousness",
+        "familial obligation",
+        "karma"
+      ],
+      "context": "Ramayana - Philosophy",
+      "tags": [
+        "philosophy",
+        "dharma",
+        "ethics"
+      ]
+    },
+    {
+      "id": "en_ramayana_010",
+      "category": "ramayana",
+      "difficulty": "hard",
+      "prompt": "How did Ram balance his personal desires with his duties as a son and king?",
+      "prompt_english": "How did Ram balance his personal desires with his duties as a son and king?",
+      "expected_answer_keywords": [
+        "dharma",
+        "personal vs public",
+        "sacrifice",
+        "principles",
+        "morality"
+      ],
+      "context": "Ramayana - Philosophy",
+      "tags": [
+        "philosophy",
+        "leadership",
+        "dilemma"
+      ]
+    },
+    {
+      "id": "en_gita_001",
+      "category": "bhagavad_gita",
+      "difficulty": "easy",
+      "prompt": "What is the setting of the Bhagavad Gita?",
+      "prompt_english": "What is the setting of the Bhagavad Gita?",
+      "expected_answer_keywords": [
+        "Kurukshetra",
+        "battlefield",
+        "war"
+      ],
+      "context": "Bhagavad Gita - Chapter 1",
+      "tags": [
+        "setting",
+        "context"
+      ]
+    },
+    {
+      "id": "en_hinduism_001",
+      "category": "hinduism",
+      "difficulty": "easy",
+      "prompt": "Name the major Hindu festival associated with victory of good over evil.",
+      "prompt_english": "Name the major Hindu festival associated with victory of good over evil.",
+      "expected_answer_keywords": [
+        "Diwali",
+        "Deepavali",
+        "lights"
+      ],
+      "context": "Hinduism - Festivals",
+      "tags": [
+        "culture",
+        "festivals"
+      ]
+    }
+  ]
+}

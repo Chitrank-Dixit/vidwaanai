@@ -1,29 +1,11 @@
-from src.language.hindi_processor import HindiProcessor
+from src.dialects.rajasthani import RajasthaniProcessor as NewRajasthaniProcessor
 
 
-class RajasthaniProcessor(HindiProcessor):
-    """Rajasthani processor - extends Hindi"""
+class RajasthaniProcessor(NewRajasthaniProcessor):
+    """
+    Legacy wrapper for RajasthaniProcessor.
+    Now uses the robust implementation from src.dialects.rajasthani.
+    """
 
     def __init__(self) -> None:
         super().__init__()
-        # Add Rajasthani-specific stop words
-        rajasthani_stops = {
-            "कोई",
-            "कुई",
-            "कूं",
-            "कै",
-            "नां",
-            "ने",
-            "सूं",
-            "सो",
-            "स्यो",
-            "हो",
-            "हुवो",
-            "हिओ",
-            "पण",
-            "थे",
-            "म्हे",
-            "सा",
-            "कोनी",
-        }
-        self.stop_words.update(rajasthani_stops)

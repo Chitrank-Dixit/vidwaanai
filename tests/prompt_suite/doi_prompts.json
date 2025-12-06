@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "language_code": "doi",
+    "language_name": "Dogri",
+    "total_prompts": 1,
+    "generation_date": "2025-12-05",
+    "version": "1.0"
+  },
+  "prompts": [
+    {
+      "id": "doi_ramayana_001",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "[TODO: Add Dogri prompt here]",
+      "prompt_english": "Placeholder prompt",
+      "expected_answer_keywords": [],
+      "context": "Placeholder",
+      "tags": [
+        "todo"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1190 @@
+[
+  {
+    "prompt_id": "en_ramayana_001",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "easy",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.3:...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.3:...)*",
+        "retrieved_verses": [
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7949040058312427,
+            "score": 0.5369325378256009,
+            "normalized_score": 0.7670464826080013,
+            "bm25_score": 0.0,
+            "semantic_score": 0.7670464826080013,
+            "rerank_score": -2.0912652015686035
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.8306570254973142,
+            "score": 0.7,
+            "normalized_score": 1.0,
+            "bm25_score": 0.0,
+            "semantic_score": 1.0,
+            "rerank_score": -2.3123834133148193
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.8189645029348728,
+            "score": 0.6466710784576443,
+            "normalized_score": 0.9238158263680633,
+            "bm25_score": 0.0,
+            "semantic_score": 0.9238158263680633,
+            "rerank_score": -3.3036937713623047
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.6811419509480058,
+            "score": 0.018070361852299512,
+            "normalized_score": 0.025814802646142162,
+            "bm25_score": 0.0,
+            "semantic_score": 0.025814802646142162,
+            "rerank_score": -9.393243789672852
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7877361774444636,
+            "score": 0.504240485650694,
+            "normalized_score": 0.7203435509295629,
+            "bm25_score": 0.0,
+            "semantic_score": 0.7203435509295629,
+            "rerank_score": -9.464374542236328
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 28.2,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 48.4,
+            "overlap": 48.4
+          }
+        },
+        "timestamp": "2025-12-05T23:50:06.104248"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 1.0,
+      "keyword_recall": 1.0,
+      "keyword_f1_score": 1.0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 1110.38,
+      "keywords_found": [
+        "Dasharatha",
+        "King Dasharatha"
+      ],
+      "keywords_total": 2,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:06.104553"
+  },
+  {
+    "prompt_id": "en_ramayana_002",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "easy",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.1:...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.1:...)*",
+        "retrieved_verses": [
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.8665610551834168,
+            "score": 0.85,
+            "normalized_score": 1.0,
+            "bm25_score": 0.5,
+            "semantic_score": 1.0,
+            "rerank_score": -2.3165810108184814
+          },
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7661291817503694,
+            "score": 0.48124390502333414,
+            "normalized_score": 0.4732055786047631,
+            "bm25_score": 0.5,
+            "semantic_score": 0.4732055786047631,
+            "rerank_score": -4.848555564880371
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.7980887889862117,
+            "score": 0.5985901175196474,
+            "normalized_score": 0.6408430250280678,
+            "bm25_score": 0.5,
+            "semantic_score": 0.6408430250280678,
+            "rerank_score": -5.1296820640563965
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7423546007102252,
+            "score": 0.2439506846104504,
+            "normalized_score": 0.3485009780149292,
+            "bm25_score": 0.0,
+            "semantic_score": 0.3485009780149292,
+            "rerank_score": -10.790840148925781
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.67591387033463,
+            "score": 0.0,
+            "normalized_score": 0.0,
+            "bm25_score": 0.0,
+            "semantic_score": 0.0,
+            "rerank_score": -11.106744766235352
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 28.2,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 48.4,
+            "overlap": 48.4
+          }
+        },
+        "timestamp": "2025-12-05T23:50:06.320390"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 1.0,
+      "keyword_recall": 1.0,
+      "keyword_f1_score": 1.0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 215.78,
+      "keywords_found": [
+        "Ayodhya"
+      ],
+      "keywords_total": 1,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:06.320486"
+  },
+  {
+    "prompt_id": "en_ramayana_003",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "easy",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.**\n\nThis is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.3: Rama's wife was Sita, also known as Janaki, the daughter of Janaka. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana...",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.**\n\nThis is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.3: Rama's wife was Sita, also known as Janaki, the daughter of Janaka. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana...",
+        "retrieved_verses": [
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.8151876440532434,
+            "score": 0.7,
+            "normalized_score": 1.0,
+            "bm25_score": 0.0,
+            "semantic_score": 1.0,
+            "rerank_score": 2.656541109085083
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.7808276676144996,
+            "score": 0.5417765241439247,
+            "normalized_score": 0.7739664630627497,
+            "bm25_score": 0.0,
+            "semantic_score": 0.7739664630627497,
+            "rerank_score": 1.399733066558838
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7948737388999774,
+            "score": 0.6064569590933659,
+            "normalized_score": 0.8663670844190943,
+            "bm25_score": 0.0,
+            "semantic_score": 0.8663670844190943,
+            "rerank_score": -1.8922114372253418
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.6676643886966241,
+            "score": 0.020673508791816744,
+            "normalized_score": 0.029533583988309634,
+            "bm25_score": 0.0,
+            "semantic_score": 0.029533583988309634,
+            "rerank_score": -9.460298538208008
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7511927485466057,
+            "score": 0.40531135776073474,
+            "normalized_score": 0.5790162253724782,
+            "bm25_score": 0.0,
+            "semantic_score": 0.5790162253724782,
+            "rerank_score": -9.900836944580078
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 30.4,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 55.6,
+            "overlap": 55.6
+          }
+        },
+        "timestamp": "2025-12-05T23:50:06.428445"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 1.0,
+      "keyword_recall": 1.0,
+      "keyword_f1_score": 1.0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 57,
+      "processing_time_ms": 107.93,
+      "keywords_found": [
+        "Sita",
+        "Janaki"
+      ],
+      "keywords_total": 2,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:06.428550"
+  },
+  {
+    "prompt_id": "en_ramayana_004",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "easy",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.3: Rama's wife was Sita, also known as Janaki, the daughter of Janaka. Mahabharata 1.1: The great war of the Mahabharata with Nara and Narayana....)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.3: Rama's wife was Sita, also known as Janaki, the daughter of Janaka. Mahabharata 1.1: The great war of the Mahabharata with Nara and Narayana....)*",
+        "retrieved_verses": [
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.6994995862394723,
+            "score": 0.24026502063732255,
+            "normalized_score": 0.3432357437676037,
+            "bm25_score": 0.0,
+            "semantic_score": 0.3432357437676037,
+            "rerank_score": -8.88744068145752
+          },
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7722400657010101,
+            "score": 0.7,
+            "normalized_score": 1.0,
+            "bm25_score": 0.0,
+            "semantic_score": 1.0,
+            "rerank_score": -8.940033912658691
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.6614842217718323,
+            "score": 0.0,
+            "normalized_score": 0.0,
+            "bm25_score": 0.0,
+            "semantic_score": 0.0,
+            "rerank_score": -9.672771453857422
+          },
+          {
+            "id": 1,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 47,
+            "text": "karmany evadhikaras te ma phalesu kadacana",
+            "translation": "You have a right to perform your prescribed duty, but you are not entitled to the fruits of action.",
+            "similarity": 0.6659091512587946,
+            "score": 0.027966475907621052,
+            "normalized_score": 0.03995210843945865,
+            "bm25_score": 0.0,
+            "semantic_score": 0.03995210843945865,
+            "rerank_score": -9.828056335449219
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7238026641666124,
+            "score": 0.39386553457387313,
+            "normalized_score": 0.5626650493912474,
+            "bm25_score": 0.0,
+            "semantic_score": 0.5626650493912474,
+            "rerank_score": -9.99460220336914
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 27.0,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 44.4,
+            "overlap": 44.4
+          }
+        },
+        "timestamp": "2025-12-05T23:50:06.756219"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 327.66,
+      "keywords_found": [],
+      "keywords_total": 1,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:06.756348"
+  },
+  {
+    "prompt_id": "en_ramayana_005",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "easy",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.2: Rama was the son...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.2: Rama was the son...)*",
+        "retrieved_verses": [
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7516881523504129,
+            "score": 0.5265084062020042,
+            "normalized_score": 0.7521548660028632,
+            "bm25_score": 0.0,
+            "semantic_score": 0.7521548660028632,
+            "rerank_score": 0.5390476584434509
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.7601526212419366,
+            "score": 0.5767656774686724,
+            "normalized_score": 0.8239509678123892,
+            "bm25_score": 0.0,
+            "semantic_score": 0.8239509678123892,
+            "rerank_score": -0.9900528788566589
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7809080873296118,
+            "score": 0.7,
+            "normalized_score": 1.0,
+            "bm25_score": 0.0,
+            "semantic_score": 1.0,
+            "rerank_score": -3.652218818664551
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.6630121476032482,
+            "score": 0.0,
+            "normalized_score": 0.0,
+            "bm25_score": 0.0,
+            "semantic_score": 0.0,
+            "rerank_score": -10.081860542297363
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7446999702036518,
+            "score": 0.4850164980490477,
+            "normalized_score": 0.6928807114986396,
+            "bm25_score": 0.0,
+            "semantic_score": 0.6928807114986396,
+            "rerank_score": -10.563000679016113
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 24.3,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 35.3,
+            "overlap": 35.3
+          }
+        },
+        "timestamp": "2025-12-05T23:50:07.092415"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 335.99,
+      "keywords_found": [],
+      "keywords_total": 2,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:07.092500"
+  },
+  {
+    "prompt_id": "en_ramayana_006",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "medium",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.1:...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.1:...)*",
+        "retrieved_verses": [
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.8411589359546356,
+            "score": 0.85,
+            "normalized_score": 1.0,
+            "bm25_score": 0.5,
+            "semantic_score": 1.0,
+            "rerank_score": -1.1776823997497559
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.8218096004838004,
+            "score": 0.7644331278881317,
+            "normalized_score": 0.8777616112687596,
+            "bm25_score": 0.5,
+            "semantic_score": 0.8777616112687596,
+            "rerank_score": -6.836157321929932
+          },
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7524723410606384,
+            "score": 0.45780903639973214,
+            "normalized_score": 0.4397271948567602,
+            "bm25_score": 0.5,
+            "semantic_score": 0.4397271948567602,
+            "rerank_score": -7.526537895202637
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7595792269455939,
+            "score": 0.33923719560179977,
+            "normalized_score": 0.48462456514542823,
+            "bm25_score": 0.0,
+            "semantic_score": 0.48462456514542823,
+            "rerank_score": -10.877076148986816
+          },
+          {
+            "id": 4,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 1,
+            "text": "tapasya swa-niyamair yuktah",
+            "translation": "Lord Rama performed tapasya (austerity) with self-discipline.",
+            "similarity": 0.7799053919371742,
+            "score": 0.4291238153764586,
+            "normalized_score": 0.6130340219663695,
+            "bm25_score": 0.0,
+            "semantic_score": 0.6130340219663695,
+            "rerank_score": -10.961260795593262
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 26.3,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 41.9,
+            "overlap": 41.9
+          }
+        },
+        "timestamp": "2025-12-05T23:50:07.209881"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 117.34,
+      "keywords_found": [],
+      "keywords_total": 4,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:07.209970"
+  },
+  {
+    "prompt_id": "en_ramayana_007",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "medium",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.2: Rama was the son...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.2: Rama was the son...)*",
+        "retrieved_verses": [
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.7921309718929562,
+            "score": 0.6667763525658112,
+            "normalized_score": 0.9525376465225875,
+            "bm25_score": 0.0,
+            "semantic_score": 0.9525376465225875,
+            "rerank_score": -5.747008323669434
+          },
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.776988758028225,
+            "score": 0.5711921563073226,
+            "normalized_score": 0.8159887947247465,
+            "bm25_score": 0.0,
+            "semantic_score": 0.8159887947247465,
+            "rerank_score": -6.896023750305176
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7973941806084894,
+            "score": 0.7,
+            "normalized_score": 1.0,
+            "bm25_score": 0.0,
+            "semantic_score": 1.0,
+            "rerank_score": -7.131886959075928
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.6895160449128097,
+            "score": 0.019026597665958333,
+            "normalized_score": 0.027180853808511905,
+            "bm25_score": 0.0,
+            "semantic_score": 0.027180853808511905,
+            "rerank_score": -11.11009693145752
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7698108553886468,
+            "score": 0.5258821335619831,
+            "normalized_score": 0.7512601908028331,
+            "bm25_score": 0.0,
+            "semantic_score": 0.7512601908028331,
+            "rerank_score": -11.122796058654785
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 24.3,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 35.3,
+            "overlap": 35.3
+          }
+        },
+        "timestamp": "2025-12-05T23:50:07.386705"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 176.71,
+      "keywords_found": [],
+      "keywords_total": 3,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:07.386816"
+  },
+  {
+    "prompt_id": "en_ramayana_008",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "medium",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Mahabharata 1.1: The great war of...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Mahabharata 1.1: The great war of...)*",
+        "retrieved_verses": [
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.7539553935580977,
+            "score": 0.6243638766088647,
+            "normalized_score": 0.6776626808698067,
+            "bm25_score": 0.5,
+            "semantic_score": 0.6776626808698067,
+            "rerank_score": -6.549430847167969
+          },
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7384206808554733,
+            "score": 0.4755567746810747,
+            "normalized_score": 0.4650811066872496,
+            "bm25_score": 0.5,
+            "semantic_score": 0.4650811066872496,
+            "rerank_score": -6.832101821899414
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7759123115644083,
+            "score": 0.8346893199132143,
+            "normalized_score": 0.9781275998760204,
+            "bm25_score": 0.5,
+            "semantic_score": 0.9781275998760204,
+            "rerank_score": -7.204401016235352
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7621114253997857,
+            "score": 0.5524905523205649,
+            "normalized_score": 0.789272217600807,
+            "bm25_score": 0.0,
+            "semantic_score": 0.789272217600807,
+            "rerank_score": -10.862451553344727
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.7044341916520367,
+            "score": 0.0,
+            "normalized_score": 0.0,
+            "bm25_score": 0.0,
+            "semantic_score": 0.0,
+            "rerank_score": -11.034679412841797
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 26.2,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 41.7,
+            "overlap": 41.7
+          }
+        },
+        "timestamp": "2025-12-05T23:50:07.616435"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 229.6,
+      "keywords_found": [],
+      "keywords_total": 3,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:07.616545"
+  },
+  {
+    "prompt_id": "en_ramayana_009",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "hard",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.2: Rama was the son...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.4: Rama was born in the beautiful city of Ayodhya. Ramayana 1.2: Rama was the son...)*",
+        "retrieved_verses": [
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7864516377449091,
+            "score": 0.5209695809113242,
+            "normalized_score": 0.7442422584447489,
+            "bm25_score": 0.0,
+            "semantic_score": 0.7442422584447489,
+            "rerank_score": -4.792987823486328
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.7780705690383967,
+            "score": 0.43061223740402294,
+            "normalized_score": 0.6151603391486042,
+            "bm25_score": 0.0,
+            "semantic_score": 0.6151603391486042,
+            "rerank_score": -4.869959354400635
+          },
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7683896284335644,
+            "score": 0.3262408133844471,
+            "normalized_score": 0.46605830483492444,
+            "bm25_score": 0.0,
+            "semantic_score": 0.46605830483492444,
+            "rerank_score": -5.142597198486328
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.764960559005804,
+            "score": 0.28927158964406957,
+            "normalized_score": 0.41324512806295655,
+            "bm25_score": 0.0,
+            "semantic_score": 0.41324512806295655,
+            "rerank_score": -8.365155220031738
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.738129258155828,
+            "score": 0.0,
+            "normalized_score": 0.0,
+            "bm25_score": 0.0,
+            "semantic_score": 0.0,
+            "rerank_score": -9.186903953552246
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 24.3,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 35.3,
+            "overlap": 35.3
+          }
+        },
+        "timestamp": "2025-12-05T23:50:07.855526"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 238.92,
+      "keywords_found": [],
+      "keywords_total": 5,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:07.855609"
+  },
+  {
+    "prompt_id": "en_ramayana_010",
+    "language_code": "en",
+    "category": "ramayana",
+    "difficulty": "hard",
+    "status": "success",
+    "response": {
+      "text": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.3: Rama's wife...)*",
+      "confidence": 0.0,
+      "detected_language": "en",
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "language_confidence": 0.99,
+      "full_response": {
+        "answer": "⚠️ **Insufficient Information**\n\nI cannot confidently answer this question based on the available scriptures. The retrieved verses do not appear to be directly relevant.\n\n**Suggestion:** Try rephrasing your question or asking about a different topic.\n\n*(Original generated answer for reference: This is a mock response from Vidwaan AI. Based on the scriptures: --- Scripture Verses --- Ramayana 1.1: Lord Rama performed tapasya (austerity) with self-discipline. Ramayana 1.2: Rama was the son of King Dasharatha, the ruler of Ayodhya. Ramayana 1.3: Rama's wife...)*",
+        "retrieved_verses": [
+          {
+            "id": 10,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 3,
+            "text": "janaki pati ram",
+            "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+            "similarity": 0.7747442722320557,
+            "score": 0.4724335093065426,
+            "normalized_score": 0.4606192990093466,
+            "bm25_score": 0.5,
+            "semantic_score": 0.4606192990093466,
+            "rerank_score": -4.944049835205078
+          },
+          {
+            "id": 11,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 4,
+            "text": "ayodhya nagari ram",
+            "translation": "Rama was born in the beautiful city of Ayodhya.",
+            "similarity": 0.7700687783915546,
+            "score": 0.4330032472428599,
+            "normalized_score": 0.40429035320408563,
+            "bm25_score": 0.5,
+            "semantic_score": 0.40429035320408563,
+            "rerank_score": -5.0128631591796875
+          },
+          {
+            "id": 9,
+            "scripture": "Ramayana",
+            "chapter": 1,
+            "verse": 2,
+            "text": "dasharatha suta ram",
+            "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+            "similarity": 0.8053922173147087,
+            "score": 0.7308995767525567,
+            "normalized_score": 0.8298565382179381,
+            "bm25_score": 0.5,
+            "semantic_score": 0.8298565382179381,
+            "rerank_score": -5.433586597442627
+          },
+          {
+            "id": 5,
+            "scripture": "Mahabharata",
+            "chapter": 1,
+            "verse": 1,
+            "text": "nara-narayana-sahitam",
+            "translation": "The great war of the Mahabharata with Nara and Narayana.",
+            "similarity": 0.7649310091096778,
+            "score": 0.2396744361871635,
+            "normalized_score": 0.3423920516959479,
+            "bm25_score": 0.0,
+            "semantic_score": 0.3423920516959479,
+            "rerank_score": -10.185004234313965
+          },
+          {
+            "id": 3,
+            "scripture": "Bhagavad Gita",
+            "chapter": 2,
+            "verse": 46,
+            "text": "yavat artha udapane sarvatah samplutodake",
+            "translation": "As long as there are necessities of life to be derived from agricultural and other occupations, there is no need for any other occupation.",
+            "similarity": 0.7365113057785461,
+            "score": 0.0,
+            "normalized_score": 0.0,
+            "bm25_score": 0.0,
+            "semantic_score": 0.0,
+            "rerank_score": -10.320049285888672
+          }
+        ],
+        "language": "en",
+        "confidence": {
+          "score": 24.8,
+          "level": "Low",
+          "warning": "Warning: This answer has LOW confidence. The retrieved verses may not be directly relevant.",
+          "breakdown": {
+            "similarity": 0,
+            "relevance": 45.7,
+            "match": 37.1,
+            "overlap": 37.1
+          }
+        },
+        "timestamp": "2025-12-05T23:50:08.025595"
+      }
+    },
+    "metrics": {
+      "keyword_precision": 0.0,
+      "keyword_recall": 0.0,
+      "keyword_f1_score": 0,
+      "language_detection_accuracy": 0.99,
+      "relevance_score": 0.0,
+      "factual_accuracy": 0.0,
+      "model_confidence": 0.0,
+      "response_length_tokens": 82,
+      "processing_time_ms": 169.95,
+      "keywords_found": [],
+      "keywords_total": 5,
+      "language_code_detected": "en"
+    },
+    "timestamp": "2025-12-05T23:50:08.025670"
+  }
+]

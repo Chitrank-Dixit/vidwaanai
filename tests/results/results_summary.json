@@ -1,0 +1,19 @@
+{
+  "generation_date": "2025-12-05T23:50:10.392744",
+  "total_prompts_run": 12,
+  "languages_tested": 1,
+  "by_language": {
+    "en": {
+      "total_prompts": 12,
+      "successful": 12,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_f1_score": 0.2778,
+      "avg_precision": 0.2778,
+      "avg_recall": 0.2778,
+      "avg_processing_time_ms": 282.42
+    }
+  },
+  "by_category": {},
+  "overall_metrics": {}
+}

@@ -1,32 +1,11 @@
-from src.language.hindi_processor import HindiProcessor
+from src.dialects.bhojpuri import BhojpuriProcessor as NewBhojpuriProcessor
 
 
-class BhojpuriProcessor(HindiProcessor):
-    """Bhojpuri processor - extends Hindi"""
+class BhojpuriProcessor(NewBhojpuriProcessor):
+    """
+    Legacy wrapper for BhojpuriProcessor.
+    Now uses the robust implementation from src.dialects.bhojpuri.
+    """
 
     def __init__(self) -> None:
         super().__init__()
-        # Add Bhojpuri-specific stop words
-        bhojpuri_stops = {
-            "ba",
-            "bate",
-            "bari",
-            "ho",
-            "raua",
-            "hamar",
-            "tohar",
-            "ka",
-            "ke",
-            "ki",
-            "se",
-            "me",
-            "par",
-            "ne",
-            "bani",
-            "bhayil",
-            "rah",
-            "ja",
-            "aa",
-            "na",
-        }
-        self.stop_words.update(bhojpuri_stops)

@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "language_code": "bho",
+    "language_name": "Bhojpuri",
+    "total_prompts": 4,
+    "generation_date": "2025-12-05",
+    "version": "1.0"
+  },
+  "prompts": [
+    {
+      "id": "bho_ramayana_001",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "रामायनमा राम के बाप के नाम का बा काहे?",
+      "prompt_english": "What was the name of Ram's father in the Ramayana?",
+      "expected_answer_keywords": [
+        "दशरथ",
+        "राजा दशरथ"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "family",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "bho_ramayana_002",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "राम का जन्म कउन नगर मा हुअल?",
+      "prompt_english": "In which city was Ram born?",
+      "expected_answer_keywords": [
+        "अयोध्या"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "locations",
+        "birth",
+        "ayodhya"
+      ]
+    },
+    {
+      "id": "bho_ramayana_003",
+      "category": "ramayana",
+      "difficulty": "easy",
+      "prompt": "सीता के पति कउन हलें?",
+      "prompt_english": "Who was Sita's husband?",
+      "expected_answer_keywords": [
+        "राम"
+      ],
+      "context": "Ramayana - Balakanda",
+      "tags": [
+        "characters",
+        "family",
+        "marriage"
+      ]
+    },
+    {
+      "id": "bho_ramayana_004",
+      "category": "ramayana",
+      "difficulty": "hard",
+      "prompt": "रामायण से हमार धर्म अउर कर्तव्य के बारे मा का सिखाई?",
+      "prompt_english": "What does Ramayana teach us about our dharma and duty?",
+      "expected_answer_keywords": [
+        "धर्म",
+        "कर्तव्य",
+        "त्याग",
+        "न्याय",
+        "कर्म"
+      ],
+      "context": "Ramayana - Philosophy",
+      "tags": [
+        "philosophy",
+        "dharma",
+        "ethics"
+      ]
+    }
+  ]
+}

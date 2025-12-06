@@ -12,14 +12,14 @@ load_dotenv()
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/..")
 
 from src.db.db_manager import DatabaseManager  # noqa: E402
-from src.rag.embeddings import EmbeddingManager  # noqa: E402
+from src.rag.multilingual_embeddings import MultilingualEmbeddings  # noqa: E402
 
 
 def load_sample_data() -> None:
     """Load sample scriptures."""
     try:
         db_manager = DatabaseManager(os.getenv("DATABASE_URL", ""))
-        embeddings = EmbeddingManager()
+        embeddings = MultilingualEmbeddings()
 
         # Sample verses for demonstration
         sample_data: Dict[str, Any] = {
@@ -54,7 +54,31 @@ def load_sample_data() -> None:
                         "translation": "Lord Rama performed tapasya (austerity) with self-discipline.",
                         "themes": ["dharma", "virtue"],
                         "speakers": ["Narrator"],
-                    }
+                    },
+                    {
+                        "chapter": 1,
+                        "verse": 2,
+                        "text": "dasharatha suta ram",
+                        "translation": "Rama was the son of King Dasharatha, the ruler of Ayodhya.",
+                        "themes": ["family", "lineage"],
+                        "speakers": ["Narrator"],
+                    },
+                    {
+                        "chapter": 1,
+                        "verse": 3,
+                        "text": "janaki pati ram",
+                        "translation": "Rama's wife was Sita, also known as Janaki, the daughter of Janaka.",
+                        "themes": ["family", "marriage"],
+                        "speakers": ["Narrator"],
+                    },
+                    {
+                        "chapter": 1,
+                        "verse": 4,
+                        "text": "ayodhya nagari ram",
+                        "translation": "Rama was born in the beautiful city of Ayodhya.",
+                        "themes": ["locations", "birth"],
+                        "speakers": ["Narrator"],
+                    },
                 ],
             },
             "Mahabharata": {

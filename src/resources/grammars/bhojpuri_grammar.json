@@ -1,0 +1,34 @@
+{
+    "language": "bhojpuri",
+    "version": "0.1.0",
+    "syntax": {
+        "word_order": "SOV",
+        "sentence_structure": [
+            "Subject",
+            "Object",
+            "Verb"
+        ]
+    },
+    "case_markers": {
+        "ergative": "ने",
+        "accusative": "के",
+        "instrumental": "से",
+        "dative": "के",
+        "ablative": "से",
+        "genitive": [
+            "का",
+            "के",
+            "की"
+        ],
+        "locative": [
+            "में",
+            "पर"
+        ]
+    },
+    "verb_conjugation": {
+        "present_tense": {
+            "suffix_masculine": "ता",
+            "suffix_feminine": "ती"
+        }
+    }
+}
