@@ -78,7 +78,7 @@ def load_sample_data() -> None:
                         "translation": "Rama was born in the beautiful city of Ayodhya.",
                         "themes": ["locations", "birth"],
                         "speakers": ["Narrator"],
-                    }
+                    },
                 ],
             },
             "Mahabharata": {

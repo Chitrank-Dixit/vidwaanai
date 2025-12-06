@@ -1,13 +1,14 @@
 import regex
 from typing import Dict
 
+
 class RajasthaniNormalizer:
     """
     Normalizer for Rajasthani text.
     Handles Devanagari normalization.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Common normalization maps
         self.normalization_map: Dict[str, str] = {
             "\u200c": "",  # Zero Width Non-Joiner
@@ -26,10 +27,10 @@ class RajasthaniNormalizer:
     def normalize(self, text: str) -> str:
         """
         Normalize Rajasthani text.
-        
+
         Args:
             text: Input text string
-            
+
         Returns:
             Normalized text string
         """
@@ -42,6 +43,6 @@ class RajasthaniNormalizer:
             normalized = normalized.replace(char, replacement)
 
         # 2. Whitespace normalization
-        normalized = regex.sub(r"\s+", " ", normalized).strip()
+        normalized = str(regex.sub(r"\s+", " ", normalized)).strip()
 
         return normalized

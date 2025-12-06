@@ -1,5 +1,6 @@
 import regex
-from typing import List, Tuple
+from typing import List
+
 
 class BhojpuriStressAnalyzer:
     """
@@ -7,7 +8,7 @@ class BhojpuriStressAnalyzer:
     Based on weight-sensitive stress rules.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Long vowels (Guru)
         self.long_vowels = set("आ ई ऊ ए ऐ ओ औ".split())
         # Short vowels (Laghu)
@@ -21,8 +22,8 @@ class BhojpuriStressAnalyzer:
         # Regex to match a consonant+vowel or independent vowel
         # This is an approximation.
         # Pattern: (Consonant+Matra? | Vowel)
-        pattern = r'[\u0905-\u0939][\u093e-\u094c]?|[\u0905-\u0914]'
-        return regex.findall(pattern, word)
+        pattern = r"[\u0905-\u0939][\u093e-\u094c]?|[\u0905-\u0914]"
+        return [str(match) for match in regex.findall(pattern, word)]
 
     def is_heavy(self, syllable: str) -> bool:
         """Check if a syllable is heavy (Guru)."""
@@ -31,7 +32,15 @@ class BhojpuriStressAnalyzer:
             if char in self.long_vowels:
                 return True
             # Check matras
-            if char in ["\u093e", "\u0940", "\u0942", "\u0947", "\u0948", "\u094b", "\u094c"]:
+            if char in [
+                "\u093e",
+                "\u0940",
+                "\u0942",
+                "\u0947",
+                "\u0948",
+                "\u094b",
+                "\u094c",
+            ]:
                 return True
         return False
 
@@ -44,16 +53,16 @@ class BhojpuriStressAnalyzer:
         syllables = self.get_syllables(word)
         if not syllables:
             return -1
-            
+
         # Analyze last 3 syllables
         candidates = syllables[-3:]
         offset = len(syllables) - len(candidates)
-        
+
         # Find rightmost heavy syllable
         for i in range(len(candidates) - 1, -1, -1):
             if self.is_heavy(candidates[i]):
                 return offset + i
-                
+
         # Default to penultimate if exists, else first
         if len(syllables) > 1:
             return len(syllables) - 2

@@ -89,30 +89,30 @@ query:
 
 lint:
 	@echo "$(YELLOW)Linting code...$(RESET)"
-	@$(COMPOSE) run --rm --no-deps app uv run ruff check src tests scripts
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run ruff check src tests scripts"
 
 format:
 	@echo "$(YELLOW)Formatting code...$(RESET)"
-	@$(COMPOSE) run --rm --no-deps app uv run black src tests scripts
-	@$(COMPOSE) run --rm --no-deps app uv run ruff check --fix src tests scripts
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run black src tests scripts"
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run ruff check --fix src tests scripts"
 
 black-check:
 	@echo "$(YELLOW)Checking code formatting with Black...$(RESET)"
-	@$(COMPOSE) run --rm --no-deps app uv run black --check src tests scripts
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run black --check src tests scripts"
 
 black-format:
 	@echo "$(YELLOW)Formatting code with Black...$(RESET)"
-	@$(COMPOSE) run --rm --no-deps app uv run black src tests scripts
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run black src tests scripts"
 
 
 check:
 	@echo "$(YELLOW)Running type checks...$(RESET)"
-	@$(COMPOSE) run --rm --no-deps app uv run mypy src
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run mypy src"
 
 security:
 	@echo "$(YELLOW)Running security checks...$(RESET)"
-	@$(COMPOSE) run --rm --no-deps app uv run bandit -r src
-	@$(COMPOSE) run --rm --no-deps app uv run safety check
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run bandit -r src"
+	@$(COMPOSE) run --rm --no-deps --entrypoint "" app sh -c "uv run safety check"
 
 lint-all: format lint check security
 
@@ -203,4 +203,3 @@ mcp-test:
 mcp-int:
 	@echo "$(YELLOW)Running MCP integration tests...$(RESET)"
 	@$(MCP_COMPOSE) run --rm mcp-server pytest tests/mcp/integration/ -v
-

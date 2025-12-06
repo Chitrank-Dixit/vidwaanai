@@ -1,10 +1,11 @@
 import json
 import os
-from typing import List, Dict, Any, Optional, Set
+from typing import List, Dict, Any, Set
 
 from src.language.language_processor import LanguageProcessor
 from src.dialects.rajasthani.tokenizer import RajasthaniTokenizer
 from src.dialects.rajasthani.normalizer import RajasthaniNormalizer
+
 
 class RajasthaniProcessor(LanguageProcessor):
     """
@@ -12,26 +13,50 @@ class RajasthaniProcessor(LanguageProcessor):
     Integrates normalization, tokenization, and stopword removal.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.tokenizer = RajasthaniTokenizer()
         self.normalizer = RajasthaniNormalizer()
         self.stop_words: Set[str] = set()
         self._load_resources()
 
-    def _load_resources(self):
+    def _load_resources(self) -> None:
         """Load lexicon and stop words."""
         # Default stop words (migrated from legacy processor + expanded)
         default_stops = {
-            "कोई", "कुई", "कूं", "कै", "नां", "ने", "सूं", "सो", "स्यो", 
-            "हो", "हुवो", "हिओ", "पण", "थे", "म्हे", "सा", "कोनी",
-            "koni", "the", "mhe", "sa", "pan", "ho", "ne", "su"
+            "कोई",
+            "कुई",
+            "कूं",
+            "कै",
+            "नां",
+            "ने",
+            "सूं",
+            "सो",
+            "स्यो",
+            "हो",
+            "हुवो",
+            "हिओ",
+            "पण",
+            "थे",
+            "म्हे",
+            "सा",
+            "कोनी",
+            "koni",
+            "the",
+            "mhe",
+            "sa",
+            "pan",
+            "ho",
+            "ne",
+            "su",
         }
         self.stop_words.update(default_stops)
 
         # Try to load from lexicon file if exists
         lexicon_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            "resources", "lexicons", "rajasthani_lexicon.json"
+            "resources",
+            "lexicons",
+            "rajasthani_lexicon.json",
         )
         if os.path.exists(lexicon_path):
             try:
@@ -45,7 +70,9 @@ class RajasthaniProcessor(LanguageProcessor):
         # Load grammar
         grammar_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            "resources", "grammars", "rajasthani_grammar.json"
+            "resources",
+            "grammars",
+            "rajasthani_grammar.json",
         )
         self.grammar = {}
         if os.path.exists(grammar_path):
@@ -54,7 +81,6 @@ class RajasthaniProcessor(LanguageProcessor):
                     self.grammar = json.load(f)
             except Exception as e:
                 print(f"Warning: Failed to load Rajasthani grammar: {e}")
-
 
     def normalize(self, text: str) -> str:
         """Normalize Rajasthani text."""

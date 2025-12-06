@@ -1,5 +1,5 @@
-import regex
-from typing import Dict, Any, Optional
+from typing import Dict, Any
+
 
 class MaithiliMorphologicalAnalyzer:
     """
@@ -7,27 +7,27 @@ class MaithiliMorphologicalAnalyzer:
     Handles stemming and basic morphological analysis.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Common suffixes for Maithili verbs and nouns
         # This is a simplified rule set.
         self.suffixes = [
-            ("छि", "be"),      # chi (am)
-            ("अछि", "be"),     # achi (is)
-            ("छै", "be"),      # chhai (is)
-            ("ल", "past"),     # -l (past tense marker)
-            ("ब", "future"),   # -b (future tense marker)
-            ("क", "genitive"), # -k (of)
-            ("सँ", "ablative"),# -san (from)
-            ("मे", "locative"),# -me (in)
+            ("छि", "be"),  # chi (am)
+            ("अछि", "be"),  # achi (is)
+            ("छै", "be"),  # chhai (is)
+            ("ल", "past"),  # -l (past tense marker)
+            ("ब", "future"),  # -b (future tense marker)
+            ("क", "genitive"),  # -k (of)
+            ("सँ", "ablative"),  # -san (from)
+            ("मे", "locative"),  # -me (in)
         ]
 
     def analyze(self, word: str) -> Dict[str, Any]:
         """
         Analyze a word for its root and grammatical features.
-        
+
         Args:
             word: Input word
-            
+
         Returns:
             Dictionary with 'root', 'suffix', 'category'
         """
@@ -37,14 +37,14 @@ class MaithiliMorphologicalAnalyzer:
         for suffix, category in self.suffixes:
             if word.endswith(suffix) and len(word) > len(suffix):
                 return {
-                    "root": word[:-len(suffix)],
+                    "root": word[: -len(suffix)],
                     "suffix": suffix,
-                    "category": category
+                    "category": category,
                 }
-        
+
         return {"root": word, "suffix": "", "category": "unknown"}
 
     def stem(self, word: str) -> str:
         """Return the stem of the word."""
         analysis = self.analyze(word)
-        return analysis["root"]
+        return str(analysis["root"])

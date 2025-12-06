@@ -1,12 +1,13 @@
 import json
 import os
-from typing import List, Dict, Any, Optional, Set
+from typing import List, Dict, Any, Set
 
 from src.language.language_processor import LanguageProcessor
 from src.dialects.bhojpuri.tokenizer import BhojpuriTokenizer
 from src.dialects.bhojpuri.normalizer import BhojpuriNormalizer
 from src.dialects.bhojpuri.morphology import BhojpuriMorphologicalAnalyzer
 from src.dialects.bhojpuri.stress import BhojpuriStressAnalyzer
+
 
 class BhojpuriProcessor(LanguageProcessor):
     """
@@ -15,7 +16,7 @@ class BhojpuriProcessor(LanguageProcessor):
     Supports Northern, Southern, and Western dialects.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.tokenizer = BhojpuriTokenizer()
         self.normalizer = BhojpuriNormalizer()
         self.morphology = BhojpuriMorphologicalAnalyzer()
@@ -23,21 +24,61 @@ class BhojpuriProcessor(LanguageProcessor):
         self.stop_words: Set[str] = set()
         self._load_resources()
 
-    def _load_resources(self):
+    def _load_resources(self) -> None:
         """Load lexicon and stop words."""
         # Default stop words (migrated from legacy processor + expanded)
         default_stops = {
-            "ba", "bate", "bari", "ho", "raua", "hamar", "tohar", "ka", "ke", "ki", 
-            "se", "me", "par", "ne", "bani", "bhayil", "rah", "ja", "aa", "na",
-            "बा", "बाटे", "बारी", "हो", "रउआ", "हमर", "तोहर", "का", "के", "की", 
-            "से", "मे", "पर", "ने", "बानी", "भइल", "रह", "जा", "आ", "ना", "ई", "ऊ"
+            "ba",
+            "bate",
+            "bari",
+            "ho",
+            "raua",
+            "hamar",
+            "tohar",
+            "ka",
+            "ke",
+            "ki",
+            "se",
+            "me",
+            "par",
+            "ne",
+            "bani",
+            "bhayil",
+            "rah",
+            "ja",
+            "aa",
+            "na",
+            "बा",
+            "बाटे",
+            "बारी",
+            "हो",
+            "रउआ",
+            "हमर",
+            "तोहर",
+            "का",
+            "के",
+            "की",
+            "से",
+            "मे",
+            "पर",
+            "ने",
+            "बानी",
+            "भइल",
+            "रह",
+            "जा",
+            "आ",
+            "ना",
+            "ई",
+            "ऊ",
         }
         self.stop_words.update(default_stops)
 
         # Try to load from lexicon file if exists
         lexicon_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            "resources", "lexicons", "bhojpuri_lexicon.json"
+            "resources",
+            "lexicons",
+            "bhojpuri_lexicon.json",
         )
         if os.path.exists(lexicon_path):
             try:
@@ -51,7 +92,9 @@ class BhojpuriProcessor(LanguageProcessor):
         # Load grammar
         grammar_path = os.path.join(
             os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-            "resources", "grammars", "bhojpuri_grammar.json"
+            "resources",
+            "grammars",
+            "bhojpuri_grammar.json",
         )
         self.grammar = {}
         if os.path.exists(grammar_path):
@@ -60,7 +103,6 @@ class BhojpuriProcessor(LanguageProcessor):
                     self.grammar = json.load(f)
             except Exception as e:
                 print(f"Warning: Failed to load Bhojpuri grammar: {e}")
-
 
     def normalize(self, text: str) -> str:
         """Normalize Bhojpuri text."""
@@ -103,19 +145,13 @@ class BhojpuriDialectClassifier:
     Classifier to distinguish Bhojpuri dialects (Northern, Southern, Western).
     Currently a stub/placeholder.
     """
-    
-    def __init__(self):
+
+    def __init__(self) -> None:
         # Dialect markers
         self.markers = {
-            "Southern (Standard)": {
-                "बा", "बानी", "रउआ", "का", "के", "की", "हो"
-            },
-            "Northern": {
-                "बाटे", "बा", "बटे", "काहे", "कि"
-            },
-            "Western": {
-                "हौ", "है", "का", "त", "ना"
-            }
+            "Southern (Standard)": {"बा", "बानी", "रउआ", "का", "के", "की", "हो"},
+            "Northern": {"बाटे", "बा", "बटे", "काहे", "कि"},
+            "Western": {"हौ", "है", "का", "त", "ना"},
         }
 
     def classify(self, text: str) -> str:
@@ -125,18 +161,18 @@ class BhojpuriDialectClassifier:
         """
         if not text:
             return "Standard Bhojpuri"
-            
+
         scores = {dialect: 0 for dialect in self.markers}
         words = text.split()
-        
+
         for word in words:
             for dialect, markers in self.markers.items():
                 if word in markers:
                     scores[dialect] += 1
-        
+
         # Get dialect with max score
-        best_dialect = max(scores, key=scores.get)
-        
+        best_dialect = max(scores, key=lambda k: scores[k])
+
         if scores[best_dialect] > 0:
             return best_dialect
         return "Standard Bhojpuri"

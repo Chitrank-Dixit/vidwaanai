@@ -1,13 +1,14 @@
 import regex
 from typing import Dict
 
+
 class BhojpuriNormalizer:
     """
     Normalizer for Bhojpuri text.
     Handles Devanagari normalization and Bhojpuri-specific characters like Avagraha.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Common normalization maps
         self.normalization_map: Dict[str, str] = {
             "\u200c": "",  # Zero Width Non-Joiner
@@ -26,10 +27,10 @@ class BhojpuriNormalizer:
     def normalize(self, text: str) -> str:
         """
         Normalize Bhojpuri text.
-        
+
         Args:
             text: Input text string
-            
+
         Returns:
             Normalized text string
         """
@@ -45,9 +46,11 @@ class BhojpuriNormalizer:
         # In Bhojpuri, Avagraha represents a drawled vowel.
         # We generally keep it, but ensure it's the correct unicode character (U+093D).
         # Some texts might use 'S' or other symbols.
-        normalized = normalized.replace("S", "\u093d") # Replace Latin S if used as Avagraha (heuristic)
+        normalized = normalized.replace(
+            "S", "\u093d"
+        )  # Replace Latin S if used as Avagraha (heuristic)
 
         # 3. Whitespace normalization
-        normalized = regex.sub(r"\s+", " ", normalized).strip()
+        normalized = str(regex.sub(r"\s+", " ", normalized)).strip()
 
         return normalized

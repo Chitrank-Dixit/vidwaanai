@@ -2,6 +2,7 @@ import logging
 from typing import Any, Dict, List
 
 from src.core.profiler import profile_function
+from src.graph.entity_extractor import EntityExtractor
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +15,7 @@ class HybridSearch:
         graph_retriever: Any,
         vector_db: Any,
         embedding_generator: Any,
-        entity_extractor: Any,
+        entity_extractor: EntityExtractor,
         alpha: float = 0.5,
     ) -> None:
         self.graph = graph_retriever
@@ -111,11 +112,12 @@ class HybridSearch:
         """Extract entities from query using the extractor."""
         if hasattr(self.extractor, "extract_from_query"):
             return self.extractor.extract_from_query(query)
-        
-        # Fallback if extractor doesn't have the method (shouldn't happen with new code)
-        logger.warning("EntityExtractor missing extract_from_query method. Using fallback.")
-        return []
 
+        # Fallback if extractor doesn't have the method (shouldn't happen with new code)
+        logger.warning(
+            "EntityExtractor missing extract_from_query method. Using fallback."
+        )
+        return []
 
     def _fuse_context(
         self, graph_results: List[Dict[str, Any]], vector_results: List[Dict[str, Any]]

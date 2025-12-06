@@ -1,6 +1,7 @@
 import json
 import logging
-from typing import Any, Dict
+from typing import Any, Dict, cast
+
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +78,7 @@ Ensure "from" and "to" are actual entity names, NOT descriptions or sentences.
     def extract_from_query(self, query: str) -> list[dict[str, Any]]:
         """
         Extract entities from a user query.
-        
+
         Returns:
         [
             {"name": "Krishna", "type": "Person"},
@@ -97,22 +98,25 @@ Ensure "from" and "to" are actual entity names, NOT descriptions or sentences.
           {{"name": "karma", "type": "Concept"}}
         ]
         """
-        
+
         response = self.llm.generate(prompt, max_tokens=300, temperature=0.1)
         try:
             cleaned_response = response.strip()
             if "```json" in cleaned_response:
-                cleaned_response = cleaned_response.split("```json")[1].split("```")[0].strip()
+                cleaned_response = (
+                    cleaned_response.split("```json")[1].split("```")[0].strip()
+                )
             elif "```" in cleaned_response:
-                cleaned_response = cleaned_response.split("```")[1].split("```")[0].strip()
-                
+                cleaned_response = (
+                    cleaned_response.split("```")[1].split("```")[0].strip()
+                )
+
             result = json.loads(cleaned_response)
             if isinstance(result, list):
-                return result
+                return cast(list[dict[str, Any]], result)
             if isinstance(result, dict) and "entities" in result:
-                return result["entities"]
+                return cast(list[dict[str, Any]], result["entities"])
             return []
         except Exception as e:
             logger.error(f"Failed to extract entities from query: {e}")
             return []
-

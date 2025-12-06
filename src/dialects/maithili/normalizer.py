@@ -1,13 +1,14 @@
 import regex
 from typing import Dict
 
+
 class MaithiliNormalizer:
     """
     Normalizer for Maithili text.
     Handles Devanagari normalization and Maithili-specific characters.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         # Common normalization maps
         self.normalization_map: Dict[str, str] = {
             "\u200c": "",  # Zero Width Non-Joiner
@@ -25,10 +26,10 @@ class MaithiliNormalizer:
     def normalize(self, text: str) -> str:
         """
         Normalize Maithili text.
-        
+
         Args:
             text: Input text string
-            
+
         Returns:
             Normalized text string
         """
@@ -45,11 +46,11 @@ class MaithiliNormalizer:
             normalized = normalized.replace(char, replacement)
 
         # 3. Whitespace normalization
-        normalized = regex.sub(r"\s+", " ", normalized).strip()
+        normalized = str(regex.sub(r"\s+", " ", normalized)).strip()
 
         # 4. Maithili specific: Chandra Bindu normalization (often interchangeable with Anusvara in informal text)
         # But in standard Maithili, they are distinct. We keep them distinct for now unless requested otherwise.
-        
+
         # 5. Remove punctuation (optional, usually done in tokenization or separate step)
         # Here we keep punctuation for structure preservation.
 
