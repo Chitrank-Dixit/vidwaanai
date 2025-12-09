@@ -22,8 +22,21 @@ class TestRetrievalPipeline:
         from unittest.mock import MagicMock
 
         manager = MagicMock()
-        manager.embed_text.side_effect = lambda text: [0.1] * 1024
-        manager.embed_batch.side_effect = lambda texts: [[0.1] * 1024 for _ in texts]
+
+        def mock_embed(text):
+            # Base vector
+            vec = [0.1] * 1024
+            # Make vectors distinct based on content
+            if "duty" in text.lower() or "dharma" in text.lower():
+                vec[0] = 0.9  # High similarity for duty/dharma
+            elif "karma" in text.lower():
+                vec[1] = 0.9
+            elif "yoga" in text.lower():
+                vec[2] = 0.9
+            return vec
+
+        manager.embed_text.side_effect = mock_embed
+        manager.embed_batch.side_effect = lambda texts: [mock_embed(t) for t in texts]
         return manager
 
     @pytest.fixture(autouse=True)

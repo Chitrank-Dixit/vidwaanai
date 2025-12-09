@@ -53,9 +53,9 @@ class TestGraphRAG(unittest.TestCase):
         )
 
         # Mock extraction
-        mock_extractor.llm.generate.return_value = (
-            '[{"name": "Krishna", "type": "Person"}]'
-        )
+        mock_extractor.extract_from_query.return_value = [
+            {"name": "Krishna", "type": "Person"}
+        ]
 
         # Mock graph search
         mock_graph.find_teachings.return_value = [{"path": "Krishna->dharma"}]
