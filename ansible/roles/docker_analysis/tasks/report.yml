@@ -1,0 +1,58 @@
+---
+- name: Generate report
+  block:
+    - name: Display report start
+      ansible.builtin.debug:
+        msg: "Starting report generation..."
+    
+    - name: Execute docker report command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.report }}
+      register: report_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: false
+    
+    - name: Set report results
+      ansible.builtin.set_fact:
+        report_results:
+          rc: "{{ report_output.rc }}"
+          stdout: "{{ report_output.stdout }}"
+          stderr: "{{ report_output.stderr }}"
+          duration: "{{ report_output.delta }}"
+          success: "{{ report_output.rc == 0 }}"
+    
+    - name: Save report log
+      ansible.builtin.copy:
+        content: |
+          Report Generation Results
+          ==========================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ report_output.delta }}s
+          
+          STDOUT:
+          {{ report_output.stdout }}
+          
+          STDERR:
+          {{ report_output.stderr }}
+          
+          Return Code: {{ report_output.rc }}
+        dest: "{{ logs_dir }}/report_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Save report content
+      ansible.builtin.copy:
+        content: "{{ report_output.stdout }}"
+        dest: "{{ reports_dir }}/report_{{ ansible_date_time.iso8601_basic_short }}.txt"
+      when: capture_output | default(true) and report_output.rc == 0
+    
+    - name: Display report results
+      ansible.builtin.debug:
+        var: report_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log report failure
+      ansible.builtin.debug:
+        msg: "Report generation failed: {{ report_output.stderr | default('Unknown error') }}"
+      tags: error_handling

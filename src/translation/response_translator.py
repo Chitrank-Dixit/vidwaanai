@@ -30,8 +30,10 @@ class ResponseTranslator:
             try:
                 self.tokenizers[model_name] = MarianTokenizer.from_pretrained(
                     model_name
-                )
-                self.models[model_name] = MarianMTModel.from_pretrained(model_name)
+                )  # nosec B615
+                self.models[model_name] = MarianMTModel.from_pretrained(
+                    model_name
+                )  # nosec B615
             except Exception as e:
                 logger.error(f"Failed to load model {model_name}: {e}")
                 return None

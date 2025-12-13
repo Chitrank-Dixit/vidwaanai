@@ -1,0 +1,47 @@
+---
+- name: Docker Analysis Main Tasks
+  block:
+    - name: Display analysis start
+      ansible.builtin.debug:
+        msg: |
+          ===================================
+          Starting Docker Analysis Phase
+          Time: {{ ansible_date_time.iso8601 }}
+          ===================================
+    
+    - name: Include generate tasks
+      ansible.builtin.include_tasks: generate.yml
+      tags: generate
+      when: run_generate | default(true)
+    
+    - name: Include analysis tasks
+      ansible.builtin.include_tasks: analyze.yml
+      tags: analyze
+      when: run_analyze | default(true)
+    
+    - name: Include report tasks
+      ansible.builtin.include_tasks: report.yml
+      tags: report
+      when: run_report | default(true)
+    
+    - name: Include quality check tasks
+      ansible.builtin.include_tasks: quality_check.yml
+      tags: quality_check
+      when: run_quality_check | default(true)
+    
+    - name: Display analysis summary
+      ansible.builtin.debug:
+        msg: |
+          ===================================
+          Analysis Phase Complete
+          Generate Status: {{ generate_results.rc | default('skipped') }}
+          Analysis Status: {{ analysis_results.rc | default('skipped') }}
+          Report Status: {{ report_results.rc | default('skipped') }}
+          Quality Check Status: {{ quality_check_results.rc | default('skipped') }}
+          ===================================
+  
+  rescue:
+    - name: Handle analysis failure
+      ansible.builtin.debug:
+        msg: "Analysis phase failed: {{ ansible_failed_result.msg }}"
+      tags: error_handling

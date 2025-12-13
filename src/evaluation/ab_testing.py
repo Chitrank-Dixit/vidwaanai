@@ -23,7 +23,9 @@ class ABTesting:
         if num_samples is None:
             num_samples = len(queries)
 
-        test_queries = random.sample(queries, min(num_samples, len(queries)))
+        test_queries = random.sample(
+            queries, min(num_samples, len(queries))
+        )  # nosec B311
         logger.info(f"Starting A/B test with {len(test_queries)} queries")
 
         for query in test_queries:

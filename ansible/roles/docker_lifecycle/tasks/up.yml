@@ -1,0 +1,51 @@
+---
+- name: Start Docker services
+  block:
+    - name: Execute docker up command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.up }}
+      register: up_output
+      timeout: "{{ docker_timeout }}"
+    
+    - name: Display startup output
+      ansible.builtin.debug:
+        var: up_output.stdout_lines
+      when: verbose | default(false)
+    
+    - name: Wait for services
+      ansible.builtin.shell: |
+        sleep 10
+      register: wait_output
+    
+    - name: Verify services are running
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.logs }} | head -20
+      register: logs_output
+      retries: 3
+      delay: 5
+      until: "'started' in logs_output.stdout.lower() or 'running' in logs_output.stdout.lower()"
+
+    - name: Save startup log
+      ansible.builtin.copy:
+        content: "{{ up_output.stdout }}"
+        dest: "{{ logs_dir }}/docker-up.log"
+      when: capture_output
+  
+  rescue:
+    - name: Handle startup failure
+      ansible.builtin.debug:
+        msg: "Startup failed: {{ ansible_failed_result.msg }}"
+      tags: error_handling
+    
+    - name: Collect error logs
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.logs }} > {{ logs_dir }}/docker-startup-error.log 2>&1
+      ignore_errors: true
+      tags: error_handling
+    
+    - name: Fail playbook on startup error
+      ansible.builtin.fail:
+        msg: "Docker services failed to start - see logs for details"

@@ -1,0 +1,72 @@
+---
+- name: Run all Docker tests
+  block:
+    - name: Setup test environment
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.test_all }}
+      register: test_output
+      timeout: "{{ test_timeout }}"
+      async: 600
+      poll: 10
+    
+    - name: Parse test output
+      ansible.builtin.set_fact:
+        test_results:
+          stdout: "{{ test_output.stdout }}"
+          stderr: "{{ test_output.stderr }}"
+          rc: "{{ test_output.rc }}"
+          duration: "{{ test_output.delta | default('unknown') }}"
+    
+    - name: Display test results
+      ansible.builtin.debug:
+        var: test_results
+      when: verbose | default(false)
+    
+    - name: Extract test metrics
+      ansible.builtin.set_fact:
+        test_metrics: "{{ test_output.stdout | regex_findall('(passed|failed|skipped|error)[^\\n]*') }}"
+    
+    - name: Save test output
+      ansible.builtin.copy:
+        content: |
+          Test Results
+          ============
+          
+          Output:
+          {{ test_output.stdout }}
+          
+          Duration: {{ test_output.delta | default('unknown') }}s
+          Exit Code: {{ test_output.rc }}
+        dest: "{{ logs_dir }}/docker-tests.log"
+      when: capture_output
+    
+    - name: Save test results as JSON
+      ansible.builtin.copy:
+        content: "{{ test_results | to_nice_json }}"
+        dest: "{{ logs_dir }}/test_results.json"
+      when: capture_output
+    
+    - name: Check test success
+      ansible.builtin.assert:
+        that:
+          - test_output.rc == 0
+        fail_msg: "Tests failed - see logs for details"
+  
+  rescue:
+    - name: Collect test failure info
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        make -f Makefile-docker docker-logs > {{ logs_dir }}/test_failure_logs.txt 2>&1
+      ignore_errors: true
+      tags: error_handling
+    
+    - name: Save test failure output
+      ansible.builtin.copy:
+        content: "{{ ansible_failed_result | to_nice_json }}"
+        dest: "{{ logs_dir }}/test_failure.json"
+      tags: error_handling
+    
+    - name: Fail playbook on test errors
+      ansible.builtin.fail:
+        msg: "Docker tests failed - see logs for details"

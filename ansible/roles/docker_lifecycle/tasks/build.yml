@@ -1,0 +1,44 @@
+---
+- name: Build Docker containers
+  block:
+    - name: Execute docker build command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.build }}
+      register: build_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: "'Successfully built' in build_output.stdout or 'Building' in build_output.stdout"
+    
+    - name: Display build output
+      ansible.builtin.debug:
+        var: build_output.stdout_lines
+      when: verbose | default(false)
+    
+    - name: Check build success
+      ansible.builtin.assert:
+        that:
+          - build_output.rc == 0
+        fail_msg: "Docker build failed"
+    
+    - name: Save build log
+      ansible.builtin.copy:
+        content: "{{ build_output.stdout }}"
+        dest: "{{ logs_dir }}/docker-build.log"
+      when: capture_output
+  
+  rescue:
+    - name: Handle build failure
+      ansible.builtin.debug:
+        msg: "Build failed: {{ ansible_failed_result.msg }}"
+      tags: error_handling
+    
+    - name: Save build error log
+      ansible.builtin.copy:
+        content: "{{ build_output.stderr }}"
+        dest: "{{ logs_dir }}/docker-build-error.log"
+      when: capture_output and build_output.stderr is defined
+      tags: error_handling
+    
+    - name: Fail playbook on build error
+      ansible.builtin.fail:
+        msg: "Docker build failed - see logs for details"

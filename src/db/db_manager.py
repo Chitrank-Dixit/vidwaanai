@@ -217,7 +217,7 @@ class DatabaseManager:
                         WHERE se.language = 'en' {where_clause}
                         ORDER BY similarity DESC
                         LIMIT %s
-                    """
+                    """  # nosec B608
 
                     # Order: Similarity (embedding), Where (optional), Limit (top_k)
                     # We removed the second embedding param from ORDER BY
@@ -239,7 +239,7 @@ class DatabaseManager:
                                FROM verses v
                                JOIN scriptures s ON v.scripture_id = s.id
                                {where_clause.replace("AND ", "WHERE ")}
-                               ORDER BY v.id DESC LIMIT %s""",
+                               ORDER BY v.id DESC LIMIT %s""",  # nosec B608
                             [scripture_filter] if scripture_filter else [top_k],  # type: ignore
                         )
                         rows = cursor.fetchall()

@@ -1,0 +1,63 @@
+---
+# Docker Compose Configuration
+compose_project_name: vidwaan
+compose_files:
+  full: docker-compose-full.yml
+  test: docker-compose-test.yml
+  mcp: docker-compose-mcp.yml
+
+# Service Configuration
+services:
+  app: vidwaan-app
+  db: vidwaan-db
+  redis: vidwaan-redis
+  mcp_server: mcp-server
+
+# Makefile Configuration
+makefile_path: "Makefile-docker"
+make_binary: "make"
+
+# Command Templates
+docker_commands:
+  build: "{{ make_binary }} -f {{ makefile_path }} docker-build"
+  up: "{{ make_binary }} -f {{ makefile_path }} docker-up"
+  down: "{{ make_binary }} -f {{ makefile_path }} docker-down"
+  logs: "docker-compose -f docker-compose-full.yml logs"
+  shell: "{{ make_binary }} -f {{ makefile_path }} docker-shell"
+  first_run: "{{ make_binary }} -f {{ makefile_path }} docker-first-run"
+  test: "{{ make_binary }} -f {{ makefile_path }} docker-test"
+  test_unit: "{{ make_binary }} -f {{ makefile_path }} docker-test-unit"
+  test_functional: "{{ make_binary }} -f {{ makefile_path }} docker-test-functional"
+  test_integration: "{{ make_binary }} -f {{ makefile_path }} docker-test-integration"
+  test_e2e: "{{ make_binary }} -f {{ makefile_path }} docker-test-e2e"
+  test_all: "{{ make_binary }} -f {{ makefile_path }} docker-test-all"
+  lint: "{{ make_binary }} -f {{ makefile_path }} docker-lint"
+  format: "{{ make_binary }} -f {{ makefile_path }} docker-format"
+  check: "{{ make_binary }} -f {{ makefile_path }} docker-check"
+  security: "{{ make_binary }} -f {{ makefile_path }} docker-security"
+  lint_all: "{{ make_binary }} -f {{ makefile_path }} docker-lint-all"
+  generate: "{{ make_binary }} -f {{ makefile_path }} docker-generate"
+  analyze: "{{ make_binary }} -f {{ makefile_path }} docker-analyze"
+  report: "{{ make_binary }} -f {{ makefile_path }} docker-report"
+  quality: "{{ make_binary }} -f {{ makefile_path }} docker-test-quality"
+  graph_build: "{{ make_binary }} -f {{ makefile_path }} docker-graph-build"
+
+# Output Configuration
+output_format: json
+capture_stdout: true
+capture_stderr: true
+preserve_logs: true
+timestamp_format: "%Y-%m-%d_%H-%M-%S"
+
+# Retry Configuration
+max_retries: 3
+retry_delay: 10
+
+# Parallel Execution
+enable_async: true
+async_poll_interval: 10
+
+# Notification Settings
+send_notifications: false
+notification_email: ""
+slack_webhook: ""

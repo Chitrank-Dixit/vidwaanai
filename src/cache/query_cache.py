@@ -21,7 +21,7 @@ class QueryCache:
         """Generate a unique cache key."""
         key_data = {"q": question.strip().lower(), "l": language, "s": scripture_filter}
         key_str = json.dumps(key_data, sort_keys=True)
-        return hashlib.md5(key_str.encode()).hexdigest()
+        return hashlib.sha256(key_str.encode()).hexdigest()
 
     def get(
         self, question: str, language: str, scripture_filter: Optional[str] = None

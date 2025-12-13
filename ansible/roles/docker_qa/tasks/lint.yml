@@ -1,0 +1,27 @@
+---
+- name: Run Lint Checks
+  block:
+    - name: Execute docker lint command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.lint_all }}
+      register: lint_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: false
+    
+    - name: Save lint log
+      ansible.builtin.copy:
+        content: "{{ lint_output.stdout }}"
+        dest: "{{ logs_dir }}/qa-lint.log"
+      when: capture_output
+    
+    - name: Check lint success
+      ansible.builtin.assert:
+        that:
+          - lint_output.rc == 0
+        fail_msg: "Lint checks failed"
+
+  rescue:
+    - name: Log lint failure
+      ansible.builtin.debug:
+        msg: "Lint failed: {{ lint_output.stderr | default('Unknown error') }}"

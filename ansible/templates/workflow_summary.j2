@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vidwaan AI - Workflow Summary</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .metric { margin: 10px 0; }
+        .label { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Workflow Summary</h1>
+    <div class="metric"><span class="label">Date:</span> {{ timestamp }}</div>
+    <div class="metric"><span class="label">Duration:</span> {{ workflow_duration }} seconds</div>
+    
+    <h2>Results</h2>
+    <ul>
+        <li>Setup: {{ 'Success' if setup_result is defined and not setup_result.failed else 'Failed/Skipped' }}</li>
+        <li>Build: {{ 'Success' if build_output is defined and build_output.rc == 0 else 'Failed/Skipped' }}</li>
+        <li>Tests: {{ 'Success' if test_result is defined and not test_result.failed else 'Failed/Skipped' }}</li>
+        <li>Analysis: {{ 'Success' if analysis_result is defined and not analysis_result.failed else 'Failed/Skipped' }}</li>
+        <li>QA: {{ 'Success' if qa_result is defined and not qa_result.failed else 'Failed/Skipped' }}</li>
+    </ul>
+    
+    <p><a href="../logs/">View Logs</a></p>
+</body>
+</html>

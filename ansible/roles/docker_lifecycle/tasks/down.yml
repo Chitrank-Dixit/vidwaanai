@@ -1,0 +1,32 @@
+---
+- name: Stop Docker services
+  block:
+    - name: Execute docker down command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.down }}
+      register: down_output
+      timeout: "{{ docker_timeout }}"
+    
+    - name: Display shutdown output
+      ansible.builtin.debug:
+        var: down_output.stdout_lines
+      when: verbose | default(false)
+    
+    - name: Save shutdown log
+      ansible.builtin.copy:
+        content: "{{ down_output.stdout }}"
+        dest: "{{ logs_dir }}/docker-down.log"
+      when: capture_output
+    
+    - name: Verify shutdown
+      ansible.builtin.assert:
+        that:
+          - down_output.rc == 0
+        fail_msg: "Docker shutdown may have failed"
+  
+  rescue:
+    - name: Handle shutdown error
+      ansible.builtin.debug:
+        msg: "Shutdown warning: {{ ansible_failed_result.msg }}"
+      tags: error_handling

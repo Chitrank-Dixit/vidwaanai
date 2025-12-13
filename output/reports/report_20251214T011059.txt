@@ -1,0 +1,41 @@
+[33mGenerating report...(B[m
+
+==================================================
+VIDWAAN AI - EVALUATION REPORT
+Generated at: 2025-12-13 19:49:01
+==================================================
+
+Type: Retrieval Evaluation
+Total Queries: 36
+------------------------------
+Metrics:
+  • Mean Precision@10: 0.0917
+  • Mean Recall@10:    0.8380
+  • Mean MRR:          0.7718
+  • Mean NDCG:         0.7591
+------------------------------
+
+Category Breakdown:
+Category        | Queries | Prec@10 | Rec@10  | NDCG   
+----------------+---------+---------+---------+--------
+semantic        | 6       | 0.08    | 0.83    | 0.70
+entity          | 9       | 0.08    | 0.78    | 0.78
+exact_match     | 1       | 0.10    | 1.00    | 0.25
+linguistic      | 13      | 0.10    | 1.00    | 1.00
+comparative     | 2       | 0.15    | 0.83    | 0.55
+adversarial     | 5       | 0.08    | 0.50    | 0.36
+--------------------------------------------------
+
+Detailed Query Performance (Top 5 lowest scoring):
+ 1. Query: 'What is my duty?'
+    Prec@10: 0.10, Rec@10: 1.00
+ 2. Query: 'action without fruits'
+    Prec@10: 0.10, Rec@10: 1.00
+ 3. Query: 'Rama's austerity and initial journey'
+    Prec@10: 0.10, Rec@10: 1.00
+ 4. Query: 'Right to perform prescribed duty'
+    Prec@10: 0.10, Rec@10: 1.00
+ 5. Query: 'karmany evadhikaras te'
+    Prec@10: 0.10, Rec@10: 1.00
+
+==================================================
