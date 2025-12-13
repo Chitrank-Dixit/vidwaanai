@@ -1,0 +1,52 @@
+---
+- name: Generate prompts
+  block:
+    - name: Display generate start
+      ansible.builtin.debug:
+        msg: "Starting prompt generation..."
+    
+    - name: Execute docker generate command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.generate }}
+      register: generate_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: false
+    
+    - name: Set generate results
+      ansible.builtin.set_fact:
+        generate_results:
+          rc: "{{ generate_output.rc }}"
+          stdout: "{{ generate_output.stdout }}"
+          stderr: "{{ generate_output.stderr }}"
+          duration: "{{ generate_output.delta }}"
+          success: "{{ generate_output.rc == 0 }}"
+    
+    - name: Save generate log
+      ansible.builtin.copy:
+        content: |
+          Generation Results
+          ==================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ generate_output.delta }}s
+          
+          STDOUT:
+          {{ generate_output.stdout }}
+          
+          STDERR:
+          {{ generate_output.stderr }}
+          
+          Return Code: {{ generate_output.rc }}
+        dest: "{{ logs_dir }}/generate_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display generate results
+      ansible.builtin.debug:
+        var: generate_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log generate failure
+      ansible.builtin.debug:
+        msg: "Generation failed: {{ generate_output.stderr | default('Unknown error') }}"
+      tags: error_handling

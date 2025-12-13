@@ -1,0 +1,87 @@
+---
+- name: Vidwaan AI - Full Workflow (Complete Testing)
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  pre_tasks:
+    - name: Create output directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ logs_dir }}"
+        - "{{ reports_dir }}"
+      tags: always
+    
+    - name: Full workflow header
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          VIDWAAN AI - FULL WORKFLOW
+          Started at: {{ ansible_date_time.iso8601 }}
+          ===================================================
+      tags: always
+  
+  tasks:
+    - name: Build Docker images
+      ansible.builtin.include_role:
+        name: docker_lifecycle
+        tasks_from: build
+      tags: lifecycle
+    
+    - name: Start Docker services
+      ansible.builtin.include_role:
+        name: docker_lifecycle
+        tasks_from: up
+      tags: lifecycle
+    
+    - name: Setup database and data
+      ansible.builtin.include_role:
+        name: docker_setup
+        tasks_from: first_run
+      tags: setup
+    
+    - name: Generate prompts
+      ansible.builtin.include_role:
+        name: docker_analysis
+        tasks_from: generate
+      tags: generate
+    
+    - name: Run all tests
+      ansible.builtin.include_role:
+        name: docker_testing
+        tasks_from: main
+      tags: testing
+    
+    - name: Analyze results
+      ansible.builtin.include_role:
+        name: docker_analysis
+        tasks_from: analyze
+      tags: analyze
+    
+    - name: Generate report
+      ansible.builtin.include_role:
+        name: docker_analysis
+        tasks_from: report
+      tags: report
+    
+    - name: Run quality checks
+      ansible.builtin.include_role:
+        name: docker_qa
+        tasks_from: main
+      tags: qa
+  
+  post_tasks:
+    - name: Full workflow completion
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          FULL WORKFLOW COMPLETED SUCCESSFULLY
+          Completed at: {{ ansible_date_time.iso8601 }}
+          Logs: {{ logs_dir }}
+          Reports: {{ reports_dir }}
+          ===================================================
+      tags: always

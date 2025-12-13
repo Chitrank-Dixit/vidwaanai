@@ -1,0 +1,20 @@
+---
+- name: Code Quality Assurance
+  block:
+    - name: Display QA start
+      ansible.builtin.debug:
+        msg: "Starting code quality assurance..."
+    
+    - name: Include lint tasks
+      ansible.builtin.include_tasks: lint.yml
+      tags: lint
+      when: run_lint | default(true)
+    
+    - name: Display QA summary
+      ansible.builtin.debug:
+        msg: "QA Phase Complete"
+  
+  rescue:
+    - name: Handle QA failure
+      ansible.builtin.debug:
+        msg: "QA phase failed: {{ ansible_failed_result.msg }}"

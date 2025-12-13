@@ -1,0 +1,52 @@
+---
+- name: Run E2E tests
+  block:
+    - name: Display e2e test start
+      ansible.builtin.debug:
+        msg: "Starting E2E tests..."
+    
+    - name: Execute docker e2e tests
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.test_e2e }}
+      register: e2e_test_output
+      timeout: "{{ test_timeout }}"
+      changed_when: false
+    
+    - name: Set e2e test results
+      ansible.builtin.set_fact:
+        e2e_test_results:
+          rc: "{{ e2e_test_output.rc }}"
+          stdout: "{{ e2e_test_output.stdout }}"
+          stderr: "{{ e2e_test_output.stderr }}"
+          duration: "{{ e2e_test_output.delta }}"
+          passed: "{{ 'passed' in e2e_test_output.stdout }}"
+    
+    - name: Save e2e test log
+      ansible.builtin.copy:
+        content: |
+          E2E Test Results
+          ================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ e2e_test_output.delta }}s
+          
+          STDOUT:
+          {{ e2e_test_output.stdout }}
+          
+          STDERR:
+          {{ e2e_test_output.stderr }}
+          
+          Return Code: {{ e2e_test_output.rc }}
+        dest: "{{ logs_dir }}/e2e_tests_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display e2e test results
+      ansible.builtin.debug:
+        var: e2e_test_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log e2e test failure
+      ansible.builtin.debug:
+        msg: "E2E tests failed: {{ e2e_test_output.stderr | default('Unknown error') }}"
+      tags: error_handling

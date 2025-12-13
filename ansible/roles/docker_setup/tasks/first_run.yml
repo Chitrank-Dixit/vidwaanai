@@ -1,0 +1,31 @@
+---
+- name: Initial Setup
+  block:
+    - name: Display setup start
+      ansible.builtin.debug:
+        msg: "Starting initial setup and database initialization..."
+    
+    - name: Execute docker setup command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.first_run }}
+      register: setup_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: false
+    
+    - name: Save setup log
+      ansible.builtin.copy:
+        content: "{{ setup_output.stdout }}"
+        dest: "{{ logs_dir }}/docker-setup.log"
+      when: capture_output
+    
+    - name: Verify setup success
+      ansible.builtin.assert:
+        that:
+          - setup_output.rc == 0
+        fail_msg: "Initial setup failed"
+
+  rescue:
+    - name: Log setup failure
+      ansible.builtin.debug:
+        msg: "Setup failed: {{ setup_output.stderr | default('Unknown error') }}"

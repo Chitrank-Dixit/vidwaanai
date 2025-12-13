@@ -1,0 +1,206 @@
+---
+- name: Vidwaan AI - Main Docker Workflow
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  tasks:
+    - name: Main Workflow Execution Block
+      block:
+        - name: Create output directories
+          ansible.builtin.file:
+            path: "{{ item }}"
+            state: directory
+            mode: '0755'
+          loop:
+            - "{{ logs_dir }}"
+            - "{{ reports_dir }}"
+            - "{{ reports_dir }}/html_reports"
+            - "{{ output_dir }}/artifacts"
+          tags: setup
+        
+        - name: Print workflow header
+          ansible.builtin.debug:
+            msg: |
+              ===================================================
+              VIDWAAN AI - DOCKER WORKFLOW
+              Started at: {{ ansible_facts['date_time']['iso8601'] }}
+              ===================================================
+          tags: always
+        
+        # ——— LIFECYCLE PHASE ———
+        - name: Include docker lifecycle tasks
+          ansible.builtin.include_role:
+            name: docker_lifecycle
+            tasks_from: build
+          tags: lifecycle
+          vars:
+            build_nocache: false
+        
+        - name: Include docker startup tasks
+          ansible.builtin.include_role:
+            name: docker_lifecycle
+            tasks_from: up
+          tags: lifecycle
+        
+        - name: Wait for services to be ready
+          ansible.builtin.wait_for:
+            timeout: 30
+          tags: lifecycle
+        
+        # ——— SETUP PHASE ———
+        - name: Include docker first run setup
+          ansible.builtin.include_role:
+            name: docker_setup
+            tasks_from: first_run
+          tags: setup
+          register: setup_result
+        
+        - name: Log setup results
+          ansible.builtin.copy:
+            content: "{{ setup_result | to_nice_json }}"
+            dest: "{{ logs_dir }}/setup_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: setup
+        
+        # ——— GENERATION PHASE ———
+        - name: Include docker generate tasks
+          ansible.builtin.include_role:
+            name: docker_analysis
+            tasks_from: generate
+          tags: generate
+          register: generate_result
+        
+        - name: Log generation results
+          ansible.builtin.copy:
+            content: "{{ generate_result | to_nice_json }}"
+            dest: "{{ logs_dir }}/generate_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: generate
+        
+        # ——— TESTING PHASE ———
+        - name: Include docker test tasks
+          ansible.builtin.include_role:
+            name: docker_testing
+            tasks_from: test_all
+          tags: testing
+          register: test_result
+        
+        - name: Log test results
+          ansible.builtin.copy:
+            content: "{{ test_result | to_nice_json }}"
+            dest: "{{ logs_dir }}/tests_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: testing
+        
+        # ——— ANALYSIS PHASE ———
+        - name: Include docker analysis tasks
+          ansible.builtin.include_role:
+            name: docker_analysis
+            tasks_from: analyze
+          tags: analysis
+          register: analysis_result
+        
+        - name: Log analysis results
+          ansible.builtin.copy:
+            content: "{{ analysis_result | to_nice_json }}"
+            dest: "{{ logs_dir }}/analysis_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: analysis
+        
+        # ——— REPORTING PHASE ———
+        - name: Include docker report tasks
+          ansible.builtin.include_role:
+            name: docker_analysis
+            tasks_from: report
+          tags: reporting
+          register: report_result
+        
+        - name: Log report results
+          ansible.builtin.copy:
+            content: "{{ report_result | to_nice_json }}"
+            dest: "{{ reports_dir }}/report_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: reporting
+        
+        # ——— QUALITY CHECKS ———
+        - name: Include quality assurance tasks
+          ansible.builtin.include_role:
+            name: docker_qa
+            tasks_from: main
+          tags: qa
+          register: qa_result
+        
+        - name: Log QA results
+          ansible.builtin.copy:
+            content: "{{ qa_result | to_nice_json }}"
+            dest: "{{ logs_dir }}/qa_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: qa
+        
+        # ——— FINAL SUMMARY ———
+        - name: Generate workflow summary
+          ansible.builtin.template:
+            src: workflow_summary.j2
+            dest: "{{ reports_dir }}/summary_{{ timestamp }}.html"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+            workflow_duration: "{{ (ansible_facts['date_time']['epoch'] | int) - (start_time | int) }}"
+            start_time: "{{ ansible_facts['date_time']['epoch'] }}"
+          tags: summary
+        
+        - name: Print workflow completion
+          ansible.builtin.debug:
+            msg: |
+              ===================================================
+              WORKFLOW COMPLETED SUCCESSFULLY
+              Completed at: {{ ansible_facts['date_time']['iso8601'] }}
+              Total duration: {{ (ansible_facts['date_time']['epoch'] | int) - (start_epoch | int) }}s
+              
+              Output locations:
+                - Logs: {{ logs_dir }}
+                - Reports: {{ reports_dir }}
+              ===================================================
+          vars:
+            start_epoch: "{{ ansible_facts['date_time']['epoch'] }}"
+          tags: summary
+      
+      rescue:
+        - name: Handle workflow failure
+          ansible.builtin.debug:
+            msg: |
+              ===================================================
+              WORKFLOW FAILED
+              Failed at: {{ ansible_facts['date_time']['iso8601'] }}
+              Error: {{ ansible_failed_result.msg }}
+              ===================================================
+          tags: always
+        
+        - name: Collect error logs
+          ansible.builtin.shell: |
+            cd {{ docker_compose_dir }}
+            {{ docker_commands.logs }} > {{ logs_dir }}/error_logs.txt 2>&1
+          ignore_errors: true
+          tags: always
+        
+        - name: Cleanup on failure
+          ansible.builtin.include_role:
+            name: docker_lifecycle
+            tasks_from: down
+          ignore_errors: true
+          tags: always
+      
+      always:
+        - name: Final cleanup
+          ansible.builtin.include_role:
+            name: docker_lifecycle
+            tasks_from: down
+          when: cleanup_on_finish | default(true)
+          tags: always

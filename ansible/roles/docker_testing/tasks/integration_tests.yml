@@ -1,0 +1,52 @@
+---
+- name: Run integration tests
+  block:
+    - name: Display integration test start
+      ansible.builtin.debug:
+        msg: "Starting integration tests..."
+    
+    - name: Execute docker integration tests
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.test_integration }}
+      register: integration_test_output
+      timeout: "{{ test_timeout }}"
+      changed_when: false
+    
+    - name: Set integration test results
+      ansible.builtin.set_fact:
+        integration_test_results:
+          rc: "{{ integration_test_output.rc }}"
+          stdout: "{{ integration_test_output.stdout }}"
+          stderr: "{{ integration_test_output.stderr }}"
+          duration: "{{ integration_test_output.delta }}"
+          passed: "{{ 'passed' in integration_test_output.stdout }}"
+    
+    - name: Save integration test log
+      ansible.builtin.copy:
+        content: |
+          Integration Test Results
+          ========================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ integration_test_output.delta }}s
+          
+          STDOUT:
+          {{ integration_test_output.stdout }}
+          
+          STDERR:
+          {{ integration_test_output.stderr }}
+          
+          Return Code: {{ integration_test_output.rc }}
+        dest: "{{ logs_dir }}/integration_tests_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display integration test results
+      ansible.builtin.debug:
+        var: integration_test_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log integration test failure
+      ansible.builtin.debug:
+        msg: "Integration tests failed: {{ integration_test_output.stderr | default('Unknown error') }}"
+      tags: error_handling

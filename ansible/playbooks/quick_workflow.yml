@@ -1,0 +1,49 @@
+---
+- name: Vidwaan AI - Quick Workflow (Test + Report)
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  tasks:
+    - name: Create output directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ logs_dir }}"
+        - "{{ reports_dir }}"
+      tags: setup
+    
+    - name: Quick workflow header
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          VIDWAAN AI - QUICK WORKFLOW
+          Started at: {{ ansible_facts['date_time']['iso8601'] }}
+          ===================================================
+      tags: always
+    
+    - name: Run docker tests
+      ansible.builtin.include_role:
+        name: docker_testing
+        tasks_from: main
+      tags: testing
+      register: test_results
+    
+    - name: Generate report
+      ansible.builtin.include_role:
+        name: docker_analysis
+        tasks_from: report
+      tags: reporting
+      register: report_results
+    
+    - name: Quick workflow completion
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          QUICK WORKFLOW COMPLETED
+          Completed at: {{ ansible_facts['date_time']['iso8601'] }}
+          ===================================================
+      tags: summary

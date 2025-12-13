@@ -1,0 +1,52 @@
+---
+- name: Analyze results
+  block:
+    - name: Display analyze start
+      ansible.builtin.debug:
+        msg: "Starting analysis..."
+    
+    - name: Execute docker analyze command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.analyze }}
+      register: analyze_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: false
+    
+    - name: Set analysis results
+      ansible.builtin.set_fact:
+        analysis_results:
+          rc: "{{ analyze_output.rc }}"
+          stdout: "{{ analyze_output.stdout }}"
+          stderr: "{{ analyze_output.stderr }}"
+          duration: "{{ analyze_output.delta }}"
+          success: "{{ analyze_output.rc == 0 }}"
+    
+    - name: Save analysis log
+      ansible.builtin.copy:
+        content: |
+          Analysis Results
+          ================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ analyze_output.delta }}s
+          
+          STDOUT:
+          {{ analyze_output.stdout }}
+          
+          STDERR:
+          {{ analyze_output.stderr }}
+          
+          Return Code: {{ analyze_output.rc }}
+        dest: "{{ logs_dir }}/analyze_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display analysis results
+      ansible.builtin.debug:
+        var: analysis_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log analysis failure
+      ansible.builtin.debug:
+        msg: "Analysis failed: {{ analyze_output.stderr | default('Unknown error') }}"
+      tags: error_handling

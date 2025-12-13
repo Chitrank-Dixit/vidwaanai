@@ -1,0 +1,52 @@
+---
+- name: Run unit tests
+  block:
+    - name: Display unit test start
+      ansible.builtin.debug:
+        msg: "Starting unit tests..."
+    
+    - name: Execute docker unit tests
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.test_unit }}
+      register: unit_test_output
+      timeout: "{{ test_timeout }}"
+      changed_when: false
+    
+    - name: Set unit test results
+      ansible.builtin.set_fact:
+        unit_test_results:
+          rc: "{{ unit_test_output.rc }}"
+          stdout: "{{ unit_test_output.stdout }}"
+          stderr: "{{ unit_test_output.stderr }}"
+          duration: "{{ unit_test_output.delta }}"
+          passed: "{{ 'passed' in unit_test_output.stdout }}"
+    
+    - name: Save unit test log
+      ansible.builtin.copy:
+        content: |
+          Unit Test Results
+          =================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ unit_test_output.delta }}s
+          
+          STDOUT:
+          {{ unit_test_output.stdout }}
+          
+          STDERR:
+          {{ unit_test_output.stderr }}
+          
+          Return Code: {{ unit_test_output.rc }}
+        dest: "{{ logs_dir }}/unit_tests_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display unit test results
+      ansible.builtin.debug:
+        var: unit_test_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log unit test failure
+      ansible.builtin.debug:
+        msg: "Unit tests failed: {{ unit_test_output.stderr | default('Unknown error') }}"
+      tags: error_handling

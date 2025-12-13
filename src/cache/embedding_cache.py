@@ -17,7 +17,7 @@ class EmbeddingCache:
 
     def _make_key(self, text: str) -> str:
         """Create a stable key for the text."""
-        return hashlib.md5(text.encode("utf-8")).hexdigest()
+        return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
     def get(self, text: str) -> Optional[List[float]]:
         """Get cached embedding."""

@@ -20,7 +20,7 @@ class SearchCache:
         """Create a stable key for query and filters."""
         key_content = {"q": query, "f": filters or {}}
         key_str = json.dumps(key_content, sort_keys=True)
-        return hashlib.md5(key_str.encode("utf-8")).hexdigest()
+        return hashlib.sha256(key_str.encode("utf-8")).hexdigest()
 
     def get(
         self, query: str, filters: Optional[Dict[str, Any]] = None

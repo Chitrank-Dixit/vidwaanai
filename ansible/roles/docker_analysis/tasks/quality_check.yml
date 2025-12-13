@@ -1,0 +1,52 @@
+---
+- name: Quality checks
+  block:
+    - name: Display quality check start
+      ansible.builtin.debug:
+        msg: "Starting quality assurance checks..."
+    
+    - name: Execute docker quality command
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.quality }}
+      register: quality_output
+      timeout: "{{ docker_timeout }}"
+      changed_when: false
+    
+    - name: Set quality check results
+      ansible.builtin.set_fact:
+        quality_check_results:
+          rc: "{{ quality_output.rc }}"
+          stdout: "{{ quality_output.stdout }}"
+          stderr: "{{ quality_output.stderr }}"
+          duration: "{{ quality_output.delta }}"
+          success: "{{ quality_output.rc == 0 }}"
+    
+    - name: Save quality check log
+      ansible.builtin.copy:
+        content: |
+          Quality Assurance Results
+          ==========================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ quality_output.delta }}s
+          
+          STDOUT:
+          {{ quality_output.stdout }}
+          
+          STDERR:
+          {{ quality_output.stderr }}
+          
+          Return Code: {{ quality_output.rc }}
+        dest: "{{ logs_dir }}/quality_check_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display quality check results
+      ansible.builtin.debug:
+        var: quality_check_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log quality check failure
+      ansible.builtin.debug:
+        msg: "Quality checks failed: {{ quality_output.stderr | default('Unknown error') }}"
+      tags: error_handling

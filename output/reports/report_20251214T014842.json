@@ -1,0 +1,7 @@
+{
+    "changed": false,
+    "include_args": {
+        "name": "docker_analysis",
+        "tasks_from": "report"
+    }
+}

@@ -1,0 +1,52 @@
+---
+- name: Run functional tests
+  block:
+    - name: Display functional test start
+      ansible.builtin.debug:
+        msg: "Starting functional tests..."
+    
+    - name: Execute docker functional tests
+      ansible.builtin.shell: |
+        cd {{ docker_compose_dir }}
+        {{ docker_commands.test_functional }}
+      register: functional_test_output
+      timeout: "{{ test_timeout }}"
+      changed_when: false
+    
+    - name: Set functional test results
+      ansible.builtin.set_fact:
+        functional_test_results:
+          rc: "{{ functional_test_output.rc }}"
+          stdout: "{{ functional_test_output.stdout }}"
+          stderr: "{{ functional_test_output.stderr }}"
+          duration: "{{ functional_test_output.delta }}"
+          passed: "{{ 'passed' in functional_test_output.stdout }}"
+    
+    - name: Save functional test log
+      ansible.builtin.copy:
+        content: |
+          Functional Test Results
+          =======================
+          Timestamp: {{ ansible_date_time.iso8601 }}
+          Duration: {{ functional_test_output.delta }}s
+          
+          STDOUT:
+          {{ functional_test_output.stdout }}
+          
+          STDERR:
+          {{ functional_test_output.stderr }}
+          
+          Return Code: {{ functional_test_output.rc }}
+        dest: "{{ logs_dir }}/functional_tests_{{ ansible_date_time.iso8601_basic_short }}.log"
+      when: capture_output | default(true)
+    
+    - name: Display functional test results
+      ansible.builtin.debug:
+        var: functional_test_results
+      when: verbose | default(false)
+
+  rescue:
+    - name: Log functional test failure
+      ansible.builtin.debug:
+        msg: "Functional tests failed: {{ functional_test_output.stderr | default('Unknown error') }}"
+      tags: error_handling

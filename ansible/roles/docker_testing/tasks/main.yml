@@ -1,0 +1,61 @@
+---
+- name: Docker Testing Main Tasks
+  block:
+    - name: Display testing start
+      ansible.builtin.debug:
+        msg: |
+          ===================================
+          Starting Docker Testing Phase
+          Time: {{ ansible_facts['date_time']['iso8601'] }}
+          ===================================
+    
+    - name: Include unit tests
+      ansible.builtin.include_tasks: unit_tests.yml
+      tags: unit_tests
+      when: run_unit_tests | default(true)
+    
+    - name: Include functional tests
+      ansible.builtin.include_tasks: functional_tests.yml
+      tags: functional_tests
+      when: run_functional_tests | default(true)
+    
+    - name: Include integration tests
+      ansible.builtin.include_tasks: integration_tests.yml
+      tags: integration_tests
+      when: run_integration_tests | default(true)
+    
+    - name: Include e2e tests
+      ansible.builtin.include_tasks: e2e_tests.yml
+      tags: e2e_tests
+      when: run_e2e_tests | default(true)
+    
+    - name: Collect all test results
+      ansible.builtin.set_fact:
+        all_test_results:
+          unit_tests: "{{ unit_test_results | default({}) }}"
+          functional_tests: "{{ functional_test_results | default({}) }}"
+          integration_tests: "{{ integration_test_results | default({}) }}"
+          e2e_tests: "{{ e2e_test_results | default({}) }}"
+          timestamp: "{{ ansible_date_time.iso8601 }}"
+    
+    - name: Display testing summary
+      ansible.builtin.debug:
+        msg: |
+          ===================================
+          Testing Phase Complete
+          Unit Tests: {{ unit_test_results.rc | default('skipped') }}
+          Functional Tests: {{ functional_test_results.rc | default('skipped') }}
+          Integration Tests: {{ integration_test_results.rc | default('skipped') }}
+          E2E Tests: {{ e2e_test_results.rc | default('skipped') }}
+          ===================================
+
+  rescue:
+    - name: Handle testing failure
+      ansible.builtin.debug:
+        msg: "Testing phase failed: {{ ansible_failed_result.msg }}"
+      tags: error_handling
+    
+    - name: Capture error state
+      ansible.builtin.set_fact:
+        test_error_info: "{{ ansible_failed_result }}"
+      tags: error_handling
