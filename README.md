@@ -860,7 +860,7 @@ This project also provides a `Makefile-docker` for managing containerized develo
 
 ### Generate & Test
 - `make -f Makefile-docker docker-generate`: Generate prompts inside Docker.
-- `make -f Makefile-docker docker-test`: Run the full test suite inside Docker.
+- `make -f Makefile-docker docker-test-all`: Run the full test suite inside Docker.
 - `make -f Makefile-docker docker-test-lang L=<lang_code>`: Test a specific language (e.g., `L=hi`).
 - `make -f Makefile-docker docker-test-category C=<category_name>`: Test a specific category (e.g., `C=ramayana`).
 

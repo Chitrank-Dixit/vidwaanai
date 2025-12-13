@@ -42,3 +42,28 @@ def sample_verse() -> Dict[str, Any]:
         "translation_en": "You have a right to perform your prescribed duty, but you are not entitled to the fruits of action.",
         "scripture_name": "Bhagavad Gita",
     }
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--language",
+        action="store",
+        default=None,
+        help="Language code to test (e.g., hi, en)",
+    )
+    parser.addoption(
+        "--category",
+        action="store",
+        default=None,
+        help="Category to test (e.g., ramayana)",
+    )
+
+
+@pytest.fixture
+def language(request):
+    return request.config.getoption("--language")
+
+
+@pytest.fixture
+def category(request):
+    return request.config.getoption("--category")

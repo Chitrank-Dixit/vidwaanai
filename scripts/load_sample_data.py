@@ -96,6 +96,41 @@ def load_sample_data() -> None:
             },
         }
 
+        # Add Indian Regional Languages (Synthetic Sample for Testing)
+        # Languages: Hindi, Gujarati, Marathi, Tamil, Telugu, Kannada, Malayalam, Bengali, Punjabi, Bhojpuri, Rajasthani, Maithili, Haryanvi
+        indian_languages = {
+            "hindi": "Dharma hi satya hai",
+            "gujarati": "Dharma j satya che",
+            "marathi": "Dharma he ch satya aahe",
+            "tamil": "Aram ena paduvathu",
+            "telugu": "Dharmame satyam",
+            "kannada": "Dharmave satya",
+            "malayalam": "Dharmam thanne sathyam",
+            "bengali": "Dharma i satya",
+            "punjabi": "Dharam hi sach hai",
+            "bhojpuri": "Dharam hi satya ba",
+            "rajasthani": "Dharam hi satya hai",
+            "maithili": "Dharm hi satya achi",
+            "haryanvi": "Dharam hi saach se",
+        }
+
+        # Add generic scripture for testing these languages
+        sample_data["Indian Wisdom"] = {"language": "mixed", "verses": []}
+
+        verse_counter = 1
+        for lang, text in indian_languages.items():
+            sample_data["Indian Wisdom"]["verses"].append(
+                {
+                    "chapter": 1,
+                    "verse": verse_counter,
+                    "text": text,
+                    "translation": f"Dharma is truth ({lang.capitalize()})",
+                    "themes": ["dharma", "truth", "language_test"],
+                    "speakers": [f"Sage ({lang})"],
+                }
+            )
+            verse_counter += 1
+
         print("Loading sample data...")
 
         for scripture_name, data in sample_data.items():

@@ -49,6 +49,7 @@ class HybridSearch:
 
     def combine_results(
         self,
+        query: str,
         bm25_results: List[Dict[str, Any]],
         semantic_results: List[Dict[str, Any]],
         top_k: int = 10,
@@ -90,13 +91,23 @@ class HybridSearch:
 
         # Calculate final scores
         final_results = []
+        query_lower = query.lower().strip()
+
         for doc_id, scores in combined_scores.items():
             final_score = (
                 self.bm25_weight * scores["bm25_score"]
                 + self.semantic_weight * scores["semantic_score"]
             )
 
+            # Exact Match Boost
             doc = scores["document"].copy()
+            if "text" in doc and query_lower in doc["text"].lower():
+                # Boost significantly (e.g. +50% or +1.0).
+                # Since scores are normalized 0-1, boosting by multiplier is safe.
+                # Let's multiply by 1.5 to prioritize it
+                final_score = final_score * 1.5
+                doc["exact_match"] = True
+
             doc["score"] = final_score
             doc["bm25_score"] = scores["bm25_score"]
             doc["semantic_score"] = scores["semantic_score"]
@@ -113,4 +124,4 @@ class HybridSearch:
         bm25_results = self.bm25_search.search(query, top_k=top_k * 2)
         semantic_results = self.vector_search_func(query, top_k=top_k * 2)
 
-        return self.combine_results(bm25_results, semantic_results, top_k)
+        return self.combine_results(query, bm25_results, semantic_results, top_k)

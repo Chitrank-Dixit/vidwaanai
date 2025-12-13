@@ -1,45 +1,377 @@
 {
-  "num_queries": 4,
-  "avg_precision": 0.1,
-  "avg_recall": 1.0,
-  "avg_mrr": 0.875,
-  "avg_ndcg": 0.875,
+  "num_queries": 36,
+  "avg_precision": 0.09166666666666667,
+  "avg_recall": 0.837962962962963,
+  "avg_mrr": 0.7717592592592593,
+  "avg_ndcg": 0.759104938271605,
   "queries": [
     {
-      "query": "What is my duty regarding work?",
+      "query": "What is my duty?",
       "precision_at_10": 0.1,
       "recall_at_10": 1.0,
       "mrr": 1.0,
       "ndcg_at_10": 1.0,
-      "num_retrieved": 4,
+      "num_retrieved": 10,
       "num_relevant": 1
     },
     {
-      "query": "Who is Lord Rama?",
+      "query": "action without fruits",
       "precision_at_10": 0.1,
       "recall_at_10": 1.0,
       "mrr": 1.0,
       "ndcg_at_10": 1.0,
-      "num_retrieved": 4,
+      "num_retrieved": 10,
       "num_relevant": 1
     },
     {
-      "query": "Tell me about the Mahabharata war",
+      "query": "Rama's austerity and initial journey",
       "precision_at_10": 0.1,
       "recall_at_10": 1.0,
       "mrr": 1.0,
       "ndcg_at_10": 1.0,
-      "num_retrieved": 4,
+      "num_retrieved": 10,
       "num_relevant": 1
     },
     {
-      "query": "Explain the concept of action and fruits",
+      "query": "Right to perform prescribed duty",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "karmany evadhikaras te",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.25,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Meaning of Dharma",
+      "precision_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "num_retrieved": 10,
+      "num_relevant": 2
+    },
+    {
+      "query": "Who is Sita?",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "War of Mahabharata",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Birthplace of Rama",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "King Dasharatha",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Concept of Truth",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.2,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharma hi satya hai",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharma j satya che",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharma he ch satya aahe",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Aram ena paduvathu",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharmame satyam",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharmave satya",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharmam thanne sathyam",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharma i satya",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharam hi sach hai",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharam hi satya ba",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharam hi satya hai (Rajasthani)",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharm hi satya achi",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharam hi saach se",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Truth in Indian languages",
+      "precision_at_10": 0.2,
+      "recall_at_10": 0.6666666666666666,
+      "mrr": 1.0,
+      "ndcg_at_10": 0.6000000000000001,
+      "num_retrieved": 10,
+      "num_relevant": 3
+    },
+    {
+      "query": "Universal Dharma",
       "precision_at_10": 0.1,
       "recall_at_10": 1.0,
       "mrr": 0.5,
       "ndcg_at_10": 0.5,
-      "num_retrieved": 4,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Vyasa's work",
+      "precision_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Nara and Narayana",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Krishna's teachings",
+      "precision_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "num_retrieved": 10,
+      "num_relevant": 2
+    },
+    {
+      "query": "Self-discipline and austerity",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Janaka's daughter",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "NOT Krishna",
+      "precision_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Dharm",
+      "precision_at_10": 0.1,
+      "recall_at_10": 0.5,
+      "mrr": 0.3333333333333333,
+      "ndcg_at_10": 0.2222222222222222,
+      "num_retrieved": 10,
+      "num_relevant": 2
+    },
+    {
+      "query": "Truth of Dharma",
+      "precision_at_10": 0.2,
+      "recall_at_10": 1.0,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.5555555555555555,
+      "num_retrieved": 10,
+      "num_relevant": 2
+    },
+    {
+      "query": "The other brother",
+      "precision_at_10": 0.0,
+      "recall_at_10": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "num_retrieved": 10,
+      "num_relevant": 1
+    },
+    {
+      "query": "Battle of Kurukshetra",
+      "precision_at_10": 0.1,
+      "recall_at_10": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "num_retrieved": 10,
       "num_relevant": 1
     }
-  ]
+  ],
+  "categories": {
+    "semantic": {
+      "num_queries": 6,
+      "avg_precision": 0.08333333333333333,
+      "avg_recall": 0.8333333333333334,
+      "avg_mrr": 0.7000000000000001,
+      "avg_ndcg": 0.7000000000000001
+    },
+    "entity": {
+      "num_queries": 9,
+      "avg_precision": 0.07777777777777778,
+      "avg_recall": 0.7777777777777778,
+      "avg_mrr": 0.7777777777777778,
+      "avg_ndcg": 0.7777777777777778
+    },
+    "exact_match": {
+      "num_queries": 1,
+      "avg_precision": 0.1,
+      "avg_recall": 1.0,
+      "avg_mrr": 0.25,
+      "avg_ndcg": 0.25
+    },
+    "linguistic": {
+      "num_queries": 13,
+      "avg_precision": 0.1,
+      "avg_recall": 1.0,
+      "avg_mrr": 1.0,
+      "avg_ndcg": 1.0
+    },
+    "comparative": {
+      "num_queries": 2,
+      "avg_precision": 0.15000000000000002,
+      "avg_recall": 0.8333333333333333,
+      "avg_mrr": 0.75,
+      "avg_ndcg": 0.55
+    },
+    "adversarial": {
+      "num_queries": 5,
+      "avg_precision": 0.08,
+      "avg_recall": 0.5,
+      "avg_mrr": 0.36666666666666664,
+      "avg_ndcg": 0.3555555555555555
+    }
+  }
 }

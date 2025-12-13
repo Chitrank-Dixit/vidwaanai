@@ -54,12 +54,27 @@ help:
 	@echo "  $(GREEN)make -f Makefile-docker docker-test-category C=...$(RESET) Test a specific category"
 	@echo
 	@echo "$(CYAN)Analysis & Report:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker docker-analyze$(RESET)      Analyze test results"
-	@echo "  $(GREEN)make -f Makefile-docker docker-report$(RESET)       Generate comprehensive report"
-	@echo
-	@echo "$(CYAN)Workflows:$(RESET)"
-	@echo "  $(GREEN)make -f Makefile-docker docker-workflow$(RESET)       Full workflow: generate → test → report"
-	@echo "  $(GREEN)make -f Makefile-docker docker-workflow-quick$(RESET)  Quick workflow version"
+docker-test-setup:
+	@echo "$(YELLOW)Setting up test data (Reset + Load)...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-integration sh -c "uv run python scripts/reset_data.py && uv run python scripts/load_sample_data.py"
+
+docker-analyze:
+	@echo "$(YELLOW)Running full analysis pipeline (Reset -> Load -> Verify -> Evaluate)...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-integration sh scripts/run_analysis_pipeline.sh
+
+docker-report:
+	@echo "$(YELLOW)Generating report...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-unit uv run python scripts/generate_report.py
+
+docker-test-quality: docker-analyze
+	@echo "$(YELLOW)Running Quality Gate Check...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-integration uv run python scripts/check_metrics.py
+
+docker-workflow: docker-generate docker-test-all docker-analyze docker-report
+	@echo "$(GREEN)✓ Full workflow completed!$(RESET)"
+
+docker-workflow-quick: docker-test-unit docker-report
+	@echo "$(GREEN)✓ Quick workflow completed!$(RESET)"
 	@echo
 	@echo "$(CYAN)Knowledge Graph:$(RESET)"
 	@echo "  $(GREEN)make -f Makefile-docker docker-graph-build$(RESET)  Build knowledge graph"
@@ -148,11 +163,11 @@ docker-test:
 
 docker-test-lang:
 	@echo "$(YELLOW)Testing language: $(L) in container...$(RESET)"
-	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run pytest tests/ --language $(L)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-integration uv run pytest tests/ --language $(L) -v
 
 docker-test-category:
 	@echo "$(YELLOW)Testing category: $(C) in container...$(RESET)"
-	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run pytest tests/ --category $(C)"
+	@$(COMPOSE_TEST) run --rm vidwaan-test-integration uv run pytest tests/ --category $(C) -v
 
 # Testing
 docker-test-unit:

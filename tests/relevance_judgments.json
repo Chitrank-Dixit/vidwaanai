@@ -1,0 +1,233 @@
+{
+    "metadata": {
+        "description": "Ground truth mappings for expanded 30 query set",
+        "id_format": "ScriptureName Chapter:Verse"
+    },
+    "judgments": [
+        {
+            "query_id": "q1",
+            "relevant_docs": [
+                "Bhagavad Gita 2:47",
+                "Bhagavad Gita 3:35"
+            ]
+        },
+        {
+            "query_id": "q2",
+            "relevant_docs": [
+                "Bhagavad Gita 2:47"
+            ]
+        },
+        {
+            "query_id": "q3",
+            "relevant_docs": [
+                "Ramayana 1:1"
+            ]
+        },
+        {
+            "query_id": "q4",
+            "relevant_docs": [
+                "Bhagavad Gita 2:47"
+            ]
+        },
+        {
+            "query_id": "q4_variation",
+            "relevant_docs": [
+                "Bhagavad Gita 2:47"
+            ]
+        },
+        {
+            "query_id": "q5",
+            "relevant_docs": [
+                "Bhagavad Gita 3:35",
+                "Mahabharata 1:1",
+                "Ramayana 1:1"
+            ]
+        },
+        {
+            "query_id": "q6",
+            "relevant_docs": [
+                "Ramayana 1:3"
+            ]
+        },
+        {
+            "query_id": "q7",
+            "relevant_docs": [
+                "Mahabharata 1:1"
+            ]
+        },
+        {
+            "query_id": "q8",
+            "relevant_docs": [
+                "Ramayana 1:4"
+            ]
+        },
+        {
+            "query_id": "q9",
+            "relevant_docs": [
+                "Ramayana 1:2"
+            ]
+        },
+        {
+            "query_id": "q10",
+            "relevant_docs": [
+                "Indian Wisdom 1:1"
+            ]
+        },
+        {
+            "query_id": "q11",
+            "relevant_docs": [
+                "Indian Wisdom 1:1"
+            ]
+        },
+        {
+            "query_id": "q12",
+            "relevant_docs": [
+                "Indian Wisdom 1:2"
+            ]
+        },
+        {
+            "query_id": "q13",
+            "relevant_docs": [
+                "Indian Wisdom 1:3"
+            ]
+        },
+        {
+            "query_id": "q14",
+            "relevant_docs": [
+                "Indian Wisdom 1:4"
+            ]
+        },
+        {
+            "query_id": "q15",
+            "relevant_docs": [
+                "Indian Wisdom 1:5"
+            ]
+        },
+        {
+            "query_id": "q16",
+            "relevant_docs": [
+                "Indian Wisdom 1:6"
+            ]
+        },
+        {
+            "query_id": "q17",
+            "relevant_docs": [
+                "Indian Wisdom 1:7"
+            ]
+        },
+        {
+            "query_id": "q18",
+            "relevant_docs": [
+                "Indian Wisdom 1:8"
+            ]
+        },
+        {
+            "query_id": "q19",
+            "relevant_docs": [
+                "Indian Wisdom 1:9"
+            ]
+        },
+        {
+            "query_id": "q20",
+            "relevant_docs": [
+                "Indian Wisdom 1:10"
+            ]
+        },
+        {
+            "query_id": "q21",
+            "relevant_docs": [
+                "Indian Wisdom 1:11"
+            ]
+        },
+        {
+            "query_id": "q22",
+            "relevant_docs": [
+                "Indian Wisdom 1:12"
+            ]
+        },
+        {
+            "query_id": "q23",
+            "relevant_docs": [
+                "Indian Wisdom 1:13"
+            ]
+        },
+        {
+            "query_id": "q24",
+            "relevant_docs": [
+                "Indian Wisdom 1:1",
+                "Indian Wisdom 1:2",
+                "Indian Wisdom 1:3"
+            ]
+        },
+        {
+            "query_id": "q25",
+            "relevant_docs": [
+                "Indian Wisdom 1:1",
+                "Bhagavad Gita 3:35"
+            ]
+        },
+        {
+            "query_id": "q26",
+            "relevant_docs": [
+                "Mahabharata 1:1"
+            ]
+        },
+        {
+            "query_id": "q27",
+            "relevant_docs": [
+                "Mahabharata 1:1"
+            ]
+        },
+        {
+            "query_id": "q28",
+            "relevant_docs": [
+                "Bhagavad Gita 2:47",
+                "Bhagavad Gita 2:46"
+            ]
+        },
+        {
+            "query_id": "q29",
+            "relevant_docs": [
+                "Ramayana 1:1"
+            ]
+        },
+        {
+            "query_id": "q30",
+            "relevant_docs": [
+                "Ramayana 1:3"
+            ]
+        },
+        {
+            "query_id": "q31",
+            "relevant_docs": [
+                "Ramayana 1:1"
+            ]
+        },
+        {
+            "query_id": "q32",
+            "relevant_docs": [
+                "Bhagavad Gita 2:47",
+                "Indian Wisdom 1:1"
+            ]
+        },
+        {
+            "query_id": "q33",
+            "relevant_docs": [
+                "Indian Wisdom 1:1",
+                "Indian Wisdom 1:2"
+            ]
+        },
+        {
+            "query_id": "q34",
+            "relevant_docs": [
+                "Ramayana 1:2"
+            ]
+        },
+        {
+            "query_id": "q35",
+            "relevant_docs": [
+                "Mahabharata 1:1"
+            ]
+        }
+    ]
+}
