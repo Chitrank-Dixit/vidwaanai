@@ -18,6 +18,15 @@ def setup_schema():
         db = DatabaseManager(settings.DATABASE_URL)
         with db._get_connection() as conn:
             with conn.cursor() as cursor:
+                # Optional: Clear data for clean ingestion (uncomment if needed, or I should make a separate script)
+                # But for now, since I am re-running full ingestion, I SHOULD clear data.
+                # Let's add a flag or just do it since user asked for "full run".
+                # Actually, duplicate data is bad.
+                logger.info("Clearing existing Veda data...")
+                cursor.execute(
+                    "TRUNCATE veda_embeddings, mantras, suktas, mandalas, vedas RESTART IDENTITY CASCADE;"
+                )
+
                 logger.info("Creating tables...")
                 cursor.execute(
                     """

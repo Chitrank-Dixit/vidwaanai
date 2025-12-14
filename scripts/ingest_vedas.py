@@ -28,7 +28,9 @@ class VedaIngestionPipeline:
         self.processor = TextProcessor()
         self.parser = VedaParser()
 
-    def ingest_ved_pdf(self, pdf_path: str, ved_name: str, ved_code: str):
+    def ingest_ved_pdf(
+        self, pdf_path: str, ved_name: str, ved_code: str, limit: int = None
+    ):
         """Ingest single Veda PDF."""
         logger.info(f"Step 1: Ingesting {ved_name} from {pdf_path}...")
 
@@ -38,7 +40,7 @@ class VedaIngestionPipeline:
 
         # Step 1: Extract PDF
         try:
-            pages = self.extractor.extract_with_metadata(pdf_path)
+            pages = self.extractor.extract_with_metadata(pdf_path, max_pages=limit)
             logger.info(f"  ✓ Extracted {len(pages)} pages")
         except Exception as e:
             logger.error(f"Extraction failed: {e}")
@@ -205,8 +207,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--code", required=True, help="Veda code (rig, yajur, sam, atharv)"
     )
+    parser.add_argument("--limit", type=int, help="Limit number of pages to ingest")
     args = parser.parse_args()
 
     db = DatabaseManager(settings.DATABASE_URL)
     pipeline = VedaIngestionPipeline(db)
-    pipeline.ingest_ved_pdf(args.pdf, args.ved, args.code)
+    pipeline.ingest_ved_pdf(args.pdf, args.ved, args.code, args.limit)

@@ -18,16 +18,36 @@ class PdfExtractor:
                 pages.append(text)
         return pages
 
-    def extract_with_metadata(self, pdf_path: str) -> List[Dict]:
-        """Extract text with page metadata."""
+    def extract_with_metadata(self, pdf_path: str, max_pages: int = None) -> List[Dict]:
+        """Extract text with page metadata. Fallback to OCR if empty."""
         try:
             reader = PdfReader(pdf_path)
             results = []
+            total_text_len = 0
+
             for page_num, page in enumerate(reader.pages):
-                text = page.extract_text()
-                results.append(
-                    {"page": page_num + 1, "text": text or "", "source": pdf_path}
+                if max_pages and page_num >= max_pages:
+                    break
+
+                text = page.extract_text() or ""
+                total_text_len += len(text.strip())
+                results.append({"page": page_num + 1, "text": text, "source": pdf_path})
+
+            # Heuristic: If we extracted almost no text (< 100 chars total), try OCR
+            if total_text_len < 100:
+                logger.warning(
+                    f"No text extracted from {pdf_path} (len={total_text_len}). Attempting OCR..."
                 )
+                try:
+                    from src.ingestion.ocr_handler import OCRHandler
+
+                    ocr = OCRHandler()
+                    return ocr.extract_text_with_ocr(pdf_path, max_pages=max_pages)
+                except ImportError:
+                    logger.error("OCR dependencies missing. Returning empty text.")
+                except Exception as e:
+                    logger.error(f"OCR fallback failed: {e}")
+
             return results
         except Exception as e:
             logger.error(f"Error extracting PDF {pdf_path}: {e}")

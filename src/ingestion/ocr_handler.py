@@ -18,20 +18,51 @@ class OCRHandler:
         if not convert_from_path or not pytesseract:
             logger.warning("OCR dependencies not installed (pdf2image, pytesseract).")
 
-    def extract_text_with_ocr(self, pdf_path: str, lang: str = "hin") -> List[Dict]:
-        """Convert PDF pages to images and extract text using OCR."""
+    def extract_text_with_ocr(
+        self, pdf_path: str, lang: str = "hin", max_pages: int = None
+    ) -> List[Dict]:
+        """Convert PDF pages to images and extract text using OCR (batched)."""
         if not convert_from_path:
             raise ImportError("pdf2image not installed")
 
+        results = []
         try:
-            images = convert_from_path(pdf_path)
-            results = []
+            # Process in batches of 10 pages to avoid OOM
+            # We don't know total pages easily without reading, so we iterate until no images returned?
+            # actually convert_from_path reads the whole file unless we specify first/last_page.
+            # We need to know page count to loop efficiently.
+            from pypdf import PdfReader
 
-            for i, image in enumerate(images):
-                text = pytesseract.image_to_string(image, lang=lang)
-                results.append(
-                    {"page": i + 1, "text": text, "source": pdf_path, "method": "ocr"}
+            total_pdf_pages = len(PdfReader(pdf_path).pages)
+
+            processing_limit = total_pdf_pages
+            if max_pages and max_pages < total_pdf_pages:
+                processing_limit = max_pages
+
+            batch_size = 5
+            for start_page in range(1, processing_limit + 1, batch_size):
+                end_page = min(start_page + batch_size - 1, processing_limit)
+
+                logger.info(
+                    f"OCR Processing pages {start_page}-{end_page} of {processing_limit}..."
                 )
+
+                images = convert_from_path(
+                    pdf_path, first_page=start_page, last_page=end_page
+                )
+
+                for i, image in enumerate(images):
+                    # Timeout after 30s per page
+                    text = pytesseract.image_to_string(image, lang=lang, timeout=30)
+                    results.append(
+                        {
+                            "page": start_page + i,
+                            "text": text,
+                            "source": pdf_path,
+                            "method": "ocr",
+                        }
+                    )
+
             return results
 
         except Exception as e:
