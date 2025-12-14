@@ -22,7 +22,7 @@ class VedaRetriever:
         Search for mantras similar to query.
         """
         # Embed query
-        query_embedding = self.embedder.embed_text(query)
+        query_embedding = self.embedder.embed_text(query, is_query=True)
         embedding_str = "[" + ",".join(str(e) for e in query_embedding) + "]"
 
         results = []

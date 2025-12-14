@@ -36,7 +36,7 @@ class TestVedaSearch:
     @pytest.fixture
     def mock_embedder(self):
         mock = MagicMock()
-        mock.embed_text.return_value = [0.1] * 384
+        mock.embed_text.return_value = [0.1] * 1024
         return mock
 
     def test_search_execution(self, mock_db_manager, mock_embedder):

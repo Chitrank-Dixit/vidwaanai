@@ -21,6 +21,7 @@ from src.rag.multilingual_search import MultilingualSearch
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 from src.retrieval.bm25_search import BM25Search
 from src.retrieval.hybrid_search import HybridSearch
+from src.retrieval.veda_retriever import VedaRetriever
 from src.utils.confidence import calculate_confidence_score
 
 logger = logging.getLogger(__name__)
@@ -86,6 +87,14 @@ class VidwaanAI:
             self.retrieval_pipeline = None
             self.hybrid_retriever = None
 
+        # Veda Retrieval Setup
+        try:
+            self.veda_retriever = VedaRetriever(self.db)
+            logger.info("Veda Retriever initialized")
+        except Exception as e:
+            logger.error(f"Failed to initialize Veda Retriever: {e}")
+            self.veda_retriever = None
+
         # Graph RAG setup
         self.enable_graph_rag = enable_graph_rag
         if enable_graph_rag and neo4j_uri and neo4j_user and neo4j_password:
@@ -132,6 +141,7 @@ class VidwaanAI:
                 return cached_result
 
             # Step 3: Retrieve relevant verses
+            # Step 3: Retrieve relevant verses
             if self.retrieval_pipeline:
                 # Use Advanced Pipeline
                 retrieved_verses = self.retrieval_pipeline.retrieve(question, top_k=5)
@@ -145,6 +155,36 @@ class VidwaanAI:
                     scripture_filter=scripture_filter,
                     top_k=5,
                 )
+
+            # Step 3.5: Retrieve from Vedas (if enabled/available)
+            if self.veda_retriever:
+                try:
+                    veda_results = self.veda_retriever.search(question, top_k=3)
+                    # Merge results (simple append for now, or interleave based on score)
+                    # Normalize structure to match 'verses' dict
+                    formatted_veda = []
+                    for v in veda_results:
+                        formatted_veda.append(
+                            {
+                                "scripture": v["source"],  # e.g. "Rig Ved Mandala 1..."
+                                "chapter": v.get(
+                                    "mantra_num"
+                                ),  # Mapping mantra num to chapter for display? Or keep distinct
+                                "verse": str(v.get("mantra_num")),
+                                "text": v["text"],
+                                "translation": v["translation"],
+                                "similarity": v["score"],
+                            }
+                        )
+                    retrieved_verses.extend(formatted_veda)
+                    # Sort by score
+                    retrieved_verses.sort(
+                        key=lambda x: x.get("similarity", 0), reverse=True
+                    )
+                    retrieved_verses = retrieved_verses[:10]  # Keep top 10 total
+
+                except Exception as e:
+                    logger.error(f"Veda retrieval failed: {e}")
 
             graph_context = ""
             if self.enable_graph_rag:

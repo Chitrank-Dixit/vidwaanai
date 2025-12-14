@@ -75,7 +75,7 @@ class VedaVectorizationPipeline:
     def _process_batch(self, batch_data: List[Dict]):
         """Embed and store a batch of chunks."""
         texts = [item["text"] for item in batch_data]
-        embeddings = self.embedder.embed_batch(texts)
+        embeddings = self.embedder.embed_batch(texts, is_query=False)
 
         with self.db._get_connection() as conn:
             with conn.cursor() as cursor:

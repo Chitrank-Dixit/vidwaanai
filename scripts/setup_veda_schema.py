@@ -67,11 +67,22 @@ def setup_schema():
                         id SERIAL PRIMARY KEY,
                         mantra_id INT NOT NULL REFERENCES mantras(id),
                         ved_id INT NOT NULL REFERENCES vedas(id),
-                        embedding vector(384),
+                        embedding vector(1024),
                         language VARCHAR(10),
                         chunk_type VARCHAR(20),
                         created_at TIMESTAMP DEFAULT NOW()
                     );
+                    
+                    -- Attempt to upgrade column if it exists with wrong dimension
+                    DO $$
+                    BEGIN
+                        BEGIN
+                            ALTER TABLE veda_embeddings ALTER COLUMN embedding TYPE vector(1024);
+                        EXCEPTION
+                            WHEN OTHERS THEN
+                                NULL; -- Table might not exist or empty
+                        END;
+                    END $$;
                     
                     CREATE INDEX IF NOT EXISTS idx_veda_embeddings_ved_id ON veda_embeddings(ved_id);
                     CREATE INDEX IF NOT EXISTS idx_veda_embeddings_mantra_id ON veda_embeddings(mantra_id);
