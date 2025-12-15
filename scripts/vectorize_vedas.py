@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add src to python path to ensure imports work
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
 from src.chunking.veda_chunker import VedaChunker
