@@ -2,7 +2,7 @@
 
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
-import openai
+from openai import OpenAI
 
 logger = get_logger(__name__)
 
@@ -12,7 +12,7 @@ class OpenAIClient:
 
     def __init__(self, api_key: str, model: str = "gpt-4-turbo"):
         """Initialize OpenAI client."""
-        openai.api_key = api_key
+        self.client = OpenAI(api_key=api_key)
         self.model = model
         logger.info(f"OpenAI client initialized with model: {model}")
 
@@ -22,7 +22,7 @@ class OpenAIClient:
     ) -> str:
         """Generate response from LLM."""
         try:
-            response = openai.ChatCompletion.create(  # type: ignore
+            response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
                     {

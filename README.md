@@ -101,6 +101,35 @@ make -f Makefile-docker mcp-test
 
 For detailed instructions, see [HOW-TO-RUN-MCP](HOW-TO-RUN-MCP).
 
+## Ansible Automation
+
+VidwaanAI includes Ansible playbooks to automate setup, testing, and quality assurance workflows.
+
+### Prerequisites
+- Ansible installed (`brew install ansible` on macOS)
+- Docker running
+
+### Available Workflows
+
+#### 1. Full Workflow
+Runs the complete CI/CD-like pipeline: builds images, starts services, initializes DB, runs all tests, and generates reports.
+
+```bash
+bash scripts/run_ansible_workflow.sh full_workflow.yml
+```
+
+#### 2. Quick Workflow
+Runs tests and generates a report (assumes environment is already running).
+
+```bash
+bash scripts/run_ansible_workflow.sh quick_workflow.yml
+```
+
+### Directory Structure
+- `ansible/playbooks/`: Workflow definitions
+- `ansible/roles/`: Individual task roles (docker_setup, docker_testing, etc.)
+- `ansible/group_vars/`: Global variables (docker_hosts.yml)
+
 ## Supported Languages
 - English (en)
 - Hindi (hi)
