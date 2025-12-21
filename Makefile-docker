@@ -77,7 +77,9 @@ docker-workflow-quick: docker-test-unit docker-report
 	@echo "$(GREEN)✓ Quick workflow completed!$(RESET)"
 	@echo
 	@echo "$(CYAN)Knowledge Graph:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-graph-setup$(RESET)  Setup graph schema"
 	@echo "  $(GREEN)make -f Makefile-docker docker-graph-build$(RESET)  Build knowledge graph"
+	@echo "  $(GREEN)make -f Makefile-docker docker-graph-verify$(RESET) Verify graph content"
 	@echo
 	@echo "$(CYAN)Testing:$(RESET)"
 	@echo "  $(GREEN)make -f Makefile-docker docker-test-unit$(RESET)        Run unit tests"
@@ -151,6 +153,16 @@ docker-graph-build:
 	@echo "$(YELLOW)Building knowledge graph...$(RESET)"
 	@$(COMPOSE_FULL) exec app uv run python scripts/build_knowledge_graph.py
 	@echo "$(GREEN)✓ Knowledge graph built!$(RESET)"
+
+docker-graph-setup:
+	@echo "$(YELLOW)Setting up graph schema...$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python src/graph/setup_graph.py
+	@echo "$(GREEN)✓ Graph schema configured!$(RESET)"
+
+docker-graph-verify:
+	@echo "$(YELLOW)Verifying graph content...$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python scripts/verify_graph.py
+
 
 # Generate & Test
 docker-generate:

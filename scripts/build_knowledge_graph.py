@@ -11,6 +11,7 @@ from src.core.config import settings
 from src.db.db_manager import DatabaseManager
 from src.graph.graph_builder import GraphBuilder
 from src.graph.entity_extractor import EntityExtractor
+from src.graph.taxonomy_extractor import TaxonomyExtractor
 from src.llm.lmstudio_client import LMStudioClient
 from src.llm.openai_client import OpenAIClient
 
@@ -37,24 +38,56 @@ def get_llm_client():
         logger.info("Using OpenAI backend")
         return OpenAIClient(api_key=settings.OPENAI_API_KEY)
 
-def process_verse(verse, extractor: EntityExtractor, builder: GraphBuilder):
+def process_verse(verse, extractor: EntityExtractor, tax_extractor: TaxonomyExtractor, builder: GraphBuilder):
     """Process a single verse: Extract -> Build Graph."""
     verse_id = verse['id']
     text = verse.get('text', '') or ''
-    # Fallback to translation if text is non-english/complex and we need clearer entities?
-    # Actually extraction usually works better on English translation for many models if the model isn't multilingual trained.
-    # Let's pass both to extractor as originally designed.
     translation = verse.get('translation', '') or ''
     scripture = verse.get('scripture_name', 'Unknown')
     
-    # Combine text context
-    # extractor.extract_entities takes (verse_text, translation, scripture_name)
+    # 1. Taxonomy Extraction (Rule-based)
+    # Scan both original text and translation
+    combined_text = f"{text} {translation}"
+    found_entities = tax_extractor.extract(combined_text)
     
+    tax_e_count = 0
+    tax_r_count = 0
+    
+    for entity in found_entities:
+        try:
+            # Create Verse Node
+            verse_node_name = f"Verse {verse_id}" 
+            # (Use verse_id as unique name? Or "Rig Veda 1.1.1")
+            builder.create_entity(verse_node_name, "Text", {
+                "text": text,
+                "translation": translation,
+                "scripture": scripture,
+                "verse_id": verse_id
+            })
+            
+            # Create Relation: Entity -> MENTIONED_IN -> Verse (or Verse -> MENTIONS -> Entity)
+            # Ontology says "MENTIONED_IN".
+            # Subject: Entity. Object: Text.
+            # "Vishnu MENTIONED_IN Verse 1.1.1"
+            
+            builder.create_relationship(
+                entity['name'], 
+                verse_node_name, 
+                "MENTIONED_IN", 
+                {"context": "Rule-based extraction"}
+            )
+            tax_r_count += 1
+            tax_e_count += 1 # Count distinct entities found
+            
+        except Exception as e:
+            logger.error(f"Taxonomy build error: {e}")
+
+    # 2. LLM Extraction (Dynamic)
     try:
         data = extractor.extract_entities(text, translation, scripture)
     except Exception as e:
         logger.error(f"Extraction failed for verse {verse_id}: {e}")
-        return 0, 0
+        return tax_e_count, tax_r_count # Return partial results
 
     entities = data.get('entities', [])
     relationships = data.get('relationships', [])
@@ -88,7 +121,7 @@ def process_verse(verse, extractor: EntityExtractor, builder: GraphBuilder):
         except Exception as e:
             logger.error(f"Error creating relationship {rel}: {e}")
             
-    return len(entities), len(relationships)
+    return tax_e_count + len(entities), tax_r_count + len(relationships)
 
 def main():
     parser = argparse.ArgumentParser(description="Build Vedic Knowledge Graph")
@@ -103,6 +136,7 @@ def main():
     db = DatabaseManager(settings.DATABASE_URL)
     llm = get_llm_client()
     extractor = EntityExtractor(llm)
+    tax_extractor = TaxonomyExtractor()
     
     try:
         graph_builder = GraphBuilder(
@@ -142,7 +176,7 @@ def main():
     
     # Process Loop
     for verse in tqdm(verses_to_process, desc="Building Graph"):
-        e_count, r_count = process_verse(verse, extractor, graph_builder)
+        e_count, r_count = process_verse(verse, extractor, tax_extractor, graph_builder)
         total_ent += e_count
         total_rel += r_count
 
