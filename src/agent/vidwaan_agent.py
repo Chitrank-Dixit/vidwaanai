@@ -188,11 +188,31 @@ class VidwaanAI:
 
             graph_context = ""
             if self.enable_graph_rag:
-                # We use graph_search to get graph context, but ignore its vector results
-                # as we already have better ones from hybrid_retriever
                 try:
-                    graph_results = self.graph_search.search(question, top_k=5)
-                    graph_context = graph_results.get("fused_context", "")
+                    # 1. Extract entities from the user query
+                    query_entities = self.entity_extractor.extract_from_query(question)
+                    entity_names = [e['name'] for e in query_entities if 'name' in e]
+                    
+                    if entity_names:
+                        logger.info(f"Graph RAG: Extracted entities: {entity_names}")
+                        
+                        # 2. Retrieve subgraph from Neo4j
+                        subgraph = self.graph_retriever.get_context_subgraph(entity_names)
+                        
+                        # 3. Format context string
+                        if subgraph:
+                            graph_lines = ["**Knowledge Graph Context:**"]
+                            for rel in subgraph:
+                                # Format: "Krishna (Person) --[TEACHES]--> Arjuna (Person)"
+                                line = f"{rel['source']} ({rel.get('source_type',['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type',['Entity'])[0]})"
+                                graph_lines.append(line)
+                            graph_context = "\n".join(graph_lines)
+                            logger.info(f"Graph RAG: Retrieved {len(subgraph)} relationships")
+                        else:
+                            logger.info("Graph RAG: No relationships found for entities")
+                    else:
+                        logger.info("Graph RAG: No entities found in query")
+
                 except Exception as e:
                     logger.error(f"Graph search failed: {e}")
 

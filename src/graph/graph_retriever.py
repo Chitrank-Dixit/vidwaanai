@@ -36,8 +36,8 @@ class GraphRetriever:
                 f"""
                 MATCH path = (c1:Concept {{name: $concept}})-[:RELATES_TO*1..{depth}]-(c2:Concept)
                 RETURN c2.name as related_concept,
-                       c2.definition as definition,
-                       length(path) as distance
+                c2.definition as definition,
+                length(path) as distance
                 ORDER BY distance
                 LIMIT 10
             """,
@@ -55,11 +55,38 @@ class GraphRetriever:
                 f"""
                 MATCH path = shortestPath((p1:Person {{name: $person1}})-[*..{depth}]-(p2:Person {{name: $person2}}))
                 RETURN path,
-                       [node in nodes(path) | properties(node)] as entities,
-                       [rel in relationships(path) | properties(rel)] as relations
+                [node in nodes(path) | properties(node)] as entities,
+                [rel in relationships(path) | properties(rel)] as relations
             """,
                 person1=person1,
                 person2=person2,
             )
 
+            return [record.data() for record in result]
+
+    def get_context_subgraph(
+        self, entity_names: List[str], depth: int = 1
+    ) -> List[Dict[str, Any]]:
+        """
+        Get 1-hop subgraph for a list of entities to provide RAG context.
+        Returns a list of relationships formatted as strings or dicts.
+        """
+        if not entity_names:
+            return []
+
+        with self.driver.session() as session:
+            # We match any node with a name in the list, and find immediate neighbors (any direction)
+            result = session.run(
+                """
+                MATCH (a)-[r]-(b)
+                WHERE a.name IN $names
+                RETURN a.name as source, 
+                       type(r) as relation, 
+                       b.name as target,
+                       labels(a) as source_type,
+                       labels(b) as target_type
+                LIMIT 20
+                """,
+                names=entity_names
+            )
             return [record.data() for record in result]

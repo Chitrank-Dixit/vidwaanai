@@ -9,9 +9,10 @@ information (like entities and relations) and need to persist them as a graph.
 
 import json
 import logging
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from neo4j import GraphDatabase
+from src.graph.schema import EntityType, RelationType
 
 logger = logging.getLogger(__name__)
 
@@ -19,211 +20,119 @@ logger = logging.getLogger(__name__)
 class GraphBuilder:
     """
     Manages the connection to a Neo4j database and provides methods to
-    create nodes and relationships, effectively building a knowledge graph.
-
-    This class handles the lifecycle of the Neo4j driver and provides
-    transactional methods to ensure data integrity when modifying the graph.
+    create nodes and relationships based on the defined Schema.
     """
 
     def __init__(self, uri: str, user: str, password: str) -> None:
-        """
-        Initializes the GraphBuilder and connects to the Neo4j database.
-
-        Args:
-            uri (str): The connection URI for the Neo4j database (e.g., "bolt://localhost:7687").
-            user (str): The username for authentication.
-            password (str): The password for authentication.
-        """
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
     def close(self) -> None:
-        """Closes the connection to the Neo4j database."""
         self.driver.close()
 
     def clear_graph(self) -> None:
-        """
-        Deletes all nodes and relationships from the graph.
-        Use with caution, as this is a destructive operation.
-        """
         with self.driver.session() as session:
             session.run("MATCH (n) DETACH DELETE n")
             logger.info("Graph cleared")
 
     def _sanitize_attributes(self, attributes: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Ensures that all attribute values are of a type that can be stored in Neo4j.
-
-        Neo4j properties must be simple types (string, number, boolean) or lists of
-        simple types. This method recursively sanitizes a dictionary of attributes,
-        converting complex types like nested dicts or objects into JSON strings.
-
-        Args:
-            attributes (Dict): A dictionary of attributes for a node or relationship.
-
-        Returns:
-            Dict: A sanitized dictionary with Neo4j-compatible attribute values.
-        """
+        """Ensures attributes are Neo4j compatible (primitives or JSON strings)."""
         if attributes is None:
             return {}
         if isinstance(attributes, str):
-            # If attributes are just a string, treat it as a description.
             return {"description": attributes}
         if not isinstance(attributes, dict):
-            # For any other non-dict type, convert to string.
             return {"value": str(attributes)}
 
         sanitized: Dict[str, Any] = {}
         for k, v in attributes.items():
             if isinstance(v, (str, int, float, bool)):
-                # Primitive types are stored as is.
                 sanitized[k] = v
             elif isinstance(v, list):
-                # For lists, ensure all elements are also primitive.
                 if all(isinstance(x, (str, int, float, bool)) for x in v):
                     sanitized[k] = v
                 else:
-                    # If the list contains complex types, convert each item to a string.
                     sanitized[k] = [str(x) for x in v]
             elif isinstance(v, dict):
-                # Nested dictionaries are serialized to a JSON string.
                 sanitized[k] = json.dumps(v)
             else:
-                # Any other complex type is converted to its string representation.
                 sanitized[k] = str(v)
         return sanitized
 
-    def create_person(self, name: str, attributes: Dict[str, Any]) -> None:
+    def _generate_id(self, entity_type: str, name: str) -> str:
+        """Generate deterministic ID: e.g. 'Deity:Agni'."""
+        clean_name = name.strip().replace(" ", "_").lower()
+        return f"{entity_type}:{clean_name}"
+
+    def create_entity(self, name: str, entity_type: str, attributes: Dict[str, Any]) -> str:
         """
-        Creates or updates a 'Person' node in the graph.
-
-        If a Person node with the given name already exists, it will be updated
-        with the new attributes. Otherwise, a new node will be created.
-
+        Generic method to create/merge an entity node.
+        
         Args:
-            name (str): The unique name of the person.
-            attributes (Dict): A dictionary of properties for the person.
+            name: Display name (e.g. "Agni")
+            entity_type: Must be a valid EntityType value (e.g. "Deity")
+            attributes: Property dictionary
+            
+        Returns:
+            The generated ID of the node.
         """
+        # Validate type
+        if entity_type not in [e.value for e in EntityType]:
+             # Fallback or error? Let's default to Concept if unknown, or just warn.
+             logger.warning(f"Unknown entity type '{entity_type}', defaulting to Concept")
+             entity_type = EntityType.CONCEPT.value
+
+        node_id = self._generate_id(entity_type, name)
         attributes = self._sanitize_attributes(attributes)
+        attributes['name'] = name
+        attributes['id'] = node_id
+        
+        # We use a dynamic label. Neo4j drivers usually require label to be static in Cypher or injected carefully.
+        # But we can use template string since we validated it against Enum.
+        
+        query = f"""
+        MERGE (n:`{entity_type}` {{id: $id}})
+        SET n += $attributes
+        """
+        
         with self.driver.session() as session:
-            session.run(
-                """
-                MERGE (p:Person {name: $name})
-                SET p += $attributes
-            """,
-                name=name,
-                attributes=attributes,
-            )
-            logger.debug(f"Created/Merged Person: {name}")
-
-    def create_concept(self, name: str, attributes: Dict[str, Any]) -> None:
-        """
-        Creates or updates a 'Concept' node in the graph.
-
-        Args:
-            name (str): The unique name of the concept.
-            attributes (Dict): A dictionary of properties for the concept.
-        """
-        attributes = self._sanitize_attributes(attributes)
-        with self.driver.session() as session:
-            session.run(
-                """
-                MERGE (c:Concept {name: $name})
-                SET c += $attributes
-            """,
-                name=name,
-                attributes=attributes,
-            )
-            logger.debug(f"Created/Merged Concept: {name}")
-
-    def create_event(self, name: str, attributes: Dict[str, Any]) -> None:
-        """
-        Creates or updates an 'Event' node in the graph.
-
-        Args:
-            name (str): The unique name of the event.
-            attributes (Dict): A dictionary of properties for the event.
-        """
-        attributes = self._sanitize_attributes(attributes)
-        with self.driver.session() as session:
-            session.run(
-                """
-                MERGE (e:Event {name: $name})
-                SET e += $attributes
-            """,
-                name=name,
-                attributes=attributes,
-            )
-            logger.debug(f"Created/Merged Event: {name}")
-
-    def create_location(self, name: str, attributes: Dict[str, Any]) -> None:
-        """
-        Creates or updates a 'Location' node in the graph.
-
-        Args:
-            name (str): The unique name of the location.
-            attributes (Dict): A dictionary of properties for the location.
-        """
-        attributes = self._sanitize_attributes(attributes)
-        with self.driver.session() as session:
-            session.run(
-                """
-                MERGE (l:Location {name: $name})
-                SET l += $attributes
-            """,
-                name=name,
-                attributes=attributes,
-            )
-            logger.debug(f"Created/Merged Location: {name}")
+            session.run(query, id=node_id, attributes=attributes)
+            logger.debug(f"Merged {entity_type}: {name} ({node_id})")
+            
+        return node_id
 
     def create_relationship(
         self, from_name: str, to_name: str, rel_type: str, attributes: Dict[str, Any]
     ) -> None:
         """
-        Creates or updates a relationship between two nodes.
-
-        The direction of the relationship is from the 'from_name' node to the
-        'to_name' node. Nodes are matched by their 'name' property, regardless
-        of their label (e.g., Person, Concept).
-
-        Args:
-            from_name (str): The name of the starting node.
-            to_name (str): The name of the ending node.
-            rel_type (str): The type of the relationship (e.g., "RELATED_TO").
-            attributes (Dict): A dictionary of properties for the relationship.
+        Creates a relationship. 
+        Note: We try to match nodes by Name first, because extraction might not know the Type beforehand 
+        to generate the ID.
+        Or better: The extraction output should provide types for from/to if possible.
+        But EntityExtractor output structure puts relationships separate from entities.
+        
+        Strategy: 
+        1. Find any node with property name=$from_name.
+        2. Find any node with property name=$to_name.
+        3. Create rel.
         """
         attributes = self._sanitize_attributes(attributes)
-
+        
+        # Basic validation
         if not from_name or not to_name:
-            logger.warning(
-                "Skipping relationship creation due to missing start or end node name."
-            )
             return
+            
+        if rel_type not in [r.value for r in RelationType]:
+            logger.warning(f"Unknown relation type '{rel_type}', using RELATED_TO")
+            rel_type = RelationType.RELATED_TO.value
 
-        # Avoid creating relationships from unstructured text extractions that may
-        # contain arrows or other non-entity patterns.
-        if "→" in from_name or "→" in to_name:
-            logger.warning(
-                f"Skipping relationship with arrow notation: {from_name} → {to_name}"
-            )
-            return
-
+        query = f"""
+        MATCH (a), (b)
+        WHERE a.name = $from_name AND b.name = $to_name
+        MERGE (a)-[r:`{rel_type}`]->(b)
+        SET r += $attributes
+        """
+        
         with self.driver.session() as session:
-            # This query finds two nodes, `a` and `b`, by their `name` property and
-            # creates a relationship of `rel_type` between them.
-            # `MERGE` ensures that the same relationship is not created multiple times.
-            # `SET r += $attributes` updates the relationship's properties.
-            # This assumes that node names are unique across the entire graph.
-            session.run(
-                f"""
-                MATCH (a {{name: $from_name}})
-                MATCH (b {{name: $to_name}})
-                MERGE (a)-[r:{rel_type}]->(b)
-                SET r += $attributes
-            """,
-                from_name=from_name,
-                to_name=to_name,
-                attributes=attributes,
-            )
-            logger.debug(
-                f"Created/Merged Relationship: {from_name} -[{rel_type}]-> {to_name}"
-            )
+            session.run(query, from_name=from_name, to_name=to_name, attributes=attributes)
+            logger.debug(f"Merged Rel: {from_name} -> {to_name} ({rel_type})")
+

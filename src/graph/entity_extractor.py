@@ -1,7 +1,8 @@
 import json
 import logging
-from typing import Any, Dict, cast
+from typing import Any, Dict, cast, List
 
+from src.graph.schema import EntityType, RelationType
 
 logger = logging.getLogger(__name__)
 
@@ -16,47 +17,40 @@ class EntityExtractor:
         self, verse_text: str, translation: str, scripture_name: str
     ) -> Dict[str, Any]:
         """
-        Extract entities using LLM.
-
-        Returns:
-        {
-            "entities": [
-                {"type": "Person", "name": "Krishna", "attributes": {...}},
-                {"type": "Concept", "name": "dharma", "attributes": {...}}
-            ],
-            "relationships": [
-                {"from": "Krishna", "to": "Arjuna", "type": "TEACHES",
-                 "attributes": {...}}
-            ]
-        }
+        Extract entities and relationships using LLM with Schema enforcement.
         """
+        # Create lists of valid types for the prompt
+        entity_types = ", ".join([e.value for e in EntityType])
+        relation_types = ", ".join([r.value for r in RelationType])
+
         prompt = f"""
-Extract entities and relationships from this scripture verse.
+Extract entities and relationships from this scripture verse based on the following Ontology.
 
 Scripture: {scripture_name}
 Original: {verse_text}
 Translation: {translation}
 
-Return ONLY valid JSON. For each relationship, provide:
-- "from": source entity name (e.g., "Krishna", "dharma")
-- "to": target entity name (e.g., "Arjuna", "karma")
-- "type": relationship type (TEACHES, RELATES_TO, APPEARS_IN, PERFORMS, etc.)
+VALID ENTITY TYPES: {entity_types}
+VALID RELATION TYPES: {relation_types}
 
-Example:
+Return ONLY valid JSON. 
+For each entity, use a valid "type" from the list above.
+For each relationship, use a valid "type" from the list above.
+
+Format:
 {{
   "entities": [
-    {{"name": "Krishna", "type": "Person", "attributes": {{"description": "..."}}}},
-    {{"name": "dharma", "type": "Concept", "attributes": {{"description": "..."}}}}
+    {{"name": "EntityName", "type": "ValidType", "attributes": {{"description": "..."}}}}
   ],
   "relationships": [
-    {{"from": "Krishna", "to": "dharma", "type": "TEACHES", "attributes": {{"context": "..."}}}}
+    {{"from": "SourceEntityName", "to": "TargetEntityName", "type": "ValidRelationType", "attributes": {{"context": "..."}}}}
   ]
 }}
 
-Ensure "from" and "to" are actual entity names, NOT descriptions or sentences.
+Ensure "from" and "to" match extracted entity names exactly.
 """
 
-        response = self.llm.generate(prompt, max_tokens=800, temperature=0.3)
+        response = self.llm.generate(prompt, max_tokens=1000, temperature=0.1)
         try:
             # Clean response if it contains markdown code blocks
             cleaned_response = response.strip()
