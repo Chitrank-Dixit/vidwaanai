@@ -16,8 +16,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class VedaVectorizationPipeline:
-    """Vectorize all Veda mantras."""
+class ScriptureVectorizationPipeline:
+    """Vectorize mantras and verses from all scriptures."""
 
     def __init__(self, db_manager: DatabaseManager, batch_size: int = 32):
         self.db = db_manager
@@ -25,9 +25,9 @@ class VedaVectorizationPipeline:
         self.chunker = VedaChunker(db_manager)
         self.batch_size = batch_size
 
-    def vectorize_all_vedas(self):
-        """Vectorize all mantras in all Vedas."""
-        logger.info("Starting vectorization pipeline...")
+    def vectorize_all_scriptures(self):
+        """Vectorize all mantras/verses in database."""
+        logger.info("Starting scripture vectorization pipeline...")
 
         # We need to process chunks.
         # Strategy: Iterate over mantras, generate chunks (mantra, sukta), batch them, embed, insert.
@@ -108,5 +108,5 @@ class VedaVectorizationPipeline:
 
 if __name__ == "__main__":
     db = DatabaseManager(settings.DATABASE_URL)
-    pipeline = VedaVectorizationPipeline(db)
-    pipeline.vectorize_all_vedas()
+    pipeline = ScriptureVectorizationPipeline(db)
+    pipeline.vectorize_all_scriptures()

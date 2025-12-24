@@ -65,6 +65,22 @@
             timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
           tags: setup
         
+        # ——— INGESTION PHASE ———
+        - name: Include ingestion tasks
+          ansible.builtin.include_role:
+            name: ingestion
+            tasks_from: main
+          tags: ingestion
+          register: ingestion_result
+
+        - name: Log ingestion results
+          ansible.builtin.copy:
+            content: "{{ ingestion_result | to_nice_json }}"
+            dest: "{{ logs_dir }}/ingestion_{{ timestamp }}.json"
+          vars:
+            timestamp: "{{ ansible_facts['date_time']['iso8601_basic_short'] }}"
+          tags: ingestion
+
         # ——— GENERATION PHASE ———
         - name: Include docker generate tasks
           ansible.builtin.include_role:

@@ -1,0 +1,45 @@
+---
+- name: Run Veda Ingestion
+  ansible.builtin.shell: |
+    sh scripts/ingest_all_vedas.sh
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: veda_ingestion_output
+  changed_when: true
+  tags: ingestion
+
+- name: Run Scripture Ingestion
+  ansible.builtin.shell: |
+    sh scripts/ingest_all_scriptures.sh
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: ingestion_output
+  changed_when: true
+  tags: ingestion
+
+- name: Run Vectorization
+  ansible.builtin.shell: |
+    uv run python scripts/vectorize_vedas_and_scriptures.py
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: vectorization_output
+  changed_when: true
+  tags: ingestion
+
+- name: Build Knowledge Graph
+  ansible.builtin.shell: |
+    uv run python scripts/build_knowledge_graph.py
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: kg_build_output
+  changed_when: true
+  tags: ingestion
+
+- name: Log Ingestion Output
+  ansible.builtin.debug:
+    msg: 
+      - "Veda Ingestion: {{ veda_ingestion_output.stdout_lines[-5:] }}"
+      - "Scripture Ingestion: {{ ingestion_output.stdout_lines[-5:] }}"
+      - "Vectorization: {{ vectorization_output.stdout_lines[-5:] }}"
+      - "KG Build: {{ kg_build_output.stdout_lines[-5:] }}"
+  tags: ingestion
