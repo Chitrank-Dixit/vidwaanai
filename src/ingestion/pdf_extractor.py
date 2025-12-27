@@ -25,9 +25,15 @@ class PdfExtractor:
             results = []
             total_text_len = 0
 
+            total_pages = len(reader.pages)
+            logger.info(f"Extracting {total_pages} pages from {pdf_path}...")
+
             for page_num, page in enumerate(reader.pages):
                 if max_pages and page_num >= max_pages:
                     break
+
+                if (page_num + 1) % 10 == 0:
+                    logger.info(f"  -> Extracting page {page_num + 1}/{total_pages}...")
 
                 text = page.extract_text() or ""
                 total_text_len += len(text.strip())

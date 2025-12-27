@@ -1,14 +1,19 @@
 #!/bin/bash
 # Batch ingestion for extended scriptures
 
-echo "Starting Scripture Ingestion..."
+# Create output directory
+mkdir -p output/logs
+LOG_FILE="output/logs/ingest_scriptures.log"
+
+echo "Starting Scripture Ingestion... (Logging to $LOG_FILE)" | tee -a "$LOG_FILE"
+
 
 
 # Bhagavad Gita
 if [ -f "data/bhagwat_geeta/bhagwat_geeta.pdf" ]; then
     echo "--------------------------------"
     echo "Ingesting Bhagavad Gita..."
-    uv run python scripts/ingest_scripture.py --pdf "data/bhagwat_geeta/bhagwat_geeta.pdf" --name "Bhagavad Gita" --code "gita" --type "gita"
+    uv run python -u scripts/ingest_scripture.py --pdf "data/bhagwat_geeta/bhagwat_geeta.pdf" --name "Bhagavad Gita" --code "gita" --type "gita" 2>&1 | tee -a "$LOG_FILE"
 else
     echo "Skipping Bhagavad Gita (data/bhagwat_geeta/bhagwat_geeta.pdf not found)"
 fi
@@ -17,7 +22,7 @@ fi
 if [ -f "data/ramayana/ramayana.pdf" ]; then
     echo "--------------------------------"
     echo "Ingesting Ramayana..."
-    uv run python scripts/ingest_scripture.py --pdf "data/scriptures/ramayana.pdf" --name "Ramayana" --code "ram" --type "ramayana"
+    uv run python -u scripts/ingest_scripture.py --pdf "data/scriptures/ramayana.pdf" --name "Ramayana" --code "ram" --type "ramayana" 2>&1 | tee -a "$LOG_FILE"
 else
     echo "Skipping Ramayana (data/ramayana/ramayana.pdf not found)"
 fi
@@ -38,8 +43,8 @@ if [ -d "data/puranas" ]; then
             # Generate code: lowercase, underscores
             code=$(echo "$filename_no_ext" | tr '-' '_' | tr '[:upper:]' '[:lower:]')
             
-            echo "Processing: $readable_name ($filename)"
-            uv run python scripts/ingest_scripture.py --pdf "$pdf_file" --name "$readable_name" --code "$code" --type "purana"
+            echo "Processing: $readable_name ($filename)" | tee -a "$LOG_FILE"
+            uv run python -u scripts/ingest_scripture.py --pdf "$pdf_file" --name "$readable_name" --code "$code" --type "purana" 2>&1 | tee -a "$LOG_FILE"
         fi
     done
 else
