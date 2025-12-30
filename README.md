@@ -125,6 +125,27 @@ Runs tests and generates a report (assumes environment is already running).
 bash scripts/run_ansible_workflow.sh quick_workflow.yml
 ```
 
+#### 3. Ingestion Options (Incremental vs Force)
+By default, the workflow is **incremental**—it skips files listed in `data/processed_files.txt`.
+To force re-ingestion of all content, pass `force_ingestion=true` as an extra variable (3rd argument):
+
+```bash
+# bash scripts/run_ansible_workflow.sh [playbook] [tags] [extra_vars]
+bash scripts/run_ansible_workflow.sh full_workflow.yml "" "force_ingestion=true"
+```
+
+
+
+#### 4. Granular Workflow Controls
+You can run specific steps of the workflow using **tags** (2nd argument). This is useful for large datasets where you want to separate ingestion, vectorization, and graph building.
+
+| Step | Tag | Command |
+|------|-----|---------|
+| **Ingestion Only** | `ingest_files` | `bash scripts/run_ansible_workflow.sh full_workflow.yml ingest_files` |
+| **Vectorization Only** | `vectorize` | `bash scripts/run_ansible_workflow.sh full_workflow.yml vectorize` |
+| **Knowledge Graph Only** | `build_graph` | `bash scripts/run_ansible_workflow.sh full_workflow.yml build_graph` |
+| **Ingestion + Force** | `ingest_files` | `bash scripts/run_ansible_workflow.sh full_workflow.yml ingest_files "force_ingestion=true"` |
+
 ### Directory Structure
 - `ansible/playbooks/`: Workflow definitions
 - `ansible/roles/`: Individual task roles (docker_setup, docker_testing, etc.)

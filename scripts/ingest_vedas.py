@@ -208,8 +208,18 @@ if __name__ == "__main__":
         "--code", required=True, help="Veda code (rig, yajur, sam, atharv)"
     )
     parser.add_argument("--limit", type=int, help="Limit number of pages to ingest")
+    parser.add_argument("--force", action="store_true", help="Force ingestion even if already processed")
     args = parser.parse_args()
+
+    from src.ingestion.utils import should_process, mark_processed
+
+    if not should_process(args.pdf, args.force):
+        logger.info(f"Skipping {args.ved} - already processed (use --force to override).")
+        sys.exit(0)
 
     db = DatabaseManager(settings.DATABASE_URL)
     pipeline = VedaIngestionPipeline(db)
     pipeline.ingest_ved_pdf(args.pdf, args.ved, args.code, args.limit)
+
+    # Mark as processed
+    mark_processed(args.pdf)

@@ -33,8 +33,8 @@ def setup_schema():
                     """
                     CREATE TABLE IF NOT EXISTS vedas (
                         id SERIAL PRIMARY KEY,
-                        name VARCHAR(50),
-                        code VARCHAR(10),
+                        name VARCHAR(255),
+                        code VARCHAR(255),
                         language VARCHAR(10),
                         total_mantras INT,
                         description TEXT,

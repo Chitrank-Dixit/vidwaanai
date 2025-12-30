@@ -182,8 +182,18 @@ if __name__ == "__main__":
     parser.add_argument("--code", required=True, help="Code (e.g. gita, ram)")
     parser.add_argument("--type", required=True, choices=["veda", "gita", "ramayana", "purana"], help="Scripture Type")
     parser.add_argument("--limit", type=int, help="Limit pages")
+    parser.add_argument("--force", action="store_true", help="Force ingestion even if already processed")
     args = parser.parse_args()
+
+    from src.ingestion.utils import should_process, mark_processed
+
+    if not should_process(args.pdf, args.force):
+        logger.info(f"Skipping {args.name} - already processed (use --force to override).")
+        sys.exit(0)
 
     db = DatabaseManager(settings.DATABASE_URL)
     pipeline = ScriptureIngestionPipeline(db)
     pipeline.ingest_pdf(args.pdf, args.name, args.code, args.type, args.limit)
+    
+    # Mark as processed only if successful (implicitly, if no exception raised)
+    mark_processed(args.pdf)
