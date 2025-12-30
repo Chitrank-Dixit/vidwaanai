@@ -48,7 +48,13 @@ def test_agent_rag_flow_integration():
         else:
             # If it failed, check if it's due to LLM connection (acceptable for offline test)
             err = response.json()
-            print(f"Integration test query failed (expected if LLM offline): {err}")
+            print(f"Integration test query failed: {err}")
+            # If it is the column error, it will say "column m.translation_hindi does not exist"
+            # If it is LLM error, it might say "Connection refused" or similar.
+            # We want to ensure it is NOT the column error.
+            if "does not exist" in str(err):
+                pytest.fail(f"SQL Schema Mismatch Detected: {err}")
+                
             # we don't assert fail here to avoid breaking CI if local LLM is down, 
             # unless we strictly require it. 
             # For now, let's assert status is either 200 or 500 (connection error)

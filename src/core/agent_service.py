@@ -153,7 +153,7 @@ class AgentService:
                 # We need to join back to mantras to get text/translation
                 # This assumes veda_embeddings table exists and is populated
                 query = """
-                    SELECT m.id, v.name as ved_name, m.text_hindi, m.translation_hindi, 
+                    SELECT m.id, v.name as ved_name, m.text_sanskrit, m.translation_en, 
                            (ve.embedding <=> %s) as distance
                     FROM veda_embeddings ve
                     JOIN mantras m ON ve.mantra_id = m.id
