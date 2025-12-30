@@ -84,7 +84,7 @@ services:
       - neo4j
     # Reset entrypoint so we don't run 'vidwaan' CLI
     entrypoint: []
-    command: ["uv", "run", "uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    command: ["uv", "run", "uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
