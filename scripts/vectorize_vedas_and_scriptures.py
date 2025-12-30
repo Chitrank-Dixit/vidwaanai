@@ -1,112 +1,165 @@
 import sys
 import os
+import time
 
 # Add src to python path to ensure imports work
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
-from src.chunking.veda_chunker import VedaChunker
 from src.core.config import settings
 import logging
-from typing import List, Dict
-
+from typing import List, Dict, Tuple
+from collections import defaultdict
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 class ScriptureVectorizationPipeline:
-    """Vectorize mantras and verses from all scriptures."""
+    """Vectorize mantras and verses from all scriptures efficienty."""
 
-    def __init__(self, db_manager: DatabaseManager, batch_size: int = 32):
+    def __init__(self, db_manager: DatabaseManager, batch_size: int = 64):
         self.db = db_manager
         self.embedder = VedaEmbedder()  # Uses default model
-        self.chunker = VedaChunker(db_manager)
         self.batch_size = batch_size
 
     def vectorize_all_scriptures(self):
-        """Vectorize all mantras/verses in database."""
-        logger.info("Starting scripture vectorization pipeline...")
-
-        # We need to process chunks.
-        # Strategy: Iterate over mantras, generate chunks (mantra, sukta), batch them, embed, insert.
+        """Vectorize all mantras/verses in database using optimized batch processing."""
+        logger.info("Starting optimized scripture vectorization pipeline...")
+        start_time = time.time()
 
         with self.db._get_connection() as conn:
             with conn.cursor() as cursor:
-                # Get all mantras that don't have embeddings yet?
-                # Or just get all.
-                cursor.execute("SELECT id FROM mantras ORDER BY id")
-                mantra_ids = [r[0] for r in cursor.fetchall()]
+                # 1. OPTIMIZATION: Bulk Fetch All Mantras
+                logger.info("Fetching all mantras to process...")
+                query = """
+                    SELECT m.id, m.ved_id, m.mandala_id, m.sukta_id, m.text_hindi, v.name as ved_name
+                    FROM mantras m
+                    JOIN vedas v ON m.ved_id = v.id
+                    ORDER BY m.id
+                """
+                cursor.execute(query)
+                # Fetch as dictionaries for easier handling
+                cols = [desc[0] for desc in cursor.description]
+                all_mantras = [dict(zip(cols, row)) for row in cursor.fetchall()]
+                
+                logger.info(f"Fetched {len(all_mantras)} mantras. Building in-memory context maps...")
 
-                logger.info(f"Found {len(mantra_ids)} mantras to process.")
+                # 2. OPTIMIZATION: Build In-Memory Sukta Map (Avoids N+1 queries for sukta text)
+                sukta_text_map = defaultdict(list)
+                for m in all_mantras:
+                    if m['sukta_id'] and m['text_hindi']:
+                        sukta_text_map[m['sukta_id']].append(m['text_hindi'])
+                
+                # Join mantras to form full sukta text
+                final_sukta_text_map = {k: " ".join(v) for k, v in sukta_text_map.items()}
+                logger.info("In-memory context maps built.")
 
-                # Process in batches
-                # Note: We can't easily batch the *embedding* call across loop iterations if we generate variable number of chunks per mantra
-                # But we can batch the chunk generation and embedding separately.
+                # 3. Processing Loop
+                total_processed = 0
+                batch_accum = []  # list of chunk dicts
+                
+                logger.info(f"Processing in batches of {self.batch_size}...")
+                
+                for i, mantra in enumerate(all_mantras):
+                    # Generate Chunks In-Memory
+                    chunks = self._generate_chunks_for_mantra(mantra, final_sukta_text_map)
+                    batch_accum.extend(chunks)
 
-                batch_accum = []  # list of (mantra_id, chunk_type, text)
-
-                for i, m_id in enumerate(mantra_ids):
-                    # Generate chunks (DB lookup inside, might be slow? Optimization: fetch all data upfront or in larger window)
-                    # For MVP speed, let's trust Postgres cache or optimize later.
-                    chunks = self.chunker.create_chunks(m_id)
-
-                    for chunk in chunks:
-                        batch_accum.append(
-                            {
-                                "mantra_id": m_id,
-                                "type": chunk["type"],
-                                "text": chunk["text"],
-                                "lang": "hi",
-                            }
-                        )
-
-                    # If batch full, process
+                    # If accumulator big enough, process
                     if len(batch_accum) >= self.batch_size:
-                        self._process_batch(batch_accum)
+                        self._process_and_insert_batch(batch_accum)
+                        total_processed += len(batch_accum)
                         batch_accum = []
+                        
+                        if i > 0 and i % 1000 == 0:
+                            elapsed = time.time() - start_time
+                            rate = (i + 1) / elapsed
+                            logger.info(f"Progress: {i + 1}/{len(all_mantras)} mantras scanned ({rate:.1f} mantras/sec)")
 
-                    if i % 100 == 0:
-                        logger.info(
-                            f"Progress: {i}/{len(mantra_ids)} mantras processed"
-                        )
-
-                # Process remaining
+                # Process final batch
                 if batch_accum:
-                    self._process_batch(batch_accum)
+                    self._process_and_insert_batch(batch_accum)
+                    total_processed += len(batch_accum)
 
-        logger.info("Vectorization complete.")
+        total_time = time.time() - start_time
+        logger.info(f"Vectorization complete. Processed {total_processed} chunks in {total_time:.2f}s.")
 
-    def _process_batch(self, batch_data: List[Dict]):
-        """Embed and store a batch of chunks."""
+    def _generate_chunks_for_mantra(self, mantra: Dict, sukta_map: Dict) -> List[Dict]:
+        """Generate chunks without DB calls."""
+        chunks = []
+        
+        # 1. Mantra Chunk
+        if mantra['text_hindi']:
+            chunks.append({
+                "mantra_id": mantra['id'],
+                "ved_id": mantra['ved_id'],
+                "type": "mantra",
+                "text": mantra['text_hindi'],
+                "lang": "hi"
+            })
+        
+        # 2. Sukta Chunk
+        # Only add sukta chunk if this is the first mantra of the sukta? or for all?
+        # Original logic implies we add it for every mantra (which is redundant but we'll stick to logic).
+        # Actually, if we add 'sukta' type embedding for EVERY mantra, we explode the DB size.
+        # Let's add it, but maybe we can optimize later to only add it once per Sukta?
+        # For now, sticking to previous behavior: A mantra is associated with its context.
+        # When we retrieve a chunk of type 'sukta', we get the whole sukta text but it points to THIS mantra.
+        sukta_id = mantra['sukta_id']
+        if sukta_id and sukta_id in sukta_map:
+            # We limit adding the HUGE sukta text to every single mantra if it's too big?
+            # For now, let's include it.
+            chunks.append({
+                "mantra_id": mantra['id'],
+                "ved_id": mantra['ved_id'],
+                "type": "sukta",
+                "text": sukta_map[sukta_id],
+                "lang": "hi"
+            })
+            
+        return chunks
+
+    def _process_and_insert_batch(self, batch_data: List[Dict]):
+        """Embed and store a batch using bulk insert."""
         texts = [item["text"] for item in batch_data]
-        embeddings = self.embedder.embed_batch(texts, is_query=False)
+        
+        # Generate embeddings
+        try:
+            embeddings = self.embedder.embed_batch(texts, is_query=False)
+        except Exception as e:
+            logger.error(f"Error embedding batch: {e}")
+            return
 
+        # Prepare for Bulk Insert
+        insert_values = []
+        for item, emb in zip(batch_data, embeddings):
+            # pgvector format: string representation of list like '[0.1,0.2,...]'
+            emb_str = str(emb) # Python list str '[...]' is valid for pgvector
+            
+            insert_values.append((
+                item["mantra_id"],
+                item["ved_id"],
+                emb_str,
+                item["lang"],
+                item["type"]
+            ))
+
+        # Bulk Insert
         with self.db._get_connection() as conn:
             with conn.cursor() as cursor:
-                for item, emb in zip(batch_data, embeddings):
-                    # Convert to pgvector format
-                    emb_str = "[" + ",".join(str(e) for e in emb) + "]"
-
-                    cursor.execute(
-                        """INSERT INTO veda_embeddings 
-                           (mantra_id, ved_id, embedding, language, chunk_type)
-                           SELECT %s, ved_id, %s, %s, %s
-                           FROM mantras WHERE id = %s
-                        """,
-                        (
-                            item["mantra_id"],
-                            emb_str,
-                            item["lang"],
-                            item["type"],
-                            item["mantra_id"],
-                        ),
-                    )
+                # Use executemany for performance
+                query = """
+                    INSERT INTO veda_embeddings 
+                    (mantra_id, ved_id, embedding, language, chunk_type)
+                    VALUES (%s, %s, %s, %s, %s)
+                """
+                cursor.executemany(query, insert_values)
                 conn.commit()
 
 
 if __name__ == "__main__":
     db = DatabaseManager(settings.DATABASE_URL)
-    pipeline = ScriptureVectorizationPipeline(db)
+    pipeline = ScriptureVectorizationPipeline(db, batch_size=128) # Increased batch size
     pipeline.vectorize_all_scriptures()

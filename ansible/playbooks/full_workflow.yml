@@ -48,7 +48,10 @@
       ansible.builtin.include_role:
         name: ingestion
         tasks_from: main
-      tags: ingestion
+      tags: 
+        - ingestion
+        - vectorize
+        - build_graph
 
     - name: Generate prompts
       ansible.builtin.include_role:

@@ -136,3 +136,90 @@ class GraphBuilder:
             session.run(query, from_name=from_name, to_name=to_name, attributes=attributes)
             logger.debug(f"Merged Rel: {from_name} -> {to_name} ({rel_type})")
 
+    def create_entities_batch(self, entities: list[dict]) -> None:
+        """
+        Batch merge multiple entities.
+        Args:
+            entities: List of dicts with {'name': str, 'type': str, 'attributes': dict}
+        """
+        if not entities:
+            return
+
+        # Group by type to use efficient parameterized queries
+        by_type = {}
+        for ent in entities:
+            etype = ent['type']
+            if etype not in [e.value for e in EntityType]:
+                 etype = EntityType.CONCEPT.value
+            
+            if etype not in by_type:
+                by_type[etype] = []
+            
+            node_id = self._generate_id(etype, ent['name'])
+            attrs = self._sanitize_attributes(ent.get('attributes', {}))
+            attrs['name'] = ent['name']
+            attrs['id'] = node_id
+            by_type[etype].append(attrs)
+
+        with self.driver.session() as session:
+            for etype, batch in by_type.items():
+                query = f"""
+                UNWIND $batch AS props
+                MERGE (n:`{etype}` {{id: props.id}})
+                SET n += props
+                """
+                session.run(query, batch=batch)
+                logger.info(f"Batch Merged {len(batch)} nodes of type {etype}")
+
+    def create_relationships_batch(self, relationships: list[dict]) -> None:
+        """
+        Batch merge relationships.
+        Args:
+            relationships: List of dicts {'from': str, 'to': str, 'type': str, 'attributes': dict}
+        """
+        if not relationships:
+            return
+
+        # Sanitize and prepare
+        prepared = []
+        for rel in relationships:
+            rtype = rel['type']
+            if rtype not in [r.value for r in RelationType]:
+                rtype = RelationType.RELATED_TO.value
+            
+            cleaned = {
+                'from': rel['from'],
+                'to': rel['to'],
+                'type': rtype,
+                'props': self._sanitize_attributes(rel.get('attributes', {}))
+            }
+            if cleaned['from'] and cleaned['to']:
+                prepared.append(cleaned)
+
+        if not prepared:
+            return
+            
+        # We can't easily group by type for the UNWIND if the type is dynamic in the relationship itself 
+        # unless we use APOC. Without APOC, we must group by relationship type.
+        
+        by_type = {}
+        for item in prepared:
+            rtype = item['type']
+            if rtype not in by_type:
+                by_type[rtype] = []
+            by_type[rtype].append(item)
+            
+        with self.driver.session() as session:
+            for rtype, batch in by_type.items():
+                # We match by NAME as per original strategy. 
+                # Ideally matching by ID is safer but extraction gives names.
+                # Optimized query using UNWIND
+                query = f"""
+                UNWIND $batch AS row
+                MATCH (a), (b)
+                WHERE a.name = row.from AND b.name = row.to
+                MERGE (a)-[r:`{rtype}`]->(b)
+                SET r += row.props
+                """
+                session.run(query, batch=batch)
+                logger.info(f"Batch Merged {len(batch)} relationships of type {rtype}")

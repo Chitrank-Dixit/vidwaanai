@@ -3,6 +3,8 @@ import sys
 import os
 import argparse
 from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -38,104 +40,101 @@ def get_llm_client():
         logger.info("Using OpenAI backend")
         return OpenAIClient(api_key=settings.OPENAI_API_KEY)
 
-def process_verse(verse, extractor: EntityExtractor, tax_extractor: TaxonomyExtractor, builder: GraphBuilder):
-    """Process a single verse: Extract -> Build Graph."""
+def extract_from_verse(verse, extractor: EntityExtractor, tax_extractor: TaxonomyExtractor, skip_llm: bool = False):
+    """
+    Pure extraction function (Read-only). 
+    Returns dict of entities and relationships to be merged later.
+    """
     verse_id = verse['id']
     text = verse.get('text', '') or ''
     translation = verse.get('translation', '') or ''
     scripture = verse.get('scripture_name', 'Unknown')
     
-    # 1. Taxonomy Extraction (Rule-based)
-    # Scan both original text and translation
+    entities_accum = []
+    rels_accum = []
+    
+    # 1. Taxonomy (Rule-based)
     combined_text = f"{text} {translation}"
     found_entities = tax_extractor.extract(combined_text)
     
-    tax_e_count = 0
-    tax_r_count = 0
+    verse_node_name = f"Verse {verse_id}"
+    
+    # Verse Node (Implicit entity)
+    entities_accum.append({
+        'name': verse_node_name,
+        'type': 'Text',
+        'attributes': {
+            "text": text,
+            "translation": translation,
+            "scripture": scripture,
+            "verse_id": verse_id
+        }
+    })
     
     for entity in found_entities:
-        try:
-            # Create Verse Node
-            verse_node_name = f"Verse {verse_id}" 
-            # (Use verse_id as unique name? Or "Rig Veda 1.1.1")
-            builder.create_entity(verse_node_name, "Text", {
-                "text": text,
-                "translation": translation,
-                "scripture": scripture,
-                "verse_id": verse_id
-            })
-            
-            # Create Relation: Entity -> MENTIONED_IN -> Verse (or Verse -> MENTIONS -> Entity)
-            # Ontology says "MENTIONED_IN".
-            # Subject: Entity. Object: Text.
-            # "Vishnu MENTIONED_IN Verse 1.1.1"
-            
-            builder.create_relationship(
-                entity['name'], 
-                verse_node_name, 
-                "MENTIONED_IN", 
-                {"context": "Rule-based extraction"}
-            )
-            tax_r_count += 1
-            tax_e_count += 1 # Count distinct entities found
-            
-        except Exception as e:
-            logger.error(f"Taxonomy build error: {e}")
+        # Entity from Taxonomy
+        entities_accum.append({
+            'name': entity['name'],
+            'type': 'Concept', # Taxonomy extractor doesn't always give type, assume Concept/Deity based on ontology lookup? 
+                               # For now, let's trust GraphBuilder to default or Taxonomy to improve.
+                               # Actually TaxonomyExtractor usually returns dict with name/type if configured well.
+                               # But here 'found_entities' is list of dicts.
+            'attributes': {'source': 'taxonomy'}
+        })
+        
+        # Rel: Entity -> MENTIONED_IN -> Verse
+        rels_accum.append({
+            'from': entity['name'],
+            'to': verse_node_name,
+            'type': "MENTIONED_IN",
+            'attributes': {"context": "Rule-based extraction"}
+        })
 
-    # 2. LLM Extraction (Dynamic)
-    try:
-        data = extractor.extract_entities(text, translation, scripture)
-    except Exception as e:
-        logger.error(f"Extraction failed for verse {verse_id}: {e}")
-        return tax_e_count, tax_r_count # Return partial results
-
-    entities = data.get('entities', [])
-    relationships = data.get('relationships', [])
-    
-    # Build Entities
-    for ent in entities:
+    # 2. LLM Extraction
+    if not skip_llm:
         try:
-            name = ent.get('name')
-            etype = ent.get('type')
-            attrs = ent.get('attributes', {})
-            # Add metadata source
-            attrs['source_verse_id'] = verse_id
-            attrs['scripture'] = scripture
+            data = extractor.extract_entities(text, translation, scripture)
+            ext_entities = data.get('entities', [])
+            ext_rels = data.get('relationships', [])
             
-            if name and etype:
-                builder.create_entity(name, etype, attrs)
+            for ent in ext_entities:
+                ent['attributes'] = ent.get('attributes', {})
+                ent['attributes']['source_verse_id'] = verse_id
+                ent['attributes']['scripture'] = scripture
+                entities_accum.append(ent)
+                
+            for rel in ext_rels:
+                rel['attributes'] = rel.get('attributes', {})
+                rel['attributes']['source_verse_id'] = verse_id
+                rels_accum.append(rel)
+                
         except Exception as e:
-            logger.error(f"Error creating entity {ent}: {e}")
-
-    # Build Relationships
-    for rel in relationships:
-        try:
-            src = rel.get('from')
-            tgt = rel.get('to')
-            rtype = rel.get('type')
-            attrs = rel.get('attributes', {})
-            attrs['source_verse_id'] = verse_id
-            
-            if src and tgt and rtype:
-                builder.create_relationship(src, tgt, rtype, attrs)
-        except Exception as e:
-            logger.error(f"Error creating relationship {rel}: {e}")
-            
-    return tax_e_count + len(entities), tax_r_count + len(relationships)
+            logger.error(f"LLM Extraction failed for verse {verse_id}: {e}")
+        
+    return entities_accum, rels_accum
 
 def main():
-    parser = argparse.ArgumentParser(description="Build Vedic Knowledge Graph")
+    parser = argparse.ArgumentParser(description="Build Vedic Knowledge Graph Optimized")
     parser.add_argument("--limit", type=int, default=0, help="Limit number of verses to process (0 for all)")
     parser.add_argument("--offset", type=int, default=0, help="Offset for processing")
     parser.add_argument("--scripture", type=str, help="Filter by scripture name")
-    parser.add_argument("--clear", action="store_true", help="Clear graph before building")
+    parser.add_argument("--clear", action="store_true", help="Clear graph")
+    parser.add_argument("--workers", type=int, default=10, help="Parallel workers")
+    parser.add_argument("--batch-size", type=int, default=50, help="DB Write batch size")
+    parser.add_argument("--skip-llm", action="store_true", help="Skip LLM extraction (Taxonomy only)")
     args = parser.parse_args()
 
     # Init Services
     logger.info("Initializing services...")
     db = DatabaseManager(settings.DATABASE_URL)
-    llm = get_llm_client()
-    extractor = EntityExtractor(llm)
+    
+    # Only init LLM if needed
+    llm = None
+    extractor = None
+    if not args.skip_llm:
+        llm = get_llm_client()
+        extractor = EntityExtractor(llm)
+        
     tax_extractor = TaxonomyExtractor()
     
     try:
@@ -151,38 +150,60 @@ def main():
     if args.clear:
         logger.warning("Clearing existing Knowledge Graph...")
         graph_builder.clear_graph()
-        # Re-run setup to ensure constraints exist? 
-        # existing setup_graph.py logic creates IS UNIQUE constraints which are persistent usually.
-        # But clear_graph DETACH DELETE n removes nodes, constraints remain.
-        
+
     # Fetch Verses
     logger.info("Fetching verses from PostgreSQL...")
-    # We might need a more cursor-based approach for 35k verses if memory is tight, 
-    # but get_all_verses fetches list dict. 35k * 1KB ~ 35MB. It's fine for Memory.
     all_verses = db.get_all_verses()
     
     if args.scripture:
         all_verses = [v for v in all_verses if args.scripture.lower() in v.get('scripture_name', '').lower()]
         
-    # Slice
     start = args.offset
     end = start + args.limit if args.limit > 0 else len(all_verses)
     verses_to_process = all_verses[start:end]
     
-    logger.info(f"Processing {len(verses_to_process)} verses (Total available: {len(all_verses)})")
-
+    logger.info(f"Processing {len(verses_to_process)} verses with {args.workers} workers. Skip LLM: {args.skip_llm}")
+    
+    # Batch Processing Loop
     total_ent = 0
     total_rel = 0
     
-    # Process Loop
-    for verse in tqdm(verses_to_process, desc="Building Graph"):
-        e_count, r_count = process_verse(verse, extractor, tax_extractor, graph_builder)
-        total_ent += e_count
-        total_rel += r_count
+    # Process in chunks of 'batch_size' * 'workers' (e.g. 500 at a time) to manage memory
+    chunk_size = args.batch_size * 2 # Process reasonably sized chunks in memory
+    
+    start_time = time.time()
+    
+    for i in range(0, len(verses_to_process), chunk_size):
+        chunk = verses_to_process[i : i + chunk_size]
+        
+        batch_entities = []
+        batch_rels = []
+        
+        # Parallel Extraction
+        with ThreadPoolExecutor(max_workers=args.workers) as executor:
+            # Pass skip_llm
+            futures = [executor.submit(extract_from_verse, v, extractor, tax_extractor, args.skip_llm) for v in chunk]
+            
+            for future in tqdm(as_completed(futures), total=len(chunk), desc=f"Extracting Batch {i//chunk_size + 1}", leave=False):
+                ents, rels = future.result()
+                batch_entities.extend(ents)
+                batch_rels.extend(rels)
+        
+        # Batch Write
+        if batch_entities:
+            graph_builder.create_entities_batch(batch_entities)
+            total_ent += len(batch_entities)
+            
+        if batch_rels:
+            graph_builder.create_relationships_batch(batch_rels)
+            total_rel += len(batch_rels)
+            
+        logger.info(f"Committed batch {i//chunk_size + 1}: {len(batch_entities)} ents, {len(batch_rels)} rels")
 
-    logger.info(f"Graph Build Complete.")
-    logger.info(f"Total Entities Created/Merged: {total_ent}")
-    logger.info(f"Total Relationships Created/Merged: {total_rel}")
+    elapsed = time.time() - start_time
+    logger.info(f"Graph Build Complete in {elapsed:.2f}s.")
+    logger.info(f"Total Entities: {total_ent}")
+    logger.info(f"Total Relationships: {total_rel}")
     
     graph_builder.close()
 
