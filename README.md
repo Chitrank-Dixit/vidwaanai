@@ -286,6 +286,61 @@ POST /api/kg/reason
 5. **Synthesis**: LLM generates answer using both Verse text and Graph structure.
 
 
+## Agent API (REST Service)
+
+The Vidwaan Agent is now exposed as a REST API for backend integration.
+
+### Quick Start
+Start the API server on port 8001:
+
+```bash
+uv run uvicorn src.api.main:app --host 0.0.0.0 --port 8001 --reload
+```
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/v1/agent/query` | Submit natural language query to the agent |
+| `GET` | `/api/v1/agent/health` | Check service health |
+| `POST` | `/api/v1/agent/session/create` | Create a new conversation session |
+
+### Usage Examples
+
+#### 1. Check Health
+```bash
+curl http://localhost:8001/api/v1/agent/health
+# {"status": "healthy", ...}
+```
+
+#### 2. Query the Agent (RAG)
+```bash
+curl -X POST http://localhost:8001/api/v1/agent/query \
+  -H "Content-Type: application/json" \
+  -d '{
+    "question": "What is the concept of Dharma?",
+    "session_id": "test-session-1"
+  }'
+```
+
+**Response:**
+```json
+{
+  "answer": "Dharma is the cosmic law referencing...",
+  "confidence": 0.95,
+  "sources": [
+    {
+      "id": "100",
+      "title": "Rig Ved",
+      "content": "..."
+    }
+  ]
+}
+```
+
+For interactive documentation, visit **[http://localhost:8001/docs](http://localhost:8001/docs)** after starting the server.
+
+
 ## Local Makefile Commands
 
 This project uses a `Makefile` to streamline common development tasks. Below are some key commands for local development:
@@ -388,3 +443,9 @@ This project also provides a `Makefile-docker` for managing containerized develo
 - `make -f Makefile-docker mcp-logs`: View logs.
 - `make -f Makefile-docker mcp-test`: Run MCP unit tests.
 - `make -f Makefile-docker mcp-int`: Run MCP integration tests.
+
+### Agent API
+- `make -f Makefile-docker agent-build`: Build Agent API container.
+- `make -f Makefile-docker agent-up`: Start Agent API service.
+- `make -f Makefile-docker agent-down`: Stop Agent API service.
+- `make -f Makefile-docker agent-logs`: View Agent API logs.
