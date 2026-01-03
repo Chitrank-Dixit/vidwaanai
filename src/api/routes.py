@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from datetime import datetime
+from typing import Dict, Any
 import uuid
 import logging
 
@@ -21,7 +22,7 @@ agent_router = APIRouter(prefix="/api/v1/agent", tags=["Agent"])
 
 
 @lru_cache()
-def get_agent_service():
+def get_agent_service() -> AgentService:
     return AgentService()
 
 
@@ -75,7 +76,7 @@ async def query_agent(
     summary="Check agent health",
     description="Verify that all components are operational",
 )
-async def health_check(service: AgentService = Depends(get_agent_service)):
+async def health_check(service: AgentService = Depends(get_agent_service)) -> Dict[str, Any]:
     """
     Health check endpoint.
     """

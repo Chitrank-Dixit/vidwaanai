@@ -17,7 +17,7 @@ def is_processed(file_path: str) -> bool:
     return abs_path in processed
 
 
-def mark_processed(file_path: str):
+def mark_processed(file_path: str) -> None:
     """Mark file as processed."""
     abs_path = os.path.abspath(file_path)
 

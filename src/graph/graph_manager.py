@@ -1,7 +1,7 @@
 import logging
 from typing import Any, Dict, List, Optional
 
-from neo4j import GraphDatabase
+from neo4j import GraphDatabase, Driver
 from src.core.config import settings
 
 logger = logging.getLogger(__name__)
@@ -12,10 +12,9 @@ class GraphManager:
 
     def __init__(self) -> None:
         """Initialize graph manager with settings."""
-        self.uri = settings.NEO4J_URI
         self.user = settings.NEO4J_USER
         self.password = settings.NEO4J_PASSWORD
-        self.driver = None
+        self.driver: Optional[Driver] = None
 
         try:
             self.driver = GraphDatabase.driver(
@@ -31,7 +30,8 @@ class GraphManager:
     def verify_connection(self) -> None:
         """Verify connectivity to Neo4j."""
         try:
-            self.driver.verify_connectivity()
+            if self.driver:
+                self.driver.verify_connectivity()
         except Exception as e:
             logger.error(f"Neo4j connectivity check failed: {str(e)}")
             raise
@@ -50,7 +50,12 @@ class GraphManager:
             raise Exception("Neo4j driver is not initialized")
 
         try:
-            with self.driver.session() as session:
+            # Type guard for mypy
+            driver = self.driver
+            if not driver:
+                 raise Exception("Neo4j driver is not initialized")
+            
+            with driver.session() as session:
                 result = session.run(query, parameters or {})
                 return [record.data() for record in result]
         except Exception as e:

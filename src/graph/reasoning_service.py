@@ -124,11 +124,6 @@ class GraphReasoningService:
         implication_rels = [
             RelationType.CAUSES.value,
             RelationType.LEADS_TO.value,
-            (
-                RelationType.RESULTS_IN.value
-                if hasattr(RelationType, "RESULTS_IN")
-                else "RESULTS_IN"
-            ),
             RelationType.MANIFESTS_AS.value,
             RelationType.IS_A.value,
         ]

@@ -1,6 +1,6 @@
 import logging
 import time
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 from src.core.config import settings
 from src.db.db_manager import DatabaseManager
@@ -29,7 +29,7 @@ class AgentService:
 
         # Initialize LLM
         if settings.llm_backend == "lmstudio":
-            self.llm_client = LMStudioClient(
+            self.llm_client: Any = LMStudioClient(
                 base_url=settings.lmstudio_base_url, model_name=settings.lmstudio_model
             )
         else:
@@ -45,7 +45,7 @@ class AgentService:
         # We can extract entities from question too
         self.entity_extractor = EntityExtractor(self.llm_client)
 
-    def process_query(self, question: str, session_id: str = None) -> Dict[str, Any]:
+    def process_query(self, question: str, session_id: Optional[str] = None) -> Dict[str, Any]:
         """
         Main RAG pipeline entry point.
         """
@@ -152,7 +152,7 @@ class AgentService:
             "processing_time_ms": processing_time,
         }
 
-    def _search_vector_db(self, embedding: List[float], top_k: int = 5) -> List[Dict]:
+    def _search_vector_db(self, embedding: List[float], top_k: int = 5) -> List[Dict[str, Any]]:
         """Search mantras by vector similarity."""
         results = []
         with self.db._get_connection() as conn:

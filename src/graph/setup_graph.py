@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def setup_graph_schema():
+def setup_graph_schema() -> None:
     """Setup graph schema constraints and indexes."""
     logger.info("Initializing Graph Manager...")
     try:

@@ -1,5 +1,5 @@
 import re
-from typing import List, Dict
+from typing import List, Dict, Any
 import logging
 
 logger = logging.getLogger(__name__)
@@ -14,7 +14,7 @@ class VedaParser:
         "mantra": r"मंत्र\s*[:=]?\s*(\d+)",  # Mantra number
     }
 
-    def parse_vedas(self, pages: List[Dict], ved_code: str) -> List[Dict]:
+    def parse_vedas(self, pages: List[Dict[str, Any]], ved_code: str) -> List[Dict[str, Any]]:
         """Parse pages into mantra structure."""
         mantras = []
         current_mandala = 0

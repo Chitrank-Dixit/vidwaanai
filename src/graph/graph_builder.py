@@ -9,7 +9,7 @@ information (like entities and relations) and need to persist them as a graph.
 
 import json
 import logging
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from neo4j import GraphDatabase
 from src.graph.schema import EntityType, RelationType
@@ -142,7 +142,7 @@ class GraphBuilder:
             )
             logger.debug(f"Merged Rel: {from_name} -> {to_name} ({rel_type})")
 
-    def create_entities_batch(self, entities: list[dict]) -> None:
+    def create_entities_batch(self, entities: List[Dict[str, Any]]) -> None:
         """
         Batch merge multiple entities.
         Args:
@@ -152,7 +152,7 @@ class GraphBuilder:
             return
 
         # Group by type to use efficient parameterized queries
-        by_type = {}
+        by_type: Dict[str, List[Dict[str, Any]]] = {}
         for ent in entities:
             etype = ent["type"]
             if etype not in [e.value for e in EntityType]:
@@ -177,7 +177,7 @@ class GraphBuilder:
                 session.run(query, batch=batch)
                 logger.info(f"Batch Merged {len(batch)} nodes of type {etype}")
 
-    def create_relationships_batch(self, relationships: list[dict]) -> None:
+    def create_relationships_batch(self, relationships: List[Dict[str, Any]]) -> None:
         """
         Batch merge relationships.
         Args:
@@ -208,7 +208,7 @@ class GraphBuilder:
         # We can't easily group by type for the UNWIND if the type is dynamic in the relationship itself
         # unless we use APOC. Without APOC, we must group by relationship type.
 
-        by_type = {}
+        by_type: Dict[str, List[Dict[str, Any]]] = {}
         for item in prepared:
             rtype = item["type"]
             if rtype not in by_type:

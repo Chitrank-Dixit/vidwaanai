@@ -1,5 +1,5 @@
 from sentence_transformers import SentenceTransformer
-from typing import List, Dict
+from typing import List, Dict, Any
 import logging
 
 logger = logging.getLogger(__name__)
@@ -50,7 +50,7 @@ class VedaEmbedder:
         )
         return embeddings.tolist()
 
-    def embed_context(self, mantras: List[Dict]) -> List[Dict]:
+    def embed_context(self, mantras: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Embed mantras with context (Mandala, Sukta info)."""
         texts = []
         for mantra in mantras:
