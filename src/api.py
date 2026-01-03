@@ -11,6 +11,7 @@ app = FastAPI(title="VidwaanAI API", description="API for VidwaanAI Agent")
 
 app.include_router(graph_router)
 
+
 # Dependency to get agent
 def get_agent() -> VidwaanAI:
     # In a real app, we might want to reuse the agent instance or use a dependency injection framework

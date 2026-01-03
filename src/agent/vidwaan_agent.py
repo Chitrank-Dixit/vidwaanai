@@ -191,14 +191,16 @@ class VidwaanAI:
                 try:
                     # 1. Extract entities from the user query
                     query_entities = self.entity_extractor.extract_from_query(question)
-                    entity_names = [e['name'] for e in query_entities if 'name' in e]
-                    
+                    entity_names = [e["name"] for e in query_entities if "name" in e]
+
                     if entity_names:
                         logger.info(f"Graph RAG: Extracted entities: {entity_names}")
-                        
+
                         # 2. Retrieve subgraph from Neo4j
-                        subgraph = self.graph_retriever.get_context_subgraph(entity_names)
-                        
+                        subgraph = self.graph_retriever.get_context_subgraph(
+                            entity_names
+                        )
+
                         # 3. Format context string
                         if subgraph:
                             graph_lines = ["**Knowledge Graph Context:**"]
@@ -207,9 +209,13 @@ class VidwaanAI:
                                 line = f"{rel['source']} ({rel.get('source_type',['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type',['Entity'])[0]})"
                                 graph_lines.append(line)
                             graph_context = "\n".join(graph_lines)
-                            logger.info(f"Graph RAG: Retrieved {len(subgraph)} relationships")
+                            logger.info(
+                                f"Graph RAG: Retrieved {len(subgraph)} relationships"
+                            )
                         else:
-                            logger.info("Graph RAG: No relationships found for entities")
+                            logger.info(
+                                "Graph RAG: No relationships found for entities"
+                            )
                     else:
                         logger.info("Graph RAG: No entities found in query")
 

@@ -13,8 +13,8 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                     "role": "Creation principle",
                     "vehicles": "Swan (Hamsa)",
                     "color": "Red",
-                    "form": "4 faces, 4 arms"
-                }
+                    "form": "4 faces, 4 arms",
+                },
             },
             "VISHNU": {
                 "id": "deity:vishnu",
@@ -26,8 +26,8 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                     "role": "Preservation principle",
                     "vehicles": "Eagle (Garuda)",
                     "color": "Blue",
-                    "avatar_count": 10
-                }
+                    "avatar_count": 10,
+                },
             },
             "SHIVA": {
                 "id": "deity:shiva",
@@ -39,9 +39,9 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                     "role": "Transformation principle",
                     "vehicles": "Bull (Nandi)",
                     "color": "White",
-                    "form": "5 faces"
-                }
-            }
+                    "form": "5 faces",
+                },
+            },
         },
         "AVATARS_OF_VISHNU": {
             "RAMA": {
@@ -52,7 +52,7 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                 "parent_entity": "deity:vishnu",
                 "relation_types": ["MANIFESTS_AS"],
                 "characteristics": ["righteous", "dutiful", "perfect_human"],
-                "text_references": ["Ramayana"]
+                "text_references": ["Ramayana"],
             },
             "KRISHNA": {
                 "id": "character:krishna",
@@ -62,15 +62,35 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                 "parent_entity": "deity:vishnu",
                 "relation_types": ["MANIFESTS_AS"],
                 "characteristics": ["divine", "teacher", "lover"],
-                "text_references": ["Bhagavad Gita", "Bhagavata Purana"]
-            }
+                "text_references": ["Bhagavad Gita", "Bhagavata Purana"],
+            },
         },
         "DIVINE_BEINGS": {
-            "INDRA": {"id": "deity:indra", "type": "Deity", "name": "Indra", "domain": "King of Gods"},
-            "AGNI": {"id": "deity:agni", "type": "Deity", "name": "Agni", "domain": "Fire"},
-            "SURYA": {"id": "deity:surya", "type": "Deity", "name": "Surya", "domain": "Sun"},
-            "VAYU": {"id": "deity:vayu", "type": "Deity", "name": "Vayu", "domain": "Wind"},
-        }
+            "INDRA": {
+                "id": "deity:indra",
+                "type": "Deity",
+                "name": "Indra",
+                "domain": "King of Gods",
+            },
+            "AGNI": {
+                "id": "deity:agni",
+                "type": "Deity",
+                "name": "Agni",
+                "domain": "Fire",
+            },
+            "SURYA": {
+                "id": "deity:surya",
+                "type": "Deity",
+                "name": "Surya",
+                "domain": "Sun",
+            },
+            "VAYU": {
+                "id": "deity:vayu",
+                "type": "Deity",
+                "name": "Vayu",
+                "domain": "Wind",
+            },
+        },
     },
     "CONCEPTS": {
         "FUNDAMENTAL": {
@@ -80,7 +100,7 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                 "name": "Brahman",
                 "sanskrit_name": "ब्रह्मन्",
                 "definition": "Ultimate reality, absolute consciousness",
-                "subcategories": ["non-dual", "infinite", "eternal"]
+                "subcategories": ["non-dual", "infinite", "eternal"],
             },
             "ATMAN": {
                 "id": "concept:atman",
@@ -88,7 +108,7 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                 "name": "Atman",
                 "sanskrit_name": "आत्मन्",
                 "definition": "Individual soul, self",
-                "relations": ["IS_ASPECT_OF:concept:brahman"]
+                "relations": ["IS_ASPECT_OF:concept:brahman"],
             },
             "MAYA": {
                 "id": "concept:maya",
@@ -96,8 +116,8 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                 "name": "Maya",
                 "sanskrit_name": "माया",
                 "definition": "Illusion, the power of manifestation",
-                "subcategories": ["ignorance", "creative_power"]
-            }
+                "subcategories": ["ignorance", "creative_power"],
+            },
         },
         "DHARMA": {
             "id": "concept:dharma",
@@ -105,7 +125,12 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
             "name": "Dharma",
             "sanskrit_name": "धर्म",
             "definition": "Righteous duty, cosmic order",
-            "subcategories": ["sanatana-dharma", "varna-dharma", "ashrama-dharma", "sva-dharma"]
+            "subcategories": [
+                "sanatana-dharma",
+                "varna-dharma",
+                "ashrama-dharma",
+                "sva-dharma",
+            ],
         },
         "KARMA": {
             "id": "concept:karma",
@@ -113,7 +138,7 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
             "name": "Karma",
             "sanskrit_name": "कर्म",
             "definition": "Action and its consequences",
-            "subcategories": ["karma-yoga", "karma-phala", "karma-siddhanta"]
+            "subcategories": ["karma-yoga", "karma-phala", "karma-siddhanta"],
         },
         "YOGA_PATHS": {
             "BHAKTI": {
@@ -121,29 +146,29 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
                 "type": "Concept",
                 "name": "Bhakti Yoga",
                 "definition": "Path of devotion",
-                "components": ["love", "surrender", "faith"]
+                "components": ["love", "surrender", "faith"],
             },
             "KARMA_YOGA": {
                 "id": "concept:karma_yoga",
                 "type": "Concept",
                 "name": "Karma Yoga",
                 "definition": "Path of righteous action",
-                "components": ["duty", "non-attachment", "service"]
+                "components": ["duty", "non-attachment", "service"],
             },
             "JNANA": {
                 "id": "concept:jnana_yoga",
                 "type": "Concept",
                 "name": "Jnana Yoga",
                 "definition": "Path of knowledge",
-                "components": ["wisdom", "discrimination", "inquiry"]
+                "components": ["wisdom", "discrimination", "inquiry"],
             },
             "RAJA": {
                 "id": "concept:raja_yoga",
                 "type": "Concept",
                 "name": "Raja Yoga",
                 "definition": "Path of meditation",
-                "components": ["mental discipline", "focus", "enlightenment"]
-            }
+                "components": ["mental discipline", "focus", "enlightenment"],
+            },
         },
         "LIBERATION": {
             "id": "concept:moksha",
@@ -151,26 +176,98 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
             "name": "Moksha",
             "sanskrit_name": "मोक्ष",
             "definition": "Liberation from cycle of birth and death",
-            "synonyms": ["nirvana", "kaivalya", "samadhi"]
-        }
+            "synonyms": ["nirvana", "kaivalya", "samadhi"],
+        },
     },
     "CHARACTERS": {
         "RAMAYANA": {
-            "RAMA": {"id": "character:rama", "type": "Character", "name": "Rama", "role": "protagonist", "nature": "avatar"},
-            "SITA": {"id": "character:sita", "type": "Character", "name": "Sita", "role": "heroine", "nature": "divine"},
-            "LAKSHMAN": {"id": "character:lakshman", "type": "Character", "name": "Lakshman", "role": "brother", "nature": "devoted"},
-            "HANUMAN": {"id": "character:hanuman", "type": "Character", "name": "Hanuman", "role": "devotee", "nature": "vanara"},
-            "RAVANA": {"id": "character:ravana", "type": "Character", "name": "Ravana", "role": "antagonist", "nature": "demon_king"}
+            "RAMA": {
+                "id": "character:rama",
+                "type": "Character",
+                "name": "Rama",
+                "role": "protagonist",
+                "nature": "avatar",
+            },
+            "SITA": {
+                "id": "character:sita",
+                "type": "Character",
+                "name": "Sita",
+                "role": "heroine",
+                "nature": "divine",
+            },
+            "LAKSHMAN": {
+                "id": "character:lakshman",
+                "type": "Character",
+                "name": "Lakshman",
+                "role": "brother",
+                "nature": "devoted",
+            },
+            "HANUMAN": {
+                "id": "character:hanuman",
+                "type": "Character",
+                "name": "Hanuman",
+                "role": "devotee",
+                "nature": "vanara",
+            },
+            "RAVANA": {
+                "id": "character:ravana",
+                "type": "Character",
+                "name": "Ravana",
+                "role": "antagonist",
+                "nature": "demon_king",
+            },
         },
         "MAHABHARATA": {
-            "ARJUNA": {"id": "character:arjuna", "type": "Character", "name": "Arjuna", "role": "hero", "nature": "warrior_prince"},
-            "KRISHNA": {"id": "character:krishna", "type": "Character", "name": "Krishna", "role": "guide", "nature": "avatar"},
-            "YUDHISHTHIRA": {"id": "character:yudhishthira", "type": "Character", "name": "Yudhishthira", "role": "elder", "nature": "righteous"},
-            "BHIMA": {"id": "character:bhima", "type": "Character", "name": "Bhima", "role": "strong", "nature": "warrior"},
-            "DRAUPADI": {"id": "character:draupadi", "type": "Character", "name": "Draupadi", "role": "queen", "nature": "symbol_of_justice"},
-            "DURYODHANA": {"id": "character:duryodhana", "type": "Character", "name": "Duryodhana", "role": "antagonist", "nature": "ambitious"},
-            "KARNA": {"id": "character:karna", "type": "Character", "name": "Karna", "role": "tragic", "nature": "loyal"}
-        }
+            "ARJUNA": {
+                "id": "character:arjuna",
+                "type": "Character",
+                "name": "Arjuna",
+                "role": "hero",
+                "nature": "warrior_prince",
+            },
+            "KRISHNA": {
+                "id": "character:krishna",
+                "type": "Character",
+                "name": "Krishna",
+                "role": "guide",
+                "nature": "avatar",
+            },
+            "YUDHISHTHIRA": {
+                "id": "character:yudhishthira",
+                "type": "Character",
+                "name": "Yudhishthira",
+                "role": "elder",
+                "nature": "righteous",
+            },
+            "BHIMA": {
+                "id": "character:bhima",
+                "type": "Character",
+                "name": "Bhima",
+                "role": "strong",
+                "nature": "warrior",
+            },
+            "DRAUPADI": {
+                "id": "character:draupadi",
+                "type": "Character",
+                "name": "Draupadi",
+                "role": "queen",
+                "nature": "symbol_of_justice",
+            },
+            "DURYODHANA": {
+                "id": "character:duryodhana",
+                "type": "Character",
+                "name": "Duryodhana",
+                "role": "antagonist",
+                "nature": "ambitious",
+            },
+            "KARNA": {
+                "id": "character:karna",
+                "type": "Character",
+                "name": "Karna",
+                "role": "tragic",
+                "nature": "loyal",
+            },
+        },
     },
     "LOCATIONS": {
         "AYODHYA": {
@@ -178,28 +275,28 @@ VEDIC_ONTOLOGY: Dict[str, Any] = {
             "type": "Location",
             "name": "Ayodhya",
             "sanskrit_name": "अयोध्या",
-            "significance": "Capital of Ram's kingdom"
+            "significance": "Capital of Ram's kingdom",
         },
         "KURUKSHETRA": {
             "id": "location:kurukshetra",
             "type": "Location",
             "name": "Kurukshetra",
             "sanskrit_name": "कुरुक्षेत्र",
-            "significance": "Battlefield of Mahabharata"
+            "significance": "Battlefield of Mahabharata",
         },
         "LANKA": {
             "id": "location:lanka",
             "type": "Location",
             "name": "Lanka",
             "sanskrit_name": "लंका",
-            "significance": "Island kingdom of Ravana"
+            "significance": "Island kingdom of Ravana",
         },
         "VRINDAVAN": {
             "id": "location:vrindavan",
             "type": "Location",
             "name": "Vrindavan",
             "sanskrit_name": "वृंदावन",
-            "significance": "Krishna's childhood home"
-        }
-    }
+            "significance": "Krishna's childhood home",
+        },
+    },
 }

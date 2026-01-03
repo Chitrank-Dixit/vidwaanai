@@ -87,6 +87,6 @@ class GraphRetriever:
                        labels(b) as target_type
                 LIMIT 20
                 """,
-                names=entity_names
+                names=entity_names,
             )
             return [record.data() for record in result]

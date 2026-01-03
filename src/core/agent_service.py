@@ -16,6 +16,7 @@ from src.graph.entity_extractor import EntityExtractor
 
 logger = logging.getLogger(__name__)
 
+
 class AgentService:
     """
     Core service for the Vidwaan Agent.
@@ -25,22 +26,21 @@ class AgentService:
     def __init__(self):
         self.db = DatabaseManager(settings.DATABASE_URL)
         self.embedder = VedaEmbedder()
-        
+
         # Initialize LLM
         if settings.llm_backend == "lmstudio":
             self.llm_client = LMStudioClient(
-                base_url=settings.lmstudio_base_url,
-                model_name=settings.lmstudio_model
+                base_url=settings.lmstudio_base_url, model_name=settings.lmstudio_model
             )
         else:
             self.llm_client = OpenAIClient(api_key=settings.OPENAI_API_KEY)
-            
+
         # Initialize Graph connection (using GraphBuilder for now for connection management)
         # Ideally we separate Builder (Write) from Querier (Read), but for MVP we use driver directly.
         self.graph_builder = GraphBuilder(
             uri=settings.NEO4J_URI,
             user=settings.NEO4J_USER,
-            password=settings.NEO4J_PASSWORD
+            password=settings.NEO4J_PASSWORD,
         )
         # We can extract entities from question too
         self.entity_extractor = EntityExtractor(self.llm_client)
@@ -51,18 +51,20 @@ class AgentService:
         """
         start_time = time.time()
         reasoning_trace = []
-        
+
         # 1. Embed Question
         q_time = time.time()
         try:
             q_emb = self.embedder.embed_text(question, is_query=True)
-            reasoning_trace.append({
-                "step": 1,
-                "action": "embed_question",
-                "input": question,
-                "output": f"Generated {len(q_emb)}d embedding",
-                "duration_ms": (time.time() - q_time) * 1000
-            })
+            reasoning_trace.append(
+                {
+                    "step": 1,
+                    "action": "embed_question",
+                    "input": question,
+                    "output": f"Generated {len(q_emb)}d embedding",
+                    "duration_ms": (time.time() - q_time) * 1000,
+                }
+            )
         except Exception as e:
             logger.error(f"Embedding failed: {e}")
             raise
@@ -74,16 +76,18 @@ class AgentService:
         # Let's assume we implement a direct search helper here or extend DB Manager.
         # For now, implementing ad-hoc query or using existing DB Manager method if available.
         # Checking db_manager methods... (I'll implement a raw query here for precision)
-        
+
         similar_docs = self._search_vector_db(q_emb, top_k=settings.RETRIEVAL_TOP_K)
-        
-        reasoning_trace.append({
-            "step": 2,
-            "action": "vector_search",
-            "input": "embedding",
-            "output": f"Found {len(similar_docs)} relevant docs",
-            "duration_ms": (time.time() - v_time) * 1000
-        })
+
+        reasoning_trace.append(
+            {
+                "step": 2,
+                "action": "vector_search",
+                "input": "embedding",
+                "output": f"Found {len(similar_docs)} relevant docs",
+                "duration_ms": (time.time() - v_time) * 1000,
+            }
+        )
 
         # 3. Graph Search (Optional/Hybrid)
         # Extract entities from question to find relevant graph nodes
@@ -91,15 +95,17 @@ class AgentService:
         # User plan says "Extract entities... Query graph".
         # Let's do a quick Keyword/Taxonomy search if possible, or skip for MVP speed.
         # Implemented simplified graph lookup for highly relevant terms.
-        
-        graph_context = []
+
+        # graph_context = []
         # g_time = time.time()
         # entities = self.entity_extractor.extract_from_text(question) ...
         # graph_context = self._query_graph(entities) ...
-        
+
         # 4. Build Context
-        context_str = "\n\n".join([f"Source ({d['title']}): {d['content']}" for d in similar_docs])
-        
+        context_str = "\n\n".join(
+            [f"Source ({d['title']}): {d['content']}" for d in similar_docs]
+        )
+
         # 5. LLM Answer
         llm_time = time.time()
         prompt = f"""
@@ -112,35 +118,38 @@ class AgentService:
         
         Answer (be concise and cite sources if possible):
         """
-        
+
         answer = self.llm_client.generate(prompt, max_tokens=1000)
-        
-        reasoning_trace.append({
-            "step": 3,
-            "action": "llm_generation",
-            "input": f"Context len: {len(context_str)}",
-            "output": f"Answer len: {len(answer)}",
-            "duration_ms": (time.time() - llm_time) * 1000
-        })
+
+        reasoning_trace.append(
+            {
+                "step": 3,
+                "action": "llm_generation",
+                "input": f"Context len: {len(context_str)}",
+                "output": f"Answer len: {len(answer)}",
+                "duration_ms": (time.time() - llm_time) * 1000,
+            }
+        )
 
         processing_time = (time.time() - start_time) * 1000
-        
+
         return {
             "answer": answer,
-            "confidence": 0.95, # Placeholder
+            "confidence": 0.95,  # Placeholder
             "sources": [
                 {
-                    "id": str(d['id']),
-                    "title": d['title'],
-                    "content": d['content'],
-                    "confidence": d['similarity'],
-                    "entity_type": "text"
-                } for d in similar_docs
+                    "id": str(d["id"]),
+                    "title": d["title"],
+                    "content": d["content"],
+                    "confidence": d["similarity"],
+                    "entity_type": "text",
+                }
+                for d in similar_docs
             ],
             "reasoning_trace": reasoning_trace,
             "session_id": session_id or "default",
-            "timestamp": time.time(), # API expects datetime, will convert in Pydantic
-            "processing_time_ms": processing_time
+            "timestamp": time.time(),  # API expects datetime, will convert in Pydantic
+            "processing_time_ms": processing_time,
         }
 
     def _search_vector_db(self, embedding: List[float], top_k: int = 5) -> List[Dict]:
@@ -166,18 +175,20 @@ class AgentService:
                 # But typically list is fine with modern adapters or we cast it.
                 # Let's stringify to be safe: '[0.1, ...]'
                 emb_str = str(embedding)
-                
+
                 cursor.execute(query, (emb_str, top_k))
                 rows = cursor.fetchall()
-                
+
                 for r in rows:
                     # r: id, ved_name, text, translation, distance
                     # Similarity = 1 - distance
                     sim = 1.0 - r[4]
-                    results.append({
-                        "id": r[0],
-                        "title": f"{r[1]} Mantra {r[0]}",
-                        "content": f"{r[2]}\nTranslation: {r[3] or ''}",
-                        "similarity": sim
-                    })
+                    results.append(
+                        {
+                            "id": r[0],
+                            "title": f"{r[1]} Mantra {r[0]}",
+                            "content": f"{r[2]}\nTranslation: {r[3] or ''}",
+                            "similarity": sim,
+                        }
+                    )
         return results

@@ -9,7 +9,7 @@ information (like entities and relations) and need to persist them as a graph.
 
 import json
 import logging
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 from neo4j import GraphDatabase
 from src.graph.schema import EntityType, RelationType
@@ -63,64 +63,68 @@ class GraphBuilder:
         clean_name = name.strip().replace(" ", "_").lower()
         return f"{entity_type}:{clean_name}"
 
-    def create_entity(self, name: str, entity_type: str, attributes: Dict[str, Any]) -> str:
+    def create_entity(
+        self, name: str, entity_type: str, attributes: Dict[str, Any]
+    ) -> str:
         """
         Generic method to create/merge an entity node.
-        
+
         Args:
             name: Display name (e.g. "Agni")
             entity_type: Must be a valid EntityType value (e.g. "Deity")
             attributes: Property dictionary
-            
+
         Returns:
             The generated ID of the node.
         """
         # Validate type
         if entity_type not in [e.value for e in EntityType]:
-             # Fallback or error? Let's default to Concept if unknown, or just warn.
-             logger.warning(f"Unknown entity type '{entity_type}', defaulting to Concept")
-             entity_type = EntityType.CONCEPT.value
+            # Fallback or error? Let's default to Concept if unknown, or just warn.
+            logger.warning(
+                f"Unknown entity type '{entity_type}', defaulting to Concept"
+            )
+            entity_type = EntityType.CONCEPT.value
 
         node_id = self._generate_id(entity_type, name)
         attributes = self._sanitize_attributes(attributes)
-        attributes['name'] = name
-        attributes['id'] = node_id
-        
+        attributes["name"] = name
+        attributes["id"] = node_id
+
         # We use a dynamic label. Neo4j drivers usually require label to be static in Cypher or injected carefully.
         # But we can use template string since we validated it against Enum.
-        
+
         query = f"""
         MERGE (n:`{entity_type}` {{id: $id}})
         SET n += $attributes
         """
-        
+
         with self.driver.session() as session:
             session.run(query, id=node_id, attributes=attributes)
             logger.debug(f"Merged {entity_type}: {name} ({node_id})")
-            
+
         return node_id
 
     def create_relationship(
         self, from_name: str, to_name: str, rel_type: str, attributes: Dict[str, Any]
     ) -> None:
         """
-        Creates a relationship. 
-        Note: We try to match nodes by Name first, because extraction might not know the Type beforehand 
+        Creates a relationship.
+        Note: We try to match nodes by Name first, because extraction might not know the Type beforehand
         to generate the ID.
         Or better: The extraction output should provide types for from/to if possible.
         But EntityExtractor output structure puts relationships separate from entities.
-        
-        Strategy: 
+
+        Strategy:
         1. Find any node with property name=$from_name.
         2. Find any node with property name=$to_name.
         3. Create rel.
         """
         attributes = self._sanitize_attributes(attributes)
-        
+
         # Basic validation
         if not from_name or not to_name:
             return
-            
+
         if rel_type not in [r.value for r in RelationType]:
             logger.warning(f"Unknown relation type '{rel_type}', using RELATED_TO")
             rel_type = RelationType.RELATED_TO.value
@@ -131,9 +135,11 @@ class GraphBuilder:
         MERGE (a)-[r:`{rel_type}`]->(b)
         SET r += $attributes
         """
-        
+
         with self.driver.session() as session:
-            session.run(query, from_name=from_name, to_name=to_name, attributes=attributes)
+            session.run(
+                query, from_name=from_name, to_name=to_name, attributes=attributes
+            )
             logger.debug(f"Merged Rel: {from_name} -> {to_name} ({rel_type})")
 
     def create_entities_batch(self, entities: list[dict]) -> None:
@@ -148,17 +154,17 @@ class GraphBuilder:
         # Group by type to use efficient parameterized queries
         by_type = {}
         for ent in entities:
-            etype = ent['type']
+            etype = ent["type"]
             if etype not in [e.value for e in EntityType]:
-                 etype = EntityType.CONCEPT.value
-            
+                etype = EntityType.CONCEPT.value
+
             if etype not in by_type:
                 by_type[etype] = []
-            
-            node_id = self._generate_id(etype, ent['name'])
-            attrs = self._sanitize_attributes(ent.get('attributes', {}))
-            attrs['name'] = ent['name']
-            attrs['id'] = node_id
+
+            node_id = self._generate_id(etype, ent["name"])
+            attrs = self._sanitize_attributes(ent.get("attributes", {}))
+            attrs["name"] = ent["name"]
+            attrs["id"] = node_id
             by_type[etype].append(attrs)
 
         with self.driver.session() as session:
@@ -183,35 +189,35 @@ class GraphBuilder:
         # Sanitize and prepare
         prepared = []
         for rel in relationships:
-            rtype = rel['type']
+            rtype = rel["type"]
             if rtype not in [r.value for r in RelationType]:
                 rtype = RelationType.RELATED_TO.value
-            
+
             cleaned = {
-                'from': rel['from'],
-                'to': rel['to'],
-                'type': rtype,
-                'props': self._sanitize_attributes(rel.get('attributes', {}))
+                "from": rel["from"],
+                "to": rel["to"],
+                "type": rtype,
+                "props": self._sanitize_attributes(rel.get("attributes", {})),
             }
-            if cleaned['from'] and cleaned['to']:
+            if cleaned["from"] and cleaned["to"]:
                 prepared.append(cleaned)
 
         if not prepared:
             return
-            
-        # We can't easily group by type for the UNWIND if the type is dynamic in the relationship itself 
+
+        # We can't easily group by type for the UNWIND if the type is dynamic in the relationship itself
         # unless we use APOC. Without APOC, we must group by relationship type.
-        
+
         by_type = {}
         for item in prepared:
-            rtype = item['type']
+            rtype = item["type"]
             if rtype not in by_type:
                 by_type[rtype] = []
             by_type[rtype].append(item)
-            
+
         with self.driver.session() as session:
             for rtype, batch in by_type.items():
-                # We match by NAME as per original strategy. 
+                # We match by NAME as per original strategy.
                 # Ideally matching by ID is safer but extraction gives names.
                 # Optimized query using UNWIND
                 query = f"""

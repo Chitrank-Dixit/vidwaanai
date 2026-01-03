@@ -6,6 +6,7 @@ from src.core.config import settings
 
 logger = logging.getLogger(__name__)
 
+
 class GraphManager:
     """Manages Neo4j graph database connections and operations."""
 
@@ -41,7 +42,9 @@ class GraphManager:
             self.driver.close()
             logger.info("Neo4j driver closed")
 
-    def execute_query(self, query: str, parameters: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    def execute_query(
+        self, query: str, parameters: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, Any]]:
         """Execute a Cypher query and return results as a list of dictionaries."""
         if not self.driver:
             raise Exception("Neo4j driver is not initialized")
@@ -58,7 +61,7 @@ class GraphManager:
         """Create constraints and indexes for the schema."""
         if not self.driver:
             raise Exception("Neo4j driver is not initialized")
-        
+
         # We will implement index creation logic here or in a separate setup script calling this
         # For now, just a placeholder or basic constraints
         pass

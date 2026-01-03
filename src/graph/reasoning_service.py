@@ -1,9 +1,10 @@
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 from src.graph.graph_manager import GraphManager
 from src.graph.schema import RelationType
 
 logger = logging.getLogger(__name__)
+
 
 class GraphReasoningService:
     """
@@ -21,12 +22,12 @@ class GraphReasoningService:
         # Check if entity exists
         query_node = "MATCH (n) WHERE n.id = $id RETURN n"
         result = self.gm.execute_query(query_node, {"id": entity_id})
-        
+
         if not result:
             return {}
-            
+
         entity = result[0]["n"]
-        
+
         # Determine neighbor query based on Depth
         # For Depth 1 (Immediate neighbors)
         query_neighbors = """
@@ -34,56 +35,58 @@ class GraphReasoningService:
         WHERE n.id = $id
         RETURN startNode(r) as source, r, endNode(r) as target
         """
-        # If depth > 1 is strictly required, path algorithms are better, 
+        # If depth > 1 is strictly required, path algorithms are better,
         # but for viewing details, 1-hop is standard.
-        
+
         rels_result = self.gm.execute_query(query_neighbors, {"id": entity_id})
-        
+
         outgoing = []
         incoming = []
-        
+
         for record in rels_result:
             source = record["source"]
             target = record["target"]
             rel = record["r"]
-            
+
             # Format manually
             rel_data = {
-                "id": rel.element_id, # or rel.id
+                "id": rel.element_id,  # or rel.id
                 "type": rel.type,
                 "properties": dict(rel.items()),
                 "source": dict(source.items()),
-                "target": dict(target.items())
+                "target": dict(target.items()),
             }
-            
+
             # Determine direction relative to central node
             if source["id"] == entity_id:
                 outgoing.append(rel_data)
             else:
                 incoming.append(rel_data)
-                
+
         return {
             "entity": dict(entity.items()),
             "outgoing": outgoing,
-            "incoming": incoming
+            "incoming": incoming,
         }
 
-    def find_shortest_path(self, start_id: str, end_id: str, max_hops: int = 5) -> Dict[str, Any]:
+    def find_shortest_path(
+        self, start_id: str, end_id: str, max_hops: int = 5
+    ) -> Dict[str, Any]:
         """Find Shortest Path between two nodes."""
         query = f"""
         MATCH (start {{id: $start_id}}), (end {{id: $end_id}})
         MATCH p = shortestPath((start)-[*..{max_hops}]-(end))
         RETURN p, length(p) as len
         """
-        
+
         result = self.gm.execute_query(query, {"start_id": start_id, "end_id": end_id})
-        
+
         if not result:
             return {"found": False, "path": []}
-            
+
         path = result[0]["p"]
         length = result[0]["len"]
-        
+
         # Path object in Neo4j python driver is complex to serialize directly
         # It contains Nodes and Relationships.
         # We need to serialize it.
@@ -91,19 +94,14 @@ class GraphReasoningService:
         rels = [
             {
                 "type": r.type,
-                "start": r.start_node["name"], # simplify for display
+                "start": r.start_node["name"],  # simplify for display
                 "end": r.end_node["name"],
-                "properties": dict(r.items())
+                "properties": dict(r.items()),
             }
             for r in path.relationships
         ]
-        
-        return {
-            "found": True,
-            "length": length,
-            "nodes": nodes,
-            "relationships": rels
-        }
+
+        return {"found": True, "length": length, "nodes": nodes, "relationships": rels}
 
     def search_entities(self, name_query: str, limit: int = 10) -> List[Dict[str, Any]]:
         """Fuzzy search for entities by name."""
@@ -115,23 +113,27 @@ class GraphReasoningService:
         """
         result = self.gm.execute_query(query, {"q": name_query, "limit": limit})
         return [dict(r["n"].items()) for r in result]
-        
+
     def reason_about_entity(self, entity_id: str, hops: int = 2) -> Dict[str, Any]:
         """
         Explore implications around an entity.
-        Finds nodes connected up to `hops` distance, 
+        Finds nodes connected up to `hops` distance,
         prioritizing causal relations (LEADS_TO, CAUSES, etc).
         """
         # We can filter mainly for implication-heavy relations
         implication_rels = [
-            RelationType.CAUSES.value, 
-            RelationType.LEADS_TO.value, 
-            RelationType.RESULTS_IN.value if hasattr(RelationType, 'RESULTS_IN') else "RESULTS_IN",
+            RelationType.CAUSES.value,
+            RelationType.LEADS_TO.value,
+            (
+                RelationType.RESULTS_IN.value
+                if hasattr(RelationType, "RESULTS_IN")
+                else "RESULTS_IN"
+            ),
             RelationType.MANIFESTS_AS.value,
-            RelationType.IS_A.value
+            RelationType.IS_A.value,
         ]
         rel_types_str = "|".join(implication_rels)
-        
+
         query = f"""
         MATCH (start {{id: $id}})
         MATCH (start)-[r:{rel_types_str}*1..{hops}]->(target)
@@ -141,26 +143,23 @@ class GraphReasoningService:
         # Note: variable length relationship return is a list of relationships in path
         # But here 'r' refers to the path collection? No, syntax is [r...].
         # Let's adjust query to be simpler: just get paths.
-        
+
         query = f"""
         MATCH p = (start {{id: $id}})-[:{rel_types_str}*1..{hops}]->(target)
         RETURN p
         LIMIT 20
         """
-        
+
         results = self.gm.execute_query(query, {"id": entity_id})
-        
+
         paths = []
         for rec in results:
             p = rec["p"]
             # Serialize
             path_str = " -> ".join([f"({n['name']})" for n in p.nodes])
             paths.append(path_str)
-            
-        return {
-            "entity_id": entity_id,
-            "implications": paths
-        }
+
+        return {"entity_id": entity_id, "implications": paths}
 
     def get_hierarchy(self, concept_id: str) -> Dict[str, Any]:
         """
@@ -177,12 +176,14 @@ class GraphReasoningService:
         MATCH (child)-[:IS_A|PART_OF]->(n {id: $id})
         RETURN child
         """
-        
-        parents = [dict(r["parent"].items()) for r in self.gm.execute_query(q_parents, {"id": concept_id})]
-        children = [dict(r["child"].items()) for r in self.gm.execute_query(q_children, {"id": concept_id})]
-        
-        return {
-            "concept_id": concept_id,
-            "parents": parents,
-            "children": children
-        }
+
+        parents = [
+            dict(r["parent"].items())
+            for r in self.gm.execute_query(q_parents, {"id": concept_id})
+        ]
+        children = [
+            dict(r["child"].items())
+            for r in self.gm.execute_query(q_children, {"id": concept_id})
+        ]
+
+        return {"concept_id": concept_id, "parents": parents, "children": children}

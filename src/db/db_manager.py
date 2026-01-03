@@ -282,10 +282,10 @@ class DatabaseManager:
         try:
             with self._get_connection() as conn:
                 with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-                    # Union both tables. 
+                    # Union both tables.
                     # Prefix ID to avoid collision and trace source.
                     # 'v:1' -> verses table id 1. 'm:1' -> mantras table id 1.
-                    
+
                     cursor.execute(
                         """
                         SELECT 

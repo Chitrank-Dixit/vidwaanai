@@ -54,15 +54,15 @@ def setup_database() -> None:
 
         # conn.commit()
 
-
         print("✓ Database initialized successfully!")
-        
+
         cursor.close()
         conn.close()
 
         # Run Veda Schema Setup
         print("Setting up Veda/Scripture Schema...")
         from scripts.setup_veda_schema import setup_schema
+
         setup_schema()
         print("✓ Veda/Scripture schema initialized!")
 

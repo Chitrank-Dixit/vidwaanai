@@ -1,6 +1,6 @@
 import json
 import logging
-from typing import Any, Dict, cast, List
+from typing import Any, Dict, cast
 
 from src.graph.schema import EntityType, RelationType
 
