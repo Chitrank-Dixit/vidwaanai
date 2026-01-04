@@ -97,7 +97,7 @@ async def health_check(service: AgentService = Depends(get_agent_service)) -> Di
     response_model=SessionResponse,
     summary="Create new conversation session",
 )
-async def create_session(request: SessionCreateRequest):
+async def create_session(request: SessionCreateRequest) -> SessionResponse:
     """Create a new session ID."""
     s_id = str(uuid.uuid4())
     return SessionResponse(

@@ -35,7 +35,8 @@ class OpenAIClient:
                 temperature=temperature,
             )
 
-            return str(response.choices[0].message.content.strip())
+            content = response.choices[0].message.content
+            return str(content.strip()) if content else ""
 
         except Exception as e:
             logger.error(f"Error generating response: {str(e)}")

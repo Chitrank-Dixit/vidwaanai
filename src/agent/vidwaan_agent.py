@@ -88,12 +88,12 @@ class VidwaanAI:
             self.hybrid_retriever = None
 
         # Veda Retrieval Setup
+        self.veda_retriever: Optional[VedaRetriever] = None
         try:
             self.veda_retriever = VedaRetriever(self.db)
             logger.info("Veda Retriever initialized")
         except Exception as e:
             logger.error(f"Failed to initialize Veda Retriever: {e}")
-            self.veda_retriever = None
 
         # Graph RAG setup
         self.enable_graph_rag = enable_graph_rag

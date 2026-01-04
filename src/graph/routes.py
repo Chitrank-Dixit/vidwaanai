@@ -1,3 +1,4 @@
+from typing import Any, Dict, List
 from fastapi import APIRouter, HTTPException, Depends
 
 from pydantic import BaseModel
@@ -9,7 +10,7 @@ router = APIRouter(prefix="/api/kg", tags=["Knowledge Graph"])
 
 
 # Dependency Injection
-def get_graph_manager():
+def get_graph_manager() -> Any:
     gm = GraphManager()
     try:
         yield gm
@@ -17,7 +18,7 @@ def get_graph_manager():
         gm.close()
 
 
-def get_reasoning_service(gm: GraphManager = Depends(get_graph_manager)):
+def get_reasoning_service(gm: GraphManager = Depends(get_graph_manager)) -> GraphReasoningService:
     return GraphReasoningService(gm)
 
 
@@ -33,7 +34,7 @@ async def get_entity(
     entity_id: str,
     depth: int = 1,
     service: GraphReasoningService = Depends(get_reasoning_service),
-):
+) -> Dict[str, Any]:
     """Get entity details and neighborhood."""
     result = service.get_entity_details(entity_id, depth)
     if not result:
@@ -46,7 +47,7 @@ async def search_entities(
     q: str,
     limit: int = 10,
     service: GraphReasoningService = Depends(get_reasoning_service),
-):
+) -> List[Dict[str, Any]]:
     """Search entities by name."""
     if not q:
         raise HTTPException(status_code=400, detail="Query string 'q' is required")
@@ -59,7 +60,7 @@ async def find_path(
     end_id: str,
     max_depth: int = 5,
     service: GraphReasoningService = Depends(get_reasoning_service),
-):
+) -> Dict[str, Any]:
     """Find shortest path between two entities."""
     return service.find_shortest_path(start_id, end_id, max_depth)
 
@@ -68,7 +69,7 @@ async def find_path(
 async def reason_about_entity(
     request: ReasonRequest,
     service: GraphReasoningService = Depends(get_reasoning_service),
-):
+) -> Dict[str, Any]:
     """Multi-hop reasoning about an entity."""
     return service.reason_about_entity(request.entity_id, request.hops)
 
@@ -76,6 +77,6 @@ async def reason_about_entity(
 @router.get("/hierarchy/{concept_id}")
 async def get_hierarchy(
     concept_id: str, service: GraphReasoningService = Depends(get_reasoning_service)
-):
+) -> Dict[str, Any]:
     """Get concept hierarchy (parents/children)."""
     return service.get_hierarchy(concept_id)

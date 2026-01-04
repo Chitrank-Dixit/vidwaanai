@@ -23,7 +23,7 @@ class AgentService:
     Orchestrates the RAG pipeline: Query -> Vector DB -> Graph DB -> LLM -> Answer.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.db = DatabaseManager(settings.DATABASE_URL)
         self.embedder = VedaEmbedder()
 
@@ -33,7 +33,10 @@ class AgentService:
                 base_url=settings.lmstudio_base_url, model_name=settings.lmstudio_model
             )
         else:
-            self.llm_client = OpenAIClient(api_key=settings.OPENAI_API_KEY)
+            api_key = settings.OPENAI_API_KEY
+            if not api_key:
+                raise ValueError("OPENAI_API_KEY is not set")
+            self.llm_client = OpenAIClient(api_key=api_key)
 
         # Initialize Graph connection (using GraphBuilder for now for connection management)
         # Ideally we separate Builder (Write) from Querier (Read), but for MVP we use driver directly.

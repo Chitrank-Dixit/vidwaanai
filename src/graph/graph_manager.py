@@ -12,6 +12,7 @@ class GraphManager:
 
     def __init__(self) -> None:
         """Initialize graph manager with settings."""
+        self.uri = settings.NEO4J_URI
         self.user = settings.NEO4J_USER
         self.password = settings.NEO4J_PASSWORD
         self.driver: Optional[Driver] = None
