@@ -50,7 +50,7 @@ services:
         echo 'Waiting for database...' &&
         uv pip list &&
         python scripts/wait-for-postgres.py &&
-        uvicorn src.api:app --host 0.0.0.0 --port 8000
+        uvicorn src.api.main:app --host 0.0.0.0 --port 8000
       "
 
   # ============================================================================
