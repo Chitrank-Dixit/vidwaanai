@@ -63,9 +63,13 @@ def mock_veda_retriever(mock_db_manager: MagicMock) -> MagicMock:
 def init_test_db():
     """Initialize test database schema (both generic and vedic) for all tests."""
     from src.db.db_manager import DatabaseManager
+
     # Use generic database URL for testing if not set
-    db_url = os.getenv("DATABASE_URL", "postgresql://vidwaan_user:vidwaan_password@localhost:5432/vidwaan_test")
-    
+    db_url = os.getenv(
+        "DATABASE_URL",
+        "postgresql://vidwaan_user:vidwaan_password@localhost:5432/vidwaan_test",
+    )
+
     # Skip if using mock DB in unit tests (checked by connection attempt or env)
     try:
         db = DatabaseManager(db_url)
@@ -199,7 +203,6 @@ def init_test_db():
                 conn.commit()
     except Exception as e:
         print(f"Skipping DB init (likely unit test env): {e}")
-
 
 
 @pytest.fixture
