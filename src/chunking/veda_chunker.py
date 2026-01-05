@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from src.db.db_manager import DatabaseManager
 
 
@@ -18,7 +18,7 @@ class VedaChunker:
         if not mantra:
             return []
 
-        chunks = []
+        chunks: List[Dict[str, Any]] = []
 
         # 1. Mantra-level chunk (Small, specific)
         # Content: The mantra text itself.
@@ -71,7 +71,7 @@ class VedaChunker:
 
         return chunks
 
-    def _get_mantra_details(self, mantra_id: int) -> Dict:
+    def _get_mantra_details(self, mantra_id: int) -> Optional[Dict[str, Any]]:
         """Fetch mantra with joins."""
         with self.db._get_connection() as conn:
             with conn.cursor() as cursor:

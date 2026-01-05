@@ -278,25 +278,44 @@ class DatabaseManager:
             logger.error(f"Error logging query: {str(e)}")
 
     def get_all_verses(self) -> List[Dict[str, Any]]:
-        """Get all verses from database."""
+        """Get all verses from database (both generic verses and Veda mantras)."""
         try:
             with self._get_connection() as conn:
                 with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+                    # Union both tables.
+                    # Prefix ID to avoid collision and trace source.
+                    # 'v:1' -> verses table id 1. 'm:1' -> mantras table id 1.
+
                     cursor.execute(
                         """
-                        SELECT v.id, v.verse_text as text, v.translation_en as translation, 
-                               s.name as scripture_name, v.chapter_number, v.verse_number
+                        SELECT 
+                            'v:' || v.id::text as id, 
+                            v.verse_text as text, 
+                            v.translation_en as translation, 
+                            s.name as scripture_name, 
+                            v.chapter_number, 
+                            v.verse_number
                         FROM verses v
                         JOIN scriptures s ON v.scripture_id = s.id
-                        ORDER BY s.name, v.chapter_number, v.verse_number
-                    """
+                        
+                        UNION ALL
+                        
+                        SELECT 
+                            'm:' || m.id::text as id, 
+                            m.text_hindi as text, 
+                            m.translation_en as translation,
+                            vd.name as scripture_name, 
+                            COALESCE(md.mandala_number, 0) as chapter_number, 
+                            m.mantra_number as verse_number
+                        FROM mantras m
+                        JOIN vedas vd ON m.ved_id = vd.id
+                        LEFT JOIN mandalas md ON m.mandala_id = md.id
+                        ORDER BY scripture_name, chapter_number, verse_number
+                        """
                     )
 
                     rows = cursor.fetchall()
                     return [dict(row) for row in rows]
-        except Exception as e:
-            logger.error(f"Error getting all verses: {str(e)}")
-            return []
         except Exception as e:
             logger.error(f"Error getting all verses: {str(e)}")
             return []

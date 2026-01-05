@@ -10,7 +10,9 @@
 	docker-test-unit docker-test-functional docker-test-integration docker-test-e2e docker-test-all \
 	docker-lint docker-format docker-check docker-security docker-lint-all \
 	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
-	mcp-build mcp-up mcp-down mcp-logs mcp-test mcp-int
+	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
+	mcp-build mcp-up mcp-down mcp-logs mcp-test mcp-int \
+	agent-build agent-up agent-down agent-logs
 
 # ———- Configuration ———-
 # Colors
@@ -77,7 +79,9 @@ docker-workflow-quick: docker-test-unit docker-report
 	@echo "$(GREEN)✓ Quick workflow completed!$(RESET)"
 	@echo
 	@echo "$(CYAN)Knowledge Graph:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker docker-graph-setup$(RESET)  Setup graph schema"
 	@echo "  $(GREEN)make -f Makefile-docker docker-graph-build$(RESET)  Build knowledge graph"
+	@echo "  $(GREEN)make -f Makefile-docker docker-graph-verify$(RESET) Verify graph content"
 	@echo
 	@echo "$(CYAN)Testing:$(RESET)"
 	@echo "  $(GREEN)make -f Makefile-docker docker-test-unit$(RESET)        Run unit tests"
@@ -106,7 +110,14 @@ docker-workflow-quick: docker-test-unit docker-report
 	@echo "  $(GREEN)make -f Makefile-docker mcp-down$(RESET)        Stop MCP services"
 	@echo "  $(GREEN)make -f Makefile-docker mcp-logs$(RESET)        View logs"
 	@echo "  $(GREEN)make -f Makefile-docker mcp-test$(RESET)        Run MCP unit tests"
+	@echo "  $(GREEN)make -f Makefile-docker mcp-test$(RESET)        Run MCP unit tests"
 	@echo "  $(GREEN)make -f Makefile-docker mcp-int$(RESET)         Run MCP integration tests"
+	@echo
+	@echo "$(CYAN)Agent API:$(RESET)"
+	@echo "  $(GREEN)make -f Makefile-docker agent-build$(RESET)     Build Agent API"
+	@echo "  $(GREEN)make -f Makefile-docker agent-up$(RESET)        Start Agent API"
+	@echo "  $(GREEN)make -f Makefile-docker agent-down$(RESET)      Stop Agent API"
+	@echo "  $(GREEN)make -f Makefile-docker agent-logs$(RESET)      View Agent API logs"
 	@echo
 	@echo "$(CYAN)VARIABLES:$(RESET)"
 	@echo "  $(GREEN)L=$(L)         Language code (e.g., hi, bho)"
@@ -151,6 +162,16 @@ docker-graph-build:
 	@echo "$(YELLOW)Building knowledge graph...$(RESET)"
 	@$(COMPOSE_FULL) exec app uv run python scripts/build_knowledge_graph.py
 	@echo "$(GREEN)✓ Knowledge graph built!$(RESET)"
+
+docker-graph-setup:
+	@echo "$(YELLOW)Setting up graph schema...$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python src/graph/setup_graph.py
+	@echo "$(GREEN)✓ Graph schema configured!$(RESET)"
+
+docker-graph-verify:
+	@echo "$(YELLOW)Verifying graph content...$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python scripts/verify_graph.py
+
 
 # Generate & Test
 docker-generate:
@@ -261,7 +282,25 @@ mcp-test:
 
 mcp-int:
 	@echo "$(YELLOW)Running MCP integration tests...$(RESET)"
+	@echo "$(YELLOW)Running MCP integration tests...$(RESET)"
 	@$(COMPOSE_MCP) run --rm mcp-server pytest tests/mcp/integration/
+
+# ———- Agent API Commands ———-
+agent-build:
+	@echo "$(YELLOW)Building Agent API container...$(RESET)"
+	@$(COMPOSE_FULL) build agent-api
+
+agent-up:
+	@echo "$(YELLOW)Starting Agent API...$(RESET)"
+	@$(COMPOSE_FULL) up -d agent-api
+
+agent-down:
+	@echo "$(YELLOW)Stopping Agent API...$(RESET)"
+	@$(COMPOSE_FULL) stop agent-api
+
+agent-logs:
+	@echo "$(YELLOW)Tailing Agent API logs...$(RESET)"
+	@$(COMPOSE_FULL) logs -f agent-api
 
 # ———- Information ———-
 show-languages:

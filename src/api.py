@@ -5,8 +5,11 @@ from pydantic import BaseModel
 
 from src.agent.vidwaan_agent import VidwaanAI
 from src.core.config import settings
+from src.graph.routes import router as graph_router
 
 app = FastAPI(title="VidwaanAI API", description="API for VidwaanAI Agent")
+
+app.include_router(graph_router)
 
 
 # Dependency to get agent

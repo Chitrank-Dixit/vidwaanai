@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 import logging
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
@@ -17,7 +17,7 @@ class VedaRetriever:
 
     def search(
         self, query: str, language: str = "hi", top_k: int = 5, threshold: float = 0.5
-    ) -> List[Dict]:
+    ) -> List[Dict[str, Any]]:
         """
         Search for mantras similar to query.
         """

@@ -1,5 +1,5 @@
 from sentence_transformers import SentenceTransformer
-from typing import List, Dict
+from typing import List, Dict, Any
 import logging
 
 logger = logging.getLogger(__name__)
@@ -12,7 +12,7 @@ class VedaEmbedder:
         """Initialize with multilingual model (E5-large)."""
         logger.info(f"Loading embedding model: {model_name}...")
         try:
-            self.model = SentenceTransformer(model_name)
+            self.model: Any = SentenceTransformer(model_name)
             self.dimension = 1024  # E5-large dim
             logger.info(f"Model loaded. Dimension: {self.dimension}")
         except Exception as e:
@@ -30,7 +30,9 @@ class VedaEmbedder:
         embedding = self.model.encode(
             prefix + text, show_progress_bar=False, normalize_embeddings=True
         )
-        return embedding.tolist()
+        from typing import cast
+
+        return cast(List[float], embedding.tolist())
 
     def embed_batch(
         self, texts: List[str], is_query: bool = False
@@ -48,9 +50,12 @@ class VedaEmbedder:
             batch_size=32,
             normalize_embeddings=True,
         )
-        return embeddings.tolist()
+        # Cast for mypy as numpy tolist returns generic List or Any
+        from typing import cast
 
-    def embed_context(self, mantras: List[Dict]) -> List[Dict]:
+        return cast(List[List[float]], embeddings.tolist())
+
+    def embed_context(self, mantras: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Embed mantras with context (Mandala, Sukta info)."""
         texts = []
         for mantra in mantras:

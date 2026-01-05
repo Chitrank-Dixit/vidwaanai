@@ -1,12 +1,17 @@
-from typing import List, Dict
+from typing import List, Dict, Optional, Any
 import logging
 
 try:
     from pdf2image import convert_from_path
     import pytesseract
 except ImportError:
-    convert_from_path = None
+    convert_from_path = None  # type: ignore
     pytesseract = None
+
+# Handle optional imports for mypy
+if convert_from_path is None:
+    pass  # Allow mypy to see it can be None
+
 
 logger = logging.getLogger(__name__)
 
@@ -14,18 +19,18 @@ logger = logging.getLogger(__name__)
 class OCRHandler:
     """Handle OCR for scanned Veda PDFs."""
 
-    def __init__(self):
-        if not convert_from_path or not pytesseract:
+    def __init__(self) -> None:
+        if convert_from_path is None or pytesseract is None:
             logger.warning("OCR dependencies not installed (pdf2image, pytesseract).")
 
     def extract_text_with_ocr(
-        self, pdf_path: str, lang: str = "hin", max_pages: int = None
-    ) -> List[Dict]:
+        self, pdf_path: str, lang: str = "hin", max_pages: Optional[int] = None
+    ) -> List[Dict[str, Any]]:
         """Convert PDF pages to images and extract text using OCR (batched)."""
-        if not convert_from_path:
+        if convert_from_path is None:
             raise ImportError("pdf2image not installed")
 
-        results = []
+        results: List[Dict[str, Any]] = []
         try:
             # Process in batches of 10 pages to avoid OOM
             # We don't know total pages easily without reading, so we iterate until no images returned?

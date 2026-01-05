@@ -1,5 +1,5 @@
 from pypdf import PdfReader
-from typing import List, Dict
+from typing import List, Dict, Optional, Any
 import logging
 
 logger = logging.getLogger(__name__)
@@ -18,16 +18,24 @@ class PdfExtractor:
                 pages.append(text)
         return pages
 
-    def extract_with_metadata(self, pdf_path: str, max_pages: int = None) -> List[Dict]:
+    def extract_with_metadata(
+        self, pdf_path: str, max_pages: Optional[int] = None
+    ) -> List[Dict[str, Any]]:
         """Extract text with page metadata. Fallback to OCR if empty."""
         try:
             reader = PdfReader(pdf_path)
-            results = []
+            results: List[Dict[str, Any]] = []
             total_text_len = 0
+
+            total_pages = len(reader.pages)
+            logger.info(f"Extracting {total_pages} pages from {pdf_path}...")
 
             for page_num, page in enumerate(reader.pages):
                 if max_pages and page_num >= max_pages:
                     break
+
+                if (page_num + 1) % 10 == 0:
+                    logger.info(f"  -> Extracting page {page_num + 1}/{total_pages}...")
 
                 text = page.extract_text() or ""
                 total_text_len += len(text.strip())

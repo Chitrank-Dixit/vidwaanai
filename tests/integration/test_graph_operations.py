@@ -33,11 +33,13 @@ class TestGraphOperations:
         name = "Arjuna"
         attributes = {"role": "Warrior", "description": "Pandava prince"}
 
-        graph_builder.create_person(name, attributes)
+        graph_builder.create_entity(name, "Character", attributes)
 
         # Verify
         with graph_builder.driver.session() as session:
-            result = session.run("MATCH (p:Person {name: $name}) RETURN p", name=name)
+            result = session.run(
+                "MATCH (p:Character {name: $name}) RETURN p", name=name
+            )
             record = result.single()
             assert record is not None
             node = record["p"]
@@ -47,19 +49,19 @@ class TestGraphOperations:
     def test_create_relationship(self, graph_builder: GraphBuilder) -> None:
         """Test creating relationship between nodes."""
         # Create nodes first
-        graph_builder.create_person("Krishna", {"role": "God"})
-        graph_builder.create_person("Arjuna", {"role": "Warrior"})
+        graph_builder.create_entity("Krishna", "Character", {"role": "God"})
+        graph_builder.create_entity("Arjuna", "Character", {"role": "Warrior"})
 
         # Create relationship
         graph_builder.create_relationship(
-            "Krishna", "Arjuna", "TEACHES", {"context": "Gita"}
+            "Krishna", "Arjuna", "TEACHER_OF", {"context": "Gita"}
         )
 
         # Verify
         with graph_builder.driver.session() as session:
             result = session.run(
                 """
-                MATCH (a:Person {name: 'Krishna'})-[r:TEACHES]->(b:Person {name: 'Arjuna'})
+                MATCH (a:Character {name: 'Krishna'})-[r:TEACHER_OF]->(b:Character {name: 'Arjuna'})
                 RETURN r
                 """
             )

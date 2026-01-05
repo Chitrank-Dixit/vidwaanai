@@ -40,7 +40,7 @@ export ANSIBLE_CONFIG="$ANSIBLE_DIR/ansible.cfg"
 cd "$ANSIBLE_DIR"
 
 # Build ansible-playbook command
-ANSIBLE_CMD="ansible-playbook"
+ANSIBLE_CMD="uv run ansible-playbook"
 ANSIBLE_CMD="$ANSIBLE_CMD -i $ANSIBLE_DIR/inventory/hosts.yml"
 ANSIBLE_CMD="$ANSIBLE_CMD $ANSIBLE_DIR/playbooks/$PLAYBOOK"
 

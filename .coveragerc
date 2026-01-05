@@ -1,0 +1,19 @@
+[run]
+branch = True
+source = src
+omit =
+    src/main.py
+    src/api/main.py
+    */__init__.py
+    */mocks/*
+    tests/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self.debug:
+    if settings.DEBUG
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:

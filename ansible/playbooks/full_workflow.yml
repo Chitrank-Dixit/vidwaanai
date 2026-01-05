@@ -44,6 +44,15 @@
         tasks_from: first_run
       tags: setup
     
+    - name: Run Ingestion
+      ansible.builtin.include_role:
+        name: ingestion
+        tasks_from: main
+      tags: 
+        - ingestion
+        - vectorize
+        - build_graph
+
     - name: Generate prompts
       ansible.builtin.include_role:
         name: docker_analysis

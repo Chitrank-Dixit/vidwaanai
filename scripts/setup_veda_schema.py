@@ -22,9 +22,10 @@ def setup_schema():
                 # But for now, since I am re-running full ingestion, I SHOULD clear data.
                 # Let's add a flag or just do it since user asked for "full run".
                 # Actually, duplicate data is bad.
-                logger.info("Clearing existing Veda data...")
+                # Drop tables if they exist to ensure clean slate
+                logger.info("Dropping existing tables to ensure clean schema...")
                 cursor.execute(
-                    "TRUNCATE veda_embeddings, mantras, suktas, mandalas, vedas RESTART IDENTITY CASCADE;"
+                    "DROP TABLE IF EXISTS veda_embeddings, mantras, suktas, mandalas, vedas CASCADE;"
                 )
 
                 logger.info("Creating tables...")
@@ -32,8 +33,8 @@ def setup_schema():
                     """
                     CREATE TABLE IF NOT EXISTS vedas (
                         id SERIAL PRIMARY KEY,
-                        name VARCHAR(50),
-                        code VARCHAR(10),
+                        name VARCHAR(255),
+                        code VARCHAR(255),
                         language VARCHAR(10),
                         total_mantras INT,
                         description TEXT,

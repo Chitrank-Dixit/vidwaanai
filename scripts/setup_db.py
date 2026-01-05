@@ -6,6 +6,9 @@ import sys
 import psycopg2
 from dotenv import load_dotenv
 
+# Add project root to path
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
 load_dotenv()
 
 
@@ -55,6 +58,13 @@ def setup_database() -> None:
 
         cursor.close()
         conn.close()
+
+        # Run Veda Schema Setup
+        print("Setting up Veda/Scripture Schema...")
+        from scripts.setup_veda_schema import setup_schema
+
+        setup_schema()
+        print("✓ Veda/Scripture schema initialized!")
 
     except Exception as e:
         print(f"ERROR: {str(e)}")
