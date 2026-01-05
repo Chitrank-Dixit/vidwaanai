@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Any, Callable
+from typing import List, Dict, Optional, Any
 import logging
 
 try:

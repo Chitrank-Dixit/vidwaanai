@@ -2,7 +2,8 @@ import pytest
 from typing import Generator
 from unittest.mock import MagicMock, patch
 from fastapi.testclient import TestClient
-from src.api import app, get_agent
+from src.api.main import app
+from src.api.routes import get_agent_service
 
 
 class TestAPIEndpoints:
@@ -14,73 +15,75 @@ class TestAPIEndpoints:
     def mock_agent(self) -> Generator[MagicMock, None, None]:
         # Override the get_agent dependency
         mock_agent_instance = MagicMock()
-        app.dependency_overrides[get_agent] = lambda: mock_agent_instance
+        app.dependency_overrides[get_agent_service] = lambda: mock_agent_instance
         yield mock_agent_instance
         app.dependency_overrides = {}
 
     def test_health_check(self, client: TestClient) -> None:
-        response = client.get("/health")
+        response = client.get("/api/v1/agent/health")
         assert response.status_code == 200
-        assert response.json() == {"status": "healthy"}
+        assert response.json()["status"] == "healthy"
 
     def test_query_endpoint(self, client: TestClient, mock_agent: MagicMock) -> None:
         # Mock agent response
-        mock_agent.query.return_value = {
+        mock_agent.process_query.return_value = {
             "answer": "Test answer",
-            "retrieved_verses": [],
-            "language": "en",
-            "confidence": {"score": 100, "warning": None},
-            "timestamp": "2024-01-01T00:00:00",
+            "confidence": 100.0,
+            "sources": [],
+            "reasoning_trace": [],
+            "session_id": "test-session",
+            "processing_time_ms": 100.0,
+            "timestamp": 1704067200.0,  # 2024-01-01 timestamp
         }
 
-        payload = {"text": "What is life?", "language": "en"}
+        payload = {"question": "What is life?", "language": "en"}
 
-        response = client.post("/query", json=payload)
+        response = client.post("/api/v1/agent/query", json=payload)
 
         assert response.status_code == 200
         data = response.json()
         assert data["answer"] == "Test answer"
-        assert data["language"] == "en"
 
-        mock_agent.query.assert_called_once()
-        args = mock_agent.query.call_args[1]
+        mock_agent.process_query.assert_called_once()
+        args = mock_agent.process_query.call_args[1]
         assert args["question"] == "What is life?"
-        assert args["language"] == "en"
 
     def test_query_endpoint_missing_field(
         self, client: TestClient, mock_agent: MagicMock
     ) -> None:
         payload = {
             "language": "en"
-            # Missing text
+            # Missing question
         }
-        response = client.post("/query", json=payload)
+        response = client.post("/api/v1/agent/query", json=payload)
         assert response.status_code == 422  # Validation error
 
     def test_query_endpoint_error(
         self, client: TestClient, mock_agent: MagicMock
     ) -> None:
-        mock_agent.query.side_effect = Exception("Internal error")
+        mock_agent.process_query.side_effect = Exception("Internal error")
 
-        payload = {"text": "Error query"}
+        payload = {"question": "Error query"}
 
-        response = client.post("/query", json=payload)
+        response = client.post("/api/v1/agent/query", json=payload)
         assert response.status_code == 500
         assert "Internal error" in response.json()["detail"]
 
     def test_get_agent_dependency(self) -> None:
         """Test the get_agent dependency function directly"""
-        with patch("src.api.VidwaanAI") as MockVidwaanAI:
+        with patch("src.api.routes.AgentService") as MockAgentService:
             # Clear app.state.agent if it exists
-            if hasattr(app.state, "agent"):
-                del app.state.agent
+            # Note: get_agent_service uses lru_cache, not app.state
+            
+            # We need to clear lru_cache for the test to verify instantiation
+            get_agent_service.cache_clear()
 
             # First call should initialize agent
-            agent1 = get_agent()
+            agent1 = get_agent_service()
             assert agent1 is not None
-            MockVidwaanAI.assert_called_once()
+            MockAgentService.assert_called_once()
 
             # Second call should return cached agent
-            agent2 = get_agent()
+            agent2 = get_agent_service()
             assert agent2 is agent1
-            MockVidwaanAI.assert_called_once()  # Should still be called only once
+            MockAgentService.assert_called_once()  # Should still be called only once
