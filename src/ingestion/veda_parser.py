@@ -14,7 +14,9 @@ class VedaParser:
         "mantra": r"मंत्र\s*[:=]?\s*(\d+)",  # Mantra number
     }
 
-    def parse_vedas(self, pages: List[Dict[str, Any]], ved_code: str) -> List[Dict[str, Any]]:
+    def parse_vedas(
+        self, pages: List[Dict[str, Any]], ved_code: str
+    ) -> List[Dict[str, Any]]:
         """Parse pages into mantra structure."""
         mantras = []
         current_mandala = 0

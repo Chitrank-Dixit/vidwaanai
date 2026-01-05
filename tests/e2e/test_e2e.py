@@ -59,6 +59,8 @@ class TestE2E:
             "timestamp": 1704067200.0,
         }
 
-        resp = client.post("/api/v1/agent/query", json={"question": "Query HI", "language": "hi"})
+        resp = client.post(
+            "/api/v1/agent/query", json={"question": "Query HI", "language": "hi"}
+        )
         assert resp.status_code == 200
         assert resp.json()["answer"] == "Answer HI"

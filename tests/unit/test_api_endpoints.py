@@ -74,7 +74,7 @@ class TestAPIEndpoints:
         with patch("src.api.routes.AgentService") as MockAgentService:
             # Clear app.state.agent if it exists
             # Note: get_agent_service uses lru_cache, not app.state
-            
+
             # We need to clear lru_cache for the test to verify instantiation
             get_agent_service.cache_clear()
 

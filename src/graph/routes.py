@@ -18,7 +18,9 @@ def get_graph_manager() -> Any:
         gm.close()
 
 
-def get_reasoning_service(gm: GraphManager = Depends(get_graph_manager)) -> GraphReasoningService:
+def get_reasoning_service(
+    gm: GraphManager = Depends(get_graph_manager),
+) -> GraphReasoningService:
     return GraphReasoningService(gm)
 
 

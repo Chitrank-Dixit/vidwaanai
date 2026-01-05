@@ -76,7 +76,9 @@ async def query_agent(
     summary="Check agent health",
     description="Verify that all components are operational",
 )
-async def health_check(service: AgentService = Depends(get_agent_service)) -> Dict[str, Any]:
+async def health_check(
+    service: AgentService = Depends(get_agent_service),
+) -> Dict[str, Any]:
     """
     Health check endpoint.
     """

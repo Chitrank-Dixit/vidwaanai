@@ -37,7 +37,9 @@ class TestGraphOperations:
 
         # Verify
         with graph_builder.driver.session() as session:
-            result = session.run("MATCH (p:Character {name: $name}) RETURN p", name=name)
+            result = session.run(
+                "MATCH (p:Character {name: $name}) RETURN p", name=name
+            )
             record = result.single()
             assert record is not None
             node = record["p"]

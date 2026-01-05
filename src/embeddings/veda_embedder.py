@@ -31,6 +31,7 @@ class VedaEmbedder:
             prefix + text, show_progress_bar=False, normalize_embeddings=True
         )
         from typing import cast
+
         return cast(List[float], embedding.tolist())
 
     def embed_batch(
@@ -51,6 +52,7 @@ class VedaEmbedder:
         )
         # Cast for mypy as numpy tolist returns generic List or Any
         from typing import cast
+
         return cast(List[List[float]], embeddings.tolist())
 
     def embed_context(self, mantras: List[Dict[str, Any]]) -> List[Dict[str, Any]]:

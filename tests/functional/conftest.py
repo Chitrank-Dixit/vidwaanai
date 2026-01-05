@@ -2,6 +2,7 @@ import pytest
 from src.db.db_manager import DatabaseManager
 from src.core.config import settings
 
+
 @pytest.fixture(scope="session", autouse=True)
 def init_test_db():
     """Initialize test database schema (both generic and vedic)."""
@@ -9,15 +10,18 @@ def init_test_db():
     with db._get_connection() as conn:
         with conn.cursor() as cursor:
             # Drop all tables to ensure clean state
-            cursor.execute("""
+            cursor.execute(
+                """
                 DROP TABLE IF EXISTS 
                     veda_embeddings, mantras, suktas, mandalas, vedas,
                     scripture_embeddings, verses, scriptures, user_queries, embeddings
                 CASCADE;
-            """)
-            
+            """
+            )
+
             # 1. Create Generic Schema (from database/init.sql)
-            cursor.execute("""
+            cursor.execute(
+                """
                 CREATE EXTENSION IF NOT EXISTS vector;
 
                 CREATE TABLE IF NOT EXISTS scriptures (
@@ -61,10 +65,12 @@ def init_test_db():
                     confidence_score FLOAT,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 );
-            """)
+            """
+            )
 
             # 2. Create Vedic Schema (from scripts/setup_veda_schema.py)
-            cursor.execute("""
+            cursor.execute(
+                """
                 CREATE TABLE IF NOT EXISTS vedas (
                     id SERIAL PRIMARY KEY,
                     name VARCHAR(255),
@@ -116,6 +122,7 @@ def init_test_db():
                     chunk_type VARCHAR(20),
                     created_at TIMESTAMP DEFAULT NOW()
                 );
-            """)
-            
+            """
+            )
+
             conn.commit()

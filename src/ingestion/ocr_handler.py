@@ -13,7 +13,6 @@ if convert_from_path is None:
     pass  # Allow mypy to see it can be None
 
 
-
 logger = logging.getLogger(__name__)
 
 

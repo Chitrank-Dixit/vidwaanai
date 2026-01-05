@@ -48,7 +48,9 @@ class AgentService:
         # We can extract entities from question too
         self.entity_extractor = EntityExtractor(self.llm_client)
 
-    def process_query(self, question: str, session_id: Optional[str] = None) -> Dict[str, Any]:
+    def process_query(
+        self, question: str, session_id: Optional[str] = None
+    ) -> Dict[str, Any]:
         """
         Main RAG pipeline entry point.
         """
@@ -155,7 +157,9 @@ class AgentService:
             "processing_time_ms": processing_time,
         }
 
-    def _search_vector_db(self, embedding: List[float], top_k: int = 5) -> List[Dict[str, Any]]:
+    def _search_vector_db(
+        self, embedding: List[float], top_k: int = 5
+    ) -> List[Dict[str, Any]]:
         """Search mantras by vector similarity."""
         results = []
         with self.db._get_connection() as conn:

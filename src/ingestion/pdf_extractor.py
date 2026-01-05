@@ -18,7 +18,9 @@ class PdfExtractor:
                 pages.append(text)
         return pages
 
-    def extract_with_metadata(self, pdf_path: str, max_pages: Optional[int] = None) -> List[Dict[str, Any]]:
+    def extract_with_metadata(
+        self, pdf_path: str, max_pages: Optional[int] = None
+    ) -> List[Dict[str, Any]]:
         """Extract text with page metadata. Fallback to OCR if empty."""
         try:
             reader = PdfReader(pdf_path)

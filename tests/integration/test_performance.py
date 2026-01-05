@@ -19,7 +19,9 @@ class TestPerformance:
             yield mock_db, mock_llm, mock_multi, mock_veda
 
     @pytest.fixture
-    def agent(self, mock_deps: tuple[MagicMock, MagicMock, MagicMock, MagicMock]) -> VidwaanAI:
+    def agent(
+        self, mock_deps: tuple[MagicMock, MagicMock, MagicMock, MagicMock]
+    ) -> VidwaanAI:
         mock_db, mock_llm, mock_multi, mock_veda = mock_deps
         mock_db.return_value.get_all_verses.return_value = [
             {"text": "Dummy verse", "id": 1}

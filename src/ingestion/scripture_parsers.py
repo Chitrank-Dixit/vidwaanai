@@ -157,6 +157,7 @@ def get_parser(scripture_type: str) -> BaseScriptureParser:
         # We need to adapt VedaParser to BaseScriptureParser interface or cast it
         # Since VedaParser is different, let's allow return type Union or cast
         from typing import cast
+
         # For now, suppressing type error or assuming VedaParser will be refactored to inherit
         # cast(BaseScriptureParser, VedaParser())
         return cast(BaseScriptureParser, VedaParser())

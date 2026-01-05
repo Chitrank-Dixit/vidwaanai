@@ -54,8 +54,8 @@ class GraphManager:
             # Type guard for mypy
             driver = self.driver
             if not driver:
-                 raise Exception("Neo4j driver is not initialized")
-            
+                raise Exception("Neo4j driver is not initialized")
+
             with driver.session() as session:
                 result = session.run(query, parameters or {})
                 return [record.data() for record in result]
