@@ -72,7 +72,7 @@ class TestCompleteQuery:
 
         # Clean Graph
         graph_builder.clear_graph()
-        graph_builder.create_concept("Yoga", {"description": "Union"})
+        graph_builder.create_entity("Yoga", "Concept", {"description": "Union"})
 
     def test_query_flow(
         self, db_manager: DatabaseManager, graph_builder: GraphBuilder

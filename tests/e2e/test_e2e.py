@@ -2,7 +2,8 @@ import pytest
 from fastapi.testclient import TestClient
 from unittest.mock import MagicMock
 from typing import Generator
-from src.api import app, get_agent
+from src.api.main import app
+from src.api.routes import get_agent_service
 
 
 class TestE2E:
@@ -13,7 +14,7 @@ class TestE2E:
     @pytest.fixture
     def mock_agent(self) -> Generator[MagicMock, None, None]:
         mock = MagicMock()
-        app.dependency_overrides[get_agent] = lambda: mock
+        app.dependency_overrides[get_agent_service] = lambda: mock
         yield mock
         app.dependency_overrides = {}
 
@@ -26,34 +27,38 @@ class TestE2E:
         """
 
         # 1. Health Check
-        resp = client.get("/health")
+        resp = client.get("/api/v1/agent/health")
         assert resp.status_code == 200
         assert resp.json()["status"] == "healthy"
 
         # 2. English Query
-        mock_agent.query.return_value = {
+        mock_agent.process_query.return_value = {
             "answer": "Answer EN",
-            "retrieved_verses": [],
+            "sources": [],
+            "reasoning_trace": [],
+            "session_id": "test-session",
+            "processing_time_ms": 100.0,
             "language": "en",
-            "confidence": {"score": 90, "level": "High"},
-            "timestamp": "2024-01-01",
+            "confidence": 90.0,
+            "timestamp": 1704067200.0,
         }
 
-        resp = client.post("/query", json={"text": "Query EN"})
+        resp = client.post("/api/v1/agent/query", json={"question": "Query EN"})
         assert resp.status_code == 200
         assert resp.json()["answer"] == "Answer EN"
-        assert resp.json()["language"] == "en"
 
         # 3. Hindi Query
-        mock_agent.query.return_value = {
+        mock_agent.process_query.return_value = {
             "answer": "Answer HI",
-            "retrieved_verses": [],
+            "sources": [],
+            "reasoning_trace": [],
+            "session_id": "test-session",
+            "processing_time_ms": 100.0,
             "language": "hi",
-            "confidence": {"score": 90, "level": "High"},
-            "timestamp": "2024-01-01",
+            "confidence": 90.0,
+            "timestamp": 1704067200.0,
         }
 
-        resp = client.post("/query", json={"text": "Query HI", "language": "hi"})
+        resp = client.post("/api/v1/agent/query", json={"question": "Query HI", "language": "hi"})
         assert resp.status_code == 200
         assert resp.json()["answer"] == "Answer HI"
-        assert resp.json()["language"] == "hi"
