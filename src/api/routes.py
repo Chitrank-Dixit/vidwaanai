@@ -13,17 +13,10 @@ from src.api.models import (
 )
 from functools import lru_cache
 from src.core.agent_service import AgentService
+from src.api.dependencies import get_agent_service
 
 # Initialize Router
 agent_router = APIRouter(prefix="/api/v1/agent", tags=["Agent"])
-
-# Dependency to get AgentService (Singleton pattern typically better, but for now instantiation is okay or we cache it)
-# Ideally we set this up in main.py lifespan or lru_cache
-
-
-@lru_cache()
-def get_agent_service() -> AgentService:
-    return AgentService()
 
 
 @agent_router.post(

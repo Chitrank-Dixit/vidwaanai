@@ -84,9 +84,27 @@ class GraphRetriever:
                        type(r) as relation, 
                        b.name as target,
                        labels(a) as source_type,
-                       labels(b) as target_type
+                        labels(b) as target_type
                 LIMIT 20
                 """,
                 names=entity_names,
             )
             return [record.data() for record in result]
+            
+    def format_subgraph_context(self, subgraph_data: List[Dict[str, Any]]) -> str:
+        """
+        Format subgraph results into a readable context string for the LLM.
+        """
+        if not subgraph_data:
+            return ""
+            
+        lines = []
+        for item in subgraph_data:
+            # item: {source, relation, target, ...}
+            s = item.get("source")
+            r = item.get("relation")
+            t = item.get("target")
+            if s and r and t:
+                lines.append(f"{s} --[{r}]--> {t}")
+                
+        return "\n".join(lines)

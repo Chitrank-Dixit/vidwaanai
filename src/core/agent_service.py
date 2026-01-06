@@ -9,6 +9,8 @@ from src.llm.lmstudio_client import LMStudioClient
 from src.llm.openai_client import OpenAIClient
 from src.graph.graph_builder import GraphBuilder
 from src.graph.entity_extractor import EntityExtractor
+from src.graph.graph_retriever import GraphRetriever
+from src.retrieval.hybrid_retriever_service import HybridRetrieverService
 
 # You may need a GraphQuerier or similar class for reading graph data efficiently
 # For now we will use raw GraphBuilder driver or a new class if needed.
@@ -26,6 +28,13 @@ class AgentService:
     def __init__(self) -> None:
         self.db = DatabaseManager(settings.DATABASE_URL)
         self.embedder = VedaEmbedder()
+        
+        # Initialize Hybrid Retriever
+        self.retriever = HybridRetrieverService(
+            db_manager=self.db, 
+            embedder=self.embedder,
+            enable_bm25=True # Enable for hybrid support
+        )
 
         # Initialize LLM
         if settings.llm_backend == "lmstudio":
@@ -45,6 +54,8 @@ class AgentService:
             user=settings.NEO4J_USER,
             password=settings.NEO4J_PASSWORD,
         )
+        self.graph_retriever = GraphRetriever(self.graph_builder.driver)
+        
         # We can extract entities from question too
         self.entity_extractor = EntityExtractor(self.llm_client)
 
@@ -74,21 +85,23 @@ class AgentService:
             logger.error(f"Embedding failed: {e}")
             raise
 
-        # 2. Vector Search (Postgres pgvector)
+        # 2. Hybrid Retrieval (Vector + BM25)
         v_time = time.time()
-        # We need a search method in DB Manager or implement one here.
-        # DB Manager likely has `search_similar_mantras` or similar.
-        # Let's assume we implement a direct search helper here or extend DB Manager.
-        # For now, implementing ad-hoc query or using existing DB Manager method if available.
-        # Checking db_manager methods... (I'll implement a raw query here for precision)
-
-        similar_docs = self._search_vector_db(q_emb, top_k=settings.RETRIEVAL_TOP_K)
+        
+        # Use new Hybrid Retriever
+        # We can expose fusion method in settings later
+        similar_docs = self.retriever.search(
+            query=question, 
+            top_k=settings.RETRIEVAL_TOP_K,
+            strategy="hybrid",
+            fusion_method="weighted" # or 'rrf'
+        )
 
         reasoning_trace.append(
             {
                 "step": 2,
-                "action": "vector_search",
-                "input": "embedding",
+                "action": "hybrid_search",
+                "input": "query",
                 "output": f"Found {len(similar_docs)} relevant docs",
                 "duration_ms": (time.time() - v_time) * 1000,
             }
@@ -96,20 +109,39 @@ class AgentService:
 
         # 3. Graph Search (Optional/Hybrid)
         # Extract entities from question to find relevant graph nodes
-        # This is expensive (LLM call), so maybe we do it parallel or use simple keyword matching?
-        # User plan says "Extract entities... Query graph".
-        # Let's do a quick Keyword/Taxonomy search if possible, or skip for MVP speed.
-        # Implemented simplified graph lookup for highly relevant terms.
-
-        # graph_context = []
-        # g_time = time.time()
-        # entities = self.entity_extractor.extract_from_text(question) ...
-        # graph_context = self._query_graph(entities) ...
+        graph_context_str = ""
+        g_time = time.time()
+        
+        try:
+            # Extract entities from query using the hybrid extractor
+            query_entities = self.entity_extractor.extract_from_query(question)
+            entity_names = [e["name"] for e in query_entities if "name" in e]
+            
+            if entity_names:
+                # Get 1-hop subgraph
+                subgraph = self.graph_retriever.get_context_subgraph(entity_names)
+                graph_context_str = self.graph_retriever.format_subgraph_context(subgraph)
+                
+            reasoning_trace.append(
+                {
+                    "step": 3,
+                    "action": "graph_retrieval",
+                    "input": f"Entities: {entity_names}",
+                    "output": f"Relations: {len(graph_context_str.splitlines())}",
+                    "duration_ms": (time.time() - g_time) * 1000,
+                }
+            )
+        except Exception as e:
+             logger.error(f"Graph retrieval failed: {e}")
+             # Non-blocking
 
         # 4. Build Context
         context_str = "\n\n".join(
             [f"Source ({d['title']}): {d['content']}" for d in similar_docs]
         )
+        
+        if graph_context_str:
+            context_str += f"\n\nKnowledge Graph Context:\n{graph_context_str}"
 
         # 5. LLM Answer
         llm_time = time.time()
@@ -143,11 +175,12 @@ class AgentService:
             "confidence": 0.95,  # Placeholder
             "sources": [
                 {
-                    "id": str(d["id"]),
-                    "title": d["title"],
-                    "content": d["content"],
-                    "confidence": d["similarity"],
+                    "id": str(d.get("id")),
+                    "title": d.get("source", "Unknown Source"),
+                    "content": f"{d.get('text', '')}\n{d.get('translation', '')}",
+                    "confidence": d.get("score"),
                     "entity_type": "text",
+                    "retrieval_method": d.get("fusion_method", "hybrid")
                 }
                 for d in similar_docs
             ],

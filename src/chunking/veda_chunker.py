@@ -69,6 +69,28 @@ class VedaChunker:
         # MPNet limit is 512 tokens. A whole Mandala could be huge.
         # We'll skip Mandala for now to avoid truncation errors, or just take first N chars.
 
+        # 2. Token-based chunks for finer granularity
+        # Using 256 token chunks with 20% overlap (approx 50 tokens)
+        try:
+            from llama_index.core.node_parser import SentenceSplitter
+            splitter = SentenceSplitter(chunk_size=256, chunk_overlap=50)
+            text_chunks = splitter.split_text(mantra["text_hindi"])
+            
+            for i, chunk_text in enumerate(text_chunks):
+                chunks.append({
+                    "type": "mantra_chunk",
+                    "text": chunk_text,
+                    "metadata": {
+                        "ved_id": mantra["ved_id"], 
+                        "mantra_id": mantra["id"],
+                        "chunk_index": i,
+                        "total_chunks": len(text_chunks)
+                    }
+                })
+        except ImportError:
+            # Fallback if llama-index is not available (though it should be)
+            pass
+
         return chunks
 
     def _get_mantra_details(self, mantra_id: int) -> Optional[Dict[str, Any]]:
