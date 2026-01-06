@@ -334,8 +334,18 @@ curl -X POST http://localhost:8001/api/v1/agent/query \
       "title": "Rig Ved",
       "content": "..."
     }
-  ]
+  ],
+  "retrieval_context": ["..."],
+  "reasoning_trace": []
 }
+```
+
+### Evaluation Pipeline (New)
+We use **DeepEval** to measure RAG quality (Faithfulness, Relevancy).
+
+```bash
+# Run Evaluation
+make -f Makefile-docker mcp-run-eval
 ```
 
 For interactive documentation, visit **[http://localhost:8001/docs](http://localhost:8001/docs)** after starting the server.
@@ -443,6 +453,7 @@ This project also provides a `Makefile-docker` for managing containerized develo
 - `make -f Makefile-docker mcp-logs`: View logs.
 - `make -f Makefile-docker mcp-test`: Run MCP unit tests.
 - `make -f Makefile-docker mcp-int`: Run MCP integration tests.
+- `make -f Makefile-docker mcp-run-eval`: Run RAG evaluation pipeline.
 
 ### Agent API
 - `make -f Makefile-docker agent-build`: Build Agent API container.

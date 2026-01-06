@@ -59,6 +59,12 @@ class AgentService:
         # We can extract entities from question too
         self.entity_extractor = EntityExtractor(self.llm_client)
 
+        self.system_prompt = """
+        You are Vidwaan, an expert Vedic AI assistant.
+        Answer the user's question based ONLY on the following knowledge graph and retrieval context.
+        Be concise and cite sources if possible.
+        """
+
     def process_query(
         self, question: str, session_id: Optional[str] = None
     ) -> Dict[str, Any]:
@@ -136,33 +142,32 @@ class AgentService:
              # Non-blocking
 
         # 4. Build Context
-        context_str = "\n\n".join(
-            [f"Source ({d['title']}): {d['content']}" for d in similar_docs]
-        )
+        context_snippets = []
+        for d in similar_docs:
+            source = d.get('title', d.get('source', 'Unknown'))
+            content = d.get('content')
+            if not content:
+                # Fallback for HybridRetriever output which uses text/translation
+                text = d.get('text', '')
+                trans = d.get('translation', '')
+                content = f"{text}\nTranslation: {trans}" if trans else text
+            
+            context_snippets.append(f"Source ({source}): {content}")
+
+        context_str = "\n\n".join(context_snippets)
         
         if graph_context_str:
             context_str += f"\n\nKnowledge Graph Context:\n{graph_context_str}"
 
         # 5. LLM Answer
         llm_time = time.time()
-        prompt = f"""
-        You are Vidwaan, an expert Vedic AI assistant. Answer the user's question based ONLY on the following context.
+        answer = self.llm_client.generate(self.system_prompt, context_str, question)
         
-        Context:
-        {context_str}
-        
-        Question: {question}
-        
-        Answer (be concise and cite sources if possible):
-        """
-
-        answer = self.llm_client.generate(prompt, max_tokens=1000)
-
         reasoning_trace.append(
             {
-                "step": 3,
+                "step": 5,
                 "action": "llm_generation",
-                "input": f"Context len: {len(context_str)}",
+                "input": "Prompt + Context",
                 "output": f"Answer len: {len(answer)}",
                 "duration_ms": (time.time() - llm_time) * 1000,
             }
