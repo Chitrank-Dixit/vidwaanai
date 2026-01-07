@@ -203,7 +203,7 @@ docker-test-functional:
 	@echo "$(YELLOW)Running functional tests...$(RESET)"
 	@$(COMPOSE_TEST) run --rm vidwaan-test-functional
 
-docker-test-integration:
+docker-test-integration: docker-test-cleanup
 	@echo "$(YELLOW)Running integration tests...$(RESET)"
 	@$(COMPOSE_TEST) run --rm vidwaan-test-integration
 

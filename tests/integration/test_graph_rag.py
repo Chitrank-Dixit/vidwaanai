@@ -53,9 +53,12 @@ def test_process_query_with_graph_context(mock_agent_deps):
     
     # Verify Prompt construction (implicitly via checking if generate was called)
     # To be more precise, we can check the call args of generate
-    call_args = agent.llm_client.generate.call_args[0][0]
-    assert "Knowledge Graph Context:" in call_args
-    assert "Agni --[IS_A]--> Deity" in call_args
+    call_args_list = agent.llm_client.generate.call_args[0]
+    system_prompt_arg = call_args_list[0]
+    context_arg = call_args_list[1]
+    
+    assert "You are Vidwaan" in system_prompt_arg
+    assert "Agni --[IS_A]--> Deity" in context_arg
     
     # Verify Response structure
     assert response["answer"] == "Agni is the fire god."
@@ -71,5 +74,6 @@ def test_process_query_no_entities(mock_agent_deps):
     agent.graph_retriever.get_context_subgraph.assert_not_called()
     
     # Context should not have graph section
-    call_args = agent.llm_client.generate.call_args[0][0]
-    assert "Knowledge Graph Context:" not in call_args
+    call_args_list = agent.llm_client.generate.call_args[0]
+    context_arg = call_args_list[1]
+    assert "Knowledge Graph Context:" not in context_arg
