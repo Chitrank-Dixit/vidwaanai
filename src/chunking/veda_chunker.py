@@ -73,20 +73,23 @@ class VedaChunker:
         # Using 256 token chunks with 20% overlap (approx 50 tokens)
         try:
             from llama_index.core.node_parser import SentenceSplitter
+
             splitter = SentenceSplitter(chunk_size=256, chunk_overlap=50)
             text_chunks = splitter.split_text(mantra["text_hindi"])
-            
+
             for i, chunk_text in enumerate(text_chunks):
-                chunks.append({
-                    "type": "mantra_chunk",
-                    "text": chunk_text,
-                    "metadata": {
-                        "ved_id": mantra["ved_id"], 
-                        "mantra_id": mantra["id"],
-                        "chunk_index": i,
-                        "total_chunks": len(text_chunks)
+                chunks.append(
+                    {
+                        "type": "mantra_chunk",
+                        "text": chunk_text,
+                        "metadata": {
+                            "ved_id": mantra["ved_id"],
+                            "mantra_id": mantra["id"],
+                            "chunk_index": i,
+                            "total_chunks": len(text_chunks),
+                        },
                     }
-                })
+                )
         except ImportError:
             # Fallback if llama-index is not available (though it should be)
             pass

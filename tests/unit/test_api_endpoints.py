@@ -19,7 +19,7 @@ class TestAPIEndpoints:
         yield mock_agent_instance
         app.dependency_overrides = {}
 
-    def test_health_check(self, client: TestClient) -> None:
+    def test_health_check(self, client: TestClient, mock_agent: MagicMock) -> None:
         response = client.get("/api/v1/agent/health")
         assert response.status_code == 200
         assert response.json()["status"] == "healthy"
@@ -71,7 +71,7 @@ class TestAPIEndpoints:
 
     def test_get_agent_dependency(self) -> None:
         """Test the get_agent dependency function directly"""
-        with patch("src.api.routes.AgentService") as MockAgentService:
+        with patch("src.api.dependencies.AgentService") as MockAgentService:
             # Clear app.state.agent if it exists
             # Note: get_agent_service uses lru_cache, not app.state
 

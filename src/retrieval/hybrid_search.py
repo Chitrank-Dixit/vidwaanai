@@ -52,7 +52,7 @@ class HybridSearch:
         bm25_results: List[Dict[str, Any]],
         semantic_results: List[Dict[str, Any]],
         k: int = 60,
-        top_k: int = 10
+        top_k: int = 10,
     ) -> List[Dict[str, Any]]:
         """
         Combine results using Reciprocal Rank Fusion (RRF).
@@ -62,12 +62,12 @@ class HybridSearch:
         doc_map: Dict[str, Dict[str, Any]] = {}
 
         # Helper to process list
-        def process_list(results: List[Dict[str, Any]]):
+        def process_list(results: List[Dict[str, Any]]) -> None:
             for rank, doc in enumerate(results):
                 doc_id = str(doc["id"])
                 if doc_id not in doc_map:
                     doc_map[doc_id] = doc
-                
+
                 score = 1.0 / (k + rank + 1)
                 combined_scores[doc_id] = combined_scores.get(doc_id, 0.0) + score
 
@@ -76,14 +76,14 @@ class HybridSearch:
 
         # Sort by score
         sorted_ids = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)
-        
+
         final_results = []
         for doc_id, score in sorted_ids[:top_k]:
             doc = doc_map[doc_id].copy()
             doc["score"] = score
             doc["fusion_method"] = "rrf"
             final_results.append(doc)
-            
+
         return final_results
 
     def combine_results(
@@ -92,12 +92,14 @@ class HybridSearch:
         bm25_results: List[Dict[str, Any]],
         semantic_results: List[Dict[str, Any]],
         top_k: int = 10,
-        fusion_method: str = "weighted"
+        fusion_method: str = "weighted",
     ) -> List[Dict[str, Any]]:
         """Combine and re-rank BM25 and semantic results."""
-        
+
         if fusion_method == "rrf":
-            return self.reciprocal_rank_fusion(bm25_results, semantic_results, top_k=top_k)
+            return self.reciprocal_rank_fusion(
+                bm25_results, semantic_results, top_k=top_k
+            )
 
         # Legacy Weighted Sum Logic
         # Normalize scores
@@ -163,10 +165,14 @@ class HybridSearch:
 
         return final_results[:top_k]
 
-    def search(self, query: str, top_k: int = 10, fusion_method: str = "weighted") -> List[Dict[str, Any]]:
+    def search(
+        self, query: str, top_k: int = 10, fusion_method: str = "weighted"
+    ) -> List[Dict[str, Any]]:
         """Perform hybrid search."""
         # Fetch more candidates for reranking
         bm25_results = self.bm25_search.search(query, top_k=top_k * 2)
         semantic_results = self.vector_search_func(query, top_k=top_k * 2)
 
-        return self.combine_results(query, bm25_results, semantic_results, top_k, fusion_method=fusion_method)
+        return self.combine_results(
+            query, bm25_results, semantic_results, top_k, fusion_method=fusion_method
+        )

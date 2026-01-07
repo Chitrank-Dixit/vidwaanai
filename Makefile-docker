@@ -233,7 +233,7 @@ docker-check:
 
 docker-security:
 	@echo "$(YELLOW)Running security checks in container...$(RESET)"
-	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run bandit -r src && uv run safety check"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run bandit -r src && uv run safety scan"
 
 docker-lint-all: docker-format docker-lint docker-check docker-security
 

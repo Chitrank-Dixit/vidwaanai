@@ -28,12 +28,12 @@ class AgentService:
     def __init__(self) -> None:
         self.db = DatabaseManager(settings.DATABASE_URL)
         self.embedder = VedaEmbedder()
-        
+
         # Initialize Hybrid Retriever
         self.retriever = HybridRetrieverService(
-            db_manager=self.db, 
+            db_manager=self.db,
             embedder=self.embedder,
-            enable_bm25=True # Enable for hybrid support
+            enable_bm25=True,  # Enable for hybrid support
         )
 
         # Initialize LLM
@@ -55,7 +55,7 @@ class AgentService:
             password=settings.NEO4J_PASSWORD,
         )
         self.graph_retriever = GraphRetriever(self.graph_builder.driver)
-        
+
         # We can extract entities from question too
         self.entity_extractor = EntityExtractor(self.llm_client)
 
@@ -93,14 +93,14 @@ class AgentService:
 
         # 2. Hybrid Retrieval (Vector + BM25)
         v_time = time.time()
-        
+
         # Use new Hybrid Retriever
         # We can expose fusion method in settings later
         similar_docs = self.retriever.search(
-            query=question, 
+            query=question,
             top_k=settings.RETRIEVAL_TOP_K,
             strategy="hybrid",
-            fusion_method="weighted" # or 'rrf'
+            fusion_method="weighted",  # or 'rrf'
         )
 
         reasoning_trace.append(
@@ -117,17 +117,19 @@ class AgentService:
         # Extract entities from question to find relevant graph nodes
         graph_context_str = ""
         g_time = time.time()
-        
+
         try:
             # Extract entities from query using the hybrid extractor
             query_entities = self.entity_extractor.extract_from_query(question)
             entity_names = [e["name"] for e in query_entities if "name" in e]
-            
+
             if entity_names:
                 # Get 1-hop subgraph
                 subgraph = self.graph_retriever.get_context_subgraph(entity_names)
-                graph_context_str = self.graph_retriever.format_subgraph_context(subgraph)
-                
+                graph_context_str = self.graph_retriever.format_subgraph_context(
+                    subgraph
+                )
+
             reasoning_trace.append(
                 {
                     "step": 3,
@@ -138,31 +140,31 @@ class AgentService:
                 }
             )
         except Exception as e:
-             logger.error(f"Graph retrieval failed: {e}")
-             # Non-blocking
+            logger.error(f"Graph retrieval failed: {e}")
+            # Non-blocking
 
         # 4. Build Context
         context_snippets = []
         for d in similar_docs:
-            source = d.get('title', d.get('source', 'Unknown'))
-            content = d.get('content')
+            source = d.get("title", d.get("source", "Unknown"))
+            content = d.get("content")
             if not content:
                 # Fallback for HybridRetriever output which uses text/translation
-                text = d.get('text', '')
-                trans = d.get('translation', '')
+                text = d.get("text", "")
+                trans = d.get("translation", "")
                 content = f"{text}\nTranslation: {trans}" if trans else text
-            
+
             context_snippets.append(f"Source ({source}): {content}")
 
         context_str = "\n\n".join(context_snippets)
-        
+
         if graph_context_str:
             context_str += f"\n\nKnowledge Graph Context:\n{graph_context_str}"
 
         # 5. LLM Answer
         llm_time = time.time()
         answer = self.llm_client.generate(self.system_prompt, context_str, question)
-        
+
         reasoning_trace.append(
             {
                 "step": 5,
@@ -185,7 +187,7 @@ class AgentService:
                     "content": f"{d.get('text', '')}\n{d.get('translation', '')}",
                     "confidence": d.get("score"),
                     "entity_type": "text",
-                    "retrieval_method": d.get("fusion_method", "hybrid")
+                    "retrieval_method": d.get("fusion_method", "hybrid"),
                 }
                 for d in similar_docs
             ],

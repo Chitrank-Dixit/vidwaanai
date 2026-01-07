@@ -1,16 +1,16 @@
-
 import logging
 import json
 import redis
-from typing import Any, Optional, Dict
-import os
+from typing import Any, Optional
 
 logger = logging.getLogger(__name__)
+
 
 class RedisCache:
     """Redis-backed cache implementation."""
 
     def __init__(self, redis_url: str = "redis://localhost:6379", ttl: int = 3600):
+        self.client: Optional[redis.Redis[Any]] = None
         try:
             self.client = redis.from_url(redis_url, decode_responses=True)
             self.ttl = ttl
@@ -35,11 +35,7 @@ class RedisCache:
         if not self.client:
             return False
         try:
-            return self.client.setex(
-                key, 
-                ttl or self.ttl, 
-                json.dumps(value)
-            )
+            return self.client.setex(key, ttl or self.ttl, json.dumps(value))
         except Exception as e:
             logger.error(f"Redis set error: {e}")
             return False

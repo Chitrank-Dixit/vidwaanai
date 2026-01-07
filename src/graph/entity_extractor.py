@@ -1,6 +1,6 @@
 import json
 import logging
-from typing import Any, Dict, cast, List
+from typing import Any, Dict, List
 
 import spacy
 from src.graph.schema import EntityType, RelationType
@@ -17,7 +17,9 @@ class EntityExtractor:
             self.nlp = spacy.load("en_core_web_sm")
             logger.info("SpaCy model 'en_core_web_sm' loaded successfully.")
         except OSError:
-            logger.warning("SpaCy model 'en_core_web_sm' not found. Creating blank model.")
+            logger.warning(
+                "SpaCy model 'en_core_web_sm' not found. Creating blank model."
+            )
             self.nlp = spacy.blank("en")
 
     def extract_entities(
@@ -88,7 +90,7 @@ Ensure "from" and "to" match extracted entity names exactly.
         """
         doc = self.nlp(text)
         entities = []
-        
+
         # Mapping SpaCy labels to our Ontology types
         label_map = {
             "PERSON": "Person",
@@ -96,17 +98,15 @@ Ensure "from" and "to" match extracted entity names exactly.
             "GPE": "Place",
             "LOC": "Place",
             "EVENT": "Event",
-            "FAC": "Place"
+            "FAC": "Place",
         }
-        
+
         for ent in doc.ents:
             if ent.label_ in label_map:
-                entities.append({
-                    "name": ent.text,
-                    "type": label_map[ent.label_],
-                    "source": "spacy"
-                })
-                
+                entities.append(
+                    {"name": ent.text, "type": label_map[ent.label_], "source": "spacy"}
+                )
+
         return entities
 
     def extract_from_query(self, query: str) -> List[Dict[str, Any]]:
@@ -115,17 +115,17 @@ Ensure "from" and "to" match extracted entity names exactly.
         """
         # 1. Try SpaCy first for speed
         spacy_entities = self.extract_with_spacy(query)
-        
+
         # If we found relevant entities, we might skip LLM or combine.
-        # For MVP, if we find Persons or Concepts, we trust them, but Vedic entities 
+        # For MVP, if we find Persons or Concepts, we trust them, but Vedic entities
         # (like 'Dharma', 'Agni') might not be caught by standard metrics unless capitalized.
-        
-        # Let's always call LLM for now to ensure high recall for Vedic terms, 
+
+        # Let's always call LLM for now to ensure high recall for Vedic terms,
         # but in production we can optimize.
-        
-        # For the purpose of this task (Quick Win), let's just use LLM as primary 
+
+        # For the purpose of this task (Quick Win), let's just use LLM as primary
         # but mention SpaCy usage for standard things.
-        
+
         prompt = f"""
         Extract key entities from this user query for a knowledge graph search.
         Identify Persons, Concepts, Places, or Events.
@@ -158,25 +158,25 @@ Ensure "from" and "to" match extracted entity names exactly.
                     llm_results = llm_results["entities"]
                 else:
                     llm_results = []
-            
+
             # Merge results (deduplicate by name)
             seen_names = set()
             final_entities = []
-            
+
             # Prioritize LLM results (likely better for Vedic context)
             for ent in llm_results:
                 name = ent.get("name")
                 if name:
                     final_entities.append(ent)
                     seen_names.add(name.lower())
-            
+
             # Add SpaCy results if new
             for ent in spacy_entities:
                 name = ent.get("name")
                 if name and name.lower() not in seen_names:
                     final_entities.append(ent)
                     seen_names.add(name.lower())
-                    
+
             return final_entities
 
         except Exception as e:

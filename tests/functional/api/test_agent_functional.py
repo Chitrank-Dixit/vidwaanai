@@ -45,8 +45,8 @@ def mock_external_deps():
         llm_instance = MockLLM.return_value
         # First call is NER (expects JSON), second is Answer (text)
         llm_instance.generate.side_effect = [
-            '[{"name": "Agni", "type": "Deity"}]', 
-            "This is a functional test answer."
+            '[{"name": "Agni", "type": "Deity"}]',
+            "This is a functional test answer.",
         ]
 
         yield {

@@ -1,24 +1,26 @@
 import hashlib
 import json
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, cast
 import os
 
+from src.cache.redis_cache import RedisCache
 from src.core.logger import get_logger
+
 
 logger = get_logger(__name__)
 
 
-from src.cache.redis_cache import RedisCache
-
 class SearchCache:
     """Cache for retrieval results (before LLM generation)."""
 
-    def __init__(self, max_size: int = 1000, ttl: int = 3600, redis_url: Optional[str] = None) -> None:
+    def __init__(
+        self, max_size: int = 1000, ttl: int = 3600, redis_url: Optional[str] = None
+    ) -> None:
         # If REDIS_URL env var is present or passed, use Redis
         self.redis_url = redis_url or os.getenv("REDIS_URL")
         self.redis = RedisCache(self.redis_url, ttl) if self.redis_url else None
-        
+
         # Fallback in-memory cache
         self.cache: Dict[str, Dict[str, Any]] = {}
         self.max_size = max_size
@@ -41,7 +43,7 @@ class SearchCache:
             val = self.redis.get(key)
             if val:
                 logger.info(f"Redis cache hit for {key}")
-                return val
+                return cast(List[Dict[str, Any]], val)
 
         # Fallback to in-memory
         if key in self.cache:
@@ -60,7 +62,7 @@ class SearchCache:
     ) -> None:
         """Cache search results."""
         key = self._make_key(query, filters)
-        
+
         # Set in Redis
         if self.redis:
             self.redis.set(key, results)

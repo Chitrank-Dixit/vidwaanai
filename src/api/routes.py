@@ -11,7 +11,6 @@ from src.api.models import (
     SessionCreateRequest,
     SessionResponse,
 )
-from functools import lru_cache
 from src.core.agent_service import AgentService
 from src.api.dependencies import get_agent_service
 
