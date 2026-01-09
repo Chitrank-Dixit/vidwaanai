@@ -3,6 +3,7 @@ from typing import Dict, Any
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
 from src.api.routes import agent_router
+from src.api.search_routes import search_router
 
 
 # Initialize App
@@ -62,3 +63,4 @@ async def root() -> Dict[str, str]:
 
 
 app.include_router(agent_router)
+app.include_router(search_router)

@@ -1,0 +1,25 @@
+[
+    {
+        "input": "Who is Agni?",
+        "expected_output": "Agni is the Vedic god of fire, acting as a messenger between humans and the gods. He is central to Vedic rituals.",
+        "context": [
+            "Agni is the priest, the god of the sacrifice..."
+        ]
+    },
+    {
+        "input": "What is the purpose of Soma?",
+        "expected_output": "Soma is a ritual drink offered to the gods, particularly Indra, to grant strength and immortality.",
+        "context": [
+            "Soma is the best oblation...",
+            "Drink Soma, O Indra..."
+        ]
+    },
+    {
+        "input": "Who defeated Vritra?",
+        "expected_output": "Indra defeated the dragon Vritra to release the waters.",
+        "context": [
+            "Indra slew Vritra...",
+            "He released the waters..."
+        ]
+    }
+]

@@ -12,9 +12,13 @@
 	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
 	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
 	mcp-build mcp-up mcp-down mcp-logs mcp-test mcp-int \
-	agent-build agent-up agent-down agent-logs
+	agent-build agent-up agent-down agent-logs \
+	mcp-run-eval
 
 # ———- Configuration ———-
+mcp-run-eval:
+	$(COMPOSE_MCP) run --rm -e OPENAI_API_KEY=$(OPENAI_API_KEY) mcp-server pytest tests/evaluation/test_rag_metrics.py --disable-warnings
+
 # Colors
 BOLD := $(shell tput bold)
 GREEN := $(shell tput setaf 2)
@@ -24,9 +28,9 @@ RED := $(shell tput setaf 1)
 RESET := $(shell tput sgr0)
 
 # Docker Compose files
-COMPOSE_FULL := docker-compose -f docker-compose-full.yml
-COMPOSE_TEST := docker-compose -p vidwaan-test -f docker-compose-test.yml
-COMPOSE_MCP := docker-compose -f docker-compose-mcp.yml
+COMPOSE_FULL := docker compose -f docker-compose-full.yml
+COMPOSE_TEST := docker compose -p vidwaan-test -f docker-compose-test.yml
+COMPOSE_MCP := docker compose -f docker-compose-mcp.yml
 
 # Default language and category for specific targets
 L ?= hi
@@ -199,7 +203,7 @@ docker-test-functional:
 	@echo "$(YELLOW)Running functional tests...$(RESET)"
 	@$(COMPOSE_TEST) run --rm vidwaan-test-functional
 
-docker-test-integration:
+docker-test-integration: docker-test-cleanup
 	@echo "$(YELLOW)Running integration tests...$(RESET)"
 	@$(COMPOSE_TEST) run --rm vidwaan-test-integration
 
@@ -229,7 +233,7 @@ docker-check:
 
 docker-security:
 	@echo "$(YELLOW)Running security checks in container...$(RESET)"
-	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run bandit -r src && uv run safety check"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run bandit -r src && uv run safety scan"
 
 docker-lint-all: docker-format docker-lint docker-check docker-security
 
@@ -254,9 +258,9 @@ docker-cache-prune:
 
 docker-clean-all: docker-down
 	@echo "$(YELLOW)Cleaning up all Docker resources...$(RESET)"
-	@docker-compose -f docker-compose-full.yml down -v --remove-orphans
-	@docker-compose -f docker-compose-test.yml down -v --remove-orphans
-	@docker-compose -f docker-compose-mcp.yml down -v --remove-orphans
+	@docker compose -f docker-compose-full.yml down -v --remove-orphans
+	@docker compose -f docker-compose-test.yml down -v --remove-orphans
+	@docker compose -f docker-compose-mcp.yml down -v --remove-orphans
 	@echo "$(GREEN)✓ Full Docker cleanup complete.$(RESET)"
 
 # ———- MCP Server Commands ———-

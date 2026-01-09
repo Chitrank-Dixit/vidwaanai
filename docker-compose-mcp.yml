@@ -23,8 +23,8 @@ services:
     networks:
       - mcp-network
     volumes:
-      - ./src/mcp:/app/src/mcp
-      - ./tests/mcp:/app/tests/mcp
+      - ./src:/app/src
+      - ./tests:/app/tests
 
   postgres-mcp:
     image: pgvector/pgvector:pg16
