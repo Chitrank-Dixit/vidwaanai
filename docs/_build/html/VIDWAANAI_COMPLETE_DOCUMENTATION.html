@@ -1,0 +1,1316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidwaanai - Complete Project Documentation &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src" href="modules.html" />
+    <link rel="prev" title="Vidwaanai Project Documentation - README" href="README_DOCUMENTATION.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vidwaanai - Complete Project Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-overview">Project Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mission">Mission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-characteristics">Key Characteristics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-goals-and-objectives">Project Goals and Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#primary-goals">Primary Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specific-objectives">Specific Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tech-stack">Tech Stack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-technologies">Core Technologies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-dependencies">Key Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-tools">Development Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#repository-structure">Repository Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#directory-details">Directory Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#src-source-code"><code class="docutils literal notranslate"><span class="pre">/src</span></code> - Source Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests-test-suite"><code class="docutils literal notranslate"><span class="pre">/tests</span></code> - Test Suite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-database-layer"><code class="docutils literal notranslate"><span class="pre">/database</span></code> - Database Layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#config-configuration"><code class="docutils literal notranslate"><span class="pre">/config</span></code> - Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts-automation-scripts"><code class="docutils literal notranslate"><span class="pre">/scripts</span></code> - Automation Scripts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-guide">Installation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-installation">Local Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1-clone-repository">Step 1: Clone Repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-create-virtual-environment">Step 2: Create Virtual Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-install-dependencies">Step 3: Install Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-4-run-setup-script">Step 4: Run Setup Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-5-configure-environment">Step 5: Configure Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-6-initialize-database">Step 6: Initialize Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-7-verify-installation">Step 7: Verify Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-installation">Docker Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quick-start-with-docker">Quick Start with Docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#full-stack-setup">Full Stack Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-the-application">Access the Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-files">Configuration Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyproject-toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytest-ini"><code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coveragerc"><code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-setup">Docker Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-docker-configurations">Understanding Docker Configurations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-docker-compose-docker-compose-yml">Main Docker Compose (<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#full-stack-docker-compose-full-yml">Full Stack (<code class="docutils literal notranslate"><span class="pre">docker-compose-full.yml</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ci-setup-docker-compose-ci-yml">CI Setup (<code class="docutils literal notranslate"><span class="pre">docker-compose-ci.yml</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mcp-setup-docker-compose-mcp-yml">MCP Setup (<code class="docutils literal notranslate"><span class="pre">docker-compose-mcp.yml</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-docker-containers">Running Docker Containers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#start-services">Start Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-logs">View Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stop-services">Stop Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-migrations">Run Migrations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-services">Access Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-instructions">Usage Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#local-development">Local Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#with-specific-configuration">With Specific Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-specific-agents">Running Specific Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-tasks">Common Tasks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#process-scriptures">Process Scriptures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-reports">Generate Reports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#export-data">Export Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-api-server">Run API Server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-and-mcp-protocol">API and MCP Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rest-api-endpoints">REST API Endpoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripture-management">Scripture Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processing">Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reports">Reports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mcp-protocol-support">MCP Protocol Support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#running-mcp-server">Running MCP Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mcp-configuration">MCP Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mcp-tools-available">MCP Tools Available</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-languages">Supported Languages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ancient-languages">Ancient Languages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modern-languages">Modern Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-and-quality-assurance">Testing and Quality Assurance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-tests">Running Tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#all-tests">All Tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specific-test-file">Specific Test File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#with-coverage">With Coverage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-tests">Integration Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#test-structure">Test Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coverage-requirements">Coverage Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ci-cd-pipeline">CI/CD Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-overview">Architecture Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#component-interactions">Component Interactions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agent-workflow">Agent Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-flow">Data Flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-development-environment">Setting Up Development Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#initial-setup">1. Initial Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-feature-branch">2. Creating Feature Branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#making-changes">3. Making Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing">4. Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linting">5. Linting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#committing">6. Committing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-pull-request">7. Creating Pull Request</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#code-style-guidelines">Code Style Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit-message-convention">Commit Message Convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues-and-solutions">Common Issues and Solutions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#issue-port-already-in-use">Issue: Port Already in Use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-database-connection-error">Issue: Database Connection Error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-out-of-memory">Issue: Out of Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-module-not-found">Issue: Module Not Found</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issue-tests-failing">Issue: Tests Failing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#debug-mode">Debug Mode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enable-debug-logging">Enable Debug Logging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-python-debugger">Using Python Debugger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-vs-code-debugger">Using VS Code Debugger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-guidelines">Contributing Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-contribute">How to Contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-review-process">Code Review Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-issues">Reporting Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-resources">Additional Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-files">Documentation Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-automation">Build Automation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-links">Project Links</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contact-and-support">Contact and Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vidwaanai - Complete Project Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/VIDWAANAI_COMPLETE_DOCUMENTATION.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vidwaanai-complete-project-documentation">
+<h1>Vidwaanai - Complete Project Documentation<a class="headerlink" href="#vidwaanai-complete-project-documentation" title="Link to this heading"></a></h1>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#project-overview">Project Overview</a></p></li>
+<li><p><a class="reference internal" href="#project-goals-and-objectives">Project Goals and Objectives</a></p></li>
+<li><p><a class="reference internal" href="#tech-stack">Tech Stack</a></p></li>
+<li><p><a class="reference internal" href="#repository-structure">Repository Structure</a></p></li>
+<li><p><a class="reference internal" href="#installation-guide">Installation Guide</a></p></li>
+<li><p><a class="reference internal" href="#configuration">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#docker-setup">Docker Setup</a></p></li>
+<li><p><a class="reference internal" href="#usage-instructions">Usage Instructions</a></p></li>
+<li><p><a class="reference internal" href="#api-and-mcp-protocol">API and MCP Protocol</a></p></li>
+<li><p><a class="reference internal" href="#supported-languages">Supported Languages</a></p></li>
+<li><p><a class="reference internal" href="#testing-and-quality-assurance">Testing and Quality Assurance</a></p></li>
+<li><p><a class="reference internal" href="#architecture-overview">Architecture Overview</a></p></li>
+<li><p><a class="reference internal" href="#development-workflow">Development Workflow</a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting">Troubleshooting</a></p></li>
+<li><p><a class="reference internal" href="#contributing-guidelines">Contributing Guidelines</a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="project-overview">
+<h2>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h2>
+<p><strong>Vidwaanai</strong> is an innovative <strong>Agentic AI project</strong> designed to preserve and digitize ancient civilization scriptures. The project leverages modern artificial intelligence, specifically agentic AI systems, to extract, process, analyze, and preserve historical texts and scriptures from various ancient civilizations.</p>
+<section id="mission">
+<h3>Mission<a class="headerlink" href="#mission" title="Link to this heading"></a></h3>
+<p>To preserve humanity’s intellectual and cultural heritage by digitizing and analyzing ancient civilization scriptures using cutting-edge AI technology.</p>
+</section>
+<section id="key-characteristics">
+<h3>Key Characteristics<a class="headerlink" href="#key-characteristics" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Agentic AI Architecture:</strong> Uses autonomous agents to perform complex tasks</p></li>
+<li><p><strong>Multi-language Support:</strong> Handles various ancient and modern languages</p></li>
+<li><p><strong>Scalable Infrastructure:</strong> Docker and Kubernetes ready</p></li>
+<li><p><strong>Production-Ready:</strong> Includes CI/CD pipelines and comprehensive testing</p></li>
+<li><p><strong>MCP Protocol Integration:</strong> Modern Model Context Protocol support</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="project-goals-and-objectives">
+<h2>Project Goals and Objectives<a class="headerlink" href="#project-goals-and-objectives" title="Link to this heading"></a></h2>
+<section id="primary-goals">
+<h3>Primary Goals<a class="headerlink" href="#primary-goals" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Digitize Ancient Texts:</strong> Convert physical and scanned ancient scriptures into digital formats</p></li>
+<li><p><strong>Preserve Knowledge:</strong> Ensure long-term preservation of cultural heritage</p></li>
+<li><p><strong>Enable Analysis:</strong> Provide tools for linguistic and historical analysis</p></li>
+<li><p><strong>Accessibility:</strong> Make ancient knowledge accessible to researchers and the public</p></li>
+<li><p><strong>Automation:</strong> Use AI agents to automate complex preservation workflows</p></li>
+</ol>
+</section>
+<section id="specific-objectives">
+<h3>Specific Objectives<a class="headerlink" href="#specific-objectives" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Extract text from various source formats (images, PDFs, manuscripts)</p></li>
+<li><p>Process and clean extracted text with OCR and language models</p></li>
+<li><p>Store and manage large-scale scripture databases</p></li>
+<li><p>Generate comprehensive reports and analysis</p></li>
+<li><p>Support multiple ancient and modern languages</p></li>
+<li><p>Maintain data integrity and version control</p></li>
+<li><p>Provide API access for integration with external systems</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tech-stack">
+<h2>Tech Stack<a class="headerlink" href="#tech-stack" title="Link to this heading"></a></h2>
+<section id="core-technologies">
+<h3>Core Technologies<a class="headerlink" href="#core-technologies" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Language:</strong> Python 3.x</p></li>
+<li><p><strong>AI/ML Framework:</strong> LLM-based agentic systems</p></li>
+<li><p><strong>Containerization:</strong> Docker and Docker Compose</p></li>
+<li><p><strong>Infrastructure:</strong> Ansible for IaC</p></li>
+<li><p><strong>Testing:</strong> pytest with coverage tracking</p></li>
+<li><p><strong>Build System:</strong> Make, uv (fast Python package manager)</p></li>
+</ul>
+</section>
+<section id="key-dependencies">
+<h3>Key Dependencies<a class="headerlink" href="#key-dependencies" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>API Framework:</strong> FastAPI or Flask (likely)</p></li>
+<li><p><strong>Database:</strong> Multiple database support (PostgreSQL, MongoDB, etc.)</p></li>
+<li><p><strong>Message Queue:</strong> Redis or RabbitMQ (likely, for async operations)</p></li>
+<li><p><strong>AI Models:</strong> OpenAI, Claude, or other LLM providers</p></li>
+<li><p><strong>Data Processing:</strong> Pandas, NumPy</p></li>
+<li><p><strong>NLP Tools:</strong> spaCy, NLTK, or similar</p></li>
+</ul>
+</section>
+<section id="development-tools">
+<h3>Development Tools<a class="headerlink" href="#development-tools" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Git for version control</p></li>
+<li><p>GitHub Actions for CI/CD</p></li>
+<li><p>Docker for containerization</p></li>
+<li><p>Ansible for infrastructure management</p></li>
+<li><p>pytest for testing</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="repository-structure">
+<h2>Repository Structure<a class="headerlink" href="#repository-structure" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>vidwaanai/
+├── .github/workflows/              # GitHub Actions CI/CD pipelines
+├── ansible/                        # Infrastructure automation scripts
+├── config/                         # Configuration files for different environments
+├── data/                           # Input data and datasets
+├── database/                       # Database schemas, migrations, and setup scripts
+├── docs/                           # Project documentation
+├── output/reports/                 # Generated reports and outputs
+├── scripts/                        # Utility and helper scripts
+├── src/                            # Main source code
+│   ├── agents/                     # Agentic AI implementation
+│   ├── processors/                 # Text processing and OCR modules
+│   ├── models/                     # Data models and schemas
+│   ├── database/                   # Database ORM and queries
+│   ├── api/                        # API endpoints
+│   └── utils/                      # Utility functions
+├── tests/                          # Test suite
+│   ├── unit/                       # Unit tests
+│   ├── integration/                # Integration tests
+│   └── fixtures/                   # Test data and fixtures
+├── Dockerfile                      # Production Docker image
+├── Dockerfile.ci                   # CI/CD Docker image
+├── Dockerfile.mcp                  # MCP protocol Docker image
+├── docker-compose.yml              # Main Docker Compose configuration
+├── docker-compose-full.yml         # Full stack Docker Compose
+├── docker-compose-ci.yml           # CI Docker Compose
+├── docker-compose-mcp.yml          # MCP Docker Compose
+├── docker-compose-test.yml         # Testing Docker Compose
+├── pyproject.toml                  # Python project metadata and settings
+├── requirements.txt                # Python package dependencies
+├── setup.sh                        # Initial setup script
+├── QUICKSTART.md                   # Quick start guide
+├── DOCKER-QUICKSTART.md            # Docker setup guide
+├── SUPPORTED_LANGUAGES.md          # Supported languages documentation
+├── HOW-TO-RUN-MCP                  # MCP protocol setup guide
+├── Makefile                        # Build and task automation
+├── Makefile-docker                 # Docker-specific tasks
+├── pytest.ini                      # pytest configuration
+├── .coveragerc                     # Code coverage settings
+└── uv.lock                         # Locked dependency versions
+
+</pre></div>
+</div>
+<section id="directory-details">
+<h3>Directory Details<a class="headerlink" href="#directory-details" title="Link to this heading"></a></h3>
+<section id="src-source-code">
+<h4><code class="docutils literal notranslate"><span class="pre">/src</span></code> - Source Code<a class="headerlink" href="#src-source-code" title="Link to this heading"></a></h4>
+<p>Contains the main application logic organized by functionality:</p>
+<ul class="simple">
+<li><p><strong>agents/</strong>: Agentic AI system implementation</p></li>
+<li><p><strong>processors/</strong>: Text extraction, OCR, and cleaning</p></li>
+<li><p><strong>models/</strong>: Data structures and database models</p></li>
+<li><p><strong>database/</strong>: Database connections and queries</p></li>
+<li><p><strong>api/</strong>: RESTful API endpoints</p></li>
+<li><p><strong>utils/</strong>: Helper functions and utilities</p></li>
+</ul>
+</section>
+<section id="tests-test-suite">
+<h4><code class="docutils literal notranslate"><span class="pre">/tests</span></code> - Test Suite<a class="headerlink" href="#tests-test-suite" title="Link to this heading"></a></h4>
+<p>Comprehensive testing infrastructure:</p>
+<ul class="simple">
+<li><p><strong>unit/</strong>: Tests for individual components</p></li>
+<li><p><strong>integration/</strong>: End-to-end workflow tests</p></li>
+<li><p><strong>fixtures/</strong>: Mock data and test databases</p></li>
+</ul>
+</section>
+<section id="database-database-layer">
+<h4><code class="docutils literal notranslate"><span class="pre">/database</span></code> - Database Layer<a class="headerlink" href="#database-database-layer" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Migration files</p></li>
+<li><p>Schema definitions</p></li>
+<li><p>Seed data</p></li>
+</ul>
+</section>
+<section id="config-configuration">
+<h4><code class="docutils literal notranslate"><span class="pre">/config</span></code> - Configuration<a class="headerlink" href="#config-configuration" title="Link to this heading"></a></h4>
+<p>Environment-specific configurations:</p>
+<ul class="simple">
+<li><p>Development settings</p></li>
+<li><p>Production settings</p></li>
+<li><p>Test settings</p></li>
+</ul>
+</section>
+<section id="scripts-automation-scripts">
+<h4><code class="docutils literal notranslate"><span class="pre">/scripts</span></code> - Automation Scripts<a class="headerlink" href="#scripts-automation-scripts" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Setup and initialization scripts</p></li>
+<li><p>Data preprocessing scripts</p></li>
+<li><p>Maintenance scripts</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="installation-guide">
+<h2>Installation Guide<a class="headerlink" href="#installation-guide" title="Link to this heading"></a></h2>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Python 3.8 or higher</p></li>
+<li><p>Docker and Docker Compose (optional but recommended)</p></li>
+<li><p>Git</p></li>
+<li><p>Virtual environment tool (venv or conda)</p></li>
+</ul>
+</section>
+<section id="local-installation">
+<h3>Local Installation<a class="headerlink" href="#local-installation" title="Link to this heading"></a></h3>
+<section id="step-1-clone-repository">
+<h4>Step 1: Clone Repository<a class="headerlink" href="#step-1-clone-repository" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Chitrank-Dixit/vidwaanai.git
+<span class="nb">cd</span><span class="w"> </span>vidwaanai
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-virtual-environment">
+<h4>Step 2: Create Virtual Environment<a class="headerlink" href="#step-2-create-virtual-environment" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: venv\Scripts\activate</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-install-dependencies">
+<h4>Step 3: Install Dependencies<a class="headerlink" href="#step-3-install-dependencies" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="step-4-run-setup-script">
+<h4>Step 4: Run Setup Script<a class="headerlink" href="#step-4-run-setup-script" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>setup.sh
+</pre></div>
+</div>
+</section>
+<section id="step-5-configure-environment">
+<h4>Step 5: Configure Environment<a class="headerlink" href="#step-5-configure-environment" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+<span class="c1"># Edit .env with your configuration</span>
+nano<span class="w"> </span>.env
+</pre></div>
+</div>
+</section>
+<section id="step-6-initialize-database">
+<h4>Step 6: Initialize Database<a class="headerlink" href="#step-6-initialize-database" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>db-init
+</pre></div>
+</div>
+</section>
+<section id="step-7-verify-installation">
+<h4>Step 7: Verify Installation<a class="headerlink" href="#step-7-verify-installation" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="docker-installation">
+<h3>Docker Installation<a class="headerlink" href="#docker-installation" title="Link to this heading"></a></h3>
+<section id="quick-start-with-docker">
+<h4>Quick Start with Docker<a class="headerlink" href="#quick-start-with-docker" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+</section>
+<section id="full-stack-setup">
+<h4>Full Stack Setup<a class="headerlink" href="#full-stack-setup" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-full.yml<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+</section>
+<section id="access-the-application">
+<h4>Access the Application<a class="headerlink" href="#access-the-application" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>API: <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code></p></li>
+<li><p>Docs: <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/docs</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="environment-variables">
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h3>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file in the root directory with the following variables:</p>
+<div class="highlight-env notranslate"><div class="highlight"><pre><span></span># Application
+APP_NAME=Vidwaanai
+APP_ENV=development
+DEBUG=true
+LOG_LEVEL=INFO
+
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/vidwaanai
+DATABASE_ECHO=false
+
+# API
+API_HOST=0.0.0.0
+API_PORT=8000
+API_WORKERS=4
+
+# LLM Configuration
+LLM_PROVIDER=openai  # or anthropic, local, etc.
+LLM_API_KEY=your-api-key-here
+LLM_MODEL=gpt-4
+LLM_TEMPERATURE=0.7
+LLM_MAX_TOKENS=2048
+
+# Redis/Cache
+REDIS_URL=redis://localhost:6379/0
+
+# File Storage
+STORAGE_PATH=/data/storage
+UPLOAD_LIMIT=100MB
+
+# Security
+SECRET_KEY=your-secret-key-here
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# MCP Protocol
+MCP_ENABLED=true
+MCP_PORT=5678
+</pre></div>
+</div>
+</section>
+<section id="configuration-files">
+<h3>Configuration Files<a class="headerlink" href="#configuration-files" title="Link to this heading"></a></h3>
+<section id="pyproject-toml">
+<h4><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#pyproject-toml" title="Link to this heading"></a></h4>
+<p>Main Python project configuration including:</p>
+<ul class="simple">
+<li><p>Project metadata</p></li>
+<li><p>Dependencies</p></li>
+<li><p>Build system configuration</p></li>
+<li><p>Tool configurations</p></li>
+</ul>
+</section>
+<section id="pytest-ini">
+<h4><code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code><a class="headerlink" href="#pytest-ini" title="Link to this heading"></a></h4>
+<p>Testing configuration:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pytest]</span>
+<span class="na">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tests</span>
+<span class="na">python_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">test_*.py</span>
+<span class="na">python_classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Test*</span>
+<span class="na">python_functions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">test_*</span>
+</pre></div>
+</div>
+</section>
+<section id="coveragerc">
+<h4><code class="docutils literal notranslate"><span class="pre">.coveragerc</span></code><a class="headerlink" href="#coveragerc" title="Link to this heading"></a></h4>
+<p>Code coverage configuration for tracking test coverage.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="docker-setup">
+<h2>Docker Setup<a class="headerlink" href="#docker-setup" title="Link to this heading"></a></h2>
+<section id="understanding-docker-configurations">
+<h3>Understanding Docker Configurations<a class="headerlink" href="#understanding-docker-configurations" title="Link to this heading"></a></h3>
+<section id="main-docker-compose-docker-compose-yml">
+<h4>Main Docker Compose (<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>)<a class="headerlink" href="#main-docker-compose-docker-compose-yml" title="Link to this heading"></a></h4>
+<p>Basic setup with:</p>
+<ul class="simple">
+<li><p>API service</p></li>
+<li><p>Database service</p></li>
+<li><p>Redis cache</p></li>
+</ul>
+</section>
+<section id="full-stack-docker-compose-full-yml">
+<h4>Full Stack (<code class="docutils literal notranslate"><span class="pre">docker-compose-full.yml</span></code>)<a class="headerlink" href="#full-stack-docker-compose-full-yml" title="Link to this heading"></a></h4>
+<p>Extended setup including:</p>
+<ul class="simple">
+<li><p>API service</p></li>
+<li><p>PostgreSQL database</p></li>
+<li><p>Redis cache</p></li>
+<li><p>Elasticsearch</p></li>
+<li><p>Monitoring tools</p></li>
+</ul>
+</section>
+<section id="ci-setup-docker-compose-ci-yml">
+<h4>CI Setup (<code class="docutils literal notranslate"><span class="pre">docker-compose-ci.yml</span></code>)<a class="headerlink" href="#ci-setup-docker-compose-ci-yml" title="Link to this heading"></a></h4>
+<p>Optimized for continuous integration:</p>
+<ul class="simple">
+<li><p>Minimized resources</p></li>
+<li><p>Test database</p></li>
+<li><p>Coverage reporting</p></li>
+</ul>
+</section>
+<section id="mcp-setup-docker-compose-mcp-yml">
+<h4>MCP Setup (<code class="docutils literal notranslate"><span class="pre">docker-compose-mcp.yml</span></code>)<a class="headerlink" href="#mcp-setup-docker-compose-mcp-yml" title="Link to this heading"></a></h4>
+<p>Model Context Protocol setup:</p>
+<ul class="simple">
+<li><p>MCP server</p></li>
+<li><p>API service</p></li>
+<li><p>Database</p></li>
+</ul>
+</section>
+</section>
+<section id="running-docker-containers">
+<h3>Running Docker Containers<a class="headerlink" href="#running-docker-containers" title="Link to this heading"></a></h3>
+<section id="start-services">
+<h4>Start Services<a class="headerlink" href="#start-services" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+</section>
+<section id="view-logs">
+<h4>View Logs<a class="headerlink" href="#view-logs" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>app
+</pre></div>
+</div>
+</section>
+<section id="stop-services">
+<h4>Stop Services<a class="headerlink" href="#stop-services" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>down
+</pre></div>
+</div>
+</section>
+<section id="run-migrations">
+<h4>Run Migrations<a class="headerlink" href="#run-migrations" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>app<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+</pre></div>
+</div>
+</section>
+<section id="access-services">
+<h4>Access Services<a class="headerlink" href="#access-services" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>API: <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code></p></li>
+<li><p>API Docs: <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/docs</span></code></p></li>
+<li><p>Database: <code class="docutils literal notranslate"><span class="pre">localhost:5432</span></code></p></li>
+<li><p>Redis: <code class="docutils literal notranslate"><span class="pre">localhost:6379</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="usage-instructions">
+<h2>Usage Instructions<a class="headerlink" href="#usage-instructions" title="Link to this heading"></a></h2>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h3>
+<section id="local-development">
+<h4>Local Development<a class="headerlink" href="#local-development" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>run
+</pre></div>
+</div>
+</section>
+<section id="with-specific-configuration">
+<h4>With Specific Configuration<a class="headerlink" href="#with-specific-configuration" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">APP_ENV</span><span class="o">=</span>development<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>src.main
+</pre></div>
+</div>
+</section>
+<section id="running-specific-agents">
+<h4>Running Specific Agents<a class="headerlink" href="#running-specific-agents" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>src.agents.scripture_processor<span class="w"> </span>--input<span class="w"> </span>data/raw/<span class="w"> </span>--output<span class="w"> </span>data/processed/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="common-tasks">
+<h3>Common Tasks<a class="headerlink" href="#common-tasks" title="Link to this heading"></a></h3>
+<section id="process-scriptures">
+<h4>Process Scriptures<a class="headerlink" href="#process-scriptures" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/process_scriptures.py<span class="w"> </span>--source<span class="w"> </span>ancient_texts/<span class="w"> </span>--destination<span class="w"> </span>output/
+</pre></div>
+</div>
+</section>
+<section id="generate-reports">
+<h4>Generate Reports<a class="headerlink" href="#generate-reports" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/generate_report.py<span class="w"> </span>--data<span class="w"> </span>output/<span class="w"> </span>--format<span class="w"> </span>html
+</pre></div>
+</div>
+</section>
+<section id="export-data">
+<h4>Export Data<a class="headerlink" href="#export-data" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/export_data.py<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--output<span class="w"> </span>exports/
+</pre></div>
+</div>
+</section>
+<section id="run-api-server">
+<h4>Run API Server<a class="headerlink" href="#run-api-server" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uvicorn<span class="w"> </span>src.api.main:app<span class="w"> </span>--reload<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="api-and-mcp-protocol">
+<h2>API and MCP Protocol<a class="headerlink" href="#api-and-mcp-protocol" title="Link to this heading"></a></h2>
+<section id="rest-api-endpoints">
+<h3>REST API Endpoints<a class="headerlink" href="#rest-api-endpoints" title="Link to this heading"></a></h3>
+<section id="scripture-management">
+<h4>Scripture Management<a class="headerlink" href="#scripture-management" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">scriptures</span>          <span class="o">-</span> <span class="n">Create</span> <span class="n">new</span> <span class="n">scripture</span> <span class="n">entry</span>
+<span class="n">GET</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">scriptures</span>          <span class="o">-</span> <span class="n">List</span> <span class="nb">all</span> <span class="n">scriptures</span>
+<span class="n">GET</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">scriptures</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>     <span class="o">-</span> <span class="n">Get</span> <span class="n">specific</span> <span class="n">scripture</span>
+<span class="n">PUT</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">scriptures</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>     <span class="o">-</span> <span class="n">Update</span> <span class="n">scripture</span>
+<span class="n">DELETE</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">scriptures</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>     <span class="o">-</span> <span class="n">Delete</span> <span class="n">scripture</span>
+</pre></div>
+</div>
+</section>
+<section id="processing">
+<h4>Processing<a class="headerlink" href="#processing" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">process</span>             <span class="o">-</span> <span class="n">Start</span> <span class="n">processing</span> <span class="n">job</span>
+<span class="n">GET</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="p">{</span><span class="n">job_id</span><span class="p">}</span>    <span class="o">-</span> <span class="n">Get</span> <span class="n">job</span> <span class="n">status</span>
+<span class="n">GET</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="p">{</span><span class="n">job_id</span><span class="p">}</span><span class="o">/</span><span class="n">result</span> <span class="o">-</span> <span class="n">Get</span> <span class="n">results</span>
+</pre></div>
+</div>
+</section>
+<section id="reports">
+<h4>Reports<a class="headerlink" href="#reports" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">reports</span>             <span class="o">-</span> <span class="n">List</span> <span class="n">reports</span>
+<span class="n">GET</span>    <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">reports</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>        <span class="o">-</span> <span class="n">Get</span> <span class="n">specific</span> <span class="n">report</span>
+<span class="n">POST</span>   <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">reports</span><span class="o">/</span><span class="n">generate</span>    <span class="o">-</span> <span class="n">Generate</span> <span class="n">new</span> <span class="n">report</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="mcp-protocol-support">
+<h3>MCP Protocol Support<a class="headerlink" href="#mcp-protocol-support" title="Link to this heading"></a></h3>
+<p>The project includes Model Context Protocol support for advanced AI integrations.</p>
+<section id="running-mcp-server">
+<h4>Running MCP Server<a class="headerlink" href="#running-mcp-server" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-mcp.yml<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+</section>
+<section id="mcp-configuration">
+<h4>MCP Configuration<a class="headerlink" href="#mcp-configuration" title="Link to this heading"></a></h4>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">.env.mcp</span></code>:</p>
+<div class="highlight-env notranslate"><div class="highlight"><pre><span></span>MCP_ENABLE=true
+MCP_PROTOCOL_VERSION=1.0
+MCP_MAX_CONNECTIONS=10
+</pre></div>
+</div>
+</section>
+<section id="mcp-tools-available">
+<h4>MCP Tools Available<a class="headerlink" href="#mcp-tools-available" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Scripture analysis</p></li>
+<li><p>Text extraction</p></li>
+<li><p>Language processing</p></li>
+<li><p>Report generation</p></li>
+<li><p>Data export</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="supported-languages">
+<h2>Supported Languages<a class="headerlink" href="#supported-languages" title="Link to this heading"></a></h2>
+<p>The project supports processing and analyzing texts in multiple languages:</p>
+<section id="ancient-languages">
+<h3>Ancient Languages<a class="headerlink" href="#ancient-languages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Sanskrit</p></li>
+<li><p>Pali</p></li>
+<li><p>Tamil</p></li>
+<li><p>Kannada</p></li>
+<li><p>Telugu</p></li>
+<li><p>Malayalam</p></li>
+<li><p>Ancient Greek</p></li>
+<li><p>Latin</p></li>
+<li><p>Aramaic</p></li>
+<li><p>Hebrew</p></li>
+<li><p>Old Persian</p></li>
+</ul>
+</section>
+<section id="modern-languages">
+<h3>Modern Languages<a class="headerlink" href="#modern-languages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>English</p></li>
+<li><p>Hindi</p></li>
+<li><p>Spanish</p></li>
+<li><p>French</p></li>
+<li><p>German</p></li>
+<li><p>Chinese</p></li>
+<li><p>Japanese</p></li>
+<li><p>Arabic</p></li>
+<li><p>Portuguese</p></li>
+<li><p>Russian</p></li>
+</ul>
+<p>See <code class="docutils literal notranslate"><span class="pre">SUPPORTED_LANGUAGES.md</span></code> for detailed language support information.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="testing-and-quality-assurance">
+<h2>Testing and Quality Assurance<a class="headerlink" href="#testing-and-quality-assurance" title="Link to this heading"></a></h2>
+<section id="running-tests">
+<h3>Running Tests<a class="headerlink" href="#running-tests" title="Link to this heading"></a></h3>
+<section id="all-tests">
+<h4>All Tests<a class="headerlink" href="#all-tests" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+</section>
+<section id="specific-test-file">
+<h4>Specific Test File<a class="headerlink" href="#specific-test-file" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/unit/test_processors.py<span class="w"> </span>-v
+</pre></div>
+</div>
+</section>
+<section id="with-coverage">
+<h4>With Coverage<a class="headerlink" href="#with-coverage" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--cov<span class="o">=</span>src<span class="w"> </span>--cov-report<span class="o">=</span>html
+</pre></div>
+</div>
+</section>
+<section id="integration-tests">
+<h4>Integration Tests<a class="headerlink" href="#integration-tests" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/integration/<span class="w"> </span>-v
+</pre></div>
+</div>
+</section>
+</section>
+<section id="test-structure">
+<h3>Test Structure<a class="headerlink" href="#test-structure" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>tests/
+├── unit/
+│   ├── test_agents.py
+│   ├── test_processors.py
+│   ├── test_models.py
+│   └── test_api.py
+├── integration/
+│   ├── test_workflows.py
+│   ├── test_database.py
+│   └── test_api_endpoints.py
+└── fixtures/
+    ├── sample_texts/
+    └── test_data.json
+</pre></div>
+</div>
+</section>
+<section id="coverage-requirements">
+<h3>Coverage Requirements<a class="headerlink" href="#coverage-requirements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Minimum: 80% code coverage</p></li>
+<li><p>Target: 90%+ code coverage</p></li>
+</ul>
+</section>
+<section id="ci-cd-pipeline">
+<h3>CI/CD Pipeline<a class="headerlink" href="#ci-cd-pipeline" title="Link to this heading"></a></h3>
+<p>GitHub Actions workflows automatically:</p>
+<ol class="arabic simple">
+<li><p>Run all tests on push</p></li>
+<li><p>Check code coverage</p></li>
+<li><p>Lint code</p></li>
+<li><p>Build Docker images</p></li>
+<li><p>Deploy to staging</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="architecture-overview">
+<h2>Architecture Overview<a class="headerlink" href="#architecture-overview" title="Link to this heading"></a></h2>
+<section id="high-level-architecture">
+<h3>High-Level Architecture<a class="headerlink" href="#high-level-architecture" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────────┐
+│                    INPUT LAYER                          │
+│  (Ancient Texts, Manuscripts, PDFs, Images)            │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│              DATA PROCESSING LAYER                      │
+│  - Text Extraction                                      │
+│  - OCR Processing                                       │
+│  - Language Detection                                   │
+│  - Text Cleaning and Normalization                     │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│                 AGENTIC AI LAYER                        │
+│  - LLM Integration                                      │
+│  - Intelligent Agents                                   │
+│  - Semantic Analysis                                    │
+│  - Entity Recognition                                   │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│              KNOWLEDGE STORAGE LAYER                    │
+│  - Primary Database (PostgreSQL)                        │
+│  - Cache Layer (Redis)                                  │
+│  - Vector Database (for embeddings)                     │
+│  - File Storage (for originals)                         │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│               API &amp; INTERFACE LAYER                     │
+│  - REST API                                             │
+│  - MCP Protocol                                         │
+│  - Web Dashboard                                        │
+│  - CLI Tools                                            │
+└────────────────────┬────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│              OUTPUT &amp; REPORTING LAYER                   │
+│  - Digital Archives                                     │
+│  - Analysis Reports                                     │
+│  - Exported Data (JSON, XML, CSV)                       │
+│  - Public Access Portals                                │
+└─────────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+</section>
+<section id="component-interactions">
+<h3>Component Interactions<a class="headerlink" href="#component-interactions" title="Link to this heading"></a></h3>
+<section id="agent-workflow">
+<h4>Agent Workflow<a class="headerlink" href="#agent-workflow" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p><strong>Input Processing</strong>: Documents are received and validated</p></li>
+<li><p><strong>Extraction</strong>: Text is extracted using OCR and parsing</p></li>
+<li><p><strong>Analysis</strong>: Agentic AI analyzes content linguistically</p></li>
+<li><p><strong>Storage</strong>: Processed data stored in knowledge base</p></li>
+<li><p><strong>Retrieval</strong>: API serves data to consumers</p></li>
+<li><p><strong>Reporting</strong>: Analysis results compiled into reports</p></li>
+</ol>
+</section>
+<section id="data-flow">
+<h4>Data Flow<a class="headerlink" href="#data-flow" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Raw Input → Processing Pipeline → AI Agents → Database → API → Output
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="development-workflow">
+<h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading"></a></h2>
+<section id="setting-up-development-environment">
+<h3>Setting Up Development Environment<a class="headerlink" href="#setting-up-development-environment" title="Link to this heading"></a></h3>
+<section id="initial-setup">
+<h4>1. Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Chitrank-Dixit/vidwaanai.git
+<span class="nb">cd</span><span class="w"> </span>vidwaanai
+bash<span class="w"> </span>setup.sh
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</pre></div>
+</div>
+</section>
+<section id="creating-feature-branch">
+<h4>2. Creating Feature Branch<a class="headerlink" href="#creating-feature-branch" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/my-feature
+</pre></div>
+</div>
+</section>
+<section id="making-changes">
+<h4>3. Making Changes<a class="headerlink" href="#making-changes" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make your code changes</span>
+<span class="c1"># Follow PEP 8 style guide</span>
+</pre></div>
+</div>
+</section>
+<section id="testing">
+<h4>4. Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/<span class="w"> </span>-v
+pytest<span class="w"> </span>--cov<span class="o">=</span>src
+</pre></div>
+</div>
+</section>
+<section id="linting">
+<h4>5. Linting<a class="headerlink" href="#linting" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>lint
+flake8<span class="w"> </span>src/
+black<span class="w"> </span>src/
+isort<span class="w"> </span>src/
+</pre></div>
+</div>
+</section>
+<section id="committing">
+<h4>6. Committing<a class="headerlink" href="#committing" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: description of changes&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/my-feature
+</pre></div>
+</div>
+</section>
+<section id="creating-pull-request">
+<h4>7. Creating Pull Request<a class="headerlink" href="#creating-pull-request" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Go to GitHub repository</p></li>
+<li><p>Create PR with clear description</p></li>
+<li><p>Ensure CI/CD passes</p></li>
+</ul>
+</section>
+</section>
+<section id="code-style-guidelines">
+<h3>Code Style Guidelines<a class="headerlink" href="#code-style-guidelines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Follow PEP 8</p></li>
+<li><p>Use type hints</p></li>
+<li><p>Write docstrings for all functions</p></li>
+<li><p>Keep functions small and focused</p></li>
+<li><p>Maximum line length: 88 characters (Black)</p></li>
+</ul>
+</section>
+<section id="commit-message-convention">
+<h3>Commit Message Convention<a class="headerlink" href="#commit-message-convention" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">scope</span><span class="o">&gt;</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">subject</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">footer</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Types: feat, fix, docs, style, refactor, test, chore</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issues-and-solutions">
+<h3>Common Issues and Solutions<a class="headerlink" href="#common-issues-and-solutions" title="Link to this heading"></a></h3>
+<section id="issue-port-already-in-use">
+<h4>Issue: Port Already in Use<a class="headerlink" href="#issue-port-already-in-use" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find process using port 8000</span>
+lsof<span class="w"> </span>-i<span class="w"> </span>:8000
+<span class="c1"># Kill the process</span>
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;PID&gt;
+<span class="c1"># Or use different port</span>
+docker-compose<span class="w"> </span>up<span class="w"> </span>-e<span class="w"> </span><span class="nv">API_PORT</span><span class="o">=</span><span class="m">8001</span>
+</pre></div>
+</div>
+</section>
+<section id="issue-database-connection-error">
+<h4>Issue: Database Connection Error<a class="headerlink" href="#issue-database-connection-error" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check database is running</span>
+docker-compose<span class="w"> </span>ps
+<span class="c1"># Verify connection string in .env</span>
+<span class="c1"># Reset database</span>
+make<span class="w"> </span>db-reset
+</pre></div>
+</div>
+</section>
+<section id="issue-out-of-memory">
+<h4>Issue: Out of Memory<a class="headerlink" href="#issue-out-of-memory" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Increase Docker memory</span>
+<span class="c1"># Edit docker-compose.yml or Docker Desktop settings</span>
+docker-compose<span class="w"> </span>down
+docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-a
+</pre></div>
+</div>
+</section>
+<section id="issue-module-not-found">
+<h4>Issue: Module Not Found<a class="headerlink" href="#issue-module-not-found" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reinstall dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<span class="c1"># Clear Python cache</span>
+find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span>__pycache__<span class="w"> </span>-exec<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+
+</pre></div>
+</div>
+</section>
+<section id="issue-tests-failing">
+<h4>Issue: Tests Failing<a class="headerlink" href="#issue-tests-failing" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run with verbose output</span>
+pytest<span class="w"> </span>-vv
+<span class="c1"># Check test dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+<span class="c1"># Run specific test</span>
+pytest<span class="w"> </span>tests/unit/test_specific.py<span class="w"> </span>-v
+</pre></div>
+</div>
+</section>
+</section>
+<section id="debug-mode">
+<h3>Debug Mode<a class="headerlink" href="#debug-mode" title="Link to this heading"></a></h3>
+<section id="enable-debug-logging">
+<h4>Enable Debug Logging<a class="headerlink" href="#enable-debug-logging" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LOG_LEVEL</span><span class="o">=</span>DEBUG
+<span class="nb">export</span><span class="w"> </span><span class="nv">DEBUG</span><span class="o">=</span><span class="nb">true</span>
+python<span class="w"> </span>-m<span class="w"> </span>src.main
+</pre></div>
+</div>
+</section>
+<section id="using-python-debugger">
+<h4>Using Python Debugger<a class="headerlink" href="#using-python-debugger" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pdb</span><span class="p">;</span> <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="using-vs-code-debugger">
+<h4>Using VS Code Debugger<a class="headerlink" href="#using-vs-code-debugger" title="Link to this heading"></a></h4>
+<p>Add <code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: Current File&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="contributing-guidelines">
+<h2>Contributing Guidelines<a class="headerlink" href="#contributing-guidelines" title="Link to this heading"></a></h2>
+<section id="how-to-contribute">
+<h3>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Fork the Repository</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Click<span class="w"> </span><span class="s2">&quot;Fork&quot;</span><span class="w"> </span>button<span class="w"> </span>on<span class="w"> </span>GitHub
+</pre></div>
+</div>
+</li>
+<li><p><strong>Clone Your Fork</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_USERNAME/vidwaanai.git
+<span class="nb">cd</span><span class="w"> </span>vidwaanai
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create Feature Branch</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
+</pre></div>
+</div>
+</li>
+<li><p><strong>Make Changes</strong></p>
+<ul class="simple">
+<li><p>Follow code style guidelines</p></li>
+<li><p>Add tests for new features</p></li>
+<li><p>Update documentation</p></li>
+</ul>
+</li>
+<li><p><strong>Run Tests</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+make<span class="w"> </span>lint
+</pre></div>
+</div>
+</li>
+<li><p><strong>Push Changes</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create Pull Request</strong></p>
+<ul class="simple">
+<li><p>Provide clear description</p></li>
+<li><p>Reference related issues</p></li>
+<li><p>Ensure all checks pass</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="code-review-process">
+<h3>Code Review Process<a class="headerlink" href="#code-review-process" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>At least 2 approvals required</p></li>
+<li><p>CI/CD must pass</p></li>
+<li><p>Code coverage must not decrease</p></li>
+<li><p>Documentation must be updated</p></li>
+</ul>
+</section>
+<section id="reporting-issues">
+<h3>Reporting Issues<a class="headerlink" href="#reporting-issues" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use GitHub Issues</p></li>
+<li><p>Provide clear description</p></li>
+<li><p>Include reproduction steps</p></li>
+<li><p>Attach relevant logs</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading"></a></h2>
+<section id="documentation-files">
+<h3>Documentation Files<a class="headerlink" href="#documentation-files" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> - Project overview</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUICKSTART.md</span></code> - Quick start guide</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DOCKER-QUICKSTART.md</span></code> - Docker setup</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SUPPORTED_LANGUAGES.md</span></code> - Language support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HOW-TO-RUN-MCP</span></code> - MCP protocol setup</p></li>
+</ul>
+</section>
+<section id="build-automation">
+<h3>Build Automation<a class="headerlink" href="#build-automation" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">help</span><span class="w">          </span><span class="c1"># Show all available commands</span>
+make<span class="w"> </span>run<span class="w">           </span><span class="c1"># Run application</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">          </span><span class="c1"># Run tests</span>
+make<span class="w"> </span>lint<span class="w">          </span><span class="c1"># Lint code</span>
+make<span class="w"> </span>docker-build<span class="w">  </span><span class="c1"># Build Docker image</span>
+make<span class="w"> </span>docker-up<span class="w">     </span><span class="c1"># Start Docker containers</span>
+</pre></div>
+</div>
+</section>
+<section id="project-links">
+<h3>Project Links<a class="headerlink" href="#project-links" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Repository</strong>: https://github.com/Chitrank-Dixit/vidwaanai</p></li>
+<li><p><strong>Issues</strong>: https://github.com/Chitrank-Dixit/vidwaanai/issues</p></li>
+<li><p><strong>Discussions</strong>: https://github.com/Chitrank-Dixit/vidwaanai/discussions</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>This project is open source. Check the repository for license details.</p>
+</section>
+<hr class="docutils" />
+<section id="contact-and-support">
+<h2>Contact and Support<a class="headerlink" href="#contact-and-support" title="Link to this heading"></a></h2>
+<p>For questions, issues, or contributions:</p>
+<ul class="simple">
+<li><p>Create an issue on GitHub</p></li>
+<li><p>Check existing documentation</p></li>
+<li><p>Review project discussions</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Last Updated</strong>: January 2026<br />
+<strong>Version</strong>: 1.0<br />
+<strong>Project</strong>: Vidwaanai - Agentic AI for Civilization Scripture Preservation</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README_DOCUMENTATION.html" class="btn btn-neutral float-left" title="Vidwaanai Project Documentation - README" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="src" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

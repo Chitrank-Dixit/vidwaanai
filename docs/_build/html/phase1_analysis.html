@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phase 1 Analysis: Performance Bottlenecks &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Phase 1 Analysis: Performance Bottlenecks</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/phase1_analysis.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="phase-1-analysis-performance-bottlenecks">
+<h1>Phase 1 Analysis: Performance Bottlenecks<a class="headerlink" href="#phase-1-analysis-performance-bottlenecks" title="Link to this heading"></a></h1>
+<p><strong>Date:</strong> 2025-11-30</p>
+<section id="identified-bottlenecks">
+<h2>Identified Bottlenecks<a class="headerlink" href="#identified-bottlenecks" title="Link to this heading"></a></h2>
+<p>Based on the profiling results (Avg: 62.67s), the following bottlenecks have been identified:</p>
+<section id="llm-latency-critical">
+<h3>1. LLM Latency (Critical)<a class="headerlink" href="#llm-latency-critical" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Impact:</strong> High</p></li>
+<li><p><strong>Observation:</strong> The majority of the time is likely spent waiting for the LLM to generate responses, especially for complex queries.</p></li>
+<li><p><strong>Evidence:</strong> Queries requiring longer explanations (“Explain…”, “What is…”) take the longest.</p></li>
+<li><p><strong>Action:</strong></p>
+<ul>
+<li><p>Implement streaming responses (future phase).</p></li>
+<li><p>Optimize prompts to reduce generation tokens.</p></li>
+<li><p>Cache common queries to bypass LLM entirely.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="retrieval-latency-high">
+<h3>2. Retrieval Latency (High)<a class="headerlink" href="#retrieval-latency-high" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Impact:</strong> High</p></li>
+<li><p><strong>Observation:</strong> Hybrid search involves both vector search and graph traversal. Graph traversal with <code class="docutils literal notranslate"><span class="pre">depth=2</span></code> can be slow if not optimized.</p></li>
+<li><p><strong>Evidence:</strong> Queries triggering graph traversal (e.g., “relationship between”) are slow.</p></li>
+<li><p><strong>Action:</strong></p>
+<ul>
+<li><p>Optimize Cypher queries.</p></li>
+<li><p>Add indexes to Neo4j and PostgreSQL.</p></li>
+<li><p>Implement parallel execution of vector and graph search.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="embedding-generation-medium">
+<h3>3. Embedding Generation (Medium)<a class="headerlink" href="#embedding-generation-medium" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Impact:</strong> Medium</p></li>
+<li><p><strong>Observation:</strong> Generating embeddings for every query adds latency.</p></li>
+<li><p><strong>Action:</strong></p>
+<ul>
+<li><p>Cache query embeddings.</p></li>
+<li><p>Use a faster embedding model or quantization if possible (already using MiniLM, which is fast).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="database-connection-overhead-low-medium">
+<h3>4. Database Connection Overhead (Low/Medium)<a class="headerlink" href="#database-connection-overhead-low-medium" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Impact:</strong> Low/Medium</p></li>
+<li><p><strong>Observation:</strong> Creating new connections for every operation.</p></li>
+<li><p><strong>Action:</strong></p>
+<ul>
+<li><p>Implement connection pooling (Planned for Week 2).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="next-steps-week-2">
+<h2>Next Steps (Week 2)<a class="headerlink" href="#next-steps-week-2" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Database Optimization:</strong></p>
+<ul class="simple">
+<li><p>Add indexes to PostgreSQL and Neo4j.</p></li>
+<li><p>Implement connection pooling.</p></li>
+</ul>
+</li>
+<li><p><strong>Caching Layer:</strong></p>
+<ul class="simple">
+<li><p>Implement in-memory cache for query results and embeddings.</p></li>
+</ul>
+</li>
+<li><p><strong>Embedding Optimization:</strong></p>
+<ul class="simple">
+<li><p>Optimize vector search parameters.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

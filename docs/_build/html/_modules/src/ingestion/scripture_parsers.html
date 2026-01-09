@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.ingestion.scripture_parsers &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.ingestion.scripture_parsers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.ingestion.scripture_parsers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="BaseScriptureParser">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.scripture_parsers.BaseScriptureParser">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseScriptureParser</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for parsing varying scripture structures.&quot;&quot;&quot;</span>
+
+    <span class="n">PATTERNS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;l1_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Top level (Mandala, Kanda, Skanda)</span>
+        <span class="s2">&quot;l2_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Mid level (Sukta, Sarga, Adhyaya)</span>
+        <span class="s2">&quot;verse&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Verse level (Mantra, Shloka)</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_l1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_l2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verse_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="BaseScriptureParser.parse">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.scripture_parsers.BaseScriptureParser.parse">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse pages into verse structure.&quot;&quot;&quot;</span>
+        <span class="n">verses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_l1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_l2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verse_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+
+            <span class="c1"># L1 Node Detection</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span><span class="p">[</span><span class="s2">&quot;l1_node&quot;</span><span class="p">]:</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span><span class="p">[</span><span class="s2">&quot;l1_node&quot;</span><span class="p">],</span> <span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">current_l1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                        <span class="c1"># Reset child counters if needed, though usually sequential</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+
+            <span class="c1"># L2 Node Detection</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span><span class="p">[</span><span class="s2">&quot;l2_node&quot;</span><span class="p">]:</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span><span class="p">[</span><span class="s2">&quot;l2_node&quot;</span><span class="p">],</span> <span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">current_l2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+
+            <span class="c1"># Verse splitting</span>
+            <span class="n">blocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_verses</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">block</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                    <span class="k">continue</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">verse_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">verses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;ved_code&quot;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+                        <span class="s2">&quot;mandala_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_l1</span><span class="p">,</span>  <span class="c1"># Mapped to L1</span>
+                        <span class="s2">&quot;sukta_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_l2</span><span class="p">,</span>  <span class="c1"># Mapped to L2</span>
+                        <span class="s2">&quot;mantra_number&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">verse_count</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">block</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s2">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_tags</span><span class="p">(</span><span class="n">block</span><span class="p">),</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">verses</span><span class="p">)</span><span class="si">}</span><span class="s2"> verses&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">verses</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_split_verses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Split text into individual verses.&quot;&quot;&quot;</span>
+        <span class="c1"># Standard splitting by double danda (||) common in Sanskrit</span>
+        <span class="c1"># Also handle potential &#39;Mantra X&#39; headers if defined</span>
+
+        <span class="c1"># Default split logic</span>
+        <span class="n">chunks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?:[\॥\|]{1,2})&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunks</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tag extraction - can overlap with VedaParser logic.&quot;&quot;&quot;</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dharma&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;धर्म&quot;</span><span class="p">,</span> <span class="s2">&quot;कर्तव्य&quot;</span><span class="p">,</span> <span class="s2">&quot;सत्य&quot;</span><span class="p">,</span> <span class="s2">&quot;न्याय&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;karma&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;कर्म&quot;</span><span class="p">,</span> <span class="s2">&quot;फल&quot;</span><span class="p">,</span> <span class="s2">&quot;क्रिया&quot;</span><span class="p">,</span> <span class="s2">&quot;प्रयास&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;bhakti&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;भक्ति&quot;</span><span class="p">,</span> <span class="s2">&quot;प्रेम&quot;</span><span class="p">,</span> <span class="s2">&quot;समर्पण&quot;</span><span class="p">,</span> <span class="s2">&quot;श्रद्धा&quot;</span><span class="p">,</span> <span class="s2">&quot;पूजा&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;war&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;युद्ध&quot;</span><span class="p">,</span> <span class="s2">&quot;शस्त्र&quot;</span><span class="p">,</span> <span class="s2">&quot;बाण&quot;</span><span class="p">,</span> <span class="s2">&quot;सेना&quot;</span><span class="p">,</span> <span class="s2">&quot;वीर&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;knowledge&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ज्ञान&quot;</span><span class="p">,</span> <span class="s2">&quot;विद्या&quot;</span><span class="p">,</span> <span class="s2">&quot;बोध&quot;</span><span class="p">,</span> <span class="s2">&quot;शास्त्र&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;nature&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;वन&quot;</span><span class="p">,</span> <span class="s2">&quot;नदी&quot;</span><span class="p">,</span> <span class="s2">&quot;पर्वत&quot;</span><span class="p">,</span> <span class="s2">&quot;सूर्य&quot;</span><span class="p">,</span> <span class="s2">&quot;चन्द्र&quot;</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">cat</span><span class="p">,</span> <span class="n">kws</span> <span class="ow">in</span> <span class="n">keywords</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kws</span><span class="p">):</span>
+                <span class="n">tags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tags</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="GitaParser">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.scripture_parsers.GitaParser">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GitaParser</span><span class="p">(</span><span class="n">BaseScriptureParser</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parser for Bhagavad Gita.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;l1_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;अध्याय\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Adhyaya -&gt; Mandala</span>
+            <span class="s2">&quot;l2_node&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># No sub-level -&gt; Sukta 0</span>
+            <span class="s2">&quot;verse&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;श्लोक\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_split_verses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="c1"># Gita verses often labeled &#39;श्लोक X&#39; or just text with ||</span>
+        <span class="c1"># For now, default danda split, but maybe prioritize &#39;श्लोक&#39; header</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_split_verses</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="RamayanaParser">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.scripture_parsers.RamayanaParser">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RamayanaParser</span><span class="p">(</span><span class="n">BaseScriptureParser</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parser for Ramayana.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;l1_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;काण्ड\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Kanda -&gt; Mandala</span>
+            <span class="s2">&quot;l2_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;सर्ग\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Sarga -&gt; Sukta</span>
+            <span class="s2">&quot;verse&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="PuranaParser">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.scripture_parsers.PuranaParser">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PuranaParser</span><span class="p">(</span><span class="n">BaseScriptureParser</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parser for Puranas.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;l1_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;(?:स्कन्ध|खण्ड)\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Skanda/Khanda -&gt; Mandala</span>
+            <span class="s2">&quot;l2_node&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;अध्याय\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Adhyaya -&gt; Sukta</span>
+            <span class="s2">&quot;verse&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="get_parser">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.scripture_parsers.get_parser">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_parser</span><span class="p">(</span><span class="n">scripture_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BaseScriptureParser</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Factory method.&quot;&quot;&quot;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">scripture_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;gita&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">GitaParser</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;ramayana&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">RamayanaParser</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;purana&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">PuranaParser</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Default or Veda</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">src.ingestion.veda_parser</span><span class="w"> </span><span class="kn">import</span> <span class="n">VedaParser</span>
+
+        <span class="c1"># VedaParser matches the interface but is standalone.</span>
+        <span class="c1"># Ideally we wrap it or return it if interfaces align.</span>
+        <span class="c1"># VedaParser.parse_vedas signature is same.</span>
+        <span class="c1"># We need to adapt VedaParser to BaseScriptureParser interface or cast it</span>
+        <span class="c1"># Since VedaParser is different, let&#39;s allow return type Union or cast</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">cast</span>
+
+        <span class="c1"># For now, suppressing type error or assuming VedaParser will be refactored to inherit</span>
+        <span class="c1"># cast(BaseScriptureParser, VedaParser())</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">BaseScriptureParser</span><span class="p">,</span> <span class="n">VedaParser</span><span class="p">())</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.ingestion.veda_parser &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.ingestion.veda_parser</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.ingestion.veda_parser</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="VedaParser">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.veda_parser.VedaParser">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">VedaParser</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse Veda structure from text.&quot;&quot;&quot;</span>
+
+    <span class="n">PATTERNS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;mandala&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;मंडल\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Mandala number</span>
+        <span class="s2">&quot;sukta&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;सूक्त\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Sukta number</span>
+        <span class="s2">&quot;mantra&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;मंत्र\s*[:=]?\s*(\d+)&quot;</span><span class="p">,</span>  <span class="c1"># Mantra number</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="VedaParser.parse_vedas">
+<a class="viewcode-back" href="../../../src.ingestion.html#src.ingestion.veda_parser.VedaParser.parse_vedas">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_vedas</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">pages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">ved_code</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse pages into mantra structure.&quot;&quot;&quot;</span>
+        <span class="n">mantras</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">current_mandala</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">current_sukta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">mantra_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Rig Veda uses Mandalas. Others might use Kanda/Adhyaya but we map to similar hierarchy</span>
+        <span class="c1"># Using a flat iteration over pages might miss context if a mandala spans pages</span>
+        <span class="c1"># But usually headers are repeated or distinct enough.</span>
+
+        <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+
+            <span class="c1"># Extract mandala (update current context if found)</span>
+            <span class="n">mandala_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span><span class="p">[</span><span class="s2">&quot;mandala&quot;</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mandala_match</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">current_mandala</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mandala_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+            <span class="c1"># Extract sukta</span>
+            <span class="n">sukta_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PATTERNS</span><span class="p">[</span><span class="s2">&quot;sukta&quot;</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sukta_match</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">current_sukta</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sukta_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+            <span class="c1"># Split into individual mantras</span>
+            <span class="n">mantra_blocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_mantras</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">mantra_blocks</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">block</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Try to extract explicit mantra number if present at start</span>
+                <span class="c1"># Validation logic could go here</span>
+
+                <span class="n">mantra_count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">mantras</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;ved_code&quot;</span><span class="p">:</span> <span class="n">ved_code</span><span class="p">,</span>
+                        <span class="s2">&quot;mandala_id&quot;</span><span class="p">:</span> <span class="n">current_mandala</span><span class="p">,</span>
+                        <span class="s2">&quot;sukta_id&quot;</span><span class="p">:</span> <span class="n">current_sukta</span><span class="p">,</span>
+                        <span class="s2">&quot;mantra_number&quot;</span><span class="p">:</span> <span class="n">mantra_count</span><span class="p">,</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">block</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                        <span class="s2">&quot;translation&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Filled from external source or adjacent text if available</span>
+                        <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_tags</span><span class="p">(</span><span class="n">block</span><span class="p">),</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">mantras</span><span class="p">)</span><span class="si">}</span><span class="s2"> mantras for </span><span class="si">{</span><span class="n">ved_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mantras</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_split_mantras</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Split text into individual mantras.&quot;&quot;&quot;</span>
+        <span class="c1"># Split by common delimiters like double danda (||) or explicit &#39;Mantra&#39; labels</span>
+        <span class="c1"># The regex splits by &#39;मंत्र&#39; keyword or danda punctuation, keeping the delimiter if needed?</span>
+        <span class="c1"># A simple split usually consumes the delimiter.</span>
+        <span class="c1"># Let&#39;s try splitting by double danda which is standard in Sanskrit texts</span>
+
+        <span class="c1"># Regex:</span>
+        <span class="c1"># (?: ... ) is non-capturing group</span>
+        <span class="c1"># मंत्र\s*\d+ matches &quot;Mantra 1&quot; etc</span>
+        <span class="c1"># ।{1,2} matches | or ||</span>
+
+        <span class="n">chunks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?:मंत्र\s*\d+[:\.]?|[\॥\|]{1,2})&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunks</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">5</span>
+        <span class="p">]</span>  <span class="c1"># Lower filter to 5 chars to match test data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_extract_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extract keywords/tags from mantra.&quot;&quot;&quot;</span>
+        <span class="n">tags</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Basic keyword mapping - can be expanded</span>
+        <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;health&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;औषधि&quot;</span><span class="p">,</span> <span class="s2">&quot;रोग&quot;</span><span class="p">,</span> <span class="s2">&quot;चिकित्सा&quot;</span><span class="p">,</span> <span class="s2">&quot;तंदुरुस्त&quot;</span><span class="p">,</span> <span class="s2">&quot;आयु&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;ritual&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;यज्ञ&quot;</span><span class="p">,</span> <span class="s2">&quot;अग्नि&quot;</span><span class="p">,</span> <span class="s2">&quot;हवि&quot;</span><span class="p">,</span> <span class="s2">&quot;पूजन&quot;</span><span class="p">,</span> <span class="s2">&quot;अनुष्ठान&quot;</span><span class="p">,</span> <span class="s2">&quot;सोम&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;nature&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;इंद्र&quot;</span><span class="p">,</span> <span class="s2">&quot;वायु&quot;</span><span class="p">,</span> <span class="s2">&quot;सूर्य&quot;</span><span class="p">,</span> <span class="s2">&quot;जल&quot;</span><span class="p">,</span> <span class="s2">&quot;पृथ्वी&quot;</span><span class="p">,</span> <span class="s2">&quot;नदी&quot;</span><span class="p">,</span> <span class="s2">&quot;पर्वत&quot;</span><span class="p">,</span> <span class="s2">&quot;उषा&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;wisdom&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ब्रह्म&quot;</span><span class="p">,</span> <span class="s2">&quot;ज्ञान&quot;</span><span class="p">,</span> <span class="s2">&quot;विद्या&quot;</span><span class="p">,</span> <span class="s2">&quot;बुद्धि&quot;</span><span class="p">,</span> <span class="s2">&quot;सत्य&quot;</span><span class="p">,</span> <span class="s2">&quot;मन&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;divine&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;देव&quot;</span><span class="p">,</span> <span class="s2">&quot;ईश्वर&quot;</span><span class="p">,</span> <span class="s2">&quot;परमात्मा&quot;</span><span class="p">,</span> <span class="s2">&quot;वरुण&quot;</span><span class="p">,</span> <span class="s2">&quot;मित्र&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;पिता&quot;</span><span class="p">,</span> <span class="s2">&quot;माता&quot;</span><span class="p">,</span> <span class="s2">&quot;पुत्र&quot;</span><span class="p">,</span> <span class="s2">&quot;गृह&quot;</span><span class="p">,</span> <span class="s2">&quot;पारिवार&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;prosperity&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;धन&quot;</span><span class="p">,</span> <span class="s2">&quot;लक्ष्मी&quot;</span><span class="p">,</span> <span class="s2">&quot;समृद्धि&quot;</span><span class="p">,</span> <span class="s2">&quot;गो&quot;</span><span class="p">,</span> <span class="s2">&quot;अश्व&quot;</span><span class="p">],</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">keywords_list</span> <span class="ow">in</span> <span class="n">keywords</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">kw</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="n">keywords_list</span><span class="p">):</span>
+                <span class="n">tags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tags</span><span class="p">))</span>  <span class="c1"># unique tags</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

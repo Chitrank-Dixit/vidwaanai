@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidwaanai Project - Complete Documentation Index &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vidwaanai Project Documentation - README" href="README_DOCUMENTATION.html" />
+    <link rel="prev" title="Welcome to VidwaanAI’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vidwaanai Project - Complete Documentation Index</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-artifacts-generated">Documentation Artifacts Generated</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vidwaanai-complete-documentation-md-17">1. <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> [17]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-reference-guide-md">2. <strong>QUICK_REFERENCE_GUIDE.md</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#architecture-diagram-txt">3. <strong>architecture_diagram.txt</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-structure-diagram-txt">4. <strong>class_structure_diagram.txt</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repo-analysis-md">5. <strong>repo_analysis.md</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-by-role">Getting Started by Role</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-project-managers">For Project Managers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-developers">For Developers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-devops-infrastructure">For DevOps/Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-data-scientists-ai-engineers">For Data Scientists/AI Engineers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-new-contributors">For New Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#key-sections-by-topic">Key Sections by Topic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-setup">Installation &amp; Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-application">Running the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-usage">API Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#architecture-understanding">Architecture Understanding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-workflow">Development Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#file-navigation-map">File Navigation Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-command-reference">Quick Command Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-installation">Setup &amp; Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development">Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-access">API Access</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#key-technologies-quick-reference">Key Technologies Quick Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-use-cases">Common Use Cases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extract-text-from-ancient-manuscript">1. Extract Text from Ancient Manuscript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analyze-scripture-for-entities">2. Analyze Scripture for Entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-comparative-report">3. Generate Comparative Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-similar-texts">4. Search Similar Texts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-highlights">Feature Highlights</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-layer-architecture">✓ Multi-Layer Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agentic-ai-system">✓ Agentic AI System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-language-support">✓ Multi-Language Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-storage">✓ Advanced Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flexible-apis">✓ Flexible APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#production-ready">✓ Production Ready</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-index">Troubleshooting Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-resources">Additional Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-repository">In Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-links">External Links</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-maintenance">Documentation Maintenance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-information">Version Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-update">How to Update</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#support-contribution">Support &amp; Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-contribute">How to Contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-style">Code Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#document-usage-statistics">Document Usage Statistics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#most-accessed-sections">Most Accessed Sections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-learning-path">Best Learning Path</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#checklist-for-new-developers">Checklist for New Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vidwaanai Project - Complete Documentation Index</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/DOCUMENTATION_INDEX.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vidwaanai-project-complete-documentation-index">
+<h1>Vidwaanai Project - Complete Documentation Index<a class="headerlink" href="#vidwaanai-project-complete-documentation-index" title="Link to this heading"></a></h1>
+<p><strong>Last Updated:</strong> January 2026<br />
+<strong>Project Version:</strong> 1.0<br />
+<strong>Repository:</strong> https://github.com/Chitrank-Dixit/vidwaanai</p>
+<hr class="docutils" />
+<section id="documentation-artifacts-generated">
+<h2>Documentation Artifacts Generated<a class="headerlink" href="#documentation-artifacts-generated" title="Link to this heading"></a></h2>
+<p>This comprehensive documentation package includes:</p>
+<section id="vidwaanai-complete-documentation-md-17">
+<h3>1. <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> [17]<a class="headerlink" href="#vidwaanai-complete-documentation-md-17" title="Link to this heading"></a></h3>
+<p>The main documentation file containing:</p>
+<ul class="simple">
+<li><p>Project overview and mission</p></li>
+<li><p>Complete project goals and objectives</p></li>
+<li><p>Full technology stack details</p></li>
+<li><p>Detailed repository structure with explanations</p></li>
+<li><p>Step-by-step installation guide (Docker &amp; Local)</p></li>
+<li><p>Environment configuration reference</p></li>
+<li><p>Docker setup instructions for all configurations</p></li>
+<li><p>Complete usage instructions and examples</p></li>
+<li><p>REST API and MCP Protocol documentation</p></li>
+<li><p>Supported languages reference</p></li>
+<li><p>Testing and QA procedures</p></li>
+<li><p>Architecture overview with diagrams</p></li>
+<li><p>Development workflow guidelines</p></li>
+<li><p>Troubleshooting guide</p></li>
+<li><p>Contributing guidelines</p></li>
+</ul>
+<p><strong>Best For:</strong> Complete reference, onboarding new team members, implementation guide</p>
+</section>
+<hr class="docutils" />
+<section id="quick-reference-guide-md">
+<h3>2. <strong>QUICK_REFERENCE_GUIDE.md</strong><a class="headerlink" href="#quick-reference-guide-md" title="Link to this heading"></a></h3>
+<p>Quick access guide with:</p>
+<ul class="simple">
+<li><p>5-minute getting started (both Docker and local)</p></li>
+<li><p>Essential commands for development</p></li>
+<li><p>Common tasks with code examples</p></li>
+<li><p>Project structure quick map</p></li>
+<li><p>API quick reference</p></li>
+<li><p>Configuration reference</p></li>
+<li><p>Debugging tips and tricks</p></li>
+<li><p>Performance optimization</p></li>
+<li><p>Troubleshooting quick solutions</p></li>
+<li><p>Common pitfalls and solutions</p></li>
+</ul>
+<p><strong>Best For:</strong> Daily development, quick lookups, common operations</p>
+</section>
+<hr class="docutils" />
+<section id="architecture-diagram-txt">
+<h3>3. <strong>architecture_diagram.txt</strong><a class="headerlink" href="#architecture-diagram-txt" title="Link to this heading"></a></h3>
+<p>Detailed ASCII architecture diagrams:</p>
+<ul class="simple">
+<li><p>System architecture (7-layer model)</p></li>
+<li><p>Data flow across system</p></li>
+<li><p>Agent interaction diagram</p></li>
+<li><p>Technology stack mapping</p></li>
+<li><p>Deployment architecture (Dev → Staging → Production → MCP)</p></li>
+</ul>
+<p><strong>Best For:</strong> Understanding system design, presentations, architecture review</p>
+</section>
+<hr class="docutils" />
+<section id="class-structure-diagram-txt">
+<h3>4. <strong>class_structure_diagram.txt</strong><a class="headerlink" href="#class-structure-diagram-txt" title="Link to this heading"></a></h3>
+<p>Comprehensive UML-style diagrams showing:</p>
+<ul class="simple">
+<li><p>Core domain models (Scripture, ProcessedDocument, AnalysisResult, etc.)</p></li>
+<li><p>Data processing pipeline classes</p></li>
+<li><p>Agentic AI system architecture</p></li>
+<li><p>Storage and database layer</p></li>
+<li><p>API and interface layer</p></li>
+<li><p>Service layer components</p></li>
+<li><p>Repository pattern implementation</p></li>
+<li><p>LLM client implementations</p></li>
+<li><p>Agent interactions and relationships</p></li>
+<li><p>Data flow chains</p></li>
+<li><p>Enums and constants</p></li>
+</ul>
+<p><strong>Best For:</strong> Code architecture understanding, development, design patterns</p>
+</section>
+<hr class="docutils" />
+<section id="repo-analysis-md">
+<h3>5. <strong>repo_analysis.md</strong><a class="headerlink" href="#repo-analysis-md" title="Link to this heading"></a></h3>
+<p>Repository analysis including:</p>
+<ul class="simple">
+<li><p>Project overview</p></li>
+<li><p>Repository structure breakdown</p></li>
+<li><p>Technology stack comprehensive list</p></li>
+<li><p>Feature summary</p></li>
+<li><p>Project maturity assessment</p></li>
+</ul>
+<p><strong>Best For:</strong> Quick project understanding, capability assessment</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getting-started-by-role">
+<h2>Getting Started by Role<a class="headerlink" href="#getting-started-by-role" title="Link to this heading"></a></h2>
+<section id="for-project-managers">
+<h3>For Project Managers<a class="headerlink" href="#for-project-managers" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start with <strong>repo_analysis.md</strong> - Project overview</p></li>
+<li><p>Review <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Goals section</p></li>
+<li><p>Check <strong>architecture_diagram.txt</strong> - System capabilities</p></li>
+</ol>
+</section>
+<section id="for-developers">
+<h3>For Developers<a class="headerlink" href="#for-developers" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Read <strong>QUICK_REFERENCE_GUIDE.md</strong> - Setup and commands</p></li>
+<li><p>Follow <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Installation</p></li>
+<li><p>Reference <strong>class_structure_diagram.txt</strong> - Code structure</p></li>
+<li><p>Check API section in main documentation</p></li>
+</ol>
+</section>
+<section id="for-devops-infrastructure">
+<h3>For DevOps/Infrastructure<a class="headerlink" href="#for-devops-infrastructure" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Read <strong>QUICK_REFERENCE_GUIDE.md</strong> - Docker commands</p></li>
+<li><p>Review <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Docker section</p></li>
+<li><p>Check <strong>architecture_diagram.txt</strong> - Deployment architecture</p></li>
+</ol>
+</section>
+<section id="for-data-scientists-ai-engineers">
+<h3>For Data Scientists/AI Engineers<a class="headerlink" href="#for-data-scientists-ai-engineers" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start with <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Tech stack</p></li>
+<li><p>Review <strong>class_structure_diagram.txt</strong> - Agent architecture</p></li>
+<li><p>Check API documentation for model integration</p></li>
+</ol>
+</section>
+<section id="for-new-contributors">
+<h3>For New Contributors<a class="headerlink" href="#for-new-contributors" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>QUICK_REFERENCE_GUIDE.md</strong> - Getting started</p></li>
+<li><p><strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Contributing section</p></li>
+<li><p><strong>class_structure_diagram.txt</strong> - Code organization</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-sections-by-topic">
+<h2>Key Sections by Topic<a class="headerlink" href="#key-sections-by-topic" title="Link to this heading"></a></h2>
+<section id="installation-setup">
+<h3>Installation &amp; Setup<a class="headerlink" href="#installation-setup" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - Quick setup (2 options)</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - Full installation guide</p></li>
+<li><p>Section: “Installation Guide” &amp; “Docker Setup”</p></li>
+</ul>
+</section>
+<section id="running-the-application">
+<h3>Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - Essential commands</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - Usage instructions</p></li>
+<li><p>Commands: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span></code>, <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">-d</span></code></p></li>
+</ul>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - Environment variables reference</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - Configuration section</p></li>
+<li><p>Files: <code class="docutils literal notranslate"><span class="pre">.env.example</span></code>, <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p></li>
+</ul>
+</section>
+<section id="api-usage">
+<h3>API Usage<a class="headerlink" href="#api-usage" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - API quick reference</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - API section</p></li>
+<li><p>Endpoints: Scripture, Processing, Analysis, Reports</p></li>
+</ul>
+</section>
+<section id="architecture-understanding">
+<h3>Architecture Understanding<a class="headerlink" href="#architecture-understanding" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>architecture_diagram.txt - System design</p></li>
+<li><p>class_structure_diagram.txt - Component details</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - Architecture section</p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - Common solutions</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - Full troubleshooting</p></li>
+<li><p>Topics: Ports, Database, Memory, Modules, Tests</p></li>
+</ul>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - Test commands</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - QA section</p></li>
+<li><p>Command: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">--cov</span></code></p></li>
+</ul>
+</section>
+<section id="development-workflow">
+<h3>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>QUICK_REFERENCE_GUIDE.md - Development commands</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md - Development workflow</p></li>
+<li><p>File: class_structure_diagram.txt - Code organization</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="file-navigation-map">
+<h2>File Navigation Map<a class="headerlink" href="#file-navigation-map" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Documentation Package
+│
+├── VIDWAANAI_COMPLETE_DOCUMENTATION.md
+│   ├── Table of Contents (15 sections)
+│   ├── Project Overview
+│   ├── Tech Stack
+│   ├── Installation Guide
+│   ├── Configuration
+│   ├── Docker Setup
+│   ├── Usage Instructions
+│   ├── API Reference
+│   ├── Architecture
+│   ├── Development Workflow
+│   ├── Troubleshooting
+│   └── Contributing Guidelines
+│
+├── QUICK_REFERENCE_GUIDE.md
+│   ├── 5-Minute Setup
+│   ├── Essential Commands
+│   ├── Project Map
+│   ├── Common Tasks
+│   ├── Configuration Reference
+│   ├── API Quick Reference
+│   ├── Debugging Tips
+│   ├── Performance Optimization
+│   └── Troubleshooting
+│
+├── architecture_diagram.txt
+│   ├── 7-Layer System Architecture
+│   ├── Data Flow Diagram
+│   ├── Agent Interaction Diagram
+│   ├── Technology Stack Mapping
+│   └── Deployment Architecture
+│
+├── class_structure_diagram.txt
+│   ├── Domain Models
+│   ├── Processing Pipeline
+│   ├── Agentic AI System
+│   ├── Storage Layer
+│   ├── API Layer
+│   ├── Service Layer
+│   ├── Relationships Map
+│   └── Enums &amp; Constants
+│
+└── repo_analysis.md
+    ├── Project Overview
+    ├── Repository Structure
+    ├── Technology Stack
+    └── Features &amp; Maturity
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="quick-command-reference">
+<h2>Quick Command Reference<a class="headerlink" href="#quick-command-reference" title="Link to this heading"></a></h2>
+<section id="setup-installation">
+<h3>Setup &amp; Installation<a class="headerlink" href="#setup-installation" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Docker (fastest)</span>
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+
+<span class="c1"># Local Python</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>run
+</pre></div>
+</div>
+</section>
+<section id="development">
+<h3>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>run<span class="w">              </span><span class="c1"># Run app</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">             </span><span class="c1"># Run tests</span>
+make<span class="w"> </span>lint<span class="w">             </span><span class="c1"># Lint code</span>
+make<span class="w"> </span>clean<span class="w">            </span><span class="c1"># Clean artifacts</span>
+</pre></div>
+</div>
+</section>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">       </span><span class="c1"># Start</span>
+docker-compose<span class="w"> </span>down<span class="w">        </span><span class="c1"># Stop</span>
+docker-compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w">     </span><span class="c1"># View logs</span>
+docker-compose<span class="w"> </span>ps<span class="w">          </span><span class="c1"># List services</span>
+</pre></div>
+</div>
+</section>
+<section id="api-access">
+<h3>API Access<a class="headerlink" href="#api-access" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Health check</span>
+curl<span class="w"> </span>http://localhost:8000/health
+
+<span class="c1"># Create scripture</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/api/scriptures<span class="w"> </span>...
+
+<span class="c1"># List scriptures</span>
+curl<span class="w"> </span>http://localhost:8000/api/scriptures
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-technologies-quick-reference">
+<h2>Key Technologies Quick Reference<a class="headerlink" href="#key-technologies-quick-reference" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Technology</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Installation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Python 3.x</p></td>
+<td><p>Programming Language</p></td>
+<td><p>Pre-installed</p></td>
+</tr>
+<tr class="row-odd"><td><p>Docker</p></td>
+<td><p>Containerization</p></td>
+<td><p>docker-compose up</p></td>
+</tr>
+<tr class="row-even"><td><p>PostgreSQL</p></td>
+<td><p>Primary Database</p></td>
+<td><p>Included in compose</p></td>
+</tr>
+<tr class="row-odd"><td><p>Redis</p></td>
+<td><p>Cache/Sessions</p></td>
+<td><p>Included in compose</p></td>
+</tr>
+<tr class="row-even"><td><p>FastAPI</p></td>
+<td><p>Web Framework</p></td>
+<td><p>pip install</p></td>
+</tr>
+<tr class="row-odd"><td><p>pytest</p></td>
+<td><p>Testing</p></td>
+<td><p>pytest command</p></td>
+</tr>
+<tr class="row-even"><td><p>LLM APIs</p></td>
+<td><p>AI/ML</p></td>
+<td><p>Configure in .env</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ansible</p></td>
+<td><p>Infrastructure</p></td>
+<td><p>scripts/</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="common-use-cases">
+<h2>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h2>
+<section id="extract-text-from-ancient-manuscript">
+<h3>1. Extract Text from Ancient Manuscript<a class="headerlink" href="#extract-text-from-ancient-manuscript" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>Upload<span class="w"> </span>file<span class="w"> </span>via<span class="w"> </span>API
+<span class="m">2</span>.<span class="w"> </span>System<span class="w"> </span>processes<span class="w"> </span>with<span class="w"> </span>OCR
+<span class="m">3</span>.<span class="w"> </span>Text<span class="w"> </span>extracted<span class="w"> </span>and<span class="w"> </span>cleaned
+<span class="m">4</span>.<span class="w"> </span>Agents<span class="w"> </span>analyze<span class="w"> </span>content
+<span class="m">5</span>.<span class="w"> </span>Results<span class="w"> </span>stored<span class="w"> </span>and<span class="w"> </span>searchable
+</pre></div>
+</div>
+</section>
+<section id="analyze-scripture-for-entities">
+<h3>2. Analyze Scripture for Entities<a class="headerlink" href="#analyze-scripture-for-entities" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>Submit<span class="w"> </span>scripture<span class="w"> </span>ID
+<span class="m">2</span>.<span class="w"> </span>ScriptureAnalyzer<span class="w"> </span>agent<span class="w"> </span>processes
+<span class="m">3</span>.<span class="w"> </span>Named<span class="w"> </span>entities<span class="w"> </span>extracted
+<span class="m">4</span>.<span class="w"> </span>Relations<span class="w"> </span>established
+<span class="m">5</span>.<span class="w"> </span>Report<span class="w"> </span>generated
+</pre></div>
+</div>
+</section>
+<section id="generate-comparative-report">
+<h3>3. Generate Comparative Report<a class="headerlink" href="#generate-comparative-report" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>Select<span class="w"> </span>multiple<span class="w"> </span>scriptures
+<span class="m">2</span>.<span class="w"> </span>ReportGenerator<span class="w"> </span>agent<span class="w"> </span>creates<span class="w"> </span>analysis
+<span class="m">3</span>.<span class="w"> </span>Similarities<span class="w"> </span>and<span class="w"> </span>differences<span class="w"> </span>identified
+<span class="m">4</span>.<span class="w"> </span>Report<span class="w"> </span>exported<span class="w"> </span><span class="o">(</span>PDF/JSON/etc.<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="search-similar-texts">
+<h3>4. Search Similar Texts<a class="headerlink" href="#search-similar-texts" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>Submit<span class="w"> </span>text<span class="w"> </span>or<span class="w"> </span>scripture<span class="w"> </span>ID
+<span class="m">2</span>.<span class="w"> </span>Vector<span class="w"> </span>embeddings<span class="w"> </span>generated
+<span class="m">3</span>.<span class="w"> </span>Semantic<span class="w"> </span>search<span class="w"> </span>executed
+<span class="m">4</span>.<span class="w"> </span>Similar<span class="w"> </span>items<span class="w"> </span>returned<span class="w"> </span>with<span class="w"> </span>scores
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="feature-highlights">
+<h2>Feature Highlights<a class="headerlink" href="#feature-highlights" title="Link to this heading"></a></h2>
+<section id="multi-layer-architecture">
+<h3>✓ Multi-Layer Architecture<a class="headerlink" href="#multi-layer-architecture" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Input → Processing → AI → Storage → API → Output</p></li>
+</ul>
+</section>
+<section id="agentic-ai-system">
+<h3>✓ Agentic AI System<a class="headerlink" href="#agentic-ai-system" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>ScriptureAnalyzer</p></li>
+<li><p>TextEnricher</p></li>
+<li><p>KnowledgeLinker</p></li>
+<li><p>ReportGenerator</p></li>
+</ul>
+</section>
+<section id="multi-language-support">
+<h3>✓ Multi-Language Support<a class="headerlink" href="#multi-language-support" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ancient: Sanskrit, Pali, Tamil, etc.</p></li>
+<li><p>Modern: English, Hindi, Chinese, etc.</p></li>
+</ul>
+</section>
+<section id="advanced-storage">
+<h3>✓ Advanced Storage<a class="headerlink" href="#advanced-storage" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>PostgreSQL (relational)</p></li>
+<li><p>Vector Database (semantic)</p></li>
+<li><p>Redis (caching)</p></li>
+<li><p>File Storage (original documents)</p></li>
+</ul>
+</section>
+<section id="flexible-apis">
+<h3>✓ Flexible APIs<a class="headerlink" href="#flexible-apis" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>REST API for standard access</p></li>
+<li><p>MCP Protocol for AI integration</p></li>
+<li><p>CLI tools for scripting</p></li>
+</ul>
+</section>
+<section id="production-ready">
+<h3>✓ Production Ready<a class="headerlink" href="#production-ready" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Docker containerization</p></li>
+<li><p>CI/CD pipelines</p></li>
+<li><p>Monitoring &amp; logging</p></li>
+<li><p>High availability design</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting-index">
+<h2>Troubleshooting Index<a class="headerlink" href="#troubleshooting-index" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Problem</p></th>
+<th class="head"><p>Solution</p></th>
+<th class="head"><p>Reference</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Port in use</p></td>
+<td><p>Kill process or change port</p></td>
+<td><p>QUICK_REFERENCE_GUIDE.md</p></td>
+</tr>
+<tr class="row-odd"><td><p>Database error</p></td>
+<td><p>Check connection string</p></td>
+<td><p>Troubleshooting section</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory issues</p></td>
+<td><p>Increase Docker resources</p></td>
+<td><p>QUICK_REFERENCE_GUIDE.md</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tests failing</p></td>
+<td><p>Reset DB, clear cache</p></td>
+<td><p>Common issues section</p></td>
+</tr>
+<tr class="row-even"><td><p>Module not found</p></td>
+<td><p>Reinstall dependencies</p></td>
+<td><p>Troubleshooting section</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading"></a></h2>
+<section id="in-repository">
+<h3>In Repository<a class="headerlink" href="#in-repository" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code> - Project overview</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUICKSTART.md</span></code> - Quick start guide</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DOCKER-QUICKSTART.md</span></code> - Docker guide</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SUPPORTED_LANGUAGES.md</span></code> - Language details</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Deliverables.md</span></code> - Project deliverables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> - Project config</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> - Dependencies</p></li>
+</ul>
+</section>
+<section id="external-links">
+<h3>External Links<a class="headerlink" href="#external-links" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>GitHub: https://github.com/Chitrank-Dixit/vidwaanai</p></li>
+<li><p>Issues: https://github.com/Chitrank-Dixit/vidwaanai/issues</p></li>
+<li><p>Discussions: https://github.com/Chitrank-Dixit/vidwaanai/discussions</p></li>
+<li><p>MCP Docs: https://modelcontextprotocol.io</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="documentation-maintenance">
+<h2>Documentation Maintenance<a class="headerlink" href="#documentation-maintenance" title="Link to this heading"></a></h2>
+<section id="version-information">
+<h3>Version Information<a class="headerlink" href="#version-information" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Created:</strong> January 2026</p></li>
+<li><p><strong>Updated:</strong> January 10, 2026</p></li>
+<li><p><strong>Version:</strong> 1.0</p></li>
+<li><p><strong>Project Status:</strong> Active Development</p></li>
+</ul>
+</section>
+<section id="how-to-update">
+<h3>How to Update<a class="headerlink" href="#how-to-update" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Make changes to the project</p></li>
+<li><p>Update relevant documentation</p></li>
+<li><p>Sync API docs in code</p></li>
+<li><p>Update architecture diagrams if needed</p></li>
+<li><p>Test all commands</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="support-contribution">
+<h2>Support &amp; Contribution<a class="headerlink" href="#support-contribution" title="Link to this heading"></a></h2>
+<section id="getting-help">
+<h3>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Check QUICK_REFERENCE_GUIDE.md - Troubleshooting</p></li>
+<li><p>Review VIDWAANAI_COMPLETE_DOCUMENTATION.md - Full guide</p></li>
+<li><p>Check GitHub Issues for similar problems</p></li>
+<li><p>Ask in GitHub Discussions</p></li>
+</ol>
+</section>
+<section id="how-to-contribute">
+<h3>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Fork repository</p></li>
+<li><p>Create feature branch</p></li>
+<li><p>Make changes</p></li>
+<li><p>Run tests: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></li>
+<li><p>Submit pull request</p></li>
+</ol>
+</section>
+<section id="code-style">
+<h3>Code Style<a class="headerlink" href="#code-style" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Follow PEP 8</p></li>
+<li><p>Use type hints</p></li>
+<li><p>Write docstrings</p></li>
+<li><p>Max line length: 88 (Black)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="document-usage-statistics">
+<h2>Document Usage Statistics<a class="headerlink" href="#document-usage-statistics" title="Link to this heading"></a></h2>
+<section id="most-accessed-sections">
+<h3>Most Accessed Sections<a class="headerlink" href="#most-accessed-sections" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Installation Guide</p></li>
+<li><p>Quick Reference Commands</p></li>
+<li><p>API Documentation</p></li>
+<li><p>Troubleshooting</p></li>
+<li><p>Architecture Overview</p></li>
+</ol>
+</section>
+<section id="best-learning-path">
+<h3>Best Learning Path<a class="headerlink" href="#best-learning-path" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>repo_analysis.md (overview)</p></li>
+<li><p>QUICK_REFERENCE_GUIDE.md (setup)</p></li>
+<li><p>architecture_diagram.txt (design)</p></li>
+<li><p>class_structure_diagram.txt (code)</p></li>
+<li><p>VIDWAANAI_COMPLETE_DOCUMENTATION.md (deep dive)</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="checklist-for-new-developers">
+<h2>Checklist for New Developers<a class="headerlink" href="#checklist-for-new-developers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[ ] Clone repository</p></li>
+<li><p>[ ] Read repo_analysis.md</p></li>
+<li><p>[ ] Follow QUICK_REFERENCE_GUIDE.md setup</p></li>
+<li><p>[ ] Verify <code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">ps</span></code> shows all services</p></li>
+<li><p>[ ] Test API: <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://localhost:8000/health</span></code></p></li>
+<li><p>[ ] Read architecture_diagram.txt</p></li>
+<li><p>[ ] Review class_structure_diagram.txt</p></li>
+<li><p>[ ] Run tests: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></li>
+<li><p>[ ] Review CONTRIBUTING section</p></li>
+<li><p>[ ] Ask questions in Discussions</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>End of Documentation Index</strong></p>
+<p>For comprehensive information, refer to VIDWAANAI_COMPLETE_DOCUMENTATION.md [17]
+For quick lookups, use QUICK_REFERENCE_GUIDE.md
+For architecture details, see architecture_diagram.txt and class_structure_diagram.txt</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to VidwaanAI’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="README_DOCUMENTATION.html" class="btn btn-neutral float-right" title="Vidwaanai Project Documentation - README" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

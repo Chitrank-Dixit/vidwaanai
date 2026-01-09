@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidwaanai Project Documentation - README &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vidwaanai - Complete Project Documentation" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html" />
+    <link rel="prev" title="Vidwaanai Project - Complete Documentation Index" href="DOCUMENTATION_INDEX.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vidwaanai Project Documentation - README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-vidwaanai">What is Vidwaanai?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-files-included">Documentation Files Included</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vidwaanai-complete-documentation-md-main-reference">1. <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> ⭐ Main Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-reference-guide-md-daily-development">2. <strong>QUICK_REFERENCE_GUIDE.md</strong> ⚡ Daily Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-index-md-navigation-guide">3. <strong>DOCUMENTATION_INDEX.md</strong> 📇 Navigation Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#architecture-diagram-txt-system-design">4. <strong>architecture_diagram.txt</strong> 🏗️ System Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-structure-diagram-txt-code-architecture">5. <strong>class_structure_diagram.txt</strong> 💻 Code Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repo-analysis-md-project-analysis">6. <strong>repo_analysis.md</strong> 📊 Project Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-docker-recommended">Using Docker (Recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-local-python">Using Local Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-by-role">Documentation by Role</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#developers">👨‍💻 Developers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#devops-infrastructure">🔧 DevOps/Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-data-scientists">🧠 AI/Data Scientists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-managers">📋 Project Managers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributors">🤝 Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#key-technologies">Key Technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-tasks">Common Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-application">Run the Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development">Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-operations">API Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-languages">Supported Languages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ancient-languages">Ancient Languages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modern-languages">Modern Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-highlights">Architecture Highlights</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#layer-architecture">7-Layer Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#agentic-ai-system">Agentic AI System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#support-resources">Support Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#development-workflow">Development Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-all-tests">Run All Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-with-coverage">Run with Coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-specific-tests">Run Specific Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-tests">Integration Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#feature-highlights">Feature Highlights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-statistics">Project Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#questions">Questions?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-information">Version Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vidwaanai Project Documentation - README</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README_DOCUMENTATION.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vidwaanai-project-documentation-readme">
+<h1>Vidwaanai Project Documentation - README<a class="headerlink" href="#vidwaanai-project-documentation-readme" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This comprehensive documentation package provides complete guidance for the <strong>Vidwaanai</strong> project - an Agentic AI system designed to preserve and digitize ancient civilization scriptures.</p>
+<p><strong>Repository:</strong> https://github.com/Chitrank-Dixit/vidwaanai<br />
+<strong>Project Type:</strong> Python-based Agentic AI Application<br />
+<strong>Status:</strong> Active Development<br />
+<strong>Documentation Version:</strong> 1.0</p>
+</section>
+<hr class="docutils" />
+<section id="what-is-vidwaanai">
+<h2>What is Vidwaanai?<a class="headerlink" href="#what-is-vidwaanai" title="Link to this heading"></a></h2>
+<p>Vidwaanai is an innovative project that combines modern artificial intelligence with cultural preservation. It uses autonomous AI agents to:</p>
+<ul class="simple">
+<li><p>Extract text from ancient manuscripts and documents</p></li>
+<li><p>Analyze scriptures linguistically and semantically</p></li>
+<li><p>Identify and link historical entities and concepts</p></li>
+<li><p>Generate comprehensive analysis reports</p></li>
+<li><p>Make ancient knowledge accessible through digital archives</p></li>
+<li><p>Support multiple ancient and modern languages</p></li>
+</ul>
+<section id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h3>
+<p>✅ <strong>Agentic AI Architecture</strong> - Specialized agents for different tasks<br />
+✅ <strong>Multi-Layer Processing</strong> - From raw input to structured knowledge<br />
+✅ <strong>Vector Database Integration</strong> - Semantic search capabilities<br />
+✅ <strong>REST API &amp; MCP Protocol</strong> - Multiple access methods<br />
+✅ <strong>Production-Ready</strong> - Docker, CI/CD, monitoring<br />
+✅ <strong>Multi-Language Support</strong> - Ancient and modern languages<br />
+✅ <strong>Scalable Design</strong> - From local dev to enterprise deployment</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="documentation-files-included">
+<h2>Documentation Files Included<a class="headerlink" href="#documentation-files-included" title="Link to this heading"></a></h2>
+<section id="vidwaanai-complete-documentation-md-main-reference">
+<h3>1. <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> ⭐ Main Reference<a class="headerlink" href="#vidwaanai-complete-documentation-md-main-reference" title="Link to this heading"></a></h3>
+<p>Comprehensive 15-section documentation covering everything:</p>
+<ul class="simple">
+<li><p>Project overview, goals, and mission</p></li>
+<li><p>Complete technology stack</p></li>
+<li><p>Installation (Docker and local)</p></li>
+<li><p>Configuration and setup</p></li>
+<li><p>API documentation</p></li>
+<li><p>Architecture and design</p></li>
+<li><p>Development workflow</p></li>
+<li><p>Troubleshooting and support</p></li>
+</ul>
+<p><strong>When to Use:</strong> Complete project reference, onboarding, implementation guide</p>
+</section>
+<hr class="docutils" />
+<section id="quick-reference-guide-md-daily-development">
+<h3>2. <strong>QUICK_REFERENCE_GUIDE.md</strong> ⚡ Daily Development<a class="headerlink" href="#quick-reference-guide-md-daily-development" title="Link to this heading"></a></h3>
+<p>Fast-access guide for developers:</p>
+<ul class="simple">
+<li><p>5-minute setup (2 options)</p></li>
+<li><p>Essential commands</p></li>
+<li><p>Common tasks with examples</p></li>
+<li><p>API quick reference</p></li>
+<li><p>Debugging tips</p></li>
+<li><p>Performance optimization</p></li>
+<li><p>Troubleshooting quick fixes</p></li>
+</ul>
+<p><strong>When to Use:</strong> Day-to-day development, quick lookups, common operations</p>
+</section>
+<hr class="docutils" />
+<section id="documentation-index-md-navigation-guide">
+<h3>3. <strong>DOCUMENTATION_INDEX.md</strong> 📇 Navigation Guide<a class="headerlink" href="#documentation-index-md-navigation-guide" title="Link to this heading"></a></h3>
+<p>Complete index and navigation guide:</p>
+<ul class="simple">
+<li><p>All documentation artifacts listed</p></li>
+<li><p>Getting started by role</p></li>
+<li><p>Key sections by topic</p></li>
+<li><p>File navigation map</p></li>
+<li><p>Common use cases</p></li>
+<li><p>Feature highlights</p></li>
+<li><p>Support and contribution info</p></li>
+</ul>
+<p><strong>When to Use:</strong> Finding specific information, navigation, understanding structure</p>
+</section>
+<hr class="docutils" />
+<section id="architecture-diagram-txt-system-design">
+<h3>4. <strong>architecture_diagram.txt</strong> 🏗️ System Design<a class="headerlink" href="#architecture-diagram-txt-system-design" title="Link to this heading"></a></h3>
+<p>ASCII diagrams and visual representations:</p>
+<ul class="simple">
+<li><p>7-layer system architecture</p></li>
+<li><p>Data flow diagrams</p></li>
+<li><p>Agent interaction diagrams</p></li>
+<li><p>Technology stack mapping</p></li>
+<li><p>Deployment architecture</p></li>
+<li><p>Component relationships</p></li>
+</ul>
+<p><strong>When to Use:</strong> Understanding system design, architecture reviews, presentations</p>
+</section>
+<hr class="docutils" />
+<section id="class-structure-diagram-txt-code-architecture">
+<h3>5. <strong>class_structure_diagram.txt</strong> 💻 Code Architecture<a class="headerlink" href="#class-structure-diagram-txt-code-architecture" title="Link to this heading"></a></h3>
+<p>UML-style component diagrams:</p>
+<ul class="simple">
+<li><p>Domain models</p></li>
+<li><p>Processing pipeline</p></li>
+<li><p>Agentic AI system</p></li>
+<li><p>Storage and database layers</p></li>
+<li><p>API layer</p></li>
+<li><p>Service layer</p></li>
+<li><p>Relationships and dependencies</p></li>
+<li><p>Enums and constants</p></li>
+</ul>
+<p><strong>When to Use:</strong> Code development, architecture understanding, design patterns</p>
+</section>
+<hr class="docutils" />
+<section id="repo-analysis-md-project-analysis">
+<h3>6. <strong>repo_analysis.md</strong> 📊 Project Analysis<a class="headerlink" href="#repo-analysis-md-project-analysis" title="Link to this heading"></a></h3>
+<p>Repository overview and analysis:</p>
+<ul class="simple">
+<li><p>Project structure summary</p></li>
+<li><p>Technology stack list</p></li>
+<li><p>Feature summary</p></li>
+<li><p>Maturity assessment</p></li>
+<li><p>Key findings</p></li>
+</ul>
+<p><strong>When to Use:</strong> Quick project understanding, capability overview</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<section id="using-docker-recommended">
+<h3>Using Docker (Recommended)<a class="headerlink" href="#using-docker-recommended" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Chitrank-Dixit/vidwaanai.git
+<span class="nb">cd</span><span class="w"> </span>vidwaanai
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+<span class="c1"># API available at http://localhost:8000</span>
+</pre></div>
+</div>
+</section>
+<section id="using-local-python">
+<h3>Using Local Python<a class="headerlink" href="#using-local-python" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Chitrank-Dixit/vidwaanai.git
+<span class="nb">cd</span><span class="w"> </span>vidwaanai
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+make<span class="w"> </span>run
+</pre></div>
+</div>
+<p>See <strong>QUICK_REFERENCE_GUIDE.md</strong> for more details.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="documentation-by-role">
+<h2>Documentation by Role<a class="headerlink" href="#documentation-by-role" title="Link to this heading"></a></h2>
+<section id="developers">
+<h3>👨‍💻 Developers<a class="headerlink" href="#developers" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start: <strong>QUICK_REFERENCE_GUIDE.md</strong> - Setup</p></li>
+<li><p>Then: <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Full guide</p></li>
+<li><p>Reference: <strong>class_structure_diagram.txt</strong> - Code structure</p></li>
+</ol>
+</section>
+<section id="devops-infrastructure">
+<h3>🔧 DevOps/Infrastructure<a class="headerlink" href="#devops-infrastructure" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start: <strong>architecture_diagram.txt</strong> - Deployment options</p></li>
+<li><p>Then: <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Docker section</p></li>
+<li><p>Reference: <strong>QUICK_REFERENCE_GUIDE.md</strong> - Docker commands</p></li>
+</ol>
+</section>
+<section id="ai-data-scientists">
+<h3>🧠 AI/Data Scientists<a class="headerlink" href="#ai-data-scientists" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start: <strong>architecture_diagram.txt</strong> - System design</p></li>
+<li><p>Then: <strong>class_structure_diagram.txt</strong> - Agent architecture</p></li>
+<li><p>Reference: <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - API section</p></li>
+</ol>
+</section>
+<section id="project-managers">
+<h3>📋 Project Managers<a class="headerlink" href="#project-managers" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start: <strong>repo_analysis.md</strong> - Overview</p></li>
+<li><p>Then: <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Goals section</p></li>
+<li><p>Reference: <strong>DOCUMENTATION_INDEX.md</strong> - Feature summary</p></li>
+</ol>
+</section>
+<section id="contributors">
+<h3>🤝 Contributors<a class="headerlink" href="#contributors" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start: <strong>QUICK_REFERENCE_GUIDE.md</strong> - Getting started</p></li>
+<li><p>Then: <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Contributing</p></li>
+<li><p>Reference: <strong>class_structure_diagram.txt</strong> - Code organization</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-technologies">
+<h2>Key Technologies<a class="headerlink" href="#key-technologies" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Technology</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Language</strong></p></td>
+<td><p>Python 3.x</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>API Framework</strong></p></td>
+<td><p>FastAPI / Flask</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Databases</strong></p></td>
+<td><p>PostgreSQL, Vector DB, Redis</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>AI/LLM</strong></p></td>
+<td><p>OpenAI, Anthropic, local models</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Containerization</strong></p></td>
+<td><p>Docker, Docker Compose</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Testing</strong></p></td>
+<td><p>pytest</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>CI/CD</strong></p></td>
+<td><p>GitHub Actions</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Infrastructure</strong></p></td>
+<td><p>Ansible</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NLP</strong></p></td>
+<td><p>spaCy, NLTK</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>API Protocol</strong></p></td>
+<td><p>REST, MCP</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="common-tasks">
+<h2>Common Tasks<a class="headerlink" href="#common-tasks" title="Link to this heading"></a></h2>
+<section id="run-the-application">
+<h3>Run the Application<a class="headerlink" href="#run-the-application" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w">              </span><span class="c1"># Start services</span>
+docker-compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>app<span class="w">        </span><span class="c1"># View logs</span>
+curl<span class="w"> </span>http://localhost:8000/health<span class="w"> </span><span class="c1"># Health check</span>
+</pre></div>
+</div>
+</section>
+<section id="development">
+<h3>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>run<span class="w">              </span><span class="c1"># Run app</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">             </span><span class="c1"># Run tests</span>
+make<span class="w"> </span>lint<span class="w">             </span><span class="c1"># Lint code</span>
+make<span class="w"> </span>docker-build<span class="w">     </span><span class="c1"># Build Docker image</span>
+</pre></div>
+</div>
+</section>
+<section id="api-operations">
+<h3>API Operations<a class="headerlink" href="#api-operations" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create scripture</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/api/scriptures<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;title&quot;: &quot;Example&quot;, &quot;language&quot;: &quot;sa&quot;}&#39;</span>
+
+<span class="c1"># Get scriptures</span>
+curl<span class="w"> </span>http://localhost:8000/api/scriptures
+
+<span class="c1"># Search</span>
+curl<span class="w"> </span><span class="s2">&quot;http://localhost:8000/api/scriptures/search?language=sa&quot;</span>
+</pre></div>
+</div>
+<p>See <strong>QUICK_REFERENCE_GUIDE.md</strong> for more examples.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>vidwaanai/
+├── src/                      # Main application code
+│   ├── agents/              # AI agents
+│   ├── processors/          # Text processing
+│   ├── api/                 # API endpoints
+│   └── database/            # Database layer
+├── tests/                   # Test suite
+├── config/                  # Configuration
+├── docker-compose.yml       # Services definition
+├── Dockerfile               # Container image
+├── pyproject.toml          # Project metadata
+├── requirements.txt        # Python dependencies
+└── Makefile                # Task automation
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="supported-languages">
+<h2>Supported Languages<a class="headerlink" href="#supported-languages" title="Link to this heading"></a></h2>
+<section id="ancient-languages">
+<h3>Ancient Languages<a class="headerlink" href="#ancient-languages" title="Link to this heading"></a></h3>
+<p>Sanskrit, Pali, Tamil, Kannada, Telugu, Malayalam, Ancient Greek, Latin, Aramaic, Hebrew, Old Persian, and more.</p>
+</section>
+<section id="modern-languages">
+<h3>Modern Languages<a class="headerlink" href="#modern-languages" title="Link to this heading"></a></h3>
+<p>English, Hindi, Spanish, French, German, Chinese, Japanese, Arabic, Portuguese, Russian, and more.</p>
+<p>See <strong>SUPPORTED_LANGUAGES.md</strong> in the repository for complete list.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="architecture-highlights">
+<h2>Architecture Highlights<a class="headerlink" href="#architecture-highlights" title="Link to this heading"></a></h2>
+<section id="layer-architecture">
+<h3>7-Layer Architecture<a class="headerlink" href="#layer-architecture" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Input Layer</strong> - Ancient texts, PDFs, images</p></li>
+<li><p><strong>Processing Layer</strong> - Text extraction, normalization, language detection</p></li>
+<li><p><strong>AI Layer</strong> - LLM models, semantic analysis, agents</p></li>
+<li><p><strong>Storage Layer</strong> - PostgreSQL, Vector DB, Redis, file storage</p></li>
+<li><p><strong>API Layer</strong> - REST API, MCP Protocol, CLI tools</p></li>
+<li><p><strong>Output Layer</strong> - Digital archives, reports, exports</p></li>
+<li><p><strong>Access Layer</strong> - Public portal, researcher APIs</p></li>
+</ol>
+</section>
+<section id="agentic-ai-system">
+<h3>Agentic AI System<a class="headerlink" href="#agentic-ai-system" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>ScriptureAnalyzer</strong> - Content analysis and understanding</p></li>
+<li><p><strong>TextEnricher</strong> - Metadata enrichment and context addition</p></li>
+<li><p><strong>KnowledgeLinker</strong> - Entity linking and relationship creation</p></li>
+<li><p><strong>ReportGenerator</strong> - Automated report generation</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Check <strong>QUICK_REFERENCE_GUIDE.md</strong> - Troubleshooting section</p></li>
+<li><p>Review <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> - Full troubleshooting</p></li>
+<li><p>See <strong>DOCUMENTATION_INDEX.md</strong> - Find specific topics</p></li>
+</ol>
+</section>
+<section id="support-resources">
+<h3>Support Resources<a class="headerlink" href="#support-resources" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>GitHub Issues:</strong> https://github.com/Chitrank-Dixit/vidwaanai/issues</p></li>
+<li><p><strong>GitHub Discussions:</strong> https://github.com/Chitrank-Dixit/vidwaanai/discussions</p></li>
+<li><p><strong>Repository:</strong> https://github.com/Chitrank-Dixit/vidwaanai</p></li>
+</ul>
+</section>
+<section id="common-issues">
+<h3>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Port conflicts</span>
+lsof<span class="w"> </span>-i<span class="w"> </span>:8000
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;PID&gt;
+
+<span class="c1"># Database issues</span>
+docker-compose<span class="w"> </span>down
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+
+<span class="c1"># Test failures</span>
+make<span class="w"> </span>clean
+make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p>See <strong>QUICK_REFERENCE_GUIDE.md</strong> for more troubleshooting.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="development-workflow">
+<h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Fork and Clone</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_USERNAME/vidwaanai.git
+</pre></div>
+</div>
+</li>
+<li><p><strong>Setup Environment</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create Feature Branch</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/my-feature
+</pre></div>
+</div>
+</li>
+<li><p><strong>Make Changes and Test</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+make<span class="w"> </span>lint
+</pre></div>
+</div>
+</li>
+<li><p><strong>Push and Create PR</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/my-feature
+</pre></div>
+</div>
+</li>
+</ol>
+<p>See <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> for detailed guidelines.</p>
+</section>
+<hr class="docutils" />
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<section id="run-all-tests">
+<h3>Run All Tests<a class="headerlink" href="#run-all-tests" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+</section>
+<section id="run-with-coverage">
+<h3>Run with Coverage<a class="headerlink" href="#run-with-coverage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--cov<span class="o">=</span>src<span class="w"> </span>--cov-report<span class="o">=</span>html
+</pre></div>
+</div>
+</section>
+<section id="run-specific-tests">
+<h3>Run Specific Tests<a class="headerlink" href="#run-specific-tests" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/unit/test_processors.py<span class="w"> </span>-v
+</pre></div>
+</div>
+</section>
+<section id="integration-tests">
+<h3>Integration Tests<a class="headerlink" href="#integration-tests" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/integration/<span class="w"> </span>-v
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="environment-variables">
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h3>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file with:</p>
+<div class="highlight-env notranslate"><div class="highlight"><pre><span></span>APP_ENV=development
+DEBUG=true
+DATABASE_URL=postgresql://user:pass@localhost:5432/vidwaanai
+LLM_PROVIDER=openai
+LLM_API_KEY=your-key
+</pre></div>
+</div>
+<p>See <strong>VIDWAANAI_COMPLETE_DOCUMENTATION.md</strong> for complete configuration reference.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="feature-highlights">
+<h2>Feature Highlights<a class="headerlink" href="#feature-highlights" title="Link to this heading"></a></h2>
+<p>✨ <strong>Multiple Scripture Sources</strong></p>
+<ul class="simple">
+<li><p>Ancient manuscripts</p></li>
+<li><p>PDF documents</p></li>
+<li><p>Images with OCR</p></li>
+<li><p>Digital texts</p></li>
+</ul>
+<p>🤖 <strong>Intelligent Processing</strong></p>
+<ul class="simple">
+<li><p>Autonomous AI agents</p></li>
+<li><p>Semantic understanding</p></li>
+<li><p>Entity recognition</p></li>
+<li><p>Knowledge linking</p></li>
+</ul>
+<p>📊 <strong>Comprehensive Analysis</strong></p>
+<ul class="simple">
+<li><p>Linguistic analysis</p></li>
+<li><p>Historical context</p></li>
+<li><p>Comparative studies</p></li>
+<li><p>Automated reports</p></li>
+</ul>
+<p>🌍 <strong>Multi-Language Support</strong></p>
+<ul class="simple">
+<li><p>Ancient languages (Sanskrit, Latin, Greek, etc.)</p></li>
+<li><p>Modern languages (100+ supported)</p></li>
+<li><p>Automatic language detection</p></li>
+</ul>
+<p>🔍 <strong>Advanced Search</strong></p>
+<ul class="simple">
+<li><p>Full-text search</p></li>
+<li><p>Semantic similarity search</p></li>
+<li><p>Entity-based search</p></li>
+<li><p>Faceted filtering</p></li>
+</ul>
+<p>📱 <strong>Multiple Interfaces</strong></p>
+<ul class="simple">
+<li><p>RESTful API</p></li>
+<li><p>MCP Protocol</p></li>
+<li><p>CLI tools</p></li>
+<li><p>Web dashboard</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="project-statistics">
+<h2>Project Statistics<a class="headerlink" href="#project-statistics" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Repository:</strong> GitHub (Chitrank-Dixit)</p></li>
+<li><p><strong>Language:</strong> Python 3.x</p></li>
+<li><p><strong>Test Coverage:</strong> 80%+ (configurable)</p></li>
+<li><p><strong>Docker Images:</strong> 3 (production, CI, MCP)</p></li>
+<li><p><strong>Database Support:</strong> PostgreSQL + Vector DB</p></li>
+<li><p><strong>API Versions:</strong> RESTful + MCP</p></li>
+<li><p><strong>Supported Languages:</strong> 50+</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>First Time?</strong> → Read QUICK_REFERENCE_GUIDE.md</p></li>
+<li><p><strong>Want Details?</strong> → Read VIDWAANAI_COMPLETE_DOCUMENTATION.md</p></li>
+<li><p><strong>Need Architecture?</strong> → Check architecture_diagram.txt</p></li>
+<li><p><strong>Code Diving?</strong> → Review class_structure_diagram.txt</p></li>
+<li><p><strong>Navigation Help?</strong> → Use DOCUMENTATION_INDEX.md</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="questions">
+<h2>Questions?<a class="headerlink" href="#questions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>📖 Check the documentation</p></li>
+<li><p>🔍 Search GitHub Issues</p></li>
+<li><p>💬 Ask in GitHub Discussions</p></li>
+<li><p>🐛 Report bugs with details</p></li>
+<li><p>💡 Suggest improvements</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>Check the repository for license information.</p>
+</section>
+<hr class="docutils" />
+<section id="version-information">
+<h2>Version Information<a class="headerlink" href="#version-information" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Documentation Created:</strong> January 2026</p></li>
+<li><p><strong>Last Updated:</strong> January 10, 2026</p></li>
+<li><p><strong>Vidwaanai Version:</strong> 1.0</p></li>
+<li><p><strong>Documentation Status:</strong> Complete</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Start with:</strong> <a class="reference internal" href="#QUICK_REFERENCE_GUIDE.md"><span class="xref myst">QUICK_REFERENCE_GUIDE.md</span></a> or <a class="reference internal" href="DOCUMENTATION_INDEX.html"><span class="std std-doc">DOCUMENTATION_INDEX.md</span></a></p>
+<p><strong>Full Reference:</strong> <a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html"><span class="std std-doc">VIDWAANAI_COMPLETE_DOCUMENTATION.md</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="DOCUMENTATION_INDEX.html" class="btn btn-neutral float-left" title="Vidwaanai Project - Complete Documentation Index" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="VIDWAANAI_COMPLETE_DOCUMENTATION.html" class="btn btn-neutral float-right" title="Vidwaanai - Complete Project Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

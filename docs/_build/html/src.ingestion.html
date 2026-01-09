@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.ingestion package &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.llm package" href="src.llm.html" />
+    <link rel="prev" title="src.db package" href="src.db.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="src.agent.html">src.agent package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.api.html">src.api package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.core.html">src.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.db.html">src.db package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.ingestion package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.llm.html">src.llm package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.mcp.html">src.mcp package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.rag.html">src.rag package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.api">src.api module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.main">src.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+          <li class="breadcrumb-item"><a href="src.html">src package</a></li>
+      <li class="breadcrumb-item active">src.ingestion package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.ingestion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-ingestion-package">
+<h1>src.ingestion package<a class="headerlink" href="#src-ingestion-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.ingestion.ocr_handler">
+<span id="src-ingestion-ocr-handler-module"></span><h2>src.ingestion.ocr_handler module<a class="headerlink" href="#module-src.ingestion.ocr_handler" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.ocr_handler.OCRHandler">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.ocr_handler.</span></span><span class="sig-name descname"><span class="pre">OCRHandler</span></span><a class="reference internal" href="_modules/src/ingestion/ocr_handler.html#OCRHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.ocr_handler.OCRHandler" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handle OCR for scanned Veda PDFs.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.ocr_handler.OCRHandler.extract_text_with_ocr">
+<span class="sig-name descname"><span class="pre">extract_text_with_ocr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdf_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'hin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/ingestion/ocr_handler.html#OCRHandler.extract_text_with_ocr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.ocr_handler.OCRHandler.extract_text_with_ocr" title="Link to this definition"></a></dt>
+<dd><p>Convert PDF pages to images and extract text using OCR (batched).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ingestion.pdf_extractor">
+<span id="src-ingestion-pdf-extractor-module"></span><h2>src.ingestion.pdf_extractor module<a class="headerlink" href="#module-src.ingestion.pdf_extractor" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.pdf_extractor.PdfExtractor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.pdf_extractor.</span></span><span class="sig-name descname"><span class="pre">PdfExtractor</span></span><a class="reference internal" href="_modules/src/ingestion/pdf_extractor.html#PdfExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.pdf_extractor.PdfExtractor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Extract text from Veda PDFs (Hindi).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.pdf_extractor.PdfExtractor.extract_pdf">
+<span class="sig-name descname"><span class="pre">extract_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdf_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/ingestion/pdf_extractor.html#PdfExtractor.extract_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.pdf_extractor.PdfExtractor.extract_pdf" title="Link to this definition"></a></dt>
+<dd><p>Extract all text from PDF.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.pdf_extractor.PdfExtractor.extract_with_metadata">
+<span class="sig-name descname"><span class="pre">extract_with_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdf_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/ingestion/pdf_extractor.html#PdfExtractor.extract_with_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.pdf_extractor.PdfExtractor.extract_with_metadata" title="Link to this definition"></a></dt>
+<dd><p>Extract text with page metadata. Fallback to OCR if empty.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ingestion.scripture_parsers">
+<span id="src-ingestion-scripture-parsers-module"></span><h2>src.ingestion.scripture_parsers module<a class="headerlink" href="#module-src.ingestion.scripture_parsers" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.BaseScriptureParser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.scripture_parsers.</span></span><span class="sig-name descname"><span class="pre">BaseScriptureParser</span></span><a class="reference internal" href="_modules/src/ingestion/scripture_parsers.html#BaseScriptureParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.scripture_parsers.BaseScriptureParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for parsing varying scripture structures.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.BaseScriptureParser.PATTERNS">
+<span class="sig-name descname"><span class="pre">PATTERNS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'l1_node':</span> <span class="pre">'',</span> <span class="pre">'l2_node':</span> <span class="pre">'',</span> <span class="pre">'verse':</span> <span class="pre">''}</span></em><a class="headerlink" href="#src.ingestion.scripture_parsers.BaseScriptureParser.PATTERNS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.BaseScriptureParser.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/ingestion/scripture_parsers.html#BaseScriptureParser.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.scripture_parsers.BaseScriptureParser.parse" title="Link to this definition"></a></dt>
+<dd><p>Parse pages into verse structure.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.GitaParser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.scripture_parsers.</span></span><span class="sig-name descname"><span class="pre">GitaParser</span></span><a class="reference internal" href="_modules/src/ingestion/scripture_parsers.html#GitaParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.scripture_parsers.GitaParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ingestion.scripture_parsers.BaseScriptureParser" title="src.ingestion.scripture_parsers.BaseScriptureParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseScriptureParser</span></code></a></p>
+<p>Parser for Bhagavad Gita.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.PuranaParser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.scripture_parsers.</span></span><span class="sig-name descname"><span class="pre">PuranaParser</span></span><a class="reference internal" href="_modules/src/ingestion/scripture_parsers.html#PuranaParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.scripture_parsers.PuranaParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ingestion.scripture_parsers.BaseScriptureParser" title="src.ingestion.scripture_parsers.BaseScriptureParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseScriptureParser</span></code></a></p>
+<p>Parser for Puranas.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.RamayanaParser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.scripture_parsers.</span></span><span class="sig-name descname"><span class="pre">RamayanaParser</span></span><a class="reference internal" href="_modules/src/ingestion/scripture_parsers.html#RamayanaParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.scripture_parsers.RamayanaParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.ingestion.scripture_parsers.BaseScriptureParser" title="src.ingestion.scripture_parsers.BaseScriptureParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseScriptureParser</span></code></a></p>
+<p>Parser for Ramayana.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.ingestion.scripture_parsers.get_parser">
+<span class="sig-prename descclassname"><span class="pre">src.ingestion.scripture_parsers.</span></span><span class="sig-name descname"><span class="pre">get_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scripture_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.ingestion.scripture_parsers.BaseScriptureParser" title="src.ingestion.scripture_parsers.BaseScriptureParser"><span class="pre">BaseScriptureParser</span></a></span></span><a class="reference internal" href="_modules/src/ingestion/scripture_parsers.html#get_parser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.scripture_parsers.get_parser" title="Link to this definition"></a></dt>
+<dd><p>Factory method.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.ingestion.text_processor">
+<span id="src-ingestion-text-processor-module"></span><h2>src.ingestion.text_processor module<a class="headerlink" href="#module-src.ingestion.text_processor" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.text_processor.TextProcessor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.text_processor.</span></span><span class="sig-name descname"><span class="pre">TextProcessor</span></span><a class="reference internal" href="_modules/src/ingestion/text_processor.html#TextProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.text_processor.TextProcessor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Process Veda texts (Hindi/Sanskrit).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.text_processor.TextProcessor.clean_text">
+<span class="sig-name descname"><span class="pre">clean_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/ingestion/text_processor.html#TextProcessor.clean_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.text_processor.TextProcessor.clean_text" title="Link to this definition"></a></dt>
+<dd><p>Clean OCR artifacts, normalize text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.text_processor.TextProcessor.detect_language">
+<span class="sig-name descname"><span class="pre">detect_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/ingestion/text_processor.html#TextProcessor.detect_language"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.text_processor.TextProcessor.detect_language" title="Link to this definition"></a></dt>
+<dd><p>Detect if Hindi or Sanskrit.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.text_processor.TextProcessor.normalize_devanagari">
+<span class="sig-name descname"><span class="pre">normalize_devanagari</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/ingestion/text_processor.html#TextProcessor.normalize_devanagari"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.text_processor.TextProcessor.normalize_devanagari" title="Link to this definition"></a></dt>
+<dd><p>Normalize variations in Devanagari script.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ingestion.utils">
+<span id="src-ingestion-utils-module"></span><h2>src.ingestion.utils module<a class="headerlink" href="#module-src.ingestion.utils" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.ingestion.utils.is_processed">
+<span class="sig-prename descclassname"><span class="pre">src.ingestion.utils.</span></span><span class="sig-name descname"><span class="pre">is_processed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/ingestion/utils.html#is_processed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.utils.is_processed" title="Link to this definition"></a></dt>
+<dd><p>Check if file has already been processed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.ingestion.utils.mark_processed">
+<span class="sig-prename descclassname"><span class="pre">src.ingestion.utils.</span></span><span class="sig-name descname"><span class="pre">mark_processed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/ingestion/utils.html#mark_processed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.utils.mark_processed" title="Link to this definition"></a></dt>
+<dd><p>Mark file as processed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.ingestion.utils.should_process">
+<span class="sig-prename descclassname"><span class="pre">src.ingestion.utils.</span></span><span class="sig-name descname"><span class="pre">should_process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/src/ingestion/utils.html#should_process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.utils.should_process" title="Link to this definition"></a></dt>
+<dd><p>Determine if we should process this file.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.ingestion.veda_parser">
+<span id="src-ingestion-veda-parser-module"></span><h2>src.ingestion.veda_parser module<a class="headerlink" href="#module-src.ingestion.veda_parser" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.ingestion.veda_parser.VedaParser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.ingestion.veda_parser.</span></span><span class="sig-name descname"><span class="pre">VedaParser</span></span><a class="reference internal" href="_modules/src/ingestion/veda_parser.html#VedaParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.veda_parser.VedaParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Parse Veda structure from text.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.ingestion.veda_parser.VedaParser.PATTERNS">
+<span class="sig-name descname"><span class="pre">PATTERNS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'mandala':</span> <span class="pre">'मंडल\\s*[:=]?\\s*(\\d+)',</span> <span class="pre">'mantra':</span> <span class="pre">'मंत्र\\s*[:=]?\\s*(\\d+)',</span> <span class="pre">'sukta':</span> <span class="pre">'सूक्त\\s*[:=]?\\s*(\\d+)'}</span></em><a class="headerlink" href="#src.ingestion.veda_parser.VedaParser.PATTERNS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.ingestion.veda_parser.VedaParser.parse_vedas">
+<span class="sig-name descname"><span class="pre">parse_vedas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ved_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/ingestion/veda_parser.html#VedaParser.parse_vedas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingestion.veda_parser.VedaParser.parse_vedas" title="Link to this definition"></a></dt>
+<dd><p>Parse pages into mantra structure.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.ingestion">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.ingestion" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src.db.html" class="btn btn-neutral float-left" title="src.db package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src.llm.html" class="btn btn-neutral float-right" title="src.llm package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

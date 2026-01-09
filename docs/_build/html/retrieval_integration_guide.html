@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retrieval Integration Guide &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Retrieval Integration Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/retrieval_integration_guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="retrieval-integration-guide">
+<h1>Retrieval Integration Guide<a class="headerlink" href="#retrieval-integration-guide" title="Link to this heading"></a></h1>
+<p>This guide explains how to use and configure the advanced retrieval system in VidwaanAI.</p>
+<section id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h2>
+<p>The retrieval pipeline consists of 4 stages:</p>
+<ol class="arabic simple">
+<li><p><strong>Preprocessing</strong>:</p>
+<ul class="simple">
+<li><p><strong>Typo Correction</strong>: <code class="docutils literal notranslate"><span class="pre">FuzzyMatcher</span></code> fixes spelling mistakes.</p></li>
+<li><p><strong>Query Expansion</strong>: <code class="docutils literal notranslate"><span class="pre">SynonymHandler</span></code> adds related domain terms.</p></li>
+</ul>
+</li>
+<li><p><strong>Retrieval</strong>:</p>
+<ul class="simple">
+<li><p><strong>Hybrid Search</strong>: Combines BM25 and Vector Search scores.</p></li>
+</ul>
+</li>
+<li><p><strong>Post-processing</strong>:</p>
+<ul class="simple">
+<li><p><strong>Reranking</strong>: <code class="docutils literal notranslate"><span class="pre">ContextAwareReranker</span></code> uses a cross-encoder to re-score the top results.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="enabling-disabling-components">
+<h3>Enabling/Disabling Components<a class="headerlink" href="#enabling-disabling-components" title="Link to this heading"></a></h3>
+<p>The pipeline is initialized in <code class="docutils literal notranslate"><span class="pre">VidwaanAI</span></code> agent (<code class="docutils literal notranslate"><span class="pre">src/agent/vidwaan_agent.py</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize Advanced Pipeline</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">retrieval_pipeline</span> <span class="o">=</span> <span class="n">AdvancedRetrievalPipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hybrid_retriever</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To disable specific components, modify <code class="docutils literal notranslate"><span class="pre">src/retrieval/advanced_retrieval_pipeline.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AdvancedRetrievalPipeline</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hybrid_search</span><span class="p">):</span>
+        <span class="c1"># Comment out to disable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reranker</span> <span class="o">=</span> <span class="n">ContextAwareReranker</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">fuzzy_matcher</span> <span class="o">=</span> <span class="n">FuzzyMatcher</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">synonym_handler</span> <span class="o">=</span> <span class="n">SynonymHandler</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="tuning-parameters">
+<h3>Tuning Parameters<a class="headerlink" href="#tuning-parameters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Fuzzy Matcher Threshold</strong>: In <code class="docutils literal notranslate"><span class="pre">src/retrieval/fuzzy_matcher.py</span></code>, default is <code class="docutils literal notranslate"><span class="pre">0.8</span></code>. Increase for stricter matching.</p></li>
+<li><p><strong>Hybrid Weights</strong>: In <code class="docutils literal notranslate"><span class="pre">src/retrieval/hybrid_search.py</span></code>, default <code class="docutils literal notranslate"><span class="pre">bm25_weight=0.3</span></code>, <code class="docutils literal notranslate"><span class="pre">semantic_weight=0.7</span></code>.</p></li>
+<li><p><strong>Reranker Model</strong>: In <code class="docutils literal notranslate"><span class="pre">src/retrieval/reranker.py</span></code>, default is <code class="docutils literal notranslate"><span class="pre">cross-encoder/ms-marco-MiniLM-L-6-v2</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h2>
+<p>Enable verbose logging to see pipeline steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Logs will show:</p>
+<ul class="simple">
+<li><p>Corrected query</p></li>
+<li><p>Expanded query terms</p></li>
+<li><p>Hybrid search results count</p></li>
+<li><p>Reranking scores</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
