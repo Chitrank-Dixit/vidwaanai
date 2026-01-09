@@ -433,6 +433,9 @@ This project also provides a `Makefile-docker` for managing containerized develo
 - `make -f Makefile-docker docker-test-all`: Run all tests.
 - `make -f Makefile-docker docker-test-cleanup`: Clean up the test environment.
 
+### Documentation
+- `make -f Makefile-docker docker-docs`: Build HTML documentation using Sphinx.
+
 ### Quality Assurance
 - `make -f Makefile-docker docker-lint`: Lint code.
 - `make -f Makefile-docker docker-format`: Format code.

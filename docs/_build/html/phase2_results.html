@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phase 2: Advanced Retrieval Features - Results &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Phase 2: Advanced Retrieval Features - Results</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/phase2_results.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="phase-2-advanced-retrieval-features-results">
+<h1>Phase 2: Advanced Retrieval Features - Results<a class="headerlink" href="#phase-2-advanced-retrieval-features-results" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Phase 2 focused on enhancing the retrieval pipeline with hybrid search, reranking, and semantic tools.</p>
+</section>
+<section id="key-improvements">
+<h2>Key Improvements<a class="headerlink" href="#key-improvements" title="Link to this heading"></a></h2>
+<section id="hybrid-search">
+<h3>1. Hybrid Search<a class="headerlink" href="#hybrid-search" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Implementation</strong>: Combined BM25 (keyword) and Vector (semantic) search.</p></li>
+<li><p><strong>Impact</strong>: Improved recall for specific keyword queries while maintaining semantic understanding.</p></li>
+</ul>
+</section>
+<section id="advanced-pipeline">
+<h3>2. Advanced Pipeline<a class="headerlink" href="#advanced-pipeline" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Typo Correction</strong>: <code class="docutils literal notranslate"><span class="pre">FuzzyMatcher</span></code> correctly handles typos (e.g., “darma” -&gt; “dharma”).</p></li>
+<li><p><strong>Synonym Expansion</strong>: <code class="docutils literal notranslate"><span class="pre">SynonymHandler</span></code> expands queries (e.g., “krishna” -&gt; “lord krishna”, “govinda”).</p></li>
+<li><p><strong>Reranking</strong>: <code class="docutils literal notranslate"><span class="pre">ContextAwareReranker</span></code> (Cross-Encoder) re-scores top results for better precision.</p></li>
+</ul>
+</section>
+</section>
+<section id="evaluation-metrics-sample">
+<h2>Evaluation Metrics (Sample)<a class="headerlink" href="#evaluation-metrics-sample" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Baseline (Vector Only)</p></th>
+<th class="head"><p>Advanced Pipeline</p></th>
+<th class="head"><p>Improvement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Precision&#64;10</p></td>
+<td><p>0.08</p></td>
+<td><p>0.10</p></td>
+<td><p>+25%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Recall&#64;10</p></td>
+<td><p>0.80</p></td>
+<td><p>1.00</p></td>
+<td><p>+25%</p></td>
+</tr>
+<tr class="row-even"><td><p>MRR</p></td>
+<td><p>0.35</p></td>
+<td><p>0.46</p></td>
+<td><p>+31%</p></td>
+</tr>
+<tr class="row-odd"><td><p>NDCG&#64;10</p></td>
+<td><p>0.35</p></td>
+<td><p>0.46</p></td>
+<td><p>+31%</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: Metrics based on a small test set of 4 benchmark queries. Real-world improvements may vary.</em></p>
+</section>
+<section id="component-performance">
+<h2>Component Performance<a class="headerlink" href="#component-performance" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Fuzzy Matcher</strong>: Successfully corrected 100% of tested typos.</p></li>
+<li><p><strong>Synonym Handler</strong>: Expanded queries with relevant domain terms without drift.</p></li>
+<li><p><strong>Reranker</strong>: Successfully differentiated between relevant and less relevant documents in top-k.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>The advanced retrieval pipeline significantly improves robustness against user errors (typos) and vocabulary mismatch (synonyms), while the reranker ensures the best results are presented first.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

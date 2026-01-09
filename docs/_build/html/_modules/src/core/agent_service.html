@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.core.agent_service &mdash; VidwaanAI 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            VidwaanAI
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../DOCUMENTATION_INDEX.html">Vidwaanai Project - Complete Documentation Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README_DOCUMENTATION.html">Vidwaanai Project Documentation - README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../VIDWAANAI_COMPLETE_DOCUMENTATION.html">Vidwaanai - Complete Project Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VidwaanAI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.core.agent_service</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.core.agent_service</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.db.db_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.embeddings.veda_embedder</span><span class="w"> </span><span class="kn">import</span> <span class="n">VedaEmbedder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.llm.lmstudio_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">LMStudioClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.llm.openai_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAIClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.graph.graph_builder</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphBuilder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.graph.entity_extractor</span><span class="w"> </span><span class="kn">import</span> <span class="n">EntityExtractor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.graph.graph_retriever</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphRetriever</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.retrieval.hybrid_retriever_service</span><span class="w"> </span><span class="kn">import</span> <span class="n">HybridRetrieverService</span>
+
+<span class="c1"># You may need a GraphQuerier or similar class for reading graph data efficiently</span>
+<span class="c1"># For now we will use raw GraphBuilder driver or a new class if needed.</span>
+<span class="c1"># Let&#39;s assume we can query graph using the driver in GraphBuilder or ad-hoc.</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AgentService">
+<a class="viewcode-back" href="../../../src.core.html#src.core.agent_service.AgentService">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AgentService</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Core service for the Vidwaan Agent.</span>
+<span class="sd">    Orchestrates the RAG pipeline: Query -&gt; Vector DB -&gt; Graph DB -&gt; LLM -&gt; Answer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">DatabaseManager</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embedder</span> <span class="o">=</span> <span class="n">VedaEmbedder</span><span class="p">()</span>
+
+        <span class="c1"># Initialize Hybrid Retriever</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retriever</span> <span class="o">=</span> <span class="n">HybridRetrieverService</span><span class="p">(</span>
+            <span class="n">db_manager</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">,</span>
+            <span class="n">embedder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">embedder</span><span class="p">,</span>
+            <span class="n">enable_bm25</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Enable for hybrid support</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Initialize LLM</span>
+        <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">llm_backend</span> <span class="o">==</span> <span class="s2">&quot;lmstudio&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">llm_client</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">LMStudioClient</span><span class="p">(</span>
+                <span class="n">base_url</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">lmstudio_base_url</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">lmstudio_model</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">api_key</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">OPENAI_API_KEY</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY is not set&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">llm_client</span> <span class="o">=</span> <span class="n">OpenAIClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+
+        <span class="c1"># Initialize Graph connection (using GraphBuilder for now for connection management)</span>
+        <span class="c1"># Ideally we separate Builder (Write) from Querier (Read), but for MVP we use driver directly.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_builder</span> <span class="o">=</span> <span class="n">GraphBuilder</span><span class="p">(</span>
+            <span class="n">uri</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">NEO4J_URI</span><span class="p">,</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">NEO4J_USER</span><span class="p">,</span>
+            <span class="n">password</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">NEO4J_PASSWORD</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_retriever</span> <span class="o">=</span> <span class="n">GraphRetriever</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_builder</span><span class="o">.</span><span class="n">driver</span><span class="p">)</span>
+
+        <span class="c1"># We can extract entities from question too</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entity_extractor</span> <span class="o">=</span> <span class="n">EntityExtractor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">llm_client</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">system_prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        You are Vidwaan, an expert Vedic AI assistant.</span>
+<span class="s2">        Answer the user&#39;s question based ONLY on the following knowledge graph and retrieval context.</span>
+<span class="s2">        Be concise and cite sources if possible.</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AgentService.process_query">
+<a class="viewcode-back" href="../../../src.core.html#src.core.agent_service.AgentService.process_query">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process_query</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">session_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Main RAG pipeline entry point.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">reasoning_trace</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># 1. Embed Question</span>
+        <span class="n">q_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">q_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedder</span><span class="o">.</span><span class="n">embed_text</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">is_query</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">reasoning_trace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;embed_question&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">,</span>
+                    <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Generated </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">q_emb</span><span class="p">)</span><span class="si">}</span><span class="s2">d embedding&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;duration_ms&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">q_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Embedding failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="c1"># 2. Hybrid Retrieval (Vector + BM25)</span>
+        <span class="n">v_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="c1"># Use new Hybrid Retriever</span>
+        <span class="c1"># We can expose fusion method in settings later</span>
+        <span class="n">similar_docs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retriever</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">question</span><span class="p">,</span>
+            <span class="n">top_k</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">RETRIEVAL_TOP_K</span><span class="p">,</span>
+            <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;hybrid&quot;</span><span class="p">,</span>
+            <span class="n">fusion_method</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">,</span>  <span class="c1"># or &#39;rrf&#39;</span>
+        <span class="p">)</span>
+
+        <span class="n">reasoning_trace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;hybrid_search&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">similar_docs</span><span class="p">)</span><span class="si">}</span><span class="s2"> relevant docs&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;duration_ms&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">v_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="c1"># 3. Graph Search (Optional/Hybrid)</span>
+        <span class="c1"># Extract entities from question to find relevant graph nodes</span>
+        <span class="n">graph_context_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">g_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Extract entities from query using the hybrid extractor</span>
+            <span class="n">query_entities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">entity_extractor</span><span class="o">.</span><span class="n">extract_from_query</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+            <span class="n">entity_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">query_entities</span> <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">e</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">entity_names</span><span class="p">:</span>
+                <span class="c1"># Get 1-hop subgraph</span>
+                <span class="n">subgraph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_retriever</span><span class="o">.</span><span class="n">get_context_subgraph</span><span class="p">(</span><span class="n">entity_names</span><span class="p">)</span>
+                <span class="n">graph_context_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_retriever</span><span class="o">.</span><span class="n">format_subgraph_context</span><span class="p">(</span>
+                    <span class="n">subgraph</span>
+                <span class="p">)</span>
+
+            <span class="n">reasoning_trace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;graph_retrieval&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Entities: </span><span class="si">{</span><span class="n">entity_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Relations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">graph_context_str</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;duration_ms&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">g_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Graph retrieval failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># Non-blocking</span>
+
+        <span class="c1"># 4. Build Context</span>
+        <span class="n">context_snippets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">similar_docs</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">))</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">content</span><span class="p">:</span>
+                <span class="c1"># Fallback for HybridRetriever output which uses text/translation</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">trans</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;translation&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="s2">Translation: </span><span class="si">{</span><span class="n">trans</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">trans</span> <span class="k">else</span> <span class="n">text</span>
+
+            <span class="n">context_snippets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Source (</span><span class="si">{</span><span class="n">source</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">context_str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">context_snippets</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">graph_context_str</span><span class="p">:</span>
+            <span class="n">context_str</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Knowledge Graph Context:</span><span class="se">\n</span><span class="si">{</span><span class="n">graph_context_str</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># 5. LLM Answer</span>
+        <span class="n">llm_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">llm_client</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">system_prompt</span><span class="p">,</span> <span class="n">context_str</span><span class="p">,</span> <span class="n">question</span><span class="p">)</span>
+
+        <span class="n">reasoning_trace</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;llm_generation&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;Prompt + Context&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Answer len: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;duration_ms&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">llm_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="n">processing_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">answer</span><span class="p">,</span>
+            <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mf">0.95</span><span class="p">,</span>  <span class="c1"># Placeholder</span>
+            <span class="s2">&quot;sources&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)),</span>
+                    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown Source&quot;</span><span class="p">),</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;translation&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">),</span>
+                    <span class="s2">&quot;entity_type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;retrieval_method&quot;</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fusion_method&quot;</span><span class="p">,</span> <span class="s2">&quot;hybrid&quot;</span><span class="p">),</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">similar_docs</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;reasoning_trace&quot;</span><span class="p">:</span> <span class="n">reasoning_trace</span><span class="p">,</span>
+            <span class="s2">&quot;session_id&quot;</span><span class="p">:</span> <span class="n">session_id</span> <span class="ow">or</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>  <span class="c1"># API expects datetime, will convert in Pydantic</span>
+            <span class="s2">&quot;processing_time_ms&quot;</span><span class="p">:</span> <span class="n">processing_time</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_search_vector_db</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">embedding</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Search mantras by vector similarity.&quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">_get_connection</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cursor</span><span class="p">:</span>
+                <span class="c1"># Query veda_embeddings joined with mantras</span>
+                <span class="c1"># Note: veda_embeddings has &#39;embedding&#39; vector column</span>
+                <span class="c1"># We need to join back to mantras to get text/translation</span>
+                <span class="c1"># This assumes veda_embeddings table exists and is populated</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    SELECT m.id, v.name as ved_name, m.text_sanskrit, m.translation_en, </span>
+<span class="s2">                           (ve.embedding &lt;=&gt; </span><span class="si">%s</span><span class="s2">) as distance</span>
+<span class="s2">                    FROM veda_embeddings ve</span>
+<span class="s2">                    JOIN mantras m ON ve.mantra_id = m.id</span>
+<span class="s2">                    JOIN vedas v ON m.ved_id = v.id</span>
+<span class="s2">                    ORDER BY distance ASC</span>
+<span class="s2">                    LIMIT </span><span class="si">%s</span>
+<span class="s2">                &quot;&quot;&quot;</span>
+                <span class="c1"># pgvector operator &lt;=&gt; is cosine distance (lower is better)</span>
+                <span class="c1"># We need to format embedding as string for psycopg2 if not using register_vector</span>
+                <span class="c1"># But typically list is fine with modern adapters or we cast it.</span>
+                <span class="c1"># Let&#39;s stringify to be safe: &#39;[0.1, ...]&#39;</span>
+                <span class="n">emb_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span>
+
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">emb_str</span><span class="p">,</span> <span class="n">top_k</span><span class="p">))</span>
+                <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+                <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+                    <span class="c1"># r: id, ved_name, text, translation, distance</span>
+                    <span class="c1"># Similarity = 1 - distance</span>
+                    <span class="n">sim</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> Mantra </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">Translation: </span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;similarity&quot;</span><span class="p">:</span> <span class="n">sim</span><span class="p">,</span>
+                        <span class="p">}</span>
+                    <span class="p">)</span>
+        <span class="k">return</span> <span class="n">results</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Chitrank Dixit.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

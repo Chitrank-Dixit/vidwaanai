@@ -76,6 +76,11 @@ docker-test-quality: docker-analyze
 	@echo "$(YELLOW)Running Quality Gate Check...$(RESET)"
 	@$(COMPOSE_TEST) run --rm vidwaan-test-integration uv run python scripts/check_metrics.py
 
+docker-docs:
+	@echo "$(YELLOW)Building documentation in Docker...$(RESET)"
+	@$(COMPOSE_TEST) run --rm vidwaan-docs sh -c "uv run sphinx-apidoc -o docs src && uv run sphinx-build -b html docs docs/_build/html"
+	@echo "$(GREEN)Documentation built in docs/_build/html$(RESET)"
+
 docker-workflow: docker-generate docker-test-all docker-analyze docker-report
 	@echo "$(GREEN)✓ Full workflow completed!$(RESET)"
 
