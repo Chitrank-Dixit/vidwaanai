@@ -138,6 +138,18 @@ class PuranaParser(BaseScriptureParser):
         }
 
 
+class MahabharatParser(BaseScriptureParser):
+    """Parser for Mahabharat."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.PATTERNS = {
+            "l1_node": r"पर्व\s*[:=]?\s*(\d+)",  # Parva -> Mandala
+            "l2_node": r"अध्याय\s*[:=]?\s*(\d+)",  # Adhyaya -> Sukta
+            "verse": None,
+        }
+
+
 def get_parser(scripture_type: str) -> BaseScriptureParser:
     """Factory method."""
     t = scripture_type.lower()
@@ -145,6 +157,8 @@ def get_parser(scripture_type: str) -> BaseScriptureParser:
         return GitaParser()
     elif t == "ramayana":
         return RamayanaParser()
+    elif t == "mahabharat":
+        return MahabharatParser()
     elif t == "purana":
         return PuranaParser()
     else:

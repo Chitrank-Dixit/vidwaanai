@@ -178,8 +178,8 @@ class ScriptureIngestionPipeline:
                                 # Checked schema: "mandala_id INT REFERENCES mandalas(id)" -> Nullable default.
                                 l2_db,  # Can be None.
                                 v.get("mantra_number"),
-                                v.get("text"),
-                                v.get("translation"),
+                                self._sanitize_text(v.get("text")),
+                                self._sanitize_text(v.get("translation")),
                                 tags,
                             ),
                         )
@@ -190,6 +190,12 @@ class ScriptureIngestionPipeline:
         except Exception as e:
             logger.error(f"Database error: {e}")
             raise
+
+    def _sanitize_text(self, text: str) -> str:
+        """Remove null bytes and other unsafe characters from text."""
+        if not text:
+            return text
+        return text.replace("\x00", "")
 
 
 if __name__ == "__main__":
@@ -202,7 +208,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--type",
         required=True,
-        choices=["veda", "gita", "ramayana", "purana"],
+        choices=["veda", "gita", "ramayana", "mahabharat", "purana"],
         help="Scripture Type",
     )
     parser.add_argument("--limit", type=int, help="Limit pages")

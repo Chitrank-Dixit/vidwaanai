@@ -2,7 +2,7 @@ from typing import List, Dict, Optional, Any
 import logging
 
 try:
-    from pdf2image import convert_from_path
+    from pdf2image import convert_from_path, pdfinfo_from_path
     import pytesseract
 except ImportError:
     convert_from_path = None  # type: ignore
@@ -36,9 +36,11 @@ class OCRHandler:
             # We don't know total pages easily without reading, so we iterate until no images returned?
             # actually convert_from_path reads the whole file unless we specify first/last_page.
             # We need to know page count to loop efficiently.
-            from pypdf import PdfReader
-
-            total_pdf_pages = len(PdfReader(pdf_path).pages)
+            # Use pdf2image to get page count, avoiding pypdf entirely
+            from pdf2image import pdfinfo_from_path
+            
+            info = pdfinfo_from_path(pdf_path)
+            total_pdf_pages = info["Pages"]
 
             processing_limit = total_pdf_pages
             if max_pages and max_pages < total_pdf_pages:

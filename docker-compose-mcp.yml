@@ -41,6 +41,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    volumes:
+      - mcp-pgdata:/var/lib/postgresql/data
 
   neo4j-mcp:
     image: neo4j:5.15-community
@@ -56,6 +58,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    volumes:
+      - mcp-neo4j-data:/data
+      - mcp-neo4j-logs:/logs
 
   redis-mcp:
     image: redis:7-alpine
@@ -68,6 +73,14 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+volumes:
+  mcp-pgdata:
+    name: vidwaan-mcp-pgdata
+  mcp-neo4j-data:
+    name: vidwaan-mcp-neo4j-data
+  mcp-neo4j-logs:
+    name: vidwaan-mcp-neo4j-logs
 
 networks:
   mcp-network:

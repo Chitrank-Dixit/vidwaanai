@@ -93,12 +93,18 @@ services:
 
 volumes:
   pgdata:
+    name: vidwaan-pgdata
   neo4j_data:
+    name: vidwaan-neo4j-data
   neo4j_logs:
+    name: vidwaan-neo4j-logs
   # Persistent model caches
   huggingface-cache:
     driver: local
+    name: vidwaan-hf-cache
   torch-cache:
     driver: local
+    name: vidwaan-torch-cache
   vidwaan-models:
     driver: local
+    name: vidwaan-models

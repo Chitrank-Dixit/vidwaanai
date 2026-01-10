@@ -360,10 +360,13 @@ services:
 volumes:
   db-test-data:
     driver: local
+    name: vidwaan-ci-pgdata
   neo4j-test-data:
     driver: local
+    name: vidwaan-ci-neo4j-data
   neo4j-test-logs:
     driver: local
+    name: vidwaan-ci-neo4j-logs
 
 networks:
   test-network:
