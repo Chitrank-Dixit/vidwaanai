@@ -106,7 +106,7 @@
   ansible.builtin.shell: |
     # Ingesting Mahabharat
     uv run python -u scripts/ingest_scripture.py \
-      --pdf "data/mahabharat/mahabhart.pdf" \
+      --pdf "data/mahabharat/mahabharat.pdf" \
       --name "Mahabharat" \
       --code "mb" \
       --type "mahabharat" {{ "--force" if force_ingestion | default(false) else "" }} 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/ingestion_scriptures.log"
