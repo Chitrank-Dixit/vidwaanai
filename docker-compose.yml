@@ -58,5 +58,8 @@ services:
 
 volumes:
   neo4j_data:
+    name: vidwaan-neo4j-data
   neo4j_logs:
+    name: vidwaan-neo4j-logs
   pgdata:
+    name: vidwaan-pgdata

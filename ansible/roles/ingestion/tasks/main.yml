@@ -102,6 +102,23 @@
     - ingestion
     - ingest_files
 
+- name: Ingest Mahabharat
+  ansible.builtin.shell: |
+    # Ingesting Mahabharat
+    uv run python -u scripts/ingest_scripture.py \
+      --pdf "data/mahabharat/mahabhart.pdf" \
+      --name "Mahabharat" \
+      --code "mb" \
+      --type "mahabharat" {{ "--force" if force_ingestion | default(false) else "" }} 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/ingestion_scriptures.log"
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: mahabharat_output
+  changed_when: true
+  ignore_errors: true
+  tags:
+    - ingestion
+    - ingest_files
+
 - name: Find Purana PDFs
   ansible.builtin.find:
     paths: "{{ playbook_dir }}/../../data/puranas"

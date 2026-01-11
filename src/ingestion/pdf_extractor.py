@@ -46,17 +46,24 @@ class PdfExtractor:
                 logger.warning(
                     f"No text extracted from {pdf_path} (len={total_text_len}). Attempting OCR..."
                 )
-                try:
-                    from src.ingestion.ocr_handler import OCRHandler
-
-                    ocr = OCRHandler()
-                    return ocr.extract_text_with_ocr(pdf_path, max_pages=max_pages)
-                except ImportError:
-                    logger.error("OCR dependencies missing. Returning empty text.")
-                except Exception as e:
-                    logger.error(f"OCR fallback failed: {e}")
+                return self._fallback_to_ocr(pdf_path, max_pages)
 
             return results
         except Exception as e:
-            logger.error(f"Error extracting PDF {pdf_path}: {e}")
+            logger.warning(f"pypdf failed to extract text from {pdf_path}: {e}. Attempting OCR fallback...")
+            try:
+                return self._fallback_to_ocr(pdf_path, max_pages)
+            except Exception as ocr_error:
+                logger.error(f"OCR fallback also failed: {ocr_error}")
+                raise e  # Raise original error if OCR also fails
+
+    def _fallback_to_ocr(self, pdf_path: str, max_pages: Optional[int] = None) -> List[Dict[str, Any]]:
+        """Helper to run OCR."""
+        try:
+            from src.ingestion.ocr_handler import OCRHandler
+            ocr = OCRHandler()
+            return ocr.extract_text_with_ocr(pdf_path, max_pages=max_pages)
+        except ImportError:
+            logger.error("OCR dependencies missing. Cannot run fallback.")
             raise
+

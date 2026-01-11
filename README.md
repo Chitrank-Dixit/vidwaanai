@@ -414,13 +414,34 @@ This project also provides a `Makefile-docker` for managing containerized develo
 - `make -f Makefile-docker docker-test-lang L=<lang_code>`: Test a specific language (e.g., `L=hi`).
 - `make -f Makefile-docker docker-test-category C=<category_name>`: Test a specific category (e.g., `C=ramayana`).
 
+### Custom Single Scripture Workflow
+
+To ingest, vectorize, and build graph for a **single** scripture (instead of everything), use the custom workflow:
+
+```bash
+# Example: Ingesting a new PDF using the simplified script
+bash scripts/run_ansible_workflow.sh custom \
+  --name "Garuda Purana" \
+  --code "garuda" \
+  --type "purana" \
+  --pdf "data/puranas/garuda_purana.pdf" \
+  --force
+```
+
+Arguments:
+- `--name`: Full name of the scripture (e.g. "Garuda Purana").
+- `--code`: Short code (e.g. "garuda").
+- `--type`: one of `veda`, `gita`, `ramayana`, `mahabharat`, `purana`.
+- `--pdf`: Path to the PDF file relative to project root.
+- `--force`: Optional flag to force re-ingest if already processed.
+
 ### Analysis & Report
 - `make -f Makefile-docker docker-analyze`: Analyze test results.
 - `make -f Makefile-docker docker-report`: Generate comprehensive report.
 
 ### Workflows
 - `make -f Makefile-docker docker-workflow`: Full workflow: generate → test → report.
-- `make -f Makefile-docker docker-workflow-quick`: Quick workflow version.
+- `make -f Makefile-f Makefile-docker docker-workflow-quick`: Quick workflow version.
 
 ### Knowledge Graph
 - `make -f Makefile-docker docker-graph-build`: Build knowledge graph.

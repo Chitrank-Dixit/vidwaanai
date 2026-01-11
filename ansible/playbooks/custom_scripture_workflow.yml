@@ -1,0 +1,62 @@
+---
+- name: Vidwaan AI - Custom Single Scripture Workflow
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  tasks:
+    - name: Validate Input Variables
+      ansible.builtin.fail:
+        msg: "Please provide 'scripture_name', 'scripture_code', 'scripture_type', and 'pdf_path' variables."
+      when: not (scripture_name is defined and scripture_code is defined and scripture_type is defined and pdf_path is defined)
+
+    - name: Ensure Output Logs Directory Exists
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/../../output/logs"
+        state: directory
+        mode: '0755'
+
+    - name: Ingest Single Scripture
+      ansible.builtin.shell: |
+        echo "Ingesting {{ scripture_name }}..."
+        uv run python -u scripts/ingest_scripture.py \
+          --pdf "{{ pdf_path }}" \
+          --name "{{ scripture_name }}" \
+          --code "{{ scripture_code }}" \
+          --type "{{ scripture_type }}" {{ "--force" if force_ingestion | default(false) else "" }} 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/custom_ingestion.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: ingestion_output
+      changed_when: true
+    
+    - name: Run Vectorization (Filtered)
+      ansible.builtin.shell: |
+        echo "Vectorizing {{ scripture_name }}..."
+        uv run python -u scripts/vectorize_vedas_and_scriptures.py \
+          --scripture "{{ scripture_name }}" 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/custom_vectorization.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: vectorization_output
+      changed_when: true
+
+    - name: Build Knowledge Graph (Filtered)
+      ansible.builtin.shell: |
+        echo "Building Graph for {{ scripture_name }}..."
+        uv run python -u scripts/build_knowledge_graph.py \
+          --scripture "{{ scripture_name }}" 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/custom_kg_build.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: kg_build_output
+      changed_when: true
+
+    - name: Workflow Summary
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          CUSTOM WORKFLOW COMPLETED
+          Scripture: {{ scripture_name }}
+          Ingestion Status: {{ 'Success' if ingestion_output.rc == 0 else 'Failed' }}
+          Vectorization Status: {{ 'Success' if vectorization_output.rc == 0 else 'Failed' }}
+          Graph Build Status: {{ 'Success' if kg_build_output.rc == 0 else 'Failed' }}
+          ===================================================

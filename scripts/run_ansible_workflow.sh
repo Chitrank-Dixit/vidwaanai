@@ -1,9 +1,38 @@
 #!/bin/bash
 
-try_ansible_play() {
-  # Default action
-  return 0
-}
+# Special handling for 'custom' workflow shorthand
+if [ "$1" == "custom" ]; then
+    shift
+    PLAYBOOK="custom_scripture_workflow.yml"
+    # Parse args into extra vars
+    NAME=""
+    CODE=""
+    TYPE=""
+    PDF=""
+    FORCE="false"
+    
+    while [[ "$#" -gt 0 ]]; do
+        case $1 in
+            --name) NAME="$2"; shift ;;
+            --code) CODE="$2"; shift ;;
+            --type) TYPE="$2"; shift ;;
+            --pdf) PDF="$2"; shift ;;
+            --force) FORCE="true" ;;
+            *) echo "Unknown parameter: $1"; exit 1 ;;
+        esac
+        shift
+    done
+
+    if [[ -z "$NAME" || -z "$CODE" || -z "$TYPE" || -z "$PDF" ]]; then
+        echo "Usage: $0 custom --name 'Name' --code 'code' --type 'type' --pdf 'path' [--force]"
+        exit 1
+    fi
+
+    # Construct extra vars
+    EXTRA_VARS="scripture_name='$NAME' scripture_code='$CODE' scripture_type='$TYPE' pdf_path='$PDF' force_ingestion=$FORCE"
+    # Clear positional args so generic logic proceeds
+    set -- "$PLAYBOOK" "" "$EXTRA_VARS"
+fi
 
 set -euo pipefail
 

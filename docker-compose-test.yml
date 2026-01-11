@@ -127,9 +127,13 @@ networks:
 volumes:
   huggingface-cache:
     driver: local
+    name: vidwaan-hf-cache
   torch-cache:
     driver: local
+    name: vidwaan-torch-cache
   uv-cache:
     driver: local
+    name: vidwaan-uv-cache
   postgres-test-data:
     driver: local
+    name: vidwaan-test-pgdata

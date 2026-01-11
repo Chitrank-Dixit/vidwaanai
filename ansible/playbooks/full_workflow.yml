@@ -50,6 +50,7 @@
         tasks_from: main
       tags: 
         - ingestion
+        - ingest_files
         - vectorize
         - build_graph
 
