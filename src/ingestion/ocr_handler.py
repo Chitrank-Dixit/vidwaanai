@@ -59,8 +59,8 @@ class OCRHandler:
                 )
 
                 for i, image in enumerate(images):
-                    # Timeout after 30s per page
-                    text = pytesseract.image_to_string(image, lang=lang, timeout=30)
+                    # Timeout after 300s per page
+                    text = pytesseract.image_to_string(image, lang=lang, timeout=300)
                     results.append(
                         {
                             "page": start_page + i,

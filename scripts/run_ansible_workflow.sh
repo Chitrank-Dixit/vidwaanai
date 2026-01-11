@@ -80,7 +80,7 @@ fi
 
 # Add extra vars if provided
 if [ -n "$EXTRA_VARS" ]; then
-    ANSIBLE_CMD="$ANSIBLE_CMD -e $EXTRA_VARS"
+    ANSIBLE_CMD="$ANSIBLE_CMD -e \"$EXTRA_VARS\""
 fi
 
 # Add verbose flag
