@@ -251,10 +251,41 @@ uv run python scripts/build_knowledge_graph.py
 #### 3. Verify Graph
 Check the status of nodes and relationships.
 ```bash
+# Basic Verification (Counts of nodes/relationships)
 uv run python scripts/verify_graph.py
+
+# Detailed Ontology Verification (Checks isolation, specific relations)
+uv run python scripts/verify_ontology.py
 ```
 
-#### 4. API Endpoints
+#### 4. Step-by-Step Ontology Verification Process
+To manually verify that the ontology is correctly applied and relationships exist:
+
+1.  **Check Connection**: Ensure Neo4j is running.
+2.  **Run Verification Script**:
+    ```bash
+    uv run python scripts/verify_ontology.py
+    ```
+    *Expected Output*:
+    -   Graphs Totals: Nodes > 0, Relationships > 0.
+    -   TEXT -> MENTIONS -> CONCEPT: Should show explicit links (e.g., `Verse ... --[MENTIONS]-> Dharma`).
+    -   Isolated Nodes: Should be 0 (or very low).
+    -   Internal Relations: Concepts should link to other concepts (e.g., `Rama --[MANIFESTS_AS]-> Vishnu`).
+
+3.  **Manual Cypher Checks**:
+    Open Neo4j Browser (http://localhost:7474) and run:
+
+    *Check Text-Concept Links:*
+    ```cypher
+    MATCH (t:Text)-[r:MENTIONS]->(c:Concept) RETURN t.name, c.name LIMIT 20
+    ```
+
+    *Check Concept Hierarchy:*
+    ```cypher
+    MATCH (c1:Concept)-[r]->(c2:Concept) RETURN c1.name, type(r), c2.name LIMIT 20
+    ```
+
+#### 5. API Endpoints
 The Graph Reasoning Service is exposed via REST APIs.
 
 | Method | Endpoint | Description |

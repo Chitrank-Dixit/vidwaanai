@@ -16,6 +16,8 @@ from src.graph.entity_extractor import EntityExtractor
 from src.graph.taxonomy_extractor import TaxonomyExtractor
 from src.llm.lmstudio_client import LMStudioClient
 from src.llm.openai_client import OpenAIClient
+from src.graph.ontology import VEDIC_ONTOLOGY
+from scripts.seed_ontology import OntologySeeder
 
 # Configure logging
 logging.basicConfig(
@@ -48,6 +50,27 @@ def extract_from_verse(
     Pure extraction function (Read-only).
     Returns dict of entities and relationships to be merged later.
     """
+    verse_id = verse["id"]
+    text = verse.get("text", "") or ""
+    translation = verse.get("translation", "") or ""
+    scripture = verse.get("scripture_name", "Unknown")
+
+    entities_accum = []
+    rels_accum = []
+
+    # Flatten ontology for lookup if passed (optimization: do this once outside, but passed here or do simplistic check)
+    # Ideally passed as argument, but for minimal change let's do a quick lookup strategy or assume it's global
+    # Let's use a helper if we could, but let's implement checking against VEDIC_ONTOLOGY directly or via a comprehensive flattening
+    
+    # 0. Ontology Matching (New Logic)
+    # We want to check if any known concept from VEDIC_ONTOLOGY is mentioned in the text
+    # A simple flattened map would be best. 
+    # Let's assume a global 'ONTOLOGY_LOOKUP' is available or we build it here briefly (inefficient if per verse)
+    # Better: Build it once in main and pass it, but changing signature requires updating call site.
+    # Let's update call site in main to pass `ontology_lookup`.
+    
+    # Placeholder for signature update below
+    pass
     verse_id = verse["id"]
     text = verse.get("text", "") or ""
     translation = verse.get("translation", "") or ""
@@ -122,6 +145,179 @@ def extract_from_verse(
 
     return entities_accum, rels_accum
 
+def flatten_ontology(ontology):
+    """
+    Flatten ontology into a lookup map: Lowercase Name -> {id, type, name}
+    """
+    lookup = {}
+    
+    def _traverse(obj):
+        if isinstance(obj, dict):
+            if "id" in obj and "name" in obj:
+                entry = {
+                    "id": obj["id"],
+                    "type": obj.get("type", "Concept"),
+                    "name": obj["name"]
+                }
+                # Add exact name match
+                lookup[obj["name"].lower()] = entry
+                
+                # Add synoynms if any
+                for syn in obj.get("synonyms", []):
+                    lookup[syn.lower()] = entry
+                    
+                # Add sanskrit name if any
+                if "sanskrit_name" in obj:
+                    lookup[obj["sanskrit_name"].lower()] = entry
+            
+            for k, v in obj.items():
+                if isinstance(v, (dict, list)):
+                    _traverse(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                _traverse(item)
+
+    _traverse(ontology)
+    return lookup
+
+def extract_from_verse_with_ontology(
+    verse,
+    extractor: EntityExtractor,
+    tax_extractor: TaxonomyExtractor,
+    ontology_lookup: dict,
+    skip_llm: bool = False,
+):
+    """
+    Extraction with Ontology looking for creating MENTIONS relationships.
+    """
+    verse_id = verse["id"]
+    text = verse.get("text", "") or ""
+    translation = verse.get("translation", "") or ""
+    scripture = verse.get("scripture_name", "Unknown")
+
+    entities_accum = []
+    rels_accum = []
+    
+    verse_node_name = f"Verse {verse_id}"
+
+    # Verse Node (Implicit entity)
+    entities_accum.append(
+        {
+            "name": verse_node_name,
+            "type": "Text",
+            "attributes": {
+                "text": text,
+                "translation": translation,
+                "scripture": scripture,
+                "verse_id": verse_id,
+            },
+        }
+    )
+    
+    combined_text = (f"{text} {translation}").lower()
+
+    # 0. Ontology Lookup (Deterministic linking)
+    # Check if any ontology concept name is in the text
+    found_ontology_concepts = []
+    for term, concept_info in ontology_lookup.items():
+        # Simple substring match - can be improved with regex word boundaries
+        if term in combined_text:
+            found_ontology_concepts.append(concept_info)
+            
+            # Create Relationship: Verse -> MENTIONS -> Concept
+            # Note: We assume Concept node exists (seeded) or we create a stub reference.
+            # GraphBuilder.create_relationships_batch needs identifiers. 
+            # If we used create_entity_batch, we have names. 
+            # If concept nodes are created with specific properties (like ID) in Neo4j, 
+            # we need to ensure we link to them correctly.
+            # GraphBuilder usually links by NAME and TYPE if using `create_relationship(from_node_name, to_node_name...)` approach
+            # But `create_relationships_batch` takes raw dicts.
+            
+            rels_accum.append({
+                "from": verse_node_name,
+                "to": concept_info["name"],  # Linking by Name
+                "type": "MENTIONS",
+                "attributes": {
+                    "source": "ontology_lookup", 
+                    "matched_term": term,
+                    "confidence": 1.0
+                }
+            })
+
+    # 1. Taxonomy (Rule-based)
+    found_entities = tax_extractor.extract(f"{text} {translation}")
+    
+    for entity in found_entities:
+        # Check if this rule-based entity matches ontology
+        ent_name_lower = entity["name"].lower()
+        if ent_name_lower in ontology_lookup:
+            # It's a known concept! Use the official name/type
+            official = ontology_lookup[ent_name_lower]
+            entity["name"] = official["name"]
+            entity["type"] = official["type"]
+        else:
+             entity["type"] = "Concept" # Default
+
+        entities_accum.append(
+            {
+                "name": entity["name"],
+                "type": entity["type"],
+                "attributes": {"source": "taxonomy"},
+            }
+        )
+
+        # Rel: Entity -> MENTIONED_IN -> Verse (Inverted Logic in original code??)
+        # Original: Entity -> MENTIONED_IN -> Verse
+        # User Request: Text -> MENTIONS -> Concept
+        # Let's add BOTH or prefer User Request. 
+        # User request said: "Text Nodes ... [MENTIONS] -> Concept Nodes"
+        
+        rels_accum.append(
+            {
+                "from": verse_node_name,
+                "to": entity["name"],
+                "type": "MENTIONS",
+                "attributes": {"context": "Rule-based extraction"},
+            }
+        )
+
+    # 2. LLM Extraction
+    if not skip_llm:
+        try:
+            data = extractor.extract_entities(text, translation, scripture)
+            ext_entities = data.get("entities", [])
+            ext_rels = data.get("relationships", [])
+
+            for ent in ext_entities:
+                # Normalization against ontology
+                if ent["name"].lower() in ontology_lookup:
+                     official = ontology_lookup[ent["name"].lower()]
+                     ent["name"] = official["name"]
+                     ent["type"] = official["type"]
+
+                ent["attributes"] = ent.get("attributes", {})
+                ent["attributes"]["source_verse_id"] = verse_id
+                ent["attributes"]["scripture"] = scripture
+                entities_accum.append(ent)
+                
+                # Ensure we link this entity to the verse if not already explicit
+                rels_accum.append({
+                    "from": verse_node_name,
+                    "to": ent["name"],
+                    "type": "MENTIONS",
+                    "attributes": {"source": "llm", "confidence": 0.9}
+                })
+
+            for rel in ext_rels:
+                rel["attributes"] = rel.get("attributes", {})
+                rel["attributes"]["source_verse_id"] = verse_id
+                rels_accum.append(rel)
+
+        except Exception as e:
+            logger.error(f"LLM Extraction failed for verse {verse_id}: {e}")
+
+    return entities_accum, rels_accum
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -171,6 +367,15 @@ def main():
     if args.clear:
         logger.warning("Clearing existing Knowledge Graph...")
         graph_builder.clear_graph()
+        
+        # Seed Ontology
+        logger.info("Seeding Ontology...")
+        seeder = OntologySeeder(graph_builder)
+        seeder.seed()
+
+    # Pre-compute flattened ontology for fast lookup
+    ontology_lookup = flatten_ontology(VEDIC_ONTOLOGY)
+    logger.info(f"Loaded {len(ontology_lookup)} ontology terms for fast lookup.")
 
     # Fetch Verses
     logger.info("Fetching verses from PostgreSQL...")
@@ -211,7 +416,7 @@ def main():
             # Pass skip_llm
             futures = [
                 executor.submit(
-                    extract_from_verse, v, extractor, tax_extractor, args.skip_llm
+                    extract_from_verse_with_ontology, v, extractor, tax_extractor, ontology_lookup, args.skip_llm
                 )
                 for v in chunk
             ]
