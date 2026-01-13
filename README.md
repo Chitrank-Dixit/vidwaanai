@@ -438,6 +438,7 @@ This project also provides a `Makefile-docker` for managing containerized develo
 
 ### Setup
 - `make -f Makefile-docker docker-first-run`: Initialize DB and load data.
+- `make -f Makefile-docker docker-reset-data`: **CAUTION** Clears ALL data from Postgres and Neo4j.
 
 ### Generate & Test
 - `make -f Makefile-docker docker-generate`: Generate prompts inside Docker.
@@ -475,7 +476,8 @@ Arguments:
 - `make -f Makefile-f Makefile-docker docker-workflow-quick`: Quick workflow version.
 
 ### Knowledge Graph
-- `make -f Makefile-docker docker-graph-build`: Build knowledge graph.
+- `make -f Makefile-docker docker-graph-build`: Build knowledge graph (incremental).
+- `make -f Makefile-docker docker-graph-rebuild`: Rebuild knowledge graph from scratch (Clear DB + Seed Ontology + Build).
 
 ### Testing
 - `make -f Makefile-docker docker-test-unit`: Run unit tests.

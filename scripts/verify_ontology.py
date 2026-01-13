@@ -21,6 +21,48 @@ def verify_fix():
         return
 
     with driver.session() as session:
+        # 0. FIX: Rename accidentally created RELATED_TO relationships to MENTIONS for Text->Concept/Deity/Character
+        print("\n--- 0. Fixing Relationship Types (RELATED_TO -> MENTIONS) ---")
+        
+        # 0a. Concepts
+        fix_query = """
+        MATCH (t:Text)-[r:RELATED_TO]->(c:Concept)
+        MERGE (t)-[m:MENTIONS]->(c)
+        SET m = r
+        WITH r
+        DELETE r
+        RETURN count(r) as fixed_count
+        """
+        result = session.run(fix_query).single()
+        fixed = result["fixed_count"] if result else 0
+        print(f"Fixed {fixed} relationships from RELATED_TO to MENTIONS (Text->Concept).")
+        
+        # 0b. Deities
+        fix_query_deity = """
+        MATCH (t:Text)-[r:RELATED_TO]->(d:Deity)
+        MERGE (t)-[m:MENTIONS]->(d)
+        SET m = r
+        WITH r
+        DELETE r
+        RETURN count(r) as fixed_count
+        """
+        result = session.run(fix_query_deity).single()
+        fixed_deity = result["fixed_count"] if result else 0
+        print(f"Fixed {fixed_deity} relationships from RELATED_TO to MENTIONS (Text->Deity).")
+        
+        # 0c. Characters
+        fix_query_char = """
+        MATCH (t:Text)-[r:RELATED_TO]->(ch:Character)
+        MERGE (t)-[m:MENTIONS]->(ch)
+        SET m = r
+        WITH r
+        DELETE r
+        RETURN count(r) as fixed_count
+        """
+        result = session.run(fix_query_char).single()
+        fixed_char = result["fixed_count"] if result else 0
+        print(f"Fixed {fixed_char} relationships from RELATED_TO to MENTIONS (Text->Character).")
+
         # 1. Check Totals
         print("\n--- 1. Graph Totals ---")
         res = session.run("MATCH (n) RETURN count(n) as nodes").single()

@@ -90,6 +90,7 @@ docker-workflow-quick: docker-test-unit docker-report
 	@echo "$(CYAN)Knowledge Graph:$(RESET)"
 	@echo "  $(GREEN)make -f Makefile-docker docker-graph-setup$(RESET)  Setup graph schema"
 	@echo "  $(GREEN)make -f Makefile-docker docker-graph-build$(RESET)  Build knowledge graph"
+	@echo "  $(GREEN)make -f Makefile-docker docker-graph-rebuild$(RESET) Rebuild graph (clear & build)"
 	@echo "  $(GREEN)make -f Makefile-docker docker-graph-verify$(RESET) Verify graph content"
 	@echo
 	@echo "$(CYAN)Testing:$(RESET)"
@@ -166,6 +167,11 @@ docker-first-run: docker-up
 	@$(COMPOSE_FULL) exec app uv run python scripts/load_sample_data.py
 	@echo "$(GREEN)✓ Docker first run setup complete!$(RESET)"
 
+docker-reset-data:
+	@echo "$(YELLOW)WARNING: This will delete ALL data in Postgres and Neo4j...$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python scripts/reset_data.py
+	@echo "$(GREEN)✓ All data cleared! You can now start fresh.$(RESET)"
+
 # Knowledge Graph
 docker-graph-build:
 	@echo "$(YELLOW)Building knowledge graph...$(RESET)"
@@ -180,6 +186,11 @@ docker-graph-setup:
 docker-graph-verify:
 	@echo "$(YELLOW)Verifying graph content...$(RESET)"
 	@$(COMPOSE_FULL) exec app uv run python scripts/verify_graph.py
+
+docker-graph-rebuild:
+	@echo "$(YELLOW)Rebuilding knowledge graph (Clear + Build)...$(RESET)"
+	@$(COMPOSE_FULL) exec app uv run python scripts/build_knowledge_graph.py --clear
+	@echo "$(GREEN)✓ Knowledge graph rebuilt!$(RESET)"
 
 
 # Generate & Test
