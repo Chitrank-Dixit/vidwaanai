@@ -35,6 +35,9 @@ class Settings(BaseSettings):
     # NEW: LM Studio settings
     lmstudio_base_url: str = "http://localhost:1234"
     lmstudio_model: str = "falcon-h1-7b-instruct"  # or whatever /v1/models shows
+    
+    # Timeout settings
+    LLM_TIMEOUT: int = 300  # Default to 5 minutes
 
     # RAG settings
     RETRIEVAL_TOP_K: int = 5

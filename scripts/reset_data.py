@@ -24,7 +24,7 @@ def reset_data():
         print("Truncating tables...")
         # Order matters due to FKs
         cursor.execute(
-            "TRUNCATE TABLE scripture_embeddings, verses, scriptures, user_queries RESTART IDENTITY CASCADE;"
+            "TRUNCATE TABLE scripture_embeddings, verses, scriptures, user_queries, veda_embeddings, mantras, suktas, mandalas, vedas RESTART IDENTITY CASCADE;"
         )
         conn.commit()
         print("✓ Tables truncated successfully.")

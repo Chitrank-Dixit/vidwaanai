@@ -9,7 +9,20 @@ A multilingual AI agent for Indian scriptures with CLI interface.
 - Python 3.10+
 - OpenAI API key
 
-### 2. Setup Environment
+### 2. System Dependencies (OCR Support)
+To ingest scanned PDFs (like Mahabharat), you need `tesseract` and `poppler`.
+
+**macOS:**
+```bash
+brew install tesseract poppler
+```
+
+**Ubuntu/Debian:**
+```bash
+sudo apt-get install tesseract-ocr poppler-utils
+```
+
+### 3. Setup Environment
 ```bash
 cp .env.example .env
 # Edit .env and add your OpenAI API key

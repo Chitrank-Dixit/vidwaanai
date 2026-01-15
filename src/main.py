@@ -39,6 +39,7 @@ def get_agent() -> VidwaanAI:
                 neo4j_uri=settings.NEO4J_URI,
                 neo4j_user=settings.NEO4J_USER,
                 neo4j_password=settings.NEO4J_PASSWORD,
+                llm_timeout=settings.LLM_TIMEOUT,
             )
         except Exception as e:
             console.print(f"[red]Error initializing agent: {str(e)}[/red]")
