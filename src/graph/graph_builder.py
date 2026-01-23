@@ -189,7 +189,12 @@ class GraphBuilder:
         # Sanitize and prepare
         prepared = []
         for rel in relationships:
-            rtype = rel["type"]
+            # Safety check for required keys
+            if "from" not in rel or "to" not in rel:
+                logger.warning(f"Skipping malformed relationship: {rel}")
+                continue
+
+            rtype = rel.get("type", RelationType.RELATED_TO.value)
             if rtype not in [r.value for r in RelationType]:
                 rtype = RelationType.RELATED_TO.value
 

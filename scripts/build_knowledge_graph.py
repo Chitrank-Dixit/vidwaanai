@@ -136,6 +136,8 @@ def extract_from_verse(
                 entities_accum.append(ent)
 
             for rel in ext_rels:
+                if not isinstance(rel, dict) or "from" not in rel or "to" not in rel:
+                    continue
                 rel["attributes"] = rel.get("attributes", {})
                 rel["attributes"]["source_verse_id"] = verse_id
                 rels_accum.append(rel)
@@ -309,6 +311,10 @@ def extract_from_verse_with_ontology(
                 })
 
             for rel in ext_rels:
+                # LLM output validation
+                if not isinstance(rel, dict) or "from" not in rel or "to" not in rel:
+                    continue
+                    
                 rel["attributes"] = rel.get("attributes", {})
                 rel["attributes"]["source_verse_id"] = verse_id
                 rels_accum.append(rel)
@@ -332,7 +338,10 @@ def main():
     parser.add_argument("--offset", type=int, default=0, help="Offset for processing")
     parser.add_argument("--scripture", type=str, help="Filter by scripture name")
     parser.add_argument("--clear", action="store_true", help="Clear graph")
-    parser.add_argument("--workers", type=int, default=10, help="Parallel workers")
+    
+    # Default to config setting (2) instead of hardcoded 10
+    parser.add_argument("--workers", type=int, default=settings.GRAPH_BUILD_WORKERS, help=f"Parallel workers (default: {settings.GRAPH_BUILD_WORKERS})")
+    
     parser.add_argument(
         "--batch-size", type=int, default=50, help="DB Write batch size"
     )
