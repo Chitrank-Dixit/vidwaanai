@@ -159,6 +159,19 @@ You can run specific steps of the workflow using **tags** (2nd argument). This i
 | **Knowledge Graph Only** | `build_graph` | `bash scripts/run_ansible_workflow.sh full_workflow.yml build_graph` |
 | **Ingestion + Force** | `ingest_files` | `bash scripts/run_ansible_workflow.sh full_workflow.yml ingest_files "force_ingestion=true"` |
 
+#### 5. Modular Workflows
+For better control, you can run the ingestion/vectorization and graph building steps independently using the dedicated playbooks. This uses `uv` to run `ansible-playbook` ensuring all dependencies are met.
+
+**Ingest and Vectorize Only:**
+```bash
+uv run ansible-playbook ansible/playbooks/ingest_and_vectorize_workflow.yml
+```
+
+**Build Knowledge Graph Only:**
+```bash
+uv run ansible-playbook ansible/playbooks/building_graph_workflow.yml
+```
+
 ### Directory Structure
 - `ansible/playbooks/`: Workflow definitions
 - `ansible/roles/`: Individual task roles (docker_setup, docker_testing, etc.)
@@ -260,6 +273,12 @@ uv run python scripts/build_knowledge_graph.py --limit 10
 # Process all verses (Long running operation)
 uv run python scripts/build_knowledge_graph.py
 ```
+
+**Checkpointing & Resume:**
+The build script automatically maintains a checkpoint file (`graph_build.checkpoint`).
+-   **Interrupted?** Run the command again to resume from the last processed batch.
+-   **Fresh Start?** Use `--clear` to wipe the graph and the checkpoint.
+
 
 #### 3. Verify Graph
 Check the status of nodes and relationships.
@@ -515,6 +534,25 @@ Arguments:
 - `make -f Makefile-docker docker-cache-clear`: Clear caches.
 - `make -f Makefile-docker docker-cache-prune`: Prune Docker volumes.
 - `make -f Makefile-docker docker-clean-all`: Full cleanup.
+
+### Data Backup
+To backup specific components of your data:
+
+**1. Ingestion Only (Text & Metadata):**
+```bash
+bash scripts/backup_ingestion.sh
+```
+
+**2. Vectorization Only (Embeddings):**
+```bash
+bash scripts/backup_vectorization.sh
+```
+
+**3. Knowledge Graph Only (Neo4j):**
+```bash
+bash scripts/backup_graph.sh
+```
+*Note: The graph backup script momentarily stops the Neo4j service.*
 
 ### MCP Server
 - `make -f Makefile-docker mcp-build`: Build MCP containers.

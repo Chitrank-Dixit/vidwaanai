@@ -33,7 +33,9 @@ def get_llm_client():
     if settings.llm_backend == "lmstudio":
         logger.info(f"Using LM Studio backend: {settings.lmstudio_base_url}")
         return LMStudioClient(
-            base_url=settings.lmstudio_base_url, model_name=settings.lmstudio_model
+            base_url=settings.lmstudio_base_url, 
+            model_name=settings.lmstudio_model,
+            timeout=settings.LLM_TIMEOUT
         )
     else:
         logger.info("Using OpenAI backend")
@@ -348,11 +350,33 @@ def main():
     parser.add_argument(
         "--skip-llm", action="store_true", help="Skip LLM extraction (Taxonomy only)"
     )
+    parser.add_argument(
+        "--checkpoint-file", type=str, default="graph_build.checkpoint", help="Checkpoint file path"
+    )
     args = parser.parse_args()
 
     # Init Services
     logger.info("Initializing services...")
     db = DatabaseManager(settings.DATABASE_URL)
+
+    # Handle Checkpoint
+    if args.clear and os.path.exists(args.checkpoint_file):
+        try:
+            os.remove(args.checkpoint_file)
+            logger.info("Cleared previous checkpoint.")
+        except OSError as e:
+            logger.error(f"Error removing checkpoint file: {e}")
+
+    start_offset = args.offset
+    if not args.clear and os.path.exists(args.checkpoint_file):
+        try:
+            with open(args.checkpoint_file, "r") as f:
+                saved_offset = int(f.read().strip())
+                if saved_offset > start_offset:
+                    start_offset = saved_offset
+                    logger.info(f"Resuming from checkpoint offset: {start_offset}")
+        except ValueError:
+            logger.warning("Invalid checkpoint file content. Starting from 0.")
 
     # Only init LLM if needed
     llm = None
@@ -397,12 +421,13 @@ def main():
             if args.scripture.lower() in v.get("scripture_name", "").lower()
         ]
 
-    start = args.offset
-    end = start + args.limit if args.limit > 0 else len(all_verses)
-    verses_to_process = all_verses[start:end]
+    # Process range
+    # Note: all_verses is full list. start_offset is index into this list.
+    end = start_offset + args.limit if args.limit > 0 else len(all_verses)
+    verses_to_process = all_verses[start_offset:end]
 
     logger.info(
-        f"Processing {len(verses_to_process)} verses with {args.workers} workers. Skip LLM: {args.skip_llm}"
+        f"Processing {len(verses_to_process)} verses (Offset: {start_offset}) with {args.workers} workers. Skip LLM: {args.skip_llm}"
     )
 
     # Batch Processing Loop
@@ -413,6 +438,9 @@ def main():
     chunk_size = args.batch_size * 2  # Process reasonably sized chunks in memory
 
     start_time = time.time()
+    
+    # Track progress relative to original full list for checkpointing
+    current_global_offset = start_offset
 
     for i in range(0, len(verses_to_process), chunk_size):
         chunk = verses_to_process[i : i + chunk_size]
@@ -448,15 +476,25 @@ def main():
         if batch_rels:
             graph_builder.create_relationships_batch(batch_rels)
             total_rel += len(batch_rels)
+            
+        # Update checkpoint
+        current_global_offset += len(chunk)
+        with open(args.checkpoint_file, "w") as f:
+            f.write(str(current_global_offset))
 
         logger.info(
-            f"Committed batch {i//chunk_size + 1}: {len(batch_entities)} ents, {len(batch_rels)} rels"
+            f"Committed batch {i//chunk_size + 1}: {len(batch_entities)} ents, {len(batch_rels)} rels. Checkpoint: {current_global_offset}"
         )
 
     elapsed = time.time() - start_time
     logger.info(f"Graph Build Complete in {elapsed:.2f}s.")
     logger.info(f"Total Entities: {total_ent}")
     logger.info(f"Total Relationships: {total_rel}")
+    
+    # Cleanup Checkpoint
+    if os.path.exists(args.checkpoint_file):
+        os.remove(args.checkpoint_file)
+        logger.info("Removed checkpoint file.")
 
     graph_builder.close()
 
