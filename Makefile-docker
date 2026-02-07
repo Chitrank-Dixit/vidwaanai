@@ -8,7 +8,7 @@
 	docker-workflow docker-workflow-quick \
 	docker-graph-build \
 	docker-test-unit docker-test-functional docker-test-integration docker-test-e2e docker-test-all \
-	docker-lint docker-format docker-check docker-security docker-lint-all \
+	docker-lint docker-format docker-security docker-lint-all \
 	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
 	docker-cache-status docker-cache-clear docker-cache-prune docker-clean-all \
 	mcp-build mcp-up mcp-down mcp-logs mcp-test mcp-int \
@@ -104,7 +104,6 @@ docker-workflow-quick: docker-test-unit docker-report
 	@echo "$(CYAN)Quality Assurance:$(RESET)"
 	@echo "  $(GREEN)make -f Makefile-docker docker-lint$(RESET)         Lint code"
 	@echo "  $(GREEN)make -f Makefile-docker docker-format$(RESET)       Format code"
-	@echo "  $(GREEN)make -f Makefile-docker docker-check$(RESET)        Type check"
 	@echo "  $(GREEN)make -f Makefile-docker docker-security$(RESET)     Security checks"
 	@echo "  $(GREEN)make -f Makefile-docker docker-lint-all$(RESET)     Run all QA checks"
 	@echo
@@ -241,17 +240,14 @@ docker-lint:
 
 docker-format:
 	@echo "$(YELLOW)Formatting code in container...$(RESET)"
-	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run black src tests scripts && uv run ruff check --fix src tests scripts"
+	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run ruff check --fix src tests scripts"
 
-docker-check:
-	@echo "$(YELLOW)Running type checks in container...$(RESET)"
-	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run mypy src"
 
 docker-security:
 	@echo "$(YELLOW)Running security checks in container...$(RESET)"
 	@$(COMPOSE_FULL) run --rm --no-deps --entrypoint="" app sh -c "uv run bandit -r src && uv run safety scan"
 
-docker-lint-all: docker-format docker-lint docker-check docker-security
+docker-lint-all: docker-format docker-lint docker-security
 
 # Caching
 docker-cache-status:

@@ -431,8 +431,8 @@ This project uses a `Makefile` to streamline common development tasks. Below are
 
 ### Code Quality
 - `make lint`: Run code linting using `ruff`.
-- `make format`: Format code using `black` and `ruff`.
-- `make check`: Run type checks using `mypy`.
+- `make format`: Format code using `ruff`.
+- `make check`: Run type checks using `pyright`.
 - `make test-code`: Run unit tests on the framework.
 
 ### Workflows

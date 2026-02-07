@@ -1,4 +1,3 @@
-import logging
 import sys
 import os
 from neo4j import GraphDatabase
