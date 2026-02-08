@@ -1,0 +1,183 @@
+{
+    "entities": [
+        {
+            "name": "King Da[aratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The childless monarch of Ayodhyá who decrees a great sacrifice to obtain sons."
+            }
+        },
+        {
+            "name": "Va[ishmha",
+            "type": "Character",
+            "attributes": {
+                "description": "The chief priest and trusted guide of King Da[aratha, deeply read in Scripture."
+            }
+        },
+        {
+            "name": "Rishya[ring",
+            "type": "Character",
+            "attributes": {
+                "description": "The holy hermit and son of VibháGdak who guides the specific sacrificial forms of the Ashvamedha."
+            }
+        },
+        {
+            "name": "Kau[alyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The chief queen of Da[aratha who participates in the rites, including the symbolic slaying of the steed."
+            }
+        },
+        {
+            "name": "VishGu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Supreme Lord who carries a shell, mace, and discus; he agrees to incarnate as Da[aratha's sons to slay RávaG."
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Creator who granted RávaG a boon of invulnerability against gods and demons, but not against men."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Lord of the Sky and leader of the Gods who petitions VishGu for help against the giant RávaG."
+            }
+        },
+        {
+            "name": "RávaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The giant king whose pride and power torment the three worlds; he is immune to non-human entities."
+            }
+        },
+        {
+            "name": "Sarjú",
+            "type": "Place",
+            "attributes": {
+                "description": "The river on whose northern side the sacrificial ground for the Ashvamedha is prepared."
+            }
+        },
+        {
+            "name": "Míthilá",
+            "type": "Place",
+            "attributes": {
+                "description": "The kingdom ruled by King Janak, an old ally of Da[aratha."
+            }
+        },
+        {
+            "name": "Ashvamedha",
+            "type": "Event",
+            "attributes": {
+                "description": "The Sacrifice of the Steed, involving 21 sacrificial stakes and 300 victims to ensure the king's sovereignty and offspring."
+            }
+        },
+        {
+            "name": "Putrakama Yajna",
+            "type": "Event",
+            "attributes": {
+                "description": "The second rite begun by Rishya[ring using Atharva texts specifically to win sons for the king."
+            }
+        },
+        {
+            "name": "Vedas",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred scriptures (including Rig, Yajur, Sama, and Atharva) that govern the ritual laws."
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of Míthilá and ally invited to the sacrifice."
+            }
+        },
+        {
+            "name": "Lomapád",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of the Angas invited to participate in the gathering."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "King Da[aratha",
+            "to": "Ashvamedha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Da[aratha initiates and funds the massive ritual to end his childless state."
+            }
+        },
+        {
+            "from": "Va[ishmha",
+            "to": "King Da[aratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Va[ishmha serves as the king's primary spiritual advisor and ritual director."
+            }
+        },
+        {
+            "from": "VishGu",
+            "to": "King Da[aratha",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "VishGu agrees to divide himself into four and be born as the king's offspring."
+            }
+        },
+        {
+            "from": "RávaG",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "RávaG received a protective boon from Brahmá that fuels his senseless pride."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "VishGu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra leads the gods in praying to VishGu to provide a refuge from RávaG."
+            }
+        },
+        {
+            "from": "Kau[alyá",
+            "to": "Ashvamedha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "She performs the symbolic slaying of the sacrificial horse and stays by its side to ensure the birth of a son."
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Míthilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janak is the imperial ruler of the Míthilá region."
+            }
+        },
+        {
+            "from": "Rishya[ring",
+            "to": "Putrakama Yajna",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He conducts the secondary rite using Atharva texts to finalize the king's request for sons."
+            }
+        },
+        {
+            "from": "Va[ishmha",
+            "to": "Vedas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "He is deeply read in and ensures the sacrifice follows the six-fold science of the Vedas."
+            }
+        }
+    ]
+}
