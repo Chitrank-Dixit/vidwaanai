@@ -12,13 +12,15 @@ class LMStudioClient:
         self,
         base_url: str = "http://localhost:1234",
         model_name: str = "falcon-h1-7b-instruct",
+        timeout: int = 120,
     ):
         self.base_url = base_url.rstrip("/")
         if self.base_url.endswith("/v1"):
             self.base_url = self.base_url[:-3]
         self.model_name = model_name
+        self.timeout = timeout
         logger.info(
-            f"Initialized LMStudioClient: {self.base_url} with model {self.model_name}"
+            f"Initialized LMStudioClient: {self.base_url} with model {self.model_name} (timeout={self.timeout}s)"
         )
 
     def generate(
@@ -38,7 +40,7 @@ class LMStudioClient:
             }
 
             logger.debug(f"Sending request to {url}")
-            response = requests.post(url, json=payload, timeout=120)
+            response = requests.post(url, json=payload, timeout=self.timeout)
             response.raise_for_status()
 
             data = response.json()

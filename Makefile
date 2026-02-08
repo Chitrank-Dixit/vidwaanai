@@ -15,8 +15,7 @@ RESET := \033[0m
 PYTHON := uv run python
 PYTEST := uv run pytest
 RUFF := uv run ruff
-BLACK := uv run black
-MYPY := uv run mypy
+PYRIGHT := uv run pyright
 
 help:
 	@echo "$(BOLD)VidwaanAI Development Commands$(RESET)"
@@ -28,9 +27,9 @@ help:
 	@echo
 	@echo "$(CYAN)Development:$(RESET)"
 	@echo "  $(GREEN)make dev$(RESET)           Run development server (not implemented yet)"
-	@echo "  $(GREEN)make format$(RESET)        Format code with black and ruff"
+	@echo "  $(GREEN)make format$(RESET)        Format code with ruff"
 	@echo "  $(GREEN)make lint$(RESET)          Lint code with ruff"
-	@echo "  $(GREEN)make check$(RESET)         Run type checks with mypy"
+	@echo "  $(GREEN)make check$(RESET)         Run type checks with pyright"
 	@echo
 	@echo "$(CYAN)Testing:$(RESET)"
 	@echo "  $(GREEN)make test$(RESET)          Run tests"
@@ -67,7 +66,6 @@ first-run: install-dev docker db model data
 
 format:
 	@echo "$(YELLOW)Formatting code...$(RESET)"
-	@$(BLACK) src tests scripts
 	@$(RUFF) check --fix src tests scripts
 
 lint:
@@ -75,8 +73,8 @@ lint:
 	@$(RUFF) check src tests scripts
 
 check:
-	@echo "$(YELLOW)Running type checks...$(RESET)"
-	@$(MYPY) src
+	@echo "$(YELLOW)Running type checks with pyright...$(RESET)"
+	@$(PYRIGHT) src
 
 # --- Testing ---
 

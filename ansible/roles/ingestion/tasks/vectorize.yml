@@ -1,0 +1,11 @@
+---
+- name: Run Vectorization
+  ansible.builtin.shell: |
+    uv run python -u scripts/vectorize_vedas_and_scriptures.py 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/vectorization.log"
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: vectorization_output
+  changed_when: true
+  tags:
+    - ingestion
+    - vectorize

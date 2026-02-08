@@ -44,22 +44,16 @@ FROM base as ruff
 COPY src/ src/
 CMD ["ruff", "check", "src/"]
 
+
 # ============================================================================
-# BLACK FORMATTING STAGE
+# PYRIGHT TYPE CHECKING STAGE
 # ============================================================================
 
-FROM base as black
+FROM base as pyright
 COPY src/ src/
-COPY tests/ tests/
-CMD ["black", "--check", "src/", "tests/"]
+CMD ["pyright", "src/"]
 
-# ============================================================================
-# MYPY TYPE CHECKING STAGE
-# ============================================================================
 
-FROM base as mypy
-COPY src/ src/
-CMD ["mypy", "src/", "--ignore-missing-imports"]
 
 # ============================================================================
 # TEST STAGE - Unit, Functional, Integration Tests

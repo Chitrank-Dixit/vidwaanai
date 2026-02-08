@@ -1,0 +1,264 @@
+{
+    "entities": [
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya from the Ikshvaku lineage, father of the four princes."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Dasharatha, hero of the Ramayana, embodiment of virtue and valor."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Queen Sumitra, devoted younger brother of Rama."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Queen Kaikeyi, brother of Rama, known for loyalty and righteousness."
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest prince, twin-like companion of Bharata."
+            }
+        },
+        {
+            "name": "Vashishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal priest and sage of the Ikshvaku dynasty who names the princes and advises the king."
+            }
+        },
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Powerful sage, son of Gadhi, who seeks Rama’s help to protect his sacrifice."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "Ten-headed Rakshasa king of Lanka, descendant of Pulastya, enemy of the gods."
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasa demon who disrupts Vishvamitra’s sacrifice."
+            }
+        },
+        {
+            "name": "Subahu",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasa demon allied with Maricha in defiling sacrifices."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, observer of Rama’s journey with Vishvamitra."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god, invoked by comparison when sages and kings meet."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "Great ascetic god associated with penance, destruction of Kama, and divine weapons."
+            }
+        },
+        {
+            "name": "Kama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of love, later known as Ananga after being burned by Shiva."
+            }
+        },
+        {
+            "name": "Ananga",
+            "type": "Concept",
+            "attributes": {
+                "description": "Name of Kama after losing bodily form, meaning 'the bodiless one'."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city of Dasharatha and birthplace of the princes."
+            }
+        },
+        {
+            "name": "Sarju River",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river near Ayodhya where Rama and Lakshmana travel with Vishvamitra."
+            }
+        },
+        {
+            "name": "Ganga",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river, described as three-pathed, joining the Sarju."
+            }
+        },
+        {
+            "name": "Birth of the Princes",
+            "type": "Event",
+            "attributes": {
+                "description": "Celebrated birth and naming of Rama, Bharata, Lakshmana, and Shatrughna."
+            }
+        },
+        {
+            "name": "Vishvamitra's Sacrifice",
+            "type": "Event",
+            "attributes": {
+                "description": "Holy rite disrupted by Rakshasas, prompting Vishvamitra to seek Rama’s aid."
+            }
+        },
+        {
+            "name": "Spells of Vishvamitra",
+            "type": "Event",
+            "attributes": {
+                "description": "Transmission of divine spells to Rama, granting him supernatural endurance and power."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty and justice, repeatedly emphasized in Rama’s conduct and Dasharatha’s dilemma."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Birth of the Princes",
+            "to": "Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama is born and named as the eldest prince."
+            }
+        },
+        {
+            "from": "Birth of the Princes",
+            "to": "Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharata is named during the royal naming rite."
+            }
+        },
+        {
+            "from": "Birth of the Princes",
+            "to": "Lakshmana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana is named by Vashishtha."
+            }
+        },
+        {
+            "from": "Birth of the Princes",
+            "to": "Shatrughna",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shatrughna is named alongside his brothers."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Dasharatha rules from Ayodhya."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Vishvamitra's Sacrifice",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvamitra performs a sacrifice troubled by demons."
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Vishvamitra's Sacrifice",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Maricha disrupts the sacrificial rite."
+            }
+        },
+        {
+            "from": "Subahu",
+            "to": "Vishvamitra's Sacrifice",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Subahu aids in defiling the sacrifice."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishvamitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is entrusted to Vishvamitra for protection of the sacrifice."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Spells of Vishvamitra",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvamitra bestows divine spells upon Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Spells of Vishvamitra",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama receives supernatural spells and powers."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is repeatedly described as the embodiment of justice and righteousness."
+            }
+        },
+        {
+            "from": "Kama",
+            "to": "Ananga",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "After being burned by Shiva, Kama is known as Ananga."
+            }
+        }
+    ]
+}

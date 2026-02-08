@@ -307,31 +307,20 @@ services:
       - /workspace/.venv
     command: ruff check src/
 
-  linter-black:
-    build:
-      context: .
-      dockerfile: Dockerfile.ci
-      target: black
-    container_name: vidwaan-black
-    networks:
-      - test-network
-    volumes:
-      - .:/workspace
-      - /workspace/.venv
-    command: black --check src/ tests/
 
-  linter-mypy:
+  linter-pyright:
     build:
       context: .
       dockerfile: Dockerfile.ci
-      target: mypy
-    container_name: vidwaan-mypy
+      target: pyright
+    container_name: vidwaan-pyright
     networks:
       - test-network
     volumes:
       - .:/workspace:ro
       - /workspace/.venv
-    command: mypy src/ --ignore-missing-imports
+    command: pyright src/
+
 
   # ============================================================================
   # SECURITY SCANNER

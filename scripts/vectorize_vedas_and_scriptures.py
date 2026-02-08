@@ -183,7 +183,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--scripture", help="Filter by scripture name (e.g. 'Gita')")
-    parser.add_argument("--batch-size", type=int, default=128, help="Batch size")
+    parser.add_argument("--batch-size", type=int, default=32, help="Batch size (default: 32)")
     args = parser.parse_args()
 
     db = DatabaseManager(settings.DATABASE_URL)

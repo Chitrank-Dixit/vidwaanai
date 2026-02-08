@@ -1,0 +1,13 @@
+---
+- name: Vidwaan AI - Build Knowledge Graph Workflow
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  tasks:
+    - name: Include Graph Build Tasks
+      ansible.builtin.include_role:
+        name: ingestion
+        tasks_from: build_graph
+      tags: build_graph

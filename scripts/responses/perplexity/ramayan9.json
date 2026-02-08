@@ -1,0 +1,1211 @@
+{
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of Gods, adored when winning victories, compared to Brahmadatta in bliss"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator deity, father of Kusha, appeared to Kushanábha, dwells in world of endless light"
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Name of God Shiva, immortal Lord, unequalled, husband of Umá"
+            }
+        },
+        {
+            "name": "Fire",
+            "type": "Deity",
+            "attributes": {
+                "description": "Deity to whom oblations and offerings are burnt"
+            }
+        },
+        {
+            "name": "Wind God",
+            "type": "Deity",
+            "attributes": {
+                "description": "Free spirit pervading all life, God who roves at will, wooed hundred daughters, bent them when rejected"
+            }
+        },
+        {
+            "name": "Sylvan deities",
+            "type": "Deity",
+            "attributes": {
+                "description": "Forest spirits addressed by Vishvámitra at Perfect Grove"
+            }
+        },
+        {
+            "name": "Vishvámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty saint, hermit son of Gádhi of Kusha's race, celebrant, Kushik's hermit son, Ráma's guide"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, Raghu's son, lotus-eyed, skilled in time and place, conquered foes, protector of sacrifice"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's brother, prince, warrior, watched with Ráma during sacrifice"
+            }
+        },
+        {
+            "name": "Chúli",
+            "type": "Character",
+            "attributes": {
+                "description": "Devoutest sage, most continent, glorious saint absorbed in penance, spiritual father of Brahmadatta"
+            }
+        },
+        {
+            "name": "Somadá",
+            "type": "Character",
+            "attributes": {
+                "description": "Heavenly maid, child of Urmilá, served Chúli, mother of Brahmadatta, lived unwed maiden life"
+            }
+        },
+        {
+            "name": "Richíka",
+            "type": "Character",
+            "attributes": {
+                "description": "Great sage, husband of Satyavatí"
+            }
+        },
+        {
+            "name": "Satyavatí",
+            "type": "Character",
+            "attributes": {
+                "description": "Elder sister of Vishvámitra, pure and good, married to Richíka, became celestial river Kaushikí"
+            }
+        },
+        {
+            "name": "Márícha",
+            "type": "Character",
+            "attributes": {
+                "description": "Rover of the Night, demon, man-eater foul of mind, struck by Ráma's arrow, hurled hundred leagues into ocean"
+            }
+        },
+        {
+            "name": "Suváhu",
+            "type": "Character",
+            "attributes": {
+                "description": "Rover of the Night, demon who showered blood, killed by Ráma's flaming arrow"
+            }
+        },
+        {
+            "name": "Demon train",
+            "type": "Character",
+            "attributes": {
+                "description": "Fiends accompanying Márícha and Suváhu, disturbers of holy rites, overthrown by Ráma"
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "King ruling Míthilá, high-souled, planned noble sacrifice, possesses wondrous bow given by Gods"
+            }
+        },
+        {
+            "name": "Kusha",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient king of Brahmá's seed, just, faithful to vows, true, held good in honor, father of four sons"
+            }
+        },
+        {
+            "name": "Kushámba",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of high renown, son of Kusha, builder of Kaushambí town"
+            }
+        },
+        {
+            "name": "Kushanábha",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, son of Kusha, just and wise, raised Mahodaya's towers, father of hundred daughters"
+            }
+        },
+        {
+            "name": "Amúrtarajas",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kusha, dwelt in Dharmáranya's citadel"
+            }
+        },
+        {
+            "name": "Vasu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kusha, built city Girivraja, ruled fertile Magadh's broad champaign"
+            }
+        },
+        {
+            "name": "Brahmadatta",
+            "type": "Character",
+            "attributes": {
+                "description": "Spiritual son of Chúli, rich and great king, ruled Kámpilí, married hundred daughters of Kushanábha"
+            }
+        },
+        {
+            "name": "Gádhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Holy-souled king, son of Kushanábha, father of Vishvámitra and Satyavatí"
+            }
+        },
+        {
+            "name": "Sagar",
+            "type": "Character",
+            "attributes": {
+                "description": "Pious monarch of Ayodhyá in days of yore, childless, longed for children"
+            }
+        },
+        {
+            "name": "Keshini",
+            "type": "Character",
+            "attributes": {
+                "description": "Fair-faced consort of Sagar, sprang from Vidarbha's royal race, famed for truth from youth"
+            }
+        },
+        {
+            "name": "Lomapád",
+            "type": "Character",
+            "attributes": {
+                "description": "King mentioned in context, likely ruler referenced"
+            }
+        },
+        {
+            "name": "Hundred daughters",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughters of Kushanábha born to Queen Ghritáchí, lovely-faced with every charm, bent by Wind God, married to Brahmadatta"
+            }
+        },
+        {
+            "name": "Ghritáchí",
+            "type": "Character",
+            "attributes": {
+                "description": "Nymph most fair, queen married to Kushanábha, mother of hundred daughters"
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Character",
+            "attributes": {
+                "description": "Elder daughter of Himálaya and Mená, three-pathed river, purges sinners, cleanse and save, Rivers' Queen, also called Jáhnaví"
+            }
+        },
+        {
+            "name": "Umá",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger daughter of Himálaya, passed long time in vows and rigid fast, became Rudra's bride, supreme among Goddesses"
+            }
+        },
+        {
+            "name": "Himálaya",
+            "type": "Character",
+            "attributes": {
+                "description": "Mountains' lord, mighty hill with metals stored, father of Gangá and Umá"
+            }
+        },
+        {
+            "name": "Mená",
+            "type": "Character",
+            "attributes": {
+                "description": "Mother of Gangá and Umá, offspring of will of Meru, Himálaya's darling, beauty of dainty waist"
+            }
+        },
+        {
+            "name": "Meru",
+            "type": "Character",
+            "attributes": {
+                "description": "Everlasting hill, progenitor of Mená"
+            }
+        },
+        {
+            "name": "Perfect Grove",
+            "type": "Place",
+            "attributes": {
+                "description": "Consecrated wood, holy hermitage, perfect seat, dwelling of hermits, scene of Vishvámitra's sacrifice"
+            }
+        },
+        {
+            "name": "Míthilá",
+            "type": "Place",
+            "attributes": {
+                "description": "Fertile land ruled by King Janak, location of planned sacrifice, where wondrous bow is kept"
+            }
+        },
+        {
+            "name": "Gangá's northern shore",
+            "type": "Place",
+            "attributes": {
+                "description": "Beneath Himálaya's snowy peaks, destination of Vishvámitra's journey"
+            }
+        },
+        {
+            "name": "Sona river",
+            "type": "Place",
+            "attributes": {
+                "description": "River where travelers halted, distant shore, also called Hiranyaráhu/Hiranyaráha (Golden-armed/Auriferous)"
+            }
+        },
+        {
+            "name": "Kaushambí",
+            "type": "Place",
+            "attributes": {
+                "description": "Town built by Kushámba"
+            }
+        },
+        {
+            "name": "Mahodaya",
+            "type": "Place",
+            "attributes": {
+                "description": "City with high towers raised by Kushanábha, another name of Kanyakubja"
+            }
+        },
+        {
+            "name": "Dharmáranya",
+            "type": "Place",
+            "attributes": {
+                "description": "Citadel where Amúrtarajas chose to dwell, wood to which God of Justice fled"
+            }
+        },
+        {
+            "name": "Girivraja",
+            "type": "Place",
+            "attributes": {
+                "description": "City built by Vasu, in Magadh neighbourhood"
+            }
+        },
+        {
+            "name": "Magadh",
+            "type": "Place",
+            "attributes": {
+                "description": "Vasu's old domain, fertile broad champaign with smiling fields adorned with golden corn"
+            }
+        },
+        {
+            "name": "Sumágadhí",
+            "type": "Place",
+            "attributes": {
+                "description": "Lovely rill bursting from parent hill, flows between mountains like wreath, roves through Magadh's plains"
+            }
+        },
+        {
+            "name": "Kanyákubja",
+            "type": "Place",
+            "attributes": {
+                "description": "City of Bent Virgins, modern Kanauj/Canouge, royal town named after Wind God bent maidens"
+            }
+        },
+        {
+            "name": "Kámpilí",
+            "type": "Place",
+            "attributes": {
+                "description": "Fortunate metropolis where King Brahmadatta maintained his state"
+            }
+        },
+        {
+            "name": "Himálaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Snowy mountain height, dwelling place of Vishvámitra, home of Gangá's source"
+            }
+        },
+        {
+            "name": "Brahmá's world",
+            "type": "Place",
+            "attributes": {
+                "description": "World of endless light where Kusha vanished to"
+            }
+        },
+        {
+            "name": "Zona",
+            "type": "Place",
+            "attributes": {
+                "description": "River with distant shore, pleasant shore where night was passed"
+            }
+        },
+        {
+            "name": "Jáhnaví",
+            "type": "Place",
+            "attributes": {
+                "description": "Another name for River Gangá, hermit-haunted flood, Rivers' Queen, daughter of Jahnu"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom ruled by Sagar in days of yore"
+            }
+        },
+        {
+            "name": "Vidarbha",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal race from which Kushanábha's bride and Keshini came, modern Berar"
+            }
+        },
+        {
+            "name": "Initiatory rites",
+            "type": "Concept",
+            "attributes": {
+                "description": "High preliminary rite, Díkshá, ceremonies preliminary to sacrifice"
+            }
+        },
+        {
+            "name": "Dikshá",
+            "type": "Concept",
+            "attributes": {
+                "description": "Certain ceremonies preliminary to sacrifice, period of speaking to none"
+            }
+        },
+        {
+            "name": "Wondrous bow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Terrific vast bow of matchless might, given by assembled Gods to Janak, no giant/fiend/God can string it"
+            }
+        },
+        {
+            "name": "Imperial sacrifice",
+            "type": "Concept",
+            "attributes": {
+                "description": "Rite through which Janak gained the wondrous bow from Gods"
+            }
+        },
+        {
+            "name": "Lustral water",
+            "type": "Concept",
+            "attributes": {
+                "description": "Water from brook used for purification in morning worship"
+            }
+        },
+        {
+            "name": "Guest-gift",
+            "type": "Concept",
+            "attributes": {
+                "description": "Offering brought by host to honor guest"
+            }
+        },
+        {
+            "name": "Oblations",
+            "type": "Concept",
+            "attributes": {
+                "description": "Offerings paid to Fire, God and shade as per Scripture"
+            }
+        },
+        {
+            "name": "Morning rites",
+            "type": "Concept",
+            "attributes": {
+                "description": "Daily duties performed at dawn, including purification and prayer"
+            }
+        },
+        {
+            "name": "Sacred oil",
+            "type": "Concept",
+            "attributes": {
+                "description": "Oil supplied to flame for sacrifice"
+            }
+        },
+        {
+            "name": "Mystic spell",
+            "type": "Concept",
+            "attributes": {
+                "description": "Magic power winged on Ráma's arrows"
+            }
+        },
+        {
+            "name": "Wind-God's dart",
+            "type": "Concept",
+            "attributes": {
+                "description": "Arrow belonging to Wind God, used by Ráma"
+            }
+        },
+        {
+            "name": "Chill-pointed weapon",
+            "type": "Concept",
+            "attributes": {
+                "description": "Mortal dart that strikes numbing chill but leaves breathing"
+            }
+        },
+        {
+            "name": "Amrit",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sweet nectar like substance, oil compared to it"
+            }
+        },
+        {
+            "name": "Three-pathed Gangá",
+            "type": "Concept",
+            "attributes": {
+                "description": "Gangá flowing in three paths/realms, purifying and blessing"
+            }
+        },
+        {
+            "name": "Scripture",
+            "type": "Text",
+            "attributes": {
+                "description": "Holy texts dictating bathing and ritual procedures"
+            }
+        },
+        {
+            "name": "Vishvámitra's sacrifice",
+            "type": "Event",
+            "attributes": {
+                "description": "Holy rite conducted by Vishvámitra at Perfect Grove, protected by Ráma and Lakshmana"
+            }
+        },
+        {
+            "name": "Six-day watch",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma and Lakshmana kept watch for six days and nights to guard sacrifice"
+            }
+        },
+        {
+            "name": "Demon attack",
+            "type": "Event",
+            "attributes": {
+                "description": "Márícha and Suváhu with demon train rushed on sacrifice, showering blood"
+            }
+        },
+        {
+            "name": "Battle with demons",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma slew demons disturbing sacrifice, using mystic arrows"
+            }
+        },
+        {
+            "name": "Journey to Míthilá",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvámitra leads saints and princes to see Janak's sacrifice and wondrous bow"
+            }
+        },
+        {
+            "name": "Departure from Perfect Grove",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvámitra and company leave hermitage traveling north to Gangá's shore"
+            }
+        },
+        {
+            "name": "Halt at Sona",
+            "type": "Event",
+            "attributes": {
+                "description": "Travelers made halt on Sona's distant shore at sunset"
+            }
+        },
+        {
+            "name": "Wind God's wooing",
+            "type": "Event",
+            "attributes": {
+                "description": "Wind God proposed to hundred daughters, bent them when rejected"
+            }
+        },
+        {
+            "name": "Marriage of hundred daughters",
+            "type": "Event",
+            "attributes": {
+                "description": "Kushanábha gave all hundred daughters to Brahmadatta, deformity removed upon marriage"
+            }
+        },
+        {
+            "name": "Birth of Gádhi",
+            "type": "Event",
+            "attributes": {
+                "description": "Kushanábha gained son Gádhi through sacrifice, as foretold by Kusha"
+            }
+        },
+        {
+            "name": "Marriage of Satyavatí",
+            "type": "Event",
+            "attributes": {
+                "description": "Satyavatí wed to Richíka, followed him in death, became celestial river"
+            }
+        },
+        {
+            "name": "Transformation of Satyavatí",
+            "type": "Event",
+            "attributes": {
+                "description": "Satyavatí raised to heaven in human frame, became pure celestial stream from Himálaya"
+            }
+        },
+        {
+            "name": "Birth of Gangá and Umá",
+            "type": "Event",
+            "attributes": {
+                "description": "Himálaya and Mená bore two daughters: Gangá (elder) and Umá"
+            }
+        },
+        {
+            "name": "Gods' request for Gangá",
+            "type": "Event",
+            "attributes": {
+                "description": "All Gods came to Himálaya praying for Gangá to help speed their vows"
+            }
+        },
+        {
+            "name": "Gangá given to Gods",
+            "type": "Event",
+            "attributes": {
+                "description": "Himálaya gave Gangá to Immortals for weal of three worlds"
+            }
+        },
+        {
+            "name": "Marriage of Umá",
+            "type": "Event",
+            "attributes": {
+                "description": "After vows and rigid fast, Umá given to immortal Rudra as bride"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Vishvámitra",
+            "to": "Perfect Grove",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vishvámitra conducted sacrifice at Perfect Grove"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Perfect Grove",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma came to Perfect Grove with Vishvámitra"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Perfect Grove",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lakshmana accompanied Ráma to Perfect Grove"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Initiatory rites",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvámitra began high preliminary rite at Perfect Grove"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Six-day watch",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma kept watch for six days and nights"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Six-day watch",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana kept watch with Ráma"
+            }
+        },
+        {
+            "from": "Márícha",
+            "to": "Demon attack",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Márícha led demon attack on sacrifice"
+            }
+        },
+        {
+            "from": "Suváhu",
+            "to": "Demon attack",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Suváhu participated in demon attack"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Battle with demons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma fought and slew demons"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Márícha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma struck Márícha with arrow, hurled him hundred leagues into ocean"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Suváhu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma killed Suváhu with flaming arrow"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Vishvámitra's sacrifice",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvámitra performed sacrifice protected by Ráma"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma honored by saints like Indra for victory"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra plans to attend Janak's sacrifice"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Míthilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janak rules land of fertile Míthilá"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Wondrous bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak possesses wondrous bow given by Gods through imperial sacrifice"
+            }
+        },
+        {
+            "from": "Wondrous bow",
+            "to": "Míthilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Wondrous bow lies in royal palace at Míthilá"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Journey to Míthilá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvámitra leads journey to Míthilá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Journey to Míthilá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma accompanies Vishvámitra to Míthilá"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Journey to Míthilá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana travels with Ráma to Míthilá"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Sylvan deities",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra addressed sylvan deities bidding farewell"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Sona river",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vishvámitra halted at Sona's shore"
+            }
+        },
+        {
+            "from": "Kusha",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kusha was of Brahmá's seed, son of Brahmá"
+            }
+        },
+        {
+            "from": "Kusha",
+            "to": "Kushámba",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kusha is father of Kushámba"
+            }
+        },
+        {
+            "from": "Kusha",
+            "to": "Kushanábha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kusha is father of Kushanábha"
+            }
+        },
+        {
+            "from": "Kusha",
+            "to": "Amúrtarajas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kusha is father of Amúrtarajas"
+            }
+        },
+        {
+            "from": "Kusha",
+            "to": "Vasu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kusha is father of Vasu"
+            }
+        },
+        {
+            "from": "Kushámba",
+            "to": "Kaushambí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushámba built town Kaushambí"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Mahodaya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushanábha raised Mahodaya's towers"
+            }
+        },
+        {
+            "from": "Amúrtarajas",
+            "to": "Dharmáranya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Amúrtarajas dwelt in Dharmáranya"
+            }
+        },
+        {
+            "from": "Vasu",
+            "to": "Girivraja",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasu built city Girivraja"
+            }
+        },
+        {
+            "from": "Vasu",
+            "to": "Magadh",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vasu ruled Magadh's broad champaign"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Ghritáchí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushanábha married to nymph Ghritáchí"
+            }
+        },
+        {
+            "from": "Ghritáchí",
+            "to": "Hundred daughters",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ghritáchí bore hundred daughters to Kushanábha"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Hundred daughters",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushanábha is father of hundred daughters"
+            }
+        },
+        {
+            "from": "Wind God",
+            "to": "Hundred daughters",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wind God wooed hundred daughters, bent them when rejected"
+            }
+        },
+        {
+            "from": "Wind God",
+            "to": "Wind God's wooing",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Wind God proposed to maidens"
+            }
+        },
+        {
+            "from": "Hundred daughters",
+            "to": "Wind God's wooing",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hundred daughters rejected Wind God's proposal"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Kanyákubja",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Royal town named Kanyákubja after bent maidens incident"
+            }
+        },
+        {
+            "from": "Chúli",
+            "to": "Somadá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Somadá served sage Chúli with pious aid"
+            }
+        },
+        {
+            "from": "Chúli",
+            "to": "Brahmadatta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Chúli is spiritual father of Brahmadatta"
+            }
+        },
+        {
+            "from": "Somadá",
+            "to": "Brahmadatta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Somadá is mother of Brahmadatta"
+            }
+        },
+        {
+            "from": "Brahmadatta",
+            "to": "Kámpilí",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Brahmadatta maintained state in Kámpilí"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Brahmadatta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushanábha gave hundred daughters to Brahmadatta"
+            }
+        },
+        {
+            "from": "Brahmadatta",
+            "to": "Hundred daughters",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmadatta married all hundred daughters"
+            }
+        },
+        {
+            "from": "Brahmadatta",
+            "to": "Marriage of hundred daughters",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brahmadatta took hand of every maiden"
+            }
+        },
+        {
+            "from": "Hundred daughters",
+            "to": "Marriage of hundred daughters",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Daughters' deformity removed upon marriage to Brahmadatta"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Gádhi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushanábha is father of Gádhi"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Kushanábha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá appeared to Kushanábha, foretold birth of Gádhi"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Birth of Gádhi",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kushanábha gained son Gádhi through sacrifice"
+            }
+        },
+        {
+            "from": "Gádhi",
+            "to": "Vishvámitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gádhi is father of Vishvámitra"
+            }
+        },
+        {
+            "from": "Gádhi",
+            "to": "Satyavatí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gádhi is father of Satyavatí"
+            }
+        },
+        {
+            "from": "Satyavatí",
+            "to": "Vishvámitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Satyavatí is elder sister of Vishvámitra"
+            }
+        },
+        {
+            "from": "Satyavatí",
+            "to": "Richíka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Satyavatí wed to great Richíka"
+            }
+        },
+        {
+            "from": "Satyavatí",
+            "to": "Marriage of Satyavatí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Satyavatí married Richíka"
+            }
+        },
+        {
+            "from": "Satyavatí",
+            "to": "Transformation of Satyavatí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Satyavatí followed husband in death, became celestial stream"
+            }
+        },
+        {
+            "from": "Satyavatí",
+            "to": "Himálaya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Satyavatí as river flows from Himálaya's snowy height"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Himálaya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vishvámitra dwells on Himálaya's side for love of sister"
+            }
+        },
+        {
+            "from": "Himálaya",
+            "to": "Mená",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Himálaya married to Mená, his darling"
+            }
+        },
+        {
+            "from": "Mená",
+            "to": "Meru",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mená is offspring of will of Meru"
+            }
+        },
+        {
+            "from": "Himálaya",
+            "to": "Gangá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Himálaya is father of Gangá"
+            }
+        },
+        {
+            "from": "Mená",
+            "to": "Gangá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mená is mother of Gangá"
+            }
+        },
+        {
+            "from": "Himálaya",
+            "to": "Umá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Himálaya is father of Umá"
+            }
+        },
+        {
+            "from": "Mená",
+            "to": "Umá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mená is mother of Umá"
+            }
+        },
+        {
+            "from": "Gangá",
+            "to": "Umá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gangá and Umá are sisters, daughters of Himálaya"
+            }
+        },
+        {
+            "from": "Gangá",
+            "to": "Birth of Gangá and Umá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gangá was elder-born daughter"
+            }
+        },
+        {
+            "from": "Umá",
+            "to": "Birth of Gangá and Umá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Umá was younger daughter"
+            }
+        },
+        {
+            "from": "Gangá",
+            "to": "Gods' request for Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gods came to obtain Gangá"
+            }
+        },
+        {
+            "from": "Himálaya",
+            "to": "Gods' request for Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Himálaya gave Gangá to Immortals"
+            }
+        },
+        {
+            "from": "Gangá",
+            "to": "Gangá given to Gods",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gangá yielded to Gods for weal of three worlds"
+            }
+        },
+        {
+            "from": "Umá",
+            "to": "Marriage of Umá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Umá given to Rudra after vows and fast"
+            }
+        },
+        {
+            "from": "Rudra",
+            "to": "Marriage of Umá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rudra received Umá as bride"
+            }
+        },
+        {
+            "from": "Umá",
+            "to": "Rudra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Umá is immortal bride of Rudra"
+            }
+        },
+        {
+            "from": "Sagar",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sagar reigned over Ayodhyá in days of yore"
+            }
+        },
+        {
+            "from": "Sagar",
+            "to": "Keshini",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Keshini is honoured consort of Sagar"
+            }
+        },
+        {
+            "from": "Keshini",
+            "to": "Vidarbha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Keshini sprang from Vidarbha's royal race"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Kusha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra traces lineage from royal Kusha's race through Gádhi"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Jáhnaví",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma reached Jáhnaví (Gangá) with Vishvámitra"
+            }
+        }
+    ]
+}

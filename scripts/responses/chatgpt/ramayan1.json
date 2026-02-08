@@ -1,0 +1,199 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic traditionally attributed to the sage Valmiki, narrating the life and deeds of Rama."
+            }
+        },
+        {
+            "name": "Valmiki",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage and poet, traditionally regarded as the author of the Ramayana."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, central hero of the Ramayana, embodiment of dharma."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god in Hindu tradition; Rama is regarded as his incarnation."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Consort of Rama, daughter of King Janaka, symbol of virtue and fidelity."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka, principal antagonist of the Ramayana."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, devoted companion during exile."
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara hero, devotee of Rama, key figure in the search for Sita."
+            }
+        },
+        {
+            "name": "Sugriva",
+            "type": "Character",
+            "attributes": {
+                "description": "King of the Vanaras and ally of Rama."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city of Rama’s kingdom."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Island kingdom ruled by Ravana."
+            }
+        },
+        {
+            "name": "Exile of Rama",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama’s fourteen-year exile into the forest with Sita and Lakshmana."
+            }
+        },
+        {
+            "name": "Abduction of Sita",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana abducts Sita and takes her to Lanka."
+            }
+        },
+        {
+            "name": "Battle of Lanka",
+            "type": "Event",
+            "attributes": {
+                "description": "Great war between Rama’s forces and Ravana, ending in Ravana’s death."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Moral law and righteous duty, central theme of the Ramayana."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Valmiki",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Invocation and introductory verses praise Valmiki as poet and seer."
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The epic narrates the life and deeds of Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Later sections explicitly describe Vishnu’s incarnation as Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama is prince of Ayodhya before his exile."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Exile of Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Multiple cantos describe Rama’s departure into the forest."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Abduction of Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Cantos detail Sita’s capture by Ravana."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Abduction of Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ravana abducts Sita and carries her to Lanka."
+            }
+        },
+        {
+            "from": "Abduction of Sita",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita is imprisoned in Lanka after her abduction."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Battle of Lanka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama leads the campaign against Ravana."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Battle of Lanka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ravana fights and is slain in the war."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is portrayed as the ideal upholder of dharma."
+            }
+        }
+    ]
+}

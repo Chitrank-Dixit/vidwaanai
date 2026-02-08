@@ -1,0 +1,182 @@
+{
+    "entities": [
+        {
+            "name": "Bhagírath",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal saint whose penance brought the river Gangá from heaven to earth to liberate the sons of Sagar."
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The holy river known as Tripathagá (three-pathed) who purifies sin and flows through heaven, earth, and hell."
+            }
+        },
+        {
+            "name": "Ziva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The deity who received Gangá on his head and quaffed the Halahala poison during the churning of the sea."
+            }
+        },
+        {
+            "name": "Jahnu",
+            "type": "Character",
+            "attributes": {
+                "description": "A saint who drank the Gangá in anger but later released her through his ears, becoming her symbolic father."
+            }
+        },
+        {
+            "name": "Sagar",
+            "type": "Character",
+            "attributes": {
+                "description": "The ancient king whose sixty thousand sons were reduced to ashes and later liberated by Gangá's water."
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Creator who grants the boon of Gangá's descent to Bhagírath and names her Bhágirathí."
+            }
+        },
+        {
+            "name": "VishGu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Preserver who assumed a tortoise form to support Mount Mandar during the churning of the milky sea."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Thousand-eyed King of Gods who cleaved Diti's unborn child and cursed Ahalyá's seducer (himself) and was cursed by Gautam."
+            }
+        },
+        {
+            "name": "Diti",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Ka[yap and mother of the Titans who performed penance to birth a son capable of slaying Indra."
+            }
+        },
+        {
+            "name": "Aditi",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Ka[yap and mother of the Gods (Suras)."
+            }
+        },
+        {
+            "name": "Amrit",
+            "type": "Concept",
+            "attributes": {
+                "description": "The nectar of immortality produced by churning the milky sea."
+            }
+        },
+        {
+            "name": "Maruts",
+            "type": "Deity",
+            "attributes": {
+                "description": "Storm gods born from the seven pieces of Diti's bud, destined to rule the sky."
+            }
+        },
+        {
+            "name": "Ahalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The wife of Gautam who was cursed to remain invisible and subsist on air until Ráma's arrival."
+            }
+        },
+        {
+            "name": "Gautam",
+            "type": "Character",
+            "attributes": {
+                "description": "A powerful ascetic who cursed both Indra and his wife Ahalyá for their betrayal."
+            }
+        },
+        {
+            "name": "Vi[álá",
+            "type": "Place",
+            "attributes": {
+                "description": "A beautiful city built by King Vi[ála, compared to heaven itself."
+            }
+        },
+        {
+            "name": "Milky Sea",
+            "type": "Place",
+            "attributes": {
+                "description": "The cosmic ocean churned by Gods and Titans to obtain the Amrit."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bhagírath",
+            "to": "Gangá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhagírath led the river Gangá's descent to the sea and nether caves."
+            }
+        },
+        {
+            "from": "Gangá",
+            "to": "Jahnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gangá is called Jáhnavi because she was released from Jahnu's ear."
+            }
+        },
+        {
+            "from": "Ziva",
+            "to": "Gangá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ziva's touch sanctified the tide of the Gangá."
+            }
+        },
+        {
+            "from": "VishGu",
+            "to": "Milky Sea",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "VishGu took the form of a tortoise to support the mountain during the churning."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Maruts",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra cleaved the bud from which the seven Maruts were born."
+            }
+        },
+        {
+            "from": "Gautam",
+            "to": "Ahalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gautam is the husband of Ahalyá who cursed her to solitude."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ahalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Indra assumed the form of Gautam to seduce Ahalyá."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ahalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is the destined guest whose presence removes Ahalyá's stain and curse."
+            }
+        }
+    ]
+}

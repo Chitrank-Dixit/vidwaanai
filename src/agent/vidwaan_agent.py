@@ -41,6 +41,7 @@ class VidwaanAI:
         neo4j_uri: Optional[str] = None,
         neo4j_user: Optional[str] = None,
         neo4j_password: Optional[str] = None,
+        llm_timeout: int = 120,
     ):
         """Initialize VidwaanAI agent."""
         self.db = DatabaseManager(db_url)
@@ -52,7 +53,9 @@ class VidwaanAI:
 
         self.llm: Union[LMStudioClient, OpenAIClient]
         if use_lmstudio:
-            self.llm = LMStudioClient(base_url=lmstudio_url or "http://localhost:8000")
+            self.llm = LMStudioClient(
+                base_url=lmstudio_url or "http://localhost:8000", timeout=llm_timeout
+            )
         else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()

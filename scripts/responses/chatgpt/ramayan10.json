@@ -1,0 +1,242 @@
+{
+    "entities": [
+        {
+            "name": "Sagar",
+            "type": "Character",
+            "attributes": {
+                "description": "King of the Ikshvaku line, famed for his sacrifice and father of sixty thousand sons."
+            }
+        },
+        {
+            "name": "Sumati",
+            "type": "Character",
+            "attributes": {
+                "description": "Second queen of King Sagar, daughter of Arishtanemi, mother of sixty thousand sons."
+            }
+        },
+        {
+            "name": "Keshini",
+            "type": "Character",
+            "attributes": {
+                "description": "First queen of King Sagar, mother of Asamanja."
+            }
+        },
+        {
+            "name": "Bhrigu",
+            "type": "Character",
+            "attributes": {
+                "description": "Great sage who prophesied the birth of Sagar’s sons."
+            }
+        },
+        {
+            "name": "Asamanja",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sagar and Keshini, heir apparent later banished for cruelty."
+            }
+        },
+        {
+            "name": "Anshuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Asamanja, grandson of Sagar, righteous prince who recovered the sacrificial horse."
+            }
+        },
+        {
+            "name": "Kapila",
+            "type": "Deity",
+            "attributes": {
+                "description": "Sage form of Vishnu; burned Sagar’s sons with his wrath."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god, identified here with Kapila."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods who stole the sacrificial horse."
+            }
+        },
+        {
+            "name": "Garuda",
+            "type": "Character",
+            "attributes": {
+                "description": "King of birds, son of Vinata, adviser to Anshuman."
+            }
+        },
+        {
+            "name": "Bhagiratha",
+            "type": "Character",
+            "attributes": {
+                "description": "Descendant of Sagar who brought the river Ganga down to earth."
+            }
+        },
+        {
+            "name": "Dilipa",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Anshuman, father of Bhagiratha."
+            }
+        },
+        {
+            "name": "Ganga",
+            "type": "Deity",
+            "attributes": {
+                "description": "Sacred river goddess whose descent purified the sons of Sagar."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "God who received Ganga on his head to break her fall."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god who granted Bhagiratha the boon of Ganga’s descent."
+            }
+        },
+        {
+            "name": "Ashvamedha Sacrifice of Sagar",
+            "type": "Event",
+            "attributes": {
+                "description": "Horse sacrifice performed by King Sagar."
+            }
+        },
+        {
+            "name": "Destruction of Sagar's Sons",
+            "type": "Event",
+            "attributes": {
+                "description": "Burning of the sixty thousand sons by Kapila’s wrath."
+            }
+        },
+        {
+            "name": "Descent of Ganga",
+            "type": "Event",
+            "attributes": {
+                "description": "Bringing of the river Ganga from heaven to earth by Bhagiratha."
+            }
+        },
+        {
+            "name": "Himalaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain range where Sagar and Bhagiratha performed austerities."
+            }
+        },
+        {
+            "name": "Jambudvipa",
+            "type": "Place",
+            "attributes": {
+                "description": "Mythical central continent of the world searched by Sagar’s sons."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Sagar",
+            "to": "Ashvamedha Sacrifice of Sagar",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sagar initiated and conducted the horse sacrifice."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ashvamedha Sacrifice of Sagar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra stole the sacrificial horse in disguise."
+            }
+        },
+        {
+            "from": "Kapila",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Kapila is described as the form of Vishnu guarding the earth."
+            }
+        },
+        {
+            "from": "Kapila",
+            "to": "Destruction of Sagar's Sons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kapila burned the sons of Sagar to ashes with his wrath."
+            }
+        },
+        {
+            "from": "Anshuman",
+            "to": "Ashvamedha Sacrifice of Sagar",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Anshuman recovered the sacrificial horse."
+            }
+        },
+        {
+            "from": "Garuda",
+            "to": "Anshuman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Garuda advised Anshuman on how to redeem the fallen princes."
+            }
+        },
+        {
+            "from": "Bhagiratha",
+            "to": "Descent of Ganga",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bhagiratha performed penance to bring Ganga to earth."
+            }
+        },
+        {
+            "from": "Ganga",
+            "to": "Descent of Ganga",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ganga descended from heaven to purify Sagar’s sons."
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Descent of Ganga",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shiva received Ganga on his head to control her descent."
+            }
+        },
+        {
+            "from": "Brahma",
+            "to": "Descent of Ganga",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahma granted Bhagiratha the boon allowing Ganga’s descent."
+            }
+        },
+        {
+            "from": "Sagar",
+            "to": "Himalaya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sagar performed penance in the Himalayas."
+            }
+        },
+        {
+            "from": "Bhagiratha",
+            "to": "Himalaya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bhagiratha undertook severe austerities in the Himalayas."
+            }
+        }
+    ]
+}

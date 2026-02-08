@@ -1,0 +1,177 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The virtuous and heroic prince of the Ikshváku line, described as an embodiment of justice and the darling sea of deeds."
+            }
+        },
+        {
+            "name": "Válmíki",
+            "type": "Character",
+            "attributes": {
+                "description": "The 'First of Bards' and author of the Rámáyan; a holy hermit and saint who receives the story from Nárad."
+            }
+        },
+        {
+            "name": "Nárad",
+            "type": "Deity",
+            "attributes": {
+                "description": "A divine saint and son of Brahmá, known as the eloquent messenger of the Gods and inventor of the víGá."
+            }
+        },
+        {
+            "name": "VishGu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserving power of the Indian Trinity, who penetrates all things and has been incarnate nine times."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The wife of Ráma, daughter of Janak's royal lineage, and a 'miracle of loveliness' who follows her husband into exile."
+            }
+        },
+        {
+            "name": "RávaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The giant king of Lanká who abducts Sítá and is eventually slain by Ráma."
+            }
+        },
+        {
+            "name": "Hanumán",
+            "type": "Character",
+            "attributes": {
+                "description": "The son of the Wind-God and counselor to Sugríva who becomes a devoted ally to Ráma."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The ancestral capital where Ráma eventually returns to reign over his father's kingdom."
+            }
+        },
+        {
+            "name": "Lanká",
+            "type": "Place",
+            "attributes": {
+                "description": "The island fortress ruled by RávaG, located across the deep sea."
+            }
+        },
+        {
+            "name": "Rámáyan",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred epic poem that tells the deeds of Ráma, intended to free the world from sin."
+            }
+        },
+        {
+            "name": "Golden Age",
+            "type": "Concept",
+            "attributes": {
+                "description": "Also known as Krita Yuga; a period of truth and perfection that returned during Ráma's reign."
+            }
+        },
+        {
+            "name": "Da[aratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The King and father of Ráma, Bharat, and LakshmaG, who dies pining for his exiled son."
+            }
+        },
+        {
+            "name": "Sugríva",
+            "type": "Character",
+            "attributes": {
+                "description": "The Vánar chief who forms an alliance with Ráma to recover his kingdom from Báli and find Sítá."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Válmíki",
+            "to": "Rámáyan",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Válmíki is the parent mount and creator of the poem."
+            }
+        },
+        {
+            "from": "Nárad",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Nárad describes Ráma's virtues and history to Válmíki."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "VishGu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Ráma is described as the peer of VishGu's power and might, implying divinity."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is Ráma's darling wife who shares his exile."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma returns to Ayodhyá to reign as king."
+            }
+        },
+        {
+            "from": "RávaG",
+            "to": "Lanká",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "RávaG holds his royal sway in the town of Lanká."
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanumán wins Ráma's steadfast friendship and serves as his envoy."
+            }
+        },
+        {
+            "from": "RávaG",
+            "to": "Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "RávaG abducts Sítá from the hermitage using magic art."
+            }
+        },
+        {
+            "from": "Sugríva",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sugríva and Ráma swear alliance before the sacred flame."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is the brother who refuses the throne and rules as a regent via Ráma's sandals."
+            }
+        }
+    ]
+}
