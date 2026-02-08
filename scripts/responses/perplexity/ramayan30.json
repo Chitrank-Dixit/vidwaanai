@@ -1,0 +1,913 @@
+{
+    "entities": [
+        {
+            "name": "Vishvedevas",
+            "type": "Deity",
+            "attributes": {
+                "description": "Deities of particular class with five or ten enumerated, worshipped at funeral obsequies for deceased progenitors"
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "God to whom Ráma paid right/due at new cottage"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "God to whom Ráma paid right/due, Chitrakúta holiest spot for sect devoted to this incarnation"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Father who calls Gods to glorious council hall, creator"
+            }
+        },
+        {
+            "name": "Gods of heaven",
+            "type": "Deity",
+            "attributes": {
+                "description": "Celestial beings who assemble at Brahmá's call, advance in shining train"
+            }
+        },
+        {
+            "name": "Ashvins",
+            "type": "Deity",
+            "attributes": {
+                "description": "Heavenly Twins, bright, seek woods beneath Mandar's peak, compared to Ráma and Lakshmana"
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of death, Kausalyá threatens to sink to his realms below"
+            }
+        },
+        {
+            "name": "Mahendra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord Mahendra whose standard compared to Ráma's fair form"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of mighty arm and chest, godlike one, illustrious, duteous, joy and stay, strong-armed hero, Raghu's son, wielder of mighty bow, shoulders like lion"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Faithful brother, Sumitrá's son, eager mind inclined to brother's will, bright-eyed, swift performer, glorious, walked ahead to guard path"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife, Janak's daughter, Videhan bride/lady, votaress who heaved sigh, noble princess, tender, soft, fair, delicate, large-eyed, moonlike beauty"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, monarch, old man, lord of earth, sovereign, stricken in years, sire of high renown, weeping, forlorn, pale, faint, sorrow-worn, distressed"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Ráma's mother, most excellent of beauteous dames, trembling, lying prostrate, wailing, sore distressed, weeping"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen cruel, false, of evil race, evil bred, gave light charge, wretch who received boon"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, mother of Lakshmana, aided Kausalyá in raising king"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Young prince, strong-armed chief, brings joy to Ikshváku's line, regent heir, to be loved and honored"
+            }
+        },
+        {
+            "name": "Válmíki",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient anchoret, great saint in duty trained, met in woodland dwelling, gave welcome fair"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Charioteer, faithful, best of peers, sad mien, flooded eye, dust on limbs, suppliant hands, reverent"
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "King whose heart sank with sorrow when Ráma reached southern bank, talked with Sumantra"
+            }
+        },
+        {
+            "name": "Hump-back",
+            "type": "Character",
+            "attributes": {
+                "description": "Person whose words are dread monsters in sea of sorrow metaphor"
+            }
+        },
+        {
+            "name": "Yayáti",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient figure expelled from skies who held sweet converse with saints"
+            }
+        },
+        {
+            "name": "Chitrakúta",
+            "type": "Place",
+            "attributes": {
+                "description": "Holy mountain with creepers, trees, fruit and roots, pleasant life offered, lovely hill with lily-covered rill, holiest spot for Vishnu devotees"
+            }
+        },
+        {
+            "name": "Leafy hut/cottage",
+            "type": "Place",
+            "attributes": {
+                "description": "Cot built by Lakshmana with timber from wood, firmly built, roofed with leaves, fair to see, well-set, fenced from wind and rain"
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Place",
+            "attributes": {
+                "description": "River, Gangá's shore where Sumantra left princes, farther shore they crossed"
+            }
+        },
+        {
+            "name": "Prayág",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where steps bent after crossing Gangá"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal city, town silent and forsaken, drowned in sorrow, empty grove and garden, burnt with grief, mourning like queen for son"
+            }
+        },
+        {
+            "name": "Dandaka forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Wild woods where Kausalyá wants to be placed, forest shade, wilderness"
+            }
+        },
+        {
+            "name": "Mandar peak",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain beneath whose peak woods hang where Ashvins seek"
+            }
+        },
+        {
+            "name": "Cottage sacrifice",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sacrifice paid for lengthened life with antelope venison, as Scripture bids, verses repeated to make complete"
+            }
+        },
+        {
+            "name": "Sacred rites",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual with muttered prayer, water, grass, wood, fire, offerings to Gods and shades, bathed duly in river, good offerings remove sin"
+            }
+        },
+        {
+            "name": "Altars and shrines",
+            "type": "Concept",
+            "attributes": {
+                "description": "Many built to suit holy shade, decked with woodland chaplets, fruit, roots, roasted meat"
+            }
+        },
+        {
+            "name": "Ráma's messages",
+            "type": "Concept",
+            "attributes": {
+                "description": "Joining hands, head bent, greeting sent to father's feet, mother's blessing, honor to king like Gods, duty to monarchs paramount"
+            }
+        },
+        {
+            "name": "Lakshmana's anger",
+            "type": "Concept",
+            "attributes": {
+                "description": "Soul on fire, breathing fast words of ire, king is cause/poor slave, questioned king's authority, ties loosed"
+            }
+        },
+        {
+            "name": "Votive coils",
+            "type": "Concept",
+            "attributes": {
+                "description": "Locks wound in votive fashion, coats of bark bound"
+            }
+        },
+        {
+            "name": "Nature's sympathy with grief",
+            "type": "Concept",
+            "attributes": {
+                "description": "Trees hang low, shoot/bud/flower dead, floods dried, groves drear, beasts still, serpents don't crawl, lethargy of woe, blossoms lost scent"
+            }
+        },
+        {
+            "name": "Dasharatha's sea of sorrow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Elaborate metaphor: sorrow raging sea, Ráma's absence swells tide, Sítá's absence makes wide, tears foam, sighs billows, cries roar, Kaikeyí fire beneath"
+            }
+        },
+        {
+            "name": "Sumantra's consolation",
+            "type": "Concept",
+            "attributes": {
+                "description": "Persuasive art, soothing fancies, pleasant words to cheer, conduct buys wide glory"
+            }
+        },
+        {
+            "name": "Kausalyá's longing",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cannot live single hour without them, needs must go to forest or Yama's realm, shrill lament 'My son, my son!'"
+            }
+        },
+        {
+            "name": "Meeting Válmíki",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma, Lakshmana, Sítá spoke raising suppliant hands to anchoret, requested to stay, saint entertained with honor"
+            }
+        },
+        {
+            "name": "Building the cottage",
+            "type": "Event",
+            "attributes": {
+                "description": "Lakshmana brought timber, built leafy hut deftly with branches, firmly built and walled with wood"
+            }
+        },
+        {
+            "name": "Cottage consecration",
+            "type": "Event",
+            "attributes": {
+                "description": "Sacrifice paid with antelope venison, Lakshmana shot deer, meat broiled, sacred rites begun, Ráma repeated verses, celestial hosts came"
+            }
+        },
+        {
+            "name": "Settling at Chitrakúta",
+            "type": "Event",
+            "attributes": {
+                "description": "Paid Vishvedevas, Rudra, Vishnu due, wonted blessings, made altars and shrines, entered pleasant cot, forgot exile's woe"
+            }
+        },
+        {
+            "name": "Sumantra's return journey",
+            "type": "Event",
+            "attributes": {
+                "description": "Guha's heart sank, spent with sorrow, yoked steeds, sped to Ayodhyá, third day reached gate, city drowned in sorrow"
+            }
+        },
+        {
+            "name": "People's query about Ráma",
+            "type": "Event",
+            "attributes": {
+                "description": "Hundreds/thousands ran crying 'Where is Ráma?', drew deep sighs, wailed, tears fell when knew he crossed flood"
+            }
+        },
+        {
+            "name": "Arrival at palace",
+            "type": "Event",
+            "attributes": {
+                "description": "Sumantra through seven courts, royal ladies flocked from terraces, heard them mourn for Ráma, reached monarch's hall"
+            }
+        },
+        {
+            "name": "Dasharatha's collapse",
+            "type": "Event",
+            "attributes": {
+                "description": "King heard message, heart well-nigh broke, fainting fell to earth, senses astray, overcome by grief"
+            }
+        },
+        {
+            "name": "Kausalyá's revival",
+            "type": "Event",
+            "attributes": {
+                "description": "With Sumitrá raised lord dismayed, cried to him, lay prostrate, voice drowned by sobs, flocked around and wept"
+            }
+        },
+        {
+            "name": "Ráma's message delivery",
+            "type": "Event",
+            "attributes": {
+                "description": "Sumantra told greeting to father's feet, mother's blessing, honor king like Gods, message to Bharat, Lakshmana's angry words"
+            }
+        },
+        {
+            "name": "Journey details recounted",
+            "type": "Event",
+            "attributes": {
+                "description": "Locks in votive coils, bark coats, crossed Gangá, went to Prayág, Lakshmana walked ahead, forced to return"
+            }
+        },
+        {
+            "name": "Nature's mourning described",
+            "type": "Event",
+            "attributes": {
+                "context": "Realms mourn, trees withering, floods dried, groves drear, beasts still, wood silent, crushed with grief"
+            }
+        },
+        {
+            "name": "Dasharatha's sea of sorrow",
+            "type": "Event",
+            "attributes": {
+                "description": "King cried elaborate metaphor comparing grief to raging sea with multiple elements, sank on bed, spirit failed, senses fled"
+            }
+        },
+        {
+            "name": "Kausalyá's desperation",
+            "type": "Event",
+            "attributes": {
+                "description": "Trembling, lying prostrate, half awoke, begged to be borne to forest or Yama's realm, no power to linger"
+            }
+        },
+        {
+            "name": "Sumantra's consolation speech",
+            "type": "Event",
+            "attributes": {
+                "description": "Choked by tears, suppliant hands, urged dismiss grief, described Sítá's contentment, Ráma's protection, conduct buys glory"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Meeting Válmíki",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma spoke raising suppliant hands to anchoret, requested to stay on holy mountain"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Meeting Válmíki",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana with Ráma and Sítá spoke to saint in woodland dwelling"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Meeting Válmíki",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá raised suppliant hands with princes to ancient anchoret"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "Meeting Válmíki",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Great saint in duty trained entertained with honor, gave welcome fair, bade rest"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "Chitrakúta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Anchoret met in woodland dwelling on holy mountain"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Building the cottage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sumitrá's son obeyed, brought timber from wood, deftly made leafy hut"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Building the cottage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma commanded brother to build cot beneath mountain with water supply"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Cottage consecration",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma commanded sacrifice, repeated verses, paid Vishvedevas/Rudra/Vishnu due"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Cottage consecration",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana shot deer, prepared venison, laid in kindled flame, meat broiled"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Cottage consecration",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá with Ráma and Lakshmana paid offerings to each God and shade"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vishvedevas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma paid Vishvedevas due at cottage consecration"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Rudra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma paid Rudra's right at new cottage"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma paid Vishnu's right, Chitrakúta holiest for this incarnation"
+            }
+        },
+        {
+            "from": "Gods of heaven",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gods assemble at Father Brahmá's call to glorious council hall"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ashvins",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma and Lakshmana compared to bright Heavenly Twins seeking woods beneath Mandar"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Mahendra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's fair form compared to Lord Mahendra's standard"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Settling at Chitrakúta",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma entered pleasant cot, resting on lovely hill forgot exile's woe"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Settling at Chitrakúta",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana entered well-set cottage with Ráma and Sítá"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Settling at Chitrakúta",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá entered pleasant cot, illustrious three like Gods to council hall"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Chitrakúta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma resting on lovely hill near lily-covered rill, forgot exile's lot"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Leafy hut/cottage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma entered pleasant cot roofed with leaves, fenced from wind and rain"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Sumantra's return journey",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer yoked steeds, sped to Ayodhyá, third day reached gate"
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Sumantra's return journey",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King Guha's heart sank with sorrow, talked with Sumantra, spent with sorrow homeward went"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Charioteer came to city's gate, found town drowned in sorrow"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Gangá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sumantra bore prince to Gangá's shore, left at his behest"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Prayág",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "After Gangá to Prayág steps were bent"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "People's query about Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hundreds/thousands ran crying 'Where is Ráma?', wailed, tears fell"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "People's query about Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer said bore prince to Gangá's shore, left at behest"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "People in royal way wept bitter tears, looked for Ráma in vain"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Arrival at palace",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer through seven courts, heard royal ladies mourn, reached monarch's hall"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Arrival at palace",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sovereign in palace bright, weeping for son, pale, faint, sorrow-worn"
+            }
+        },
+        {
+            "from": "Royal ladies",
+            "to": "Arrival at palace",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ladies flocked from terraces wild with woe, talked in gentle tone moaning for Ráma"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Dasharatha's collapse",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King heard message, heart well-nigh broke, fainting fell, overcome by grief for Ráma"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Dasharatha's collapse",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer did obeisance reverent, repeated message Ráma bore"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kausalyá's revival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen with Sumitrá's aid raised lord dismayed, cried to him"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Kausalyá's revival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen aided Kausalyá in raising king from ground"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's messages",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma joining hands head bent sent greeting to father's feet, mother's blessing"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma's message delivery",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer urged to speak, told words Ráma said with tears breaking utterance"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Lakshmana's anger",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother with soul on fire spoke breathing fast words of ire against king"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma's messages",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma sent message to Bharat: pray health bless life, love/care every queen, rule as regent"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma sent greeting to father's feet, resolved in duty's path to tread"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma sent greeting to mother, ne'er may steps from duty err"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is Sítá's joy and stay, all heart no sorrow bends, life depends on him"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana walked ahead to guard path, eager mind inclined to brother's will"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá gives all heart to Ráma, free from doubt and terror, if not see him Ayodhyá like wood"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen raised lord dismayed, addressed husband king"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother cannot live single hour bereft of son, shrill lament 'My son!'"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen urged king to speak freely, Kaikeyí stands not near of whom afraid"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Journey details recounted",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Locks in votive coils, bark coats bound, crossed Gangá to Prayág"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Journey details recounted",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana walked ahead to guard path two should tread"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Journey details recounted",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá with locks in votive coils and bark coat crossed Gangá"
+            }
+        },
+        {
+            "from": "Ayodhyá",
+            "to": "Nature's mourning described",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Realms mourn, each tree hangs low head, floods dried, groves drear, wood silent"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Nature's mourning described",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Crushed with grief for Ráma all hushed, blossoms lost scent"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Dasharatha's sea of sorrow",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King cried metaphor: sorrow raging sea, Ráma's absence swells tide, sank on bed, spirit failed"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha's sea of sorrow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sorrow for Ráma swells tide, till banishment be o'er"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Dasharatha's sea of sorrow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá's absence makes sea of sorrow wide"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Dasharatha's sea of sorrow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is fire that feeds beneath sea of sorrow"
+            }
+        },
+        {
+            "from": "Hump-back",
+            "to": "Dasharatha's sea of sorrow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hump-back's words are dread monsters in sea"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kausalyá's desperation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen trembling, lying prostrate, half awoke, begged to be borne to forest or Yama's realm"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Kausalyá's desperation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer asked to bear her to Dandaka forest where Ráma/Sítá/Lakshmana are"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Yama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen threatened to sink to Yama's realms below if cannot go to forest"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Sumantra's consolation speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer choked by tears, suppliant hands, persuasive art to turn from grief"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Sumantra's consolation speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen urged to dismiss grief, but still gave sorrow vent with shrill lament"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Sumantra's consolation speech",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumantra described Sítá's contentment, no sign of care, moonlike beauty suffers not"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma in wild as well as dear home dwells, exile in forest shade"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King in palace bright, weeping for son, city mourns"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Queen in city, wants to be borne to Dandaka forest"
+            }
+        }
+    ]
+}
