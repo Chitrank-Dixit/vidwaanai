@@ -1,0 +1,910 @@
+{
+    "entities": [
+        {
+            "name": "Self-existent God",
+            "type": "Deity",
+            "attributes": {
+                "description": "Supreme deity void of all fear, compared to Ráma's fearlessness"
+            }
+        },
+        {
+            "name": "Sun",
+            "type": "Deity",
+            "attributes": {
+                "description": "Light's Queen clings to Sun as Ráma to Sítá, swords rival sun in sheen"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of Gods who pours grateful rain, Dasharatha compared to Indra, ruler of Gods' celestial sphere"
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord who gave two fearful celestial bows to Janak at famed rite"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator, sphere more glorious than others, speaks to ruler of Gods, first created Brighu and Angiras"
+            }
+        },
+        {
+            "name": "Lakshmí",
+            "type": "Deity",
+            "attributes": {
+                "description": "Goddess of wealth and prosperity, love shown in Ráma's bright abode"
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "Fire God, worship due to him shown to Suyajña"
+            }
+        },
+        {
+            "name": "Stern Fate",
+            "type": "Deity",
+            "attributes": {
+                "description": "Force whose favor must be won through duty"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Hero of stately breast, strong-armed chief, glorious Lord of Light, son of Raghu, prince of men, speaks gentle words, void of fear, will guard Sítá in woods"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Videha's king, lady of lovely brow/eyes, soft frame, beauteous-armed, faultless form, Ráma's wife, trembler with bright eyes, great love impels to follow"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Faithful brother, son of Sumitrá, earnest in prayer, hero just and dear, long-armed Prince of Raghu's line, devoted, carries bow and quiver"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, lord of earth of mighty power, monarch, sire whose orders require obedience, captive in passion's chain"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, honored mother, royal dame Ráma's mother, needs protection and comfort, bereft of darling son"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, daughter of Ashvapati, proud queen who won imperial power for Bharat, little heeds rivals' needs"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, mother of Lakshmana, dear mother, needs care"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, ruler of land to be raised as king, stands by Kaikeyí, must provide for queens with love and care"
+            }
+        },
+        {
+            "name": "Suyajña",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vasishtha, of Bráhman race, first and holiest one, wise, knew Scripture, found in hall of Fire, performed noonday rites"
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Best of Bráhmans to whom Ráma gives precious gifts like fostering floods"
+            }
+        },
+        {
+            "name": "Kushika's son",
+            "type": "Character",
+            "attributes": {
+                "description": "Best of Bráhmans, likely Vishvámitra, to receive gifts"
+            }
+        },
+        {
+            "name": "Chief of Taittiríya sect",
+            "type": "Character",
+            "attributes": {
+                "description": "Deep in Scripture, serves Kausalyá with blessing and respect, true to queen"
+            }
+        },
+        {
+            "name": "Chitraratha",
+            "type": "Character",
+            "attributes": {
+                "description": "Tuneful bard and charioteer, true and dear, ancient friend and minister of Ráma"
+            }
+        },
+        {
+            "name": "Grammarians",
+            "type": "Character",
+            "attributes": {
+                "description": "Numerous band who go with staff in hand, trained, prize deep study, love dainty fare, praised by good"
+            }
+        },
+        {
+            "name": "Trijata",
+            "type": "Character",
+            "attributes": {
+                "description": "Aged Bráhman born of Garga's race, long in evil case, earned living with spade and plough, poor with many children"
+            }
+        },
+        {
+            "name": "Trijata's wife",
+            "type": "Character",
+            "attributes": {
+                "description": "Young wife who bore babes, felt indigence, counseled husband to seek Ráma"
+            }
+        },
+        {
+            "name": "Brighu",
+            "type": "Character",
+            "attributes": {
+                "description": "Divine Prajápati first created by Brahmá, bright with saintly light"
+            }
+        },
+        {
+            "name": "Angiras",
+            "type": "Character",
+            "attributes": {
+                "description": "Divine Prajápati first created by Brahmá, bright with saintly light"
+            }
+        },
+        {
+            "name": "Sávitrí",
+            "type": "Character",
+            "attributes": {
+                "description": "Woman who gave all to Satyaván in heart/body/soul/mind, exemplar of wifely devotion"
+            }
+        },
+        {
+            "name": "Satyaván",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dyumatsena, husband to whom Sávitrí was devoted"
+            }
+        },
+        {
+            "name": "Dyumatsena",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of Satyaván"
+            }
+        },
+        {
+            "name": "Ashvapati",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of Kaikeyí"
+            }
+        },
+        {
+            "name": "Forest/Woods/Dandaka",
+            "type": "Place",
+            "attributes": {
+                "description": "Wilderness full of woes: snakes, scorpions, flies, thorny trees, tangled grass, where elephant and roebuck roam, pathless wild, lonely shade, greenwood"
+            }
+        },
+        {
+            "name": "Ráma's house/abode",
+            "type": "Place",
+            "attributes": {
+                "description": "Bright dwelling rich in Lakshmí's love, five courts, where treasures distributed, where Sítá prepared to give wealth"
+            }
+        },
+        {
+            "name": "Preceptor's hall",
+            "type": "Place",
+            "attributes": {
+                "description": "Teacher's hall where celestial arms preserved with care"
+            }
+        },
+        {
+            "name": "Hall of Fire",
+            "type": "Place",
+            "attributes": {
+                "description": "Chapel where sacred fire used in worship is kept, where Suyajña found"
+            }
+        },
+        {
+            "name": "Videha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Sítá's father Janak, fair land with wide domains"
+            }
+        },
+        {
+            "name": "Sarjú river",
+            "type": "Place",
+            "attributes": {
+                "description": "River with banks where herds of kine fed, farther bank where Trijata's staff landed"
+            }
+        },
+        {
+            "name": "Trijata's cottage",
+            "type": "Place",
+            "attributes": {
+                "description": "Dwelling in grove where cows driven, home of poor Bráhman"
+            }
+        },
+        {
+            "name": "Heaven/worlds of Gods",
+            "type": "Place",
+            "attributes": {
+                "description": "Homes of Gods, celestial sphere ruled by Indra, worlds where devoted sons win place, Brahmá's glorious sphere"
+            }
+        },
+        {
+            "name": "Forest perils",
+            "type": "Concept",
+            "attributes": {
+                "description": "Woes of wilderness: snakes, scorpions, grasshoppers, flies, thorny bushes, tangled grass, fatigue, countless fears, grief and pain"
+            }
+        },
+        {
+            "name": "Hermit life",
+            "type": "Concept",
+            "attributes": {
+                "description": "Penance with every thought, no fear of things to fear, forever drear, coat of bark and matted hair, roots/fruit/honey as food"
+            }
+        },
+        {
+            "name": "Wifely devotion",
+            "type": "Concept",
+            "attributes": {
+                "description": "Woman follows husband as Sávitrí followed Satyaván, wife committed to husband in heart/body/soul/mind, husband is God"
+            }
+        },
+        {
+            "name": "Bráhmans' prophecy",
+            "type": "Concept",
+            "attributes": {
+                "description": "Truth-declaring Bráhmans foretold Sítá's fortune to dwell in wood, knew future by marks and signs"
+            }
+        },
+        {
+            "name": "Scripture text",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ancient teaching that woman given by parents with holy rites is wife in this world and after life"
+            }
+        },
+        {
+            "name": "Filial duty",
+            "type": "Concept",
+            "attributes": {
+                "description": "Supreme duty to obey sire and mother, triple world comprises father/mother/holy guide, sonly love and reverence storms heaven"
+            }
+        },
+        {
+            "name": "Celestial arms",
+            "type": "Concept",
+            "attributes": {
+                "description": "Two fearful bows given by Varuna to Janak, sword-proof mail, quivers with arrows that never fail, golden-hilted swords keen as sun"
+            }
+        },
+        {
+            "name": "Treasure distribution",
+            "type": "Concept",
+            "attributes": {
+                "description": "Gold, silver, gems, pearls, necklaces, girdles, bracelets, beds, elephants, thousand coins, kine given to Bráhmans and servants"
+            }
+        },
+        {
+            "name": "Sacred girdle",
+            "type": "Concept",
+            "attributes": {
+                "description": "Worn by those who wait on Kausalyá with care, mark of Bráhman status"
+            }
+        },
+        {
+            "name": "Ráma's forest warnings",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma described perils: snakes, scorpions, thorny trees, hope/anger cast aside, penance required, deemed Sítá unfit"
+            }
+        },
+        {
+            "name": "Sítá's appeal",
+            "type": "Event",
+            "attributes": {
+                "description": "Lady with deep distress begged to accompany, cited love, father's command, Bráhmans' prophecy, threatened death if refused"
+            }
+        },
+        {
+            "name": "Sítá's taunting",
+            "type": "Event",
+            "attributes": {
+                "description": "Daughter of Videha's king accused Ráma of being woman in disguise, likened to low actor, spirit tried by fear/anger/love/pride"
+            }
+        },
+        {
+            "name": "Ráma's surrender",
+            "type": "Event",
+            "attributes": {
+                "description": "Hero's heart reconciled to take Sítá to Dandaka, embraced wife, sweet words bid her wake to life, approved her going"
+            }
+        },
+        {
+            "name": "Lakshmana's prayer",
+            "type": "Event",
+            "attributes": {
+                "description": "Brother pressed Ráma's feet with fervor, begged to follow to woods with bow, would go before, carry basket/spade, guard sleeping"
+            }
+        },
+        {
+            "name": "Ráma's instructions to Lakshmana",
+            "type": "Event",
+            "attributes": {
+                "description": "Commanded brother to bid adieu, bring celestial bows from preceptor's hall, summon Suyajña, bestow wealth on Bráhmans"
+            }
+        },
+        {
+            "name": "Wealth distribution ceremony",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma honored Suyajña with gems/pearls, gave gifts to Agastya/Kushika's son/Bráhmans/servants, distributed gold/silver/cows/elephants"
+            }
+        },
+        {
+            "name": "Trijata's petition",
+            "type": "Event",
+            "attributes": {
+                "description": "Poor aged Bráhman came to fifth court, described poverty, Ráma tested with staff-throw, gave thousand kine and wealth"
+            }
+        },
+        {
+            "name": "Journey to see king",
+            "type": "Event",
+            "attributes": {
+                "description": "Sítá and princes with celestial arms went to monarch's house, crowds gathered on houses/terraces mourning"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is husband, lord, embraced wife, will guard her in woods, clings to her as Sun's Queen to Sun"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is wife of lovely brow/eyes, resigned in heart/body/soul/mind, husband is God to her, thinks of naught but him"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Forest perils",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá deems forest woes not pain through love, each woe a charm, each loss a gain"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Forest perils",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma warned of snakes, scorpions, thorny trees, countless fears in wilderness"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Sítá's appeal",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lady with deep distress begged earnestly to follow to woods"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's forest warnings",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma spoke to appal with perils, deemed Sítá unfit for forest"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Sítá's taunting",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá accused Ráma of being woman in disguise, spirit tried by emotions"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's surrender",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero's heart reconciled, embraced wife, approved her going to woods"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Bráhmans' prophecy",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Truth-declaring Bráhmans foretold Sítá's fortune to dwell in forest"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Wifely devotion",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá embodies devotion like Sávitrí, resigned to husband in all ways"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Scripture text",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá cited ancient text that lawfully wedded wife belongs in this world and after"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Sávitrí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá compared herself to Sávitrí who gave all to Satyaván"
+            }
+        },
+        {
+            "from": "Sávitrí",
+            "to": "Satyaván",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sávitrí devoted to husband Satyaván in heart/body/soul/mind"
+            }
+        },
+        {
+            "from": "Satyaván",
+            "to": "Dyumatsena",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Satyaván is son of Dyumatsena"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Filial duty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma upholds supreme duty to obey father's orders, sire is deity on earth"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Self-existent God",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma void of fear as Self-existent God can be"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sun",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma will cling to Sítá as Light's Queen true to Sun"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma obeys sire's behest, father's orders guide him, will not transgress"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is faithful brother, hero just and dear, loved as life, will guard sleeping"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Lakshmana's prayer",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother pressed feet with fervor, begged to follow with earnest prayer"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmana's prayer",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma at first denied with soothing words, then granted permission"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana joined them there, heard converse of pair, will accompany"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma concerned for honored mother's protection, she bereft of darling son"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana asked to protect honored mother from neglect"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sumitrá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is son of good/dear Sumitrá who needs care"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat will stand by Queen Kaikeyí's side as ruler"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat must provide love and care for queens through Ráma's might"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ashvapati",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is daughter of Ashvapati"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King captive in passion's chain to proud queen"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Celestial arms",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana brought heavenly arms from preceptor's hall to Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Celestial arms",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to use fearful bows, sword-proof mail, arrows that never fail"
+            }
+        },
+        {
+            "from": "Varuna",
+            "to": "Celestial arms",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Varuna gave two fearful celestial bows to Janak at famed rite"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Preceptor's hall",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Arms preserved with care in Ráma's teacher's hall"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma's instructions to Lakshmana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana commanded to bid adieu, bring arms, summon Suyajña"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Wealth distribution ceremony",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma honored Suyajña with gems, gave to Bráhmans/servants, distributed treasures"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Wealth distribution ceremony",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá gave much wealth to Bráhmans, prepared to give treasures away"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Wealth distribution ceremony",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana aided in parting treasures displayed"
+            }
+        },
+        {
+            "from": "Suyajña",
+            "to": "Wealth distribution ceremony",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Suyajña received necklace, girdle, bracelets, bed, elephant Victor, thousand gold coins"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Suyajña",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma honored wise Suyajña with worship due to Agni, precious gifts"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Agastya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to rain precious gifts on best of Bráhmans like fostering floods"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kushika's son",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to give thousand kine, costly gems, gold and silver to best Bráhman"
+            }
+        },
+        {
+            "from": "Chief of Taittiríya sect",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Chief deep in Scripture serves Kausalyá with blessing and respect"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Chitraratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma gives gems, robes, wealth to tuneful bard, ancient friend and minister"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Grammarians",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma bestows eighty cars loaded with treasures, bulls, elephants, kine on numerous band"
+            }
+        },
+        {
+            "from": "Trijata",
+            "to": "Trijata's petition",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Aged poor Bráhman came to court, described poverty, staff-throw test"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Trijata's petition",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma jested with staff-throw, gave thousand kine, herdsmen, wealth for sacrifice"
+            }
+        },
+        {
+            "from": "Trijata's wife",
+            "to": "Trijata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Young wife bore babes, felt indigence, counseled husband to seek Ráma"
+            }
+        },
+        {
+            "from": "Trijata",
+            "to": "Trijata's cottage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Cows driven to Trijata's dwelling in grove"
+            }
+        },
+        {
+            "from": "Trijata",
+            "to": "Sarjú river",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Trijata's staff sank to earth on Sarjú's farther bank where kine fed"
+            }
+        },
+        {
+            "from": "Suyajña",
+            "to": "Agni",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Worship shown to Suyajña was that due to Agni"
+            }
+        },
+        {
+            "from": "Suyajña",
+            "to": "Hall of Fire",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Suyajña found in hall of Fire where sacred fire kept"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's abode rich in love Lakshmí showed"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Brighu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá first created Brighu as divine Prajápati"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Angiras",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá first created Angiras as divine Prajápati"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma spoke to Lakshmana as Brahmá speaks to ruler of Gods' sphere"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's house/abode",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma dwells in bright abode with five courts rich in Lakshmí's love"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma's house/abode",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sítá hastened within to give wealth away"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Forest/Woods/Dandaka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma to make woods his home, dwell in Dandaka pathless wild"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Forest/Woods/Dandaka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sítá's fortune to dwell in wood, will go with Ráma to greenwood shade"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Forest/Woods/Dandaka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lakshmana will take bow and go in path before Ráma to forest"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Videha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is daughter of Videha's king, pride of Janak's line"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Journey to see king",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma with Sítá and princes went to monarch's house with celestial arms"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Journey to see king",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá went with princes, arms adorned by her beautifying hand"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Journey to see king",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana sole friend attended on Ráma's steps with Sítá"
+            }
+        }
+    ]
+}

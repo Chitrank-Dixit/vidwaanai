@@ -1,0 +1,211 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The protagonist, prince of Ayodhyá, described as the noblest lord of men and the destined heir of happiness.",
+                "lineage": "Raghu's line, son of Dasaratha and Kauśalyá"
+            }
+        },
+        {
+            "name": "Kauśalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The mother of Ráma and the first queen of King Dasaratha.",
+                "emotional_state": "Distressed by her son's banishment, but ultimately supportive through blessings."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife, the daughter of King Janak of Videha; she insists on sharing her husband's exile.",
+                "epithet": "Videhan bride, Janak's daughter"
+            }
+        },
+        {
+            "name": "King Dasaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of Ayodhyá, referred to as Kakutstha's son, who is forced by Fate and Kaikeyí's boons to exile Ráma.",
+                "titles": [
+                    "Lord of the earth",
+                    "Kakutstha's son"
+                ]
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "The younger queen of Dasaratha whose art and boons lead to Ráma's banishment."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "The brother of Ráma, son of Kaikeyí, appointed as the heir to the throne of Ayodhyá."
+            }
+        },
+        {
+            "name": "Śatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's younger brother, mentioned as one who should be loved by Sítá during the exile."
+            }
+        },
+        {
+            "name": "Viśvámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "The sage who gifted celestial weapons to Ráma in the past.",
+                "attribute": "Sage/Saint"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The King of Gods, often invoked for protection and compared to the protagonist's strength.",
+                "achievements": [
+                    "Destroyer of Vritra",
+                    "Slayer of Daitya foes"
+                ]
+            }
+        },
+        {
+            "name": "Viṣṇu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme deity mentioned in the context of his triple step in the Vamana (dwarf) avatar."
+            }
+        },
+        {
+            "name": "Fate",
+            "type": "Concept",
+            "attributes": {
+                "description": "The inescapable force that dominates human life and drives the exile of Ráma."
+            }
+        },
+        {
+            "name": "Daṇḍak Wood",
+            "type": "Place",
+            "attributes": {
+                "description": "The wild and vast forest where Ráma must spend his fourteen years of exile."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital city and home of the royal family from which Ráma is banished."
+            }
+        },
+        {
+            "name": "Banishment of Ráma",
+            "type": "Event",
+            "attributes": {
+                "duration": "14 years",
+                "cause": "Boons given to Queen Kaikeyí"
+            }
+        },
+        {
+            "name": "Amrit",
+            "type": "Concept",
+            "attributes": {
+                "description": "The nectar of immortality mentioned in the context of the struggle between Gods and Daityas."
+            }
+        },
+        {
+            "name": "Vritra",
+            "type": "Character",
+            "attributes": {
+                "description": "A demon slain by Indra, mentioned to symbolize the victory of good over evil."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Kauśalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother and son relationship; characterized by filial duty and maternal grief."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "King Dasaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father and son; Ráma remains submissive to his father's decree despite the hardship."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife; Sítá views him as her sole defense and deity."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers; Bharat is appointed king in Ráma's absence."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Banishment of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma is the subject of the exile decree."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Banishment of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá insists on accompanying Ráma into the woods."
+            }
+        },
+        {
+            "from": "Banishment of Ráma",
+            "to": "Daṇḍak Wood",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The location where the fourteen-year exile is to take place."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The city Ráma is preparing to leave."
+            }
+        },
+        {
+            "from": "Kauśalyá",
+            "to": "Viśvámitra",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "She invokes the protection of the weapons Viśvámitra gave to Ráma."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Vritra",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Indra destroyed Vritra, an event used as a blessing for Ráma's success."
+            }
+        }
+    ]
+}
