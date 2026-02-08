@@ -1,0 +1,821 @@
+{
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of Gods, Thousand-eyed, given kingship by world-former, borne by swift horses, deity invoked for protection"
+            }
+        },
+        {
+            "name": "Yáma",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of Death, invoked to befriend and guard the south"
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of Waters, invoked to defend the west"
+            }
+        },
+        {
+            "name": "Kuvera",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of Gold, invoked to hold north with firm protection"
+            }
+        },
+        {
+            "name": "Thunder-wielder",
+            "type": "Deity",
+            "attributes": {
+                "description": "God whose hands wield thunder, invoked to guard east"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Supreme deity to whom Kausalyá made holy offerings at dawn"
+            }
+        },
+        {
+            "name": "Lakshmí",
+            "type": "Deity",
+            "attributes": {
+                "description": "Queen Goddess to whom Kausalyá paid drink-offerings"
+            }
+        },
+        {
+            "name": "Parjanya",
+            "type": "Deity",
+            "attributes": {
+                "description": "Rain-God, compared to Ráma thundering through autumn skies"
+            }
+        },
+        {
+            "name": "Gods",
+            "type": "Deity",
+            "attributes": {
+                "description": "Celestial beings whose feet tread glowing path, fought Titans in ancient war"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Lion-lord of men, best of splendid heroes, tamer of foes, noble conqueror, speaks truth, loves right, calm and unmoved, exile for 14 years"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Lady of full/large black eyes, Ráma's wife, fairest of all who part soft dark hair, possessed whole of hero's heart, blessed with Ráma's love"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother who kept close to Ráma with fraternal care, waved silver chouri, followed with weeping eyes, troubled but resolute, princely virtues"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, lord of earth/men, monarch with hopeless eye and pallid mien, voice choked, eye dim, prostrate with grief, swooning, senseless, most unwise"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen mother of Ráma, royal dame, firm in vows, serene, wore white robes, fasted, kept vigil, made offerings, blessed son, pressed him to eat"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen with full black eye, lady who would gratify husband, ruthless dame, cruel, heart beat high with joy at Ráma's exile, unpitying, stern, bitter tongue"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince to be set on throne, to receive consecration, reign as lord, receive empire and royal pomp, charming to sight, dear"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Brave prince, brother mentioned in context"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Noble envoy, minister sent by king consulting with queen, intent on Ráma's gain and good, suits splendor of court"
+            }
+        },
+        {
+            "name": "Warders",
+            "type": "Character",
+            "attributes": {
+                "description": "Guards of hoary age held in honor, sat at portal with many more, sprang to feet with acclamation"
+            }
+        },
+        {
+            "name": "Old dames and tender girls",
+            "type": "Character",
+            "attributes": {
+                "description": "Stationed to keep doors, flew to chamber to bear tidings to Kausalyá"
+            }
+        },
+        {
+            "name": "Weeping women",
+            "type": "Character",
+            "attributes": {
+                "description": "Women in palace who wailed and lamented at Ráma's exile, compared to kine bereaved of calves"
+            }
+        },
+        {
+            "name": "Bráhmans",
+            "type": "Character",
+            "attributes": {
+                "description": "Crowd of good and sage masters of Veda text, dear to king for lore and age, venerate majesty and royal state"
+            }
+        },
+        {
+            "name": "Rohiní",
+            "type": "Character",
+            "attributes": {
+                "description": "Lunar asterism, favorite wife of Moon, compared to Sítá blessed with Ráma's love"
+            }
+        },
+        {
+            "name": "Moon",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Cooling Rays, retains sweet splendor in time of wane, King of Rivers waits for darling moon"
+            }
+        },
+        {
+            "name": "Titans",
+            "type": "Character",
+            "attributes": {
+                "description": "Demons who fought Gods in ancient war when Dasharatha saved Kaikeyí"
+            }
+        },
+        {
+            "name": "Palace/Royal house",
+            "type": "Place",
+            "attributes": {
+                "description": "Dasharatha's dwelling with lofty halls, ladies' bower, three broad courts with bowmen, chambers with lattice windows, central court"
+            }
+        },
+        {
+            "name": "Kausalyá's mansion",
+            "type": "Place",
+            "attributes": {
+                "description": "Queen's dwelling with splendid bower, portal guarded by warders, multiple courts, where offerings made"
+            }
+        },
+        {
+            "name": "Ladies' bower",
+            "type": "Place",
+            "attributes": {
+                "description": "Women's quarters where Dasharatha sat with Kaikeyí, where sentence pronounced"
+            }
+        },
+        {
+            "name": "Royal street",
+            "type": "Place",
+            "attributes": {
+                "description": "Path traversed by Ráma, filled with incense of aloe, high palaces like pale clouds, flowers of myriad colors, food for varied taste"
+            }
+        },
+        {
+            "name": "Dandaka forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Pathless wild where Ráma to be exiled for fourteen years, lonely wilderness, far away"
+            }
+        },
+        {
+            "name": "City gates",
+            "type": "Place",
+            "attributes": {
+                "description": "Where multitude stood watching in street expecting Ráma's return"
+            }
+        },
+        {
+            "name": "Consecration/Throning",
+            "type": "Concept",
+            "attributes": {
+                "description": "Imperial rite to join Ráma in royal sway, sanctifies ruler's might, lustral rites and fast, when moon and Pushya meet, all royal pomp"
+            }
+        },
+        {
+            "name": "Fourteen years exile",
+            "type": "Concept",
+            "attributes": {
+                "description": "Twice seven years/nine long years and five to be spent in Dandaka forest as hermit"
+            }
+        },
+        {
+            "name": "Two boons",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ancient debt from Gods-Titans war, promised by Dasharatha to Kaikeyí for saving his life, claimed now"
+            }
+        },
+        {
+            "name": "Hermit's garb",
+            "type": "Concept",
+            "attributes": {
+                "description": "Coat of bark and matted hair, black deer's skin and roebuck's horn, hermit dress"
+            }
+        },
+        {
+            "name": "Father's promise",
+            "type": "Concept",
+            "attributes": {
+                "description": "King's word and will, vow that must not fail, faith from which virtue and merit flow, paramount duty"
+            }
+        },
+        {
+            "name": "Duty to father",
+            "type": "Concept",
+            "attributes": {
+                "description": "First and paramount duty that sons obediently fulfill father's word and will, father as deity on earth"
+            }
+        },
+        {
+            "name": "Holy offerings",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sacrificial elements: oil, grain, vases, wreaths, curds, cates, wood, milk, sesamum, rice, poured in sacred fire"
+            }
+        },
+        {
+            "name": "Regent power",
+            "type": "Concept",
+            "attributes": {
+                "description": "Imperial sway and governance to be yielded to Bharat by king's decree"
+            }
+        },
+        {
+            "name": "Hermit's food",
+            "type": "Concept",
+            "attributes": {
+                "description": "Roots, fruit, honey, abstaining from flesh, living in solitude"
+            }
+        },
+        {
+            "name": "Ráma's summons",
+            "type": "Event",
+            "attributes": {
+                "description": "Sumantra brought message that king and Kaikeyí seek interview with Ráma"
+            }
+        },
+        {
+            "name": "Ráma's journey to palace",
+            "type": "Event",
+            "attributes": {
+                "description": "Hero rode lofty car like fire, coursers swift, Lakshmana behind, crowds following, women throwing chaplets, benedictions"
+            }
+        },
+        {
+            "name": "Meeting with Dasharatha",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma found father with hopeless eye, pallid mien, voice choked, prostrate, could not speak or look"
+            }
+        },
+        {
+            "name": "Kaikeyí's sentence",
+            "type": "Event",
+            "attributes": {
+                "description": "Ruthless dame revealed two boons: Bharat to throne, Ráma to exile for 14 years in Dandaka"
+            }
+        },
+        {
+            "name": "Ráma's acceptance",
+            "type": "Event",
+            "attributes": {
+                "description": "Noble youth calm and unmoved, promised to fulfill father's word, go to forest, yield empire to Bharat"
+            }
+        },
+        {
+            "name": "Ancient Gods-Titans war",
+            "type": "Event",
+            "attributes": {
+                "description": "Battle when Dasharatha fought transfixed with darts, bathed in gore, saved by Kaikeyí who earned two boons"
+            }
+        },
+        {
+            "name": "Ráma's departure from bower",
+            "type": "Event",
+            "attributes": {
+                "description": "Hero left ladies' bower, dismissed retinue, refused chouries and umbrella, sought mother's mansion"
+            }
+        },
+        {
+            "name": "Visit to Kausalyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma came to mother's splendid bower, she fed sacred flame, made offerings, embraced and blessed son"
+            }
+        },
+        {
+            "name": "Kausalyá's lament preparation",
+            "type": "Event",
+            "attributes": {
+                "description": "Mother wore white, fasted, kept vigil, made offerings to Vishnu and Lakshmí, awaited son's consecration"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is son, touches father's feet, fulfills father's word as paramount duty, father is deity on earth"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is matchless son, hero boy, darling of soul, tender and affectionate, loves to wait on mother"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is husband of large-eyed wife, Sítá possessed whole of his heart and soul"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma touched Kaikeyí's feet, more dutiful to her than own mother, addressed as dear Queen"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana kept close with fraternal care, followed behind, brother's peer in princely virtues"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is son, charming to sight, dear to father, to receive throne"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is Kaikeyí's son, her princely head to receive consecration"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá is queen, royal dame, consort"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is queen who saved king's life, earned two boons, sits with him"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá attended lord to door, implored blessings, prayed for consecration success"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Thunder-wielder",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá invoked Thunder-wielder to guard Ráma in east"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Yáma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá invoked Yáma to befriend south"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Varuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá invoked Varuna to defend west"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Kuvera",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá invoked Kuvera to hold north with protection"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma's summons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sumantra brought message from king and queen to summon Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's summons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma received summons with joyful cheer"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's journey to palace",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma rode lofty car through royal street to palace"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma's journey to palace",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana leapt behind car, waved silver chouri with fraternal care"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Royal street",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma traversed royal street filled with incense, palaces, flowers"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Meeting with Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma came to father's feet, found him prostrate with grief"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Meeting with Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King sat with hopeless eye, voice choked, could not speak"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Meeting with Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen sat with king, addressed by Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ladies' bower",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma reached ladies' bower, met father and Kaikeyí"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ladies' bower",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King sat in bower with queen"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Kaikeyí's sentence",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ruthless dame revealed two boons demanding exile and throne transfer"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kaikeyí's sentence",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma heard sentence calm and unmoved by threatened woe"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Kaikeyí's sentence",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Father's anguish broke forth at dear Ráma's lot"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Two boons",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí claimed ancient debt of two boons from Dasharatha"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Two boons",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha gave two boons with honors high for life saved"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ancient Gods-Titans war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyí saved Dasharatha's life when transfixed with darts, earned boons"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ancient Gods-Titans war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha fought, wounded nigh to death, saved and restored by Kaikeyí"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's acceptance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma calmly accepted exile, promised to fulfill father's word"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Fourteen years exile",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to spend twice seven years in Dandaka forest as hermit"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Hermit's garb",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to wear coat of bark, matted hair, deer skin"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Duty to father",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma counts duty to father as first and paramount, will obey command"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Father's promise",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma maintains father's faith without stain, honors truth"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Regent power",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat to receive regent power, consecration, empire by king's decree"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Regent power",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King to yield regent power to Bharat's hand"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's departure from bower",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma touched senseless feet of both, circled, left bower for gate"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma's departure from bower",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana came behind with weeping eyes, sad and wild"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma to dwell in Dandaka pathless wild for fourteen years"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Visit to Kausalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma sought mother's mansion, came to splendid bower"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Visit to Kausalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen fed sacred flame, flew to meet darling son, embraced and blessed"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Visit to Kausalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana followed near, brother's peer"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kausalyá's mansion",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Queen dwelt in mansion with splendid bower, portal with warders"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá's mansion",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma came to mother's house, entered bower"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá made holy offerings to Vishnu at dawn"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Lakshmí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá paid drink-offerings to Lakshmí Queen"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Holy offerings",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen prepared sacrificial elements, poured offerings in sacred fire"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kausalyá's lament preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen firm in vows, fasted, kept vigil, made offerings awaiting consecration"
+            }
+        },
+        {
+            "from": "Bráhmans",
+            "to": "Consecration/Throning",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bráhmans venerate majesty and royal state, would perform consecration"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Rohiní",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá blessed with Ráma's love as Rohiní with Moon's"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Moon",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma compared to Moon retaining splendor in wane despite loss of empire"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Parjanya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma like Parjanya thundering through autumn skies"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's car like Indra's, glory like Indra's beautiful"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumantra is minister sent by king on charge"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumantra sent by king consulting with queen"
+            }
+        },
+        {
+            "from": "Warders",
+            "to": "Kausalyá's mansion",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Warders guarded portal of queen's mansion"
+            }
+        },
+        {
+            "from": "Bráhmans",
+            "to": "Kausalyá's mansion",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bráhmans saw in court of mansion, masters of Veda text"
+            }
+        }
+    ]
+}

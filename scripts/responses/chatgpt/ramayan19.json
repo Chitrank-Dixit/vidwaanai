@@ -1,0 +1,228 @@
+{
+    "entities": [
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Ayodhya, mother of Bharata, who demands Rama’s banishment and her son’s coronation."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, bound by oath to Kaikeyi and torn by grief."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Dasharatha, heir apparent, embodiment of virtue and obedience."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha and Kaikeyi, proposed heir in Rama’s stead."
+            }
+        },
+        {
+            "name": "Manthara",
+            "type": "Character",
+            "attributes": {
+                "description": "Hunchback maid of Kaikeyi who instigates the plot against Rama."
+            }
+        },
+        {
+            "name": "Kausalya",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief queen of Dasharatha and mother of Rama."
+            }
+        },
+        {
+            "name": "Sumitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha, mother of Lakshmana and Shatrughna."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of Janaka of Videha."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death, whose realm Kaikeyi invokes in her threats."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, invoked as witness to Dasharatha’s oath."
+            }
+        },
+        {
+            "name": "Kama (Manmatha)",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of love, described as the mind-disturber influencing Dasharatha."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city of the Ikshvaku dynasty, ruled by Dasharatha."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest to which Rama is ordered to be exiled for fourteen years."
+            }
+        },
+        {
+            "name": "Rama’s Coronation",
+            "type": "Event",
+            "attributes": {
+                "description": "Planned anointing of Rama as king, later obstructed by Kaikeyi."
+            }
+        },
+        {
+            "name": "Kaikeyi’s Demand",
+            "type": "Event",
+            "attributes": {
+                "description": "Kaikeyi demands Rama’s banishment and Bharata’s kingship using old boons."
+            }
+        },
+        {
+            "name": "Rama’s Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Decree sending Rama to the forest for fourteen years."
+            }
+        },
+        {
+            "name": "Royal Oath",
+            "type": "Concept",
+            "attributes": {
+                "description": "The binding promise sworn by Dasharatha, invoked by Kaikeyi."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty and moral law, central to Rama’s obedience and Dasharatha’s anguish."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Manthara",
+            "to": "Kaikeyi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manthara instigates and advises Kaikeyi’s plot against Rama."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Kaikeyi’s Demand",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "She formulates and presses the demand using past boons."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Kaikeyi’s Demand",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He is forced to hear and respond to Kaikeyi’s demands."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama’s Exile",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "She explicitly demands Rama’s banishment to the forest."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama’s Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama is the subject of the exile decree."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Royal Oath",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is bound by the oath sworn earlier to Kaikeyi."
+            }
+        },
+        {
+            "from": "Royal Oath",
+            "to": "Kaikeyi’s Demand",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyi invokes the oath as the moral and legal basis of her demand."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is repeatedly described as the embodiment of righteousness and obedience."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha struggles between paternal love and his duty to truth."
+            }
+        },
+        {
+            "from": "Rama’s Coronation",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The coronation was planned to take place in Ayodhya."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Yama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Kaikeyi threatens death and speaks of Yama’s realm."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Indra",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Indra and the gods are invoked as witnesses to Dasharatha’s oath."
+            }
+        }
+    ]
+}
