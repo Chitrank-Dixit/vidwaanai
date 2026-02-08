@@ -1,0 +1,251 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Dasharatha, embodiment of virtue and duty, accepts exile to uphold his father’s word."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of Janaka, chooses to share Rama’s exile and dons ascetic bark garments."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, intensely loyal, follows Rama into exile."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, bound by boons granted to Kaikeyi."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha, mother of Bharata, instigator of Rama’s exile."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha and Kaikeyi, intended ruler during Rama’s exile."
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal charioteer and minister, conveys messages and reproaches Kaikeyi."
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal priest and sage of the Ikshvaku dynasty, upholder of dharma."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god, referenced as one who sends his children forth on appointed paths."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, invoked as a standard of divine righteousness."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Moral law and duty; supreme principle guiding Rama’s actions."
+            }
+        },
+        {
+            "name": "Exile",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ascetic banishment from the kingdom, undertaken to fulfill vows and duty."
+            }
+        },
+        {
+            "name": "People’s Lament",
+            "type": "Event",
+            "attributes": {
+                "description": "Public mourning and resolve to follow Rama into exile."
+            }
+        },
+        {
+            "name": "Rama’s Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Departure of Rama, Lakshmana, and Sita to the forest for fourteen years."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of the Ikshvaku dynasty, homeland of Rama."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest region where Rama and Sita are destined to live in exile."
+            }
+        },
+        {
+            "name": "Sarju River",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river referenced in the tale of Asamanj."
+            }
+        },
+        {
+            "name": "Asamanj",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of King Sagara, cited as a negative example of a prince exiled for crimes."
+            }
+        },
+        {
+            "name": "Sagara",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient king of the Ikshvaku line, father of Asamanj."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "People’s Lament",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The people grieve Rama’s exile and vow to follow him."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama declares duty and truth as the highest law."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama’s Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama willingly accepts exile."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Rama’s Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sita chooses to accompany Rama into exile."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Rama’s Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana follows Rama into exile."
+            }
+        },
+        {
+            "from": "Rama’s Exile",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The exile is to be lived in the forest."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Rama’s Exile",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha’s boons to Kaikeyi result in Rama’s banishment."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama’s Exile",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyi enforces the exile through her demanded boons."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Kaikeyi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumantra reproaches Kaikeyi for her actions."
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha upholds righteous law and rebukes Kaikeyi."
+            }
+        },
+        {
+            "from": "Asamanj",
+            "to": "Sagara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Asamanj is the son of King Sagara."
+            }
+        },
+        {
+            "from": "Asamanj",
+            "to": "Sarju River",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Asamanj committed crimes by casting children into the Sarju."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Brahma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Rama compares his departure to Brahma sending forth his children."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Indra",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Indra is invoked as a standard of divine righteousness."
+            }
+        }
+    ]
+}

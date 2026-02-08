@@ -1,0 +1,153 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of King Daśaratha, known for his truth and virtue, who is departing for fourteen years of forest exile."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The wife of Ráma and daughter of King Janak; she insists on sharing her husband's exile and wears bark garments before being given royal robes by the King."
+            }
+        },
+        {
+            "name": "Daśaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of Ayodhyá and father of Ráma; he is overcome with grief and physical collapse due to the forced banishment of his son."
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "The queen whose boons forced Ráma's exile; she is denounced by the King and the people for her cruelty."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The loyal brother of Ráma who accompanies him into exile to serve and protect the royal couple."
+            }
+        },
+        {
+            "name": "Kauśalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The mother of Ráma and chief queen; she is left in a state of 'whelming woe' at her son's departure."
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "The mother of LakshmaG; she encourages her son to serve Ráma as he would his own father."
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "The King's charioteer and counselor who drives the trio to the forest boundary."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital city of the Ikshváku line, described as desolate and filled with lamentation during Ráma's departure."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "The son of Kaikeyí; the King predicts he will refuse to rule the kingdom obtained through his mother's guile."
+            }
+        },
+        {
+            "name": "Mahendra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Another name for Indra, the King of Gods, used as a peer-comparison for King Daśaratha."
+            }
+        },
+        {
+            "name": "Yáma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The God of Death and ruler of the nether realm."
+            }
+        },
+        {
+            "name": "Ráma's Departure",
+            "type": "Event",
+            "attributes": {
+                "description": "The momentous exit of Ráma, Sítá, and LakshmaG from Ayodhyá, marked by cosmic omens and city-wide mourning."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Daśaratha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father and son; Daśaratha's love for Ráma is his primary life force."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wife and husband; Sítá is described as Ráma's 'self and soul'."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother and devoted servant; LakshmaG follows Ráma by choice."
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Daśaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wife; she is repudiated by the King for her 'selfish heart'."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma's Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The charioteer who drives the chariot out of the city."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The city he is leaving to go into the wild woods."
+            }
+        },
+        {
+            "from": "Kauśalyá",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother-in-law; she counsels Sítá on the duties of a faithful wife."
+            }
+        }
+    ]
+}
