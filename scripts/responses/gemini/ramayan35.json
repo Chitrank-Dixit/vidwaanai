@@ -1,0 +1,176 @@
+{
+    "entities": [
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "The son of King Daśaratha and Kaikeyí who refuses the throne of Ayodhyá out of devotion to his brother Ráma."
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Daśaratha, currently in exile in the forest, whom Bharat seeks to bring back to the throne."
+            }
+        },
+        {
+            "name": "Daśaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The deceased King of Ayodhyá whose death followed the banishment of his son Ráma."
+            }
+        },
+        {
+            "name": "Vaśishmha",
+            "type": "Character",
+            "attributes": {
+                "description": "The chief household priest and sage skilled in the lore of royal duty, who counsels Bharat."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The wife of Ráma, who accompanies him in his forest exile."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The loyal brother of Ráma who serves him in the forest and kept watch while he slept."
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of the Nishádas and a loyal ally of Ráma who guards the crossing of the Gangá."
+            }
+        },
+        {
+            "name": "Śatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "The younger brother of Ráma and Bharat, who accompanies Bharat on the journey to the forest."
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal charioteer and counselor who manages the logistics of the march."
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "The mother of Bharat whose actions led to Ráma's exile and Daśaratha's death."
+            }
+        },
+        {
+            "name": "Kauśalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The mother of Ráma and chief queen, grieving for her son and late husband."
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Place",
+            "attributes": {
+                "description": "The holy river where the army halts and where Ráma crossed into the deeper wilderness."
+            }
+        },
+        {
+            "name": "Śringavera",
+            "type": "Place",
+            "attributes": {
+                "description": "The town on the banks of the Gangá ruled by King Guha."
+            }
+        },
+        {
+            "name": "Vedas",
+            "type": "Text",
+            "attributes": {
+                "description": "The ancient sacred scriptures in which the priest Vaśishmha and others are deeply read."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers; Bharat considers Ráma the rightful king and his father-figure."
+            }
+        },
+        {
+            "from": "Vaśishmha",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Spiritual advisor who urges Bharat to take the throne."
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Loyal allies; Guha refers to himself as Ráma's slave and friend."
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother and son; Bharat blames her for the tragedy of the royal family."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother and devoted protector during exile."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Charioteer and counselor following the prince's orders for the march."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wife and companion in exile."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Śatrughna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers who share their grief and purpose in finding Ráma."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Śringavera",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharat halts his massive army at this location on the banks of the Gangá."
+            }
+        }
+    ]
+}
