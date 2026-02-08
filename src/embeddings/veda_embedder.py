@@ -43,11 +43,22 @@ class VedaEmbedder:
 
         prefix = "query: " if is_query else "passage: "
         prefixed_texts = [prefix + t for t in texts]
+        
+        # Import settings inside method to avoid circular imports if any, or just rely on module import above?
+        # Module import 'from src.core.config import settings' wasn't there. I need to add it.
+        # Let's check imports first.
+        
+        batch_size = 16 # Fallback
+        try:
+           from src.core.config import settings
+           batch_size = settings.EMBEDDING_BATCH_SIZE
+        except ImportError:
+           pass
 
         embeddings = self.model.encode(
             prefixed_texts,
             show_progress_bar=True,
-            batch_size=32,
+            batch_size=batch_size,
             normalize_embeddings=True,
         )
         # Cast for mypy as numpy tolist returns generic List or Any

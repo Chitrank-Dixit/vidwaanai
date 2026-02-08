@@ -1,0 +1,264 @@
+{
+    "entities": [
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Gadhi, former king turned ascetic, rival of Vashishtha, wielder of immense penance-born power."
+            }
+        },
+        {
+            "name": "Vashishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Great Brahman sage, spiritual authority whose hermitage was destroyed by Vishvamitra."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods who intervenes in Trishanku’s ascent and later steals Ambarisha’s sacrificial horse."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Vedic deity whose weapon is invoked by Vishvamitra."
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Fierce form of Shiva; Vishvamitra uses his weapon."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god whose discus is among the divine weapons named."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god whose noose and weapon are invoked in the battle."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death, referenced through his sceptre and realm."
+            }
+        },
+        {
+            "name": "Trishanku",
+            "type": "Character",
+            "attributes": {
+                "description": "King of the Ikshvaku line who sought bodily ascent to heaven."
+            }
+        },
+        {
+            "name": "Mahodaya",
+            "type": "Character",
+            "attributes": {
+                "description": "One of Vashishtha’s sons who refused to attend Trishanku’s sacrifice."
+            }
+        },
+        {
+            "name": "Ambarisha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya who planned a sacrifice disrupted by Indra."
+            }
+        },
+        {
+            "name": "Hermitage of Vashishtha",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred grove destroyed by Vishvamitra’s weapons."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city ruled by Trishanku and later Ambarisha."
+            }
+        },
+        {
+            "name": "Pushkara Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest retreat where Vishvamitra later performed austerities."
+            }
+        },
+        {
+            "name": "Burning of the Hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvamitra destroys Vashishtha’s hermitage using divine weapons."
+            }
+        },
+        {
+            "name": "Battle of Divine Weapons",
+            "type": "Event",
+            "attributes": {
+                "description": "Conflict where Vishvamitra hurls celestial weapons and Vashishtha absorbs them."
+            }
+        },
+        {
+            "name": "Curse of Trishanku",
+            "type": "Event",
+            "attributes": {
+                "description": "Vashishtha’s sons curse Trishanku to become a Chandala."
+            }
+        },
+        {
+            "name": "Sacrifice of Trishanku",
+            "type": "Event",
+            "attributes": {
+                "description": "Ritual performed under Vishvamitra to send Trishanku bodily to heaven."
+            }
+        },
+        {
+            "name": "Ascension of Trishanku",
+            "type": "Event",
+            "attributes": {
+                "description": "Trishanku is raised bodily toward heaven by Vishvamitra’s power."
+            }
+        },
+        {
+            "name": "Creation of Southern Stars",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvamitra creates new stars to support Trishanku in the sky."
+            }
+        },
+        {
+            "name": "Penance",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ascetic power gained through austerities, central to Vishvamitra’s authority."
+            }
+        },
+        {
+            "name": "Brahmanical Power",
+            "type": "Concept",
+            "attributes": {
+                "description": "Spiritual authority of Brahman sages shown superior to warrior strength."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Vishvamitra",
+            "to": "Burning of the Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He launches divine weapons that reduce Vashishtha’s hermitage to ashes."
+            }
+        },
+        {
+            "from": "Burning of the Hermitage",
+            "to": "Hermitage of Vashishtha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The destruction takes place at Vashishtha’s sacred grove."
+            }
+        },
+        {
+            "from": "Vashishtha",
+            "to": "Battle of Divine Weapons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He absorbs all celestial weapons with his Brahman staff."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Battle of Divine Weapons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He hurls weapons of gods including Brahma, Vishnu, Rudra, and Varuna."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Penance",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "His power repeatedly derives from long and severe austerities."
+            }
+        },
+        {
+            "from": "Trishanku",
+            "to": "Curse of Trishanku",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He is cursed by the sons of Vashishtha and transformed into a Chandala."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Sacrifice of Trishanku",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He presides over and enforces the sacrifice despite divine opposition."
+            }
+        },
+        {
+            "from": "Trishanku",
+            "to": "Ascension of Trishanku",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He rises bodily toward heaven through Vishvamitra’s power."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ascension of Trishanku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra rejects Trishanku from heaven and causes his fall."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Creation of Southern Stars",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He creates new stars to uphold Trishanku in the sky."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Pushkara Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "After the Trishanku episode, he relocates to Pushkara for penance."
+            }
+        },
+        {
+            "from": "Ambarisha",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ambarisha rules from Ayodhya."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ambarisha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra steals the sacrificial horse of Ambarisha."
+            }
+        }
+    ]
+}

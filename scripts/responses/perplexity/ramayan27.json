@@ -1,0 +1,866 @@
+{
+    "entities": [
+        {
+            "name": "Day-God",
+            "type": "Deity",
+            "attributes": {
+                "description": "Sun deity whose rays consume parching plain in summer's noontide blaze"
+            }
+        },
+        {
+            "name": "Lakshmí",
+            "type": "Deity",
+            "attributes": {
+                "description": "Goddess who went with Ráma in hermit's mantle in guise of Sítá"
+            }
+        },
+        {
+            "name": "Fortune",
+            "type": "Deity",
+            "attributes": {
+                "description": "Will share glories with Sítá and Earth awaiting heir"
+            }
+        },
+        {
+            "name": "Earth",
+            "type": "Deity",
+            "attributes": {
+                "description": "Will share glories with Sítá and Fortune awaiting heir"
+            }
+        },
+        {
+            "name": "Garuda",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of birds with wings, swoops from heaven, bears away glittering snakes"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, monarch with drooping frame and failing eye, lord of earth, fond heart feels pain, sire of high renown, wept aloud"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Banished son, hero, lord of men, chief of Raghu's race, glorious hero, virtuous, dear full moon of every eye, strong-armed, broad chest, stalwart limb"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, most excellent of beauteous dames, Ráma's mother, soul alarmed, heart rent by sorrow, distressed for banished son"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's Videhan bride, faithful wife, bred with tender care, knows toils await, went in hermit's mantle"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother by Ráma's side, blameless-souled, best who draws bow, with spear/shaft/sword, kept watch all night, marked for bliss"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen cruel, false and vile, cast venom of guile, like dire serpent bent on harm, cruel hate, darling son Bharat"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Fair Queen who clave to duty, righteous words, soothing and eloquent, consoled Kausalyá"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Kaikeyí's darling son, virtuous career, bound by duty's chain, imperial prince well proved, duteous love, kind love and care"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother mentioned alongside Bharat"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Charioteer, freed horses, groomed with utmost heed, stayed awake all night speaking of Ráma's virtues, drove north then back"
+            }
+        },
+        {
+            "name": "Warders of palace",
+            "type": "Character",
+            "attributes": {
+                "description": "Led monarch to Kausalyá's bower, laid him with reverential care"
+            }
+        },
+        {
+            "name": "Aged Bráhmans",
+            "type": "Character",
+            "attributes": {
+                "description": "Saintly twice-born, triply old in glory/knowledge/seasons, hoary heads bowed, walked with Ráma, wailed with wild lament"
+            }
+        },
+        {
+            "name": "People of Ayodhyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Followed Ráma, felt fond affection, wept, lay around on grassy shore, sleeping crowd, citizens who roam, devoted"
+            }
+        },
+        {
+            "name": "Nágas",
+            "type": "Character",
+            "attributes": {
+                "description": "Serpent lord with whom long-armed hero compared"
+            }
+        },
+        {
+            "name": "Suváhu",
+            "type": "Character",
+            "attributes": {
+                "description": "Fierce demon slain by Ráma, dyed plain with life-blood, killed when Bráhman gave heavenly arms"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal town, empty houses/courts/ways, closed temples, disquieted, sorrow dumb, death chilled, no bustling trader, oppressed with cares"
+            }
+        },
+        {
+            "name": "Kausalyá's bower",
+            "type": "Place",
+            "attributes": {
+                "description": "Queen's chamber where warders laid Dasharatha with reverential care"
+            }
+        },
+        {
+            "name": "Forest/Woods",
+            "type": "Place",
+            "attributes": {
+                "description": "Wilderness where Ráma sent, unpeopled, tenants creep to lair/den/nest, hermit-haunted wood, desert place, dark with lovely trees"
+            }
+        },
+        {
+            "name": "Tamasá river",
+            "type": "Place",
+            "attributes": {
+                "description": "River with eddying flood and fast waves, grassy shore, fringed with grassy mead, where Ráma halted first night"
+            }
+        },
+        {
+            "name": "Royal street",
+            "type": "Place",
+            "attributes": {
+                "description": "Main thoroughfare of Ayodhyá no longer trod by countless feet"
+            }
+        },
+        {
+            "name": "Ikshváku's ancient home",
+            "type": "Place",
+            "attributes": {
+                "description": "Ancestral dwelling from which citizens far roam"
+            }
+        },
+        {
+            "name": "Banishment",
+            "type": "Concept",
+            "attributes": {
+                "description": "Exile to wilderness, forest life, fourteen years in wild, hermit's garb, sent to abide by woe untried"
+            }
+        },
+        {
+            "name": "Dasharatha's grief",
+            "type": "Concept",
+            "attributes": {
+                "description": "King's soul disquieted, tossed arms lamenting, sight went with Ráma, choking sobs, voice half spent, piteous cry"
+            }
+        },
+        {
+            "name": "Kausalyá's lament",
+            "type": "Concept",
+            "attributes": {
+                "description": "Mother's bitter grief, years of woe, tears of anguish, quenchless flames burn, compared to lioness robbed"
+            }
+        },
+        {
+            "name": "Former life sin",
+            "type": "Concept",
+            "attributes": {
+                "description": "Kausalyá believes she dried udders of kine, left calves to pine, hence childless now"
+            }
+        },
+        {
+            "name": "Sumitrá's consolation",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous words, hopeful argument, soothing eloquent speech, grief began to leave"
+            }
+        },
+        {
+            "name": "People's devotion",
+            "type": "Concept",
+            "attributes": {
+                "description": "Fond affection, followed Ráma, would not consent to quit lives, never leave firm intent, care of house resigned"
+            }
+        },
+        {
+            "name": "Ráma's virtues",
+            "type": "Concept",
+            "attributes": {
+                "description": "Keeps vows firm and sure, duty makes spirit pure, noble gifts abound, decked with all grace, filial duty path"
+            }
+        },
+        {
+            "name": "Bráhmans' worship fires",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sacred fires borne on aged shoulders following to woods, Vájapeya rites canopies, Vedic lore deep in bosoms"
+            }
+        },
+        {
+            "name": "First night fast",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ráma took only water to slake thirst on first night, varied store wood provides"
+            }
+        },
+        {
+            "name": "Deceptive departure",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ráma left while people slept, drove north then back to mislead, so citizens wouldn't follow"
+            }
+        },
+        {
+            "name": "Citizens' despair",
+            "type": "Concept",
+            "attributes": {
+                "description": "Woke to find no Ráma, fear and grief subdued senses, contemplated death by fire, pilgrimage to Himálayas"
+            }
+        },
+        {
+            "name": "Ayodhyá's desolation",
+            "type": "Concept",
+            "attributes": {
+                "description": "City wore no beauty, dull river, moonless sky, dry sea, all joy fled, no trader showed wares, mothers scarce smiled"
+            }
+        },
+        {
+            "name": "Women's keen taunts",
+            "type": "Concept",
+            "attributes": {
+                "description": "Wives assailed returning lords with piercing words like steel, questioned worth of home/sons/wealth without Ráma"
+            }
+        },
+        {
+            "name": "Nature's reverence",
+            "type": "Concept",
+            "attributes": {
+                "description": "Pools/fountains made holy by Ráma's use, forests yearn to please, mountains welcome, trees fling wealth before him"
+            }
+        },
+        {
+            "name": "Dasharatha's collapse",
+            "type": "Event",
+            "attributes": {
+                "description": "King viewed empty city, wept aloud, passed on like sun into cloud, choking sobs, requested to be by Kausalyá's side"
+            }
+        },
+        {
+            "name": "Night of doom",
+            "type": "Event",
+            "attributes": {
+                "description": "Hated gloom fell on Dasharatha, at midnight cried for Kausalyá, sight went with Ráma"
+            }
+        },
+        {
+            "name": "Kausalyá's lament to Dasharatha",
+            "type": "Event",
+            "attributes": {
+                "description": "Queen addressed lord on bed, accused Kaikeyí of venom, mourned son's banishment, questioned former life sins"
+            }
+        },
+        {
+            "name": "Sumitrá's consolation speech",
+            "type": "Event",
+            "attributes": {
+                "description": "Fair queen gave righteous answer, praised Ráma's virtues, prophesied joyful return, soothed Kausalyá's heart"
+            }
+        },
+        {
+            "name": "Journey to Tamasá",
+            "type": "Event",
+            "attributes": {
+                "description": "People followed Ráma, king turned back, citizens still tracked chariot, reached delightful river place"
+            }
+        },
+        {
+            "name": "Ráma's speech to people",
+            "type": "Event",
+            "attributes": {
+                "description": "Hero spoke to cheer like own children, urged them to love Bharat, praised Bharat's virtues, people longed for his empire"
+            }
+        },
+        {
+            "name": "Aged Bráhmans' plea",
+            "type": "Event",
+            "attributes": {
+                "description": "Twice-born wailed, raised hoary heads, called on horses to return, walked with Ráma, bore worship fires"
+            }
+        },
+        {
+            "name": "First night halt",
+            "type": "Event",
+            "attributes": {
+                "description": "Sun set at Tamasá, Sumantra tended horses, Ráma took only water, laid on leafy bed, Lakshmana kept watch all night"
+            }
+        },
+        {
+            "name": "Secret departure at dawn",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma rose, saw sleeping crowd, commanded swift journey while unconscious, drove north then back to mislead"
+            }
+        },
+        {
+            "name": "Citizens awake bereaved",
+            "type": "Event",
+            "attributes": {
+                "description": "Morn shone, people found no Ráma, fear and grief subdued senses, searched every place, contemplated death"
+            }
+        },
+        {
+            "name": "Return to Ayodhyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Sages followed chariot marks till failed, turned back hopeless, reached city where naught but care, tears began to flow"
+            }
+        },
+        {
+            "name": "Women's lament and taunt",
+            "type": "Event",
+            "attributes": {
+                "description": "Each mansion filled with wailing, wives assailed returning lords, praised Lakshmana's loyalty, blessed nature Ráma touches"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Dasharatha",
+            "to": "Dasharatha's collapse",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King viewed empty city, wept aloud, requested to be by Kausalyá's side"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King looked on empty houses, courts, ways, closed temples"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Kausalyá's bower",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Warders led monarch to queen's bower, laid him with reverential care"
+            }
+        },
+        {
+            "from": "Warders of palace",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Warders led king when words were said, placed him by Kausalyá's side"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Night of doom",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hated gloom fell like doom, at midnight cried for Kausalyá, sight went with Ráma"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father's sight went with banished son, soul disquieted, lamenting 'O Ráma, thou hast forsaken me'"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen saw monarch with drooping frame and failing eye, addressed sad words to lord"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kausalyá's lament to Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen addressed lord distressed for banished son, accused Kaikeyí, mourned years of woe"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá accused queen of being cruel, false, vile, casting venom, like serpent ravaging"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother mourns banished son, yearns to see children dear, quenchless flames burn for him"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Former life sin",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá believes in former life she dried udders of kine, hence lioness robs her now"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí cast venom of guile on Ráma, hurled him from high estate as Bráhmans cast demons' due"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is darling son Bharat's mother"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Fair queen gave righteous answer, soothing eloquent words, should console sad people"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Sumitrá's consolation speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen who clave to duty gave hopeful argument, grief left Kausalyá free"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumitrá praised son's noble virtues, first in place, banner of fame unfurled"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumitrá praised blameless-souled son who holds high course, mighty bliss awaits"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma with Videhan bride, looked on her first, she by his side"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma with brother by his side, spake to him, laid bed for him"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá with Lakshmana attended Ráma"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana with aid laid lowly bed, watched while couple slept"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Journey to Tamasá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero bent steps to woods, people followed with tender love"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Journey to Tamasá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "People drew to follow brave Ráma, felt fond affection, still tracked chariot"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Journey to Tamasá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King obeyed friends' prayers and turned homeward"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's speech to people",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero spoke to cheer them as own children, urged them to love Bharat"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma urged people to give Bharat love entire, praised his virtuous career"
+            }
+        },
+        {
+            "from": "Aged Bráhmans",
+            "to": "Aged Bráhmans' plea",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Twice-born wailed with wild lament, raised voices, called horses to return"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Aged Bráhmans' plea",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma saw aged band, sprang from chariot, walked by their side"
+            }
+        },
+        {
+            "from": "Aged Bráhmans",
+            "to": "Bráhmans' worship fires",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Fires borne on aged shoulders, Vájapeya canopies, Vedas' lore deep in bosoms"
+            }
+        },
+        {
+            "from": "Aged Bráhmans",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "With thee all Bráhmans go, hearts turn to thee, following thee is following right"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "First night halt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero arrived at delightful place, took only water, threw limbs on leafy bed"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "First night halt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá by Ráma's side on leafy bed spread on bank"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "First night halt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana laid bed, kept watch all night, stayed awake with Sumantra"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "First night halt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer freed horses, groomed with utmost heed, bathed and fed, stayed awake"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Charioteer addressed by Ráma to tend horses, spoke of Ráma's virtues all night"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "First night halt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "People lay around on grassy shore, sleeping crowd, care of home resigned"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Tamasá river",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma arrived at delightful place, halted at grassy shore, passed eddying flood"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Tamasá river",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "People lay around near river's grassy shore where herds wandered"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Forest/Woods",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma sent to wilderness, will go hence to forest, hermit-haunted wood"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Secret departure at dawn",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma rose, looked on sleeping crowd, commanded swift journey while unconscious"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Secret departure at dawn",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana replied to rede, commended counsel, ascended car"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Secret departure at dawn",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sumantra yoked rapid steeds, drove north then back to mislead"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Secret departure at dawn",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá with princely two stood on chariot"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Citizens awake bereaved",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Morn shone, people arose to find no Ráma, fear and grief subdued senses"
+            }
+        },
+        {
+            "from": "Aged Bráhmans",
+            "to": "Citizens awake bereaved",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Woe-distracted sages gave vent to wild lament, contemplated death by fire"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Return to Ayodhyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hopeless sages turned back, reached city where naught but care"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Citizens with wearied hearts reached royal town where care from side to side"
+            }
+        },
+        {
+            "from": "Aged Bráhmans",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Melancholy Bráhmans passed to houses high and vast, aloof from all"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "City reft of Ráma wore no look of beauty, like dull river, dry sea"
+            }
+        },
+        {
+            "from": "People of Ayodhyá",
+            "to": "Women's lament and taunt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Each mansion woman wailed, assailed returning lord with keen taunt"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Women's lament and taunt",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Women praised: 'One man alone of real worth, Lakshmana who follows true and good'"
+            }
+        },
+        {
+            "from": "Lakshmí",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmí went in hermit's mantle in guise of Sítá, none may prevent glory"
+            }
+        },
+        {
+            "from": "Fortune",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Fortune shall share glories with Sítá awaiting heir"
+            }
+        },
+        {
+            "from": "Earth",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Earth shall share glories with Sítá awaiting heir"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Nágas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Long-armed hero with bow and sword compared to lord of Nágas"
+            }
+        },
+        {
+            "from": "Garuda",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "City compared to broad waters after king of birds bore away snakes"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Day-God",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King's grief like Day-God's rays consuming parching plain"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's virtues",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hero keeps vows firm, duty purifies spirit, all kingly gifts abound"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma's virtues",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Charioteer stayed awake speaking of Ráma's varied gifts and virtues"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Suváhu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Fierce demon slain by Ráma's arrows, dyed plain with life-blood"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Nature's reverence",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Pools made holy by Ráma's use, forests yearn to please, trees fling wealth"
+            }
+        },
+        {
+            "from": "Forest/Woods",
+            "to": "Nature's reverence",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dark lovely trees shall yearn to please, mountains welcome, upland slopes show finest"
+            }
+        }
+    ]
+}

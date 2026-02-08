@@ -1,0 +1,124 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhyá and son of Da[aratha; the hero who slays Tá aká."
+            }
+        },
+        {
+            "name": "Vi[vámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "The 'son of Ku[ik' and a mighty seer who mentors Ráma and bestows celestial weapons."
+            }
+        },
+        {
+            "name": "Tá aká",
+            "type": "Character",
+            "attributes": {
+                "description": "A spirit possessing the strength of a thousand elephants, cursed to be a man-eating monster."
+            }
+        },
+        {
+            "name": "VishGu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Supreme Lord who took the form of a Dwarf to defeat King Bali."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The 'Thousand-eyed' King of Gods who slew Namuchi and purified the lands of Malaja and Karúsha."
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "A celebrated saint who cursed Tá aká and Márícha."
+            }
+        },
+        {
+            "name": "Bali",
+            "type": "Character",
+            "attributes": {
+                "description": "The demon king, son of Virochan, who ruled the three worlds before being defeated by VishGu."
+            }
+        },
+        {
+            "name": "Sarjú",
+            "type": "Place",
+            "attributes": {
+                "description": "A holy river born from Brahmá's will, flowing from Lake Mánas."
+            }
+        },
+        {
+            "name": "Perfect Hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Also known as Siddháshrama; the site of VishGu's penance and Vi[vámitra's sacrifice."
+            }
+        },
+        {
+            "name": "Mánas",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred, mind-born lake of Brahmá located near Mount Kailása."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Vi[vámitra",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vi[vámitra acts as the preceptor, guiding Ráma and awarding him divine weapons."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Tá aká",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma slays Tá aká with a crescent-shaped dart to protect the Bráhmans and kine."
+            }
+        },
+        {
+            "from": "VishGu",
+            "to": "Bali",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "VishGu, in his Dwarf (Vamana) avatar, used three steps to reclaim the universe from Bali."
+            }
+        },
+        {
+            "from": "Tá aká",
+            "to": "Márícha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Márícha is the giant son of Tá aká and Sunda."
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Tá aká",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The saint Agastya cursed Tá aká to lose her fair form and become a man-eater."
+            }
+        },
+        {
+            "from": "Sarjú",
+            "to": "Mánas",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The Sarjú river originates from the sacred Lake Mánas."
+            }
+        }
+    ]
+}

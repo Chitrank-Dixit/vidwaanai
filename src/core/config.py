@@ -35,6 +35,9 @@ class Settings(BaseSettings):
     # NEW: LM Studio settings
     lmstudio_base_url: str = "http://localhost:1234"
     lmstudio_model: str = "falcon-h1-7b-instruct"  # or whatever /v1/models shows
+    
+    # Timeout settings
+    LLM_TIMEOUT: int = 300  # Default to 5 minutes
 
     # RAG settings
     RETRIEVAL_TOP_K: int = 5
@@ -53,6 +56,14 @@ class Settings(BaseSettings):
     ENABLE_GRAPH_RAG: bool = False
     GRAPH_TRAVERSAL_DEPTH: int = 2
     HYBRID_ALPHA: float = 0.5
+    
+    # Optimization & Resource Limits
+    # Limit graph build concurrency to avoid thrashing LM Studio (CPU bound)
+    GRAPH_BUILD_WORKERS: int = 2 
+    # Batch size for local embeddings (SentenceTransformer)
+    EMBEDDING_BATCH_SIZE: int = 16
+    # Global LlamaIndex worker limit (if used)
+    LLAMA_INDEX_NUM_WORKERS: int = 2
 
 
 settings = Settings()

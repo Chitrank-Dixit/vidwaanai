@@ -7,6 +7,13 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
+# LlamaIndex Global Settings
+try:
+    from llama_index.core import Settings
+    Settings.num_workers = settings.LLAMA_INDEX_NUM_WORKERS
+except ImportError:
+    pass # LlamaIndex might not be installed or used in this env
+
 from src.agent.vidwaan_agent import VidwaanAI
 from src.core.config import settings
 from src.core.logger import get_logger
@@ -39,6 +46,7 @@ def get_agent() -> VidwaanAI:
                 neo4j_uri=settings.NEO4J_URI,
                 neo4j_user=settings.NEO4J_USER,
                 neo4j_password=settings.NEO4J_PASSWORD,
+                llm_timeout=settings.LLM_TIMEOUT,
             )
         except Exception as e:
             console.print(f"[red]Error initializing agent: {str(e)}[/red]")

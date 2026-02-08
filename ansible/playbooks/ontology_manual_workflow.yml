@@ -1,0 +1,104 @@
+---
+- name: Vidwaan AI - Ontology Manual Workflow
+  hosts: localhost
+  gather_facts: false
+  vars:
+    project_root: "{{ playbook_dir }}/../.."
+    ontology_dir: "{{ project_root }}/ontology_project"
+    scripts_dir: "{{ project_root }}/scripts"
+    responses_dir: "{{ scripts_dir }}/responses"
+
+  tasks:
+    # ============================================================================
+    # STEP 1: GENERATE (Instructions for Manual Phase)
+    # ============================================================================
+    - name: Generate Prompts from DB
+      tags: generate
+      ansible.builtin.command:
+        cmd: >
+          uv run python {{ scripts_dir }}/generate_prompts_from_db.py 
+          --limit 20
+          {% if scripture is defined %} --scripture "{{ scripture }}" {% endif %}
+        chdir: "{{ project_root }}"
+      register: prompt_gen_result
+
+    - name: Show Generation Output
+      tags: generate
+      ansible.builtin.debug:
+        var: prompt_gen_result.stdout_lines
+
+    - name: Instructions for Manual Execution
+      tags: generate
+      ansible.builtin.debug:
+        msg: |
+          ============================================================
+          PHASE 2: MANUAL QUERY EXECUTION
+          ============================================================
+          1. Check 'ontology_project/queries/' for generated files.
+             - Single batch: 'batch_from_db.md'
+             - Full Scripture: '{ScriptureName}/{ScriptureName}_batch_*.md'
+          2. Copy content to Perplexity/Gemini/ChatGPT.
+          3. Save JSON output to:
+             - {{ responses_dir }}/perplexity/response_X.json
+             (Ensure filenames are unique!)
+          
+          When done, run:
+          ./scripts/run_ansible_workflow.sh ontology --step deploy
+          ============================================================
+
+    # ============================================================================
+    # STEP 2: DEPLOY (Automated Ingestion)
+    # ============================================================================
+    - name: Run Phase 3 (Aggregation - aggregate_responses.py)
+      tags: deploy
+      ansible.builtin.command:
+        cmd: "uv run python {{ scripts_dir }}/aggregate_responses.py"
+        chdir: "{{ project_root }}"
+      register: agg_result
+
+    - name: Show Aggregation Output
+      tags: deploy
+      ansible.builtin.debug:
+        var: agg_result.stdout_lines
+
+    - name: Run Phase 4 (Assembly - json_to_rdf.py)
+      tags: deploy
+      ansible.builtin.command:
+        cmd: "uv run python {{ scripts_dir }}/json_to_rdf.py"
+        chdir: "{{ project_root }}"
+      register: rdf_result
+      
+    - name: Show RDF Assembly Output
+      tags: deploy
+      ansible.builtin.debug:
+        var: rdf_result.stdout_lines
+
+    - name: Run Phase 5 (Deployment - deploy_to_neo4j.py)
+      tags: deploy
+      ansible.builtin.command:
+        cmd: "uv run python {{ scripts_dir }}/deploy_to_neo4j.py"
+        chdir: "{{ project_root }}"
+      register: deploy_result
+      
+    - name: Show Neo4j Deployment Output
+      tags: deploy
+      ansible.builtin.debug:
+        var: deploy_result.stdout_lines
+
+    # ============================================================================
+    # STEP 3: CONTEXTUALIZE (Build Graph from Ingested Verses)
+    # ============================================================================
+    - name: Run Graph Builder (Contextualize Verses)
+      tags: deploy
+      ansible.builtin.command:
+        cmd: >
+          uv run python {{ scripts_dir }}/build_knowledge_graph.py 
+          --ontology-file {{ ontology_dir }}/merged_output/raw_entities.json
+          --skip-llm
+        chdir: "{{ project_root }}"
+      register: graph_build_result
+
+    - name: Show Graph Builder Output
+      tags: deploy
+      ansible.builtin.debug:
+        var: graph_build_result.stdout_lines

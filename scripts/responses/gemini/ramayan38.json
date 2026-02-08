@@ -1,0 +1,131 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The exiled prince of Ayodhyá, personifying duty and stoicism; currently dwelling on Chitrakúma."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "The younger brother of Ráma who seeks to restore Ráma to the throne and informs him of their father's death."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's fierce protector and brother; initially misinterprets Bharat's arrival as a hostile invasion."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife, sharing his forest exile; she witnesses the encounter with the crow and the arrival of the army."
+            }
+        },
+        {
+            "name": "Daśaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The deceased King of Ayodhyá whose passing is revealed to Ráma at Chitrakúma."
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of the Nishádas and Ráma's ally; he assists Bharat in locating Ráma's hermitage."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The King of Gods, whose bow and rainbow are used as metaphors for Ráma's power and the beauty of his weapons."
+            }
+        },
+        {
+            "name": "Chitrakúma",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred mountain where Ráma, Sítá, and LakshmaG have established their hermitage."
+            }
+        },
+        {
+            "name": "Mandákiní",
+            "type": "Place",
+            "attributes": {
+                "description": "The holy river flowing near the Chitrakúma mountain."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "The overarching principle of duty and righteousness that guides Ráma's refusal to return prematurely."
+            }
+        },
+        {
+            "name": "Funeral Libation",
+            "type": "Event",
+            "attributes": {
+                "description": "The ritual offering of water for the deceased King Daśaratha."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother and devoted subject."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother; relationship is momentarily strained by LakshmaG's suspicion."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Chitrakúma",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Place of exile and residence."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Daśaratha",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Informs Ráma of Daśaratha's death."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Funeral Libation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma faints upon hearing the news, necessitating the ritual rites."
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Bharat",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Guha guides Bharat's search party through the woods."
+            }
+        }
+    ]
+}

@@ -1,0 +1,250 @@
+{
+    "entities": [
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of King Dasaratha and Kaikeyi; loyal to Rama and refuses the throne."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Dasaratha; rightful king, living in forest exile."
+            }
+        },
+        {
+            "name": "Kausalya",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief queen of Dasaratha and mother of Rama."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasaratha and mother of Bharata; responsible for Rama’s exile."
+            }
+        },
+        {
+            "name": "Sumitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasaratha; mother of Lakshmana and Shatrughna."
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Bharata; fierce opponent of Manthara."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama; devoted companion in exile."
+            }
+        },
+        {
+            "name": "Dasaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya; father of Rama, Bharata, Lakshmana, and Shatrughna."
+            }
+        },
+        {
+            "name": "Vasistha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal priest and sage guiding funeral and ritual duties."
+            }
+        },
+        {
+            "name": "Manthara",
+            "type": "Character",
+            "attributes": {
+                "description": "Hunchback maid of Kaikeyi; instigator of Rama’s exile."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods; used as a metaphor for royal splendor."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Moral law and righteous duty governing kingship and conduct."
+            }
+        },
+        {
+            "name": "Abjuration of Bharata",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharata’s solemn oaths rejecting responsibility for Rama’s exile."
+            }
+        },
+        {
+            "name": "Funeral of Dasaratha",
+            "type": "Event",
+            "attributes": {
+                "description": "Royal funeral rites performed for King Dasaratha."
+            }
+        },
+        {
+            "name": "Gathering of the Ashes",
+            "type": "Event",
+            "attributes": {
+                "description": "Post-funeral rites involving the collection of Dasaratha’s remains."
+            }
+        },
+        {
+            "name": "Punishment of Manthara",
+            "type": "Event",
+            "attributes": {
+                "description": "Shatrughna violently confronts Manthara for her role in the exile."
+            }
+        },
+        {
+            "name": "Journey to the Forest",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharata prepares to travel to bring Rama back from exile."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of the Ikshvaku dynasty and seat of Dasaratha’s kingdom."
+            }
+        },
+        {
+            "name": "Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Wilderness where Rama and Lakshmana reside during exile."
+            }
+        },
+        {
+            "name": "Sarju River",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river near Ayodhya used in funeral rites."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharata",
+            "to": "Abjuration of Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharata swears solemn oaths denying any role in Rama’s exile."
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Declares Rama the rightful king and vows to bring him back."
+            }
+        },
+        {
+            "from": "Kausalya",
+            "to": "Bharata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Initially reproaches Bharata, then accepts his innocence."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Her demands caused Rama’s banishment."
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Manthara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Seizes and punishes Manthara for instigating the exile."
+            }
+        },
+        {
+            "from": "Vasistha",
+            "to": "Funeral of Dasaratha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Directs Bharata to perform the funeral rites."
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Funeral of Dasaratha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Performs his father’s funeral duties."
+            }
+        },
+        {
+            "from": "Funeral of Dasaratha",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rites conducted in and near Ayodhya."
+            }
+        },
+        {
+            "from": "Gathering of the Ashes",
+            "to": "Sarju River",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ashes gathered and rites completed on the riverbank."
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Journey to the Forest",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Organizes and undertakes the journey to recall Rama."
+            }
+        },
+        {
+            "from": "Journey to the Forest",
+            "to": "Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The journey leads into the wilderness where Rama dwells."
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Upholds righteous succession by refusing kingship."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Recognized as the embodiment of righteous kingship."
+            }
+        }
+    ]
+}

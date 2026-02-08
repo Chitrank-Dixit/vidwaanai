@@ -1,0 +1,250 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of King Dasaratha, embodiment of dharma, living in forest exile for fourteen years."
+            }
+        },
+        {
+            "name": "Kausalya",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief queen of Dasaratha and mother of Rama, overwhelmed by grief over Rama’s exile."
+            }
+        },
+        {
+            "name": "Dasaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, bound by past deeds and curses, who dies grieving for Rama."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasaratha and Kaikeyi, ruling Ayodhya during Rama’s exile."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasaratha whose demand caused Rama’s exile."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama who accompanies him into exile."
+            }
+        },
+        {
+            "name": "Hermit's Son",
+            "type": "Character",
+            "attributes": {
+                "description": "A young ascetic accidentally killed by Dasaratha while hunting."
+            }
+        },
+        {
+            "name": "Blind Hermit",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of the hermit’s son, who curses Dasaratha for his son’s death."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death and justice, ruler of the realm of departed souls."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, associated with heaven and divine reward."
+            }
+        },
+        {
+            "name": "Amrit",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine nectar of immortality, symbol of purity and worthiness."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Moral law and duty governing righteous conduct."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Law of cause and effect by which actions bring corresponding results."
+            }
+        },
+        {
+            "name": "Exile of Rama",
+            "type": "Event",
+            "attributes": {
+                "description": "Fourteen-year banishment of Rama to the forest."
+            }
+        },
+        {
+            "name": "Accidental Killing of the Hermit's Son",
+            "type": "Event",
+            "attributes": {
+                "description": "Dasaratha unknowingly kills a hermit’s son by shooting an arrow at a sound."
+            }
+        },
+        {
+            "name": "Curse of the Hermit",
+            "type": "Event",
+            "attributes": {
+                "description": "The blind hermit curses Dasaratha to die grieving for his son."
+            }
+        },
+        {
+            "name": "Death of Dasaratha",
+            "type": "Event",
+            "attributes": {
+                "description": "Dasaratha dies overwhelmed by sorrow for Rama."
+            }
+        },
+        {
+            "name": "Sarju River",
+            "type": "Place",
+            "attributes": {
+                "description": "River near Ayodhya where Dasaratha accidentally killed the hermit’s son."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city of the Ikshvaku dynasty, ruled by Dasaratha and later Bharata."
+            }
+        },
+        {
+            "name": "Forest Exile",
+            "type": "Place",
+            "attributes": {
+                "description": "Wilderness where Rama, Lakshmana, and Sita reside during exile."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Exile of Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama lives in the forest for fourteen years."
+            }
+        },
+        {
+            "from": "Kausalya",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother grieving for her exiled son."
+            }
+        },
+        {
+            "from": "Dasaratha",
+            "to": "Exile of Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Orders Rama’s exile due to past actions and vows."
+            }
+        },
+        {
+            "from": "Dasaratha",
+            "to": "Accidental Killing of the Hermit's Son",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills the hermit’s son unintentionally while hunting."
+            }
+        },
+        {
+            "from": "Accidental Killing of the Hermit's Son",
+            "to": "Sarju River",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The killing occurs on the bank of the Sarju River."
+            }
+        },
+        {
+            "from": "Blind Hermit",
+            "to": "Curse of the Hermit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The hermit curses Dasaratha after his son’s death."
+            }
+        },
+        {
+            "from": "Curse of the Hermit",
+            "to": "Death of Dasaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The curse foretells Dasaratha’s death through grief for his son."
+            }
+        },
+        {
+            "from": "Dasaratha",
+            "to": "Death of Dasaratha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasaratha dies lamenting Rama’s absence."
+            }
+        },
+        {
+            "from": "Hermit's Son",
+            "to": "Yama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "His soul departs to Yama’s realm after death."
+            }
+        },
+        {
+            "from": "Hermit's Son",
+            "to": "Indra",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "He ascends to heaven accompanied by Indra."
+            }
+        },
+        {
+            "from": "Dasaratha",
+            "to": "Karma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Suffers consequences of past unintended actions."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama embodies duty and righteousness even in exile."
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Ayodhya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rules Ayodhya during Rama’s exile."
+            }
+        }
+    ]
+}

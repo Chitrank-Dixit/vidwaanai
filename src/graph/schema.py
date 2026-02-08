@@ -44,6 +44,7 @@ class RelationType(str, Enum):
     ALLY_OF = "ALLY_OF"
 
     # Contextual
+    MENTIONS = "MENTIONS"  # Entity appears in Text
     MENTIONED_IN = "MENTIONED_IN"  # Entity appears in Text
     LOCATED_AT = "LOCATED_AT"  # Spatial
     HAPPENED_AT = "HAPPENED_AT"  # Event location

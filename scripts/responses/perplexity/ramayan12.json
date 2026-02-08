@@ -1,0 +1,966 @@
+{
+    "entities": [
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator deity, father of Vasishtha, produced Bálakhilyas from hair, celestial seat"
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also called Mahádeva, the Great God, Lord most High, bountiful, whose banner shows pictured bull Nandi"
+            }
+        },
+        {
+            "name": "Nandi",
+            "type": "Deity",
+            "attributes": {
+                "description": "Snow-white bull, attendant and favourite vehicle of Shiva"
+            }
+        },
+        {
+            "name": "Ashvins",
+            "type": "Deity",
+            "attributes": {
+                "description": "Divine twin children of Sun, princes compared to them"
+            }
+        },
+        {
+            "name": "Gods",
+            "type": "Deity",
+            "attributes": {
+                "description": "Divine beings who praised Ahalyá, came to claim dues at sacrifice"
+            }
+        },
+        {
+            "name": "Ahalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Glorious dame, wife of Gautam, freed from curse by Ráma, purified from sin and folly"
+            }
+        },
+        {
+            "name": "Gautam",
+            "type": "Character",
+            "attributes": {
+                "description": "Holy hermit, sage with godlike view, husband of Ahalyá, reconciled with wife, shares austerities"
+            }
+        },
+        {
+            "name": "Vishvámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty saint, son of Gádhi of Kusha's line, guide to Ráma, formerly warrior king, royal sage"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of saintly men, arch-hermit, son of Brahmá, best of those who pray, owns Dapple-skin cow"
+            }
+        },
+        {
+            "name": "Shatánanda",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Gautam and Ahalyá, far-renowned, crowned with glory by austerities, filled with wonder"
+            }
+        },
+        {
+            "name": "Renuka",
+            "type": "Character",
+            "attributes": {
+                "description": "Dame mentioned in comparison to Ahalyá, reconciled with Bhrigu's child"
+            }
+        },
+        {
+            "name": "Bhrigu's child",
+            "type": "Character",
+            "attributes": {
+                "description": "Saint mentioned in comparison, reconciled with Renuka"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, pride of Raghu's race, lotus-eyed, freed Ahalyá, scion of King Raghu's line, strong of arm"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Raghu, brother of Ráma, accompanied on journey"
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "Best of kings, high-souled, lofty-souled, planned sacrifice, ruled Mithilá"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of Ráma and Lakshmana, king"
+            }
+        },
+        {
+            "name": "Kusha",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty king of earth, given birth by Lord of Life, ancestor of Vishvámitra"
+            }
+        },
+        {
+            "name": "Kushanábha",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kusha, strong, friend of right, foe of wrong"
+            }
+        },
+        {
+            "name": "Gádhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kushanábha, father of Vishvámitra, governed land, fame undimmed by time"
+            }
+        },
+        {
+            "name": "Vishvámitra the King",
+            "type": "Character",
+            "attributes": {
+                "description": "Heir of Gádhi, governed with kingly care, led warriors, peerless for warlike enterprise, later became hermit"
+            }
+        },
+        {
+            "name": "Hundred sons of Vishvámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Armed warriors, mad with rage, rushed on Vasishtha, burnt to ashes by sage's glance"
+            }
+        },
+        {
+            "name": "One remaining son",
+            "type": "Character",
+            "attributes": {
+                "description": "Only surviving son of Vishvámitra, given empire, ruled as kings are taught"
+            }
+        },
+        {
+            "name": "Bálakhilyas",
+            "type": "Character",
+            "attributes": {
+                "description": "Divine personages of minute size, produced from hair of Brahmá, small infantry"
+            }
+        },
+        {
+            "name": "Mithilá",
+            "type": "Place",
+            "attributes": {
+                "description": "City ruled by Janak, destination of Ráma's journey, also called Visálá"
+            }
+        },
+        {
+            "name": "Visálá",
+            "type": "Place",
+            "attributes": {
+                "description": "City with fair towers, another name for Mithilá"
+            }
+        },
+        {
+            "name": "Sacrificial ground",
+            "type": "Place",
+            "attributes": {
+                "description": "Enclosed area prepared by Janak, with thousands of Bráhmans, tents, wains"
+            }
+        },
+        {
+            "name": "Vasishtha's hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Pure abode where trees, flowers, creepers glowed, visited by saints and angels, like Brahmá's celestial seat"
+            }
+        },
+        {
+            "name": "Himálaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain region visited by bards and Nágas, where Vishvámitra sought penance"
+            }
+        },
+        {
+            "name": "Dapple-skin cow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cow of spotted skin, cow of plenty, provides all needs, yields offerings, guardian and minister of Vasishtha"
+            }
+        },
+        {
+            "name": "Curse of Ahalyá",
+            "type": "Concept",
+            "attributes": {
+                "description": "Gautam's decree that removed Ahalyá from sight, ended when Ráma came"
+            }
+        },
+        {
+            "name": "Guest-gift",
+            "type": "Concept",
+            "attributes": {
+                "description": "Traditional offering for strangers, water for feet"
+            }
+        },
+        {
+            "name": "Six-fold taste",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sweet, salt, pungent, bitter, acid, and astringent flavors"
+            }
+        },
+        {
+            "name": "Sacred flame",
+            "type": "Concept",
+            "attributes": {
+                "description": "Fire requiring ghee/clarified butter for sacrifice"
+            }
+        },
+        {
+            "name": "Five principal duties",
+            "type": "Concept",
+            "attributes": {
+                "description": "Study and teaching Veda, oblations to manes, sacrifice to Gods, hospitality, gift of food to creatures"
+            }
+        },
+        {
+            "name": "Sacred invocations",
+            "type": "Concept",
+            "attributes": {
+                "description": "Words like váhá, vasham pronounced at sacrifice"
+            }
+        },
+        {
+            "name": "Science of the bow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Wondrous knowledge with secret spell and mystic art, all arms revealed"
+            }
+        },
+        {
+            "name": "Famous bow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Wondrous bow at Janak's court, virtue to be known"
+            }
+        },
+        {
+            "name": "Freeing of Ahalyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma's presence freed Ahalyá from curse, flowers rained, nymphs and minstrels sang"
+            }
+        },
+        {
+            "name": "Reconciliation of Gautam and Ahalyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Gautam received Ahalyá purified from sin, she shared in his austerities"
+            }
+        },
+        {
+            "name": "Journey to Mithilá",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma and Lakshmana traveled with Vishvámitra to Janak's sacrifice"
+            }
+        },
+        {
+            "name": "Janak's sacrifice",
+            "type": "Event",
+            "attributes": {
+                "description": "Noble rite prepared by King Janak, twelve days to completion, festival"
+            }
+        },
+        {
+            "name": "Meeting with Janak",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvámitra met Janak with chaplain Shatánanda, exchanged honors"
+            }
+        },
+        {
+            "name": "Vishvámitra's visit to Vasishtha",
+            "type": "Event",
+            "attributes": {
+                "description": "King Vishvámitra visited hermit Vasishtha's abode with mighty army"
+            }
+        },
+        {
+            "name": "Vasishtha's feast",
+            "type": "Event",
+            "attributes": {
+                "description": "Banquet prepared by Dapple-skin cow, fed entire army with all delicacies"
+            }
+        },
+        {
+            "name": "Battle for Dapple-skin",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvámitra tried to take cow by force, cow created armies, Vasishtha defeated Vishvámitra"
+            }
+        },
+        {
+            "name": "Death of hundred sons",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvámitra's hundred sons burnt to ashes by Vasishtha's glance"
+            }
+        },
+        {
+            "name": "Vishvámitra's penance",
+            "type": "Event",
+            "attributes": {
+                "description": "King fled to Himálaya, performed stern penance to earn Shiva's grace"
+            }
+        },
+        {
+            "name": "Shiva's boon",
+            "type": "Event",
+            "attributes": {
+                "description": "Shiva appeared to Vishvámitra, granted him science of the bow"
+            }
+        },
+        {
+            "name": "Pahlavas",
+            "type": "Character",
+            "attributes": {
+                "description": "Warriors created by cow, Persians, burning for strife, slain by Vishvámitra"
+            }
+        },
+        {
+            "name": "Yavans",
+            "type": "Character",
+            "attributes": {
+                "description": "Warriors created by cow, Greeks, bright and strong, in gold-hued mail"
+            }
+        },
+        {
+            "name": "Shakas",
+            "type": "Character",
+            "attributes": {
+                "description": "Warriors created by cow, nomad tribes from Central Asia, Scythes, fierce and dire"
+            }
+        },
+        {
+            "name": "Kámbojas",
+            "type": "Character",
+            "attributes": {
+                "description": "Warriors created by cow from her lowing, faces bright as sun"
+            }
+        },
+        {
+            "name": "Barbars",
+            "type": "Character",
+            "attributes": {
+                "description": "Warriors created from cow's udder, brandished spear and sword"
+            }
+        },
+        {
+            "name": "Mlechchhas",
+            "type": "Character",
+            "attributes": {
+                "description": "Foreign or outcast races, created from cow's pores"
+            }
+        },
+        {
+            "name": "Kirátas",
+            "type": "Character",
+            "attributes": {
+                "description": "Savage aborigines occupying hills and jungles, created from cow"
+            }
+        },
+        {
+            "name": "Hárítas",
+            "type": "Character",
+            "attributes": {
+                "description": "Savage aborigines, streamed forth from cow"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Ahalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's presence freed Ahalyá from curse"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Freeing of Ahalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma came and freed Ahalyá as per Gautam's decree"
+            }
+        },
+        {
+            "from": "Ahalyá",
+            "to": "Freeing of Ahalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ahalyá was freed from sin and folly"
+            }
+        },
+        {
+            "from": "Gautam",
+            "to": "Ahalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gautam is husband of Ahalyá, reconciled with her"
+            }
+        },
+        {
+            "from": "Gautam",
+            "to": "Curse of Ahalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gautam decreed the curse that removed Ahalyá from sight"
+            }
+        },
+        {
+            "from": "Ahalyá",
+            "to": "Curse of Ahalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ahalyá was subject of curse until Ráma came"
+            }
+        },
+        {
+            "from": "Gautam",
+            "to": "Reconciliation of Gautam and Ahalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gautam took Ahalyá to his side, purified"
+            }
+        },
+        {
+            "from": "Ahalyá",
+            "to": "Reconciliation of Gautam and Ahalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ahalyá shared in Gautam's austerities"
+            }
+        },
+        {
+            "from": "Gautam",
+            "to": "Shatánanda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gautam is father of Shatánanda"
+            }
+        },
+        {
+            "from": "Ahalyá",
+            "to": "Shatánanda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ahalyá is mother of Shatánanda"
+            }
+        },
+        {
+            "from": "Gods",
+            "to": "Freeing of Ahalyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gods praised Ahalyá when freed from defilement"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Journey to Mithilá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma journeyed to Mithilá with Vishvámitra"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Journey to Mithilá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana accompanied Ráma to Mithilá"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Journey to Mithilá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvámitra guided princes to Mithilá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Mithilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma pursued his road to Mithilá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sacrificial ground",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma found enclosed sacrificial ground"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Mithilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janak rules land of Mithilá"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Sacrificial ground",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak prepared sacrificial ground with thousands of Bráhmans"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Janak's sacrifice",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Janak planned noble sacrifice"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra met Janak at sacrificial ground"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Meeting with Janak",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishvámitra lodged at sacrificial ground, met Janak"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Meeting with Janak",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Janak with Shatánanda came to meet Vishvámitra"
+            }
+        },
+        {
+            "from": "Shatánanda",
+            "to": "Meeting with Janak",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shatánanda guided Janak to meet Vishvámitra"
+            }
+        },
+        {
+            "from": "Shatánanda",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatánanda is chaplain and priest of Janak"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Famous bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma came to know virtue of famous bow"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Famous bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak possesses famous bow given by Gods"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Gádhi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra is heir and son of Gádhi"
+            }
+        },
+        {
+            "from": "Gádhi",
+            "to": "Kushanábha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gádhi is son of Kushanábha"
+            }
+        },
+        {
+            "from": "Kushanábha",
+            "to": "Kusha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kushanábha is son of Kusha"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Vasishtha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King Vishvámitra visited Vasishtha's hermitage"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Vishvámitra's visit to Vasishtha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King led army to Vasishtha's abode"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Vishvámitra's visit to Vasishtha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha welcomed King Vishvámitra"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Vasishtha's hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King reached Vasishtha's pure abode"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Vasishtha's hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vasishtha dwells in blessed retreat"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha is son of Brahmá"
+            }
+        },
+        {
+            "from": "Bálakhilyas",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bálakhilyas produced from hair of Brahmá"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Dapple-skin cow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha owns Dapple-skin cow of plenty"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Vasishtha's feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha prayed to share banquet with king"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Vasishtha's feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King and army banqueted, nobly fed"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Vasishtha's feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Cow prepared entire banquet with all delicacies"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Dapple-skin cow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King tried to buy cow for hundred thousand kine, then take by force"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha refused to give cow, fought king"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King tried to drag cow away by force"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Cow created armies to fight king"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Pahlavas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Pahlavas to fight"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Yavans",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Yavans by her desire"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Shakas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Shakas, fierce and dire"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Kámbojas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Kámbojas from her lowing"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Barbars",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Barbars from her udder"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Mlechchhas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Mlechchhas from her pores"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Kirátas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow created Kirátas from hair-producing cells"
+            }
+        },
+        {
+            "from": "Dapple-skin cow",
+            "to": "Hárítas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hárítas streamed forth from cow"
+            }
+        },
+        {
+            "from": "Pahlavas",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Pahlavas fought but were slain by king"
+            }
+        },
+        {
+            "from": "Yavans",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Yavans overspread ground, fell to king's weapons"
+            }
+        },
+        {
+            "from": "Shakas",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shakas fought, fell to king's weapons"
+            }
+        },
+        {
+            "from": "Kámbojas",
+            "to": "Battle for Dapple-skin",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kámbojas fell to Vishvámitra's darts"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Hundred sons of Vishvámitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King is father of hundred sons"
+            }
+        },
+        {
+            "from": "Hundred sons of Vishvámitra",
+            "to": "Death of hundred sons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hundred sons rushed on Vasishtha, burnt to ashes"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Death of hundred sons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha burnt hundred sons with one glance"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "One remaining son",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King gave empire to his only surviving son"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Vishvámitra's penance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King fled to Himálaya, performed stern penance"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Himálaya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King sought hermit-grove in Himálaya"
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Vishvámitra's penance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shiva appeared to grant boon"
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Shiva's boon",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shiva granted science of the bow to king"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Shiva's boon",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King requested and received science of bow"
+            }
+        },
+        {
+            "from": "Vishvámitra the King",
+            "to": "Science of the bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King received wondrous science with mystic art"
+            }
+        },
+        {
+            "from": "Renuka",
+            "to": "Bhrigu's child",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Renuka reconciled with Bhrigu's child like Ahalyá with Gautam"
+            }
+        },
+        {
+            "from": "Ashvins",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma and Lakshmana's figures compared to Ashvins"
+            }
+        },
+        {
+            "from": "Ashvins",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Princes' figures show like Ashvins"
+            }
+        }
+    ]
+}

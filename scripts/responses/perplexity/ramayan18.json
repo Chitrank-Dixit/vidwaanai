@@ -1,0 +1,698 @@
+{
+    "entities": [
+        {
+            "name": "Nárāyana",
+            "type": "Deity",
+            "attributes": {
+                "description": "Heavenly Sire, God supreme sought by Ráma, besought as votary, blessed and aided"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Supreme God, Ráma worshipped in Vishnu's chapel, Madhu's conquering foe"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of Heaven, Immortals' King aided in war against demons, monarch of skies, compared to Vasishtha meeting Dasharatha"
+            }
+        },
+        {
+            "name": "Vrihaspati",
+            "type": "Deity",
+            "attributes": {
+                "description": "Priest of Gods, compared to Vasishtha rising to meet king"
+            }
+        },
+        {
+            "name": "Gods",
+            "type": "Deity",
+            "attributes": {
+                "description": "Immortals who fought demons, aided by Dasharatha in ancient war"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, eldest-born son to be consecrated, virtuous, grateful, pure, true, trained by holy fathers, dear to all, hero of bow, wise, prompt, warlike"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, lord of men, father seeking to consecrate Ráma, good king free from stain, fought demons, wounded and saved by Kaikeyí, promised two boons"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Ráma's mother, rival of Kaikeyí, scorned and defied by Kaikeyí, will gain power when Ráma consecrated"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, darling queen, large-eyed lady, daughter of princely line, mother of Bharat, saved Dasharatha in battle, proud, deceived by Manthará"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, son of Kaikeyí, lawful heir next to Ráma, sent to live with grandfather, dear child, meets for happier fate"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, mighty bow drawer, serves Ráma's cause with all his soul, cleaves to Ráma, friendship like Heavenly Twins"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, younger brother, bound to Bharat with heart and mind, loved Bharat, never leaves him"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's large-eyed wife, Videhan dame, spouse who fasted with Ráma, friends will exult"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Priest, reverend king of men, ordained fast for Ráma, honored by king, advanced like white cloud-peak, like Vrihaspati"
+            }
+        },
+        {
+            "name": "Manthará",
+            "type": "Character",
+            "attributes": {
+                "description": "Slave-born handmaid, hump-back maid, bred with Kaikeyí, artful, treacherous, skilled to deceive, wicked, sin in thoughts, possessed thousand wiles"
+            }
+        },
+        {
+            "name": "Ráma's nurse",
+            "type": "Character",
+            "attributes": {
+                "description": "Attendant in white attire, joy-expanded eye, told glad tidings to Manthará"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Minister mentioned in context"
+            }
+        },
+        {
+            "name": "Nahush",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lunar race, father of Yayáti, consecrated son as wise relate"
+            }
+        },
+        {
+            "name": "Yayáti",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Nahush, joyed to consecrate as king"
+            }
+        },
+        {
+            "name": "Ikshváku",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient ancestor, royal race thrown grace by Dasharatha"
+            }
+        },
+        {
+            "name": "Zambara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon lord of Vaijayanta city, flag displayed hugest sea monster, lord of hundred wiles, fought Gods, possessed thousand wiles"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal city, capital, decorated with banners, watered streets, flowers, filled with crowds, like Indra's city fair, realm to be swayed by Ráma"
+            }
+        },
+        {
+            "name": "Vishnu's chapel",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred place where Ráma reclined on bed of holy grass seeking supreme God"
+            }
+        },
+        {
+            "name": "Mourner's chamber",
+            "type": "Place",
+            "attributes": {
+                "description": "Chamber of wrath, growlery, small dark unfurnished room for offended ladies, where Kaikeyí went"
+            }
+        },
+        {
+            "name": "Dandaka",
+            "type": "Place",
+            "attributes": {
+                "description": "Southern land with mighty wilds where war with demons raged"
+            }
+        },
+        {
+            "name": "Vaijayanta",
+            "type": "Place",
+            "attributes": {
+                "description": "City swayed by demon Zambara"
+            }
+        },
+        {
+            "name": "Paradise",
+            "type": "Place",
+            "attributes": {
+                "description": "Heavenly realm, nymph compared to Kaikeyí"
+            }
+        },
+        {
+            "name": "Kailása",
+            "type": "Place",
+            "attributes": {
+                "description": "High hill, Manthará's descent compared to its head"
+            }
+        },
+        {
+            "name": "Consecration rite",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ceremony to make Ráma heir, people-honored festival, solemn rite on Pushya's favoring hour, when moon and Pushya meet"
+            }
+        },
+        {
+            "name": "Fast",
+            "type": "Concept",
+            "attributes": {
+                "description": "Vow ordained by rule and text for Ráma and Sítá, preparation for consecration, fasted till morning light"
+            }
+        },
+        {
+            "name": "Holy grass",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sacred grass spread on bed in Vishnu's chapel"
+            }
+        },
+        {
+            "name": "Holy oil",
+            "type": "Concept",
+            "attributes": {
+                "description": "Brimming cup lifted on Ráma's head, offering to heavenly Sire"
+            }
+        },
+        {
+            "name": "Morning rites",
+            "type": "Concept",
+            "attributes": {
+                "description": "Hymn ordained for dawn, performed by Ráma"
+            }
+        },
+        {
+            "name": "Two boons",
+            "type": "Concept",
+            "attributes": {
+                "description": "Two prayers/gifts promised by Dasharatha to Kaikeyí for saving his life in battle, reserved for season due"
+            }
+        },
+        {
+            "name": "Pushya",
+            "type": "Concept",
+            "attributes": {
+                "description": "Favoring hour, lunar asterism, auspicious time for consecration"
+            }
+        },
+        {
+            "name": "Fourteen years exile",
+            "type": "Concept",
+            "attributes": {
+                "description": "Twice seven years/five and nine years banishment to wild demanded for Ráma"
+            }
+        },
+        {
+            "name": "Heavenly Twins",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine pair whose friendship wins fame, compared to Ráma-Lakshmana bond"
+            }
+        },
+        {
+            "name": "Ráma's consecration preparation",
+            "type": "Event",
+            "attributes": {
+                "description": "Eve of ceremony, Ráma fasted, bathed, worshipped, city decorated, crowds gathered"
+            }
+        },
+        {
+            "name": "City decoration",
+            "type": "Event",
+            "attributes": {
+                "description": "Ayodhyá adorned with banners, flowers, garlands, watered streets, temples gleaming, lamps erected"
+            }
+        },
+        {
+            "name": "Vasishtha's visit",
+            "type": "Event",
+            "attributes": {
+                "description": "Priest came to palace, met king, ordained fast, departed honored"
+            }
+        },
+        {
+            "name": "Manthará's discovery",
+            "type": "Event",
+            "attributes": {
+                "description": "Hump-back climbed terrace, saw decorated city, learned of Ráma's consecration from nurse"
+            }
+        },
+        {
+            "name": "Manthará's scheme",
+            "type": "Event",
+            "attributes": {
+                "description": "Wicked maid plotted to turn Kaikeyí against Ráma, advised claiming two boons"
+            }
+        },
+        {
+            "name": "Ancient demon war",
+            "type": "Event",
+            "attributes": {
+                "description": "Gods fought demons, Dasharatha aided Indra, battled in Dandaka wilds, wounded and saved by Kaikeyí"
+            }
+        },
+        {
+            "name": "Kaikeyí's retreat to mourner's chamber",
+            "type": "Event",
+            "attributes": {
+                "description": "Queen went to chamber of wrath, lay prostrate, removed ornaments, prepared to manipulate king"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is eldest-born son to be consecrated by father"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is son of Kausalyá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is husband of Sítá, large-eyed Videhan wife"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma more dutiful to Kaikeyí than to his mother, dear to her soul"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is darling son of Kaikeyí"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is son of Dasharatha, sent to grandfather"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana serves Ráma with all soul, cleaves to him, friendship like Heavenly Twins"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna bound to Bharat with heart and mind, loved him, never leaves"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is darling queen, favorite wife, saved Dasharatha in battle"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá is queen, consort, mother of heir"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá is rival of Kaikeyí, scorned and defied by her"
+            }
+        },
+        {
+            "from": "Manthará",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manthará is slave-born handmaid bred with Kaikeyí, close in friendship"
+            }
+        },
+        {
+            "from": "Manthará",
+            "to": "Manthará's discovery",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Manthará climbed terrace, saw decorations, questioned nurse"
+            }
+        },
+        {
+            "from": "Ráma's nurse",
+            "to": "Manthará's discovery",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Nurse told Manthará about Ráma's consecration"
+            }
+        },
+        {
+            "from": "Manthará",
+            "to": "Manthará's scheme",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Manthará plotted against Ráma, advised Kaikeyí to claim boons"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Manthará's scheme",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyí listened to and accepted Manthará's evil counsel"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Nárāyana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma besought Nárāyana as votary, every thought sought supreme God"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma worshipped in Vishnu's chapel, praised Madhu's foe"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Fast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma faithful to vows, fasted till morning light"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Fast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá fasted with Ráma as his spouse"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Fast",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha ordained fast by rule and text"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vishnu's chapel",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma reclined in Vishnu's chapel on bed of holy grass"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's consecration preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma bathed, worshipped, fasted, prepared for consecration"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ráma's consecration preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha planned to consecrate Ráma as heir tomorrow"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Ráma's consecration preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha ordained rites and fast for consecration"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Consecration rite",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King will consecrate heir in Pushya's favoring hour"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Consecration rite",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma to be raised to royal power by ceremony"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Dasharatha rules Ayodhyá, resides in palace"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma dwells in house in Ayodhyá, to rule realm"
+            }
+        },
+        {
+            "from": "Manthará",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Manthará surveyed decorated Ayodhyá from terrace"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Mourner's chamber",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kaikeyí went to mourner's chamber to manipulate king"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ancient demon war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha fought demons to aid Indra, wounded and saved"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ancient demon war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyí went to war with Dasharatha, saved and restored him"
+            }
+        },
+        {
+            "from": "Zambara",
+            "to": "Ancient demon war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Zambara was demon lord fighting Gods"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ancient demon war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Indra was Immortals' King aided by Dasharatha"
+            }
+        },
+        {
+            "from": "Gods",
+            "to": "Ancient demon war",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gods fought demons in ancient battle"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Two boons",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha promised two boons to Kaikeyí for saving his life"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Two boons",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí reserved boons for future need, now to claim them"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Kaikeyí's retreat to mourner's chamber",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyí went to chamber of wrath to deceive king"
+            }
+        },
+        {
+            "from": "Manthará",
+            "to": "Kaikeyí's retreat to mourner's chamber",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Manthará advised and accompanied Kaikeyí to chamber"
+            }
+        },
+        {
+            "from": "Manthará",
+            "to": "Fourteen years exile",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manthará advised demanding Ráma's fourteen year exile"
+            }
+        },
+        {
+            "from": "Nahush",
+            "to": "Yayáti",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nahush is father of Yayáti, consecrated him"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ikshváku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha throws grace on Ikshváku's royal race"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Vasishtha's visit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha came to palace, met king, reported task done"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Vasishtha's visit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha left throne to greet Vasishtha, questioned him"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha is reverend priest serving king, honored by him"
+            }
+        }
+    ]
+}

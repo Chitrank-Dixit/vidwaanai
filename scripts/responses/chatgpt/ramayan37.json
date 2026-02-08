@@ -1,0 +1,230 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of King Dasaratha, living in exile at Chitrakuta with Sita and Lakshmana."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama; journeys to Chitrakuta to meet him and later bids farewell."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of King Janaka of Videha."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, devoted companion in exile."
+            }
+        },
+        {
+            "name": "Bharadvaja",
+            "type": "Character",
+            "attributes": {
+                "description": "Great hermit-sage who guides Bharata toward Rama’s retreat."
+            }
+        },
+        {
+            "name": "Vasistha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal sage accompanying Bharata’s host."
+            }
+        },
+        {
+            "name": "Mandakini",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river flowing beside Chitrakuta."
+            }
+        },
+        {
+            "name": "Chitrakuta",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain and forest region where Rama resides during exile."
+            }
+        },
+        {
+            "name": "Forest Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Period of Rama’s life spent in the forest, bound by his vow."
+            }
+        },
+        {
+            "name": "Bharata’s Farewell",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharata meets Rama at Chitrakuta and departs after reverent dialogue."
+            }
+        },
+        {
+            "name": "Magic Shaft",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama releases a mystically empowered arrow against the crow that offended Sita."
+            }
+        },
+        {
+            "name": "Crow",
+            "type": "Character",
+            "attributes": {
+                "description": "A bird empowered by the gods that harasses Sita and is pursued by Rama’s enchanted arrow."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, referenced metaphorically in comparisons."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "God compared to Rama while roaming with Sita, likened to Shiva with Uma."
+            }
+        },
+        {
+            "name": "Uma",
+            "type": "Character",
+            "attributes": {
+                "description": "Consort of Shiva, referenced metaphorically alongside Rama and Sita."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty guiding Rama’s actions and exile."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharata",
+            "to": "Bharadvaja",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Bharata respectfully asks the sage for directions to Rama’s retreat."
+            }
+        },
+        {
+            "from": "Bharadvaja",
+            "to": "Chitrakuta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The sage describes Chitrakuta as the place where Rama resides."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Chitrakuta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama lives at Chitrakuta during his exile."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Mandakini",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama shows the Mandakini river to Sita and praises its beauty."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Forest Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama dwells in the forest fulfilling his vow."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Forest Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sita willingly accompanies Rama in exile."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Forest Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana lives with Rama in the forest."
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Bharata’s Farewell",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharata meets Rama at Chitrakuta and later departs."
+            }
+        },
+        {
+            "from": "Bharata’s Farewell",
+            "to": "Chitrakuta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The farewell takes place at Chitrakuta."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Magic Shaft",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama releases a mystic arrow to protect Sita."
+            }
+        },
+        {
+            "from": "Magic Shaft",
+            "to": "Crow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The enchanted arrow pursues the crow that offended Sita."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama’s exile and conduct are guided by righteous duty."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Shiva",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Rama is likened to Shiva roaming with Uma while wandering with Sita."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Uma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Sita is compared to Uma in metaphorical imagery."
+            }
+        }
+    ]
+}

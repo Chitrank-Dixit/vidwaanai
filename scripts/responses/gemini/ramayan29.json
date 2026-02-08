@@ -1,0 +1,133 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Daśaratha and heir of Ikshváku, currently undergoing fourteen years of banishment."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Janak and wife of Ráma; also referred to as the Maithil dame and Videhan lady."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sumitrá and loyal brother to Ráma, serving as his protector during the exile."
+            }
+        },
+        {
+            "name": "Bharadvája",
+            "type": "Character",
+            "attributes": {
+                "description": "A high-souled hermit residing at Prayág near the confluence of the Gangá and Yamuná."
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Goddess of the holy stream, spouse of the God o'er floods, originating from Brahmá's sphere."
+            }
+        },
+        {
+            "name": "Kálindí",
+            "type": "Deity",
+            "attributes": {
+                "description": "Another name for the river Yamuná, personified as the Sun-born Goddess."
+            }
+        },
+        {
+            "name": "Chitrakúma",
+            "type": "Place",
+            "attributes": {
+                "description": "A holy mountain with varied peaks, located ten leagues from Prayág, chosen as Ráma's forest home."
+            }
+        },
+        {
+            "name": "Prayág",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred confluence where the Yamuná and Gangá rivers meet."
+            }
+        },
+        {
+            "name": "Banishment",
+            "type": "Event",
+            "attributes": {
+                "duration": "14 years",
+                "description": "The forced exile of Ráma from Ayodhyá due to Kaikeyí's wish."
+            }
+        },
+        {
+            "name": "Scripture",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred Hindu texts (Vedas) prescribing religious rites and social duties."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Daśaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is the obedient son fulfilling his father's royal will."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá offers prayers and vows of sacrifice to the Goddess for Ráma's safe return."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Prayág",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The trio visits Prayág to seek counsel from Saint Bharadvája."
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Chitrakúma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The hermit recommends the holy mount of Chitrakúma as a suitable home for the exiles."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Banishment",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma accepts forest life to uphold duty and his father's honor."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Sumitrá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "LakshmaG is the son of Sumitrá, sent to Ayodhyá in his brother's lament."
+            }
+        },
+        {
+            "from": "Gangá",
+            "to": "Brahmá",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The waves of the Gangá are said to descend from Brahmá's sphere."
+            }
+        }
+    ]
+}

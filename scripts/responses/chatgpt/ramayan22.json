@@ -1,0 +1,207 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Dasharatha, embodiment of dharma, determined to obey his father's command and accept exile."
+            }
+        },
+        {
+            "name": "Kausalya",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief queen of Dasharatha and mother of Rama, overwhelmed by grief at Rama’s exile."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, fiercely loyal, advocates resistance to the exile decree."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, bound by oath and source of the exile command."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha, mother of Bharata, whose demands lead to Rama’s banishment."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha and Kaikeyi, intended beneficiary of the throne during Rama’s exile."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death, referenced in Kausalya’s lament as one who withholds death."
+            }
+        },
+        {
+            "name": "Fate",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic force governing events, repeatedly invoked by Rama to explain suffering and exile."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty; supreme principle guiding Rama’s obedience to his father."
+            }
+        },
+        {
+            "name": "Obedience to Father",
+            "type": "Concept",
+            "attributes": {
+                "description": "Filial duty emphasized by Rama as overriding personal grief and royal power."
+            }
+        },
+        {
+            "name": "Rama’s Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Decision for Rama to leave Ayodhya and live in the forest as a hermit."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of the Ikshvaku dynasty and Rama’s homeland."
+            }
+        },
+        {
+            "name": "Forest Exile",
+            "type": "Place",
+            "attributes": {
+                "description": "The wilderness where Rama is commanded to live as an ascetic."
+            }
+        },
+        {
+            "name": "Parasurama",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Jamadagni, cited by Rama as an exemplar of obedience to paternal command."
+            }
+        },
+        {
+            "name": "Sons of Sagara",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancestors cited by Rama who obeyed their father’s command even at great cost."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Kausalya",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mother grieving over her son’s impending exile."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother urging Rama to resist exile and seize the throne."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Rama’s Exile",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "His command, bound by oath, causes Rama’s banishment."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama’s Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama accepts and prepares for exile."
+            }
+        },
+        {
+            "from": "Rama’s Exile",
+            "to": "Forest Exile",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The exile is to be lived in the forest."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama declares duty and righteousness as supreme over all else."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Obedience to Father",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama insists he must obey his father’s word."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Fate",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama attributes Kaikeyi’s actions and his exile to Fate."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Fate",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana rejects Fate as justification and asserts human effort."
+            }
+        },
+        {
+            "from": "Kausalya",
+            "to": "Yama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "She laments that Yama does not take her life despite her suffering."
+            }
+        },
+        {
+            "from": "Parasurama",
+            "to": "Obedience to Father",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cited by Rama as an example of filial obedience."
+            }
+        },
+        {
+            "from": "Sons of Sagara",
+            "to": "Obedience to Father",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ancient exemplars of obedience invoked by Rama."
+            }
+        }
+    ]
+}

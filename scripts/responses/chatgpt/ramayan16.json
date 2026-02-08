@@ -1,0 +1,277 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of Dasharatha, prince of Ayodhya, later revered as an incarnation of Vishnu."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of King Janaka of Videha, bride of Rama."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, husband of Urmila."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha and Kaikeyi, husband of Mandavi."
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest son of Dasharatha, husband of Shrutakirti."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, Lakshmana, Bharata, and Shatrughna."
+            }
+        },
+        {
+            "name": "Janaka",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Videha (Mithila), father of Sita."
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal priest of Ayodhya and chief sage who officiated the nuptials."
+            }
+        },
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Great sage and former king, witness to Rama’s marriage and later events."
+            }
+        },
+        {
+            "name": "Parashurama",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Jamadagni, warrior-sage armed with an axe, challenger of Rama."
+            }
+        },
+        {
+            "name": "Jamadagni",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of Parashurama, descendant of Bhrigu."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god; Rama is compared to Vishnu with Lakshmi."
+            }
+        },
+        {
+            "name": "Lakshmi",
+            "type": "Deity",
+            "attributes": {
+                "description": "Consort of Vishnu; Sita is likened to her."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "God whose bow was once used to destroy Tripura."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, referenced as a peer in valor."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Vedic deity to whom Rama later returns the bow."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city ruled by Dasharatha."
+            }
+        },
+        {
+            "name": "Mithila",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Janaka in Videha."
+            }
+        },
+        {
+            "name": "Videha",
+            "type": "Place",
+            "attributes": {
+                "description": "Region ruled by King Janaka."
+            }
+        },
+        {
+            "name": "Mahendra Mountain",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain where Parashurama dwells after defeat."
+            }
+        },
+        {
+            "name": "Nuptials of Rama",
+            "type": "Event",
+            "attributes": {
+                "description": "Marriage ceremony of Rama with Sita and of his brothers with Janaka’s nieces."
+            }
+        },
+        {
+            "name": "Challenge of Parashurama",
+            "type": "Event",
+            "attributes": {
+                "description": "Parashurama confronts Rama and challenges him with Vishnu’s bow."
+            }
+        },
+        {
+            "name": "Breaking of the Bow",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama strings and controls Vishnu’s bow, humbling Parashurama."
+            }
+        },
+        {
+            "name": "Return to Ayodhya",
+            "type": "Event",
+            "attributes": {
+                "description": "Dasharatha and his sons return to Ayodhya after the marriages."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty exemplified by Rama in conduct and kingship."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "They are united in marriage during the nuptial rites."
+            }
+        },
+        {
+            "from": "Nuptials of Rama",
+            "to": "Mithila",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The wedding ceremonies take place in Janaka’s kingdom."
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Nuptials of Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He officiates the marriage rituals."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Nuptials of Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He assists Vasishtha in the marriage rites."
+            }
+        },
+        {
+            "from": "Janaka",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janaka gives Sita as bride to Rama."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Return to Ayodhya",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He leads his sons and daughters-in-law back to Ayodhya."
+            }
+        },
+        {
+            "from": "Parashurama",
+            "to": "Challenge of Parashurama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "He challenges Rama to string Vishnu’s bow."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Breaking of the Bow",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama strings and controls the divine bow."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Rama is explicitly compared to Vishnu with Lakshmi at his side."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Lakshmi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sita is likened to Lakshmi as Rama’s divine consort."
+            }
+        },
+        {
+            "from": "Parashurama",
+            "to": "Mahendra Mountain",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "After his defeat, Parashurama retires to Mahendra."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama exemplifies righteousness, humility, and duty throughout these events."
+            }
+        }
+    ]
+}

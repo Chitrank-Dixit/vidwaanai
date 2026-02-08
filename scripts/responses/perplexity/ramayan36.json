@@ -1,0 +1,1167 @@
+{
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of Gods, Ráma compared to Indra's peer, one of three who guard worlds, sphere from which light comes, Apsarases stand by his hand"
+            }
+        },
+        {
+            "name": "Vishvakarma",
+            "type": "Deity",
+            "attributes": {
+                "description": "God who forms and fashions all, prayed to aid hospitable feast, art raised amazing structures"
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "One of three Gods who guard worlds, called by hermit"
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "One of three Gods who guard worlds, called by hermit"
+            }
+        },
+        {
+            "name": "Kuvera",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of wealth, one who guards worlds, garden in Northern Kuru, sent twenty thousand nymphs divine"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator deity, Apsarases stand by his hand"
+            }
+        },
+        {
+            "name": "Soma/Moon",
+            "type": "Deity",
+            "attributes": {
+                "description": "Moon deity called to give noblest food to feed multitude"
+            }
+        },
+        {
+            "name": "Háhá",
+            "type": "Character",
+            "attributes": {
+                "description": "Celestial minstrel called by hermit to feast"
+            }
+        },
+        {
+            "name": "Huhú",
+            "type": "Character",
+            "attributes": {
+                "description": "Celestial minstrel called by hermit"
+            }
+        },
+        {
+            "name": "Vishvávasu",
+            "type": "Character",
+            "attributes": {
+                "description": "Sweet celestial minstrel called to feast"
+            }
+        },
+        {
+            "name": "Apsarases",
+            "type": "Character",
+            "attributes": {
+                "description": "Heavenly nymphs, bright ones, danced, wives of Gods, twenty thousand from Nandan's shades came"
+            }
+        },
+        {
+            "name": "Alambúshá",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras of beauty rare, fairest maid who danced to Bharat"
+            }
+        },
+        {
+            "name": "Tangled Hair Charmer",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras with distinctive tangled hair"
+            }
+        },
+        {
+            "name": "Ghritáchí",
+            "type": "Character",
+            "attributes": {
+                "description": "Fair Apsaras"
+            }
+        },
+        {
+            "name": "Vishváchi",
+            "type": "Character",
+            "attributes": {
+                "description": "Fair Apsaras"
+            }
+        },
+        {
+            "name": "Hemá",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras sweet to view"
+            }
+        },
+        {
+            "name": "Bhímá",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras sweet to view"
+            }
+        },
+        {
+            "name": "Nágadantá",
+            "type": "Character",
+            "attributes": {
+                "description": "Lovely Apsaras"
+            }
+        },
+        {
+            "name": "Mishrakeshi",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras bright to view who danced"
+            }
+        },
+        {
+            "name": "Ramaná",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras who danced"
+            }
+        },
+        {
+            "name": "Punjriká",
+            "type": "Character",
+            "attributes": {
+                "description": "Apsaras who danced"
+            }
+        },
+        {
+            "name": "Tumburu",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Gandharva throng, led celestial strain, ravished Bharat with song"
+            }
+        },
+        {
+            "name": "Nárad",
+            "type": "Character",
+            "attributes": {
+                "description": "Gandharva king who came and sang"
+            }
+        },
+        {
+            "name": "Gopa",
+            "type": "Character",
+            "attributes": {
+                "description": "Gandharva who came"
+            }
+        },
+        {
+            "name": "Sutanu",
+            "type": "Character",
+            "attributes": {
+                "description": "Gandharva like radiant flame"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, high-souled hero, Kausalyá's son, foeman slayer, line's delight, roams in banishment, dwelling at Chitrakúta, lordly hero, duty-tried"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother with mighty arm, shares exile, arms quell foeman, tamer of foe, watched as sentinel all night, kept great bow strung"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife, dear consort, faithful, nobly good, tender, springs from Videha's ancient kings, adorned with ornaments"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, son of Raghu, Kaikeyí's son, strong-armed, dutiful, reverent, Ráma's faithful slave, lion-mettled, blameless son"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother brave, famous lord, lion-mettled, shares Bharat's exile"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, royal sire, dead, gained the skies, whose hand ruled paramount"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Bharat's mother, guilty, spoke words for Bharat's sake"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Ráma's mother, royal dame who came to boats"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, royal dame who came with Kausalyá"
+            }
+        },
+        {
+            "name": "Bharadvája",
+            "type": "Character",
+            "attributes": {
+                "description": "Great hermit, saint austere, glorious, self-restrained, holy might preeminent, proper tone ordained, deep meditation bent, anchorite"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Household priest, good saint, walked before Bharat, led councillors, questioned hermit's welfare"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Charioteer, one of three who paid evening worship, with followers kept watch"
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Nishádas, lord of Shringavera, gave friendly aid, swift to do bidding, kindly questioning"
+            }
+        },
+        {
+            "name": "Ministers and councillors",
+            "type": "Character",
+            "attributes": {
+                "description": "Household officers, sat by degrees from chief to least"
+            }
+        },
+        {
+            "name": "Army captains",
+            "type": "Character",
+            "attributes": {
+                "description": "Captain of host and honoured men"
+            }
+        },
+        {
+            "name": "Ingudí Tree",
+            "type": "Place",
+            "attributes": {
+                "description": "Tree which lent shade, grass laid beneath, where Ráma and Sítá spent night together ere they went"
+            }
+        },
+        {
+            "name": "Gangá's bank",
+            "type": "Place",
+            "attributes": {
+                "description": "River bank where Raghu's son lay till break of day, army crossed pure wave"
+            }
+        },
+        {
+            "name": "Shringavera",
+            "type": "Place",
+            "attributes": {
+                "description": "Town of Guha, lord of Nishádas, from where boats prepared"
+            }
+        },
+        {
+            "name": "Prayága",
+            "type": "Place",
+            "attributes": {
+                "description": "Famous wood where army stood in auspicious hour after crossing Gangá"
+            }
+        },
+        {
+            "name": "Bharadvája's hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Holy dwelling, best of saints' abode, hermit's grove, holy shade, chapel where sacred fire burns"
+            }
+        },
+        {
+            "name": "Chitrakúta",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain heights where Ráma's dwelling lies"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal city, capital, land protected by kingly sway, kingdom, royal seat"
+            }
+        },
+        {
+            "name": "Dandaka forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Wilderness where Ráma roams in banishment"
+            }
+        },
+        {
+            "name": "Northern Kuru",
+            "type": "Place",
+            "attributes": {
+                "description": "Happy land in remote north, inhabitants enjoy natural perfection with complete happiness, no vicissitude/death/fear, Kuvera's garden lies there"
+            }
+        },
+        {
+            "name": "Nandan's grove/shades",
+            "type": "Place",
+            "attributes": {
+                "description": "Blissful celestial garden, shade of trees where Gods take ease, twenty thousand maids came from"
+            }
+        },
+        {
+            "name": "Chaitraratha's groves",
+            "type": "Place",
+            "attributes": {
+                "description": "Celestial gardens whose chaplets bloomed in Prayága's shade"
+            }
+        },
+        {
+            "name": "Malaya hills",
+            "type": "Place",
+            "attributes": {
+                "description": "Scented mountain from which delicious cooling gales came"
+            }
+        },
+        {
+            "name": "Dardar hills",
+            "type": "Place",
+            "attributes": {
+                "description": "Scented mountain from which gales came throwing auspicious fragrance"
+            }
+        },
+        {
+            "name": "Evening worship",
+            "type": "Concept",
+            "attributes": {
+                "description": "Three paid with ruled lips devoutly staid after sipping water"
+            }
+        },
+        {
+            "name": "Night vigil",
+            "type": "Concept",
+            "attributes": {
+                "description": "Lakshmana kept watch all night as sentinel, bow strung, hand gloved, arm braced, quivers hung"
+            }
+        },
+        {
+            "name": "Grass bed",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sacred grass heaps, tumbled where Ráma and Sítá lay, pleasant bed spread by Lakshmana, stamped with signs of limbs"
+            }
+        },
+        {
+            "name": "Bharat's grief",
+            "type": "Concept",
+            "attributes": {
+                "description": "Saw bed, lion-lord on bare earth, sudden fall from bliss, senses distraught like dream, desolate fate"
+            }
+        },
+        {
+            "name": "Bharat's vow of asceticism",
+            "type": "Concept",
+            "attributes": {
+                "description": "From this hour nights pass on earth/grass, eat only fruit/roots, wear bark coat and matted hair, remain for Ráma's term"
+            }
+        },
+        {
+            "name": "Army crossing",
+            "type": "Concept",
+            "attributes": {
+                "description": "Five hundred boats moored, mystic signs raised, mighty bells hung, some swam with pitchers, rafts, arms"
+            }
+        },
+        {
+            "name": "Bharadvája's feast",
+            "type": "Concept",
+            "attributes": {
+                "description": "Mighty banquet, hospitable entertainment, magical celestial feast with divine food, drink, dancers, musicians"
+            }
+        },
+        {
+            "name": "Vishvakarma's magic",
+            "type": "Concept",
+            "attributes": {
+                "description": "Art raised structures: five leagues smooth ground, mansions with halls, palace high as cloud, throne, trees blooming"
+            }
+        },
+        {
+            "name": "Celestial invocation",
+            "type": "Concept",
+            "attributes": {
+                "description": "Hermit prayed to Gods, minstrels, rivers, Apsarases, all came in manifest semblance"
+            }
+        },
+        {
+            "name": "Divine revelry",
+            "type": "Concept",
+            "attributes": {
+                "description": "Army delirious with delight, soldiers cried ne'er return to Ayodhyá, exulting in lawless glee, heaven for perfect bliss"
+            }
+        },
+        {
+            "name": "Night at Ingudí Tree",
+            "type": "Event",
+            "attributes": {
+                "description": "Three paid evening worship, Lakshmana spread grass bed, Ráma and Sítá lay reclining, Lakshmana kept vigil all night"
+            }
+        },
+        {
+            "name": "Bharat visits bed site",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat with friends and mothers saw tree and bed, beheld tumbled grass, particles of gold, silken threads, lamented"
+            }
+        },
+        {
+            "name": "Dawn at Gangá",
+            "type": "Event",
+            "attributes": {
+                "description": "Raghu's son woke with earliest light, spoke to Shatrughna, Guha came with kindly questioning"
+            }
+        },
+        {
+            "name": "Boat preparation",
+            "type": "Event",
+            "attributes": {
+                "description": "Guha sped to town, told kinsmen, five hundred boats ready moored, mystic signs raised, bells hung"
+            }
+        },
+        {
+            "name": "Crossing Gangá",
+            "type": "Event",
+            "attributes": {
+                "description": "Army boarded boats, Bharat/Shatrughna/queens/priest/elders first, boats manned by Guha's servants, swimming elephants appeared, all crossed"
+            }
+        },
+        {
+            "name": "Arrival at Prayága",
+            "type": "Event",
+            "attributes": {
+                "description": "Army stood in famous wood in auspicious hour, prince addressed weary men to rest"
+            }
+        },
+        {
+            "name": "Approaching Bharadvája",
+            "type": "Event",
+            "attributes": {
+                "description": "Prince saw dwelling league away, left multitude, went on foot with two linen robes, Vasishtha walked before"
+            }
+        },
+        {
+            "name": "Meeting Bharadvája",
+            "type": "Event",
+            "attributes": {
+                "description": "Hermit saw Vasishtha drawing near, gave grace-gift water and fruit, questioned in order, Bharat paid reverence due"
+            }
+        },
+        {
+            "name": "Bharadvája's questioning",
+            "type": "Event",
+            "attributes": {
+                "description": "Saint asked why Bharat came, if to harm Ráma, enjoy realm without thorn, Bharat sobbed denied"
+            }
+        },
+        {
+            "name": "Bharadvája's approval",
+            "type": "Event",
+            "attributes": {
+                "description": "Hermit pressed by Vasishtha and priests replied graciously, granted prayer, told Chitrakúta location, urged stay for feast"
+            }
+        },
+        {
+            "name": "Invocation of deities",
+            "type": "Event",
+            "attributes": {
+                "description": "Hermit prayed to Vishvakarma, three world-guards, streams, minstrels, Apsarases, all came in manifest semblance"
+            }
+        },
+        {
+            "name": "Celestial manifestations",
+            "type": "Event",
+            "attributes": {
+                "description": "Delicious gales blew, immortal flowers fell, heavenly drums sounded, Apsarases danced, minstrels sang"
+            }
+        },
+        {
+            "name": "Magical transformation",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishvakarma's art raised structures: five leagues level ground, fruit trees, streams, mansions, palace high as cloud"
+            }
+        },
+        {
+            "name": "The great feast",
+            "type": "Event",
+            "attributes": {
+                "description": "Army amazed and delighted, twenty thousand nymphs served, Gandharvas sang, danced, all fed with celestial food"
+            }
+        },
+        {
+            "name": "Night of revelry",
+            "type": "Event",
+            "attributes": {
+                "description": "Army spent night in joy, entranced, soldiers cried to stay forever, exulting in lawless glee, seemed like dream"
+            }
+        },
+        {
+            "name": "Morning departure",
+            "type": "Event",
+            "attributes": {
+                "description": "Minstrels/streams/dames returned, Bharat with morning's light drew near hermit, questioned if night content"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Night at Ingudí Tree",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma with Lakshmana and Sumantra paid evening worship, lay on grass bed"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Night at Ingudí Tree",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana brought sacred grass, spread bed, bathed feet, kept vigil all night as sentinel"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Night at Ingudí Tree",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Faithful Sítá lay reclining by Ráma on pleasant bed"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Night at Ingudí Tree",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Charioteer one of three who paid evening worship, kept watch with followers"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ingudí Tree",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Prince spent night with Sítá under tree that lent shade"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Night vigil",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother kept great bow strung, hand gloved, arm braced, quivers hung, watched as sentinel"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat visits bed site",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince with friends and peers went to tree, saw bed Ráma pressed, lamented"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Bharat visits bed site",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen mother with Sumitrá came to see bed"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Bharat visits bed site",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen came with Kausalyá to see site"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's grief",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Prince beheld tumbled grass, particles of gold, silken threads, lamented sudden fall"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's vow of asceticism",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "From this hour nights on earth/grass, eat fruit/roots, wear bark/matted hair, remain for Ráma's term"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dawn at Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Son of Raghu lay on Gangá's bank till break of day, woke with earliest light"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Dawn at Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother addressed by Ráma to rise, said remembering Ráma sleepless lie"
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Dawn at Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Nishádas' king came with kindly questioning about night and army's ease"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dawn at Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma's faithful slave answered king: night sweetly passed, highly honored"
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Boat preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "King swift to do bidding, sped to town, told kinsmen, five hundred boats ready moored"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Crossing Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince swiftly sprang on board with Shatrughna"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Crossing Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Famous lord boarded with Bharat"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Crossing Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen with many royal dames came to boats"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Crossing Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen came with Kausalyá and royal dames"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Crossing Gangá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Household priest went first in place with elders and Bráhman race"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Gangá's bank",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Prince crossed pure Gangá's wave with army's help"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Arrival at Prayága",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Army in auspicious hour stood in famous wood, prince addressed weary men"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Prayága",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Prince arrived at famous wood after crossing Gangá"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Approaching Bharadvája",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince saw dwelling league away, left multitude, went on foot, Vasishtha walked before"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Approaching Bharadvája",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Good saint walked before Bharat to hermitage"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Meeting Bharadvája",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saint austere saw Vasishtha drawing near, gave grace-gift, fruit, questioned"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Meeting Bharadvája",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince paid reverence due, questioned about Ayodhyá, received welcome"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Bharadvája's hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Glorious hermit dwelling in holy shade"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Bharadvája's questioning",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saint asked why Bharat came, if to harm Ráma, love of Ráma moved breast"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharadvája's questioning",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince with sobbing voice tearful eye sadly replied: lost if heart attainted, ne'er such crime proceed"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharadvája's questioning",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hermit asked if Bharat would harm Ráma, enjoy realm without thorn"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Bharadvája's approval",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hermit pressed by Vasishtha replied graciously: worthy deed, true son, granted prayer"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Bharadvája's approval",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saint pressed hermit along with gathered priests"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Chitrakúta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hermit told Bharat: where Chitrakúta's heights arise thy brother's dwelling lies"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hermit prayed to Vishvakarma, world-guards, streams, minstrels, Apsarases"
+            }
+        },
+        {
+            "from": "Vishvakarma",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "God who forms all heard call to aid hospitable feast"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lord at head of three who guard worlds called to hermit's feast"
+            }
+        },
+        {
+            "from": "Yama",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "One of three world-guards called by hermit"
+            }
+        },
+        {
+            "from": "Varuna",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "One of three world-guards called"
+            }
+        },
+        {
+            "from": "Kuvera",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lord called, garden from Northern Kuru summoned"
+            }
+        },
+        {
+            "from": "Tumburu",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gandharva king called to lead celestial strain"
+            }
+        },
+        {
+            "from": "Apsarases",
+            "to": "Invocation of deities",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bright nymphs called with all their train"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Celestial manifestations",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lord of Gods came in manifest semblance"
+            }
+        },
+        {
+            "from": "Apsarases",
+            "to": "Celestial manifestations",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bright ones danced, twenty thousand from Nandan came"
+            }
+        },
+        {
+            "from": "Tumburu",
+            "to": "Celestial manifestations",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gandharva king with Nárad/Gopa/Sutanu ravished Bharat with song"
+            }
+        },
+        {
+            "from": "Alambúshá",
+            "to": "Celestial manifestations",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fairest maid danced to Bharat with graceful ease"
+            }
+        },
+        {
+            "from": "Vishvakarma",
+            "to": "Magical transformation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "God's art raised structures: five leagues smooth ground, fruit trees, mansions, palace"
+            }
+        },
+        {
+            "from": "Vishvakarma",
+            "to": "Vishvakarma's magic",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Art created amazing sights troops saw: level ground, trees, streams, mansions, palace high"
+            }
+        },
+        {
+            "from": "Kuvera",
+            "to": "Magical transformation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lord's garden from Northern Kuru summoned, wood rich in delights glorious"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "The great feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince drew near palace, passed within fair abode, sat on throne with chouri"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "The great feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Priest led way, councillors followed delighted and amazed"
+            }
+        },
+        {
+            "from": "Ministers and councillors",
+            "to": "The great feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Officers sat by degrees from chief to least"
+            }
+        },
+        {
+            "from": "Kuvera",
+            "to": "The great feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lord sent twenty thousand nymphs divine with celestial ornament"
+            }
+        },
+        {
+            "from": "Tumburu",
+            "to": "The great feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Gandharva with Nárad/Gopa/Sutanu ravished Bharat with song"
+            }
+        },
+        {
+            "from": "Alambúshá",
+            "to": "The great feast",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fairest maid danced with graceful ease"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Night of revelry",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince's army spent night in hermit's grove in joy and merriment"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Divine revelry",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Army delirious with delight, soldiers cried ne'er return to Ayodhyá, heaven for bliss"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's dear consort, faithful wife, lay reclining by him"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's brother who guards, tamer of foe, kept vigil for him"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is Ráma's faithful slave, seeks to lead him to royal seat, win lordly hero's grace"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Shatrughna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna is brother by Bharat's side, lion-mettled, will share exile"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is Bharat's mother whose guilty words he denies approving"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is Kausalyá's son, line's delight"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is son of royal sire, heir banished by father"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hermit knows where Ráma dwells at Chitrakúta with brother and wife"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Household priest walked before Bharat, led councillors"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Vasishtha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hermit saw good Vasishtha drawing near, was aware Dasharatha's son there"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Chitrakúta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Where heights arise thy brother's dwelling lies"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Prince roams in banishment in wilderness"
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Prayága",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Hermit's dwelling in famous wood"
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Shringavera",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King of Nishádas whose town provided boats"
+            }
+        },
+        {
+            "from": "Kuvera",
+            "to": "Northern Kuru",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord's garden lies in Northern Kuru, happy land in remote north"
+            }
+        },
+        {
+            "from": "Apsarases",
+            "to": "Nandan's grove/shades",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Twenty thousand maids came from Nandan's blissful shades"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Apsarases",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sweetest nymphs stand by Indra's hand"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Apsarases",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nymphs stand by Brahmá's hand"
+            }
+        }
+    ]
+}

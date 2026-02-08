@@ -1,0 +1,1203 @@
+{
+    "entities": [
+        {
+            "name": "Nárāyana",
+            "type": "Deity",
+            "attributes": {
+                "description": "Name of Vishnu, God of Gods, Lord Supreme, one who moved on primordial waters"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of Gods, Lord Supreme adored by all worlds, whose feet trod on Madhu, lotus-eyed deity"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The mighty Sire, self-existent Lord of all, who bestows every gift"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the Immortals, thunder-wielding deity, son of Aditi, father of Báli"
+            }
+        },
+        {
+            "name": "Sun",
+            "type": "Deity",
+            "attributes": {
+                "description": "Solar deity, father of Sugríva"
+            }
+        },
+        {
+            "name": "Vrihaspati",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preceptor of the Gods, regent of planet Jupiter, father of Tára"
+            }
+        },
+        {
+            "name": "Lord of Gold",
+            "type": "Deity",
+            "attributes": {
+                "description": "Kuvera, father of Gandhamádan"
+            }
+        },
+        {
+            "name": "Vishvakarma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Celestial architect, Indian Hephaestus, father of Nala"
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of Fire, father of Nila"
+            }
+        },
+        {
+            "name": "Ashvins",
+            "type": "Deity",
+            "attributes": {
+                "description": "Twin children of the Sun, physicians of Swarga/Indra's heaven, fathers of Dwivida and Mainda"
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Deity of the waters, father of Sushen"
+            }
+        },
+        {
+            "name": "Parjanya",
+            "type": "Deity",
+            "attributes": {
+                "description": "Rain god, sometimes confounded with Indra, father of Sarabh"
+            }
+        },
+        {
+            "name": "Wind God",
+            "type": "Deity",
+            "attributes": {
+                "description": "Father of Hanumán"
+            }
+        },
+        {
+            "name": "Garuda",
+            "type": "Deity",
+            "attributes": {
+                "description": "Bird and vehicle of Vishnu, sovereign of feathered race, being between man and bird"
+            }
+        },
+        {
+            "name": "Aditi",
+            "type": "Deity",
+            "attributes": {
+                "description": "Mother of the Gods, mother of Indra, lady of seventh lunar mansion Punarvasu"
+            }
+        },
+        {
+            "name": "Paulomí",
+            "type": "Deity",
+            "attributes": {
+                "description": "Consort of Indra, also called Shachí and Indrání"
+            }
+        },
+        {
+            "name": "Rávana",
+            "type": "Character",
+            "attributes": {
+                "description": "Fierce demon, ravener abhorred, cruel fiend, Immortal's dread, gained favor through penance, protected from all except man"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhyá, gracious king, high-souled monarch, childless prince who performed horse sacrifice, father chosen by Vishnu"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Universe's lord, prince adored by all worlds, incarnation of Vishnu, lotus-eyed, born to destroy Rávana, son of Kausalyá and Dasharatha"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha, mother of Ráma, received half the celestial nectar"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha, mother of Lakshmana and Shatrughna, received portion of nectar twice"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha, mother of Bharat, received half the residue of nectar"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kaikeyí, of truest valor, one fourth of Vishnu manifest, born under Pushya mansion"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sumitrá, twin of Shatrughna, of high emprise, devoted, sharer in Vishnu's essence"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sumitrá, twin of Lakshmana, devoted and true, sharer in Vishnu's essence"
+            }
+        },
+        {
+            "name": "Báli",
+            "type": "Character",
+            "attributes": {
+                "description": "Woodland hosts leader, high as Mahendra, Indra's child, cared for all monkeys/apes/bears"
+            }
+        },
+        {
+            "name": "Sugríva",
+            "type": "Character",
+            "attributes": {
+                "description": "Great monkey, offspring of the Sun, brother of Báli, endowed with Garuda's might"
+            }
+        },
+        {
+            "name": "Tára",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty monkey, offspring of Vrihaspati, matchless chieftain boast for wisdom of Vánar host"
+            }
+        },
+        {
+            "name": "Gandhamádan",
+            "type": "Character",
+            "attributes": {
+                "description": "Brave and bold monkey, son of Lord of Gold"
+            }
+        },
+        {
+            "name": "Nala",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty monkey dear to fame, son of Vishvakarma, skilled architect"
+            }
+        },
+        {
+            "name": "Nila",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey bright as flame, son of Agni, surpassed father in splendor and might"
+            }
+        },
+        {
+            "name": "Dwivida",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey, son of Ashvins, famed for beauty like sires"
+            }
+        },
+        {
+            "name": "Mainda",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey, son of Ashvins, famed for beauty, brother of Dwivida"
+            }
+        },
+        {
+            "name": "Sushen",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey, son of Varuna"
+            }
+        },
+        {
+            "name": "Sarabh",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey, son of rain god Parjanya"
+            }
+        },
+        {
+            "name": "Hanumán",
+            "type": "Character",
+            "attributes": {
+                "description": "Best of monkey kind, son of Wind God, like thunderbolt in frame, swift as Garuda"
+            }
+        },
+        {
+            "name": "Rishyasring",
+            "type": "Character",
+            "attributes": {
+                "description": "Well-honoured sage, hermit of noble mind, guided king's rites, married to Shántá, son of Kashyapa/Vibhándak"
+            }
+        },
+        {
+            "name": "Shántá",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Dasharatha, wife of Rishyasring, Kshatriya who married Bráhman, devoted to husband"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Saint, chaplain, religious advisor to King Dasharatha"
+            }
+        },
+        {
+            "name": "Kashyapa",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty seer, father of Vibhándak, grandfather of Rishyasring"
+            }
+        },
+        {
+            "name": "Vibhándak",
+            "type": "Character",
+            "attributes": {
+                "description": "Hermit, father of Rishyasring, son of Kashyapa, of Bráhmans first and best"
+            }
+        },
+        {
+            "name": "Lomapád",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Champá, allied with Dasharatha through Shántá's marriage"
+            }
+        },
+        {
+            "name": "Celestial envoy",
+            "type": "Character",
+            "attributes": {
+                "description": "Vast being of awful might from sacrificial flame, dark robed in red, brought golden vase of nectar"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal city, capital ruled by Dasharatha, where princes were born"
+            }
+        },
+        {
+            "name": "Heaven",
+            "type": "Place",
+            "attributes": {
+                "description": "Realm of Gods where nectar is quaffed, home of celestial beings"
+            }
+        },
+        {
+            "name": "Earth",
+            "type": "Place",
+            "attributes": {
+                "description": "Mortal world where Vishnu takes birth, domain guarded by Ráma for ten thousand years"
+            }
+        },
+        {
+            "name": "Champá",
+            "type": "Place",
+            "attributes": {
+                "description": "Town of Lomapád, wreathed with Champacs' leafy crown, where Rishyasring returned"
+            }
+        },
+        {
+            "name": "Forest hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Woodland dwelling of Rishyasring and Shántá, where they returned after rites"
+            }
+        },
+        {
+            "name": "Swarga",
+            "type": "Place",
+            "attributes": {
+                "description": "Indra's heaven where Ashvins serve as physicians"
+            }
+        },
+        {
+            "name": "Mahendra",
+            "type": "Place",
+            "attributes": {
+                "description": "Lofty mountain in south of India, comparison for Báli's height"
+            }
+        },
+        {
+            "name": "Ashvamedha",
+            "type": "Concept",
+            "attributes": {
+                "description": "Horse Sacrifice, rite that wins an heir, performed by Dasharatha"
+            }
+        },
+        {
+            "name": "Celestial nectar",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine drink/Amrit brought in golden vase, gives sons and wealth, blessed by Gods"
+            }
+        },
+        {
+            "name": "Vánars",
+            "type": "Concept",
+            "attributes": {
+                "description": "Monkey-formed beings created by Gods as helps for Vishnu, skilled in war, change form at will"
+            }
+        },
+        {
+            "name": "Penance",
+            "type": "Concept",
+            "attributes": {
+                "description": "Spiritual practice through which Rávana gained favor from Brahmá"
+            }
+        },
+        {
+            "name": "Chaitra",
+            "type": "Concept",
+            "attributes": {
+                "description": "First month of spring, corresponds to latter half March and former half April"
+            }
+        },
+        {
+            "name": "Punarvasu",
+            "type": "Concept",
+            "attributes": {
+                "description": "Seventh lunar mansion, presided over by Aditi"
+            }
+        },
+        {
+            "name": "Pushya",
+            "type": "Concept",
+            "attributes": {
+                "description": "Eighth lunar mansion, under which Bharat was born"
+            }
+        },
+        {
+            "name": "Ashleshá",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ninth lunar mansion called the Snake"
+            }
+        },
+        {
+            "name": "Cancer",
+            "type": "Concept",
+            "attributes": {
+                "description": "Zodiacal sign, the Crab, where sun was when twins were born"
+            }
+        },
+        {
+            "name": "Pisces",
+            "type": "Concept",
+            "attributes": {
+                "description": "Zodiacal sign Mina (fish), under which Bharat was born"
+            }
+        },
+        {
+            "name": "Proshthapada",
+            "type": "Concept",
+            "attributes": {
+                "description": "Constellation containing stars in wing of Pegasus, four-fold light"
+            }
+        },
+        {
+            "name": "Pradakshiná",
+            "type": "Concept",
+            "attributes": {
+                "description": "Walking round object keeping right side towards it, mark of great respect"
+            }
+        },
+        {
+            "name": "Guest-gift",
+            "type": "Concept",
+            "attributes": {
+                "description": "Offering brought by host to honor guest"
+            }
+        },
+        {
+            "name": "Expiatory ceremony",
+            "type": "Concept",
+            "attributes": {
+                "description": "Rite freeing from stain, performed for Rishyasring's inter-caste marriage"
+            }
+        },
+        {
+            "name": "Gandharvas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Celestial musicians inhabiting Indra's heaven, orchestra at divine banquets"
+            }
+        },
+        {
+            "name": "Yakshas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demigods attendant on Kuvera, employed in care of garden and treasures"
+            }
+        },
+        {
+            "name": "Kimpurushas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demigods serving Kuvera, celestial musicians, like centaurs with human figures and horses' heads"
+            }
+        },
+        {
+            "name": "Siddhas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demigods/spirits occupying middle air between earth and sun"
+            }
+        },
+        {
+            "name": "Gods' supplication to Vishnu",
+            "type": "Event",
+            "attributes": {
+                "description": "Gods pray to Nárāyana/Vishnu to take human birth and slay Rávana"
+            }
+        },
+        {
+            "name": "Vishnu's promise",
+            "type": "Event",
+            "attributes": {
+                "description": "Vishnu agrees to take mortal birth, divide being in four, reign 10,000 years"
+            }
+        },
+        {
+            "name": "Horse Sacrifice of Dasharatha",
+            "type": "Event",
+            "attributes": {
+                "description": "Ashvamedha rite performed by childless king to win an heir"
+            }
+        },
+        {
+            "name": "Appearance of celestial envoy",
+            "type": "Event",
+            "attributes": {
+                "description": "Vast being emerges from sacrificial flame bearing golden vase of nectar"
+            }
+        },
+        {
+            "name": "Distribution of nectar",
+            "type": "Event",
+            "attributes": {
+                "description": "King gives divine drink to three queens: Kausalyá (half), Kaikeyí (half residue), Sumitrá (twice)"
+            }
+        },
+        {
+            "name": "Creation of Vánars",
+            "type": "Event",
+            "attributes": {
+                "description": "Brahmá commands Gods to create monkey-formed helpers for Vishnu's incarnation"
+            }
+        },
+        {
+            "name": "Birth of Vánar chiefs",
+            "type": "Event",
+            "attributes": {
+                "description": "Gods, sages, celestial beings beget sons in monkey forms with divine powers"
+            }
+        },
+        {
+            "name": "Birth of Ráma",
+            "type": "Event",
+            "attributes": {
+                "description": "Kausalyá bears Ráma on Chaitra's ninth day, moon in Punarvasu, five planets at apex"
+            }
+        },
+        {
+            "name": "Birth of Bharat",
+            "type": "Event",
+            "attributes": {
+                "description": "Kaikeyí bears Bharat under Pushya mansion and Pisces sign"
+            }
+        },
+        {
+            "name": "Birth of twins",
+            "type": "Event",
+            "attributes": {
+                "description": "Sumitrá bears Lakshmana and Shatrughna when sun reached Cancer, moon with Snake"
+            }
+        },
+        {
+            "name": "Rishyasring's return to Ayodhyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Sage returns with Shántá after completing Dasharatha's rites"
+            }
+        },
+        {
+            "name": "Rishyasring's return to forest",
+            "type": "Event",
+            "attributes": {
+                "description": "Sage and Shántá depart from Ayodhyá back to hermitage"
+            }
+        },
+        {
+            "name": "Vibhándak's visit",
+            "type": "Event",
+            "attributes": {
+                "description": "Kashyapa's son travels to city to see his son Rishyasring"
+            }
+        },
+        {
+            "name": "Expiatory rite",
+            "type": "Event",
+            "attributes": {
+                "description": "Vibhándak performs ceremony to free Rishyasring from stain of inter-caste marriage"
+            }
+        },
+        {
+            "name": "Celestial celebration",
+            "type": "Event",
+            "attributes": {
+                "description": "Nymphs danced, minstrels sang, heavenly drums pealed, flowers rained at princes' births"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Nárāyana",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Nárāyana is one of the names of Vishnu"
+            }
+        },
+        {
+            "from": "Gods",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gods supplicate Vishnu to take human birth and slay Rávana"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Rávana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishnu promises to incarnate as human to slay the demon Rávana"
+            }
+        },
+        {
+            "from": "Rávana",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rávana gained favor from Brahmá through long penance"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Rávana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá gave Rávana protection from all beings except man"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishnu chose Dasharatha as sire from whom to spring in four-fold incarnation"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Ráma",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Ráma is born from half of Vishnu's vigour"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Bharat",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Bharat is one fourth of Vishnu manifest"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Lakshmana",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Lakshmana is sharer in Vishnu's essence"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Shatrughna",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Shatrughna is sharer in Vishnu's essence"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ashvamedha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha performed Horse Sacrifice rite to win an heir"
+            }
+        },
+        {
+            "from": "Celestial envoy",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Envoy emerged from sacrificial flame to give Dasharatha celestial nectar"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Celestial nectar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King received vase of divine nectar from celestial envoy"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Celestial nectar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá received and drank half the nectar"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Celestial nectar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí received half the residue of nectar"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Celestial nectar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumitrá received portions of nectar twice"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá is mother of Ráma"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is father of Ráma"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is mother of Bharat"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is father of Bharat"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumitrá is mother of Lakshmana"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Shatrughna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumitrá is mother of Shatrughna"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is father of Lakshmana"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Shatrughna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is father of Shatrughna"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Shatrughna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana and Shatrughna are twin brothers"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Vánars",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá commanded Gods to create Vánars as helpers for Vishnu"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Báli",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra is father of Báli"
+            }
+        },
+        {
+            "from": "Sun",
+            "to": "Sugríva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sun is father of Sugríva"
+            }
+        },
+        {
+            "from": "Vrihaspati",
+            "to": "Tára",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vrihaspati is father of Tára"
+            }
+        },
+        {
+            "from": "Lord of Gold",
+            "to": "Gandhamádan",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord of Gold/Kuvera is father of Gandhamádan"
+            }
+        },
+        {
+            "from": "Vishvakarma",
+            "to": "Nala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvakarma is father of Nala"
+            }
+        },
+        {
+            "from": "Agni",
+            "to": "Nila",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agni is father of Nila"
+            }
+        },
+        {
+            "from": "Ashvins",
+            "to": "Dwivida",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ashvins are fathers of Dwivida"
+            }
+        },
+        {
+            "from": "Ashvins",
+            "to": "Mainda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ashvins are fathers of Mainda"
+            }
+        },
+        {
+            "from": "Varuna",
+            "to": "Sushen",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Varuna is father of Sushen"
+            }
+        },
+        {
+            "from": "Parjanya",
+            "to": "Sarabh",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Parjanya/rain god is father of Sarabh"
+            }
+        },
+        {
+            "from": "Wind God",
+            "to": "Hanumán",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wind God is father of Hanumán"
+            }
+        },
+        {
+            "from": "Báli",
+            "to": "Sugríva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Báli and Sugríva are brothers, both monkey leaders"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is mother of Indra"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Dasharatha rules Ayodhyá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma was born in Ayodhyá"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharat was born in Ayodhyá"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lakshmana was born in Ayodhyá"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Shatrughna was born in Ayodhyá"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rishyasring guided Dasharatha's Horse Sacrifice rites"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Shántá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rishyasring is husband of Shántá"
+            }
+        },
+        {
+            "from": "Shántá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shántá is daughter of Dasharatha"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Shántá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is father of Shántá"
+            }
+        },
+        {
+            "from": "Vibhándak",
+            "to": "Rishyasring",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vibhándak is father of Rishyasring"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Vibhándak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa is father of Vibhándak"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Rishyasring",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa is grandfather of Rishyasring"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Forest hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rishyasring returned to forest hermitage after rites"
+            }
+        },
+        {
+            "from": "Shántá",
+            "to": "Forest hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Shántá went to forest hermitage with Rishyasring"
+            }
+        },
+        {
+            "from": "Lomapád",
+            "to": "Champá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lomapád is king of Champá"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Champá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rishyasring returned to Champá"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha is chaplain and advisor to King Dasharatha"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá is queen and wife of Dasharatha"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is queen and wife of Dasharatha"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumitrá is queen and wife of Dasharatha"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Birth of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma was born on Chaitra's ninth day"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Birth of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kausalyá bore Ráma"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Birth of Bharat",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat was born under Pushya mansion"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Birth of Bharat",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyí bore Bharat"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Birth of twins",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana was born as twin"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Birth of twins",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Shatrughna was born as twin"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Birth of twins",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sumitrá bore the twin sons"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Gods' supplication to Vishnu",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishnu was supplicated by Gods to incarnate"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Horse Sacrifice of Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha performed the Ashvamedha"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Horse Sacrifice of Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rishyasring guided the sacrificial rites"
+            }
+        },
+        {
+            "from": "Celestial envoy",
+            "to": "Appearance of celestial envoy",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Envoy emerged from sacrificial flame"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Rishyasring's return to Ayodhyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rishyasring returned to Ayodhyá after completing rites"
+            }
+        },
+        {
+            "from": "Rishyasring",
+            "to": "Rishyasring's return to forest",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rishyasring departed to forest hermitage"
+            }
+        },
+        {
+            "from": "Vibhándak",
+            "to": "Vibhándak's visit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vibhándak traveled to city to see his son"
+            }
+        },
+        {
+            "from": "Vibhándak",
+            "to": "Expiatory rite",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vibhándak performed rite to free Rishyasring from stain"
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Garuda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanumán was swift as Garuda could flee"
+            }
+        },
+        {
+            "from": "Báli",
+            "to": "Garuda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Báli endowed with Garuda's might"
+            }
+        },
+        {
+            "from": "Sugríva",
+            "to": "Garuda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sugríva endowed with Garuda's might"
+            }
+        }
+    ]
+}

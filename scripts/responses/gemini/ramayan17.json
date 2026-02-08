@@ -1,0 +1,177 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of King Da[aratha, described as truthful, just, and supreme in war; the intended Regent Heir."
+            }
+        },
+        {
+            "name": "Da[aratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The aged King of Ayodhyá who seeks to retire and install his son Ráma as his successor."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's devoted brother and 'second self', son of Queen Sumitrá."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife who joins him in the sacred fast preceding his intended consecration."
+            }
+        },
+        {
+            "name": "Kau[alyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The first queen of Da[aratha and mother of Ráma; a devout worshipper of Fortune's Queen."
+            }
+        },
+        {
+            "name": "Va[ishmha",
+            "type": "Character",
+            "attributes": {
+                "description": "The chief holy priest of the royal court who directs the religious rites and the fast for Ráma."
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal charioteer and trusted envoy of King Da[aratha."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's brother who is away visiting his royal kin in Kekaya during the time of the decree."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital city of the Ikshváku line where the assembly meets."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The King of Gods, used as a frequent comparison for Da[aratha's glory and Ráma's bravery."
+            }
+        },
+        {
+            "name": "Pushya",
+            "type": "Concept",
+            "attributes": {
+                "description": "An auspicious lunar asterism (star sign) chosen for Ráma's consecration ceremony."
+            }
+        },
+        {
+            "name": "Vedas",
+            "type": "Text",
+            "attributes": {
+                "description": "The holy scriptures in which Ráma is highly trained."
+            }
+        },
+        {
+            "name": "Consecration of Ráma",
+            "type": "Event",
+            "attributes": {
+                "description": "The planned ceremony to install Ráma as the Regent Heir to the throne of Ayodhyá."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Da[aratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Eldest son and chosen successor."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brother and loyal companion who shares in Ráma's fortunes."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wife of the prince."
+            }
+        },
+        {
+            "from": "Kau[alyá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Biological mother."
+            }
+        },
+        {
+            "from": "Va[ishmha",
+            "to": "Da[aratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Spiritual advisor and chief priest."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Consecration of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The king who decrees and initiates the rite."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Consecration of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The central figure/beneficiary of the ceremony."
+            }
+        },
+        {
+            "from": "Consecration of Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The setting for the palace assembly and public celebration."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Indra",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Da[aratha is compared to Indra sitting in his divine hall."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vedas",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Ráma has mastered the lore of the Vedas during his student years."
+            }
+        }
+    ]
+}

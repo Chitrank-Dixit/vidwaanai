@@ -1,0 +1,139 @@
+{
+    "entities": [
+        {
+            "name": "Da[aratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of Ayodhyá, broken by the conflict between his word and his love for Ráma."
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The virtuous prince of Ayodhyá, destined for the forest instead of the throne."
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "The queen who demands Ráma's banishment and Bharat's installation as king."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife, compared to the star Chitrá attending the Moon."
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "The king's illustrious charioteer and noble counsellor."
+            }
+        },
+        {
+            "name": "Va[ishmha",
+            "type": "Character",
+            "attributes": {
+                "description": "The holy sage and royal priest leading the consecration rites."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The King of Gods, often used as a standard for royal power and comparison."
+            }
+        },
+        {
+            "name": "Yayáti",
+            "type": "Character",
+            "attributes": {
+                "description": "An ancient king whose fall from heaven is used as a metaphor for Da[aratha's distress."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The festive and fair city awaiting the installation of its new king."
+            }
+        },
+        {
+            "name": "Truth",
+            "type": "Concept",
+            "attributes": {
+                "description": "The supreme duty and religious foundation cited by Kaikeyí to bind the king."
+            }
+        },
+        {
+            "name": "Pushya",
+            "type": "Concept",
+            "attributes": {
+                "description": "The auspicious planetary hour and lunar sign for the intended consecration."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Da[aratha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father and son; Da[aratha fears he cannot survive Ráma's absence."
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Da[aratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wife; she goads the king to fulfill his promise of two boons."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Yayáti",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The king is compared to Yayáti falling from the blissful skies."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sumantra is sent by the King (and Kaikeyí) to summon Ráma to the palace."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma resides in a palace vast as Mount Kailása within the city."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Wife; she attends to Ráma with a chouri in hand."
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Truth",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Kaikeyí uses the concept of Truth to justify her 'fell request'."
+            }
+        }
+    ]
+}

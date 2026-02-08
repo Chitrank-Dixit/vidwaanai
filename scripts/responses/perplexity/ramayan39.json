@@ -1,0 +1,969 @@
+{
+    "entities": [
+        {
+            "name": "Gods/Blessed Gods",
+            "type": "Deity",
+            "attributes": {
+                "description": "Ne'er refuse to eat food their children use, with whom Dasharatha enrolled on high, pure as Gods"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of Life, pure Mahendra, Ráma clasps feet as Indra in realms above, imperial Indra girt by Gods of Storm"
+            }
+        },
+        {
+            "name": "Brihaspati/Heavenly Teacher",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preceptor of the Gods whose feet Indra clasps in realms above"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Great Father who pities all, king gained blissful home in Brahmá's heavenly home for aye"
+            }
+        },
+        {
+            "name": "Garuda/Tárkshya",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of birds with whom other birds cannot vie"
+            }
+        },
+        {
+            "name": "Gods of Storm",
+            "type": "Deity",
+            "attributes": {
+                "description": "Deities by whom imperial Indra is girt, comparison to king's might"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, moonbright lord, sinless glorious chief, steadfast, hero of lofty mind, scourge of foes, glory shone like fire, far renowned, faithful lover of right"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother, mournful, wise, signed heir of bliss, faithful friend, ever faithful found, draws water for Ráma"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Moonbright dame, weeping lady dear, Janak's bride, Dasharatha's son's bride, pale worn with dwelling in wild, Maithil dame, faithful"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother, tamer of foe, duteous mind, steadfast, for truth renowned, chief of men, good Bharat, noble, suppliant, best of men"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Brave brother, renowned for wise plans, shall attend on Bharat"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, father, lord of kings, died, enrolled with Gods on high, high-souled, ruled earth from sea to sea, purest king, aged, died rich in holy fame"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Bharat's mother, made content, committed sin, woman's spite, wed by king, care saved king's life on Gods' and demons' fray"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen mother, faded cheek, weeping eyes, royal widow, long-eyed lady, mournful, embraced Sítá"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, royal widow, soothed Kausalyá"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Saint, household priest, soul athirst to look on Ráma, placed royal widows in line, blessed with holy verses"
+            }
+        },
+        {
+            "name": "Jáváli",
+            "type": "Character",
+            "attributes": {
+                "description": "Virtuous chief of twice-born sages, replied in words that virtue's law defied"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Noble mind, gentle, modest, meek, kind, follower of princely youth, constant truth, lent arm to guide Ráma"
+            }
+        },
+        {
+            "name": "Royal widows",
+            "type": "Character",
+            "attributes": {
+                "description": "Ladies placed in line by Vasishtha, moving faint and slow, mournful queens"
+            }
+        },
+        {
+            "name": "Counselors and peers",
+            "type": "Character",
+            "attributes": {
+                "description": "Nobles, each counselor and peer sat humbly behind, pressed around, priests and lords of state"
+            }
+        },
+        {
+            "name": "Citizens and captains",
+            "type": "Character",
+            "attributes": {
+                "description": "People, youthful captains, crowd whose cheeks were wet, multitude with longing moved"
+            }
+        },
+        {
+            "name": "Hump-back",
+            "type": "Character",
+            "attributes": {
+                "description": "Person loaded with curses deep and loud by crowd"
+            }
+        },
+        {
+            "name": "Gayá",
+            "type": "Character",
+            "attributes": {
+                "description": "Great saint of high renown near holy town, recited text about son freeing sire"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal town, widowed state reft of king disconsolate, fair town, city to dwell, realm"
+            }
+        },
+        {
+            "name": "River/stream",
+            "type": "Place",
+            "attributes": {
+                "description": "Holy side, lovely stream ever blossomed crowned, fair descent, pure pellucid shallow, shore, bank's descent"
+            }
+        },
+        {
+            "name": "Ráma's hermitage/cottage",
+            "type": "Place",
+            "attributes": {
+                "description": "Door gained, sacrificial ground, where hero met ladies' eyes, dwelling"
+            }
+        },
+        {
+            "name": "Mountain",
+            "type": "Place",
+            "attributes": {
+                "description": "Pleasant side, lovely lawns, rolled echoing sound like roar of lions"
+            }
+        },
+        {
+            "name": "Dandaka/DaG ak wood",
+            "type": "Place",
+            "attributes": {
+                "description": "Mighty wilderness, wild forest, lonely wood, silvan world, wild domain, woods for devotee"
+            }
+        },
+        {
+            "name": "Gayá",
+            "type": "Place",
+            "attributes": {
+                "description": "Holy town in Behar where funeral offerings made, every good Hindu ought make offerings to ancestors"
+            }
+        },
+        {
+            "name": "Put",
+            "type": "Place",
+            "attributes": {
+                "description": "Region of hell, infernal pains, to which men doomed who leave no son for funeral rites"
+            }
+        },
+        {
+            "name": "Ocean/sea",
+            "type": "Place",
+            "attributes": {
+                "description": "For which Yamuná yearns, king ruled earth from sea to sea, boundless main"
+            }
+        },
+        {
+            "name": "Yamuná",
+            "type": "Place",
+            "attributes": {
+                "description": "River that yearns for Ocean, impetuous waters flee"
+            }
+        },
+        {
+            "name": "Funeral libation",
+            "type": "Concept",
+            "attributes": {
+                "description": "Due offerings to parting shade, sacred water to spirits, drops duly shed, tribute to father's shade, offering which shall aye endure"
+            }
+        },
+        {
+            "name": "Ingudí offering",
+            "type": "Concept",
+            "attributes": {
+                "description": "Pressed fruit, fresh bark mantle, seed mixed with jujube, cake offered on sacred grass, points laid directed to southern sky, humble gift"
+            }
+        },
+        {
+            "name": "Funereal procession order",
+            "type": "Concept",
+            "attributes": {
+                "description": "Children precede by age, then women, then men youngest first eldest last, reversed descending into water"
+            }
+        },
+        {
+            "name": "Ráma's grief philosophy",
+            "type": "Concept",
+            "attributes": {
+                "description": "All gathered heaps must waste, death is end of life, all joined apart must fall, ripened fruit must fall, inevitable death, life flies as torrents"
+            }
+        },
+        {
+            "name": "Impermanence doctrine",
+            "type": "Concept",
+            "attributes": {
+                "description": "Night flies no more returns, days nights pass swiftly, death travels with us, lives decay as seasons smile, drifting logs meet and part"
+            }
+        },
+        {
+            "name": "Bharat's entreaty",
+            "type": "Concept",
+            "attributes": {
+                "description": "Yield government to Ráma, return to realm, roars of elephants, women rejoice, consecration paramount, four castes justest care"
+            }
+        },
+        {
+            "name": "Sacred duty hierarchy",
+            "type": "Concept",
+            "attributes": {
+                "description": "Householder order best of four orders: student, householder, anchorite, mendicant, three debts: to Gods men Manes"
+            }
+        },
+        {
+            "name": "Father's promise",
+            "type": "Concept",
+            "attributes": {
+                "description": "King wed Kaikeyí swore best kingdoms, on Gods' and demons' fray gave future boon, promise brought to mind, boons given, word inviolate"
+            }
+        },
+        {
+            "name": "Son's duty",
+            "type": "Concept",
+            "attributes": {
+                "description": "Puttra from Put and tra deliverer, son born to free sire from infernal pains, funeral rites at Gayá, release from pains of hell"
+            }
+        },
+        {
+            "name": "Jáváli's heresy",
+            "type": "Concept",
+            "attributes": {
+                "description": "Words that virtue's law defied, weak and vain thought, ties of kindred mean nothing, alone babe opens eyes alone dies"
+            }
+        },
+        {
+            "name": "News of death",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat told king is gone, enrolled with Gods on high, mournful news, Sítá knew king's fate, sharp pangs smote"
+            }
+        },
+        {
+            "name": "Funeral rite preparation",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma asked Lakshmana bring Ingudí fruit and bark mantle, Sítá go first, then thou, then I last"
+            }
+        },
+        {
+            "name": "Descent to river",
+            "type": "Event",
+            "attributes": {
+                "description": "Sumantra and brothers guided Ráma to holy side, heroes found lovely stream, bent in bitter sorrow"
+            }
+        },
+        {
+            "name": "Offering funeral drops",
+            "type": "Event",
+            "attributes": {
+                "description": "Where stream showed pure shallow, duly shed drops, said 'Father this be thine', Ráma turned to southern side stretched arm weeping"
+            }
+        },
+        {
+            "name": "Mixed offering made",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma offered fresh tribute with brothers' aid, jujube mixed with Ingudí seed on sacred grass, weeping said enjoy cake"
+            }
+        },
+        {
+            "name": "Return to cottage",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma retraced path up mountain's pleasant side, gained cottage door, strained brothers and Sítá to breast, cry of weeping rose"
+            }
+        },
+        {
+            "name": "Army's rush",
+            "type": "Event",
+            "attributes": {
+                "description": "Army shook with fear hearing weeping, left car and wain, ran toward weeping, earth sent deafening noise, elephants fled in fear"
+            }
+        },
+        {
+            "name": "Meeting the multitude",
+            "type": "Event",
+            "attributes": {
+                "description": "Chief found on sacrificial ground, crowd loaded curses on hump-back and queen, ran in fond affection, looked on multitude"
+            }
+        },
+        {
+            "name": "Queens' arrival",
+            "type": "Event",
+            "attributes": {
+                "description": "Vasishtha placed royal widows in line, ladies saw stream, saw bank's descent, saw funeral offering, came to hermitage"
+            }
+        },
+        {
+            "name": "Meeting the queens",
+            "type": "Event",
+            "attributes": {
+                "description": "Hero met their eyes like God fallen from skies, clasped lotus feet, brushed dust, Lakshmana paid reverence, Sítá bent before widows"
+            }
+        },
+        {
+            "name": "Vasishtha honored",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma pressed saint's feet with reverential love, took seat near him as Indra clasps Heavenly Teacher's feet"
+            }
+        },
+        {
+            "name": "Assembly gathered",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat with counselors, peers, citizens, captains sat humbly behind, nobles pressed round, like three fires with holy priests"
+            }
+        },
+        {
+            "name": "Bharat's first speech",
+            "type": "Event",
+            "attributes": {
+                "description": "Mother made content, government given to Bharat, now yield to thee, people long to see lord restored, roars of elephants"
+            }
+        },
+        {
+            "name": "Ráma's philosophy speech",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma consoled lamenting prince: mortal still, fate's slave, death inevitable, grief for father useless, virtue wins bliss, keep father's decree"
+            }
+        },
+        {
+            "name": "Bharat's supplication",
+            "type": "Event",
+            "attributes": {
+                "description": "Good Bharat replied: pardon mother's sin, dismiss trespass, preserve us all, consecration paramount, take royal might, I pray with head bent low"
+            }
+        },
+        {
+            "name": "Ráma's refusal",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma inexorable still, would keep sire's decree, firmness moved people, bent heads then weeping, queens filled with joy as Bharat prayed"
+            }
+        },
+        {
+            "name": "Ráma's counter-speech",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma replied: father swore kingdoms to Kaikeyí, gave boons, bade me to forest, I keep father's word, thou maintain word inviolate"
+            }
+        },
+        {
+            "name": "Division of domains",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat lord of men reign over Ayodhyá, Ráma king of wild domain, white umbrella over Bharat, Ráma to shadow of bough"
+            }
+        },
+        {
+            "name": "Jáváli's intervention",
+            "type": "Event",
+            "attributes": {
+                "description": "Virtuous Jáváli chief of sages replied in words that defied virtue's law: ties of kindred mean nothing, alone babe opens eyes alone dies"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharat",
+            "to": "News of death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat told mournful news that king gone, enrolled with Gods on high"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "News of death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma spoke to moonbright dame: king is gone, Lakshmana thy sire is dead"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "News of death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Soon as she knew king's fate sharp pangs smote, could not look on lord, torrents poured"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Funeral rite preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma asked Lakshmana bring Ingudí fruit and bark mantle, pay offering due"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Funeral rite preparation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana addressed to bring fruit for offering"
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Descent to river",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Noble mind follower with brothers' aid soothed grief, lent arm to guide lord to holy side"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Descent to river",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero found lovely stream, bent footsteps in bitter sorrow down fair descent"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Descent to river",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother participated in descent with Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "River/stream",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Prince came to river shore, holy side, lovely stream ever blossomed"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Offering funeral drops",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Where stream showed pure shallow, duly shed drops, filled hollowed hand, turned to southern side stretched arm weeping"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Mixed offering made",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Offered fresh tribute with brothers' aid, mixed jujube with Ingudí seed on sacred grass, weeping said enjoy cake"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Mixed offering made",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother aided in offering fresh tribute to father's shade"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Funeral libation",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Prince paid due offerings to parting shade, sacred water to spirits, offering shall aye endure"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Funeral libation",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King lord of kings received offering, tribute to shade, blessed Gods ne'er refuse to eat food children use"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Return to cottage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma retraced path up mountain, gained cottage door, strained brothers and Sítá to breast"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Return to cottage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lady strained to Ráma's breast, cry of weeping rose loud as roar of lions"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Return to cottage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother strained to Ráma's breast, weeping echoed round mountain"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's hermitage/cottage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Hero's cottage door, sacrificial ground, dwelling"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Army's rush",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat's army shook with fear hearing weeping, soldiers cried 'Bharat his brother meets again'"
+            }
+        },
+        {
+            "from": "Citizens and captains",
+            "to": "Army's rush",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Every man left car and wain, ran toward weeping, youthful captains sped to meet lord"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Meeting the multitude",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sinless glorious chief found on sacrificial ground, looked on multitude, threw arms about loved ones"
+            }
+        },
+        {
+            "from": "Citizens and captains",
+            "to": "Meeting the multitude",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Crowd loaded curses on hump-back and queen, cheeks wet eyes dim, ran in fond affection"
+            }
+        },
+        {
+            "from": "Hump-back",
+            "to": "Meeting the multitude",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Person loaded with curses deep and loud by weeping crowd"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Queens' arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saint soul athirst to look on Ráma, placed royal widows in line, traced way behind them"
+            }
+        },
+        {
+            "from": "Royal widows",
+            "to": "Queens' arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ladies moving faint and slow saw stream, saw bank's descent, saw funeral offering"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Queens' arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen with faded cheek weeping eyes spoke mournful tones to Sumitrá and rest"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Meeting the queens",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero left seat, clasped ladies' lotus feet, they brushed dust from shoulders"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Meeting the queens",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother drew near royal ladies, paid gentle reverence, received love and tenderness"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Meeting the queens",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lady bent before widows, pressed feet with tears, they embraced her as darling child"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vasishtha honored",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma pressed saint's feet with reverential love, took seat near as Indra clasps Heavenly Teacher's feet"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Assembly gathered",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat with duteous mind, counselors, peers, citizens, captains sat humbly behind"
+            }
+        },
+        {
+            "from": "Counselors and peers",
+            "to": "Assembly gathered",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Each counselor and peer, nobles pressed round hero"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's first speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat addressed chief: mother made content, government given, yield to thee, people long to see lord"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharat's first speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma heard words people approved, pressed by crowd with same request"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's philosophy speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Steadfast Ráma consoled lamenting prince: mortal still, fate's slave, death inevitable, father won skies"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma's philosophy speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince with mournful mood, each ambitious thought controlled, heard steadfast Ráma's words"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's supplication",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Good Bharat replied with varied lore: pardon mother's sin, dismiss trespass, I pray with head bent low"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharat's supplication",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma heard Bharat strive to bend will with suppliant head"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's refusal",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Earth's lord inexorable still, would keep sire's decree, firmness moved people"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma's refusal",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat strove to bend will, but steadfast chief kept promise, people wept and approved"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's counter-speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma far renowned replied: father swore kingdoms, gave boons, bade me to forest, I keep word"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Division of domains",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma said: Bharat lord of men reign Ayodhyá, I king of wild domain, thee to umbrella, me to shadow of bough"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Division of domains",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat urged to take royal might, white umbrella over brow, Shatrughna attend"
+            }
+        },
+        {
+            "from": "Jáváli",
+            "to": "Jáváli's intervention",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Virtuous chief of twice-born sages replied in words that virtue's law defied"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Jáváli's intervention",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma heard Jáváli after soothing brother's grief"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma son of king, offered tribute to father's shade, keep father's word, father swore kingdoms"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana knows thy sire is dead, participated in funeral rites"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat son of king, told mournful news, father died rich in holy fame, dare not blame aged king"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's moonbright dame, dear consort, faithful wife who follows"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's brother, faithful friend, ever faithful found, mournful, wise"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's dear brother, duteous, noble, steadfast, tamer of foe"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat's mother who committed sin, made content, wed by king, saved king's life"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá's son, queen mother, clasped her lotus feet"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's grief philosophy",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma taught: all must waste, death inevitable, ripened fruit falls, life flies as torrents"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Impermanence doctrine",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma said: night flies no returns, death travels with us, lives decay, drifting logs meet and part"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's entreaty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat urged: yield government, return to realm, consecration paramount, householder order best"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Father's promise",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma keeps father's word: king swore kingdoms, gave boons, promise brought to mind, word inviolate"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Son's duty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat urged: son born to free sire, Puttra from Put deliverer, funeral rites at Gayá release from pains"
+            }
+        },
+        {
+            "from": "Jáváli",
+            "to": "Jáváli's heresy",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jáváli spoke words defying virtue's law: ties of kindred nothing, alone babe opens eyes alone dies"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Gods/Blessed Gods",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King enrolled with Gods on high, devout famed, with Gods rolled, gained godlike bliss"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma compared to Indra's peer, took seat as Indra clasps Heavenly Teacher's feet"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Brihaspati/Heavenly Teacher",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra in realms above clasps Heavenly Teacher's feet"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Brahmá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King gained blissful home in Brahmá's heavenly home for aye"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma back to home go no more, widowed state reft of king, if to town I go"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat urged to speed to town, reign over fair town, lord of men"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka/DaG ak wood",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to DaG ak wood will stray, king of wild domain, silvan world"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Put",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King's son to free sire from Put's infernal pains through funeral rites"
+            }
+        }
+    ]
+}
