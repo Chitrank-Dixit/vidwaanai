@@ -1,0 +1,1015 @@
+{
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of Gods, rules skies, supremely wise, sphere from which saint goes, anxious, suppliant, receives Surabhí's tears"
+            }
+        },
+        {
+            "name": "Lords divine",
+            "type": "Deity",
+            "attributes": {
+                "description": "Guiltless deities, no fault in them"
+            }
+        },
+        {
+            "name": "Storm-God",
+            "type": "Deity",
+            "attributes": {
+                "description": "Flies through skies in fair chariot, compared to Bharat's journey"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, high-souled, lover of right, lotus-eyed, best of conquerors, pious pure and true, strong-armed hero, noble, duteous, grief-stricken"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother dear to Bharat, scourge of trembling foes, sat by Bharat's side, in distant clime with Bharat"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, father, monarch who died, high-souled, devout, famed, lofty thought, refuge of good, truthful, dear to fame, loved the right"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son, exiled prince, hero of noble thought, guardian, glory, lord of valour true, people's darling, duteous, most dear, father's peer"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's wife, fair, shares wanderings in Dandaka wilderness"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brave brother of mighty arm, shares exile in Dandaka, long-armed chief"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Bharat's mother, deceitful-hearted, fond and blind, ambitious, evil-souled, cruel wicked sinner, guilty, direst foe, line's destroyer"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest queen, pure, gentle, affectionate, Ráma's mother, rendered childless, has only son, fills heart with pride"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen who mourns and whose tears flow for dear son"
+            }
+        },
+        {
+            "name": "Grandsire",
+            "type": "Character",
+            "attributes": {
+                "description": "Bharat's maternal grandfather, king, conqueror"
+            }
+        },
+        {
+            "name": "Uncle Yudhájit",
+            "type": "Character",
+            "attributes": {
+                "description": "Bharat's maternal uncle, well, free from trouble"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Priest with guiding aid, skilled in ritual"
+            }
+        },
+        {
+            "name": "Ministers and lords",
+            "type": "Character",
+            "attributes": {
+                "description": "Lordly band on whom king relied, each minister before whom Bharat spoke"
+            }
+        },
+        {
+            "name": "Ashvapati",
+            "type": "Character",
+            "attributes": {
+                "description": "Righteous king, most sage and mild, Kaikeyí claimed not to be his child"
+            }
+        },
+        {
+            "name": "Surabhí",
+            "type": "Character",
+            "attributes": {
+                "description": "God-loved cow, gentle, learned in eloquence, saw children toiling, wept tears on Indra, many thousand children bred"
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient royal figure who built and planned Ayodhyá"
+            }
+        },
+        {
+            "name": "Ikshváku",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient ancestor, old Ikshváku's famous son, children kept city, Ikshváku's line follows eldest son rule"
+            }
+        },
+        {
+            "name": "Grandsire's kingdom",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal town from which Bharat departed, maternal grandfather's realm"
+            }
+        },
+        {
+            "name": "Sudámá river",
+            "type": "Place",
+            "attributes": {
+                "description": "River whose farther side Bharat reached, glorious tide"
+            }
+        },
+        {
+            "name": "Hládiní river",
+            "type": "Place",
+            "attributes": {
+                "description": "River with westering billows hard to cross"
+            }
+        },
+        {
+            "name": "Shatadrú river",
+            "type": "Place",
+            "attributes": {
+                "description": "Hundred-channeled river, Sharadrus of Ptolemy, Hesydrus of Pliny, the Sutlej"
+            }
+        },
+        {
+            "name": "Ailadhána",
+            "type": "Place",
+            "attributes": {
+                "description": "Place on strand near Shatadrú"
+            }
+        },
+        {
+            "name": "Aparparyat's land",
+            "type": "Place",
+            "attributes": {
+                "description": "Territory reached after Ailadhána"
+            }
+        },
+        {
+            "name": "Shilá river",
+            "type": "Place",
+            "attributes": {
+                "description": "Flood over which hurried fast"
+            }
+        },
+        {
+            "name": "Akurvatí stream",
+            "type": "Place",
+            "attributes": {
+                "description": "Fair stream passed"
+            }
+        },
+        {
+            "name": "Ágneya's rill",
+            "type": "Place",
+            "attributes": {
+                "description": "Rapid rill crossed"
+            }
+        },
+        {
+            "name": "Shalyakartan",
+            "type": "Place",
+            "attributes": {
+                "description": "Place passed onward still"
+            }
+        },
+        {
+            "name": "Shiláváhá stream",
+            "type": "Place",
+            "attributes": {
+                "description": "Swift stream eyed, true to vows and purified"
+            }
+        },
+        {
+            "name": "Chaitraratha wood",
+            "type": "Place",
+            "attributes": {
+                "description": "Mighty wood reached after crossing lofty hills"
+            }
+        },
+        {
+            "name": "Sarasvatí river",
+            "type": "Place",
+            "attributes": {
+                "description": "River confluent with Gangá, tributary of Caggar/Guggur in Sirhind"
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Place",
+            "attributes": {
+                "description": "Fleet river meeting Sarasvatí, hard to cross at Anshudhána"
+            }
+        },
+        {
+            "name": "Bhárunda forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest northward of Viramatsya through which sped"
+            }
+        },
+        {
+            "name": "Kálinda's child/Yamuná",
+            "type": "Place",
+            "attributes": {
+                "description": "River that fills soul with joy, begirt by hills, where army rested, horses bathed"
+            }
+        },
+        {
+            "name": "Anshudhána",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where Gangá hard to cross barred journey"
+            }
+        },
+        {
+            "name": "Prágvam's city",
+            "type": "Place",
+            "attributes": {
+                "description": "City dear to fame where turned from Anshudhána"
+            }
+        },
+        {
+            "name": "Kumikoshmiká",
+            "type": "Place",
+            "attributes": {
+                "description": "Place hied to after Prágvam, stream crossed"
+            }
+        },
+        {
+            "name": "Dharmavardhan",
+            "type": "Place",
+            "attributes": {
+                "description": "Place brought men to after crossing stream"
+            }
+        },
+        {
+            "name": "Torana",
+            "type": "Place",
+            "attributes": {
+                "description": "Place left on north"
+            }
+        },
+        {
+            "name": "Jambuprastha",
+            "type": "Place",
+            "attributes": {
+                "description": "Place journeyed forth to from Torana"
+            }
+        },
+        {
+            "name": "Varútha's town",
+            "type": "Place",
+            "attributes": {
+                "description": "Town with pleasant grove where drove and stayed"
+            }
+        },
+        {
+            "name": "Ujjiháná",
+            "type": "Place",
+            "attributes": {
+                "description": "Place eastward of which with fair tall Priyak trees passed"
+            }
+        },
+        {
+            "name": "Sarvatírtha",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where spent a while"
+            }
+        },
+        {
+            "name": "Uttániká",
+            "type": "Place",
+            "attributes": {
+                "description": "Place over which went"
+            }
+        },
+        {
+            "name": "Hastiprishmhak",
+            "type": "Place",
+            "attributes": {
+                "description": "Place passed"
+            }
+        },
+        {
+            "name": "Kumiká brook",
+            "type": "Place",
+            "attributes": {
+                "description": "Fair brook over which took road"
+            }
+        },
+        {
+            "name": "Lohitya's village",
+            "type": "Place",
+            "attributes": {
+                "description": "Village where crossed swift Kapívatí"
+            }
+        },
+        {
+            "name": "Kapívatí river",
+            "type": "Place",
+            "attributes": {
+                "description": "Swift river crossed at Lohitya's village"
+            }
+        },
+        {
+            "name": "Ekashálá",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where passed Sthánumatí's flood"
+            }
+        },
+        {
+            "name": "Sthánumatí river",
+            "type": "Place",
+            "attributes": {
+                "description": "Flood and sands passed at Ekashálá"
+            }
+        },
+        {
+            "name": "Gomatí river",
+            "type": "Place",
+            "attributes": {
+                "description": "River of fair renown by Vinata's town"
+            }
+        },
+        {
+            "name": "Vinata's town",
+            "type": "Place",
+            "attributes": {
+                "description": "Delightful town by Gomatí"
+            }
+        },
+        {
+            "name": "Kalinga",
+            "type": "Place",
+            "attributes": {
+                "description": "Place near which wood of Sal trees charmed view"
+            }
+        },
+        {
+            "name": "Sal wood",
+            "type": "Place",
+            "attributes": {
+                "description": "Wood of Sal trees near Kalinga"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal city built by Manu, glorious, pure groves and gardens, lifeless pile of yellow clay, joyless and desolate, dark grim kinsmen's houses"
+            }
+        },
+        {
+            "name": "Vaijayanta gate",
+            "type": "Place",
+            "attributes": {
+                "description": "Gate through which Bharat passed with weary steeds"
+            }
+        },
+        {
+            "name": "Dandaka wilderness",
+            "type": "Place",
+            "attributes": {
+                "description": "Mighty forest to which Ráma exiled in hermit dress"
+            }
+        },
+        {
+            "name": "Seven nights journey",
+            "type": "Concept",
+            "attributes": {
+                "description": "Duration of Bharat's return journey from grandsire's realm to Ayodhyá"
+            }
+        },
+        {
+            "name": "Omens of doom",
+            "type": "Concept",
+            "attributes": {
+                "description": "Dire signs crowding sight: lifeless city, silent streets, joyless gardens, desolate groves, mute drums, hushed music, dark houses"
+            }
+        },
+        {
+            "name": "Signs of monarch's death",
+            "type": "Concept",
+            "attributes": {
+                "description": "Changes seen when kings die: houses dark and grim, doors open wide, no morning rites, no incense, all sit joyless fasting"
+            }
+        },
+        {
+            "name": "Kaikeyí's scheme",
+            "type": "Concept",
+            "attributes": {
+                "description": "Crafty plan: claimed two boons, sent Ráma to exile, throne for Bharat, king maintained name and did her prayer"
+            }
+        },
+        {
+            "name": "Bharat's reproach",
+            "type": "Concept",
+            "attributes": {
+                "description": "Anger-sharpened tongue: accused mother of sin, called her line's destroyer, cruel sinner, direst foe, refused to obey"
+            }
+        },
+        {
+            "name": "Filial duty hierarchy",
+            "type": "Concept",
+            "attributes": {
+                "description": "Eldest son anointed king, no monarchs decline rule, ancient sires' tradition, lineal honor, lofty birth"
+            }
+        },
+        {
+            "name": "Bharat's abjuration",
+            "type": "Concept",
+            "attributes": {
+                "description": "No lust for kingly sway, no obey to mother, knew naught of consecration or exile, was in distant clime"
+            }
+        },
+        {
+            "name": "Mother's love for son",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ancient legend: Surabhí wept for toiling children, to mother naught with son can vie, sons dearer than kinsmen"
+            }
+        },
+        {
+            "name": "Elemental Five",
+            "type": "Concept",
+            "attributes": {
+                "description": "Five elements to which Dasharatha joined when died"
+            }
+        },
+        {
+            "name": "Bharat's departure",
+            "type": "Event",
+            "attributes": {
+                "description": "Bid adieu to grandsire and uncle, mounted car with Shatrughna, more than hundred strong-wheeled cars, servants with horses/asses/kine followed"
+            }
+        },
+        {
+            "name": "Epic journey",
+            "type": "Event",
+            "attributes": {
+                "description": "Crossed many rivers, forests, hills, towns over seven nights, swift coursers, exhausted steeds, mountain-bred horses"
+            }
+        },
+        {
+            "name": "Arrival at Ayodhyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Sun began to rise, saw city from afar, seventh night passed, passed through Vaijayanta gate weary and disconsolate"
+            }
+        },
+        {
+            "name": "City's desolation observed",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat saw lifeless city, silent streets, joyless gardens, mute music, dark houses, gathered dire omens, terror influenced senses"
+            }
+        },
+        {
+            "name": "Meeting Kaikeyí",
+            "type": "Event",
+            "attributes": {
+                "description": "Entered mother's bower no longer bright, clasped feet, long kisses pressed, held to breast, questioned about visit"
+            }
+        },
+        {
+            "name": "Revelation of death",
+            "type": "Event",
+            "attributes": {
+                "description": "Kaikeyí revealed father gone way all life must go, Bharat fell prostrate, wailed 'Ah woe is me', grief's intolerable weight"
+            }
+        },
+        {
+            "name": "Kaikeyí's confession",
+            "type": "Event",
+            "attributes": {
+                "description": "Told as glad news: claimed throne for Bharat, sent Ráma/Lakshmana/Sítá to exile, king did her prayer, urged Bharat to reign"
+            }
+        },
+        {
+            "name": "Bharat's fury",
+            "type": "Event",
+            "attributes": {
+                "description": "Burning grief, anger-sharpened tongue, reproaches flung, called mother cruel wicked sinner, line's destroyer, refused throne"
+            }
+        },
+        {
+            "name": "Surabhí's legend recounted",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat told ancient story: cow saw children toiling, wept tears on Indra, proved mother's love for son supreme"
+            }
+        },
+        {
+            "name": "Bharat's vow",
+            "type": "Event",
+            "attributes": {
+                "description": "Will bring Ráma home, serve as faithful slave, pay funeral rites, betake to hermit woods, cannot bear people's sad eyes"
+            }
+        },
+        {
+            "name": "Abjuration before assembly",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharat fell to earth like serpent maimed, rose, spoke before lords and ministers: no lust for sway, no obey mother, knew naught"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharat",
+            "to": "Shatrughna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna is brother dear, scourge of foes, sat by Bharat's side, was with him in distant clime"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is father whose death grieves Bharat, pious prince mourns sire loved so well"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is mother, Bharat her darling boy, but he calls her cruel sinner, direst foe, refuses to obey"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is brother, sire, friend and all to Bharat, hopes to bring him home, serve as faithful slave"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Grandsire",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Maternal grandfather whose home Bharat left, conqueror king, well"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Uncle Yudhájit",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Maternal uncle, Bharat says he's well and free from trouble"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince bid adieu, mounted car, with Shatrughna by side, guarded by own right hand"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Bharat's departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother sat by Bharat's side, dear scourge of foes"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Epic journey",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Crossed many rivers, forests, hills over seven nights, swift as Storm-God"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Arrival at Ayodhyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saw city when sun rose on seventh night, passed through Vaijayanta gate weary"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Sudámá river",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Reached farther side, gazed on glorious tide"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Shatadrú river",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Won passage over hundred-channeled river"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Sarasvatí river",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Reached confluence where Sarasvatí and Gangá meet"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Yamuná",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Reached river that fills soul with joy, rested army on shore, horses bathed"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Saw city built by Manu from afar on seventh night, entered through gate"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "City's desolation observed",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saw lifeless city, silent streets, joyless gardens, gathered omens of doom, terror weighed down soul"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Omens of doom",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Boding spirit gathers dire sins, omens crowding sight, wild affright, fear of ill"
+            }
+        },
+        {
+            "from": "Ayodhyá",
+            "to": "Omens of doom",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "City shows signs: lifeless pile, no throng, no multitudinous roar, gardens desolate"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Meeting Kaikeyí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Entered bower, clasped mother's feet with observance sweet, received kisses"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Meeting Kaikeyí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Queen saw son returning, sprang from golden seat in joy, pressed kisses on brow"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Revelation of death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Heard father gone, fell prostrate, wailed, cried, choking sobs, tears, robe veiled face"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Revelation of death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Revealed husband gone way all life must go as glad news"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Kaikeyí's scheme",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen planned and wrought scheme: claimed boons, sent Ráma to exile, throne for Bharat"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Kaikeyí's confession",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Told crafty plan, deceitful-hearted, told as glad news, urged Bharat to reign"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Kaikeyí's scheme",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King maintained name he bore, did according to her prayer, troubled sore when son seen no more"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kaikeyí's scheme",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma sent forth to banishment in hermit dress to Dandaka wilderness"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka wilderness",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Prince gone in hermit dress to mighty wilderness"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dandaka wilderness",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Brave brother shares wanderings of exile there"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Dandaka wilderness",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Fair wife shares wanderings of exile in wilderness"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's fury",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Anger-sharpened tongue flung reproaches, burning grief disquieted, called mother cruel wicked sinner"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Bharat's reproach",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat called her line's destroyer, sin defiled, evil-souled, direst foe, guilty murderess"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's reproach",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat accused mother of sins, refused throne, bears stain of her deed"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá is mother who fills heart with pride for son, pure, gentle, affectionate, rendered childless"
+            }
+        },
+        {
+            "from": "Kausalyá",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá showed Kaikeyí sister's love at duty's call, eldest queen"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat longs to see her, Ráma treated her as dear mother"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Surabhí's legend recounted",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharat told ancient story to prove mother's supreme love for son"
+            }
+        },
+        {
+            "from": "Surabhí",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow wept tears that fell on Indra's body, laden with celestial scent"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Surabhí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord of Gods saw her standing in skies afflicted, spoke in suppliant attitude"
+            }
+        },
+        {
+            "from": "Surabhí",
+            "to": "Mother's love for son",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Cow's story proves to mother naught with son can vie, sons from body sprang"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's vow",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vowed to bring Ráma home, serve as faithful slave, pay funeral rites, betake to woods"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Filial duty hierarchy",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat upholds eldest son anointed king, ancient sires' tradition, lineal honor"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Abjuration before assembly",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fell to earth like serpent maimed, rose, spoke before lords and ministers"
+            }
+        },
+        {
+            "from": "Ministers and lords",
+            "to": "Abjuration before assembly",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Each lord and minister heard Bharat's speech with keen reproach"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Bharat's abjuration",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "No lust for sway, no obey mother, knew naught of consecration, was in distant clime"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is eldest son, guardian and glory, king relied on power and might"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King placed her in bosom like coals of fire, truthful monarch received as wedded dame"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ashvapati",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat accused she's not Ashvapati's child, righteous sage king"
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen mourns for dear son, tears flow"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ikshváku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat of Ikshváku's line, famous son, line follows eldest son rule"
+            }
+        },
+        {
+            "from": "Manu",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ancient Manu built and planned royal city"
+            }
+        },
+        {
+            "from": "Ikshváku",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ikshváku's children kept city"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Lords divine",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra among guiltless Lords divine, not at fault"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Storm-God",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat compared to Storm-God flying through skies in fair chariot"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Elemental Five",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "King joined Elemental Five when died, too feeble with grief"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Seven nights journey",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Seven nights passed on road from grandsire's home to Ayodhyá"
+            }
+        },
+        {
+            "from": "Ayodhyá",
+            "to": "Signs of monarch's death",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "City shows changes seen when kings die: dark houses, no rites, all joyless"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí urged Bharat to take Vasishtha's guiding aid for funeral rites"
+            }
+        }
+    ]
+}

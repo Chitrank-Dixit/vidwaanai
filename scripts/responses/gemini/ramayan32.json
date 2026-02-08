@@ -1,0 +1,184 @@
+{
+    "entities": [
+        {
+            "name": "King Daśaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The deceased King of Ayodhyá, father of Ráma, Bharat, LakshmaG, and Śatrughna. He died of a broken heart following Ráma's exile."
+            }
+        },
+        {
+            "name": "Kauśalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The chief queen of King Daśaratha and mother of Ráma. She is depicted as a prostrate, lustreless star in her grief."
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "A queen of Daśaratha and mother of LakshmaG and Śatrughna."
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "The queen responsible for Ráma's exile. She is accused by Kauśalyá of having 'killed the king' and pursuing her single aim of empire."
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Daśaratha, currently in exile in the woods."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "The son of Kaikeyí, staying in Rájagriha with his maternal grandfather during the king's death."
+            }
+        },
+        {
+            "name": "Vaśishmha",
+            "type": "Character",
+            "attributes": {
+                "description": "The chief household priest who manages the transition of power and sends envoys to fetch Bharat."
+            }
+        },
+        {
+            "name": "Aśvapati",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of Kekaya and Bharat's maternal grandfather."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital city of the Kośala kingdom, described as dark and dim like a moonless night after the king's death."
+            }
+        },
+        {
+            "name": "Rájagriha",
+            "type": "Place",
+            "attributes": {
+                "description": "Also called Girivraja, the capital of Kekaya where Bharat and Śatrughna were residing."
+            }
+        },
+        {
+            "name": "Kingless Land",
+            "type": "Concept",
+            "attributes": {
+                "description": "A state of anarchy where no law is known, the strong prey on the weak like fish, and religious/social order collapses."
+            }
+        },
+        {
+            "name": "Bharat's Dream",
+            "type": "Event",
+            "attributes": {
+                "description": "A prophetic nightmare where Bharat saw his father falling into a lake of mire, drinking oil, and heading south in an ass-drawn chariot."
+            }
+        },
+        {
+            "name": "Embalming of Daśaratha",
+            "type": "Event",
+            "attributes": {
+                "description": "The process of preserving the king's body in a cask of oil until Bharat's return."
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Place",
+            "attributes": {
+                "description": "The holy river crossed by the envoys near Hastinapura."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "King Daśaratha",
+            "to": "Kauśalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife"
+            }
+        },
+        {
+            "from": "King Daśaratha",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife; Kaikeyí's actions led to his death."
+            }
+        },
+        {
+            "from": "King Daśaratha",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father and son"
+            }
+        },
+        {
+            "from": "King Daśaratha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father and son; his longing for Ráma caused his demise."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Son and mother"
+            }
+        },
+        {
+            "from": "Vaśishmha",
+            "to": "King Daśaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Spiritual advisor and priest to the king."
+            }
+        },
+        {
+            "from": "Aśvapati",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Maternal grandfather"
+            }
+        },
+        {
+            "from": "King Daśaratha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "His royal capital and place of death."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Rájagriha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "His location during the events in Ayodhyá."
+            }
+        },
+        {
+            "from": "Bharat's Dream",
+            "to": "King Daśaratha",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The dream foretells the king's death through dark symbolism."
+            }
+        }
+    ]
+}
