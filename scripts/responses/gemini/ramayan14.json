@@ -1,0 +1,139 @@
+{
+    "entities": [
+        {
+            "name": "Vi[vámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "A warrior who through thousands of years of fierce penance became a Brahman Saint; the son of Ku[ik."
+            }
+        },
+        {
+            "name": "Ambarísha",
+            "type": "Character",
+            "attributes": {
+                "description": "A king of the Ikshváku line who sought a human victim for his sacrifice."
+            }
+        },
+        {
+            "name": "Zunah[epha",
+            "type": "Character",
+            "attributes": {
+                "description": "The middle son of Richíka who sold himself as a sacrificial victim and was saved by Vi[vámitra's hymns."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The King of Gods who repeatedly attempted to mar Vi[vámitra's penance using nymphs like Menaká and Rambhá."
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The 'General Sire' or Creator who eventually granted Vi[vámitra the rank of Brahman Saint."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The daughter of Janak, found in a furrow of the earth; a 'prize of heroic worth'."
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "The King of Mithila and father of Sítá who possesses the wondrous bow of Rudra."
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also known as Ziva; the deity whose powerful bow is the central challenge for Sítá's suitors."
+            }
+        },
+        {
+            "name": "Pushkar",
+            "type": "Place",
+            "attributes": {
+                "description": "A sacred lake where Vi[vámitra performed his austerities and met Zunah[epha."
+            }
+        },
+        {
+            "name": "Mithila",
+            "type": "Place",
+            "attributes": {
+                "description": "The city ruled by King Janak where the great bow is stored."
+            }
+        },
+        {
+            "name": "Brahmanhood",
+            "type": "Concept",
+            "attributes": {
+                "description": "The highest spiritual rank sought by Vi[vámitra, requiring total control over rage and desire."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Vi[vámitra",
+            "to": "Zunah[epha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vi[vámitra is Zunah[epha's uncle and savior from sacrifice."
+            }
+        },
+        {
+            "from": "Ambarísha",
+            "to": "Zunah[epha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ambarísha bought Zunah[epha to serve as a victim in his sacrificial rite."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Vi[vámitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra acts as an antagonist, testing Vi[vámitra's resolve through temptation and distractions."
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Vi[vámitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá confers the titles of 'Mighty Saint' and eventually 'Brahman Saint' upon him."
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak is the adoptive father who found Sítá in the earth."
+            }
+        },
+        {
+            "from": "Rudra",
+            "to": "Janak",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Rudra's bow was given to Janak's ancestor Devarát as a pledge."
+            }
+        },
+        {
+            "from": "Vi[vámitra",
+            "to": "Mithila",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vi[vámitra brings Ráma and LakshmaG to Mithila to see the bow."
+            }
+        }
+    ]
+}

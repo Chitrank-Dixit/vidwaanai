@@ -1,0 +1,1331 @@
+{
+    "entities": [
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Rose from viewless Nature, no change/end/waste, father of Maríchi, cosmogonical figure"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of Gods, compared to Janak surrounded by sages"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord brought by Indra's call, compared to summoning"
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "Owner of incomparable bow given to Janak"
+            }
+        },
+        {
+            "name": "Lord of Life",
+            "type": "Deity",
+            "attributes": {
+                "description": "Divine being compared to Dasharatha with four sons, shining with worlds' guardians"
+            }
+        },
+        {
+            "name": "Spirits",
+            "type": "Deity",
+            "attributes": {
+                "description": "Beings to whom due offerings must be paid"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Hero prince, broke heavenly bow in two, gained Sítá as bride, son of Dasharatha and Kausalyá, peerless in might"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, brother of Ráma, to marry Urmilá, son of Dasharatha"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, son of Dasharatha, to marry daughter of Kushadhwaj, nephew of Yudhájit"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, son of Dasharatha, to marry daughter of Kushadhwaj"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Janak, not of woman born, valour's lovely prize, to marry Ráma, of lotus eyes"
+            }
+        },
+        {
+            "name": "Urmilá",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Janak, to marry Lakshmana"
+            }
+        },
+        {
+            "name": "Two daughters of Kushadhwaj",
+            "type": "Character",
+            "attributes": {
+                "description": "Nieces of Janak, most divinely fair, to marry Bharat and Shatrughna"
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Videha/Mithilá, lord of virtuous mind, possessor of heavenly bow, father of Sítá and Urmilá, elder brother"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhyá, Ikshváku's son, invincible by foeman's sword, father of four princes, glorious"
+            }
+        },
+        {
+            "name": "Kushadhwaj",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Janak, king of Sánkáshyá, skilled in duty's lore, father of two daughters"
+            }
+        },
+        {
+            "name": "Yudhájit",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of lord of Kekaya, Bharat's uncle, came seeking nephew"
+            }
+        },
+        {
+            "name": "Kekaya lord",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Kekaya realm, father of Yudhájit, grandfather of Bharat"
+            }
+        },
+        {
+            "name": "Vishvámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Great recluse, Kushik's son, holy seer guarding princes, guided Ráma and Lakshmana"
+            }
+        },
+        {
+            "name": "Vasishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty saint, speaker skilled, protector of Ikshváku line, speaks for all, had son killed by Kalmáshapáda"
+            }
+        },
+        {
+            "name": "Shatánanda",
+            "type": "Character",
+            "attributes": {
+                "description": "Holy priest, chaplain of Janak, son of Gautam, counselor"
+            }
+        },
+        {
+            "name": "Vámadeva",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage accompanying Dasharatha"
+            }
+        },
+        {
+            "name": "Márkándeya",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage of reverend age accompanying Dasharatha"
+            }
+        },
+        {
+            "name": "Jáváli",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage accompanying Dasharatha"
+            }
+        },
+        {
+            "name": "Kashyapa",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage of godlike seed accompanying Dasharatha, son of Maríchi"
+            }
+        },
+        {
+            "name": "Kátyáyana",
+            "type": "Character",
+            "attributes": {
+                "description": "Wise sage accompanying Dasharatha"
+            }
+        },
+        {
+            "name": "Chyavan",
+            "type": "Character",
+            "attributes": {
+                "description": "Bhrigu's child, holy sage who wandered Himálaya, granted boon to Kálindi"
+            }
+        },
+        {
+            "name": "Ikshváku",
+            "type": "Character",
+            "attributes": {
+                "description": "First king of Ayodhyá, son of Manu, founder of famous dynasty, gave life to mortals"
+            }
+        },
+        {
+            "name": "Maríchi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Brahmá"
+            }
+        },
+        {
+            "name": "Vivasvat",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kashyapa"
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vivasvat, whose fame never dims, gave life to mortals, begot Ikshváku"
+            }
+        },
+        {
+            "name": "Kukshi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Ikshváku, fame rang through regions"
+            }
+        },
+        {
+            "name": "Vikukshi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kukshi, great, rival of father's fame"
+            }
+        },
+        {
+            "name": "Vána",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vikukshi, lord of might"
+            }
+        },
+        {
+            "name": "Anáranya",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vána, strong to fight"
+            }
+        },
+        {
+            "name": "Prithu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Anáranya, glorious name"
+            }
+        },
+        {
+            "name": "Trishánku",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Prithu, from him came Dhundhumár"
+            }
+        },
+        {
+            "name": "Dhundhumár",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Trishánku, renowned"
+            }
+        },
+        {
+            "name": "Yuvanáshva",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dhundhumár, drove mighty car, feared in war"
+            }
+        },
+        {
+            "name": "Mándhátá",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Yuvanáshva, king of men"
+            }
+        },
+        {
+            "name": "Susandhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Mándhátá, blessed in high emprise, fortunate and wise"
+            }
+        },
+        {
+            "name": "Dhruvasandhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Susandhi, had two noble sons"
+            }
+        },
+        {
+            "name": "Prasenajit",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Susandhi, brother of Dhruvasandhi"
+            }
+        },
+        {
+            "name": "Bharat (ancestor)",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dhruvasandhi, won glorious fame"
+            }
+        },
+        {
+            "name": "Asit",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Bharat, warrior with fierce warfare, fled to Himálaya, died there"
+            }
+        },
+        {
+            "name": "Sagar",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Asit's wife born with poison, named for bane mixed by rival, father of Asamanj"
+            }
+        },
+        {
+            "name": "Asamanj",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sagar, heir"
+            }
+        },
+        {
+            "name": "Anshumán",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Asamanj, bright"
+            }
+        },
+        {
+            "name": "Dilípa",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Anshumán, famed"
+            }
+        },
+        {
+            "name": "Bhagírath",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dilípa, from him came Kakutstha"
+            }
+        },
+        {
+            "name": "Kakutstha",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Bhagírath, great"
+            }
+        },
+        {
+            "name": "Raghu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kakutstha, feared by foes"
+            }
+        },
+        {
+            "name": "Purushádak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Raghu, bold, fierce hero of gigantic mould, also called Kalmáshapáda (spotted feet), cannibal"
+            }
+        },
+        {
+            "name": "Shankan",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Purushádak"
+            }
+        },
+        {
+            "name": "Sudarshan",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Shankan, fair in face and limb, beautiful"
+            }
+        },
+        {
+            "name": "Agnivarná",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sudarshan, bright as flame"
+            }
+        },
+        {
+            "name": "Shíghraga",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Agnivarná, unmatched for speed"
+            }
+        },
+        {
+            "name": "Maru",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Shíghraga"
+            }
+        },
+        {
+            "name": "Prashushruka",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Maru"
+            }
+        },
+        {
+            "name": "Ambarísha",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Prashushruka"
+            }
+        },
+        {
+            "name": "Nahush",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Ambarísha, mighty lord of regions fair"
+            }
+        },
+        {
+            "name": "Yayáti",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Nahush"
+            }
+        },
+        {
+            "name": "Nábhág",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Yayáti, of happy destiny"
+            }
+        },
+        {
+            "name": "Aja",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Nábhág, his son is Dasharatha"
+            }
+        },
+        {
+            "name": "Nimi",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient king, most virtuous from youth, best of truth-lovers, founder of Videha line"
+            }
+        },
+        {
+            "name": "Mithi",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Nimi"
+            }
+        },
+        {
+            "name": "Janak (first)",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Mithi, first who ruled this land"
+            }
+        },
+        {
+            "name": "Udávasu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of first Janak, blessed with all virtues, good and true"
+            }
+        },
+        {
+            "name": "Nandivardhan",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Udávasu, dear for pious heart and worth sincere"
+            }
+        },
+        {
+            "name": "Suketu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Nandivardhan, hero brave"
+            }
+        },
+        {
+            "name": "Devarát",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Suketu, royal sage, glory of age for virtue"
+            }
+        },
+        {
+            "name": "Vrihadratha",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Devarát"
+            }
+        },
+        {
+            "name": "Mahábír",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vrihadratha, splendid hero who governed long in glory"
+            }
+        },
+        {
+            "name": "Sudhriti",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Mahábír, youth firm in purpose, brave"
+            }
+        },
+        {
+            "name": "Dhrishmaketu",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sudhriti, blessed with pious will and holy breast, won fame of royal saint"
+            }
+        },
+        {
+            "name": "Haryashva",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dhrishmaketu, princely"
+            }
+        },
+        {
+            "name": "Maru (Videha)",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Haryashva"
+            }
+        },
+        {
+            "name": "Pratíndhak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Maru, wise and true"
+            }
+        },
+        {
+            "name": "Kírtiratha",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Pratíndhak, known for gentle virtues"
+            }
+        },
+        {
+            "name": "Devamidha",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kírtiratha"
+            }
+        },
+        {
+            "name": "Vibudh",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Devamidha"
+            }
+        },
+        {
+            "name": "Mahándhrak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vibudh"
+            }
+        },
+        {
+            "name": "Kírtirát",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Mahándhrak, of boundless might, loved the right, sainted king"
+            }
+        },
+        {
+            "name": "Maháromá",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kírtirát"
+            }
+        },
+        {
+            "name": "Swarnaromá",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Maháromá"
+            }
+        },
+        {
+            "name": "Hrasvaromá",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Swarnaromá, good and great, father of Janak and Kushadhwaj"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, mother of Ráma, soul filled with joy for son"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Wise minister of Dasharatha, ordered to yoke chariot"
+            }
+        },
+        {
+            "name": "Sudáman",
+            "type": "Character",
+            "attributes": {
+                "description": "Best of councillors, sent by Janak to guide Dasharatha"
+            }
+        },
+        {
+            "name": "Kálindi",
+            "type": "Character",
+            "attributes": {
+                "description": "Widowed queen with lotus eyes, other wife of Asit, mother of Sagar, received boon from Chyavan"
+            }
+        },
+        {
+            "name": "Rival wife",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Asit who mixed poison to prevent conception"
+            }
+        },
+        {
+            "name": "Sudhanvá",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty lord of Sánkáshyá, threatened siege, slain by Janak's hand"
+            }
+        },
+        {
+            "name": "Haihayas",
+            "type": "Character",
+            "attributes": {
+                "description": "Rival kings who fought Asit"
+            }
+        },
+        {
+            "name": "Tálajanghas",
+            "type": "Character",
+            "attributes": {
+                "description": "Rival kings who fought Asit"
+            }
+        },
+        {
+            "name": "Shashivindus",
+            "type": "Character",
+            "attributes": {
+                "description": "Rival kings, strong and wild, who fought Asit"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital ruled by Dasharatha, town of Ikshváku dynasty, fair city"
+            }
+        },
+        {
+            "name": "Mithilá",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of Videha ruled by Janak, city where princes lodged, realm obeyed by Janak"
+            }
+        },
+        {
+            "name": "Videha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom ruled by Janak, realm with Mithilá as capital"
+            }
+        },
+        {
+            "name": "Sánkáshyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Lovely town ruled by Kushadhwaj, decked with divine grace, bright as Pushpak, Ikshumatí river flows by"
+            }
+        },
+        {
+            "name": "Ikshumatí",
+            "type": "Place",
+            "attributes": {
+                "description": "River rolling wave to lave Sánkáshyá's rampart"
+            }
+        },
+        {
+            "name": "Kekaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Realm ruled by father of Yudhájit"
+            }
+        },
+        {
+            "name": "Himálaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain where Asit fled, where Chyavan wandered, pathless wild"
+            }
+        },
+        {
+            "name": "Pushpak",
+            "type": "Place",
+            "attributes": {
+                "description": "Place of divine shine, compared to Sánkáshyá"
+            }
+        },
+        {
+            "name": "Heavenly bow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Best of bows, ponderous, held in eight-wheeled chest, gem of bows of monstrous size from skies, treasure from ages, broken by Ráma"
+            }
+        },
+        {
+            "name": "Shiva's incomparable bow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Peerless prize, bow of Shiva demanded by Sudhanvá"
+            }
+        },
+        {
+            "name": "Marriage vow",
+            "type": "Concept",
+            "attributes": {
+                "description": "Janak's promise that valour's prize should gain the bride"
+            }
+        },
+        {
+            "name": "Gift of cows",
+            "type": "Concept",
+            "attributes": {
+                "description": "Four hundred thousand cows given as dowry, each with gold-adorned horns, calf, and pail of milk"
+            }
+        },
+        {
+            "name": "Nuptial rites",
+            "type": "Concept",
+            "attributes": {
+                "description": "Wedding ceremony on third night when moon in second Phálguni, lucky hour called Victory"
+            }
+        },
+        {
+            "name": "Maghá",
+            "type": "Concept",
+            "attributes": {
+                "description": "Tenth lunar asterism composed of five stars"
+            }
+        },
+        {
+            "name": "Phálguni",
+            "type": "Concept",
+            "attributes": {
+                "description": "Two lunar asterisms (eleventh and twelfth mansions), ruled by genial deity, lucky for marriage"
+            }
+        },
+        {
+            "name": "Victory hour",
+            "type": "Concept",
+            "attributes": {
+                "description": "Lucky hour of high omen for nuptials"
+            }
+        },
+        {
+            "name": "Due offerings",
+            "type": "Concept",
+            "attributes": {
+                "description": "Offerings to spirits/shades to be paid"
+            }
+        },
+        {
+            "name": "Breaking of the bow",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma broke heavenly bow in two, awful clang like tempest, earth shook, people fell senseless"
+            }
+        },
+        {
+            "name": "Journey of envoys",
+            "type": "Event",
+            "attributes": {
+                "context": "Janak's ministers traveled three nights to Ayodhyá bearing news"
+            }
+        },
+        {
+            "name": "Dasharatha's journey",
+            "type": "Event",
+            "attributes": {
+                "description": "King traveled four days with quadruple host, priests, to Videha"
+            }
+        },
+        {
+            "name": "Kushadhwaj's arrival",
+            "type": "Event",
+            "attributes": {
+                "description": "Younger brother summoned from Sánkáshyá to share in bliss"
+            }
+        },
+        {
+            "name": "Marriage proposal",
+            "type": "Event",
+            "attributes": {
+                "description": "Vasishtha claimed four daughters for four princes, Janak agreed"
+            }
+        },
+        {
+            "name": "Battle with Sudhanvá",
+            "type": "Event",
+            "attributes": {
+                "description": "Janak fought and slew Sudhanvá who demanded Shiva's bow and Sítá"
+            }
+        },
+        {
+            "name": "Warfare of Asit",
+            "type": "Event",
+            "attributes": {
+                "description": "Fierce hot warfare with Haihayas, Tálajanghas, Shashivindus; Asit forced to flee"
+            }
+        },
+        {
+            "name": "Birth of Sagar",
+            "type": "Event",
+            "attributes": {
+                "description": "Kálindi bore son conceived by Chyavan, born with poison, named Sagar"
+            }
+        },
+        {
+            "name": "Four weddings",
+            "type": "Event",
+            "attributes": {
+                "description": "Four princes to marry four maidens on same lucky day in Phálguni"
+            }
+        },
+        {
+            "name": "Yudhájit's arrival",
+            "type": "Event",
+            "attributes": {
+                "description": "Uncle came seeking to see nephew Bharat, bearing message from Kekaya"
+            }
+        },
+        {
+            "name": "Gift of kine ceremony",
+            "type": "Event",
+            "attributes": {
+                "description": "Dasharatha gave 400,000 cows, one hundred thousand for each prince"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma fills Kausalyá's soul with joy as her son"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna is son of Dasharatha"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Yudhájit",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is nephew of Yudhájit"
+            }
+        },
+        {
+            "from": "Yudhájit",
+            "to": "Kekaya lord",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Yudhájit is son of Kekaya lord"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is daughter of Janak"
+            }
+        },
+        {
+            "from": "Urmilá",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Urmilá is daughter of Janak"
+            }
+        },
+        {
+            "from": "Two daughters of Kushadhwaj",
+            "to": "Kushadhwaj",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Two daughters are children of Kushadhwaj"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Kushadhwaj",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak and Kushadhwaj are brothers, Janak elder"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma to marry Sítá, won her by breaking bow"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Urmilá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana to marry Urmilá"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Two daughters of Kushadhwaj",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat to marry one daughter of Kushadhwaj"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Two daughters of Kushadhwaj",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna to marry one daughter of Kushadhwaj"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Breaking of the bow",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma broke heavenly bow in two"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Heavenly bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma raised, drew string, broke mighty bow"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Heavenly bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak possessed bow as treasure from ages"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Marriage vow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak vowed daughter to hero who could string bow"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Dasharatha's journey",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha traveled to Videha with priests and host"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Mithilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Dasharatha reached and rested at Mithilá"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak greeted Dasharatha as guest, allied houses through marriage"
+            }
+        },
+        {
+            "from": "Kushadhwaj",
+            "to": "Kushadhwaj's arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kushadhwaj summoned and came from Sánkáshyá"
+            }
+        },
+        {
+            "from": "Kushadhwaj",
+            "to": "Sánkáshyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kushadhwaj rules in Sánkáshyá"
+            }
+        },
+        {
+            "from": "Yudhájit",
+            "to": "Yudhájit's arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Yudhájit came to see nephew Bharat"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra guarded and led Ráma"
+            }
+        },
+        {
+            "from": "Vishvámitra",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra guarded and led Lakshmana"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vasishtha protects Ikshváku line, speaks for Dasharatha"
+            }
+        },
+        {
+            "from": "Vasishtha",
+            "to": "Marriage proposal",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vasishtha claimed four daughters for four princes"
+            }
+        },
+        {
+            "from": "Shatánanda",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatánanda is chaplain and priest of Janak, counselor"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Maríchi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá had son Maríchi"
+            }
+        },
+        {
+            "from": "Maríchi",
+            "to": "Kashyapa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa is son of Maríchi"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Vivasvat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vivasvat is son of Kashyapa"
+            }
+        },
+        {
+            "from": "Vivasvat",
+            "to": "Manu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manu is son of Vivasvat"
+            }
+        },
+        {
+            "from": "Manu",
+            "to": "Ikshváku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manu begot Ikshváku, gave life to mortals"
+            }
+        },
+        {
+            "from": "Ikshváku",
+            "to": "Kukshi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kukshi is son of Ikshváku"
+            }
+        },
+        {
+            "from": "Raghu",
+            "to": "Purushádak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Purushádak is son of Raghu"
+            }
+        },
+        {
+            "from": "Nábhág",
+            "to": "Aja",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aja is son of Nábhág"
+            }
+        },
+        {
+            "from": "Aja",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is glorious son of Aja"
+            }
+        },
+        {
+            "from": "Asit",
+            "to": "Kálindi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kálindi is widowed queen of Asit"
+            }
+        },
+        {
+            "from": "Kálindi",
+            "to": "Sagar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kálindi bore Sagar conceived by Chyavan"
+            }
+        },
+        {
+            "from": "Chyavan",
+            "to": "Sagar",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Chyavan is spiritual father of Sagar through boon"
+            }
+        },
+        {
+            "from": "Rival wife",
+            "to": "Kálindi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rival wife mixed poison to prevent Kálindi's conception"
+            }
+        },
+        {
+            "from": "Asit",
+            "to": "Warfare of Asit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Asit fought fierce warfare, forced to flee to Himálaya"
+            }
+        },
+        {
+            "from": "Asit",
+            "to": "Himálaya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Asit fled to Himálaya and died there"
+            }
+        },
+        {
+            "from": "Nimi",
+            "to": "Mithi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nimi's son and heir was Mithi"
+            }
+        },
+        {
+            "from": "Mithi",
+            "to": "Janak (first)",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak (first) is son of Mithi"
+            }
+        },
+        {
+            "from": "Hrasvaromá",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hrasvaromá is father of Janak"
+            }
+        },
+        {
+            "from": "Hrasvaromá",
+            "to": "Kushadhwaj",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hrasvaromá is father of Kushadhwaj"
+            }
+        },
+        {
+            "from": "Sudhanvá",
+            "to": "Battle with Sudhanvá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sudhanvá threatened siege, fought Janak"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Battle with Sudhanvá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Janak slew Sudhanvá with single hand"
+            }
+        },
+        {
+            "from": "Sudhanvá",
+            "to": "Shiva's incomparable bow",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sudhanvá demanded Shiva's bow"
+            }
+        },
+        {
+            "from": "Sudhanvá",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sudhanvá demanded Sítá"
+            }
+        },
+        {
+            "from": "Haihayas",
+            "to": "Warfare of Asit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Haihayas were rival kings fighting Asit"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Gift of kine ceremony",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha gave four hundred thousand cows"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Gift of cows",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha distributed gift of cows as dowry"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Marriage proposal",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Janak agreed to marry daughters to four princes"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Four weddings",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Janak planned nuptials for third night in Phálguni"
+            }
+        }
+    ]
+}
