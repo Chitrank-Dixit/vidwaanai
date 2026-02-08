@@ -172,6 +172,30 @@ uv run ansible-playbook ansible/playbooks/ingest_and_vectorize_workflow.yml
 uv run ansible-playbook ansible/playbooks/building_graph_workflow.yml
 ```
 
+#### 6. Ontology Manual Workflow (Multi-LLM)
+This workflow manages the creation of the **Vedic Ontology** using a human-in-the-loop process with multiple LLMs.
+
+**Why Use This?**
+-   **Precision**: Automated extraction often misses nuanced Vedic concepts or relationships. Manual verification with powerful LLMs (like GPT-4, Claude 3) ensures high accuracy.
+-   **Control**: Allows you to focus on specific scriptures (e.g., *Ramayan*) one at a time.
+-   **Integration**: Seamlessly bridges the gap between your raw queries and the Neo4j Knowledge Graph.
+
+**Step 1: Generate Prompts**
+Verifies that query batch files are ready and provides instructions for manual execution.
+```bash
+# Generate prompts from 20 random verses
+bash scripts/run_ansible_workflow.sh ontology --step generate
+
+# Generate prompts specifically for "Ramayan" verses
+bash scripts/run_ansible_workflow.sh ontology --step generate --scripture "Ramayan"
+```
+
+**Step 2: Deploy (After Manual Querying)**
+Once you have saved the JSON responses from Perplexity/Gemini/ChatGPT to `scripts/responses/`, run this step to aggregate, convert, and deploy the ontology to Neo4j.
+```bash
+bash scripts/run_ansible_workflow.sh ontology --step deploy
+```
+
 ### Directory Structure
 - `ansible/playbooks/`: Workflow definitions
 - `ansible/roles/`: Individual task roles (docker_setup, docker_testing, etc.)

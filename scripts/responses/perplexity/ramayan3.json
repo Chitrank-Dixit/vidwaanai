@@ -1,0 +1,1299 @@
+{
+    "entities": [
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator, Lord Most High, four-faced God, Father of earth and sky"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of gods, ruler of Amarávatí"
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Legislator and saint, son of Brahmá, creator of world and progenitor of mankind"
+            }
+        },
+        {
+            "name": "Lord of Gold",
+            "type": "Deity",
+            "attributes": {
+                "description": "Deity associated with wealth, mentioned in comparison to Dasharatha's riches"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "One of the divine triad superseding Brahmá in worship"
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "One of the divine triad superseding Brahmá in worship"
+            }
+        },
+        {
+            "name": "Nágas",
+            "type": "Deity",
+            "attributes": {
+                "description": "Demigods with human face and serpent body, inhabitants of Pátála"
+            }
+        },
+        {
+            "name": "Airávat",
+            "type": "Deity",
+            "attributes": {
+                "description": "Divine elephant, upholder of the skies"
+            }
+        },
+        {
+            "name": "Válmíki",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage, hermit, author of Rámáyan, composer of first śloka"
+            }
+        },
+        {
+            "name": "Nárad",
+            "type": "Character",
+            "attributes": {
+                "description": "Heavenly saint who told the story outline to Válmíki"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhyá, son of Dasharatha, husband of Sítá, hero of Rámáyan, from Ikshváku dynasty"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Janak, wife of Ráma, Videhan lady"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Ráma"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhyá, father of Ráma, descendant of Ikshváku, wise and great ruler"
+            }
+        },
+        {
+            "name": "Kuśa",
+            "type": "Character",
+            "attributes": {
+                "description": "Twin son of Ráma and Sítá, raised in Válmíki's hermitage, first rhapsodist"
+            }
+        },
+        {
+            "name": "Lava",
+            "type": "Character",
+            "attributes": {
+                "description": "Twin son of Ráma and Sítá, raised in Válmíki's hermitage, first rhapsodist"
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Míthilá, father of Sítá"
+            }
+        },
+        {
+            "name": "Vishvámitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Holy sage who told tales to Ráma"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen whose evil counsel led to Ráma's banishment"
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "Character with whom Ráma conversed during exile"
+            }
+        },
+        {
+            "name": "Bharadvája",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage who entertained Ráma during exile"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Ráma who made earnest supplication and received sandals"
+            }
+        },
+        {
+            "name": "Anasúyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Woman who showed favor and bestowed wondrous balsam"
+            }
+        },
+        {
+            "name": "Śarabhanga",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage whose dwelling Ráma visited"
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage who gave Ráma a heavenly bow"
+            }
+        },
+        {
+            "name": "Virádha",
+            "type": "Character",
+            "attributes": {
+                "description": "Character whom Ráma met during exile"
+            }
+        },
+        {
+            "name": "Śúrpanakhá",
+            "type": "Character",
+            "attributes": {
+                "description": "Demoness who underwent mockery and disfigurement"
+            }
+        },
+        {
+            "name": "Trishirá",
+            "type": "Character",
+            "attributes": {
+                "description": "Character slain by Ráma"
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Character slain by Ráma"
+            }
+        },
+        {
+            "name": "Rávana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanká, abductor of Sítá, slain by Ráma in battle"
+            }
+        },
+        {
+            "name": "Márícha",
+            "type": "Character",
+            "attributes": {
+                "description": "Character doomed and involved in Sítá's abduction"
+            }
+        },
+        {
+            "name": "Kabandha",
+            "type": "Character",
+            "attributes": {
+                "description": "Fierce character slain by Ráma"
+            }
+        },
+        {
+            "name": "Hanumán",
+            "type": "Character",
+            "attributes": {
+                "description": "Wind-God's son, leaped across ocean, found Sítá in Lanká, burned Lanká"
+            }
+        },
+        {
+            "name": "Sugríva",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey king who made friendship with Ráma, fought Báli, became king"
+            }
+        },
+        {
+            "name": "Báli",
+            "type": "Character",
+            "attributes": {
+                "description": "Monkey king slain by Ráma in strife with Sugríva"
+            }
+        },
+        {
+            "name": "Tará",
+            "type": "Character",
+            "attributes": {
+                "description": "Character who lamented wildly"
+            }
+        },
+        {
+            "name": "Sampáti",
+            "type": "Character",
+            "attributes": {
+                "description": "Character gained as friend by the monkey army"
+            }
+        },
+        {
+            "name": "Maináka",
+            "type": "Character",
+            "attributes": {
+                "description": "Lofty peak personified"
+            }
+        },
+        {
+            "name": "Sinhiká",
+            "type": "Character",
+            "attributes": {
+                "description": "Demoness slain by Hanumán"
+            }
+        },
+        {
+            "name": "Vibhíshana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rávana, made treaty with Ráma, set on throne of Lanká"
+            }
+        },
+        {
+            "name": "Kumbhakarna",
+            "type": "Character",
+            "attributes": {
+                "description": "Giant brother of Rávana who fought and died"
+            }
+        },
+        {
+            "name": "Meghanáda",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Rávana who fought and died"
+            }
+        },
+        {
+            "name": "Nala",
+            "type": "Character",
+            "attributes": {
+                "description": "Builder who threw bridge across ocean"
+            }
+        },
+        {
+            "name": "Paraśuráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma with the Axe, namesake warrior fought by Ráma"
+            }
+        },
+        {
+            "name": "Ikshváku",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient ancestor, founder of solar dynasty to which Ráma belongs"
+            }
+        },
+        {
+            "name": "Sagar",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient king whose command dug out the sea, had sixty thousand sons"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal capital city on Sarjú bank, built by Manu, extends twelve leagues, guarded by Dasharatha"
+            }
+        },
+        {
+            "name": "Válmíki's hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Dwelling place of sage Válmíki where Brahmá visited"
+            }
+        },
+        {
+            "name": "Amarávatí",
+            "type": "Place",
+            "attributes": {
+                "description": "City of Indra in the sky, home of the immortals"
+            }
+        },
+        {
+            "name": "Dandaka wood",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest entered by Ráma during exile"
+            }
+        },
+        {
+            "name": "Sutíkshna",
+            "type": "Place",
+            "attributes": {
+                "description": "Location where Ráma stood"
+            }
+        },
+        {
+            "name": "Panchavati",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where Ráma set home during exile"
+            }
+        },
+        {
+            "name": "Pampá",
+            "type": "Place",
+            "attributes": {
+                "description": "Lake/region where Ráma wept and met Hanumán"
+            }
+        },
+        {
+            "name": "Rishyamúka",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain where Ráma met Sugríva"
+            }
+        },
+        {
+            "name": "Lanká",
+            "type": "Place",
+            "attributes": {
+                "description": "Island city of Rávana with bright palaces, burned by Hanumán"
+            }
+        },
+        {
+            "name": "Aśoka garden",
+            "type": "Place",
+            "attributes": {
+                "description": "Garden in Lanká where Sítá was held captive"
+            }
+        },
+        {
+            "name": "Chitrakúta",
+            "type": "Place",
+            "attributes": {
+                "description": "Hill where Ráma dwelt and built a cot"
+            }
+        },
+        {
+            "name": "Nandigráma",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where Bharat spent years"
+            }
+        },
+        {
+            "name": "Kosala",
+            "type": "Place",
+            "attributes": {
+                "description": "Realm on Sarjú's bank with fertile land"
+            }
+        },
+        {
+            "name": "Sarjú",
+            "type": "Place",
+            "attributes": {
+                "description": "River (Sarayú/Ghaghra) on whose bank Ayodhyá stands, rises in Himalayas"
+            }
+        },
+        {
+            "name": "Videha",
+            "type": "Place",
+            "attributes": {
+                "description": "Country of which Míthilá was capital, Sítá's homeland"
+            }
+        },
+        {
+            "name": "Míthilá",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of Videha, kingdom of Janak"
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Place",
+            "attributes": {
+                "description": "River crossed by Ráma during exile"
+            }
+        },
+        {
+            "name": "Pátála",
+            "type": "Place",
+            "attributes": {
+                "description": "Regions under the earth, inhabited by Nágas"
+            }
+        },
+        {
+            "name": "Bhogavatí",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city of the Nágas"
+            }
+        },
+        {
+            "name": "Váhlí",
+            "type": "Place",
+            "attributes": {
+                "description": "Bactriana, source of noble horses"
+            }
+        },
+        {
+            "name": "Sindhu",
+            "type": "Place",
+            "attributes": {
+                "description": "Indus river region, source of horses"
+            }
+        },
+        {
+            "name": "Vanáyu",
+            "type": "Place",
+            "attributes": {
+                "description": "Region to the north-west, source of horses"
+            }
+        },
+        {
+            "name": "Kámboja",
+            "type": "Place",
+            "attributes": {
+                "description": "Region to the north-west, source of horses"
+            }
+        },
+        {
+            "name": "Vindhyan",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain range where elephants roamed"
+            }
+        },
+        {
+            "name": "Himálayan",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain range where elephants roamed"
+            }
+        },
+        {
+            "name": "Rámáyan",
+            "type": "Text",
+            "attributes": {
+                "description": "Epic poem composed by Válmíki telling story of Ráma, first poetry (śloka)"
+            }
+        },
+        {
+            "name": "śloka",
+            "type": "Concept",
+            "attributes": {
+                "description": "Four-lined balanced verse form created by Válmíki"
+            }
+        },
+        {
+            "name": "Holy Writ",
+            "type": "Text",
+            "attributes": {
+                "description": "Sacred scriptures in which Kuśa and Lava were skilled"
+            }
+        },
+        {
+            "name": "Vedas",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient sacred texts chanted by Bráhmans"
+            }
+        },
+        {
+            "name": "argha/arghya",
+            "type": "Concept",
+            "attributes": {
+                "description": "Libation offering to deity or venerable person consisting of various sacred substances"
+            }
+        },
+        {
+            "name": "kuśa grass",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sacred grass (Pea cynosuroides) used in sacrifice, seat for meditation"
+            }
+        },
+        {
+            "name": "Ikshváku dynasty",
+            "type": "Concept",
+            "attributes": {
+                "description": "Solar dynasty of kings ruling from Ayodhyá, founded by Ikshváku"
+            }
+        },
+        {
+            "name": "Aśvamedha",
+            "type": "Concept",
+            "attributes": {
+                "description": "Horse Sacrifice, votive ceremony performed by Ráma"
+            }
+        },
+        {
+            "name": "four castes",
+            "type": "Concept",
+            "attributes": {
+                "description": "Social system: Bráhmans, Warriors (Kshatriyas), Vaiśyas, Śúdras"
+            }
+        },
+        {
+            "name": "sacred thread",
+            "type": "Concept",
+            "attributes": {
+                "description": "Munja cord worn by Bráhmans after initiation"
+            }
+        },
+        {
+            "name": "Śataghní",
+            "type": "Concept",
+            "attributes": {
+                "description": "Weapon meaning 'centicide' or slayer of hundred"
+            }
+        },
+        {
+            "name": "Brahmá's visit to Válmíki",
+            "type": "Event",
+            "attributes": {
+                "description": "Brahmá visits Válmíki and commands him to compose Rámáyan"
+            }
+        },
+        {
+            "name": "Creation of first śloka",
+            "type": "Event",
+            "attributes": {
+                "description": "Válmíki spontaneously composes first verse lamenting slain curlew"
+            }
+        },
+        {
+            "name": "Composition of Rámáyan",
+            "type": "Event",
+            "attributes": {
+                "description": "Válmíki composes entire epic using meditation and divine sight"
+            }
+        },
+        {
+            "name": "Ráma's exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma banished from Ayodhyá due to Kaikeyí's counsel"
+            }
+        },
+        {
+            "name": "Sítá's abduction",
+            "type": "Event",
+            "attributes": {
+                "description": "Rávana abducts Sítá from forest"
+            }
+        },
+        {
+            "name": "Battle with Rávana",
+            "type": "Event",
+            "attributes": {
+                "description": "War in Lanká resulting in Rávana's death"
+            }
+        },
+        {
+            "name": "Bridge construction",
+            "type": "Event",
+            "attributes": {
+                "description": "Nala builds bridge across ocean to Lanká"
+            }
+        },
+        {
+            "name": "Burning of Lanká",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanumán sets fire to Lanká"
+            }
+        },
+        {
+            "name": "Ráma's coronation",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma ordained as king after return"
+            }
+        },
+        {
+            "name": "Sítá's repudiation",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma casts away his queen Sítá"
+            }
+        },
+        {
+            "name": "Recitation before Ráma",
+            "type": "Event",
+            "attributes": {
+                "description": "Kuśa and Lava sing Rámáyan before King Ráma"
+            }
+        },
+        {
+            "name": "Breaking of bow",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma wins Sítá by breaking bow that bent to none"
+            }
+        },
+        {
+            "name": "Death of Dasharatha",
+            "type": "Event",
+            "attributes": {
+                "description": "King dies grieving after Ráma's banishment"
+            }
+        },
+        {
+            "name": "Friendship with Sugríva",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma and Sugríva make treaty and friendship"
+            }
+        },
+        {
+            "name": "Slaying of Báli",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma kills Báli in fight with Sugríva"
+            }
+        },
+        {
+            "name": "Hanumán's leap",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanumán leaps across ocean to Lanká"
+            }
+        },
+        {
+            "name": "Discovery of Sítá",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanumán finds Sítá in Aśoka garden"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Brahmá",
+            "to": "Válmíki",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Brahmá visits Válmíki's hermitage and commands him to compose Rámáyan"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "Rámáyan",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Válmíki is the author and composer of the Rámáyan"
+            }
+        },
+        {
+            "from": "Nárad",
+            "to": "Válmíki",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nárad told the story outline to Válmíki"
+            }
+        },
+        {
+            "from": "Rámáyan",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The epic tells the life story of Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is husband of Sítá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is brother of Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is son of King Dasharatha"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is daughter of King Janak"
+            }
+        },
+        {
+            "from": "Kuśa",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kuśa is twin son of Ráma and Sítá"
+            }
+        },
+        {
+            "from": "Lava",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lava is twin son of Ráma and Sítá"
+            }
+        },
+        {
+            "from": "Kuśa",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kuśa is son of Sítá"
+            }
+        },
+        {
+            "from": "Lava",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lava is son of Sítá"
+            }
+        },
+        {
+            "from": "Kuśa",
+            "to": "Válmíki's hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kuśa was raised in Válmíki's hermitage"
+            }
+        },
+        {
+            "from": "Lava",
+            "to": "Válmíki's hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lava was raised in Válmíki's hermitage"
+            }
+        },
+        {
+            "from": "Kuśa",
+            "to": "Rámáyan",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kuśa learned and recited the Rámáyan"
+            }
+        },
+        {
+            "from": "Lava",
+            "to": "Rámáyan",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lava learned and recited the Rámáyan"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "Kuśa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Válmíki taught Rámáyan to Kuśa"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "Lava",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Válmíki taught Rámáyan to Lava"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma is prince and later king of Ayodhyá"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Dasharatha ruled and guarded Ayodhyá"
+            }
+        },
+        {
+            "from": "Ayodhyá",
+            "to": "Manu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ayodhyá was built by Manu"
+            }
+        },
+        {
+            "from": "Ayodhyá",
+            "to": "Sarjú",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ayodhyá stands on the bank of river Sarjú"
+            }
+        },
+        {
+            "from": "Ayodhyá",
+            "to": "Kosala",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ayodhyá is the royal town in realm of Kosala"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Amarávatí",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Indra rules his city Amarávatí in the sky"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ikshváku dynasty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma belongs to Ikshváku dynasty"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Ikshváku dynasty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha is of Ikshváku's seed"
+            }
+        },
+        {
+            "from": "Sagar",
+            "to": "Ikshváku dynasty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sagar is ancient ancestor in line of Ikshváku"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vishvámitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vishvámitra told tales to Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí's evil counsel caused Ráma's banishment"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bharadvája",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharadvája entertained Ráma during exile"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Agastya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agastya gave Ráma a heavenly bow"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Rávana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma fought and slew Rávana"
+            }
+        },
+        {
+            "from": "Rávana",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rávana abducted Sítá"
+            }
+        },
+        {
+            "from": "Rávana",
+            "to": "Lanká",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rávana ruled Lanká"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Aśoka garden",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sítá was held captive in Aśoka garden in Lanká"
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanumán found and spoke with Sítá in Lanká"
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Lanká",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanumán leaped to Lanká and burned the city"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sugríva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma made friendship treaty with Sugríva"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Báli",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma slew Báli in fight"
+            }
+        },
+        {
+            "from": "Sugríva",
+            "to": "Báli",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sugríva fought with Báli for kingdom"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Vibhíshana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma made treaty with Vibhíshana and set him on throne"
+            }
+        },
+        {
+            "from": "Vibhíshana",
+            "to": "Rávana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vibhíshana is brother of Rávana"
+            }
+        },
+        {
+            "from": "Vibhíshana",
+            "to": "Lanká",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vibhíshana was set on throne of Lanká"
+            }
+        },
+        {
+            "from": "Nala",
+            "to": "Bridge construction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Nala built bridge across ocean"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Chitrakúta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma dwelt at Chitrakúta hill"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Nandigráma",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharat spent years in Nandigráma"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is brother of Ráma"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Videha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is the Videhan lady"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Míthilá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janak is king of Míthilá"
+            }
+        },
+        {
+            "from": "Míthilá",
+            "to": "Videha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Míthilá is capital of Videha"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Pampá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma wept at Pampá and met Hanumán there"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka wood",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma entered Dandaka wood during exile"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma set home in Panchavati"
+            }
+        },
+        {
+            "from": "Nágas",
+            "to": "Pátála",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Nágas inhabit Pátála, regions under earth"
+            }
+        },
+        {
+            "from": "Nágas",
+            "to": "Bhogavatí",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bhogavatí is capital city of Nágas"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "śloka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Válmíki created the first śloka verse form"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Composition of Rámáyan",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brahmá commanded Válmíki to compose the Rámáyan"
+            }
+        },
+        {
+            "from": "Válmíki",
+            "to": "Composition of Rámáyan",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Válmíki composed the entire Rámáyan using divine sight"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá's abduction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma's wife was abducted"
+            }
+        },
+        {
+            "from": "Rávana",
+            "to": "Sítá's abduction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rávana abducted Sítá"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Sítá's abduction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá was abducted by Rávana"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Battle with Rávana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma fought and killed Rávana"
+            }
+        },
+        {
+            "from": "Rávana",
+            "to": "Battle with Rávana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rávana was slain by Ráma in battle"
+            }
+        },
+        {
+            "from": "Kumbhakarna",
+            "to": "Battle with Rávana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kumbhakarna fought and died in battle"
+            }
+        },
+        {
+            "from": "Meghanáda",
+            "to": "Battle with Rávana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Meghanáda fought and died in battle"
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Burning of Lanká",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanumán set fire to Lanká"
+            }
+        },
+        {
+            "from": "Kuśa",
+            "to": "Recitation before Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kuśa sang Rámáyan before King Ráma"
+            }
+        },
+        {
+            "from": "Lava",
+            "to": "Recitation before Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lava sang Rámáyan before King Ráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Breaking of bow",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma broke the bow and won Sítá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Paraśuráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma met and fought his namesake Paraśuráma"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Trishirá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma slew Trishirá"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Khara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma slew Khara"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Virádha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma met Virádha"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kabandha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma slew fierce Kabandha"
+            }
+        },
+        {
+            "from": "Śúrpanakhá",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Śúrpanakhá underwent mockery and disfigurement"
+            }
+        }
+    ]
+}

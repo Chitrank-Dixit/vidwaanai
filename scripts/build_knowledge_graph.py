@@ -353,6 +353,9 @@ def main():
     parser.add_argument(
         "--checkpoint-file", type=str, default="graph_build.checkpoint", help="Checkpoint file path"
     )
+    parser.add_argument(
+        "--ontology-file", type=str, help="Path to JSON file containing ontology nodes (overrides default)"
+    )
     args = parser.parse_args()
 
     # Init Services
@@ -407,7 +410,33 @@ def main():
         seeder.seed()
 
     # Pre-compute flattened ontology for fast lookup
-    ontology_lookup = flatten_ontology(VEDIC_ONTOLOGY)
+    if args.ontology_file and os.path.exists(args.ontology_file):
+        logger.info(f"Loading ontology from file: {args.ontology_file}")
+        try:
+            with open(args.ontology_file, 'r') as f:
+                raw_ont = json.load(f)
+                # If the file is the merged output (raw_entities.json), it has "nodes" list.
+                # We need to adapt flatten_ontology to handle this list of nodes directly 
+                # or create a temporary adapter.
+                # flatten_ontology expects a specific nested dict structure (VEDIC_ONTOLOGY).
+                
+                # Let's create a custom lookup builder for the linear list format
+                ontology_lookup = {}
+                nodes = raw_ont.get("nodes", []) if isinstance(raw_ont, dict) else []
+                for node in nodes:
+                    name = node.get("name", "").lower()
+                    if name:
+                        ontology_lookup[name] = {
+                            "id": node.get("id"),
+                            "type": node.get("type", "Concept"),
+                            "name": node.get("name")
+                        }
+        except Exception as e:
+            logger.error(f"Failed to load ontology file: {e}")
+            sys.exit(1)
+    else:
+        ontology_lookup = flatten_ontology(VEDIC_ONTOLOGY)
+        
     logger.info(f"Loaded {len(ontology_lookup)} ontology terms for fast lookup.")
 
     # Fetch Verses
