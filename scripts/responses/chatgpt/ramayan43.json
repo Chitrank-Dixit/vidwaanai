@@ -1,0 +1,289 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic describing the life of Rama."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, incarnation of righteousness and central hero."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama, devoted companion."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of Janaka."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, also called Shakra or Vasava."
+            }
+        },
+        {
+            "name": "Shachi",
+            "type": "Deity",
+            "attributes": {
+                "description": "Consort of Indra."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god and ruler of Brahma's sphere."
+            }
+        },
+        {
+            "name": "Sarabanga",
+            "type": "Character",
+            "attributes": {
+                "description": "A sage performing penance who later ascends to Brahma's realm."
+            }
+        },
+        {
+            "name": "Sutikshna",
+            "type": "Character",
+            "attributes": {
+                "description": "A hermit sage living in the forest."
+            }
+        },
+        {
+            "name": "Janaka",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Videha, father of Sita."
+            }
+        },
+        {
+            "name": "Mandakini",
+            "type": "Place",
+            "attributes": {
+                "description": "A sacred river flowing through the forest."
+            }
+        },
+        {
+            "name": "Chitrakuta",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest region where Rama resides during exile."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "A vast forest inhabited by sages and demons."
+            }
+        },
+        {
+            "name": "Brahma's World",
+            "type": "Place",
+            "attributes": {
+                "description": "Celestial realm attained by great sages."
+            }
+        },
+        {
+            "name": "Matsya Avatar",
+            "type": "Concept",
+            "attributes": {
+                "description": "Not directly present but related to Vishnu's incarnations in broader context."
+            }
+        },
+        {
+            "name": "Rakshasas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demons who trouble sages in the forest."
+            }
+        },
+        {
+            "name": "Penance",
+            "type": "Concept",
+            "attributes": {
+                "description": "Spiritual austerity practiced by sages."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty and moral order."
+            }
+        },
+        {
+            "name": "Sarabanga's Ascension",
+            "type": "Event",
+            "attributes": {
+                "description": "Sage Sarabhanga enters fire and ascends to Brahma's realm."
+            }
+        },
+        {
+            "name": "Indra's Visit",
+            "type": "Event",
+            "attributes": {
+                "description": "Indra visits Sarabhanga to take him to heaven."
+            }
+        },
+        {
+            "name": "Rama's Promise",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama vows to protect sages from Rakshasas."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Central narrative revolves around Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers traveling together in exile."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife relationship."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Janaka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Daughter of King Janaka."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Shachi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Consort relationship."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Sarabanga",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Visited Sarabhanga to take him to heaven."
+            }
+        },
+        {
+            "from": "Indra's Visit",
+            "to": "Sarabanga",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Event involving Indra and the sage."
+            }
+        },
+        {
+            "from": "Sarabanga",
+            "to": "Sarabanga's Ascension",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Entered fire and ascended to Brahma's world."
+            }
+        },
+        {
+            "from": "Sarabanga's Ascension",
+            "to": "Brahma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ascension leads to Brahma's realm."
+            }
+        },
+        {
+            "from": "Sarabanga",
+            "to": "Brahma's World",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Reached Brahma's celestial realm."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama's Promise",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama promises to protect sages."
+            }
+        },
+        {
+            "from": "Rama's Promise",
+            "to": "Rakshasas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Promise involves destroying Rakshasas."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama travels through the forest."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sutikshna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama visits Sutikshna's hermitage."
+            }
+        },
+        {
+            "from": "Mandakini",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "River flows within the forest region."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama acts according to righteousness."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sita advises Rama based on moral principles."
+            }
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "entities": [
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "The son of Daśaratha who rules Ayodhyá as a regent from Nandigrám, wearing hermit's dress and matted hair."
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Daśaratha, constant in his vow to remain in exile for fourteen years."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The daughter of King Janak, found in a furrow of the earth; a devotee of saintly life."
+            }
+        },
+        {
+            "name": "Anasúyá",
+            "type": "Character",
+            "attributes": {
+                "description": "The aged, saintly wife of Atri who performed ten thousand years of penance and gifted Sítá celestial cosmetics and robes."
+            }
+        },
+        {
+            "name": "Atri",
+            "type": "Character",
+            "attributes": {
+                "description": "A high-souled hermit whose hermitage Ráma visits after leaving Chitrakúta."
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "A giant demon and brother of RávaG who dwells in Janasthán and harasses the hermits."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital city, described as dark and desolate in the absence of Ráma."
+            }
+        },
+        {
+            "name": "Nandigrám",
+            "type": "Place",
+            "attributes": {
+                "description": "The town where Bharat establishes his seat of government to avoid ruling from the capital."
+            }
+        },
+        {
+            "name": "Sacred Sandals",
+            "type": "Concept",
+            "attributes": {
+                "description": "Gold-wrought emblems of Ráma's authority, placed on the throne by Bharat."
+            }
+        },
+        {
+            "name": "Janasthán",
+            "type": "Place",
+            "attributes": {
+                "description": "A part of the Daṇḍak forest plagued by man-eating demons."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bharat",
+            "to": "Sacred Sandals",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat refers all state affairs to the sandals as emblems of Ráma."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Daśaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma remains in exile to fulfill his father's decree."
+            }
+        },
+        {
+            "from": "Anasúyá",
+            "to": "Atri",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife dwelling in a pure retreat."
+            }
+        },
+        {
+            "from": "Anasúyá",
+            "to": "Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Anasúyá grants Sítá a celestial robe and an eternal beauty balsam."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Nandigrám",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharat lives here in exile as a hermit until Ráma returns."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Janasthán",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Khara venges with fury all those who dwell in Janasthán."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Janak found Sítá in a furrow and raised her as his daughter."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma won Sítá's hand by snapping the great bow of mountain size."
+            }
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The high-souled hero, son of Dasaratha and Raghu's line, committed to protecting Bráhmans and fulfilling his promises."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The daughter of the Maithil monarch (Janak), wife of Ráma, described as a paragon of faithful love."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The younger brother of Ráma, devoted and faithful, who accompanies him in the forest."
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "A mighty hermit and saintly lord who subdued demons and humbled the Vindhya hills."
+            }
+        },
+        {
+            "name": "SutíkshGa",
+            "type": "Character",
+            "attributes": {
+                "description": "A virtuous sage whose hermitage Ráma visits and who directs Ráma to Agastya."
+            }
+        },
+        {
+            "name": "Dharmabhrit",
+            "type": "Character",
+            "attributes": {
+                "description": "A hermit who follows Ráma and explains the mystery of the Panchápsaras lake."
+            }
+        },
+        {
+            "name": "MáG akarGi",
+            "type": "Character",
+            "attributes": {
+                "description": "A great votary who created the Panchápsaras lake through his rites and was seduced by five nymphs."
+            }
+        },
+        {
+            "name": "Agastya's Brother",
+            "type": "Character",
+            "attributes": {
+                "description": "A holy hermit living south of SutíkshGa’s retreat, whose home Ráma visits first."
+            }
+        },
+        {
+            "name": "Vátápi",
+            "type": "Character",
+            "attributes": {
+                "description": "A demon who took the form of a ram to kill Bráhmans, eventually devoured and destroyed by Agastya."
+            }
+        },
+        {
+            "name": "Ilval",
+            "type": "Character",
+            "attributes": {
+                "description": "A fierce demon who spoke Sanskrit to trick Bráhmans; he was consumed to dust by Agastya's glance."
+            }
+        },
+        {
+            "name": "VishGu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The deity for whom the Heavenly Artist planned a mighty bow used to slay demon foes."
+            }
+        },
+        {
+            "name": "Mahendra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Lord divine (Indra) who provided Ráma with a sunbright shaft and an endless quiver."
+            }
+        },
+        {
+            "name": "Panchápsaras",
+            "type": "Place",
+            "attributes": {
+                "description": "The 'Lake of the Five Nymphs,' created by MáG akarGi, featuring a hidden palace beneath the waters."
+            }
+        },
+        {
+            "name": "Vindhya",
+            "type": "Place",
+            "attributes": {
+                "description": "The 'best of hills' that bowed its crest at Agastya's command to allow the sun's journey."
+            }
+        },
+        {
+            "name": "Bráhmans",
+            "type": "Character",
+            "attributes": {
+                "description": "The saintly crowd and hermits of the wood who sought Ráma's protection from fiends."
+            }
+        },
+        {
+            "name": "Rákshas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Fiends or giants of the wood who torment hermits and devour bleeding flesh."
+            }
+        },
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred epic detailing the journey and deeds of Ráma."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife; Ráma vows to protect her and values her affection."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "LakshmaG",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers; LakshmaG is Ráma's devoted companion and guardian."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Bráhmans",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma swears an oath to protect the Bráhmans from the giants of the wood."
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Vátápi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agastya devoured Vátápi to end his slaughter of Bráhmans."
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Ilval",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agastya destroyed Ilval with a single glance of fury."
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Vindhya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agastya commanded the mountain to bow its crest."
+            }
+        },
+        {
+            "from": "SutíkshGa",
+            "to": "Agastya",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "SutíkshGa provides the directions and path for Ráma to find Agastya."
+            }
+        },
+        {
+            "from": "MáG akarGi",
+            "to": "Panchápsaras",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The sage created and performed penance within the lake."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Agastya",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma visits Agastya to seek his favor and receive divine weapons."
+            }
+        },
+        {
+            "from": "VishGu",
+            "to": "Mahendra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Both are deities whose weapons (bow and shaft) are passed to Ráma by Agastya."
+            }
+        }
+    ]
+}

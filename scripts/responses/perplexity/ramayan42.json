@@ -1,0 +1,1001 @@
+{
+    "entities": [
+        {
+            "name": "Soma/Moon-God",
+            "type": "Deity",
+            "attributes": {
+                "description": "Deity in evening air, special deity of Bráhmans, Ráma fair as Soma"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord whose essence king bears one fourth, Ráma peer of Indra, splits mountain peak, flagstaff comparison"
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of Fire, most glorious sphere, gave boon to Virádha that weapon/shaft may never pierce charmed frame"
+            }
+        },
+        {
+            "name": "Yama/Him who rules the dead",
+            "type": "Deity",
+            "attributes": {
+                "description": "Death-God, grisly King when stricken worlds perishing, dark God who rules dead, Kálántaka destroyer"
+            }
+        },
+        {
+            "name": "Kuvera",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of wealth, stern decree cursed Tumburu, angry God whose wrath fell on Tumburu for loving Rambhá"
+            }
+        },
+        {
+            "name": "Suparna/King of birds",
+            "type": "Deity",
+            "attributes": {
+                "description": "Bird deity arrows left behind, winged being"
+            }
+        },
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince, valiant hero, glorious son, splendid, fair as Soma, Indra's peer, lord and king, bravest of brave, self-ruled, exalted above heroic chiefs, Kakutstha's son"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother, minister, Sumitrá's son, nobly brave, quick panting like spell-bound snake, Prince of men"
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Moonbright dame, Janak's daughter, dear to fame, Maithil dame, long in duty tried, fair of frame, wife/spouse, princess with pure glory bright, nursed in lap of soft delight"
+            }
+        },
+        {
+            "name": "Janak",
+            "type": "Character",
+            "attributes": {
+                "description": "King, Sítá's father, held Maiden's Choice unparalleled, aged monarch brought to Ráma, allied with Raghu's house"
+            }
+        },
+        {
+            "name": "Urmilá",
+            "type": "Character",
+            "attributes": {
+                "description": "Sister next to Sítá, graced with all gifts, most fair to see, given to be Lakshmana's bride"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King, Ráma's sire, lost, royal power"
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger queen, cruel soul, triumphant, dark intent, expelled Ráma, greedy eyes, fatal day brings her triumph"
+            }
+        },
+        {
+            "name": "Kausalyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Ráma's mother, blest to be mother of son like Ráma"
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen, Lakshmana's mother"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Usurper on throne, younger queen's son, Lakshmana's fury nursed against him"
+            }
+        },
+        {
+            "name": "Anasúyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Virtuous-souled matron, heard Sítá's tale, kissed lady's brow, laced loving arms, saintly dame who gave love-gifts"
+            }
+        },
+        {
+            "name": "Hermit band",
+            "type": "Character",
+            "attributes": {
+                "description": "Saints with pitchers, fresh from bath, locks wet, bark coats dripping, tend worship fires, pure dwellers in shade"
+            }
+        },
+        {
+            "name": "Mighty saints",
+            "type": "Character",
+            "attributes": {
+                "description": "Endued with keen celestial sight, viewed chieftain with joy, came to meet prince, blessed guests, duty-loving, pure, old reverend sires bright as sun"
+            }
+        },
+        {
+            "name": "Sharabhanga",
+            "type": "Character",
+            "attributes": {
+                "description": "Holy hermit, very sun is not more bright, most glorious anchorite, cot stands league beyond, blessings to earn"
+            }
+        },
+        {
+            "name": "Virádha",
+            "type": "Character",
+            "attributes": {
+                "description": "Giant Rákshasa, passing nature's law, vast as mountain-peak, mighty voice sunken eyes, huge hideous tall monstrous face, most ghastly of giant race, wore tiger's hide reeking with gore, carried lions/tigers/deer/wolves/elephant on iron spear, son of Java and Shatahradá, cursed Tumburu bearing hideous shape, charmed frame weapon cannot pierce, overthrown by might"
+            }
+        },
+        {
+            "name": "Tumburu",
+            "type": "Character",
+            "attributes": {
+                "description": "Celestial minstrel, renowned among minstrel throng for song, cursed by Kuvera for loving Rambhá, wore hideous shape as Virádha, freed by Ráma's favor, spirit fled to heaven"
+            }
+        },
+        {
+            "name": "Rambhá",
+            "type": "Character",
+            "attributes": {
+                "description": "Celestial temptress, Apsaras whose charms Tumburu loved too well, caused Kuvera's curse"
+            }
+        },
+        {
+            "name": "Apsarases",
+            "type": "Character",
+            "attributes": {
+                "description": "Heavenly nymphs, gay dancers beneath well-loved trees"
+            }
+        },
+        {
+            "name": "Dandaka/DaG ak wood",
+            "type": "Place",
+            "attributes": {
+                "description": "Vast shade, mighty forest, deep-tangled wood, pathless wood, wild, hermit settlement, holy dwelling, dark and drear solitude, hard rough ground"
+            }
+        },
+        {
+            "name": "Hermitage/settlement",
+            "type": "Place",
+            "attributes": {
+                "description": "Circle where saints abode, court well-swept bright and fair, delightful grove like Brahmá's sphere, coats of bark hung, holy grass bestrewed, wild creatures refuge, birds roedeer dwelling, sheds where holy fire fed, cot with leaves overhead"
+            }
+        },
+        {
+            "name": "Night sky",
+            "type": "Place",
+            "attributes": {
+                "description": "O'er all sky is spread, with lunar stars engarlanded, moon risen in robes of light beautifully bright"
+            }
+        },
+        {
+            "name": "Distant forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Where monsters fierce and fell dwell, savage beasts of fearful power, pathless forests far away"
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "Town horsemen sought, realm where hermits live"
+            }
+        },
+        {
+            "name": "Heaven/sky",
+            "type": "Place",
+            "attributes": {
+                "description": "Where Virádha's spirit fled, homes eternal in skies, Brahmá's glorious sphere"
+            }
+        },
+        {
+            "name": "Meru",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain summit from which rocks driven by fiery bolts"
+            }
+        },
+        {
+            "name": "Maiden's Choice/Svayamvara",
+            "type": "Concept",
+            "attributes": {
+                "description": "Unparalleled ceremony held by King Janak, how Ráma won Sítá's maiden hand"
+            }
+        },
+        {
+            "name": "Night worship",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sun sunk from sight, world left to holy Night, hermits return with pitchers, fires of worship tended, curling wreaths of smoke"
+            }
+        },
+        {
+            "name": "Heavenly raiment",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine garments, ornaments, garland of celestial twine given by Anasúyá, Sítá shone like heavenly Goddess, honours high mortal dames scarce obtained"
+            }
+        },
+        {
+            "name": "Sacred hermitage life",
+            "type": "Concept",
+            "attributes": {
+                "description": "Bright with Bráhmanic lustre, holy fire fed, sacred grass and deer skins, ladles and sacrificial gear, roots fruit wood, water-urns, Veda chants, offerings burnt with fire, worldly sense subdued"
+            }
+        },
+        {
+            "name": "King's essence",
+            "type": "Concept",
+            "attributes": {
+                "description": "One fourth of Indra's essence king bears, protector bright in fame, maintainer of right, bears awful sword, deserves elder's reverence"
+            }
+        },
+        {
+            "name": "Forest monsters",
+            "type": "Concept",
+            "attributes": {
+                "description": "Fierce and fell creatures, feed on blood from human veins, assume various forms at need, savage beasts devour human flesh, rend and tear holy saints, eat them in cruel joy"
+            }
+        },
+        {
+            "name": "Virádha's boon",
+            "type": "Concept",
+            "attributes": {
+                "description": "Charmed frame from Brahmá's grace, weapon or shaft may never pierce or tear, rites austere long maintained"
+            }
+        },
+        {
+            "name": "Kuvera's curse",
+            "type": "Concept",
+            "attributes": {
+                "description": "Stern decree made Tumburu wear hideous shape, when Ráma destroys thee proper shape resume and heaven give room, anger fell for loving Rambhá too well"
+            }
+        },
+        {
+            "name": "Giant burial law",
+            "type": "Concept",
+            "attributes": {
+                "description": "Law ordained of old for giants when days are told, bodies laid in earth they rise to homes eternal in skies"
+            }
+        },
+        {
+            "name": "Charmed immortality",
+            "type": "Concept",
+            "attributes": {
+                "description": "No arms might slay charmed life, preserving life unharmed by Brahmá's saving promise, swords might rend arrows smite breast in vain, mortal arms defied"
+            }
+        },
+        {
+            "name": "Sítá's tale to Anasúyá",
+            "type": "Event",
+            "attributes": {
+                "description": "Story told of how Janak held Maiden's Choice, Ráma won hand, princes declined gift till father's mind learned, aged monarch brought, Sítá given, Urmilá to Lakshmana"
+            }
+        },
+        {
+            "name": "Evening at hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "Sun sunk, world left to holy Night, leafy thickets sound with birds, hermit band comes with pitchers, fires tended, smoke ascends, beasts prowl, deer reclined, night spread with lunar stars"
+            }
+        },
+        {
+            "name": "Gift of heavenly raiment",
+            "type": "Event",
+            "attributes": {
+                "description": "Anasúyá bade Sítá array in heavenly raiment, shone like Goddess, love-gifts of garland ornaments robes divine, bowed to matron's feet, met lord"
+            }
+        },
+        {
+            "name": "Night at hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma's heart and Lakshmana's filled with pride happiness, honored by every pious sage, sacred night hero spent well content beside darling"
+            }
+        },
+        {
+            "name": "Departure from hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "When night fled princes said farewell, gazed on distant shade, paid lustral rites and offerings, saints addressed warning about monsters"
+            }
+        },
+        {
+            "name": "Entering Dandaka",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma stood in vast shade, saw hermit settlement, bright with Bráhmanic lustre, loosed mighty bow-string, drew nearer to holy men"
+            }
+        },
+        {
+            "name": "Saints' reception",
+            "type": "Event",
+            "attributes": {
+                "description": "Mighty saints with keen celestial sight viewed chieftain with joy, came to meet prince/Sítá/Lakshmana, gave glad blessings, received in hermitage"
+            }
+        },
+        {
+            "name": "Honoring the guests",
+            "type": "Event",
+            "attributes": {
+                "description": "Pure hermits led guest within cot, received with highest honor, kind observance, gave water for feet, brought stores of roots and fruit, poured blessings"
+            }
+        },
+        {
+            "name": "Saints' pledge",
+            "type": "Event",
+            "attributes": {
+                "description": "Duty-loving hermits reverent hand to hand: king is protector, thou shouldst give protection, we live in thy realm, people turn to guardian"
+            }
+        },
+        {
+            "name": "Piercing the forest",
+            "type": "Event",
+            "attributes": {
+                "description": "Entertained passed night, with morning's light bade adieu, pierced mighty forest where roamed deer pard bear, ruined pools scarce seen, creeper rent prostrate tree"
+            }
+        },
+        {
+            "name": "Encounter with Virádha",
+            "type": "Event",
+            "attributes": {
+                "description": "Deep in thickets stood, saw giant passing nature's law, vast as mountain, hideous, wore tiger's hide, carried beasts on iron spear, charged with roar and yell"
+            }
+        },
+        {
+            "name": "Virádha seizes Sítá",
+            "type": "Event",
+            "attributes": {
+                "description": "Fierce eye fell on three, took trembling Sítá to side, withdrew little space, demanded who are ye, threatened to make saints his meal, woman to be dame"
+            }
+        },
+        {
+            "name": "Ráma's lament",
+            "type": "Event",
+            "attributes": {
+                "description": "Saw Virádha clasp Sítá, cried to brother with pale lips terror dried, Kaikeyí's blow falls, cruel soul triumphant, bitterest grief another touch Maithil dame"
+            }
+        },
+        {
+            "name": "Battle with Virádha",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma raised cord and arrow, seven arrows flew winged with gold, smote giant's breast, passed through bulk, fiend grasped spear wild with rage, rushed at brothers"
+            }
+        },
+        {
+            "name": "Arrow rain on giant",
+            "type": "Event",
+            "attributes": {
+                "description": "Princely brothers poured fiery flood of arrowy rain, unmoved he stood, opened dire mouth laughed, arrows escaped from jaws, life unharmed by Brahmá's promise"
+            }
+        },
+        {
+            "from": "Spear shattered",
+            "type": "Event",
+            "attributes": {
+                "description": "Giant raised spear aloft rushed on pair, from Ráma's bow two arrows flew cleft massive spear, dire as flaming levin, fell to earth like rock from Meru"
+            }
+        },
+        {
+            "name": "Sword combat",
+            "type": "Event",
+            "attributes": {
+                "description": "Each warrior drew sword black as serpent, gathering fury rushed on giant, giant cast arm around each held heroes fast, bearing twain turned and fled"
+            }
+        },
+        {
+            "name": "Abduction through forest",
+            "type": "Event",
+            "attributes": {
+                "description": "Giant upraised them to lofty shoulders, like children clung to neck, rover of night bore princes through wood vast as cloud, where birds flew trees threw shadows"
+            }
+        },
+        {
+            "name": "Sítá's plea",
+            "type": "Event",
+            "attributes": {
+                "description": "Viewed with wild affright heroes hurried from sight, tossed shapely arms high, shrieked bitter cry, begged take me leave Raghu's sons free"
+            }
+        },
+        {
+            "name": "Breaking Virádha's arms",
+            "type": "Event",
+            "attributes": {
+                "description": "Heroes heard mournful cry, hastened for lady's sake, Lakshmana broke foe's left arm, Ráma smashed right with heavy hand, giant came to earth fainting"
+            }
+        },
+        {
+            "name": "Crushing the giant",
+            "type": "Event",
+            "attributes": {
+                "description": "Rushed on crushed and beat with arms fists feet, nerved mighty limb to pound and bray on ground, arrows and blades made wide rents, crushed torn mangled still lived could not kill"
+            }
+        },
+        {
+            "name": "Digging the pit",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma saw no arms might slay charmed life, gave counsel dig pit to fit elephantine bulk, let hollowed earth enfold giant, pressed foot upon breast"
+            }
+        },
+        {
+            "name": "Virádha's revelation",
+            "type": "Event",
+            "attributes": {
+                "description": "Prostrate monster heard Ráma's word with joy, addressed Kakutstha's son: I yield overthrown by might like Indra's, my name was Tumburu renowned for song, cursed by Kuvera, when Ráma destroys me proper shape assume"
+            }
+        },
+        {
+            "name": "Direction to Sharabhanga",
+            "type": "Event",
+            "attributes": {
+                "description": "Tumburu freed by Ráma's favor saved to heaven go, league beyond stands holy Sharabhanga's cot, sun not more bright, quickly turn earn blessings"
+            }
+        },
+        {
+            "name": "Burial instructions",
+            "type": "Event",
+            "attributes": {
+                "description": "First under earth throw body then go rejoicing, law ordained of old for giants, bodies laid in earth rise to homes eternal in skies"
+            }
+        },
+        {
+            "name": "Virádha's death",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma dug pit to fit bulk, put foot on neck, Lakshmana plied spade dug deep wide, withdrew foot threw down mighty form, awful shout gave sank into grave, spirit fled to heaven"
+            }
+        },
+        {
+            "name": "Victory celebration",
+            "type": "Event",
+            "attributes": {
+                "description": "Princes rejoiced to see him die, strayed in boundless wood like great sun and moon triumphant in sky"
+            }
+        },
+        {
+            "name": "Journey to Sharabhanga",
+            "type": "Event",
+            "attributes": {
+                "description": "Having slain Virádha, consoled spouse with gentle words, clasped in loving hold, gave counsel to brother: wild woods hard rough ground, never viewed so dark drear solitude, let us haste to Sharabhanga"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Sítá",
+            "to": "Sítá's tale to Anasúyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá told tale of Maiden's Choice, how Janak held ceremony, Ráma won hand, princes declined gift"
+            }
+        },
+        {
+            "from": "Anasúyá",
+            "to": "Sítá's tale to Anasúyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Virtuous-souled matron heard tale, sweet-toned words charmed ear, kissed lady's brow, laced loving arms"
+            }
+        },
+        {
+            "from": "Janak",
+            "to": "Maiden's Choice/Svayamvara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Great king father held Maiden's Choice unparalleled, princes declined gift till learned father's mind"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Maiden's Choice/Svayamvara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince won Sítá's maiden hand from princes of land, exalted high above heroic chiefs"
+            }
+        },
+        {
+            "from": "Anasúyá",
+            "to": "Evening at hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Matron spoke: sun sunk from sight, world left to holy Night, leafy thickets sound, hermits return"
+            }
+        },
+        {
+            "from": "Hermit band",
+            "to": "Evening at hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saints with pitchers in hand, fresh from bath locks wet bark coats dripping, tend worship fires, smoke ascends"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Gift of heavenly raiment",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lady arrayed in heavenly raiment, shone like heavenly Goddess, bowed to matron's feet, turned to meet lord"
+            }
+        },
+        {
+            "from": "Anasúyá",
+            "to": "Gift of heavenly raiment",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saintly dame gave love-gifts: garland of celestial twine, ornaments, robes divine"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Night at hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero's heart filled with pride happiness, honored by every pious sage, spent sacred night well content beside darling"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Night at hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother's heart filled with pride happiness, Sítá gained honours high mortal dames scarce obtained"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Departure from hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "When night fled princes said farewell to all hermits, gazed on distant shade, paid lustral rites"
+            }
+        },
+        {
+            "from": "Mighty saints",
+            "to": "Departure from hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saints addressed pair: monsters fierce and fell dwell in distant forest, feed on blood, rend holy saints, chase or destroy"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Entering Dandaka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Valiant hero stood in vast shade of wood, saw hermit settlement, loosed mighty bow-string, drew nearer"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dandaka/DaG ak wood",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Hero in vast shade, mighty forest, deep-tangled wood, wild"
+            }
+        },
+        {
+            "from": "Mighty saints",
+            "to": "Saints' reception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saints endued with keen celestial sight viewed chieftain with joy, came to meet prince/Sítá/Lakshmana, gave glad blessings"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Saints' reception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Glorious prince received in hermitage, entranced wondering eyes with form stature grace"
+            }
+        },
+        {
+            "from": "Mighty saints",
+            "to": "Honoring the guests",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Pure hermits led guest within cot with leaves overhead, received with highest honor, gave water for feet, brought roots and fruit"
+            }
+        },
+        {
+            "from": "Mighty saints",
+            "to": "Saints' pledge",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Duty-loving hermits reverent hand to hand: king is protector, thou shouldst give protection, we live in thy realm"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Saints' pledge",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prince addressed: king protector maintainer of right, one fourth Indra's essence, whether in town or wood thou art king"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Piercing the forest",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Entertained passed night, bade adieu, pierced mighty forest where roamed deer pard bear"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Encounter with Virádha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Giant passing nature's law, vast as mountain, hideous, wore tiger's hide reeking, carried beasts on iron spear"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Encounter with Virádha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Deep in thickets with Lakshmana and spouse stood, saw giant, fierce eye fell on three"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Virádha seizes Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Giant charged with roar and yell, took trembling Sítá to side, withdrew little space, demanded who are ye"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Virádha seizes Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Janak's hapless child scared by fierce speech, trembled for terror as frail plantain in gale"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's lament",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saw Virádha clasp Sítá in mighty grasp, with pale lips terror dried cried to brother: Kaikeyí's blow falls"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ráma's lament",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma said: now falls blow Kaikeyí meant, cruel soul triumphant, day brings triumph to younger queen"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Battle with Virádha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hero raised cord and arrow, seven arrows flew winged with gold, smote giant's breast purpled like peacock's throat"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Battle with Virádha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fiend unclasped Maithil dame, grasped spear, wild with rage pierced through rushed at brothers"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Arrow rain on giant",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Princely brothers poured fiery flood of arrowy rain on fierce giant"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Arrow rain on giant",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Giant's life unharmed by Brahmá's saving promise, charmed frame"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Spear shattered",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "From Ráma's bow two arrows flew cleft massive spear in two, dire as flaming levin"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sword combat",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Swift drew sword black as serpent, gathering fury rushed on giant foe"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sword combat",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brother drew sword, rushed fiercely on giant, giant cast arm around held fast"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Abduction through forest",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rover of night upraised them to shoulders, like children clung to neck, bore princes through wood vast as cloud"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Sítá's plea",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Viewed with wild affright heroes hurried from sight, tossed arms high, shrieked bitter cry, begged take me"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Breaking Virádha's arms",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "With resistless stroke broke foe's left arm that held him"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Breaking Virádha's arms",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Swift to smite smashed with heavy hand the right arm"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Crushing the giant",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rushed on crushed and beat with arms fists feet, nerved mighty limb to pound and bray"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Digging the pit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Saw no arms might slay charmed life, gave counsel dig pit, pressed foot upon giant's breast"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Digging the pit",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Obedient Lakshmana plied spade, dug pit both deep and wide"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Virádha's revelation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Prostrate monster with joy heard Ráma's word: I yield overthrown, my name was Tumburu, cursed by Kuvera"
+            }
+        },
+        {
+            "from": "Tumburu",
+            "to": "Virádha's revelation",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Virádha was Tumburu renowned for song, cursed by Kuvera for loving Rambhá, wore hideous shape"
+            }
+        },
+        {
+            "from": "Kuvera",
+            "to": "Kuvera's curse",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord's stern decree cursed Tumburu, anger fell for loving Rambhá too well, when Ráma destroys proper shape resume"
+            }
+        },
+        {
+            "from": "Sharabhanga",
+            "to": "Direction to Sharabhanga",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Holy hermit's cot stands league beyond, sun not more bright, most glorious anchorite"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Burial instructions",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Giant spoke: first under earth throw body, law ordained of old for giants, bodies laid in earth rise to eternal homes"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Virádha's death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma put foot on neck, threw down mighty form, awful shout gave, sank into grave, spirit fled to heaven"
+            }
+        },
+        {
+            "from": "Tumburu",
+            "to": "Virádha's death",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Spirit of Tumburu freed by Ráma's favor, saved to heaven go"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Prince won Sítá's maiden hand, truly love exalted above heroic chiefs, moonbright dame, dear spouse"
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Janak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá daughter of royal Janak, bride of Dasharatha's son, maiden hand won"
+            }
+        },
+        {
+            "from": "Urmilá",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sister next to Sítá given to be Lakshmana's bride, graced with all gifts"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's brother, minister, nobly brave, faithful companion"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kausalyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kausalyá blest to be mother of son like Ráma"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sumitrá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is Sumitrá's son"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma son of king, loss of sire, royal power"
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Younger queen, Bharat on throne, greedy eyes, dark intent"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Soma/Moon-God",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Virtuous Ráma fair as Soma in evening air"
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma peer of Indra, might vies with Indra's own, king bears one fourth of Indra's essence"
+            }
+        },
+        {
+            "from": "Brahmá",
+            "to": "Virádha's boon",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahmá's grace gave boon charmed frame weapon never pierce, Brahmá's saving promise"
+            }
+        },
+        {
+            "from": "Kuvera",
+            "to": "Tumburu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kuvera's stern decree cursed Tumburu, angry God whose wrath fell"
+            }
+        },
+        {
+            "from": "Rambhá",
+            "to": "Tumburu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Tumburu loving Rambhá's charms too well caused Kuvera's curse"
+            }
+        },
+        {
+            "from": "Hermit band",
+            "to": "Hermitage/settlement",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Saints abode in circle where coats of bark hung, holy grass bestrewed"
+            }
+        },
+        {
+            "from": "Mighty saints",
+            "to": "Hermitage/settlement",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Pure dwellers in shade, old reverend sires, delightful grove like Brahmá's sphere"
+            }
+        },
+        {
+            "from": "Sharabhanga",
+            "to": "Hermitage/settlement",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Holy hermit's cot stands league beyond in Dandaka"
+            }
+        },
+        {
+            "from": "Virádha",
+            "to": "Dandaka/DaG ak wood",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Great Virádha day by day through deep-tangled wood stray"
+            }
+        }
+    ]
+}
