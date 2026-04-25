@@ -1,0 +1,272 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The exiled prince of Ayodhyá, son of Dasaratha, and a hero of the Ikshváku race who searches for his abducted wife, Sítá."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "The daughter of Janak (Videhan Queen) and wife of Ráma, who is lured by a magic deer and abducted by RávaG."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The loyal younger brother of Ráma who accompanies him in exile and serves as his guardian and confidant."
+            }
+        },
+        {
+            "name": "RávaG",
+            "type": "Character",
+            "attributes": {
+                "description": "The ten-necked Rákshas king of Lanká who abducts Sítá through guile and force."
+            }
+        },
+        {
+            "name": "Márícha",
+            "type": "Character",
+            "attributes": {
+                "description": "A fiend who transforms into a wondrous golden deer to lure Ráma away from Sítá, leading to her abduction."
+            }
+        },
+        {
+            "name": "Jatáyus",
+            "type": "Character",
+            "attributes": {
+                "description": "The noble vulture king and friend of Dasaratha who dies heroically while attempting to rescue Sítá from RávaG."
+            }
+        },
+        {
+            "name": "Sugríva",
+            "type": "Character",
+            "attributes": {
+                "description": "The Vánar king and son of the Sun, exiled by his brother Báli, who forms a sacred alliance with Ráma on Mount Rishyamúka."
+            }
+        },
+        {
+            "name": "Hanumán",
+            "type": "Character",
+            "attributes": {
+                "description": "The son of the Wind-God and chief counselor to Sugríva, who approaches Ráma and LakshmaG as an envoy."
+            }
+        },
+        {
+            "name": "Kabandha",
+            "type": "Character",
+            "attributes": {
+                "description": "A misshapen, headless giant (formerly the Gandharva Danu) who is released from a curse by Ráma and directs him to seek Sugríva."
+            }
+        },
+        {
+            "name": "Savarí",
+            "type": "Character",
+            "attributes": {
+                "description": "An aged, pious votaress and pupil of Matanga who waits for Ráma's arrival before ascending to heaven."
+            }
+        },
+        {
+            "name": "Báli",
+            "type": "Character",
+            "attributes": {
+                "description": "The powerful elder brother of Sugríva and son of Indra, who usurped Sugríva's throne and wife."
+            }
+        },
+        {
+            "name": "Dasaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "The deceased King of Ayodhyá and father of Ráma, whose decree sent Ráma into exile."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The King of the Gods (Mahendra/Zakra) who aids Sítá in captivity and is the divine father of Báli."
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Eternal Father and Creator who decreed the events leading to the giants' overthrow."
+            }
+        },
+        {
+            "name": "Vayu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The God of Wind and father of Hanumán."
+            }
+        },
+        {
+            "name": "Lanká",
+            "type": "Place",
+            "attributes": {
+                "description": "The magnificent island city and fortress of RávaG, surrounded by the ocean."
+            }
+        },
+        {
+            "name": "Rishyamúka",
+            "type": "Place",
+            "attributes": {
+                "description": "The mountain where Sugríva and his ministers hide from Báli and where the alliance with Ráma is formed."
+            }
+        },
+        {
+            "name": "Pampa",
+            "type": "Place",
+            "attributes": {
+                "description": "A beautiful lake and brook where Ráma laments for Sítá and encounters Sugríva's envoy."
+            }
+        },
+        {
+            "name": "Janasthán",
+            "type": "Place",
+            "attributes": {
+                "description": "The forest region where Ráma dwelt in exile and where he slew the giant Khara and his host."
+            }
+        },
+        {
+            "name": "Matanga's Wood",
+            "type": "Place",
+            "attributes": {
+                "description": "A sacred grove once inhabited by Saint Matanga and his pupils, where Savarí maintains her hermitage."
+            }
+        },
+        {
+            "name": "The League",
+            "type": "Event",
+            "attributes": {
+                "description": "The formal alliance between Ráma and Sugríva, witnessed by the sacred fire."
+            }
+        },
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "The epic narrative detailing the life and adventures of Ráma."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and wife; Ráma's primary quest is to recover Sítá after her abduction."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "LakshmaG",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers; LakshmaG is Ráma's devoted companion and protector throughout their exile."
+            }
+        },
+        {
+            "from": "RávaG",
+            "to": "Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "RávaG abducts Sítá from Janasthán and imprisons her in his city of Lanká."
+            }
+        },
+        {
+            "from": "Márícha",
+            "to": "RávaG",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Márícha acts as RávaG's accomplice, using magic to lure Ráma away and facilitate the abduction."
+            }
+        },
+        {
+            "from": "Jatáyus",
+            "to": "Sítá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Jatáyus fights RávaG to prevent him from carrying Sítá away."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sugríva",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The two form a 'League' of mutual aid to recover their lost wives and kingdoms."
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Sugríva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanumán is Sugríva's faithful counselor and envoy."
+            }
+        },
+        {
+            "from": "Sugríva",
+            "to": "Báli",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers and enemies; Báli expelled Sugríva and took his wife, leading Sugríva to seek Ráma's help."
+            }
+        },
+        {
+            "from": "Kabandha",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "After being slain by Ráma, Kabandha's spirit advises Ráma to seek Sugríva's alliance."
+            }
+        },
+        {
+            "from": "Savarí",
+            "to": "Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Savarí welcomes Ráma to Matanga's wood and honors him as her guest."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Lanká",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sítá is held captive in the A[oka garden within the city of Lanká."
+            }
+        },
+        {
+            "from": "Sugríva",
+            "to": "Rishyamúka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sugríva resides on Mount Rishyamúka as a fugitive from his brother Báli."
+            }
+        },
+        {
+            "from": "Hanumán",
+            "to": "Vayu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanumán is the son of the God of Wind."
+            }
+        },
+        {
+            "from": "Báli",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Báli is the son of the God Indra."
+            }
+        }
+    ]
+}

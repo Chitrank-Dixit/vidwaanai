@@ -4,98 +4,98 @@
             "name": "Ramayana",
             "type": "Text",
             "attributes": {
-                "description": "Ancient Indian epic describing the life and battles of Rama."
+                "description": "Ancient Indian epic describing the life and deeds of Rama."
             }
         },
         {
             "name": "Rama",
             "type": "Character",
             "attributes": {
-                "description": "Prince of Ayodhya, central hero and warrior of righteousness."
+                "description": "Prince of Ayodhya, central hero known for righteousness and unmatched valor."
             }
         },
         {
             "name": "Lakshmana",
             "type": "Character",
             "attributes": {
-                "description": "Younger brother of Rama, loyal companion."
+                "description": "Brother of Rama, devoted companion and warrior."
             }
         },
         {
             "name": "Sita",
             "type": "Character",
             "attributes": {
-                "description": "Wife of Rama, known for beauty and virtue."
-            }
-        },
-        {
-            "name": "Khara",
-            "type": "Character",
-            "attributes": {
-                "description": "Demon chief ruling Janasthana."
-            }
-        },
-        {
-            "name": "Dushana",
-            "type": "Character",
-            "attributes": {
-                "description": "Commander under Khara, slain by Rama."
-            }
-        },
-        {
-            "name": "Trishira",
-            "type": "Character",
-            "attributes": {
-                "description": "Three-headed demon warrior serving Khara."
-            }
-        },
-        {
-            "name": "Akampana",
-            "type": "Character",
-            "attributes": {
-                "description": "Demon who survives and informs Ravana about the battle."
+                "description": "Wife of Rama, renowned for beauty and virtue."
             }
         },
         {
             "name": "Ravana",
             "type": "Character",
             "attributes": {
-                "description": "King of Lanka and ruler of the Rakshasas."
+                "description": "King of Lanka, powerful Rakshasa ruler."
+            }
+        },
+        {
+            "name": "Surpanakha",
+            "type": "Character",
+            "attributes": {
+                "description": "Sister of Ravana who incites him against Rama."
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon chief slain by Rama."
+            }
+        },
+        {
+            "name": "Dushana",
+            "type": "Character",
+            "attributes": {
+                "description": "Commander of Khara, slain by Rama."
+            }
+        },
+        {
+            "name": "Trishira",
+            "type": "Character",
+            "attributes": {
+                "description": "Three-headed demon warrior slain by Rama."
+            }
+        },
+        {
+            "name": "Akampana",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon who informs Ravana about Rama's victory."
             }
         },
         {
             "name": "Maricha",
             "type": "Character",
             "attributes": {
-                "description": "Demon advisor to Ravana, associated with Tataka."
+                "description": "Demon advisor to Ravana who later takes the form of a golden deer."
             }
         },
         {
             "name": "Agastya",
             "type": "Character",
             "attributes": {
-                "description": "Great sage who gifted Rama a divine bow."
+                "description": "Sage who gifted Rama a divine bow."
             }
         },
         {
             "name": "Indra",
             "type": "Deity",
             "attributes": {
-                "description": "King of the gods, associated with thunderbolt and Airavata."
-            }
-        },
-        {
-            "name": "Yama",
-            "type": "Deity",
-            "attributes": {
-                "description": "God of death and ruler of the underworld."
+                "description": "King of the gods, wielder of thunderbolt."
             }
         },
         {
             "name": "Vishnu",
             "type": "Deity",
             "attributes": {
-                "description": "Supreme deity, often compared to Rama in strength."
+                "description": "Supreme deity, often compared to Rama."
             }
         },
         {
@@ -106,24 +106,24 @@
             }
         },
         {
-            "name": "Namuchi",
-            "type": "Character",
+            "name": "Yama",
+            "type": "Deity",
             "attributes": {
-                "description": "Asura slain by Indra."
+                "description": "God of death."
             }
         },
         {
-            "name": "Vritra",
+            "name": "Garuda",
             "type": "Character",
             "attributes": {
-                "description": "Demon slain by Indra, associated with drought."
+                "description": "Divine bird who once carried Amrita."
             }
         },
         {
-            "name": "Bala",
-            "type": "Character",
+            "name": "Amrita",
+            "type": "Concept",
             "attributes": {
-                "description": "Demon slain by Indra."
+                "description": "Divine nectar of immortality."
             }
         },
         {
@@ -162,17 +162,24 @@
             }
         },
         {
-            "name": "Tatakas Grove",
+            "name": "Ocean",
             "type": "Place",
             "attributes": {
-                "description": "Region associated with Maricha and Tataka."
+                "description": "Ocean crossed by Ravana during his journey."
+            }
+        },
+        {
+            "name": "Hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest dwelling of sages and Maricha."
             }
         },
         {
             "name": "Battle with Khara",
             "type": "Event",
             "attributes": {
-                "description": "Battle where Rama destroys Khara and his army."
+                "description": "Battle where Rama defeats Khara and his army."
             }
         },
         {
@@ -183,17 +190,24 @@
             }
         },
         {
-            "name": "Report to Ravana",
+            "name": "Surpanakha's Counsel",
             "type": "Event",
             "attributes": {
-                "description": "Akampana informs Ravana about Khara's defeat."
+                "description": "Surpanakha advises Ravana to act against Rama."
             }
         },
         {
             "name": "Plan to Abduct Sita",
             "type": "Event",
             "attributes": {
-                "description": "Ravana plans to abduct Sita after hearing of Rama's strength."
+                "description": "Ravana plans to abduct Sita using deception."
+            }
+        },
+        {
+            "name": "Golden Deer Deception",
+            "type": "Event",
+            "attributes": {
+                "description": "Maricha disguises as a golden deer to lure Rama away."
             }
         }
     ],
@@ -203,7 +217,7 @@
             "to": "Rama",
             "type": "MENTIONS",
             "attributes": {
-                "context": "Epic centers around Rama."
+                "context": "Epic centers on Rama."
             }
         },
         {
@@ -211,7 +225,7 @@
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Brothers fighting together."
+                "context": "Brothers and companions."
             }
         },
         {
@@ -223,19 +237,19 @@
             }
         },
         {
-            "from": "Khara",
-            "to": "Dushana",
+            "from": "Surpanakha",
+            "to": "Ravana",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Dushana is subordinate commander."
+                "context": "Sister advises Ravana."
             }
         },
         {
-            "from": "Khara",
-            "to": "Trishira",
+            "from": "Ravana",
+            "to": "Maricha",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Trishira is a chief under Khara."
+                "context": "Seeks Maricha's help."
             }
         },
         {
@@ -243,7 +257,7 @@
             "to": "Battle with Khara",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Rama defeats Khara's army."
+                "context": "Defeats demon army."
             }
         },
         {
@@ -251,7 +265,7 @@
             "to": "Battle with Khara",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Khara leads demon army."
+                "context": "Leads demon army."
             }
         },
         {
@@ -259,7 +273,7 @@
             "to": "Death of Khara",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Rama kills Khara."
+                "context": "Kills Khara."
             }
         },
         {
@@ -267,23 +281,23 @@
             "to": "Death of Khara",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Khara is slain in battle."
+                "context": "Is slain in battle."
             }
         },
         {
-            "from": "Akampana",
-            "to": "Report to Ravana",
+            "from": "Surpanakha",
+            "to": "Surpanakha's Counsel",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Reports defeat of demons."
+                "context": "Advises Ravana about Rama."
             }
         },
         {
-            "from": "Report to Ravana",
+            "from": "Surpanakha's Counsel",
             "to": "Ravana",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Ravana receives news."
+                "context": "Ravana receives counsel."
             }
         },
         {
@@ -291,7 +305,7 @@
             "to": "Plan to Abduct Sita",
             "type": "PARTICIPATED_IN",
             "attributes": {
-                "context": "Plans to abduct Sita."
+                "context": "Decides to abduct Sita."
             }
         },
         {
@@ -303,11 +317,27 @@
             }
         },
         {
-            "from": "Ravana",
-            "to": "Maricha",
+            "from": "Maricha",
+            "to": "Golden Deer Deception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Disguises as golden deer."
+            }
+        },
+        {
+            "from": "Golden Deer Deception",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Seeks help from Maricha."
+                "context": "Lures Rama away."
+            }
+        },
+        {
+            "from": "Golden Deer Deception",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sita is attracted to the deer."
             }
         },
         {
@@ -315,7 +345,7 @@
             "to": "Dandaka Forest",
             "type": "LOCATED_AT",
             "attributes": {
-                "context": "Janasthana lies within Dandaka forest."
+                "context": "Janasthana lies within forest."
             }
         },
         {
@@ -323,7 +353,15 @@
             "to": "Lanka",
             "type": "LOCATED_AT",
             "attributes": {
-                "context": "Ravana rules Lanka."
+                "context": "Rules Lanka."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Ocean",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Travels across ocean."
             }
         },
         {
@@ -331,7 +369,7 @@
             "to": "Dharma",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Rama acts according to righteousness."
+                "context": "Acts as protector of righteousness."
             }
         },
         {
@@ -339,7 +377,7 @@
             "to": "Vishnu",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Rama compared to Vishnu in strength."
+                "context": "Compared to Vishnu in power."
             }
         },
         {
@@ -347,39 +385,23 @@
             "to": "Rudra",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Rama compared to Rudra in battle fury."
+                "context": "Compared to Rudra in battle fury."
             }
         },
         {
-            "from": "Khara",
-            "to": "Indra",
+            "from": "Rama",
+            "to": "Rakshasas",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Comparison with Indra in battle."
+                "context": "Destroys demon race in battle."
             }
         },
         {
-            "from": "Indra",
-            "to": "Namuchi",
+            "from": "Garuda",
+            "to": "Amrita",
             "type": "RELATED_TO",
             "attributes": {
-                "context": "Indra slew Namuchi."
-            }
-        },
-        {
-            "from": "Indra",
-            "to": "Vritra",
-            "type": "RELATED_TO",
-            "attributes": {
-                "context": "Indra slew Vritra."
-            }
-        },
-        {
-            "from": "Indra",
-            "to": "Bala",
-            "type": "RELATED_TO",
-            "attributes": {
-                "context": "Indra slew Bala."
+                "context": "Garuda carried Amrita."
             }
         }
     ]

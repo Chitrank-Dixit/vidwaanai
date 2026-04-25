@@ -1,0 +1,336 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating the life of Rama and related events."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Kosala, embodiment of dharma and central hero."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of King Janaka."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama and devoted companion."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka who plans to abduct Sita."
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon who warns Ravana but later assists him by transforming into a golden deer."
+            }
+        },
+        {
+            "name": "Vibhishana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Ravana known for righteousness."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of Rama, king of Ayodhya."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen whose request led to Rama's exile."
+            }
+        },
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage who took Rama to the forest to protect rituals."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "God associated with cosmic waters."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty and moral law embodied by Rama."
+            }
+        },
+        {
+            "name": "Golden Deer Deception",
+            "type": "Event",
+            "attributes": {
+                "description": "Plan where Maricha transforms into a golden deer to lure Rama away."
+            }
+        },
+        {
+            "name": "Abduction of Sita Plan",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana’s scheme to abduct Sita using deception."
+            }
+        },
+        {
+            "name": "Rama's Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama leaves Ayodhya to fulfill his father's promise."
+            }
+        },
+        {
+            "name": "Maricha Transformation",
+            "type": "Event",
+            "attributes": {
+                "description": "Maricha assumes the form of a magical deer."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest where Rama, Sita, and Lakshmana reside."
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Region within Dandaka forest inhabited by demons."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom ruled by Ravana."
+            }
+        },
+        {
+            "name": "Hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Dwelling of sages and location of Rama's residence."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Central character of the epic."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife relationship."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers and companions."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Plans to abduct her."
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Advises Ravana and later assists him."
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Golden Deer Deception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Transforms into golden deer."
+            }
+        },
+        {
+            "from": "Golden Deer Deception",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lures Rama away from hermitage."
+            }
+        },
+        {
+            "from": "Golden Deer Deception",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sita desires the deer."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Abduction of Sita Plan",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Creates plan to abduct Sita."
+            }
+        },
+        {
+            "from": "Abduction of Sita Plan",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Target of the plan."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Leaves kingdom due to father's promise."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father-son relationship."
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Her demand causes exile."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mentor who took Rama to forest."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Embodiment of righteousness."
+            }
+        },
+        {
+            "from": "Janasthana",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Region within forest."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules Lanka."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lives in forest hermitage."
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Maricha Transformation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Transforms into magical deer."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Compared to Indra in power."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Varuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Compared to Varuna in might."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Yama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Compared to Yama in destructive power."
+            }
+        }
+    ]
+}

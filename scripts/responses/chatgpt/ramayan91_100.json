@@ -1,0 +1,493 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic describing Rama's life and events."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, embodiment of dharma."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of Janaka."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama and loyal companion."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka, antagonist."
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon who assists Ravana via deception."
+            }
+        },
+        {
+            "name": "Vibhishana",
+            "type": "Character",
+            "attributes": {
+                "description": "Ravana’s righteous brother."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen whose demand caused Rama’s exile."
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama who rules in his absence."
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Devotee of Rama, son of Wind God."
+            }
+        },
+        {
+            "name": "Sugriva",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara king allied with Rama."
+            }
+        },
+        {
+            "name": "Bali",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Sugriva, slain by Rama."
+            }
+        },
+        {
+            "name": "Jatayu",
+            "type": "Character",
+            "attributes": {
+                "description": "Vulture who tried to save Sita."
+            }
+        },
+        {
+            "name": "Kabandha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon liberated by Rama."
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage who guides Rama."
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "Nishada king and ally of Rama."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of gods."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of waters."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "Destroyer god."
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of fire."
+            }
+        },
+        {
+            "name": "Vayu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Wind god."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty."
+            }
+        },
+        {
+            "name": "Golden Deer Deception",
+            "type": "Event",
+            "attributes": {
+                "description": "Maricha lures Rama away."
+            }
+        },
+        {
+            "name": "Abduction of Sita",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana kidnaps Sita."
+            }
+        },
+        {
+            "name": "Rama Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama leaves Ayodhya for forest."
+            }
+        },
+        {
+            "name": "Battle with Ravana",
+            "type": "Event",
+            "attributes": {
+                "description": "Final war where Rama kills Ravana."
+            }
+        },
+        {
+            "name": "Bridge to Lanka",
+            "type": "Event",
+            "attributes": {
+                "description": "Construction of bridge to Lanka."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Rama."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Ravana."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest of exile."
+            }
+        },
+        {
+            "name": "Chitrakuta",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest residence of Rama."
+            }
+        },
+        {
+            "name": "Panchavati",
+            "type": "Place",
+            "attributes": {
+                "description": "Place where Sita was abducted."
+            }
+        },
+        {
+            "name": "Kishkindha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Sugriva."
+            }
+        },
+        {
+            "name": "Pampa",
+            "type": "Place",
+            "attributes": {
+                "description": "Lake where Rama meets Hanuman."
+            }
+        },
+        {
+            "name": "Nandigrama",
+            "type": "Place",
+            "attributes": {
+                "description": "Place ruled by Bharata."
+            }
+        },
+        {
+            "name": "Ganga",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river."
+            }
+        },
+        {
+            "name": "Ocean",
+            "type": "Place",
+            "attributes": {
+                "description": "Sea crossed to reach Lanka."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Central figure"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Ravana",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Primary antagonist"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Bharata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Vibhishana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Bali",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers and rivals"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Embodiment of righteousness"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Divine incarnation"
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Demand caused exile"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Accepted exile"
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Golden Deer Deception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Transforms into deer"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Abduction of Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kidnaps Sita"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Abduction of Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Searches for Sita"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Battle with Ravana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Ravana"
+            }
+        },
+        {
+            "from": "Nala",
+            "to": "Bridge to Lanka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Builds bridge"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Birthplace"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "King of Lanka"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Exile period"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Chitrakuta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Early exile"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Residence during exile"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Kishkindha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules kingdom"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Pampa",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Meeting place"
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Nandigrama",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules in Rama’s absence"
+            }
+        },
+        {
+            "from": "Bridge to Lanka",
+            "to": "Ocean",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Constructed over sea"
+            }
+        }
+    ]
+}
