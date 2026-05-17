@@ -1,0 +1,452 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating Rama's story"
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, central hero"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama"
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya"
+            }
+        },
+        {
+            "name": "Surpanakha",
+            "type": "Character",
+            "attributes": {
+                "description": "Sister of Ravana"
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasa commander"
+            }
+        },
+        {
+            "name": "Dushana",
+            "type": "Character",
+            "attributes": {
+                "description": "General of Khara"
+            }
+        },
+        {
+            "name": "Trishira",
+            "type": "Character",
+            "attributes": {
+                "description": "Three-headed demon"
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka"
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon aiding Ravana"
+            }
+        },
+        {
+            "name": "Jatayu",
+            "type": "Character",
+            "attributes": {
+                "description": "Vulture king"
+            }
+        },
+        {
+            "name": "Akampana",
+            "type": "Character",
+            "attributes": {
+                "description": "Messenger of Ravana"
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of gods"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god"
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death"
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest of exile"
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Region of demons"
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Ravana"
+            }
+        },
+        {
+            "name": "Godavari River",
+            "type": "Place",
+            "attributes": {
+                "description": "River in forest"
+            }
+        },
+        {
+            "name": "Khara Battle",
+            "type": "Event",
+            "attributes": {
+                "description": "Battle between Rama and Khara"
+            }
+        },
+        {
+            "name": "Dushana Death",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Dushana"
+            }
+        },
+        {
+            "name": "Trishira Death",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Trishira"
+            }
+        },
+        {
+            "name": "Khara Death",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Khara"
+            }
+        },
+        {
+            "name": "Golden Deer Deception",
+            "type": "Event",
+            "attributes": {
+                "description": "Maricha disguises as deer"
+            }
+        },
+        {
+            "name": "Maricha Death",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Maricha"
+            }
+        },
+        {
+            "name": "Lakshmana Departure",
+            "type": "Event",
+            "attributes": {
+                "description": "Lakshmana leaves Sita"
+            }
+        },
+        {
+            "name": "Sita Abduction",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana abducts Sita"
+            }
+        },
+        {
+            "name": "Jatayu Fight",
+            "type": "Event",
+            "attributes": {
+                "description": "Jatayu fights Ravana"
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty"
+            }
+        },
+        {
+            "name": "Deception",
+            "type": "Concept",
+            "attributes": {
+                "description": "Use of illusion and trickery"
+            }
+        },
+        {
+            "name": "Lust",
+            "type": "Concept",
+            "attributes": {
+                "description": "Desire leading to downfall"
+            }
+        },
+        {
+            "name": "Heroism",
+            "type": "Concept",
+            "attributes": {
+                "description": "Courage and valor"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Central hero"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Surpanakha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Siblings"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Divine incarnation"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Khara Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fights Khara"
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Khara Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Leads demons"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dushana Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Dushana"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Trishira Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Trishira"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Khara Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Khara"
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Golden Deer Deception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Disguises as deer"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Golden Deer Deception",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Chases deer"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Maricha Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Maricha"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Lakshmana Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Leaves Sita"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Lakshmana Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Forces departure"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Sita Abduction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Abducts Sita"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Sita Abduction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Victim"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Jatayu Fight",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fights Ravana"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Jatayu Fight",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Battles Jatayu"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Exile"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kingdom"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Godavari River",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Forest dwelling"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Embodiment of righteousness"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lust",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Driven by desire"
+            }
+        },
+        {
+            "from": "Maricha",
+            "to": "Deception",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Uses illusion"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Heroism",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Defeats demons"
+            }
+        }
+    ]
+}

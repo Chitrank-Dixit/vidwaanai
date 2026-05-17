@@ -1,0 +1,541 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating Rama's life"
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, central hero"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama"
+            }
+        },
+        {
+            "name": "Bharata",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother devoted to Rama"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest brother of Rama"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya"
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of Janaka"
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen who caused exile"
+            }
+        },
+        {
+            "name": "Kausalya",
+            "type": "Character",
+            "attributes": {
+                "description": "Mother of Rama"
+            }
+        },
+        {
+            "name": "Janaka",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Mithila"
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "Tribal chief and ally"
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "Charioteer of Dasharatha"
+            }
+        },
+        {
+            "name": "Javali",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage with skeptical arguments"
+            }
+        },
+        {
+            "name": "Vasistha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal priest"
+            }
+        },
+        {
+            "name": "Atri",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage hosting Rama"
+            }
+        },
+        {
+            "name": "Anasuya",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Atri, ascetic"
+            }
+        },
+        {
+            "name": "Viradha",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasa defeated by Rama"
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon troubling sages"
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of gods"
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god"
+            }
+        },
+        {
+            "name": "Ganga",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river"
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of Rama"
+            }
+        },
+        {
+            "name": "Mithila",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Janaka"
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest of exile"
+            }
+        },
+        {
+            "name": "Chitrakuta",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest dwelling"
+            }
+        },
+        {
+            "name": "Nandigrama",
+            "type": "Place",
+            "attributes": {
+                "description": "Bharata’s base"
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Region of demons"
+            }
+        },
+        {
+            "name": "Exile of Rama",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama's forest exile"
+            }
+        },
+        {
+            "name": "Meeting with Bharata",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharata meets Rama"
+            }
+        },
+        {
+            "name": "Death of Dasharatha",
+            "type": "Event",
+            "attributes": {
+                "description": "King dies grieving"
+            }
+        },
+        {
+            "name": "Funeral Rites",
+            "type": "Event",
+            "attributes": {
+                "description": "Ritual offerings to Dasharatha"
+            }
+        },
+        {
+            "name": "Sandals Coronation",
+            "type": "Event",
+            "attributes": {
+                "description": "Bharata rules via Rama’s sandals"
+            }
+        },
+        {
+            "name": "Viradha Battle",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Viradha"
+            }
+        },
+        {
+            "name": "Hermitage Life",
+            "type": "Event",
+            "attributes": {
+                "description": "Life with sages in forest"
+            }
+        },
+        {
+            "name": "Sita Marriage",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama wins Sita by bow"
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty"
+            }
+        },
+        {
+            "name": "Exile Duty",
+            "type": "Concept",
+            "attributes": {
+                "description": "Obedience to father"
+            }
+        },
+        {
+            "name": "Impermanence",
+            "type": "Concept",
+            "attributes": {
+                "description": "Transient nature of life"
+            }
+        },
+        {
+            "name": "Kingship",
+            "type": "Concept",
+            "attributes": {
+                "description": "Responsibility of ruler"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Central figure"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Bharata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Son"
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Kaikeyi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Son"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Divine incarnation"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Exile of Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sent to forest"
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Meeting with Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Seeks Rama"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Meeting with Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Refuses return"
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Death of Dasharatha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dies grieving"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Funeral Rites",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Performs rites"
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Sandals Coronation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rules symbolically"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sandals Coronation",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sandals represent him"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Viradha Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills demon"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Viradha Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Assists Rama"
+            }
+        },
+        {
+            "from": "Viradha",
+            "to": "Viradha Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Defeated"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Hermitage Life",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lives with sages"
+            }
+        },
+        {
+            "from": "Atri",
+            "to": "Hermitage Life",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hosts Rama"
+            }
+        },
+        {
+            "from": "Anasuya",
+            "to": "Hermitage Life",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Guides Sita"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita Marriage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Wins bow contest"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Sita Marriage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bride"
+            }
+        },
+        {
+            "from": "Janaka",
+            "to": "Sita Marriage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Father arranges"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kingdom"
+            }
+        },
+        {
+            "from": "Janaka",
+            "to": "Mithila",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules kingdom"
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Nandigrama",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules from here"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Exile"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Embodiment of duty"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Exile Duty",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Fulfills vow"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Impermanence",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Teaches mortality"
+            }
+        },
+        {
+            "from": "Bharata",
+            "to": "Kingship",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Reluctant ruler"
+            }
+        }
+    ]
+}
