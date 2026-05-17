@@ -1,0 +1,912 @@
+{
+    "entities": [
+        {
+            "name": "Ráma",
+            "type": "Character",
+            "attributes": {
+                "description": "The virtuous prince of Ayodhyá and son of Dasharatha, who accepts 14 years of exile to honor his father's word."
+            }
+        },
+        {
+            "name": "Sítá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's devoted wife who insists on accompanying him into the forest exile."
+            }
+        },
+        {
+            "name": "LakshmaG",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's loyal younger brother who accompanies him into exile, serving as his protector."
+            }
+        },
+        {
+            "name": "Da[aratha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhyá and father of Ráma, Bharat, and LakshmaG, who dies of grief after Ráma's banishment."
+            }
+        },
+        {
+            "name": "Kaikeyí",
+            "type": "Character",
+            "attributes": {
+                "description": "One of Dasharatha's queens who schemes to place her son Bharat on the throne and sends Ráma to exile."
+            }
+        },
+        {
+            "name": "Kau[alyá",
+            "type": "Character",
+            "attributes": {
+                "description": "Ráma's mother and senior queen of Ayodhyá, who blesses Ráma before his departure into the forest."
+            }
+        },
+        {
+            "name": "Sumitrá",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Ayodhyá and mother of LakshmaG and Zatrughna, who blesses LakshmaG to serve Ráma faithfully."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kaikeyí and Dasharatha, absent at Rájagriha during Ráma's exile; refuses to assume the throne."
+            }
+        },
+        {
+            "name": "Zatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest brother of Ráma, who remains with Bharat at Rájagriha during the exile."
+            }
+        },
+        {
+            "name": "Sumantra",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal charioteer who conveys Ráma, Sítá, and LakshmaG out of Ayodhyá into exile."
+            }
+        },
+        {
+            "name": "Guha",
+            "type": "Character",
+            "attributes": {
+                "description": "The Nisháda chief and friend of Ráma who receives them at the Gangá bank and keeps watch over them."
+            }
+        },
+        {
+            "name": "Vaishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal household priest and chief counselor who directs the envoys to summon Bharat from Rájagriha."
+            }
+        },
+        {
+            "name": "Bharadvája",
+            "type": "Character",
+            "attributes": {
+                "description": "A revered hermit-sage whose hermitage at the confluence of Yamuná and Gangá (Prayag) Ráma visits during exile."
+            }
+        },
+        {
+            "name": "Jáválí",
+            "type": "Character",
+            "attributes": {
+                "description": "A renowned Bráhman sage who attends the assembly after Dasharatha's death."
+            }
+        },
+        {
+            "name": "Gautam",
+            "type": "Character",
+            "attributes": {
+                "description": "A venerable sage who participates in the council of Bráhmans after the king's death."
+            }
+        },
+        {
+            "name": "Márkandeya",
+            "type": "Character",
+            "attributes": {
+                "description": "An ancient revered sage present at the assembly of Bráhmans in Ayodhyá."
+            }
+        },
+        {
+            "name": "Vámadeva",
+            "type": "Character",
+            "attributes": {
+                "description": "A glorious sage who participates in the royal assembly after Dasharatha's death."
+            }
+        },
+        {
+            "name": "Hermit's Son",
+            "type": "Character",
+            "attributes": {
+                "description": "An innocent young ascetic accidentally shot by Dasharatha while he was filling a water-pot at the Sarju river."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the Gods and lord of thunder, frequently invoked in blessings and comparisons throughout the verses."
+            }
+        },
+        {
+            "name": "VishGu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver of the universe, invoked in Kaushalya's blessing; Ráma is compared to his power."
+            }
+        },
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator God of the universe, invoked as the originator of all beings and divine order."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death and ruler of the southern realm where departed spirits dwell."
+            }
+        },
+        {
+            "name": "VaruGa",
+            "type": "Deity",
+            "attributes": {
+                "description": "The God of cosmic waters and moral order, invoked in blessings for Ráma's protection."
+            }
+        },
+        {
+            "name": "Parjanya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The God of rain, mentioned in the discourse on the necessity of a king for prosperous lands."
+            }
+        },
+        {
+            "name": "Kuvera",
+            "type": "Deity",
+            "attributes": {
+                "description": "The God of wealth and giver of golden boons, invoked in Kaushalya's blessing."
+            }
+        },
+        {
+            "name": "Nárad",
+            "type": "Deity",
+            "attributes": {
+                "description": "A divine sage and messenger of the Gods who is renowned for eloquence and wisdom."
+            }
+        },
+        {
+            "name": "Vrihaspati",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preceptor of the Gods, invoked as a protective guide for Ráma during his exile."
+            }
+        },
+        {
+            "name": "Zukra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The regent of the planet Venus, invoked for Ráma's protection in the forest."
+            }
+        },
+        {
+            "name": "Ayodhyá",
+            "type": "Place",
+            "attributes": {
+                "description": "The royal capital of Kosala, home of Ráma and Dasharatha, plunged into mourning after Ráma's exile."
+            }
+        },
+        {
+            "name": "DaG ak Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "The dense forest wilderness where Ráma, Sítá, and LakshmaG are exiled for fourteen years."
+            }
+        },
+        {
+            "name": "Gangá",
+            "type": "Place",
+            "attributes": {
+                "description": "The holy river whose bank Ráma, Sítá, and LakshmaG cross at the start of the exile journey."
+            }
+        },
+        {
+            "name": "Sarju River",
+            "type": "Place",
+            "attributes": {
+                "description": "The river on whose bank Dasharatha accidentally shot the hermit's son, an event that cursed his fate."
+            }
+        },
+        {
+            "name": "Rájagriha",
+            "type": "Place",
+            "attributes": {
+                "description": "The city of Bharat's maternal grandfather A[vapati, where Bharat and Zatrughna reside during the exile."
+            }
+        },
+        {
+            "name": "Prayág",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred confluence of Gangá and Yamuná rivers, near Bharadvája's hermitage; modern Allahabad."
+            }
+        },
+        {
+            "name": "Yamuná",
+            "type": "Place",
+            "attributes": {
+                "description": "A sacred river whose waters blend with Gangá at Prayag, passed by Ráma during the forest journey."
+            }
+        },
+        {
+            "name": "Ko[ala",
+            "type": "Place",
+            "attributes": {
+                "description": "The prosperous kingdom ruled by Dasharatha with Ayodhyá as its capital."
+            }
+        },
+        {
+            "name": "Ingudí Tree",
+            "type": "Place",
+            "attributes": {
+                "description": "A flowering tree on the Gangá bank where Ráma halts and rests during the early stage of exile."
+            }
+        },
+        {
+            "name": "Ráma's Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "The 14-year banishment of Ráma to the DaGak forest, initiated by Kaikeyí's boon from Dasharatha."
+            }
+        },
+        {
+            "name": "Dasharatha's Death",
+            "type": "Event",
+            "attributes": {
+                "description": "The death of King Dasharatha from grief following Ráma's departure into exile."
+            }
+        },
+        {
+            "name": "Kaushalya's Blessing",
+            "type": "Event",
+            "attributes": {
+                "description": "The ceremonial blessing and rites performed by Queen Kaushalya for Ráma before his departure."
+            }
+        },
+        {
+            "name": "Ráma's Departure",
+            "type": "Event",
+            "attributes": {
+                "description": "The formal leave-taking of Ráma, Sítá, and LakshmaG from Ayodhyá in Sumantra's chariot."
+            }
+        },
+        {
+            "name": "Sumantra's Return",
+            "type": "Event",
+            "attributes": {
+                "description": "Sumantra's return to Ayodhyá alone after leaving Ráma at the forest, conveying Ráma's final message."
+            }
+        },
+        {
+            "name": "Shooting of the Hermit's Son",
+            "type": "Event",
+            "attributes": {
+                "description": "Dasharatha's accidental killing of a hermit's son on the Sarju bank while hunting by sound in his youth."
+            }
+        },
+        {
+            "name": "Assembly After Dasharatha's Death",
+            "type": "Event",
+            "attributes": {
+                "description": "The council of Bráhmans and ministers who met after Dasharatha's death to decide on installing a king."
+            }
+        },
+        {
+            "name": "Envoys Sent to Rájagriha",
+            "type": "Event",
+            "attributes": {
+                "description": "Vaishtha's dispatch of fast messengers to summon Bharat back to Ayodhyá after the king's death."
+            }
+        },
+        {
+            "name": "Halt at Ingudí",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma's first night halt under the Ingudí tree on the Gangá bank during the forest journey."
+            }
+        },
+        {
+            "name": "Visit to Bharadvája's Hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "Ráma and LakshmaG's arrival at the sage Bharadvája's hermitage near Prayag during the exile journey."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "The moral and cosmic duty or righteousness that governs Ráma's actions and choices throughout the narrative."
+            }
+        },
+        {
+            "name": "Filial Duty",
+            "type": "Concept",
+            "attributes": {
+                "description": "The obligation of a son to honor and obey his parents, central to Ráma's acceptance of exile."
+            }
+        },
+        {
+            "name": "Kingship",
+            "type": "Concept",
+            "attributes": {
+                "description": "The concept of righteous rule; the assembly's discourse highlights the necessity of a king for justice and prosperity."
+            }
+        },
+        {
+            "name": "Truth / Oath",
+            "type": "Concept",
+            "attributes": {
+                "description": "The keeping of sworn words; Dasharatha's oath to Kaikeyí and Ráma's own pledge drive key events."
+            }
+        },
+        {
+            "name": "Exile",
+            "type": "Concept",
+            "attributes": {
+                "description": "Banishment to the forest as a form of renunciation and testing, undertaken by Ráma for 14 years."
+            }
+        },
+        {
+            "name": "Rámáyan",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred epic poem narrating the deeds of Ráma, authored by Válmíki."
+            }
+        },
+        {
+            "name": "The Praise of Kings (Canto LXVII)",
+            "type": "Text",
+            "attributes": {
+                "description": "A canto in which the Bráhmans lament the dangers of a kingless land after Dasharatha's death."
+            }
+        },
+        {
+            "name": "The Envoys (Canto LXVIII)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto in which Vaishtha sends swift messengers to bring Bharat back from Rájagriha."
+            }
+        },
+        {
+            "name": "The Hermit's Son (Canto LXIII)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto in which Dasharatha confesses to Kaushalya his past sin of accidentally killing a hermit's son."
+            }
+        },
+        {
+            "name": "Kausalyá's Blessing (Canto XXV)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto recording Queen Kaushalya's elaborate ritual blessing of Ráma before his departure into exile."
+            }
+        },
+        {
+            "name": "The Triumph of Love (Canto XXX)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto where Sítá successfully persuades Ráma to allow her to accompany him into the forest."
+            }
+        },
+        {
+            "name": "Ráma's Departure (Canto XL)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto describing the formal departure of Ráma, Sítá, and LakshmaG from Ayodhyá."
+            }
+        },
+        {
+            "name": "The Halt Under The Ingudí (Canto L)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto in which Ráma rests at the Gangá bank under the Ingudí tree and meets the Nisháda king Guha."
+            }
+        },
+        {
+            "name": "Lakshman's Lament (Canto LI)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto in which LakshmaG laments the suffering caused by Ráma's exile while keeping night watch."
+            }
+        },
+        {
+            "name": "Bharadvája's Hermitage (Canto LIV)",
+            "type": "Text",
+            "attributes": {
+                "description": "The canto describing Ráma's visit to the sage Bharadvája at the confluence of Gangá and Yamuná."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ráma",
+            "to": "VishGu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Ráma is described as embodying divine power comparable to VishGu throughout the epic."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Da[aratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is the eldest and most beloved son of King Dasharatha."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Kau[alyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma is the son of Queen Kaushalya who blesses him before exile."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Sítá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sítá is Ráma's devoted wife who accompanies him into exile."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "LakshmaG",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "LakshmaG is Ráma's younger brother and constant companion in exile."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma is the prince of Ayodhyá who departs from and will eventually return to this city."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "DaG ak Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ráma, Sítá, and LakshmaG spend 14 years in exile in the DaGak forest."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma willingly accepts the 14-year exile to uphold his father's sworn word."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Ráma's Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma departs Ayodhyá in Sumantra's chariot with Sítá and LakshmaG."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Halt at Ingudí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma halts under the Ingudí tree on the Gangá bank on the first night of exile."
+            }
+        },
+        {
+            "from": "Ráma",
+            "to": "Visit to Bharadvája's Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ráma visits sage Bharadvája at the confluence of Gangá and Yamuná."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá insists on accompanying Ráma into the forest despite his objections."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "Ráma's Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sítá departs Ayodhyá with Ráma in Sumantra's chariot."
+            }
+        },
+        {
+            "from": "Sítá",
+            "to": "DaG ak Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sítá accompanies Ráma into the DaGak forest during the exile."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Ráma's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "LakshmaG voluntarily accompanies Ráma as his devoted protector during exile."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Ráma's Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "LakshmaG departs with Ráma and Sítá from Ayodhyá."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Sumitrá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "LakshmaG is the son of Queen Sumitrá, who blesses him to serve Ráma faithfully."
+            }
+        },
+        {
+            "from": "LakshmaG",
+            "to": "Halt at Ingudí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "LakshmaG stands guard through the night at the Ingudí tree while Ráma sleeps."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Kaikeyí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaikeyí is one of Dasharatha's queens whose boon leads to Ráma's exile."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Kau[alyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kaushalya is Dasharatha's senior queen and mother of Ráma."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Dasharatha is the King of Ayodhyá who rules Ko[ala from this capital."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Dasharatha's Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha dies of grief after sending Ráma into exile."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "to": "Shooting of the Hermit's Son",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dasharatha accidentally killed the hermit's son on the Sarju bank in his youth while hunting by sound."
+            }
+        },
+        {
+            "from": "Da[aratha",
+            "type": "MENTIONS",
+            "to": "Ráma",
+            "attributes": {
+                "context": "Dasharatha repeatedly speaks of Ráma in grief and love after the exile."
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ráma's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyí demands Ráma's banishment as one of her two boons from Dasharatha."
+            }
+        },
+        {
+            "from": "Kaikeyí",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kaikeyí resides in the palace of Ayodhyá and schemes within its walls."
+            }
+        },
+        {
+            "from": "Kau[alyá",
+            "to": "Kaushalya's Blessing",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaushalya performs elaborate blessing rites for Ráma before his departure."
+            }
+        },
+        {
+            "from": "Kau[alyá",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Kaushalya blesses Ráma and entreats him to take Sítá safely to the forest."
+            }
+        },
+        {
+            "from": "Kau[alyá",
+            "to": "Sítá",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Kaushalya counsels Sítá on the duty of a devoted wife before departure."
+            }
+        },
+        {
+            "from": "Sumitrá",
+            "to": "LakshmaG",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Sumitrá instructs LakshmaG to treat Ráma as his lord and Sítá as his mother."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ráma's Departure",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sumantra drives the royal chariot carrying Ráma, Sítá, and LakshmaG out of Ayodhyá."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Sumantra's Return",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sumantra returns alone to Ayodhyá bearing Ráma's parting messages."
+            }
+        },
+        {
+            "from": "Sumantra",
+            "to": "Ayodhyá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sumantra returns to Ayodhyá after leaving Ráma at the forest."
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Halt at Ingudí",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Guha, the Nisháda chief, comes to welcome Ráma at the Gangá bank and keeps night watch."
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Guha is Ráma's dear friend of Nisháda lineage and sovereign lord of the Nisháda region."
+            }
+        },
+        {
+            "from": "Guha",
+            "to": "Gangá",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Guha's kingdom lies along the Gangá bank near the Ingudí tree."
+            }
+        },
+        {
+            "from": "Vaishtha",
+            "to": "Assembly After Dasharatha's Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vaishtha presides over the assembly of sages and ministers after the king's death."
+            }
+        },
+        {
+            "from": "Vaishtha",
+            "to": "Envoys Sent to Rájagriha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vaishtha orders the dispatch of fast messengers to summon Bharat."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Rájagriha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharat stays in Rájagriha with his maternal grandfather during Ráma's exile."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat is Ráma's younger brother by Kaikeyí who reveres Ráma and refuses the throne."
+            }
+        },
+        {
+            "from": "Zatrughna",
+            "to": "Bharat",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Zatrughna accompanies Bharat at Rájagriha during the exile period."
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Prayág",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharadvája's hermitage is located near the confluence of Gangá and Yamuná at Prayag."
+            }
+        },
+        {
+            "from": "Bharadvája",
+            "to": "Visit to Bharadvája's Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharadvája receives Ráma and LakshmaG at his hermitage near Prayag."
+            }
+        },
+        {
+            "from": "Nárad",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Nárad describes Ráma's divine virtues to Válmíki."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Indra is invoked in blessings comparing Ráma's victories to Indra's slaying of Vritra."
+            }
+        },
+        {
+            "from": "Dharma",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dharma is the guiding principle behind all of Ráma's decisions including acceptance of exile."
+            }
+        },
+        {
+            "from": "Filial Duty",
+            "to": "Ráma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ráma's filial duty to obey his father drives his willingness to accept exile."
+            }
+        },
+        {
+            "from": "Truth / Oath",
+            "to": "Da[aratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha's sworn oath to Kaikeyí compels him to send Ráma into exile against his will."
+            }
+        },
+        {
+            "from": "Kingship",
+            "to": "Ayodhyá",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The assembly debates the necessity of kingship for Ayodhyá's welfare after Dasharatha's death."
+            }
+        },
+        {
+            "from": "Rámáyan",
+            "to": "Ráma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The Rámáyan is the sacred text that narrates all events of Ráma's life and exile."
+            }
+        },
+        {
+            "from": "Kausalyá's Blessing (Canto XXV)",
+            "to": "Kaushalya's Blessing",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto records the ritual blessing Kaushalya performs for Ráma before his departure."
+            }
+        },
+        {
+            "from": "The Triumph of Love (Canto XXX)",
+            "to": "Sítá",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "This canto narrates how Sítá convinces Ráma to let her accompany him into the forest."
+            }
+        },
+        {
+            "from": "Ráma's Departure (Canto XL)",
+            "to": "Ráma's Departure",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto records the formal leave-taking from Ayodhyá."
+            }
+        },
+        {
+            "from": "The Halt Under The Ingudí (Canto L)",
+            "to": "Halt at Ingudí",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto describes Ráma's first night halt at the Gangá bank."
+            }
+        },
+        {
+            "from": "Lakshman's Lament (Canto LI)",
+            "to": "LakshmaG",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "This canto captures LakshmaG's emotional lament during the night watch at the Gangá bank."
+            }
+        },
+        {
+            "from": "The Hermit's Son (Canto LXIII)",
+            "to": "Shooting of the Hermit's Son",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto narrates Dasharatha's confession of accidentally killing the hermit's son."
+            }
+        },
+        {
+            "from": "The Praise of Kings (Canto LXVII)",
+            "to": "Kingship",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto presents the Bráhmans' discourse on why a kingless land is doomed."
+            }
+        },
+        {
+            "from": "The Envoys (Canto LXVIII)",
+            "to": "Envoys Sent to Rájagriha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto records Vaishtha's dispatch of envoys to summon Bharat."
+            }
+        },
+        {
+            "from": "Bharadvája's Hermitage (Canto LIV)",
+            "to": "Visit to Bharadvája's Hermitage",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "This canto describes Ráma's arrival at Bharadvája's hermitage near Prayag."
+            }
+        }
+    ]
+}
