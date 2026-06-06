@@ -1,0 +1,154 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Vidura",
+            "type": "Character",
+            "attributes": {
+                "description": "Half-brother of Dhritarashtra and Pandu, prime minister of Hastinapura, famous for his wisdom."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Mahabharata",
+            "type": "Text",
+            "attributes": {
+                "description": "The monumental Sanskrit epic detailing the history of the Kuru dynasty."
+            }
+        },
+        {
+            "name": "Kurukshetra War",
+            "type": "Event",
+            "attributes": {
+                "description": "The great 18-day battle between the Pandavas and Kauravas."
+            }
+        },
+        {
+            "name": "Karna",
+            "type": "Character",
+            "attributes": {
+                "description": "Great warrior and ally of Duryodhana, son of Surya and Kunti."
+            }
+        },
+        {
+            "name": "Duryodhana",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Dhritarashtra and leader of the Kaurava faction."
+            }
+        },
+        {
+            "name": "Kripa",
+            "type": "Character",
+            "attributes": {
+                "description": "A family preceptor of the Kurus who fought on the Kaurava side."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, father of Arjuna, who grants celestial weapons."
+            }
+        },
+        {
+            "name": "Yudhishthira",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest Pandava prince, known for his adherence to truth and righteousness."
+            }
+        },
+        {
+            "name": "Moksha",
+            "type": "Concept",
+            "attributes": {
+                "description": "Liberation from the cycle of samsara."
+            }
+        },
+        {
+            "name": "Pandu",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Hastinapura, younger brother of Dhritarashtra, father of the Pandavas."
+            }
+        },
+        {
+            "name": "Dhritarashtra",
+            "type": "Character",
+            "attributes": {
+                "description": "The blind king of Hastinapura, father of the Kauravas."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Duryodhana",
+            "to": "Dhritarashtra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Duryodhana is the eldest son of Dhritarashtra."
+            }
+        },
+        {
+            "from": "Duryodhana",
+            "to": "Karna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Karna is Duryodhana's closest friend and key ally."
+            }
+        },
+        {
+            "from": "Yudhishthira",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Yudhishthira participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Duryodhana",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Duryodhana participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Karna",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Karna participated as a major combatant in the Kurukshetra War."
+            }
+        }
+    ]
+}

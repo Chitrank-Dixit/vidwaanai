@@ -1,0 +1,390 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, who sends his celestial chariot and driver Matali to assist Rama."
+            }
+        },
+        {
+            "name": "Lakshmí",
+            "type": "Deity",
+            "attributes": {
+                "description": "Goddess of fortune, associated with Rama's protection and destiny."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme preserver god, whom the deities declare Rama to be an avatar of."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Hero of the epic, who slays Ravana in the final duel and is crowned king."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Rama's consort, who undergoes an ordeal of fire to prove her purity and returns to Ayodhya."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Rama's brother, who kills Indrajit and is healed by the celestial herbs."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "The Rakshasa king, slain by Rama's Brahmastra in the climax of the war."
+            }
+        },
+        {
+            "name": "Indrajit",
+            "type": "Character",
+            "attributes": {
+                "description": "Ravana's son, who binds the princes, performs illusory sacrifices, and is slain by Lakshmana."
+            }
+        },
+        {
+            "name": "KumbhakarGa",
+            "type": "Character",
+            "attributes": {
+                "description": "Ravana's giant brother, who is woken from deep sleep and slain by Rama."
+            }
+        },
+        {
+            "name": "Vajradanshtra",
+            "type": "Character",
+            "attributes": {
+                "description": "A Rakshasa general who sallies forth and is slain by Angada."
+            }
+        },
+        {
+            "name": "Atikáya",
+            "type": "Character",
+            "attributes": {
+                "description": "A giant son of Ravana who is slain by Lakshmana."
+            }
+        },
+        {
+            "name": "Angad",
+            "type": "Character",
+            "attributes": {
+                "description": "The Vanara prince who slays Vajradanshtra and fights bravely."
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "The monkey hero who brings the mountain of herbs to heal Lakshmana and carries news to Bharat."
+            }
+        },
+        {
+            "name": "Vibhishana",
+            "type": "Character",
+            "attributes": {
+                "description": "Consecrated as the new king of Lanka by Rama after Ravana's death."
+            }
+        },
+        {
+            "name": "Mandodari",
+            "type": "Character",
+            "attributes": {
+                "description": "Ravana's chief queen who laments over his dead body."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "Rama's late father, who appears as a spirit from heaven to bless Rama and Sita."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Rama's brother who rules Ayodhya as regent and welcomes Rama back."
+            }
+        },
+        {
+            "name": "Matali",
+            "type": "Character",
+            "attributes": {
+                "description": "Indra's charioteer who drives Rama's chariot in the duel against Ravana."
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "The legendary sage who visits the battlefield and teaches Rama the Aditya Hridaya hymn."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "The battleground city of the Rakshasas."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital of Kosala, where Rama returns to be crowned."
+            }
+        },
+        {
+            "name": "Nandigráma",
+            "type": "Place",
+            "attributes": {
+                "description": "The village where Bharat lived in asceticism waiting for Rama."
+            }
+        },
+        {
+            "name": "Himalayas",
+            "type": "Place",
+            "attributes": {
+                "description": "The northern mountain range from which Hanuman fetches the healing herbs."
+            }
+        },
+        {
+            "name": "Nagapasa",
+            "type": "Concept",
+            "attributes": {
+                "description": "The magic serpent weapon used by Indrajit to bind Rama and Lakshmana."
+            }
+        },
+        {
+            "name": "Healing Herbs",
+            "type": "Concept",
+            "attributes": {
+                "description": "The magical life-giving herbs brought by Hanuman to revive the fallen princes."
+            }
+        },
+        {
+            "name": "Pushpaka",
+            "type": "Concept",
+            "attributes": {
+                "description": "The aerial vehicle used by Rama, Sita, and the Vanaras to return to Ayodhya."
+            }
+        },
+        {
+            "name": "Aditya Hridaya",
+            "type": "Concept",
+            "attributes": {
+                "description": "The sacred sun hymn taught to Rama to ensure victory."
+            }
+        },
+        {
+            "name": "Slaying of KumbhakarGa",
+            "type": "Event",
+            "attributes": {
+                "description": "The battle where the sleeping giant Kumbhakarna is defeated and slain by Rama."
+            }
+        },
+        {
+            "name": "Slaying of Indrajít",
+            "type": "Event",
+            "attributes": {
+                "description": "The battle where Lakshmana kills Ravana's son Indrajit near Nikumbhila."
+            }
+        },
+        {
+            "name": "Ordeal of Fire",
+            "type": "Event",
+            "attributes": {
+                "description": "Sita enters the burning pyre to prove her chastity, and Agni attests to her purity."
+            }
+        },
+        {
+            "name": "Consecration of VibhíshaGa",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama ordains Vibhishana as the king of Lanka."
+            }
+        },
+        {
+            "name": "Return to Ayodhyá",
+            "type": "Event",
+            "attributes": {
+                "description": "The triumphant return of Rama, Sita, and their allies in the Pushpaka car."
+            }
+        },
+        {
+            "name": "Coronation of Ráma",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama's consecration and coronation as the king of Ayodhya."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama defeats and slays Ravana in single combat."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Indrajit",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana slays Indrajit in battle."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "KumbhakarGa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama defeats and slays Kumbhakarna."
+            }
+        },
+        {
+            "from": "Angad",
+            "to": "Vajradanshtra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Angada slays Vajradanshtra in a duel."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Healing Herbs",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman carries the mountain of healing herbs."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Healing Herbs",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is healed by the herbs."
+            }
+        },
+        {
+            "from": "Matali",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Matali drives Rama's chariot."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Matali",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra sends Matali with his chariot."
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agastya teaches Rama the Aditya Hridaya hymn."
+            }
+        },
+        {
+            "from": "Mandodari",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mandodari is Ravana's chief queen."
+            }
+        },
+        {
+            "from": "Vibhishana",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vibhishana laments the death of his brother Ravana."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vibhishana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama consecrates Vibhishana as king of Lanka."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Ordeal of Fire",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sita enters the fire pyre."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dasharatha's spirit blesses Rama and Sita."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Return to Ayodhyá",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama returns to his homeland in the Pushpaka car."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharat welcomes Rama and hands back the kingdom."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Coronation of Ráma",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama is crowned king of Ayodhya."
+            }
+        }
+    ]
+}

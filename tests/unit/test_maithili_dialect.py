@@ -5,7 +5,6 @@ from src.dialects.maithili import (
 
 
 class TestMaithiliDialect:
-
     @pytest.fixture
     def processor(self):
         return MaithiliProcessor()

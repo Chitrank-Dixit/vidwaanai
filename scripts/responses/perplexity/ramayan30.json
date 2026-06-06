@@ -57,7 +57,7 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince of mighty arm and chest, godlike one, illustrious, duteous, joy and stay, strong-armed hero, Raghu's son, wielder of mighty bow, shoulders like lion"
@@ -71,7 +71,7 @@
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Ráma's wife, Janak's daughter, Videhan bride/lady, votaress who heaved sigh, noble princess, tender, soft, fair, delicate, large-eyed, moonlike beauty"
@@ -85,21 +85,21 @@
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen, Ráma's mother, most excellent of beauteous dames, trembling, lying prostrate, wailing, sore distressed, weeping"
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Queen cruel, false, of evil race, evil bred, gave light charge, wretch who received boon"
             }
         },
         {
-            "name": "Sumitrá",
+            "name": "Sumitra",
             "type": "Character",
             "attributes": {
                 "description": "Queen, mother of Lakshmana, aided Kausalyá in raising king"
@@ -148,7 +148,7 @@
             }
         },
         {
-            "name": "Chitrakúta",
+            "name": "Chitrakuta",
             "type": "Place",
             "attributes": {
                 "description": "Holy mountain with creepers, trees, fruit and roots, pleasant life offered, lovely hill with lily-covered rill, holiest spot for Vishnu devotees"
@@ -162,7 +162,7 @@
             }
         },
         {
-            "name": "Gangá",
+            "name": "Ganga",
             "type": "Place",
             "attributes": {
                 "description": "River, Gangá's shore where Sumantra left princes, farther shore they crossed"
@@ -176,7 +176,7 @@
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Royal city, town silent and forsaken, drowned in sorrow, empty grove and garden, burnt with grief, mourning like queen for son"
@@ -351,13 +351,6 @@
             }
         },
         {
-            "name": "Dasharatha's sea of sorrow",
-            "type": "Event",
-            "attributes": {
-                "description": "King cried elaborate metaphor comparing grief to raging sea with multiple elements, sank on bed, spirit failed, senses fled"
-            }
-        },
-        {
             "name": "Kausalyá's desperation",
             "type": "Event",
             "attributes": {
@@ -374,7 +367,7 @@
     ],
     "relationships": [
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Meeting Válmíki",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -390,7 +383,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Meeting Válmíki",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -407,7 +400,7 @@
         },
         {
             "from": "Válmíki",
-            "to": "Chitrakúta",
+            "to": "Chitrakuta",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Anchoret met in woodland dwelling on holy mountain"
@@ -422,7 +415,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Building the cottage",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -430,7 +423,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Cottage consecration",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -446,7 +439,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Cottage consecration",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -454,7 +447,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Vishvedevas",
             "type": "RELATED_TO",
             "attributes": {
@@ -462,7 +455,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Rudra",
             "type": "RELATED_TO",
             "attributes": {
@@ -470,7 +463,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Vishnu",
             "type": "RELATED_TO",
             "attributes": {
@@ -486,7 +479,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ashvins",
             "type": "RELATED_TO",
             "attributes": {
@@ -494,7 +487,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Mahendra",
             "type": "RELATED_TO",
             "attributes": {
@@ -502,7 +495,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Settling at Chitrakúta",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -518,7 +511,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Settling at Chitrakúta",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -526,15 +519,15 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Chitrakúta",
+            "from": "Rama",
+            "to": "Chitrakuta",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Ráma resting on lovely hill near lily-covered rill, forgot exile's lot"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Leafy hut/cottage",
             "type": "LOCATED_AT",
             "attributes": {
@@ -559,22 +552,22 @@
         },
         {
             "from": "Sumantra",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Charioteer came to city's gate, found town drowned in sorrow"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Gangá",
+            "from": "Rama",
+            "to": "Ganga",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Sumantra bore prince to Gangá's shore, left at his behest"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Prayág",
             "type": "LOCATED_AT",
             "attributes": {
@@ -599,7 +592,7 @@
         },
         {
             "from": "People of Ayodhyá",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "People in royal way wept bitter tears, looked for Ráma in vain"
@@ -646,7 +639,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Kausalyá's revival",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -654,7 +647,7 @@
             }
         },
         {
-            "from": "Sumitrá",
+            "from": "Sumitra",
             "to": "Kausalyá's revival",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -662,7 +655,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's messages",
             "type": "RELATED_TO",
             "attributes": {
@@ -694,7 +687,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -702,16 +695,16 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kausalyá",
+            "from": "Rama",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma sent greeting to mother, ne'er may steps from duty err"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma is Sítá's joy and stay, all heart no sorrow bends, life depends on him"
@@ -719,22 +712,22 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana walked ahead to guard path, eager mind inclined to brother's will"
             }
         },
         {
-            "from": "Sítá",
-            "to": "Ráma",
+            "from": "Sita",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sítá gives all heart to Ráma, free from doubt and terror, if not see him Ayodhyá like wood"
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -742,23 +735,23 @@
             }
         },
         {
-            "from": "Kausalyá",
-            "to": "Ráma",
+            "from": "Kausalya",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Mother cannot live single hour bereft of son, shrill lament 'My son!'"
             }
         },
         {
-            "from": "Kausalyá",
-            "to": "Kaikeyí",
+            "from": "Kausalya",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Queen urged king to speak freely, Kaikeyí stands not near of whom afraid"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Journey details recounted",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -774,7 +767,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Journey details recounted",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -782,7 +775,7 @@
             }
         },
         {
-            "from": "Ayodhyá",
+            "from": "Ayodhya",
             "to": "Nature's mourning described",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -790,7 +783,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Nature's mourning described",
             "type": "RELATED_TO",
             "attributes": {
@@ -806,7 +799,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha's sea of sorrow",
             "type": "RELATED_TO",
             "attributes": {
@@ -814,7 +807,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Dasharatha's sea of sorrow",
             "type": "RELATED_TO",
             "attributes": {
@@ -822,7 +815,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Dasharatha's sea of sorrow",
             "type": "RELATED_TO",
             "attributes": {
@@ -838,7 +831,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Kausalyá's desperation",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -854,7 +847,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Yama",
             "type": "RELATED_TO",
             "attributes": {
@@ -870,7 +863,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Sumantra's consolation speech",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -878,7 +871,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sumantra's consolation speech",
             "type": "RELATED_TO",
             "attributes": {
@@ -886,7 +879,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dandaka forest",
             "type": "LOCATED_AT",
             "attributes": {
@@ -895,15 +888,15 @@
         },
         {
             "from": "Dasharatha",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "King in palace bright, weeping for son, city mourns"
             }
         },
         {
-            "from": "Kausalyá",
-            "to": "Ayodhyá",
+            "from": "Kausalya",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Queen in city, wants to be borne to Dandaka forest"

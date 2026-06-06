@@ -5,7 +5,6 @@ from src.dialects.bhojpuri import (
 
 
 class TestBhojpuriDialect:
-
     @pytest.fixture
     def processor(self):
         return BhojpuriProcessor()

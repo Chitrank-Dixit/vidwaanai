@@ -59,3 +59,41 @@
 > Prompt:
 > "Source A says [CLAIM_A]. Source B says [CLAIM_B].
 > Synthesize a single description that acknowledges the variation or identifies the most canonical version according to [SCRIPTURE_NAME]."
+
+---
+
+## 4. Unified Gemini Pro (Fact Retrieval, Schema Extraction, Normalization & Synthesis)
+
+**Goal**: Execute a complete Indological fact extraction, name normalization, and graph modeling workflow in a single step using Gemini.
+
+### Unified Template:
+> "You are an expert Indologist and a Knowledge Graph Engineer. Perform fact retrieval, name normalization, and relationship modeling for the following query.
+> 
+> Query: [INSERT_QUERY_HERE]
+> 
+> Output the response ONLY as a valid JSON object matching the schema below. Do not include markdown code blocks or explanatory text outside the JSON.
+> 
+> JSON Schema:
+> {
+>   "nodes": [
+>     {
+>       "id": "Standardized_Name (e.g. Krishna, Arjuna, Vashishtha, Lanka)",
+>       "label": "Entity Type (Deity/Concept/Character/Place/Event/Text)",
+>       "properties": {
+>         "name_en": "Common English Name",
+>         "description": "Brief description including key attributes and scriptural context"
+>       }
+>     }
+>   ],
+>   "relationships": [
+>     {
+>       "source": "source_node_id",
+>       "target": "target_node_id",
+>       "type": "RELATIONSHIP_TYPE (MENTIONS/IS_AVATAR_OF/RELATED_TO/LOCATED_AT/PARTICIPATED_IN)",
+>       "properties": {
+>         "context": "Brief explanation of how they are related in the scripture"
+>       }
+>     }
+>   ]
+> }"
+

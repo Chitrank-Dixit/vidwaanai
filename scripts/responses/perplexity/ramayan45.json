@@ -50,7 +50,7 @@
             }
         },
         {
-            "name": "Bharata",
+            "name": "Bharat",
             "type": "Character",
             "attributes": {
                 "description": "Son of Dasharatha and Kaikeyi; grieves Rama's exile and lives austerely at Ayodhya"
@@ -684,7 +684,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -708,7 +708,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
@@ -1444,7 +1444,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
@@ -1452,7 +1452,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Saryu",
             "type": "LOCATED_AT",
             "attributes": {
@@ -1460,7 +1460,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Dharma",
             "type": "RELATED_TO",
             "attributes": {
@@ -1484,7 +1484,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Ikshvaku",
             "type": "RELATED_TO",
             "attributes": {

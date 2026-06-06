@@ -43,7 +43,7 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince, valiant hero, glorious son, splendid, fair as Soma, Indra's peer, lord and king, bravest of brave, self-ruled, exalted above heroic chiefs, Kakutstha's son"
@@ -57,14 +57,14 @@
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Moonbright dame, Janak's daughter, dear to fame, Maithil dame, long in duty tried, fair of frame, wife/spouse, princess with pure glory bright, nursed in lap of soft delight"
             }
         },
         {
-            "name": "Janak",
+            "name": "Janaka",
             "type": "Character",
             "attributes": {
                 "description": "King, Sítá's father, held Maiden's Choice unparalleled, aged monarch brought to Ráma, allied with Raghu's house"
@@ -85,21 +85,21 @@
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Younger queen, cruel soul, triumphant, dark intent, expelled Ráma, greedy eyes, fatal day brings her triumph"
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen, Ráma's mother, blest to be mother of son like Ráma"
             }
         },
         {
-            "name": "Sumitrá",
+            "name": "Sumitra",
             "type": "Character",
             "attributes": {
                 "description": "Queen, Lakshmana's mother"
@@ -113,7 +113,7 @@
             }
         },
         {
-            "name": "Anasúyá",
+            "name": "Anasuya",
             "type": "Character",
             "attributes": {
                 "description": "Virtuous-souled matron, heard Sítá's tale, kissed lady's brow, laced loving arms, saintly dame who gave love-gifts"
@@ -197,7 +197,7 @@
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Town horsemen sought, realm where hermits live"
@@ -393,13 +393,6 @@
             }
         },
         {
-            "from": "Spear shattered",
-            "type": "Event",
-            "attributes": {
-                "description": "Giant raised spear aloft rushed on pair, from Ráma's bow two arrows flew cleft massive spear, dire as flaming levin, fell to earth like rock from Meru"
-            }
-        },
-        {
             "name": "Sword combat",
             "type": "Event",
             "attributes": {
@@ -486,7 +479,7 @@
     ],
     "relationships": [
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sítá's tale to Anasúyá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -494,7 +487,7 @@
             }
         },
         {
-            "from": "Anasúyá",
+            "from": "Anasuya",
             "to": "Sítá's tale to Anasúyá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -502,7 +495,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Maiden's Choice/Svayamvara",
             "type": "RELATED_TO",
             "attributes": {
@@ -510,7 +503,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Maiden's Choice/Svayamvara",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -518,7 +511,7 @@
             }
         },
         {
-            "from": "Anasúyá",
+            "from": "Anasuya",
             "to": "Evening at hermitage",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -534,7 +527,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Gift of heavenly raiment",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -542,7 +535,7 @@
             }
         },
         {
-            "from": "Anasúyá",
+            "from": "Anasuya",
             "to": "Gift of heavenly raiment",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -550,7 +543,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Night at hermitage",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -566,7 +559,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Departure from hermitage",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -582,7 +575,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Entering Dandaka",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -590,7 +583,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dandaka/DaG ak wood",
             "type": "LOCATED_AT",
             "attributes": {
@@ -606,7 +599,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Saints' reception",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -630,7 +623,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Saints' pledge",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -638,7 +631,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Piercing the forest",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -654,7 +647,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Encounter with Virádha",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -670,7 +663,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Virádha seizes Sítá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -678,7 +671,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's lament",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -686,7 +679,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Ráma's lament",
             "type": "RELATED_TO",
             "attributes": {
@@ -694,7 +687,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Battle with Virádha",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -726,7 +719,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Spear shattered",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -734,7 +727,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Sword combat",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -758,7 +751,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sítá's plea",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -774,7 +767,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Breaking Virádha's arms",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -782,7 +775,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Crushing the giant",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -790,7 +783,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Digging the pit",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -862,16 +855,16 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Prince won Sítá's maiden hand, truly love exalted above heroic chiefs, moonbright dame, dear spouse"
             }
         },
         {
-            "from": "Sítá",
-            "to": "Janak",
+            "from": "Sita",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sítá daughter of royal Janak, bride of Dasharatha's son, maiden hand won"
@@ -886,7 +879,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -894,8 +887,8 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kausalyá",
+            "from": "Rama",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kausalyá blest to be mother of son like Ráma"
@@ -903,14 +896,14 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Sumitrá",
+            "to": "Sumitra",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana is Sumitrá's son"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -918,7 +911,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Bharat",
             "type": "RELATED_TO",
             "attributes": {
@@ -926,7 +919,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Soma/Moon-God",
             "type": "RELATED_TO",
             "attributes": {
@@ -934,7 +927,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Indra",
             "type": "RELATED_TO",
             "attributes": {

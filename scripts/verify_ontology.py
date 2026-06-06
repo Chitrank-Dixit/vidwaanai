@@ -22,7 +22,7 @@ def verify_fix():
     with driver.session() as session:
         # 0. FIX: Rename accidentally created RELATED_TO relationships to MENTIONS for Text->Concept/Deity/Character
         print("\n--- 0. Fixing Relationship Types (RELATED_TO -> MENTIONS) ---")
-        
+
         # 0a. Concepts
         fix_query = """
         MATCH (t:Text)-[r:RELATED_TO]->(c:Concept)
@@ -34,8 +34,10 @@ def verify_fix():
         """
         result = session.run(fix_query).single()
         fixed = result["fixed_count"] if result else 0
-        print(f"Fixed {fixed} relationships from RELATED_TO to MENTIONS (Text->Concept).")
-        
+        print(
+            f"Fixed {fixed} relationships from RELATED_TO to MENTIONS (Text->Concept)."
+        )
+
         # 0b. Deities
         fix_query_deity = """
         MATCH (t:Text)-[r:RELATED_TO]->(d:Deity)
@@ -47,8 +49,10 @@ def verify_fix():
         """
         result = session.run(fix_query_deity).single()
         fixed_deity = result["fixed_count"] if result else 0
-        print(f"Fixed {fixed_deity} relationships from RELATED_TO to MENTIONS (Text->Deity).")
-        
+        print(
+            f"Fixed {fixed_deity} relationships from RELATED_TO to MENTIONS (Text->Deity)."
+        )
+
         # 0c. Characters
         fix_query_char = """
         MATCH (t:Text)-[r:RELATED_TO]->(ch:Character)
@@ -60,7 +64,9 @@ def verify_fix():
         """
         result = session.run(fix_query_char).single()
         fixed_char = result["fixed_count"] if result else 0
-        print(f"Fixed {fixed_char} relationships from RELATED_TO to MENTIONS (Text->Character).")
+        print(
+            f"Fixed {fixed_char} relationships from RELATED_TO to MENTIONS (Text->Character)."
+        )
 
         # 1. Check Totals
         print("\n--- 1. Graph Totals ---")
@@ -68,14 +74,14 @@ def verify_fix():
         nodes = res["nodes"]
         res = session.run("MATCH ()-[r]->() RETURN count(r) as rels").single()
         rels = res["rels"]
-        
+
         print(f"Nodes: {nodes}")
         print(f"Relationships: {rels}")
-        
+
         if rels == 0 and nodes > 0:
             print("❌ FAILED: Nodes exist but NO relationships found!")
         elif rels > 0:
-             print("✅ SUCCESS: Relationships exist.")
+            print("✅ SUCCESS: Relationships exist.")
 
         # 2. Check Text -> Concept Relations (MENTIONS)
         print("\n--- 2. Checking Text -> MENTIONS -> Concept ---")
@@ -92,7 +98,9 @@ def verify_fix():
             if res2:
                 print(f"Found MENTIONS but types might differ: {res2}")
             else:
-                 print("❌ FAILED: No 'MENTIONS' relationships found between Text and Concepts.")
+                print(
+                    "❌ FAILED: No 'MENTIONS' relationships found between Text and Concepts."
+                )
         else:
             print("✅ SUCCESS: Found MENTIONS relationships:")
             for row in res:
@@ -102,8 +110,8 @@ def verify_fix():
         print("\n--- 3. Checking for Isolated Nodes ---")
         q_iso = "MATCH (n) WHERE NOT (n)-[]-() RETURN labels(n) as lbl, count(*) as c"
         res_iso = session.run(q_iso).data()
-        
-        total_isolated = sum(r['c'] for r in res_iso)
+
+        total_isolated = sum(r["c"] for r in res_iso)
         if total_isolated == 0:
             print("✅ SUCCESS: No isolated nodes found.")
         else:
@@ -112,7 +120,9 @@ def verify_fix():
                 print(f"   {r['lbl']}: {r['c']}")
 
         # 4. Check Ontology Internal Relations
-        print("\n--- 4. Checking Ontology Internal Relations (e.g. RELATED_TO, PARENT_OF) ---")
+        print(
+            "\n--- 4. Checking Ontology Internal Relations (e.g. RELATED_TO, PARENT_OF) ---"
+        )
         q_ont = """
         MATCH (c1:Concept)-[r]->(c2:Concept) 
         WHERE type(r) <> 'MENTIONS'
@@ -124,9 +134,12 @@ def verify_fix():
             for row in res_ont:
                 print(f"   {row['c1.name']} --[{row['type(r)']}]--> {row['c2.name']}")
         else:
-            print("⚠️ WARNING: No internal Concept-Concept relationships found (might be okay if seeded ontology has none or concepts disjoint).")
+            print(
+                "⚠️ WARNING: No internal Concept-Concept relationships found (might be okay if seeded ontology has none or concepts disjoint)."
+            )
 
     driver.close()
+
 
 if __name__ == "__main__":
     verify_fix()

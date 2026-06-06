@@ -1,6 +1,8 @@
 import logging
 import sys
 import os
+import json
+import typing
 import argparse
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -33,9 +35,9 @@ def get_llm_client():
     if settings.llm_backend == "lmstudio":
         logger.info(f"Using LM Studio backend: {settings.lmstudio_base_url}")
         return LMStudioClient(
-            base_url=settings.lmstudio_base_url, 
+            base_url=settings.lmstudio_base_url,
             model_name=settings.lmstudio_model,
-            timeout=settings.LLM_TIMEOUT
+            timeout=settings.LLM_TIMEOUT,
         )
     else:
         logger.info("Using OpenAI backend")
@@ -57,20 +59,20 @@ def extract_from_verse(
     translation = verse.get("translation", "") or ""
     scripture = verse.get("scripture_name", "Unknown")
 
-    entities_accum = []
-    rels_accum = []
+    entities_accum: list[dict[str, typing.Any]] = []
+    rels_accum: list[dict[str, typing.Any]] = []
 
     # Flatten ontology for lookup if passed (optimization: do this once outside, but passed here or do simplistic check)
     # Ideally passed as argument, but for minimal change let's do a quick lookup strategy or assume it's global
     # Let's use a helper if we could, but let's implement checking against VEDIC_ONTOLOGY directly or via a comprehensive flattening
-    
+
     # 0. Ontology Matching (New Logic)
     # We want to check if any known concept from VEDIC_ONTOLOGY is mentioned in the text
-    # A simple flattened map would be best. 
+    # A simple flattened map would be best.
     # Let's assume a global 'ONTOLOGY_LOOKUP' is available or we build it here briefly (inefficient if per verse)
     # Better: Build it once in main and pass it, but changing signature requires updating call site.
     # Let's update call site in main to pass `ontology_lookup`.
-    
+
     # Placeholder for signature update below
     pass
     verse_id = verse["id"]
@@ -149,31 +151,32 @@ def extract_from_verse(
 
     return entities_accum, rels_accum
 
+
 def flatten_ontology(ontology):
     """
     Flatten ontology into a lookup map: Lowercase Name -> {id, type, name}
     """
     lookup = {}
-    
+
     def _traverse(obj):
         if isinstance(obj, dict):
             if "id" in obj and "name" in obj:
                 entry = {
                     "id": obj["id"],
                     "type": obj.get("type", "Concept"),
-                    "name": obj["name"]
+                    "name": obj["name"],
                 }
                 # Add exact name match
                 lookup[obj["name"].lower()] = entry
-                
+
                 # Add synoynms if any
                 for syn in obj.get("synonyms", []):
                     lookup[syn.lower()] = entry
-                    
+
                 # Add sanskrit name if any
                 if "sanskrit_name" in obj:
                     lookup[obj["sanskrit_name"].lower()] = entry
-            
+
             for k, v in obj.items():
                 if isinstance(v, (dict, list)):
                     _traverse(v)
@@ -183,6 +186,7 @@ def flatten_ontology(ontology):
 
     _traverse(ontology)
     return lookup
+
 
 def extract_from_verse_with_ontology(
     verse,
@@ -201,7 +205,7 @@ def extract_from_verse_with_ontology(
 
     entities_accum = []
     rels_accum = []
-    
+
     verse_node_name = f"Verse {verse_id}"
 
     # Verse Node (Implicit entity)
@@ -217,7 +221,7 @@ def extract_from_verse_with_ontology(
             },
         }
     )
-    
+
     combined_text = (f"{text} {translation}").lower()
 
     # 0. Ontology Lookup (Deterministic linking)
@@ -227,30 +231,32 @@ def extract_from_verse_with_ontology(
         # Simple substring match - can be improved with regex word boundaries
         if term in combined_text:
             found_ontology_concepts.append(concept_info)
-            
+
             # Create Relationship: Verse -> MENTIONS -> Concept
             # Note: We assume Concept node exists (seeded) or we create a stub reference.
-            # GraphBuilder.create_relationships_batch needs identifiers. 
-            # If we used create_entity_batch, we have names. 
-            # If concept nodes are created with specific properties (like ID) in Neo4j, 
+            # GraphBuilder.create_relationships_batch needs identifiers.
+            # If we used create_entity_batch, we have names.
+            # If concept nodes are created with specific properties (like ID) in Neo4j,
             # we need to ensure we link to them correctly.
             # GraphBuilder usually links by NAME and TYPE if using `create_relationship(from_node_name, to_node_name...)` approach
             # But `create_relationships_batch` takes raw dicts.
-            
-            rels_accum.append({
-                "from": verse_node_name,
-                "to": concept_info["name"],  # Linking by Name
-                "type": "MENTIONS",
-                "attributes": {
-                    "source": "ontology_lookup", 
-                    "matched_term": term,
-                    "confidence": 1.0
+
+            rels_accum.append(
+                {
+                    "from": verse_node_name,
+                    "to": concept_info["name"],  # Linking by Name
+                    "type": "MENTIONS",
+                    "attributes": {
+                        "source": "ontology_lookup",
+                        "matched_term": term,
+                        "confidence": 1.0,
+                    },
                 }
-            })
+            )
 
     # 1. Taxonomy (Rule-based)
     found_entities = tax_extractor.extract(f"{text} {translation}")
-    
+
     for entity in found_entities:
         # Check if this rule-based entity matches ontology
         ent_name_lower = entity["name"].lower()
@@ -260,7 +266,7 @@ def extract_from_verse_with_ontology(
             entity["name"] = official["name"]
             entity["type"] = official["type"]
         else:
-             entity["type"] = "Concept" # Default
+            entity["type"] = "Concept"  # Default
 
         entities_accum.append(
             {
@@ -273,9 +279,9 @@ def extract_from_verse_with_ontology(
         # Rel: Entity -> MENTIONED_IN -> Verse (Inverted Logic in original code??)
         # Original: Entity -> MENTIONED_IN -> Verse
         # User Request: Text -> MENTIONS -> Concept
-        # Let's add BOTH or prefer User Request. 
+        # Let's add BOTH or prefer User Request.
         # User request said: "Text Nodes ... [MENTIONS] -> Concept Nodes"
-        
+
         rels_accum.append(
             {
                 "from": verse_node_name,
@@ -295,28 +301,30 @@ def extract_from_verse_with_ontology(
             for ent in ext_entities:
                 # Normalization against ontology
                 if ent["name"].lower() in ontology_lookup:
-                     official = ontology_lookup[ent["name"].lower()]
-                     ent["name"] = official["name"]
-                     ent["type"] = official["type"]
+                    official = ontology_lookup[ent["name"].lower()]
+                    ent["name"] = official["name"]
+                    ent["type"] = official["type"]
 
                 ent["attributes"] = ent.get("attributes", {})
                 ent["attributes"]["source_verse_id"] = verse_id
                 ent["attributes"]["scripture"] = scripture
                 entities_accum.append(ent)
-                
+
                 # Ensure we link this entity to the verse if not already explicit
-                rels_accum.append({
-                    "from": verse_node_name,
-                    "to": ent["name"],
-                    "type": "MENTIONS",
-                    "attributes": {"source": "llm", "confidence": 0.9}
-                })
+                rels_accum.append(
+                    {
+                        "from": verse_node_name,
+                        "to": ent["name"],
+                        "type": "MENTIONS",
+                        "attributes": {"source": "llm", "confidence": 0.9},
+                    }
+                )
 
             for rel in ext_rels:
                 # LLM output validation
                 if not isinstance(rel, dict) or "from" not in rel or "to" not in rel:
                     continue
-                    
+
                 rel["attributes"] = rel.get("attributes", {})
                 rel["attributes"]["source_verse_id"] = verse_id
                 rels_accum.append(rel)
@@ -340,10 +348,15 @@ def main():
     parser.add_argument("--offset", type=int, default=0, help="Offset for processing")
     parser.add_argument("--scripture", type=str, help="Filter by scripture name")
     parser.add_argument("--clear", action="store_true", help="Clear graph")
-    
+
     # Default to config setting (2) instead of hardcoded 10
-    parser.add_argument("--workers", type=int, default=settings.GRAPH_BUILD_WORKERS, help=f"Parallel workers (default: {settings.GRAPH_BUILD_WORKERS})")
-    
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=settings.GRAPH_BUILD_WORKERS,
+        help=f"Parallel workers (default: {settings.GRAPH_BUILD_WORKERS})",
+    )
+
     parser.add_argument(
         "--batch-size", type=int, default=50, help="DB Write batch size"
     )
@@ -351,10 +364,15 @@ def main():
         "--skip-llm", action="store_true", help="Skip LLM extraction (Taxonomy only)"
     )
     parser.add_argument(
-        "--checkpoint-file", type=str, default="graph_build.checkpoint", help="Checkpoint file path"
+        "--checkpoint-file",
+        type=str,
+        default="graph_build.checkpoint",
+        help="Checkpoint file path",
     )
     parser.add_argument(
-        "--ontology-file", type=str, help="Path to JSON file containing ontology nodes (overrides default)"
+        "--ontology-file",
+        type=str,
+        help="Path to JSON file containing ontology nodes (overrides default)",
     )
     args = parser.parse_args()
 
@@ -403,7 +421,7 @@ def main():
     if args.clear:
         logger.warning("Clearing existing Knowledge Graph...")
         graph_builder.clear_graph()
-        
+
         # Seed Ontology
         logger.info("Seeding Ontology...")
         seeder = OntologySeeder(graph_builder)
@@ -413,13 +431,13 @@ def main():
     if args.ontology_file and os.path.exists(args.ontology_file):
         logger.info(f"Loading ontology from file: {args.ontology_file}")
         try:
-            with open(args.ontology_file, 'r') as f:
+            with open(args.ontology_file, "r") as f:
                 raw_ont = json.load(f)
                 # If the file is the merged output (raw_entities.json), it has "nodes" list.
-                # We need to adapt flatten_ontology to handle this list of nodes directly 
+                # We need to adapt flatten_ontology to handle this list of nodes directly
                 # or create a temporary adapter.
                 # flatten_ontology expects a specific nested dict structure (VEDIC_ONTOLOGY).
-                
+
                 # Let's create a custom lookup builder for the linear list format
                 ontology_lookup = {}
                 nodes = raw_ont.get("nodes", []) if isinstance(raw_ont, dict) else []
@@ -429,14 +447,14 @@ def main():
                         ontology_lookup[name] = {
                             "id": node.get("id"),
                             "type": node.get("type", "Concept"),
-                            "name": node.get("name")
+                            "name": node.get("name"),
                         }
         except Exception as e:
             logger.error(f"Failed to load ontology file: {e}")
             sys.exit(1)
     else:
         ontology_lookup = flatten_ontology(VEDIC_ONTOLOGY)
-        
+
     logger.info(f"Loaded {len(ontology_lookup)} ontology terms for fast lookup.")
 
     # Fetch Verses
@@ -467,7 +485,7 @@ def main():
     chunk_size = args.batch_size * 2  # Process reasonably sized chunks in memory
 
     start_time = time.time()
-    
+
     # Track progress relative to original full list for checkpointing
     current_global_offset = start_offset
 
@@ -482,7 +500,12 @@ def main():
             # Pass skip_llm
             futures = [
                 executor.submit(
-                    extract_from_verse_with_ontology, v, extractor, tax_extractor, ontology_lookup, args.skip_llm
+                    extract_from_verse_with_ontology,
+                    v,
+                    extractor,
+                    tax_extractor,
+                    ontology_lookup,
+                    args.skip_llm,
                 )
                 for v in chunk
             ]
@@ -490,7 +513,7 @@ def main():
             for future in tqdm(
                 as_completed(futures),
                 total=len(chunk),
-                desc=f"Extracting Batch {i//chunk_size + 1}",
+                desc=f"Extracting Batch {i // chunk_size + 1}",
                 leave=False,
             ):
                 ents, rels = future.result()
@@ -505,21 +528,21 @@ def main():
         if batch_rels:
             graph_builder.create_relationships_batch(batch_rels)
             total_rel += len(batch_rels)
-            
+
         # Update checkpoint
         current_global_offset += len(chunk)
         with open(args.checkpoint_file, "w") as f:
             f.write(str(current_global_offset))
 
         logger.info(
-            f"Committed batch {i//chunk_size + 1}: {len(batch_entities)} ents, {len(batch_rels)} rels. Checkpoint: {current_global_offset}"
+            f"Committed batch {i // chunk_size + 1}: {len(batch_entities)} ents, {len(batch_rels)} rels. Checkpoint: {current_global_offset}"
         )
 
     elapsed = time.time() - start_time
     logger.info(f"Graph Build Complete in {elapsed:.2f}s.")
     logger.info(f"Total Entities: {total_ent}")
     logger.info(f"Total Relationships: {total_rel}")
-    
+
     # Cleanup Checkpoint
     if os.path.exists(args.checkpoint_file):
         os.remove(args.checkpoint_file)

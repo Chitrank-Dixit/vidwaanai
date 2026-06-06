@@ -1,0 +1,123 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual fire sacrifices and offerings."
+            }
+        },
+        {
+            "name": "Yuga",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic age cyclical divisions (Satya, Treta, Dvapara, Kali)."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Mahapuranas",
+            "type": "Text",
+            "attributes": {
+                "description": "The genre of 18 major Hindu encyclopedic scriptures."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The destroyer deity of the Hindu trimurti, major deity of Shaiva Puranas."
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "A creator patriarch (Prajapati), son of Brahma."
+            }
+        },
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The solar deity, source of light and life."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator deity of the Hindu trimurti."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the gods and ruler of Svarga (heaven)."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Brahma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahma creates the universe under the guidance of Vishnu."
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shiva and Vishnu represent the complementary forces of destruction and preservation."
+            }
+        }
+    ]
+}

@@ -286,8 +286,7 @@ class DatabaseManager:
                     # Prefix ID to avoid collision and trace source.
                     # 'v:1' -> verses table id 1. 'm:1' -> mantras table id 1.
 
-                    cursor.execute(
-                        """
+                    cursor.execute("""
                         SELECT 
                             'v:' || v.id::text as id, 
                             v.verse_text as text, 
@@ -311,8 +310,7 @@ class DatabaseManager:
                         JOIN vedas vd ON m.ved_id = vd.id
                         LEFT JOIN mandalas md ON m.mandala_id = md.id
                         ORDER BY scripture_name, chapter_number, verse_number
-                        """
-                    )
+                        """)
 
                     rows = cursor.fetchall()
                     return [dict(row) for row in rows]

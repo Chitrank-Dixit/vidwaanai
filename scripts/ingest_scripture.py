@@ -32,7 +32,7 @@ class ScriptureIngestionPipeline:
         name: str,
         code: str,
         scripture_type: str,
-        limit: int = None,
+        limit: int | None = None,
     ):
         """Ingest single scripture PDF."""
         logger.info(f"Step 1: Ingesting {name} ({scripture_type}) from {pdf_path}...")
@@ -191,10 +191,10 @@ class ScriptureIngestionPipeline:
             logger.error(f"Database error: {e}")
             raise
 
-    def _sanitize_text(self, text: str) -> str:
+    def _sanitize_text(self, text: str | None) -> str:
         """Remove null bytes and other unsafe characters from text."""
         if not text:
-            return text
+            return ""
         return text.replace("\x00", "")
 
 

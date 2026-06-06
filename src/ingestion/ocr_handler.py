@@ -2,7 +2,7 @@ from typing import List, Dict, Optional, Any
 import logging
 
 try:
-    from pdf2image import convert_from_path, pdfinfo_from_path
+    from pdf2image import convert_from_path
     import pytesseract
 except ImportError:
     convert_from_path = None  # type: ignore
@@ -38,7 +38,7 @@ class OCRHandler:
             # We need to know page count to loop efficiently.
             # Use pdf2image to get page count, avoiding pypdf entirely
             from pdf2image import pdfinfo_from_path
-            
+
             info = pdfinfo_from_path(pdf_path)
             total_pdf_pages = info["Pages"]
 

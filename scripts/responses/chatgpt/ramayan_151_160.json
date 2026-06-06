@@ -43,7 +43,7 @@
             }
         },
         {
-            "name": "Bali",
+            "name": "Vali",
             "type": "Character",
             "attributes": {
                 "description": "Brother of Sugriva, powerful vanara king"
@@ -308,14 +308,14 @@
         },
         {
             "from": "Sugriva",
-            "to": "Bali",
+            "to": "Vali",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Brothers"
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Tara",
             "type": "RELATED_TO",
             "attributes": {
@@ -387,7 +387,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Sugriva Exile",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -395,7 +395,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Bali Dundubhi Fight",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -419,7 +419,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Bali Sugriva Battle",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -435,7 +435,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Bali Death",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -483,7 +483,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Kishkindha",
             "type": "LOCATED_AT",
             "attributes": {
@@ -523,7 +523,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Valour",
             "type": "RELATED_TO",
             "attributes": {

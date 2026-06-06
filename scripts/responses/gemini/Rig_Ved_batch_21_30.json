@@ -1,0 +1,201 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Vedic fire deity, messenger of the gods, and chief priest of the yajna."
+            }
+        },
+        {
+            "name": "Savitr",
+            "type": "Deity",
+            "attributes": {
+                "description": "Vedic solar deity representing the morning sun, associated with the Gayatri mantra."
+            }
+        },
+        {
+            "name": "Prithvi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The earth goddess, consort of Dyaus Pita."
+            }
+        },
+        {
+            "name": "Rta",
+            "type": "Concept",
+            "attributes": {
+                "description": "The physical and moral order of the universe that gods and humans must follow."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "The central Vedic ritual of fire offering accompanied by mantras."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "The guardian of cosmic order (Rta), deity of the sky, oceans, and moral law."
+            }
+        },
+        {
+            "name": "Mitra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Vedic solar deity of friendship, contracts, and alliances, closely associated with Varuna."
+            }
+        },
+        {
+            "name": "Ushas",
+            "type": "Deity",
+            "attributes": {
+                "description": "The goddess of dawn, bringing light and life to the world."
+            }
+        },
+        {
+            "name": "Rigveda",
+            "type": "Text",
+            "attributes": {
+                "description": "The oldest of the four Vedas, containing hymns to the deities."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the Vedic gods, deity of thunder, rain, and war, slayer of Vritra."
+            }
+        },
+        {
+            "name": "Soma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The deified sacred plant and drink of immortality offered in Vedic rituals."
+            }
+        },
+        {
+            "name": "Purusha",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cosmic giant or primeval being from whose sacrifice the universe was created."
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The fierce storm and wind deity, early form of Lord Shiva."
+            }
+        },
+        {
+            "name": "Maruts",
+            "type": "Deity",
+            "attributes": {
+                "description": "The storm deities, companions of Indra and sons of Rudra."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Agni",
+            "to": "Yajna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agni is the fire medium and priest through whom offerings are made in Yajna."
+            }
+        },
+        {
+            "from": "Soma",
+            "to": "Yajna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Soma juice libation is a key offering in Vedic Yajna."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Soma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra consumes Soma juice to gain divine strength for battles."
+            }
+        },
+        {
+            "from": "Mitra",
+            "to": "Varuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mitra and Varuna are dual deities (Mitra-Varuna) who uphold moral law."
+            }
+        },
+        {
+            "from": "Purusha",
+            "to": "Yajna",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The primeval Purusha is sacrificed in the cosmic Yajna to create manifestation."
+            }
+        },
+        {
+            "from": "Agni",
+            "to": "Rta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord Agni is a guardian and upholder of the cosmic order Rta."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Rta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord Indra is a guardian and upholder of the cosmic order Rta."
+            }
+        },
+        {
+            "from": "Varuna",
+            "to": "Rta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord Varuna is a guardian and upholder of the cosmic order Rta."
+            }
+        },
+        {
+            "from": "Mitra",
+            "to": "Rta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord Mitra is a guardian and upholder of the cosmic order Rta."
+            }
+        },
+        {
+            "from": "Soma",
+            "to": "Rta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lord Soma is a guardian and upholder of the cosmic order Rta."
+            }
+        }
+    ]
+}

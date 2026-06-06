@@ -5,7 +5,6 @@ import os
 import json
 from typing import List, Dict
 
-
 # Add project root to path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -29,7 +28,7 @@ class VedaIngestionPipeline:
         self.parser = VedaParser()
 
     def ingest_ved_pdf(
-        self, pdf_path: str, ved_name: str, ved_code: str, limit: int = None
+        self, pdf_path: str, ved_name: str, ved_code: str, limit: int | None = None
     ):
         """Ingest single Veda PDF."""
         logger.info(f"Step 1: Ingesting {ved_name} from {pdf_path}...")

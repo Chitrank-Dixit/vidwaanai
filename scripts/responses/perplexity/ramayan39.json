@@ -43,7 +43,7 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince, moonbright lord, sinless glorious chief, steadfast, hero of lofty mind, scourge of foes, glory shone like fire, far renowned, faithful lover of right"
@@ -57,7 +57,7 @@
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Moonbright dame, weeping lady dear, Janak's bride, Dasharatha's son's bride, pale worn with dwelling in wild, Maithil dame, faithful"
@@ -85,28 +85,28 @@
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Queen, Bharat's mother, made content, committed sin, woman's spite, wed by king, care saved king's life on Gods' and demons' fray"
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen mother, faded cheek, weeping eyes, royal widow, long-eyed lady, mournful, embraced Sítá"
             }
         },
         {
-            "name": "Sumitrá",
+            "name": "Sumitra",
             "type": "Character",
             "attributes": {
                 "description": "Queen, royal widow, soothed Kausalyá"
             }
         },
         {
-            "name": "Vasishtha",
+            "name": "Vashishtha",
             "type": "Character",
             "attributes": {
                 "description": "Saint, household priest, soul athirst to look on Ráma, placed royal widows in line, blessed with holy verses"
@@ -156,13 +156,13 @@
         },
         {
             "name": "Gayá",
-            "type": "Character",
+            "type": "Place",
             "attributes": {
-                "description": "Great saint of high renown near holy town, recited text about son freeing sire"
+                "description": "Holy town in Behar where funeral offerings made, every good Hindu ought make offerings to ancestors"
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Royal town, widowed state reft of king disconsolate, fair town, city to dwell, realm"
@@ -194,13 +194,6 @@
             "type": "Place",
             "attributes": {
                 "description": "Mighty wilderness, wild forest, lonely wood, silvan world, wild domain, woods for devotee"
-            }
-        },
-        {
-            "name": "Gayá",
-            "type": "Place",
-            "attributes": {
-                "description": "Holy town in Behar where funeral offerings made, every good Hindu ought make offerings to ancestors"
             }
         },
         {
@@ -438,7 +431,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "News of death",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -446,7 +439,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "News of death",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -454,7 +447,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Funeral rite preparation",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -478,7 +471,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Descent to river",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -494,7 +487,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "River/stream",
             "type": "LOCATED_AT",
             "attributes": {
@@ -502,7 +495,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Offering funeral drops",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -510,7 +503,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Mixed offering made",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -526,7 +519,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Funeral libation",
             "type": "RELATED_TO",
             "attributes": {
@@ -542,7 +535,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Return to cottage",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -550,7 +543,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Return to cottage",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -566,7 +559,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's hermitage/cottage",
             "type": "LOCATED_AT",
             "attributes": {
@@ -590,7 +583,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Meeting the multitude",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -614,7 +607,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Queens' arrival",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -630,7 +623,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Queens' arrival",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -638,7 +631,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Meeting the queens",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -654,7 +647,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Meeting the queens",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -662,7 +655,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Vasishtha honored",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -694,7 +687,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Bharat's first speech",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -702,7 +695,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's philosophy speech",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -726,7 +719,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Bharat's supplication",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -734,7 +727,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's refusal",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -750,7 +743,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's counter-speech",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -758,7 +751,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Division of domains",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -782,7 +775,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Jáváli's intervention",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -790,7 +783,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -814,15 +807,15 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma's moonbright dame, dear consort, faithful wife who follows"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -830,7 +823,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Bharat",
             "type": "RELATED_TO",
             "attributes": {
@@ -839,22 +832,22 @@
         },
         {
             "from": "Bharat",
-            "to": "Kaikeyí",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Bharat's mother who committed sin, made content, wed by king, saved king's life"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kausalyá",
+            "from": "Rama",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kausalyá's son, queen mother, clasped her lotus feet"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's grief philosophy",
             "type": "RELATED_TO",
             "attributes": {
@@ -862,7 +855,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Impermanence doctrine",
             "type": "RELATED_TO",
             "attributes": {
@@ -878,7 +871,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Father's promise",
             "type": "RELATED_TO",
             "attributes": {
@@ -910,7 +903,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Indra",
             "type": "RELATED_TO",
             "attributes": {
@@ -934,8 +927,8 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Ayodhyá",
+            "from": "Rama",
+            "to": "Ayodhya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma back to home go no more, widowed state reft of king, if to town I go"
@@ -943,14 +936,14 @@
         },
         {
             "from": "Bharat",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Bharat urged to speed to town, reign over fair town, lord of men"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dandaka/DaG ak wood",
             "type": "RELATED_TO",
             "attributes": {

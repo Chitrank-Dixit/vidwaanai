@@ -40,8 +40,7 @@ def analyze_queries() -> None:
             return
 
         print("\n--- Top 10 Slowest Queries ---")
-        cursor.execute(
-            """
+        cursor.execute("""
             SELECT 
                 substring(query, 1, 50) as query_snippet,
                 calls,
@@ -51,8 +50,7 @@ def analyze_queries() -> None:
             FROM pg_stat_statements
             ORDER BY mean_exec_time DESC
             LIMIT 10
-        """
-        )
+        """)
 
         rows = cursor.fetchall()
         if rows:
@@ -61,8 +59,7 @@ def analyze_queries() -> None:
             print("No query stats available.")
 
         print("\n--- Top 10 Most Frequent Queries ---")
-        cursor.execute(
-            """
+        cursor.execute("""
             SELECT 
                 substring(query, 1, 50) as query_snippet,
                 calls,
@@ -71,8 +68,7 @@ def analyze_queries() -> None:
             FROM pg_stat_statements
             ORDER BY calls DESC
             LIMIT 10
-        """
-        )
+        """)
 
         rows = cursor.fetchall()
         if rows:

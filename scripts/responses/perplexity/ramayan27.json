@@ -43,21 +43,21 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Banished son, hero, lord of men, chief of Raghu's race, glorious hero, virtuous, dear full moon of every eye, strong-armed, broad chest, stalwart limb"
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen, most excellent of beauteous dames, Ráma's mother, soul alarmed, heart rent by sorrow, distressed for banished son"
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Ráma's Videhan bride, faithful wife, bred with tender care, knows toils await, went in hermit's mantle"
@@ -71,14 +71,14 @@
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Queen cruel, false and vile, cast venom of guile, like dire serpent bent on harm, cruel hate, darling son Bharat"
             }
         },
         {
-            "name": "Sumitrá",
+            "name": "Sumitra",
             "type": "Character",
             "attributes": {
                 "description": "Fair Queen who clave to duty, righteous words, soothing and eloquent, consoled Kausalyá"
@@ -141,7 +141,7 @@
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Royal town, empty houses/courts/ways, closed temples, disquieted, sorrow dumb, death chilled, no bustling trader, oppressed with cares"
@@ -376,7 +376,7 @@
         },
         {
             "from": "Dasharatha",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "King looked on empty houses, courts, ways, closed temples"
@@ -408,14 +408,14 @@
         },
         {
             "from": "Dasharatha",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Father's sight went with banished son, soul disquieted, lamenting 'O Ráma, thou hast forsaken me'"
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -423,7 +423,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Kausalyá's lament to Dasharatha",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -431,23 +431,23 @@
             }
         },
         {
-            "from": "Kausalyá",
-            "to": "Kaikeyí",
+            "from": "Kausalya",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kausalyá accused queen of being cruel, false, vile, casting venom, like serpent ravaging"
             }
         },
         {
-            "from": "Kausalyá",
-            "to": "Ráma",
+            "from": "Kausalya",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Mother mourns banished son, yearns to see children dear, quenchless flames burn for him"
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Former life sin",
             "type": "RELATED_TO",
             "attributes": {
@@ -455,15 +455,15 @@
             }
         },
         {
-            "from": "Kaikeyí",
-            "to": "Ráma",
+            "from": "Kaikeyi",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kaikeyí cast venom of guile on Ráma, hurled him from high estate as Bráhmans cast demons' due"
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Bharat",
             "type": "RELATED_TO",
             "attributes": {
@@ -471,15 +471,15 @@
             }
         },
         {
-            "from": "Sumitrá",
-            "to": "Kausalyá",
+            "from": "Sumitra",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Fair queen gave righteous answer, soothing eloquent words, should console sad people"
             }
         },
         {
-            "from": "Sumitrá",
+            "from": "Sumitra",
             "to": "Sumitrá's consolation speech",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -487,15 +487,15 @@
             }
         },
         {
-            "from": "Sumitrá",
-            "to": "Ráma",
+            "from": "Sumitra",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sumitrá praised son's noble virtues, first in place, banner of fame unfurled"
             }
         },
         {
-            "from": "Sumitrá",
+            "from": "Sumitra",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -503,15 +503,15 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma with Videhan bride, looked on her first, she by his side"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -519,7 +519,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -528,14 +528,14 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana with aid laid lowly bed, watched while couple slept"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Journey to Tamasá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -559,7 +559,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's speech to people",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -567,7 +567,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Bharat",
             "type": "RELATED_TO",
             "attributes": {
@@ -583,7 +583,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Aged Bráhmans' plea",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -600,14 +600,14 @@
         },
         {
             "from": "Aged Bráhmans",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "With thee all Bráhmans go, hearts turn to thee, following thee is following right"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "First night halt",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -615,7 +615,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "First night halt",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -640,7 +640,7 @@
         },
         {
             "from": "Sumantra",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Charioteer addressed by Ráma to tend horses, spoke of Ráma's virtues all night"
@@ -655,7 +655,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Tamasá river",
             "type": "LOCATED_AT",
             "attributes": {
@@ -671,7 +671,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Forest/Woods",
             "type": "LOCATED_AT",
             "attributes": {
@@ -679,7 +679,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Secret departure at dawn",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -703,7 +703,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Secret departure at dawn",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -736,7 +736,7 @@
         },
         {
             "from": "People of Ayodhyá",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Citizens with wearied hearts reached royal town where care from side to side"
@@ -744,15 +744,15 @@
         },
         {
             "from": "Aged Bráhmans",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Melancholy Bráhmans passed to houses high and vast, aloof from all"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Ayodhyá",
+            "from": "Rama",
+            "to": "Ayodhya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "City reft of Ráma wore no look of beauty, like dull river, dry sea"
@@ -776,7 +776,7 @@
         },
         {
             "from": "Lakshmí",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmí went in hermit's mantle in guise of Sítá, none may prevent glory"
@@ -784,7 +784,7 @@
         },
         {
             "from": "Fortune",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Fortune shall share glories with Sítá awaiting heir"
@@ -792,14 +792,14 @@
         },
         {
             "from": "Earth",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Earth shall share glories with Sítá awaiting heir"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Nágas",
             "type": "RELATED_TO",
             "attributes": {
@@ -808,7 +808,7 @@
         },
         {
             "from": "Garuda",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "City compared to broad waters after king of birds bore away snakes"
@@ -823,7 +823,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's virtues",
             "type": "RELATED_TO",
             "attributes": {
@@ -839,7 +839,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Suváhu",
             "type": "RELATED_TO",
             "attributes": {
@@ -847,7 +847,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Nature's reverence",
             "type": "RELATED_TO",
             "attributes": {

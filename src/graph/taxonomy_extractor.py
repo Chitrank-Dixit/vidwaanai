@@ -3,7 +3,6 @@ import logging
 from typing import Dict, Any, List, Set, Tuple
 from src.graph.ontology import VEDIC_ONTOLOGY
 
-
 logger = logging.getLogger(__name__)
 
 

@@ -36,7 +36,7 @@
             }
         },
         {
-            "name": "Bharata",
+            "name": "Bharat",
             "type": "Character",
             "attributes": {
                 "description": "Son of Dasharatha and Kaikeyi, intended beneficiary of the throne during Rama’s exile."
@@ -92,7 +92,7 @@
             }
         },
         {
-            "name": "Parasurama",
+            "name": "Parashurama",
             "type": "Character",
             "attributes": {
                 "description": "Son of Jamadagni, cited by Rama as an exemplar of obedience to paternal command."
@@ -188,7 +188,7 @@
             }
         },
         {
-            "from": "Parasurama",
+            "from": "Parashurama",
             "to": "Obedience to Father",
             "type": "RELATED_TO",
             "attributes": {

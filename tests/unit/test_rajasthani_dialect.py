@@ -5,7 +5,6 @@ from src.dialects.rajasthani import (
 
 
 class TestRajasthaniDialect:
-
     @pytest.fixture
     def processor(self):
         return RajasthaniProcessor()

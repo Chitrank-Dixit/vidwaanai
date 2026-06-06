@@ -1,0 +1,94 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the gods and ruler of Svarga (heaven)."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual fire sacrifices and offerings."
+            }
+        },
+        {
+            "name": "Mahapuranas",
+            "type": "Text",
+            "attributes": {
+                "description": "The genre of 18 major Hindu encyclopedic scriptures."
+            }
+        },
+        {
+            "name": "Devi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme goddess, representing cosmic energy and female divinity."
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "A creator patriarch (Prajapati), son of Brahma."
+            }
+        },
+        {
+            "name": "Dhruva",
+            "type": "Character",
+            "attributes": {
+                "description": "A devotee of Vishnu who attained the status of the pole star."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Dhruva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dhruva performed severe penance to obtain the vision of Vishnu."
+            }
+        }
+    ]
+}

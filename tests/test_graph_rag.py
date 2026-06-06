@@ -21,7 +21,7 @@ class TestGraphRAG(unittest.TestCase):
         builder = GraphBuilder("bolt://localhost:7687", "neo4j", "password")
         builder.driver = self.mock_driver
 
-        builder.create_person("Krishna", {"role": "Deity"})
+        builder.create_entity("Krishna", "Person", {"role": "Deity"})
 
         # Verify session.run was called
         self.session.run.assert_called()

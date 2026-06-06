@@ -209,7 +209,7 @@ class VidwaanAI:
                             graph_lines = ["**Knowledge Graph Context:**"]
                             for rel in subgraph:
                                 # Format: "Krishna (Person) --[TEACHES]--> Arjuna (Person)"
-                                line = f"{rel['source']} ({rel.get('source_type',['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type',['Entity'])[0]})"
+                                line = f"{rel['source']} ({rel.get('source_type', ['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type', ['Entity'])[0]})"
                                 graph_lines.append(line)
                             graph_context = "\n".join(graph_lines)
                             logger.info(

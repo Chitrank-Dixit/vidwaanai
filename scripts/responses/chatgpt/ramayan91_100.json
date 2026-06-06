@@ -64,7 +64,7 @@
             }
         },
         {
-            "name": "Bharata",
+            "name": "Bharat",
             "type": "Character",
             "attributes": {
                 "description": "Brother of Rama who rules in his absence."
@@ -85,7 +85,7 @@
             }
         },
         {
-            "name": "Bali",
+            "name": "Vali",
             "type": "Character",
             "attributes": {
                 "description": "Brother of Sugriva, slain by Rama."
@@ -323,7 +323,7 @@
         },
         {
             "from": "Rama",
-            "to": "Bharata",
+            "to": "Bharat",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Brothers"
@@ -339,7 +339,7 @@
         },
         {
             "from": "Sugriva",
-            "to": "Bali",
+            "to": "Vali",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Brothers and rivals"
@@ -474,7 +474,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Nandigrama",
             "type": "LOCATED_AT",
             "attributes": {

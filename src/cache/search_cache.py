@@ -7,7 +7,6 @@ import os
 from src.cache.redis_cache import RedisCache
 from src.core.logger import get_logger
 
-
 logger = get_logger(__name__)
 
 

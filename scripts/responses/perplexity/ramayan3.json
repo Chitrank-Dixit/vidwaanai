@@ -71,14 +71,14 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince of Ayodhyá, son of Dasharatha, husband of Sítá, hero of Rámáyan, from Ikshváku dynasty"
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Daughter of Janak, wife of Ráma, Videhan lady"
@@ -113,21 +113,21 @@
             }
         },
         {
-            "name": "Janak",
+            "name": "Janaka",
             "type": "Character",
             "attributes": {
                 "description": "King of Míthilá, father of Sítá"
             }
         },
         {
-            "name": "Vishvámitra",
+            "name": "Vishvamitra",
             "type": "Character",
             "attributes": {
                 "description": "Holy sage who told tales to Ráma"
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Queen whose evil counsel led to Ráma's banishment"
@@ -155,14 +155,14 @@
             }
         },
         {
-            "name": "Anasúyá",
+            "name": "Anasuya",
             "type": "Character",
             "attributes": {
                 "description": "Woman who showed favor and bestowed wondrous balsam"
             }
         },
         {
-            "name": "Śarabhanga",
+            "name": "Sarabhanga",
             "type": "Character",
             "attributes": {
                 "description": "Sage whose dwelling Ráma visited"
@@ -183,7 +183,7 @@
             }
         },
         {
-            "name": "Śúrpanakhá",
+            "name": "Surpanakha",
             "type": "Character",
             "attributes": {
                 "description": "Demoness who underwent mockery and disfigurement"
@@ -204,7 +204,7 @@
             }
         },
         {
-            "name": "Rávana",
+            "name": "Ravana",
             "type": "Character",
             "attributes": {
                 "description": "King of Lanká, abductor of Sítá, slain by Ráma in battle"
@@ -225,21 +225,21 @@
             }
         },
         {
-            "name": "Hanumán",
+            "name": "Hanuman",
             "type": "Character",
             "attributes": {
                 "description": "Wind-God's son, leaped across ocean, found Sítá in Lanká, burned Lanká"
             }
         },
         {
-            "name": "Sugríva",
+            "name": "Sugriva",
             "type": "Character",
             "attributes": {
                 "description": "Monkey king who made friendship with Ráma, fought Báli, became king"
             }
         },
         {
-            "name": "Báli",
+            "name": "Vali",
             "type": "Character",
             "attributes": {
                 "description": "Monkey king slain by Ráma in strife with Sugríva"
@@ -253,28 +253,28 @@
             }
         },
         {
-            "name": "Sampáti",
+            "name": "Sampati",
             "type": "Character",
             "attributes": {
                 "description": "Character gained as friend by the monkey army"
             }
         },
         {
-            "name": "Maináka",
+            "name": "Mainaka",
             "type": "Character",
             "attributes": {
                 "description": "Lofty peak personified"
             }
         },
         {
-            "name": "Sinhiká",
+            "name": "Sinhika",
             "type": "Character",
             "attributes": {
                 "description": "Demoness slain by Hanumán"
             }
         },
         {
-            "name": "Vibhíshana",
+            "name": "Vibhishana",
             "type": "Character",
             "attributes": {
                 "description": "Brother of Rávana, made treaty with Ráma, set on throne of Lanká"
@@ -288,7 +288,7 @@
             }
         },
         {
-            "name": "Meghanáda",
+            "name": "Meghanada",
             "type": "Character",
             "attributes": {
                 "description": "Son of Rávana who fought and died"
@@ -302,7 +302,7 @@
             }
         },
         {
-            "name": "Paraśuráma",
+            "name": "Parashurama",
             "type": "Character",
             "attributes": {
                 "description": "Ráma with the Axe, namesake warrior fought by Ráma"
@@ -316,14 +316,14 @@
             }
         },
         {
-            "name": "Sagar",
+            "name": "Sagara",
             "type": "Character",
             "attributes": {
                 "description": "Ancient king whose command dug out the sea, had sixty thousand sons"
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Royal capital city on Sarjú bank, built by Manu, extends twelve leagues, guarded by Dasharatha"
@@ -337,7 +337,7 @@
             }
         },
         {
-            "name": "Amarávatí",
+            "name": "Amaravati",
             "type": "Place",
             "attributes": {
                 "description": "City of Indra in the sky, home of the immortals"
@@ -365,35 +365,35 @@
             }
         },
         {
-            "name": "Pampá",
+            "name": "Pampa",
             "type": "Place",
             "attributes": {
                 "description": "Lake/region where Ráma wept and met Hanumán"
             }
         },
         {
-            "name": "Rishyamúka",
+            "name": "Rishyamuka",
             "type": "Place",
             "attributes": {
                 "description": "Mountain where Ráma met Sugríva"
             }
         },
         {
-            "name": "Lanká",
+            "name": "Lanka",
             "type": "Place",
             "attributes": {
                 "description": "Island city of Rávana with bright palaces, burned by Hanumán"
             }
         },
         {
-            "name": "Aśoka garden",
+            "name": "Ashoka Grove",
             "type": "Place",
             "attributes": {
                 "description": "Garden in Lanká where Sítá was held captive"
             }
         },
         {
-            "name": "Chitrakúta",
+            "name": "Chitrakuta",
             "type": "Place",
             "attributes": {
                 "description": "Hill where Ráma dwelt and built a cot"
@@ -414,7 +414,7 @@
             }
         },
         {
-            "name": "Sarjú",
+            "name": "Sarayu",
             "type": "Place",
             "attributes": {
                 "description": "River (Sarayú/Ghaghra) on whose bank Ayodhyá stands, rises in Himalayas"
@@ -428,14 +428,14 @@
             }
         },
         {
-            "name": "Míthilá",
+            "name": "Mithila",
             "type": "Place",
             "attributes": {
                 "description": "Capital of Videha, kingdom of Janak"
             }
         },
         {
-            "name": "Gangá",
+            "name": "Ganga",
             "type": "Place",
             "attributes": {
                 "description": "River crossed by Ráma during exile"
@@ -449,7 +449,7 @@
             }
         },
         {
-            "name": "Bhogavatí",
+            "name": "Bhogavati",
             "type": "Place",
             "attributes": {
                 "description": "Capital city of the Nágas"
@@ -721,22 +721,22 @@
         },
         {
             "from": "Rámáyan",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "MENTIONS",
             "attributes": {
                 "context": "The epic tells the life story of Ráma"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma is husband of Sítá"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -744,7 +744,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -752,8 +752,8 @@
             }
         },
         {
-            "from": "Sítá",
-            "to": "Janak",
+            "from": "Sita",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sítá is daughter of King Janak"
@@ -761,7 +761,7 @@
         },
         {
             "from": "Kuśa",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kuśa is twin son of Ráma and Sítá"
@@ -769,7 +769,7 @@
         },
         {
             "from": "Lava",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lava is twin son of Ráma and Sítá"
@@ -777,7 +777,7 @@
         },
         {
             "from": "Kuśa",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kuśa is son of Sítá"
@@ -785,7 +785,7 @@
         },
         {
             "from": "Lava",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lava is son of Sítá"
@@ -840,8 +840,8 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Ayodhyá",
+            "from": "Rama",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Ráma is prince and later king of Ayodhyá"
@@ -849,14 +849,14 @@
         },
         {
             "from": "Dasharatha",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Dasharatha ruled and guarded Ayodhyá"
             }
         },
         {
-            "from": "Ayodhyá",
+            "from": "Ayodhya",
             "to": "Manu",
             "type": "RELATED_TO",
             "attributes": {
@@ -864,15 +864,15 @@
             }
         },
         {
-            "from": "Ayodhyá",
-            "to": "Sarjú",
+            "from": "Ayodhya",
+            "to": "Sarayu",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Ayodhyá stands on the bank of river Sarjú"
             }
         },
         {
-            "from": "Ayodhyá",
+            "from": "Ayodhya",
             "to": "Kosala",
             "type": "LOCATED_AT",
             "attributes": {
@@ -881,14 +881,14 @@
         },
         {
             "from": "Indra",
-            "to": "Amarávatí",
+            "to": "Amaravati",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Indra rules his city Amarávatí in the sky"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ikshváku dynasty",
             "type": "RELATED_TO",
             "attributes": {
@@ -904,7 +904,7 @@
             }
         },
         {
-            "from": "Sagar",
+            "from": "Sagara",
             "to": "Ikshváku dynasty",
             "type": "RELATED_TO",
             "attributes": {
@@ -912,23 +912,23 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Vishvámitra",
+            "from": "Rama",
+            "to": "Vishvamitra",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Vishvámitra told tales to Ráma"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kaikeyí",
+            "from": "Rama",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kaikeyí's evil counsel caused Ráma's banishment"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Bharadvája",
             "type": "RELATED_TO",
             "attributes": {
@@ -936,7 +936,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Agastya",
             "type": "RELATED_TO",
             "attributes": {
@@ -944,96 +944,96 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Rávana",
+            "from": "Rama",
+            "to": "Ravana",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma fought and slew Rávana"
             }
         },
         {
-            "from": "Rávana",
-            "to": "Sítá",
+            "from": "Ravana",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Rávana abducted Sítá"
             }
         },
         {
-            "from": "Rávana",
-            "to": "Lanká",
+            "from": "Ravana",
+            "to": "Lanka",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Rávana ruled Lanká"
             }
         },
         {
-            "from": "Sítá",
-            "to": "Aśoka garden",
+            "from": "Sita",
+            "to": "Ashoka Grove",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Sítá was held captive in Aśoka garden in Lanká"
             }
         },
         {
-            "from": "Hanumán",
-            "to": "Sítá",
+            "from": "Hanuman",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Hanumán found and spoke with Sítá in Lanká"
             }
         },
         {
-            "from": "Hanumán",
-            "to": "Lanká",
+            "from": "Hanuman",
+            "to": "Lanka",
             "type": "PARTICIPATED_IN",
             "attributes": {
                 "context": "Hanumán leaped to Lanká and burned the city"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sugríva",
+            "from": "Rama",
+            "to": "Sugriva",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma made friendship treaty with Sugríva"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Báli",
+            "from": "Rama",
+            "to": "Vali",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma slew Báli in fight"
             }
         },
         {
-            "from": "Sugríva",
-            "to": "Báli",
+            "from": "Sugriva",
+            "to": "Vali",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sugríva fought with Báli for kingdom"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Vibhíshana",
+            "from": "Rama",
+            "to": "Vibhishana",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma made treaty with Vibhíshana and set him on throne"
             }
         },
         {
-            "from": "Vibhíshana",
-            "to": "Rávana",
+            "from": "Vibhishana",
+            "to": "Ravana",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Vibhíshana is brother of Rávana"
             }
         },
         {
-            "from": "Vibhíshana",
-            "to": "Lanká",
+            "from": "Vibhishana",
+            "to": "Lanka",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Vibhíshana was set on throne of Lanká"
@@ -1048,8 +1048,8 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Chitrakúta",
+            "from": "Rama",
+            "to": "Chitrakuta",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Ráma dwelt at Chitrakúta hill"
@@ -1065,14 +1065,14 @@
         },
         {
             "from": "Bharat",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Bharat is brother of Ráma"
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Videha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1080,15 +1080,15 @@
             }
         },
         {
-            "from": "Janak",
-            "to": "Míthilá",
+            "from": "Janaka",
+            "to": "Mithila",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Janak is king of Míthilá"
             }
         },
         {
-            "from": "Míthilá",
+            "from": "Mithila",
             "to": "Videha",
             "type": "LOCATED_AT",
             "attributes": {
@@ -1096,15 +1096,15 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Pampá",
+            "from": "Rama",
+            "to": "Pampa",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Ráma wept at Pampá and met Hanumán there"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dandaka wood",
             "type": "LOCATED_AT",
             "attributes": {
@@ -1112,7 +1112,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Panchavati",
             "type": "LOCATED_AT",
             "attributes": {
@@ -1129,7 +1129,7 @@
         },
         {
             "from": "Nágas",
-            "to": "Bhogavatí",
+            "to": "Bhogavati",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Bhogavatí is capital city of Nágas"
@@ -1160,7 +1160,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Sítá's abduction",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1168,7 +1168,7 @@
             }
         },
         {
-            "from": "Rávana",
+            "from": "Ravana",
             "to": "Sítá's abduction",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1176,7 +1176,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sítá's abduction",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1184,7 +1184,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Battle with Rávana",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1192,7 +1192,7 @@
             }
         },
         {
-            "from": "Rávana",
+            "from": "Ravana",
             "to": "Battle with Rávana",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1208,7 +1208,7 @@
             }
         },
         {
-            "from": "Meghanáda",
+            "from": "Meghanada",
             "to": "Battle with Rávana",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1216,7 +1216,7 @@
             }
         },
         {
-            "from": "Hanumán",
+            "from": "Hanuman",
             "to": "Burning of Lanká",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1240,7 +1240,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Breaking of bow",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1248,15 +1248,15 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Paraśuráma",
+            "from": "Rama",
+            "to": "Parashurama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma met and fought his namesake Paraśuráma"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Trishirá",
             "type": "RELATED_TO",
             "attributes": {
@@ -1264,7 +1264,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Khara",
             "type": "RELATED_TO",
             "attributes": {
@@ -1272,7 +1272,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Virádha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1280,7 +1280,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Kabandha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1288,8 +1288,8 @@
             }
         },
         {
-            "from": "Śúrpanakhá",
-            "to": "Ráma",
+            "from": "Surpanakha",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Śúrpanakhá underwent mockery and disfigurement"

@@ -57,14 +57,14 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Hero of stately breast, strong-armed chief, glorious Lord of Light, son of Raghu, prince of men, speaks gentle words, void of fear, will guard Sítá in woods"
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Daughter of Videha's king, lady of lovely brow/eyes, soft frame, beauteous-armed, faultless form, Ráma's wife, trembler with bright eyes, great love impels to follow"
@@ -85,21 +85,21 @@
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen, honored mother, royal dame Ráma's mother, needs protection and comfort, bereft of darling son"
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Queen, daughter of Ashvapati, proud queen who won imperial power for Bharat, little heeds rivals' needs"
             }
         },
         {
-            "name": "Sumitrá",
+            "name": "Sumitra",
             "type": "Character",
             "attributes": {
                 "description": "Queen, mother of Lakshmana, dear mother, needs care"
@@ -395,23 +395,23 @@
     ],
     "relationships": [
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma is husband, lord, embraced wife, will guard her in woods, clings to her as Sun's Queen to Sun"
             }
         },
         {
-            "from": "Sítá",
-            "to": "Ráma",
+            "from": "Sita",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sítá is wife of lovely brow/eyes, resigned in heart/body/soul/mind, husband is God to her, thinks of naught but him"
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Forest perils",
             "type": "RELATED_TO",
             "attributes": {
@@ -419,7 +419,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Forest perils",
             "type": "RELATED_TO",
             "attributes": {
@@ -427,7 +427,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sítá's appeal",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -435,7 +435,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's forest warnings",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -443,7 +443,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sítá's taunting",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -451,7 +451,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's surrender",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -459,7 +459,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Bráhmans' prophecy",
             "type": "RELATED_TO",
             "attributes": {
@@ -467,7 +467,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Wifely devotion",
             "type": "RELATED_TO",
             "attributes": {
@@ -475,7 +475,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Scripture text",
             "type": "RELATED_TO",
             "attributes": {
@@ -483,7 +483,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Sávitrí",
             "type": "RELATED_TO",
             "attributes": {
@@ -507,7 +507,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Filial duty",
             "type": "RELATED_TO",
             "attributes": {
@@ -515,7 +515,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Self-existent God",
             "type": "RELATED_TO",
             "attributes": {
@@ -523,7 +523,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Sun",
             "type": "RELATED_TO",
             "attributes": {
@@ -531,7 +531,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -540,7 +540,7 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana is faithful brother, hero just and dear, loved as life, will guard sleeping"
@@ -555,7 +555,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Lakshmana's prayer",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -564,15 +564,15 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana joined them there, heard converse of pair, will accompany"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kausalyá",
+            "from": "Rama",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma concerned for honored mother's protection, she bereft of darling son"
@@ -580,7 +580,7 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Kausalyá",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana asked to protect honored mother from neglect"
@@ -588,7 +588,7 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Sumitrá",
+            "to": "Sumitra",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana is son of good/dear Sumitrá who needs care"
@@ -596,7 +596,7 @@
         },
         {
             "from": "Bharat",
-            "to": "Kaikeyí",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Bharat will stand by Queen Kaikeyí's side as ruler"
@@ -604,14 +604,14 @@
         },
         {
             "from": "Bharat",
-            "to": "Kausalyá",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Bharat must provide love and care for queens through Ráma's might"
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Ashvapati",
             "type": "RELATED_TO",
             "attributes": {
@@ -620,7 +620,7 @@
         },
         {
             "from": "Dasharatha",
-            "to": "Kaikeyí",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "King captive in passion's chain to proud queen"
@@ -635,7 +635,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Celestial arms",
             "type": "RELATED_TO",
             "attributes": {
@@ -651,7 +651,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Preceptor's hall",
             "type": "RELATED_TO",
             "attributes": {
@@ -667,7 +667,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Wealth distribution ceremony",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -675,7 +675,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Wealth distribution ceremony",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -699,7 +699,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Suyajña",
             "type": "RELATED_TO",
             "attributes": {
@@ -707,7 +707,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Agastya",
             "type": "RELATED_TO",
             "attributes": {
@@ -715,7 +715,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Kushika's son",
             "type": "RELATED_TO",
             "attributes": {
@@ -724,14 +724,14 @@
         },
         {
             "from": "Chief of Taittiríya sect",
-            "to": "Kausalyá",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Chief deep in Scripture serves Kausalyá with blessing and respect"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Chitraratha",
             "type": "RELATED_TO",
             "attributes": {
@@ -739,7 +739,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Grammarians",
             "type": "RELATED_TO",
             "attributes": {
@@ -755,7 +755,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Trijata's petition",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -803,7 +803,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Lakshmí",
             "type": "RELATED_TO",
             "attributes": {
@@ -827,7 +827,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Brahmá",
             "type": "RELATED_TO",
             "attributes": {
@@ -835,7 +835,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's house/abode",
             "type": "LOCATED_AT",
             "attributes": {
@@ -843,7 +843,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Ráma's house/abode",
             "type": "LOCATED_AT",
             "attributes": {
@@ -851,7 +851,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Forest/Woods/Dandaka",
             "type": "LOCATED_AT",
             "attributes": {
@@ -859,7 +859,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Forest/Woods/Dandaka",
             "type": "LOCATED_AT",
             "attributes": {
@@ -875,7 +875,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Videha",
             "type": "RELATED_TO",
             "attributes": {
@@ -883,7 +883,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Journey to see king",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -891,7 +891,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Journey to see king",
             "type": "PARTICIPATED_IN",
             "attributes": {

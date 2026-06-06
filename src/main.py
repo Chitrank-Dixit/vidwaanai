@@ -7,15 +7,17 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
+from src.core.config import settings
+
 # LlamaIndex Global Settings
 try:
     from llama_index.core import Settings
+
     Settings.num_workers = settings.LLAMA_INDEX_NUM_WORKERS
 except ImportError:
-    pass # LlamaIndex might not be installed or used in this env
+    pass  # LlamaIndex might not be installed or used in this env
 
 from src.agent.vidwaan_agent import VidwaanAI
-from src.core.config import settings
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
 

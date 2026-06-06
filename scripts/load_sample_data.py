@@ -164,10 +164,14 @@ def load_sample_data() -> None:
                     embedding_sa = embedding_sa[0]
 
                 db_manager.add_embedding(
-                    verse_id=verse_id, embedding=embedding_en, language="en"  # type: ignore
+                    verse_id=verse_id,
+                    embedding=embedding_en,
+                    language="en",  # type: ignore
                 )
                 db_manager.add_embedding(
-                    verse_id=verse_id, embedding=embedding_sa, language="sa"  # type: ignore
+                    verse_id=verse_id,
+                    embedding=embedding_sa,
+                    language="sa",  # type: ignore
                 )
 
             print(f"✓ {scripture_name}: {len(data['verses'])} verses loaded")

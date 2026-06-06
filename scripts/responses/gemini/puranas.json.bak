@@ -1,0 +1,283 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator god of the universe in the Puranas."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver god, main focus of the Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The destroyer god, main focus of the Shaiva Puranas."
+            }
+        },
+        {
+            "name": "Sati",
+            "type": "Deity",
+            "attributes": {
+                "description": "First consort of Shiva, who self-immolated at her father Daksha's sacrifice."
+            }
+        },
+        {
+            "name": "Veerabhadra",
+            "type": "Deity",
+            "attributes": {
+                "description": "A fierce manifestation of Shiva created to destroy Daksha's sacrifice."
+            }
+        },
+        {
+            "name": "Bhairava",
+            "type": "Deity",
+            "attributes": {
+                "description": "A terrifying manifestation of Shiva associated with destruction and protection."
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "Prajapati father of Sati, who insulted Shiva and was slain by Veerabhadra."
+            }
+        },
+        {
+            "name": "Dhruva",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince who achieved the eternal status of the Pole Star through devotion to Vishnu."
+            }
+        },
+        {
+            "name": "Markandeya",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage blessed with eternal youth, saved from Yama by Shiva."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Vaikuntha",
+            "type": "Place",
+            "attributes": {
+                "description": "The celestial abode of Lord Vishnu."
+            }
+        },
+        {
+            "name": "Mount Kailash",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred mountain home of Lord Shiva."
+            }
+        },
+        {
+            "name": "Lokas",
+            "type": "Concept",
+            "attributes": {
+                "description": "The fourteen cosmic realms of the universe."
+            }
+        },
+        {
+            "name": "Yugas",
+            "type": "Concept",
+            "attributes": {
+                "description": "The four cosmic eras: Satya, Treta, Dvapara, and Kali."
+            }
+        },
+        {
+            "name": "Manvantara",
+            "type": "Concept",
+            "attributes": {
+                "description": "The reign of a Manu, spanning millions of years."
+            }
+        },
+        {
+            "name": "Srishti",
+            "type": "Event",
+            "attributes": {
+                "description": "The creation of the universe by Brahma."
+            }
+        },
+        {
+            "name": "Pralaya",
+            "type": "Event",
+            "attributes": {
+                "description": "The dissolution of the cosmos."
+            }
+        },
+        {
+            "name": "Samudra Manthan",
+            "type": "Event",
+            "attributes": {
+                "description": "The churning of the cosmic ocean to obtain Amrita (nectar of immortality)."
+            }
+        },
+        {
+            "name": "Daksha Yajna",
+            "type": "Event",
+            "attributes": {
+                "description": "The sacrificial ritual hosted by Daksha that ended in destruction."
+            }
+        },
+        {
+            "name": "Puranas",
+            "type": "Text",
+            "attributes": {
+                "description": "Genre of eighteen major sacred texts detailing cosmology, genealogies, and myths."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Sati",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sati is Shiva's first wife."
+            }
+        },
+        {
+            "from": "Sati",
+            "to": "Daksha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sati is Daksha's daughter."
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Veerabhadra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shiva creates Veerabhadra from his matted locks."
+            }
+        },
+        {
+            "from": "Veerabhadra",
+            "to": "Daksha Yajna",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Veerabhadra destroys the sacrifice."
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Daksha Yajna",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Daksha hosts the sacrifice."
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Mount Kailash",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Shiva resides on Mount Kailash."
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Vaikuntha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vishnu resides in Vaikuntha."
+            }
+        },
+        {
+            "from": "Dhruva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dhruva worships Vishnu to gain his boon."
+            }
+        },
+        {
+            "from": "Markandeya",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Markandeya is saved from death by Shiva."
+            }
+        },
+        {
+            "from": "Markandeya",
+            "to": "Yama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Markandeya is pursued by Yama but protected by Shiva."
+            }
+        },
+        {
+            "from": "Brahma",
+            "to": "Srishti",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brahma performs the creation."
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Srishti",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishnu initiates the creation from his navel."
+            }
+        },
+        {
+            "from": "Samudra Manthan",
+            "to": "Vishnu",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vishnu participates as Kurma avatar and Mohini."
+            }
+        },
+        {
+            "from": "Puranas",
+            "to": "Vishnu",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Vaishnava Puranas focus on Vishnu."
+            }
+        },
+        {
+            "from": "Puranas",
+            "to": "Shiva",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Shaiva Puranas focus on Shiva."
+            }
+        }
+    ]
+}

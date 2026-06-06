@@ -1,0 +1,146 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The destroyer deity of the Hindu trimurti, major deity of Shaiva Puranas."
+            }
+        },
+        {
+            "name": "Devi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme goddess, representing cosmic energy and female divinity."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The solar deity, source of light and life."
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "The fire god, acting as the mediator between humans and gods in rituals."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Vyasa",
+            "type": "Character",
+            "attributes": {
+                "description": "The legendary sage credited with compiling the Vedas and Puranas."
+            }
+        },
+        {
+            "name": "Mahapuranas",
+            "type": "Text",
+            "attributes": {
+                "description": "The genre of 18 major Hindu encyclopedic scriptures."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Manvantara",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic era ruled by a specific Manu, consisting of 71 Mahayugas."
+            }
+        },
+        {
+            "name": "Creation",
+            "type": "Event",
+            "attributes": {
+                "description": "The cosmic creation process described in the Sarga sections of Puranas."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the gods and ruler of Svarga (heaven)."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Shiva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shiva and Vishnu represent the complementary forces of destruction and preservation."
+            }
+        },
+        {
+            "from": "Devi",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Devi (as Parvati or Sati) is the consort of Shiva."
+            }
+        },
+        {
+            "from": "Vyasa",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Vyasa is a devoted follower/avatara of Vishnu."
+            }
+        },
+        {
+            "from": "Vyasa",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Vyasa performs penance and worships Shiva."
+            }
+        }
+    ]
+}

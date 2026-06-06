@@ -1,0 +1,103 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the Vedic gods, deity of thunder, rain, and war, slayer of Vritra."
+            }
+        },
+        {
+            "name": "Soma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The deified sacred plant and drink of immortality offered in Vedic rituals."
+            }
+        },
+        {
+            "name": "Mitra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Vedic solar deity of friendship, contracts, and alliances, closely associated with Varuna."
+            }
+        },
+        {
+            "name": "Maruts",
+            "type": "Deity",
+            "attributes": {
+                "description": "The storm deities, companions of Indra and sons of Rudra."
+            }
+        },
+        {
+            "name": "Prithvi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The earth goddess, consort of Dyaus Pita."
+            }
+        },
+        {
+            "name": "Rigveda",
+            "type": "Text",
+            "attributes": {
+                "description": "The oldest of the four Vedas, containing hymns to the deities."
+            }
+        },
+        {
+            "name": "Purusha",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cosmic giant or primeval being from whose sacrifice the universe was created."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "The central Vedic ritual of fire offering accompanied by mantras."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Soma",
+            "to": "Yajna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Soma juice libation is a key offering in Vedic Yajna."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Soma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra consumes Soma juice to gain divine strength for battles."
+            }
+        },
+        {
+            "from": "Purusha",
+            "to": "Yajna",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "The primeval Purusha is sacrificed in the cosmic Yajna to create manifestation."
+            }
+        }
+    ]
+}

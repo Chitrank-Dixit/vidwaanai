@@ -1,0 +1,403 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Brahmá",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator god of the Hindu triad, mentioned frequently in prayers and as the ancestor of sages."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the gods, ruler of heaven (Amaravati), who observes the events in Lanka."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver god, whom the gods praise and associate with Rama's true nature."
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of fire, referred to during oaths, fire tests, and sacrificial rituals."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, husband of Sita, and the central hero who marches to Lanka to rescue her."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Rama's devoted wife, held captive in the Ashoka grove of Lanka."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Rama's loyal younger brother who accompanies him in the war against Ravana."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "The ten-headed Rakshasa king of Lanka who has abducted and imprisoned Sita."
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "The Vanara chieftain who leaps across the ocean, locates Sita, and burns Lanka."
+            }
+        },
+        {
+            "name": "Sugriva",
+            "type": "Character",
+            "attributes": {
+                "description": "The king of the Vanaras, Rama's ally who leads the monkey army."
+            }
+        },
+        {
+            "name": "Vibhishana",
+            "type": "Character",
+            "attributes": {
+                "description": "Ravana's righteous brother who defects to Rama's side after advising Ravana to return Sita."
+            }
+        },
+        {
+            "name": "Trijatá",
+            "type": "Character",
+            "attributes": {
+                "description": "A compassionate Rakshasa matron who dreams of Lanka's fall and comforts Sita."
+            }
+        },
+        {
+            "name": "Indrajit",
+            "type": "Character",
+            "attributes": {
+                "description": "Ravana's powerful son, who captures Hanuman and later binds the princes with serpent nooses."
+            }
+        },
+        {
+            "name": "Mályaván",
+            "type": "Character",
+            "attributes": {
+                "description": "An old and wise Rakshasa counselor who advises Ravana to make peace with Rama."
+            }
+        },
+        {
+            "name": "Sarama",
+            "type": "Character",
+            "attributes": {
+                "description": "A friendly Rakshasa woman who consoles Sita during her captivity."
+            }
+        },
+        {
+            "name": "Suka",
+            "type": "Character",
+            "attributes": {
+                "description": "A spy sent by Ravana to inspect the Vanara army, captured and released by Rama's forces."
+            }
+        },
+        {
+            "name": "SáraGa",
+            "type": "Character",
+            "attributes": {
+                "description": "Another spy of Ravana who describes the main Vanara chiefs to his king."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "The golden island stronghold of the Rakshasas ruled by Ravana."
+            }
+        },
+        {
+            "name": "Ashoka Grove",
+            "type": "Place",
+            "attributes": {
+                "description": "The pleasure garden in Lanka where Sita is kept captive under guard."
+            }
+        },
+        {
+            "name": "Suvela",
+            "type": "Place",
+            "attributes": {
+                "description": "The mountain near Lanka from which Rama and the Vanaras survey the enemy city."
+            }
+        },
+        {
+            "name": "Ocean",
+            "type": "Place",
+            "attributes": {
+                "description": "The great sea separating India and Lanka, bridged by the Vanara army."
+            }
+        },
+        {
+            "name": "Signet Ring",
+            "type": "Concept",
+            "attributes": {
+                "description": "Rama's ring delivered by Hanuman to Sita as a token of identity."
+            }
+        },
+        {
+            "name": "ChúdámaGi",
+            "type": "Concept",
+            "attributes": {
+                "description": "Sita's crest jewel given to Hanuman to deliver to Rama."
+            }
+        },
+        {
+            "name": "Magic Head",
+            "type": "Concept",
+            "attributes": {
+                "description": "A deceptive illusion of Rama's severed head created by Ravana's magician to grieve Sita."
+            }
+        },
+        {
+            "name": "Trijatá's Dream",
+            "type": "Event",
+            "attributes": {
+                "description": "A prophetic dream indicating the victory of Rama and the destruction of Lanka."
+            }
+        },
+        {
+            "name": "Burning of Lanká",
+            "type": "Event",
+            "attributes": {
+                "description": "The event where Hanuman sets fire to Ravana's capital using his burning tail."
+            }
+        },
+        {
+            "name": "VibhíshaGa's Alliance",
+            "type": "Event",
+            "attributes": {
+                "description": "Vibhishana defecting from Ravana and allying with Rama."
+            }
+        },
+        {
+            "name": "Bridging of the Ocean",
+            "type": "Event",
+            "attributes": {
+                "description": "The construction of the bridge (Setu) by Nala and Neela to cross over to Lanka."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Sita",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita is held captive on the island of Lanka."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ravana rules from his palace in Lanka."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Ashoka Grove",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Hanuman enters the Ashoka grove to find Sita."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Ashoka Grove",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita sits under an Ashoka tree."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman speaks to Sita and delivers Rama's signet ring."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Signet Ring",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman carries the signet ring to Sita."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "ChúdámaGi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sita gives her crest gem to Hanuman."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "ChúdámaGi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman carries the gem back to Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Signet Ring",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The ring belongs to Rama."
+            }
+        },
+        {
+            "from": "Trijatá",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Trijata protects and consoles Sita in the Ashoka grove."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ravana woos and threatens Sita."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Burning of Lanká",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman sets fire to the city."
+            }
+        },
+        {
+            "from": "Vibhishana",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vibhishana is Ravana's brother, who advises him to return Sita."
+            }
+        },
+        {
+            "from": "Vibhishana",
+            "to": "VibhíshaGa's Alliance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vibhishana allies with Rama after being expelled by Ravana."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "VibhíshaGa's Alliance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama accepts Vibhishana as an ally."
+            }
+        },
+        {
+            "from": "Suka",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Suka acts as a spy for Ravana."
+            }
+        },
+        {
+            "from": "SáraGa",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sarana acts as a spy for Ravana."
+            }
+        },
+        {
+            "from": "Indrajit",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indrajit is Ravana's son."
+            }
+        },
+        {
+            "from": "Mályaván",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Malyavan is a wise counselor to Ravana."
+            }
+        },
+        {
+            "from": "Sarama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sarama consoles and befriends Sita."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ocean",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama threatens the Ocean with his arrows when it refuses passage."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Bridging of the Ocean",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama commands the building of the bridge."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Suvela",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama camps on Mount Suvela."
+            }
+        }
+    ]
+}

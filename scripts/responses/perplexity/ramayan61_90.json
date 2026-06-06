@@ -50,7 +50,7 @@
             }
         },
         {
-            "name": "Bharata",
+            "name": "Bharat",
             "type": "Character",
             "attributes": {
                 "description": "Son of Dasharatha and Kaikeyi; grieves Rama's exile and lives austerely at Ayodhya"
@@ -673,7 +673,7 @@
             }
         },
         {
-            "name": "Bali",
+            "name": "Vali",
             "type": "Character",
             "attributes": {
                 "description": "Vanara king of Kishkindha, eldest son of Riksharajas and Indra's son; possessor of a golden chain from Indra; slain by Rama's arrow while fighting Sugreeva"
@@ -1356,7 +1356,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1380,7 +1380,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
@@ -2116,7 +2116,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
@@ -2124,7 +2124,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Saryu",
             "type": "LOCATED_AT",
             "attributes": {
@@ -2132,7 +2132,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Dharma",
             "type": "RELATED_TO",
             "attributes": {
@@ -2156,7 +2156,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Ikshvaku",
             "type": "RELATED_TO",
             "attributes": {
@@ -2165,7 +2165,7 @@
         },
         {
             "from": "Sugreeva",
-            "to": "Bali",
+            "to": "Vali",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Brothers; sons of Riksharajas; Bali exiled Sugreeva and stole his wife Ruma; later Sugreeva is restored after Bali's death"
@@ -2180,7 +2180,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Riksharajas",
             "type": "RELATED_TO",
             "attributes": {
@@ -2188,7 +2188,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Indra",
             "type": "RELATED_TO",
             "attributes": {
@@ -2197,7 +2197,7 @@
         },
         {
             "from": "Angad",
-            "to": "Bali",
+            "to": "Vali",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Angad is Bali's son; heir apparent; installed as co-ruler by Sugreeva at Rama's instruction"
@@ -2396,7 +2396,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Kishkindha",
             "type": "LOCATED_AT",
             "attributes": {
@@ -2444,7 +2444,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Nandigrama",
             "type": "LOCATED_AT",
             "attributes": {
@@ -2516,7 +2516,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Sugreeva's Exile",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -2524,7 +2524,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Dundubhi Episode",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -2572,7 +2572,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Fall of Bali",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -2604,7 +2604,7 @@
             }
         },
         {
-            "from": "Bali",
+            "from": "Vali",
             "to": "Bali's Speech",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -2900,7 +2900,7 @@
             }
         },
         {
-            "from": "Bharata",
+            "from": "Bharat",
             "to": "Meeting with Bharata",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -3093,7 +3093,7 @@
         },
         {
             "from": "Ramayana",
-            "to": "Bali",
+            "to": "Vali",
             "type": "MENTIONS",
             "attributes": {
                 "context": "Mentioned in 85 verses across batches 61-90",
@@ -3431,7 +3431,7 @@
         },
         {
             "from": "Ramayana",
-            "to": "Bharata",
+            "to": "Bharat",
             "type": "MENTIONS",
             "attributes": {
                 "context": "Mentioned in 22 verses across batches 61-90",

@@ -36,7 +36,7 @@
             }
         },
         {
-            "name": "Bharata",
+            "name": "Bharat",
             "type": "Character",
             "attributes": {
                 "description": "Son of Dasharatha and Kaikeyi, intended ruler during Rama’s exile."
@@ -50,7 +50,7 @@
             }
         },
         {
-            "name": "Vasishtha",
+            "name": "Vashishtha",
             "type": "Character",
             "attributes": {
                 "description": "Royal priest and sage of the Ikshvaku dynasty, upholder of dharma."
@@ -208,7 +208,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Dharma",
             "type": "RELATED_TO",
             "attributes": {

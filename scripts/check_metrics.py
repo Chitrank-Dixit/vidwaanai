@@ -42,7 +42,7 @@ def check_metrics():
 
     failed = False
     print("\n🔍 Checking Quality Gate Thresholds...")
-    print(f"{'-'*40}")
+    print(f"{'-' * 40}")
 
     for metric, threshold in THRESHOLDS.items():
         val = metrics.get(metric, 0)
@@ -51,7 +51,7 @@ def check_metrics():
             failed = True
         print(f"{metric:<25}: {val:.4f} (Target: >={threshold}) {status}")
 
-    print(f"{'-'*40}")
+    print(f"{'-' * 40}")
 
     if failed:
         print("🚨 Quality Gate FAILED. Metrics are below acceptable thresholds.")

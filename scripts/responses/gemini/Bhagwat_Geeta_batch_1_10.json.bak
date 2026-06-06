@@ -1,0 +1,256 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, chariot driver and teacher of Arjuna in the Bhagavad Gita."
+            }
+        },
+        {
+            "name": "Arjuna",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Pandava prince, the archer disciple of Sri Krishna on the battlefield of Kurukshetra."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Brahman",
+            "type": "Concept",
+            "attributes": {
+                "description": "The ultimate impersonal reality or supreme cosmic spirit."
+            }
+        },
+        {
+            "name": "Karma Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of action performed without attachment to results."
+            }
+        },
+        {
+            "name": "Bhakti Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of love, devotion, and surrender to the Supreme Lord."
+            }
+        },
+        {
+            "name": "Jnana Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of knowledge and discrimination between the real and unreal."
+            }
+        },
+        {
+            "name": "Gunas",
+            "type": "Concept",
+            "attributes": {
+                "description": "The three qualities of nature: Sattva (purity), Rajas (activity), and Tamas (inertia)."
+            }
+        },
+        {
+            "name": "Bhagavad Gita",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred 700-verse philosophical dialogue from the Bhishma Parva of Mahabharata."
+            }
+        },
+        {
+            "name": "Samsara",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cycle of birth, death, and rebirth."
+            }
+        },
+        {
+            "name": "Dhritarashtra",
+            "type": "Character",
+            "attributes": {
+                "description": "The blind king of Hastinapura, father of the Kauravas."
+            }
+        },
+        {
+            "name": "Sanjaya",
+            "type": "Character",
+            "attributes": {
+                "description": "Charioteer and advisor to Dhritarashtra, endowed with divine vision to narrate the war."
+            }
+        },
+        {
+            "name": "Duryodhana",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Dhritarashtra and leader of the Kaurava faction."
+            }
+        },
+        {
+            "name": "Kurukshetra",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred battlefield where the Mahabharata war and Gita dialogue occur."
+            }
+        },
+        {
+            "name": "Atman",
+            "type": "Concept",
+            "attributes": {
+                "description": "The individual soul or self, which is immortal and distinct from the body."
+            }
+        },
+        {
+            "name": "Nishkama Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Selfless or desireless action performed as an offering to the Divine."
+            }
+        },
+        {
+            "name": "Moksha",
+            "type": "Concept",
+            "attributes": {
+                "description": "Liberation from the cycle of samsara."
+            }
+        },
+        {
+            "name": "Vishwarupa",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cosmic form of Lord Krishna containing the entire universe revealed to Arjuna."
+            }
+        },
+        {
+            "name": "Bhishma",
+            "type": "Character",
+            "attributes": {
+                "description": "The grand patriarch of the Kuru dynasty, commander of the Kaurava army."
+            }
+        },
+        {
+            "name": "Drona",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal preceptor and teacher of military arts to both Pandavas and Kauravas."
+            }
+        },
+        {
+            "name": "Karna",
+            "type": "Character",
+            "attributes": {
+                "description": "Great warrior and ally of Duryodhana, son of Surya and Kunti."
+            }
+        },
+        {
+            "name": "Bhima",
+            "type": "Character",
+            "attributes": {
+                "description": "Second Pandava brother, known for his colossal physical strength."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Krishna",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna acts as Arjuna's preceptor and charioteer on the battlefield."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Kurukshetra",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Arjuna stands ready to fight at Kurukshetra."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Kurukshetra",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Krishna drives Arjuna's chariot at Kurukshetra."
+            }
+        },
+        {
+            "from": "Duryodhana",
+            "to": "Dhritarashtra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Duryodhana is the eldest son of Dhritarashtra."
+            }
+        },
+        {
+            "from": "Sanjaya",
+            "to": "Dhritarashtra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sanjaya narrates the battle of Kurukshetra to the blind king Dhritarashtra."
+            }
+        },
+        {
+            "from": "Karma Yoga",
+            "to": "Karma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Karma Yoga is practiced by performing actions (Karma) selflessly."
+            }
+        },
+        {
+            "from": "Atman",
+            "to": "Brahman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The individual soul (Atman) is realized as non-different from the universal Brahman."
+            }
+        },
+        {
+            "from": "Moksha",
+            "to": "Samsara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Moksha is liberation from the cycle of rebirth (Samsara)."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Vishwarupa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna manifests his Vishwarupa form to Arjuna."
+            }
+        }
+    ]
+}

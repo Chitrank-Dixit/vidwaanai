@@ -1,0 +1,146 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Arjuna",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Pandava prince, the archer disciple of Sri Krishna on the battlefield of Kurukshetra."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Karma Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of action performed without attachment to results."
+            }
+        },
+        {
+            "name": "Jnana Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of knowledge and discrimination between the real and unreal."
+            }
+        },
+        {
+            "name": "Samsara",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cycle of birth, death, and rebirth."
+            }
+        },
+        {
+            "name": "Atman",
+            "type": "Concept",
+            "attributes": {
+                "description": "The individual soul or self, which is immortal and distinct from the body."
+            }
+        },
+        {
+            "name": "Brahman",
+            "type": "Concept",
+            "attributes": {
+                "description": "The ultimate impersonal reality or supreme cosmic spirit."
+            }
+        },
+        {
+            "name": "Sanjaya",
+            "type": "Character",
+            "attributes": {
+                "description": "Charioteer and advisor to Dhritarashtra, endowed with divine vision to narrate the war."
+            }
+        },
+        {
+            "name": "Bhagavad Gita",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred 700-verse philosophical dialogue from the Bhishma Parva of Mahabharata."
+            }
+        },
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, chariot driver and teacher of Arjuna in the Bhagavad Gita."
+            }
+        },
+        {
+            "name": "Bhakti Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of love, devotion, and surrender to the Supreme Lord."
+            }
+        },
+        {
+            "name": "Vishwarupa",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cosmic form of Lord Krishna containing the entire universe revealed to Arjuna."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Krishna",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna acts as Arjuna's preceptor and charioteer on the battlefield."
+            }
+        },
+        {
+            "from": "Karma Yoga",
+            "to": "Karma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Karma Yoga is practiced by performing actions (Karma) selflessly."
+            }
+        },
+        {
+            "from": "Atman",
+            "to": "Brahman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The individual soul (Atman) is realized as non-different from the universal Brahman."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Vishwarupa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna manifests his Vishwarupa form to Arjuna."
+            }
+        }
+    ]
+}

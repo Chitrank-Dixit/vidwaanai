@@ -1,0 +1,317 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The destroyer deity of the Hindu trimurti, major deity of Shaiva Puranas."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator deity of the Hindu trimurti."
+            }
+        },
+        {
+            "name": "Devi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme goddess, representing cosmic energy and female divinity."
+            }
+        },
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The solar deity, source of light and life."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the gods and ruler of Svarga (heaven)."
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "The fire god, acting as the mediator between humans and gods in rituals."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of oceans, waters, and cosmic law."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual fire sacrifices and offerings."
+            }
+        },
+        {
+            "name": "Creation",
+            "type": "Event",
+            "attributes": {
+                "description": "The cosmic creation process described in the Sarga sections of Puranas."
+            }
+        },
+        {
+            "name": "Mahapuranas",
+            "type": "Text",
+            "attributes": {
+                "description": "The genre of 18 major Hindu encyclopedic scriptures."
+            }
+        },
+        {
+            "name": "Ganesha",
+            "type": "Deity",
+            "attributes": {
+                "description": "The elephant-headed deity of wisdom and remover of obstacles."
+            }
+        },
+        {
+            "name": "Narada",
+            "type": "Character",
+            "attributes": {
+                "description": "The divine sage and messenger of the gods."
+            }
+        },
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "A great sage and king who attained the status of Brahmarishi through asceticism."
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "A creator patriarch (Prajapati), son of Brahma."
+            }
+        },
+        {
+            "name": "Bali",
+            "type": "Character",
+            "attributes": {
+                "description": "The benevolent demon king who offered three paces of land to Vamana avatar."
+            }
+        },
+        {
+            "name": "Yuga",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic age cyclical divisions (Satya, Treta, Dvapara, Kali)."
+            }
+        },
+        {
+            "name": "Dhruva",
+            "type": "Character",
+            "attributes": {
+                "description": "A devotee of Vishnu who attained the status of the pole star."
+            }
+        },
+        {
+            "name": "Kashi",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred city of Shiva, center of pilgrimage."
+            }
+        },
+        {
+            "name": "Skanda",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of war, son of Shiva and Parvati."
+            }
+        },
+        {
+            "name": "Vyasa",
+            "type": "Character",
+            "attributes": {
+                "description": "The legendary sage credited with compiling the Vedas and Puranas."
+            }
+        },
+        {
+            "name": "Vaikuntha",
+            "type": "Place",
+            "attributes": {
+                "description": "The celestial abode of Lord Vishnu."
+            }
+        },
+        {
+            "name": "Manvantara",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic era ruled by a specific Manu, consisting of 71 Mahayugas."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Brahma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahma creates the universe under the guidance of Vishnu."
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shiva and Vishnu represent the complementary forces of destruction and preservation."
+            }
+        },
+        {
+            "from": "Devi",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Devi (as Parvati or Sati) is the consort of Shiva."
+            }
+        },
+        {
+            "from": "Ganesha",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ganesha is the son of Lord Shiva."
+            }
+        },
+        {
+            "from": "Skanda",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Skanda is the son of Lord Shiva."
+            }
+        },
+        {
+            "from": "Vyasa",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Vyasa is a devoted follower/avatara of Vishnu."
+            }
+        },
+        {
+            "from": "Vyasa",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Vyasa performs penance and worships Shiva."
+            }
+        },
+        {
+            "from": "Narada",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Narada is a devoted follower/avatara of Vishnu."
+            }
+        },
+        {
+            "from": "Narada",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Narada performs penance and worships Shiva."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Vishvamitra is a devoted follower/avatara of Vishnu."
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Vishvamitra performs penance and worships Shiva."
+            }
+        },
+        {
+            "from": "Dhruva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dhruva performed severe penance to obtain the vision of Vishnu."
+            }
+        },
+        {
+            "from": "Bali",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bali surrenders his empire to Vamana (Vishnu's avatar)."
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Vaikuntha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Vishnu resides in the heavenly realm Vaikuntha."
+            }
+        }
+    ]
+}

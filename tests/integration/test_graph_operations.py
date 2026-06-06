@@ -59,12 +59,10 @@ class TestGraphOperations:
 
         # Verify
         with graph_builder.driver.session() as session:
-            result = session.run(
-                """
+            result = session.run("""
                 MATCH (a:Character {name: 'Krishna'})-[r:TEACHER_OF]->(b:Character {name: 'Arjuna'})
                 RETURN r
-                """
-            )
+                """)
             record = result.single()
             assert record is not None
             rel = record["r"]

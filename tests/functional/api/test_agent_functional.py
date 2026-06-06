@@ -23,7 +23,6 @@ def mock_external_deps():
         patch("src.core.agent_service.LMStudioClient") as MockLLM,
         patch("src.core.agent_service.GraphBuilder") as MockGraph,
     ):
-
         # Setup mocks
         db_instance = MockDB.return_value
         # Mock connection context manager

@@ -1,0 +1,290 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, chariot driver and teacher of Arjuna in the Bhagavad Gita."
+            }
+        },
+        {
+            "name": "Arjuna",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Pandava prince, the archer disciple of Sri Krishna on the battlefield of Kurukshetra."
+            }
+        },
+        {
+            "name": "Svadharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Personal duty or right action aligned with one's nature and social position."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Karma Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of action performed without attachment to results (Nishkama Karma)."
+            }
+        },
+        {
+            "name": "Nishkama Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Selfless or desireless action performed as an offering to the Divine."
+            }
+        },
+        {
+            "name": "Bhakti Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of love, devotion, and surrender to the Supreme Lord."
+            }
+        },
+        {
+            "name": "Jnana Yoga",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of knowledge and discrimination between the real and unreal."
+            }
+        },
+        {
+            "name": "Kshetra",
+            "type": "Concept",
+            "attributes": {
+                "description": "The field of experience, referring to the material body and mind."
+            }
+        },
+        {
+            "name": "Kshetrajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "The knower of the field, representing the soul or conscious witness."
+            }
+        },
+        {
+            "name": "Atman",
+            "type": "Concept",
+            "attributes": {
+                "description": "The individual soul or self, which is immortal and distinct from the body."
+            }
+        },
+        {
+            "name": "Brahman",
+            "type": "Concept",
+            "attributes": {
+                "description": "The ultimate impersonal reality or supreme cosmic spirit."
+            }
+        },
+        {
+            "name": "Vishwarupa",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cosmic form of Lord Krishna containing the entire universe revealed to Arjuna."
+            }
+        },
+        {
+            "name": "Gunas",
+            "type": "Concept",
+            "attributes": {
+                "description": "The three qualities of nature: Sattva (purity), Rajas (activity), and Tamas (inertia)."
+            }
+        },
+        {
+            "name": "Samsara",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cycle of birth, death, and rebirth."
+            }
+        },
+        {
+            "name": "Moksha",
+            "type": "Concept",
+            "attributes": {
+                "description": "Liberation from the cycle of samsara."
+            }
+        },
+        {
+            "name": "Aswattha",
+            "type": "Concept",
+            "attributes": {
+                "description": "The inverted cosmic banyan tree representing material manifestation in Chapter 15."
+            }
+        },
+        {
+            "name": "Avatara",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine descent or incarnation of God on earth to restore dharma."
+            }
+        },
+        {
+            "name": "Kurukshetra",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred battlefield where the Mahabharata war and Gita dialogue occur."
+            }
+        },
+        {
+            "name": "Bhagavad Gita",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred 700-verse philosophical dialogue from the Bhishma Parva of Mahabharata."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Krishna",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna acts as Arjuna's preceptor and charioteer."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Kurukshetra",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Arjuna stands ready to fight at Kurukshetra."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Kurukshetra",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Krishna drives Arjuna's chariot at Kurukshetra."
+            }
+        },
+        {
+            "from": "Svadharma",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Svadharma is an individual's specific application of universal Dharma."
+            }
+        },
+        {
+            "from": "Karma Yoga",
+            "to": "Nishkama Karma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Karma Yoga is practiced through Nishkama Karma."
+            }
+        },
+        {
+            "from": "Jnana Yoga",
+            "to": "Kshetra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jnana Yoga involves distinguishing between Kshetra and Kshetrajna."
+            }
+        },
+        {
+            "from": "Jnana Yoga",
+            "to": "Kshetrajna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jnana Yoga involves realizing the Kshetrajna."
+            }
+        },
+        {
+            "from": "Atman",
+            "to": "Brahman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The individual Atman is essentially one with the universal Brahman in Vedanta."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Vishwarupa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna manifests his Vishwarupa form to Arjuna."
+            }
+        },
+        {
+            "from": "Vishwarupa",
+            "to": "Arjuna",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Revealed specifically to Arjuna to remove his delusion."
+            }
+        },
+        {
+            "from": "Samsara",
+            "to": "Moksha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Moksha is liberation from Samsara."
+            }
+        },
+        {
+            "from": "Aswattha",
+            "to": "Samsara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The Aswattha tree symbolizes the roots and branches of Samsara."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Avatara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna is the supreme Avatara who descends to restore order."
+            }
+        },
+        {
+            "from": "Bhagavad Gita",
+            "to": "Krishna",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Spoken by Sri Krishna."
+            }
+        },
+        {
+            "from": "Bhagavad Gita",
+            "to": "Arjuna",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Addressed to Arjuna."
+            }
+        }
+    ]
+}

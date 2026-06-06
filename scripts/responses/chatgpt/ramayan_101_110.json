@@ -29,14 +29,14 @@
             }
         },
         {
-            "name": "Visvamitra",
+            "name": "Vishvamitra",
             "type": "Character",
             "attributes": {
                 "description": "Sage guiding Rama"
             }
         },
         {
-            "name": "Vasistha",
+            "name": "Vashishtha",
             "type": "Character",
             "attributes": {
                 "description": "Royal priest"
@@ -281,7 +281,7 @@
         },
         {
             "from": "Rama",
-            "to": "Visvamitra",
+            "to": "Vishvamitra",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Guru-disciple"
@@ -296,7 +296,7 @@
             }
         },
         {
-            "from": "Visvamitra",
+            "from": "Vishvamitra",
             "to": "Rama",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -385,9 +385,8 @@
         },
         {
             "from": "Kapila",
-            "type": "Character",
-            "to": "Sagara Sons Destruction",
             "type": "PARTICIPATED_IN",
+            "to": "Sagara Sons Destruction",
             "attributes": {
                 "context": "Burns sons"
             }

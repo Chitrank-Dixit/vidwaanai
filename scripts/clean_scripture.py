@@ -43,15 +43,21 @@ class ScriptureCleaner:
         # If we only have the name, we can't easily identify the file unless we query the DB first *before* deleting.
         # Let's try to fetch source_path from DB before deleting.
 
-    def _get_source_path(self, name: Optional[str], code: Optional[str]) -> Optional[str]:
+    def _get_source_path(
+        self, name: Optional[str], code: Optional[str]
+    ) -> Optional[str]:
         try:
             with self.db._get_connection() as conn:
                 with conn.cursor() as cursor:
                     if name:
-                        cursor.execute("SELECT source_pdf_path FROM vedas WHERE name = %s", (name,))
+                        cursor.execute(
+                            "SELECT source_pdf_path FROM vedas WHERE name = %s", (name,)
+                        )
                     else:
-                        cursor.execute("SELECT source_pdf_path FROM vedas WHERE code = %s", (code,))
-                    
+                        cursor.execute(
+                            "SELECT source_pdf_path FROM vedas WHERE code = %s", (code,)
+                        )
+
                     res = cursor.fetchone()
                     if res:
                         return res[0]
@@ -64,10 +70,10 @@ class ScriptureCleaner:
         try:
             # Get source path first for file tracking cleanup
             source_path = self._get_source_path(name, code)
-            
+
             with self.db._get_connection() as conn:
                 with conn.cursor() as cursor:
-                    # Vedas table has cascade delete on dependencies usually. 
+                    # Vedas table has cascade delete on dependencies usually.
                     # Let's check init.sql or assumptions.
                     # scripts/setup_veda_schema.py:
                     # mandalas -> ved_id (REFERENCES vedas(id)) - DEFAULT NO ACTION usually?
@@ -76,45 +82,47 @@ class ScriptureCleaner:
                     # Postgres supports DELETE ... CASCADE? No, TRUNCATE has cascade. DELETE doesn't iterate.
                     # But if FK constraints don't have CASCADE, DELETE will fail.
                     # Let's assume we need to delete children first if CASCADE is missing.
-                    
+
                     # Let's verify constraints. schema definition:
                     # ved_id INT NOT NULL REFERENCES vedas(id)
                     # It does not say ON DELETE CASCADE.
                     # So we definitely need to manual delete.
-                    
+
                     # Logic: Get ID -> Delete Embeddings, Mantras, Suktas, Mandalas -> Delete Veda
-                    
+
                     if name:
                         cursor.execute("SELECT id FROM vedas WHERE name = %s", (name,))
                     else:
                         cursor.execute("SELECT id FROM vedas WHERE code = %s", (code,))
-                        
+
                     res = cursor.fetchone()
                     if not res:
                         logger.info("Scripture not found in Postgres.")
                         return
-                    
+
                     ved_id = res[0]
                     logger.info(f"Found Veda ID: {ved_id}")
 
                     # 1. Embeddings
-                    cursor.execute("DELETE FROM veda_embeddings WHERE ved_id = %s", (ved_id,))
-                    
+                    cursor.execute(
+                        "DELETE FROM veda_embeddings WHERE ved_id = %s", (ved_id,)
+                    )
+
                     # 2. Mantras
                     cursor.execute("DELETE FROM mantras WHERE ved_id = %s", (ved_id,))
-                    
+
                     # 3. Suktas
                     cursor.execute("DELETE FROM suktas WHERE ved_id = %s", (ved_id,))
-                    
+
                     # 4. Mandalas
                     cursor.execute("DELETE FROM mandalas WHERE ved_id = %s", (ved_id,))
-                    
+
                     # 5. Veda
                     cursor.execute("DELETE FROM vedas WHERE id = %s", (ved_id,))
-                    
+
                     conn.commit()
                     logger.info("✓ Postgres data cleaned.")
-                    
+
             # After successful DB delete, clean tracking file
             if source_path:
                 self._clean_tracking_file(source_path)
@@ -132,24 +140,26 @@ class ScriptureCleaner:
             # Read all lines
             with open(TRACKING_FILE, "r") as f:
                 lines = f.read().splitlines()
-            
+
             # Filter out the matching path (fuzzy match or exact?)
             # The ingestion script stores os.path.abspath(pdf_path).
             # The source_path in DB might be relative or absolute depending on how it was stored.
             # safe matching: check uniqueness
-            
+
             # If source_path is relative, abspath it
             abs_source = os.path.abspath(source_path)
-            
-            new_lines = [line for line in lines if line != abs_source and line != source_path]
-            
+
+            new_lines = [
+                line for line in lines if line != abs_source and line != source_path
+            ]
+
             if len(new_lines) < len(lines):
                 with open(TRACKING_FILE, "w") as f:
                     f.write("\n".join(new_lines) + "\n")
                 logger.info("✓ Tracking file updated.")
             else:
                 logger.info("Path not found in tracking file (already clean?).")
-                
+
         except Exception as e:
             logger.error(f"Tracking file cleanup failed: {e}")
 
@@ -167,49 +177,52 @@ class ScriptureCleaner:
                 # We need to identify nodes belonging to this scripture.
                 # Usually, we have a 'Scripture' or 'Source' node, and verses linked to it.
                 # Or verify ontology. Assuming 'Text' or 'Scripture' label with 'name' property.
-                
+
                 # Delete the Scripture/Text node and all its relationships
                 # Also delete Verse nodes belonging to it?
                 # Strategy: Match (s:Scripture {name: $name}) DETACH DELETE s
                 # But we also need to delete Verse nodes.
                 # Verses usually link to Scripture via belongs_to or similar.
-                
-                target_name = name or code # Name is safer if consistent
-                
+
+                target_name = name or code  # Name is safer if consistent
+
                 # 1. Find Scripture Node
                 # Assuming label 'Scripture' or 'Text' and property 'name'
                 # Let's warn if we rely on name.
-                
-                query = """
-                MATCH (s {name: $name})
-                WHERE 'Scripture' IN labels(s) OR 'Text' IN labels(s) OR 'Veda' IN labels(s)
-                WITH s
-                OPTIONAL MATCH (v)-[:BELONGS_TO]->(s)
-                DETACH DELETE s, v
-                """
+
                 # This is a bit risky if schema differs.
                 # Let's look at build_knowledge_graph.py to see how nodes are created.
                 # But for now, let's try a simple approach: if we can find the main node, delete it and everything connected solely to it?
                 # Actually, Verses might be connected to concepts. We want to delete Verses but NOT Concepts.
-                
+
                 # Safer: Delete nodes labeled 'Verse' or 'Mantra' that have property 'source' == name
                 # or relation to the Scripture node.
-                
+
                 # Let's just delete the node with the name for now, and rely on user to rebuild valid graph.
                 # A partial cleanup in Graph is acceptable if we break links.
-                
+
                 # Re-reading reset_data.py doesn't show schema details.
                 # Let's assume standard 'Text' node.
-                
-                res = session.run("MATCH (n {name: $name}) DETACH DELETE n RETURN count(n) as deleted", name=target_name)
-                count = res.single()['deleted']
-                logger.info(f"Deleted {count} nodes with name '{target_name}' from Neo4j.")
+
+                res = session.run(
+                    "MATCH (n {name: $name}) DETACH DELETE n RETURN count(n) as deleted",
+                    name=target_name,
+                )
+                count = res.single()["deleted"]
+                logger.info(
+                    f"Deleted {count} nodes with name '{target_name}' from Neo4j."
+                )
 
                 # Also try matching by 'source' property on Verses
-                res = session.run("MATCH (n) WHERE n.source = $name DETACH DELETE n RETURN count(n) as deleted", name=target_name)
-                count_sources = res.single()['deleted']
-                logger.info(f"Deleted {count_sources} nodes with source '{target_name}' from Neo4j.")
-                
+                res = session.run(
+                    "MATCH (n) WHERE n.source = $name DETACH DELETE n RETURN count(n) as deleted",
+                    name=target_name,
+                )
+                count_sources = res.single()["deleted"]
+                logger.info(
+                    f"Deleted {count_sources} nodes with source '{target_name}' from Neo4j."
+                )
+
             driver.close()
             logger.info("✓ Neo4j cleanup attempt complete.")
 

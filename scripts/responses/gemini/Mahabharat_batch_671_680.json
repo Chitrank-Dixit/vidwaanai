@@ -1,0 +1,152 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, father of Arjuna, who grants celestial weapons."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Kurukshetra War",
+            "type": "Event",
+            "attributes": {
+                "description": "The great 18-day battle between the Pandavas and Kauravas."
+            }
+        },
+        {
+            "name": "Mahabharata",
+            "type": "Text",
+            "attributes": {
+                "description": "The monumental Sanskrit epic detailing the history of the Kuru dynasty."
+            }
+        },
+        {
+            "name": "Moksha",
+            "type": "Concept",
+            "attributes": {
+                "description": "Liberation from the cycle of samsara."
+            }
+        },
+        {
+            "name": "Yudhishthira",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest Pandava prince, known for his adherence to truth and righteousness."
+            }
+        },
+        {
+            "name": "Kripa",
+            "type": "Character",
+            "attributes": {
+                "description": "A family preceptor of the Kurus who fought on the Kaurava side."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The protector deity of the universe, of whom Krishna is an incarnation."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The destroyer deity, who bestows weapons like the Pashupatastra upon Arjuna."
+            }
+        },
+        {
+            "name": "Bhishma",
+            "type": "Character",
+            "attributes": {
+                "description": "The grand patriarch of the Kuru dynasty, commander of the Kaurava army."
+            }
+        },
+        {
+            "name": "Vyasa",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage who fathered Pandu, Dhritarashtra, and Vidura, and authored the Mahabharata."
+            }
+        },
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, supreme deity, ally of the Pandavas, and teacher of Arjuna."
+            }
+        },
+        {
+            "name": "Satyavati",
+            "type": "Character",
+            "attributes": {
+                "description": "Matriarch of the Kuru dynasty, wife of King Shantanu, mother of Vyasa."
+            }
+        },
+        {
+            "name": "Bhakti",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of love, devotion, and surrender to the Divine."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Yudhishthira",
+            "to": "Bhishma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhishma is the grandsire of Yudhishthira."
+            }
+        },
+        {
+            "from": "Yudhishthira",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Yudhishthira participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Bhishma",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bhishma participated as a major combatant in the Kurukshetra War."
+            }
+        }
+    ]
+}

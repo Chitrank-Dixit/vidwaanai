@@ -36,7 +36,7 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince, eldest-born son to be consecrated, virtuous, grateful, pure, true, trained by holy fathers, dear to all, hero of bow, wise, prompt, warlike"
@@ -50,14 +50,14 @@
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen, Ráma's mother, rival of Kaikeyí, scorned and defied by Kaikeyí, will gain power when Ráma consecrated"
             }
         },
         {
-            "name": "Kaikeyí",
+            "name": "Kaikeyi",
             "type": "Character",
             "attributes": {
                 "description": "Queen, darling queen, large-eyed lady, daughter of princely line, mother of Bharat, saved Dasharatha in battle, proud, deceived by Manthará"
@@ -85,14 +85,14 @@
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Ráma's large-eyed wife, Videhan dame, spouse who fasted with Ráma, friends will exult"
             }
         },
         {
-            "name": "Vasishtha",
+            "name": "Vashishtha",
             "type": "Character",
             "attributes": {
                 "description": "Priest, reverend king of men, ordained fast for Ráma, honored by king, advanced like white cloud-peak, like Vrihaspati"
@@ -148,7 +148,7 @@
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Royal city, capital, decorated with banners, watered streets, flowers, filled with crowds, like Indra's city fair, realm to be swayed by Ráma"
@@ -311,7 +311,7 @@
     ],
     "relationships": [
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -319,24 +319,24 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kausalyá",
+            "from": "Rama",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma is son of Kausalyá"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma is husband of Sítá, large-eyed Videhan wife"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kaikeyí",
+            "from": "Rama",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma more dutiful to Kaikeyí than to his mother, dear to her soul"
@@ -344,7 +344,7 @@
         },
         {
             "from": "Bharat",
-            "to": "Kaikeyí",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Bharat is darling son of Kaikeyí"
@@ -360,7 +360,7 @@
         },
         {
             "from": "Lakshmana",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Lakshmana serves Ráma with all soul, cleaves to him, friendship like Heavenly Twins"
@@ -391,7 +391,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -399,7 +399,7 @@
             }
         },
         {
-            "from": "Kausalyá",
+            "from": "Kausalya",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -407,8 +407,8 @@
             }
         },
         {
-            "from": "Kausalyá",
-            "to": "Kaikeyí",
+            "from": "Kausalya",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kausalyá is rival of Kaikeyí, scorned and defied by her"
@@ -416,7 +416,7 @@
         },
         {
             "from": "Manthará",
-            "to": "Kaikeyí",
+            "to": "Kaikeyi",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Manthará is slave-born handmaid bred with Kaikeyí, close in friendship"
@@ -447,7 +447,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Manthará's scheme",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -455,7 +455,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Nárāyana",
             "type": "RELATED_TO",
             "attributes": {
@@ -463,7 +463,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Vishnu",
             "type": "RELATED_TO",
             "attributes": {
@@ -471,7 +471,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Fast",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -479,7 +479,7 @@
             }
         },
         {
-            "from": "Sítá",
+            "from": "Sita",
             "to": "Fast",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -487,7 +487,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Fast",
             "type": "RELATED_TO",
             "attributes": {
@@ -495,7 +495,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Vishnu's chapel",
             "type": "LOCATED_AT",
             "attributes": {
@@ -503,7 +503,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Ráma's consecration preparation",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -519,7 +519,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Ráma's consecration preparation",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -535,7 +535,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Consecration rite",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -544,15 +544,15 @@
         },
         {
             "from": "Dasharatha",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Dasharatha rules Ayodhyá, resides in palace"
             }
         },
         {
-            "from": "Ráma",
-            "to": "Ayodhyá",
+            "from": "Rama",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Ráma dwells in house in Ayodhyá, to rule realm"
@@ -560,14 +560,14 @@
         },
         {
             "from": "Manthará",
-            "to": "Ayodhyá",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Manthará surveyed decorated Ayodhyá from terrace"
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Mourner's chamber",
             "type": "LOCATED_AT",
             "attributes": {
@@ -583,7 +583,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Ancient demon war",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -623,7 +623,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Two boons",
             "type": "RELATED_TO",
             "attributes": {
@@ -631,7 +631,7 @@
             }
         },
         {
-            "from": "Kaikeyí",
+            "from": "Kaikeyi",
             "to": "Kaikeyí's retreat to mourner's chamber",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -671,7 +671,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Vasishtha's visit",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -687,7 +687,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {

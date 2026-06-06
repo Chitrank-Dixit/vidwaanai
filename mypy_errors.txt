@@ -1,0 +1,23 @@
+scripts/aggregate_responses.py:39: error: Need type annotation for "merged"  [var-annotated]
+scripts/test_graph_api.py:9: error: Module "src.api" has no attribute "app"  [attr-defined]
+scripts/vectorize_vedas_and_scriptures.py:27: error: Incompatible default for parameter "scripture_filter" (default has type "None", parameter has type "str")  [assignment]
+scripts/vectorize_vedas_and_scriptures.py:27: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+scripts/vectorize_vedas_and_scriptures.py:27: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+scripts/ingest_vedas.py:31: error: Incompatible default for parameter "limit" (default has type "None", parameter has type "int")  [assignment]
+scripts/ingest_vedas.py:31: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+scripts/ingest_vedas.py:31: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+scripts/ingest_scripture.py:35: error: Incompatible default for parameter "limit" (default has type "None", parameter has type "int")  [assignment]
+scripts/ingest_scripture.py:35: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+scripts/ingest_scripture.py:35: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+scripts/ingest_scripture.py:181: error: Argument 1 to "_sanitize_text" of "ScriptureIngestionPipeline" has incompatible type "Any | None"; expected "str"  [arg-type]
+scripts/ingest_scripture.py:182: error: Argument 1 to "_sanitize_text" of "ScriptureIngestionPipeline" has incompatible type "Any | None"; expected "str"  [arg-type]
+tests/test_runner.py:65: error: Need type annotation for "prompts" (hint: "prompts: dict[<type>, <type>] = ...")  [var-annotated]
+tests/test_runner.py:66: error: Need type annotation for "results" (hint: "results: dict[<type>, <type>] = ...")  [var-annotated]
+tests/test_runner.py:67: error: Need type annotation for "metrics" (hint: "metrics: dict[<type>, <type>] = ...")  [var-annotated]
+tests/test_runner.py:68: error: Need type annotation for "errors" (hint: "errors: list[<type>] = ...")  [var-annotated]
+tests/test_runner.py:495: error: Unsupported target for indexed assignment ("object")  [index]
+tests/test_runner.py:524: error: Need type annotation for "viz_data"  [var-annotated]
+scripts/build_knowledge_graph.py:61: error: Need type annotation for "entities_accum" (hint: "entities_accum: list[<type>] = ...")  [var-annotated]
+scripts/build_knowledge_graph.py:62: error: Need type annotation for "rels_accum" (hint: "rels_accum: list[<type>] = ...")  [var-annotated]
+tests/test_graph_rag.py:24: error: "GraphBuilder" has no attribute "create_person"  [attr-defined]
+Found 16 errors in 8 files (checked 208 source files)

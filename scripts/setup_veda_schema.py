@@ -29,8 +29,7 @@ def setup_schema():
                 )
 
                 logger.info("Creating tables...")
-                cursor.execute(
-                    """
+                cursor.execute("""
                     CREATE TABLE IF NOT EXISTS vedas (
                         id SERIAL PRIMARY KEY,
                         name VARCHAR(255),
@@ -97,8 +96,7 @@ def setup_schema():
                     CREATE INDEX IF NOT EXISTS idx_veda_embeddings_ved_id ON veda_embeddings(ved_id);
                     CREATE INDEX IF NOT EXISTS idx_veda_embeddings_mantra_id ON veda_embeddings(mantra_id);
                     CREATE INDEX IF NOT EXISTS idx_mantras_ved_id ON mantras(ved_id);
-                """
-                )
+                """)
                 conn.commit()
                 logger.info("Veda schema created successfully.")
     except Exception as e:

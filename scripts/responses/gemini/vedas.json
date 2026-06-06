@@ -1,0 +1,192 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Vedic god of fire, messenger who carries offerings to other deities."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of Vedic gods, lord of thunder, rain, and battles."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "The guardian of cosmic law and order (Rta), lord of celestial waters."
+            }
+        },
+        {
+            "name": "Soma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of the sacred Soma plant, associate of the moon and divine ecstasy."
+            }
+        },
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The sun deity, source of light and life."
+            }
+        },
+        {
+            "name": "Ashvins",
+            "type": "Deity",
+            "attributes": {
+                "description": "The twin horsemen, divine physicians who heal gods and humans."
+            }
+        },
+        {
+            "name": "Purusha",
+            "type": "Deity",
+            "attributes": {
+                "description": "The cosmic primeval being sacrificed to create the universe in the Rigveda."
+            }
+        },
+        {
+            "name": "Rta",
+            "type": "Concept",
+            "attributes": {
+                "description": "The cosmic, moral, and natural order governing the universe."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "The Vedic sacrificial fire ritual performed to sustain cosmic order."
+            }
+        },
+        {
+            "name": "Prasthana Trayi",
+            "type": "Concept",
+            "attributes": {
+                "description": "The three scriptural pillars of Vedanta: Upanishads, Brahma Sutras, and Bhagavad Gita."
+            }
+        },
+        {
+            "name": "Rigveda",
+            "type": "Text",
+            "attributes": {
+                "description": "The oldest Veda containing hymns of praise (richas) to the deities."
+            }
+        },
+        {
+            "name": "Samaveda",
+            "type": "Text",
+            "attributes": {
+                "description": "The Veda of melodies and chants chanted by Udgatri priests."
+            }
+        },
+        {
+            "name": "Yajurveda",
+            "type": "Text",
+            "attributes": {
+                "description": "The Veda of prose mantras and sacrificial formulas for rituals."
+            }
+        },
+        {
+            "name": "Atharvaveda",
+            "type": "Text",
+            "attributes": {
+                "description": "The Veda of everyday life, containing spells, prayers, and healing charms."
+            }
+        },
+        {
+            "name": "Upanishads",
+            "type": "Text",
+            "attributes": {
+                "description": "The philosophical texts concluding the Vedas (Vedanta), focusing on Atman and Brahman."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Agni",
+            "to": "Yajna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Agni is the central element and mouth of the Yajna."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Rigveda",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Indra is the most heavily praised god in the Rigveda."
+            }
+        },
+        {
+            "from": "Varuna",
+            "to": "Rta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Varuna guardians and enforces the cosmic order of Rta."
+            }
+        },
+        {
+            "from": "Soma",
+            "to": "Rigveda",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Soma is the subject of the entire 9th Mandala of the Rigveda."
+            }
+        },
+        {
+            "from": "Rigveda",
+            "to": "Purusha",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Contains the Purusha Sukta hymn."
+            }
+        },
+        {
+            "from": "Rigveda",
+            "to": "Yajna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Provides hymns to be recited during Yajna."
+            }
+        },
+        {
+            "from": "Upanishads",
+            "to": "Rigveda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Upanishads form the final layer of the Vedas."
+            }
+        },
+        {
+            "from": "Prasthana Trayi",
+            "to": "Upanishads",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Upanishads are the first pillar of the Prasthana Trayi."
+            }
+        }
+    ]
+}

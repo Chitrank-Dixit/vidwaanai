@@ -43,7 +43,7 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Hero prince, broke heavenly bow in two, gained Sítá as bride, son of Dasharatha and Kausalyá, peerless in might"
@@ -71,7 +71,7 @@
             }
         },
         {
-            "name": "Sítá",
+            "name": "Sita",
             "type": "Character",
             "attributes": {
                 "description": "Daughter of Janak, not of woman born, valour's lovely prize, to marry Ráma, of lotus eyes"
@@ -92,7 +92,7 @@
             }
         },
         {
-            "name": "Janak",
+            "name": "Janaka",
             "type": "Character",
             "attributes": {
                 "description": "King of Videha/Mithilá, lord of virtuous mind, possessor of heavenly bow, father of Sítá and Urmilá, elder brother"
@@ -127,14 +127,14 @@
             }
         },
         {
-            "name": "Vishvámitra",
+            "name": "Vishvamitra",
             "type": "Character",
             "attributes": {
                 "description": "Great recluse, Kushik's son, holy seer guarding princes, guided Ráma and Lakshmana"
             }
         },
         {
-            "name": "Vasishtha",
+            "name": "Vashishtha",
             "type": "Character",
             "attributes": {
                 "description": "Mighty saint, speaker skilled, protector of Ikshváku line, speaks for all, had son killed by Kalmáshapáda"
@@ -316,7 +316,7 @@
             }
         },
         {
-            "name": "Sagar",
+            "name": "Sagara",
             "type": "Character",
             "attributes": {
                 "description": "Son of Asit's wife born with poison, named for bane mixed by rival, father of Asamanj"
@@ -603,7 +603,7 @@
             }
         },
         {
-            "name": "Kausalyá",
+            "name": "Kausalya",
             "type": "Character",
             "attributes": {
                 "description": "Queen, mother of Ráma, soul filled with joy for son"
@@ -666,7 +666,7 @@
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Capital ruled by Dasharatha, town of Ikshváku dynasty, fair city"
@@ -864,7 +864,7 @@
     ],
     "relationships": [
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -872,8 +872,8 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Kausalyá",
+            "from": "Rama",
+            "to": "Kausalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma fills Kausalyá's soul with joy as her son"
@@ -920,8 +920,8 @@
             }
         },
         {
-            "from": "Sítá",
-            "to": "Janak",
+            "from": "Sita",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sítá is daughter of Janak"
@@ -929,7 +929,7 @@
         },
         {
             "from": "Urmilá",
-            "to": "Janak",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Urmilá is daughter of Janak"
@@ -944,7 +944,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Kushadhwaj",
             "type": "RELATED_TO",
             "attributes": {
@@ -952,8 +952,8 @@
             }
         },
         {
-            "from": "Ráma",
-            "to": "Sítá",
+            "from": "Rama",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma to marry Sítá, won her by breaking bow"
@@ -984,7 +984,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Breaking of the bow",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -992,7 +992,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Heavenly bow",
             "type": "RELATED_TO",
             "attributes": {
@@ -1000,7 +1000,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Heavenly bow",
             "type": "RELATED_TO",
             "attributes": {
@@ -1008,7 +1008,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Marriage vow",
             "type": "RELATED_TO",
             "attributes": {
@@ -1032,7 +1032,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1064,15 +1064,15 @@
             }
         },
         {
-            "from": "Vishvámitra",
-            "to": "Ráma",
+            "from": "Vishvamitra",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Vishvámitra guarded and led Ráma"
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Lakshmana",
             "type": "RELATED_TO",
             "attributes": {
@@ -1080,7 +1080,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1088,7 +1088,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Marriage proposal",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1097,7 +1097,7 @@
         },
         {
             "from": "Shatánanda",
-            "to": "Janak",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Shatánanda is chaplain and priest of Janak, counselor"
@@ -1185,7 +1185,7 @@
         },
         {
             "from": "Kálindi",
-            "to": "Sagar",
+            "to": "Sagara",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Kálindi bore Sagar conceived by Chyavan"
@@ -1193,7 +1193,7 @@
         },
         {
             "from": "Chyavan",
-            "to": "Sagar",
+            "to": "Sagara",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Chyavan is spiritual father of Sagar through boon"
@@ -1241,7 +1241,7 @@
         },
         {
             "from": "Hrasvaromá",
-            "to": "Janak",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Hrasvaromá is father of Janak"
@@ -1264,7 +1264,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Battle with Sudhanvá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1281,7 +1281,7 @@
         },
         {
             "from": "Sudhanvá",
-            "to": "Sítá",
+            "to": "Sita",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Sudhanvá demanded Sítá"
@@ -1312,7 +1312,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Marriage proposal",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1320,7 +1320,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Four weddings",
             "type": "PARTICIPATED_IN",
             "attributes": {

@@ -5,7 +5,6 @@ from fastapi.openapi.utils import get_openapi
 from src.api.routes import agent_router
 from src.api.search_routes import search_router
 
-
 # Initialize App
 app = FastAPI(
     title="Vidwaan AI Agent API",

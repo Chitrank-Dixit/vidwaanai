@@ -43,14 +43,14 @@
             }
         },
         {
-            "name": "Vishvámitra",
+            "name": "Vishvamitra",
             "type": "Character",
             "attributes": {
                 "description": "Mighty saint, hermit son of Gádhi of Kusha's race, celebrant, Kushik's hermit son, Ráma's guide"
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince, Raghu's son, lotus-eyed, skilled in time and place, conquered foes, protector of sacrifice"
@@ -113,7 +113,7 @@
             }
         },
         {
-            "name": "Janak",
+            "name": "Janaka",
             "type": "Character",
             "attributes": {
                 "description": "King ruling Míthilá, high-souled, planned noble sacrifice, possesses wondrous bow given by Gods"
@@ -169,7 +169,7 @@
             }
         },
         {
-            "name": "Sagar",
+            "name": "Sagara",
             "type": "Character",
             "attributes": {
                 "description": "Pious monarch of Ayodhyá in days of yore, childless, longed for children"
@@ -204,7 +204,7 @@
             }
         },
         {
-            "name": "Gangá",
+            "name": "Ganga",
             "type": "Character",
             "attributes": {
                 "description": "Elder daughter of Himálaya and Mená, three-pathed river, purges sinners, cleanse and save, Rivers' Queen, also called Jáhnaví"
@@ -219,9 +219,9 @@
         },
         {
             "name": "Himálaya",
-            "type": "Character",
+            "type": "Place",
             "attributes": {
-                "description": "Mountains' lord, mighty hill with metals stored, father of Gangá and Umá"
+                "description": "Snowy mountain height, dwelling place of Vishvámitra, home of Gangá's source"
             }
         },
         {
@@ -246,7 +246,7 @@
             }
         },
         {
-            "name": "Míthilá",
+            "name": "Mithila",
             "type": "Place",
             "attributes": {
                 "description": "Fertile land ruled by King Janak, location of planned sacrifice, where wondrous bow is kept"
@@ -323,13 +323,6 @@
             }
         },
         {
-            "name": "Himálaya",
-            "type": "Place",
-            "attributes": {
-                "description": "Snowy mountain height, dwelling place of Vishvámitra, home of Gangá's source"
-            }
-        },
-        {
             "name": "Brahmá's world",
             "type": "Place",
             "attributes": {
@@ -351,7 +344,7 @@
             }
         },
         {
-            "name": "Ayodhyá",
+            "name": "Ayodhya",
             "type": "Place",
             "attributes": {
                 "description": "Kingdom ruled by Sagar in days of yore"
@@ -584,7 +577,7 @@
     ],
     "relationships": [
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Perfect Grove",
             "type": "LOCATED_AT",
             "attributes": {
@@ -592,7 +585,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Perfect Grove",
             "type": "LOCATED_AT",
             "attributes": {
@@ -608,7 +601,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Initiatory rites",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -616,7 +609,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Six-day watch",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -648,7 +641,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Battle with demons",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -656,7 +649,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Márícha",
             "type": "RELATED_TO",
             "attributes": {
@@ -664,7 +657,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Suváhu",
             "type": "RELATED_TO",
             "attributes": {
@@ -672,7 +665,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Vishvámitra's sacrifice",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -681,30 +674,30 @@
         },
         {
             "from": "Indra",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma honored by saints like Indra for victory"
             }
         },
         {
-            "from": "Vishvámitra",
-            "to": "Janak",
+            "from": "Vishvamitra",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Vishvámitra plans to attend Janak's sacrifice"
             }
         },
         {
-            "from": "Janak",
-            "to": "Míthilá",
+            "from": "Janaka",
+            "to": "Mithila",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Janak rules land of fertile Míthilá"
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Wondrous bow",
             "type": "RELATED_TO",
             "attributes": {
@@ -713,14 +706,14 @@
         },
         {
             "from": "Wondrous bow",
-            "to": "Míthilá",
+            "to": "Mithila",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Wondrous bow lies in royal palace at Míthilá"
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Journey to Míthilá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -728,7 +721,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Journey to Míthilá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -744,7 +737,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Sylvan deities",
             "type": "RELATED_TO",
             "attributes": {
@@ -752,7 +745,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Sona river",
             "type": "LOCATED_AT",
             "attributes": {
@@ -985,7 +978,7 @@
         },
         {
             "from": "Gádhi",
-            "to": "Vishvámitra",
+            "to": "Vishvamitra",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Gádhi is father of Vishvámitra"
@@ -1001,7 +994,7 @@
         },
         {
             "from": "Satyavatí",
-            "to": "Vishvámitra",
+            "to": "Vishvamitra",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Satyavatí is elder sister of Vishvámitra"
@@ -1040,7 +1033,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Himálaya",
             "type": "LOCATED_AT",
             "attributes": {
@@ -1065,7 +1058,7 @@
         },
         {
             "from": "Himálaya",
-            "to": "Gangá",
+            "to": "Ganga",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Himálaya is father of Gangá"
@@ -1073,7 +1066,7 @@
         },
         {
             "from": "Mená",
-            "to": "Gangá",
+            "to": "Ganga",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Mená is mother of Gangá"
@@ -1096,7 +1089,7 @@
             }
         },
         {
-            "from": "Gangá",
+            "from": "Ganga",
             "to": "Umá",
             "type": "RELATED_TO",
             "attributes": {
@@ -1104,7 +1097,7 @@
             }
         },
         {
-            "from": "Gangá",
+            "from": "Ganga",
             "to": "Birth of Gangá and Umá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1120,7 +1113,7 @@
             }
         },
         {
-            "from": "Gangá",
+            "from": "Ganga",
             "to": "Gods' request for Gangá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1136,7 +1129,7 @@
             }
         },
         {
-            "from": "Gangá",
+            "from": "Ganga",
             "to": "Gangá given to Gods",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -1168,15 +1161,15 @@
             }
         },
         {
-            "from": "Sagar",
-            "to": "Ayodhyá",
+            "from": "Sagara",
+            "to": "Ayodhya",
             "type": "LOCATED_AT",
             "attributes": {
                 "context": "Sagar reigned over Ayodhyá in days of yore"
             }
         },
         {
-            "from": "Sagar",
+            "from": "Sagara",
             "to": "Keshini",
             "type": "RELATED_TO",
             "attributes": {
@@ -1192,7 +1185,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Kusha",
             "type": "RELATED_TO",
             "attributes": {
@@ -1200,7 +1193,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Jáhnaví",
             "type": "LOCATED_AT",
             "attributes": {

@@ -24,7 +24,7 @@ class ScriptureVectorizationPipeline:
         self.embedder = VedaEmbedder()  # Uses default model
         self.batch_size = batch_size
 
-    def vectorize_all_scriptures(self, scripture_filter: str = None):
+    def vectorize_all_scriptures(self, scripture_filter: str | None = None):
         """Vectorize mantras/verses, optionally filtered by scripture name."""
         logger.info("Starting optimized scripture vectorization pipeline...")
         if scripture_filter:
@@ -39,15 +39,15 @@ class ScriptureVectorizationPipeline:
                     FROM mantras m
                     JOIN vedas v ON m.ved_id = v.id
                 """
-                
+
                 params = []
                 if scripture_filter:
                     # Case-insensitive partial match for flexibility
                     query += " WHERE v.name ILIKE %s"
                     params.append(f"%{scripture_filter}%")
-                
+
                 query += " ORDER BY m.id"
-                
+
                 logger.info("Fetching mantras...")
                 cursor.execute(query, tuple(params))
                 # Fetch as dictionaries for easier handling
@@ -181,13 +181,14 @@ class ScriptureVectorizationPipeline:
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--scripture", help="Filter by scripture name (e.g. 'Gita')")
-    parser.add_argument("--batch-size", type=int, default=32, help="Batch size (default: 32)")
+    parser.add_argument(
+        "--batch-size", type=int, default=32, help="Batch size (default: 32)"
+    )
     args = parser.parse_args()
 
     db = DatabaseManager(settings.DATABASE_URL)
-    pipeline = ScriptureVectorizationPipeline(
-        db, batch_size=args.batch_size
-    )
+    pipeline = ScriptureVectorizationPipeline(db, batch_size=args.batch_size)
     pipeline.vectorize_all_scriptures(scripture_filter=args.scripture)

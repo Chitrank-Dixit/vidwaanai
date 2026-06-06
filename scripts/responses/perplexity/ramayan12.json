@@ -36,28 +36,28 @@
             }
         },
         {
-            "name": "Ahalyá",
+            "name": "Ahalya",
             "type": "Character",
             "attributes": {
                 "description": "Glorious dame, wife of Gautam, freed from curse by Ráma, purified from sin and folly"
             }
         },
         {
-            "name": "Gautam",
+            "name": "Gautama",
             "type": "Character",
             "attributes": {
                 "description": "Holy hermit, sage with godlike view, husband of Ahalyá, reconciled with wife, shares austerities"
             }
         },
         {
-            "name": "Vishvámitra",
+            "name": "Vishvamitra",
             "type": "Character",
             "attributes": {
                 "description": "Mighty saint, son of Gádhi of Kusha's line, guide to Ráma, formerly warrior king, royal sage"
             }
         },
         {
-            "name": "Vasishtha",
+            "name": "Vashishtha",
             "type": "Character",
             "attributes": {
                 "description": "Prince of saintly men, arch-hermit, son of Brahmá, best of those who pray, owns Dapple-skin cow"
@@ -85,7 +85,7 @@
             }
         },
         {
-            "name": "Ráma",
+            "name": "Rama",
             "type": "Character",
             "attributes": {
                 "description": "Prince, pride of Raghu's race, lotus-eyed, freed Ahalyá, scion of King Raghu's line, strong of arm"
@@ -99,7 +99,7 @@
             }
         },
         {
-            "name": "Janak",
+            "name": "Janaka",
             "type": "Character",
             "attributes": {
                 "description": "Best of kings, high-souled, lofty-souled, planned sacrifice, ruled Mithilá"
@@ -395,15 +395,15 @@
     ],
     "relationships": [
         {
-            "from": "Ráma",
-            "to": "Ahalyá",
+            "from": "Rama",
+            "to": "Ahalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma's presence freed Ahalyá from curse"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Freeing of Ahalyá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -411,7 +411,7 @@
             }
         },
         {
-            "from": "Ahalyá",
+            "from": "Ahalya",
             "to": "Freeing of Ahalyá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -419,15 +419,15 @@
             }
         },
         {
-            "from": "Gautam",
-            "to": "Ahalyá",
+            "from": "Gautama",
+            "to": "Ahalya",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Gautam is husband of Ahalyá, reconciled with her"
             }
         },
         {
-            "from": "Gautam",
+            "from": "Gautama",
             "to": "Curse of Ahalyá",
             "type": "RELATED_TO",
             "attributes": {
@@ -435,7 +435,7 @@
             }
         },
         {
-            "from": "Ahalyá",
+            "from": "Ahalya",
             "to": "Curse of Ahalyá",
             "type": "RELATED_TO",
             "attributes": {
@@ -443,7 +443,7 @@
             }
         },
         {
-            "from": "Gautam",
+            "from": "Gautama",
             "to": "Reconciliation of Gautam and Ahalyá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -451,7 +451,7 @@
             }
         },
         {
-            "from": "Ahalyá",
+            "from": "Ahalya",
             "to": "Reconciliation of Gautam and Ahalyá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -459,7 +459,7 @@
             }
         },
         {
-            "from": "Gautam",
+            "from": "Gautama",
             "to": "Shatánanda",
             "type": "RELATED_TO",
             "attributes": {
@@ -467,7 +467,7 @@
             }
         },
         {
-            "from": "Ahalyá",
+            "from": "Ahalya",
             "to": "Shatánanda",
             "type": "RELATED_TO",
             "attributes": {
@@ -483,7 +483,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Journey to Mithilá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -499,7 +499,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Journey to Mithilá",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -507,7 +507,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Mithilá",
             "type": "LOCATED_AT",
             "attributes": {
@@ -515,7 +515,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Sacrificial ground",
             "type": "LOCATED_AT",
             "attributes": {
@@ -523,7 +523,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Mithilá",
             "type": "LOCATED_AT",
             "attributes": {
@@ -531,7 +531,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Sacrificial ground",
             "type": "RELATED_TO",
             "attributes": {
@@ -539,7 +539,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Janak's sacrifice",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -547,15 +547,15 @@
             }
         },
         {
-            "from": "Vishvámitra",
-            "to": "Janak",
+            "from": "Vishvamitra",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Vishvámitra met Janak at sacrificial ground"
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Meeting with Janak",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -563,7 +563,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Meeting with Janak",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -580,14 +580,14 @@
         },
         {
             "from": "Shatánanda",
-            "to": "Janak",
+            "to": "Janaka",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Shatánanda is chaplain and priest of Janak"
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Dasharatha",
             "type": "RELATED_TO",
             "attributes": {
@@ -603,7 +603,7 @@
             }
         },
         {
-            "from": "Ráma",
+            "from": "Rama",
             "to": "Famous bow",
             "type": "RELATED_TO",
             "attributes": {
@@ -611,7 +611,7 @@
             }
         },
         {
-            "from": "Janak",
+            "from": "Janaka",
             "to": "Famous bow",
             "type": "RELATED_TO",
             "attributes": {
@@ -619,7 +619,7 @@
             }
         },
         {
-            "from": "Vishvámitra",
+            "from": "Vishvamitra",
             "to": "Gádhi",
             "type": "RELATED_TO",
             "attributes": {
@@ -644,7 +644,7 @@
         },
         {
             "from": "Vishvámitra the King",
-            "to": "Vasishtha",
+            "to": "Vashishtha",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "King Vishvámitra visited Vasishtha's hermitage"
@@ -659,7 +659,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Vishvámitra's visit to Vasishtha",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -675,7 +675,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Vasishtha's hermitage",
             "type": "LOCATED_AT",
             "attributes": {
@@ -683,7 +683,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Brahmá",
             "type": "RELATED_TO",
             "attributes": {
@@ -699,7 +699,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Dapple-skin cow",
             "type": "RELATED_TO",
             "attributes": {
@@ -707,7 +707,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Vasishtha's feast",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -739,7 +739,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Battle for Dapple-skin",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -875,7 +875,7 @@
             }
         },
         {
-            "from": "Vasishtha",
+            "from": "Vashishtha",
             "to": "Death of hundred sons",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -948,7 +948,7 @@
         },
         {
             "from": "Ashvins",
-            "to": "Ráma",
+            "to": "Rama",
             "type": "RELATED_TO",
             "attributes": {
                 "context": "Ráma and Lakshmana's figures compared to Ashvins"

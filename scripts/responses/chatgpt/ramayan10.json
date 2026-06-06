@@ -1,7 +1,7 @@
 {
     "entities": [
         {
-            "name": "Sagar",
+            "name": "Sagara",
             "type": "Character",
             "attributes": {
                 "description": "King of the Ikshvaku line, famed for his sacrifice and father of sixty thousand sons."
@@ -143,7 +143,7 @@
     ],
     "relationships": [
         {
-            "from": "Sagar",
+            "from": "Sagara",
             "to": "Ashvamedha Sacrifice of Sagar",
             "type": "PARTICIPATED_IN",
             "attributes": {
@@ -223,7 +223,7 @@
             }
         },
         {
-            "from": "Sagar",
+            "from": "Sagara",
             "to": "Himalaya",
             "type": "LOCATED_AT",
             "attributes": {

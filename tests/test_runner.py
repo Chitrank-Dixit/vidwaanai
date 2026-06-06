@@ -62,10 +62,10 @@ class VidwaanLanguageTestSuite:
     def __init__(self, config_path: str = "config/test_config.json"):
         """Initialize test suite"""
         self.config = self._load_config(config_path)
-        self.prompts = {}
-        self.results = {}
-        self.metrics = {}
-        self.errors = []
+        self.prompts: dict[str, list[dict]] = {}
+        self.results: dict[str, list[dict]] = {}
+        self.metrics: dict[str, dict] = {}
+        self.errors: list[dict] = []
 
         # Create directories
         self._create_directories()
@@ -390,9 +390,9 @@ class VidwaanLanguageTestSuite:
             )
             lang_name = lang_entry["name"] if lang_entry else lang_code
 
-            logger.info(f"\n{'='*60}")
+            logger.info(f"\n{'=' * 60}")
             logger.info(f"Testing {lang_name} ({lang_code})")
-            logger.info(f"{'='*60}")
+            logger.info(f"{'=' * 60}")
 
             # Load prompts
             prompts = self.load_prompts(lang_code)
@@ -432,9 +432,9 @@ class VidwaanLanguageTestSuite:
             )
 
         total_time = time.time() - total_start
-        logger.info(f"\n{'='*60}")
+        logger.info(f"\n{'=' * 60}")
         logger.info(f"Test suite completed in {total_time:.2f} seconds")
-        logger.info(f"{'='*60}")
+        logger.info(f"{'=' * 60}")
 
         # Generate report
         self.generate_report()
@@ -492,7 +492,7 @@ class VidwaanLanguageTestSuite:
             else:
                 avg_f1 = avg_precision = avg_recall = avg_time = 0
 
-            summary["by_language"][lang_code] = {
+            summary["by_language"][lang_code] = { # type: ignore
                 "total_prompts": len(results),
                 "successful": len(successful),
                 "failed": len(failed),
@@ -521,7 +521,7 @@ class VidwaanLanguageTestSuite:
 
     def _generate_visualizations(self, summary: Dict):
         """Generate visualization data for charts"""
-        viz_data = {
+        viz_data: dict[str, dict] = {
             "by_language_f1": {},
             "by_language_precision": {},
             "by_language_recall": {},
