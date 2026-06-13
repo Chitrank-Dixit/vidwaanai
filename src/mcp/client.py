@@ -24,7 +24,7 @@ class VidwaanMCPClient:
         self.session: Optional[ClientSession] = None
         self._exit_stack = None
 
-    @asynccontextmanager
+    @asynccontextmanager  # type: ignore
     async def connect(self) -> Any:
         """
         Connects to the MCP server via stdio.

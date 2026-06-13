@@ -78,11 +78,6 @@ Ensure "from" and "to" match extracted entity names exactly.
             logger.debug(f"Raw response: {response}")
             return {"entities": [], "relationships": []}
 
-        except Exception as e:
-            logger.error(f"Failed to parse entity extraction response: {e}")
-            logger.debug(f"Raw response: {response}")
-            return {"entities": [], "relationships": []}
-
     def extract_with_spacy(self, text: str) -> List[Dict[str, Any]]:
         """
         Extract standard entities using SpaCy.

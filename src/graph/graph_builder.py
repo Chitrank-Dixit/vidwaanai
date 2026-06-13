@@ -99,7 +99,7 @@ class GraphBuilder:
         """
 
         with self.driver.session() as session:
-            session.run(query, id=node_id, attributes=attributes)
+            session.run(query, id=node_id, attributes=attributes)  # type: ignore
             logger.debug(f"Merged {entity_type}: {name} ({node_id})")
 
         return node_id
@@ -138,7 +138,10 @@ class GraphBuilder:
 
         with self.driver.session() as session:
             session.run(
-                query, from_name=from_name, to_name=to_name, attributes=attributes
+                query,  # type: ignore
+                from_name=from_name,
+                to_name=to_name,
+                attributes=attributes,
             )
             logger.debug(f"Merged Rel: {from_name} -> {to_name} ({rel_type})")
 
@@ -174,7 +177,7 @@ class GraphBuilder:
                 MERGE (n:`{etype}` {{id: props.id}})
                 SET n += props
                 """
-                session.run(query, batch=batch)
+                session.run(query, batch=batch)  # type: ignore
                 logger.info(f"Batch Merged {len(batch)} nodes of type {etype}")
 
     def create_relationships_batch(self, relationships: List[Dict[str, Any]]) -> None:
@@ -232,5 +235,5 @@ class GraphBuilder:
                 MERGE (a)-[r:`{rtype}`]->(b)
                 SET r += row.props
                 """
-                session.run(query, batch=batch)
+                session.run(query, batch=batch)  # type: ignore
                 logger.info(f"Batch Merged {len(batch)} relationships of type {rtype}")

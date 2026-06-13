@@ -68,9 +68,6 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error fetching scriptures: {str(e)}")
             return []
-        except Exception as e:
-            logger.error(f"Error fetching scriptures: {str(e)}")
-            return []
 
     def add_scripture(self, name: str, language: str, description: str = "") -> int:
         """Add a scripture to database."""
@@ -96,9 +93,6 @@ class DatabaseManager:
                         scripture_id = cursor.fetchone()[0]
                     conn.commit()
                     return int(scripture_id)
-        except Exception as e:
-            logger.error(f"Error adding scripture: {str(e)}")
-            raise
         except Exception as e:
             logger.error(f"Error adding scripture: {str(e)}")
             raise
@@ -148,9 +142,6 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error adding verse: {str(e)}")
             raise
-        except Exception as e:
-            logger.error(f"Error adding verse: {str(e)}")
-            raise
 
     def add_embedding(
         self, verse_id: int, embedding: List[float], language: str
@@ -171,10 +162,6 @@ class DatabaseManager:
                         (verse_id, embedding_str, language, 0, False),
                     )
                     conn.commit()
-        except Exception as e:
-            logger.error(f"Error adding embedding: {str(e)}")
-            raise
-
         except Exception as e:
             logger.error(f"Error adding embedding: {str(e)}")
             raise
@@ -271,9 +258,6 @@ class DatabaseManager:
                         (query_text, language, response_text, []),
                     )
                     conn.commit()
-        except Exception as e:
-            logger.error(f"Error logging query: {str(e)}")
-
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
 

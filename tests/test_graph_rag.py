@@ -21,13 +21,14 @@ class TestGraphRAG(unittest.TestCase):
         builder = GraphBuilder("bolt://localhost:7687", "neo4j", "password")
         builder.driver = self.mock_driver
 
-        builder.create_entity("Krishna", "Person", {"role": "Deity"})
+        builder.create_entity("Krishna", "Deity", {"role": "Deity"})
 
         # Verify session.run was called
         self.session.run.assert_called()
         args = self.session.run.call_args
-        self.assertIn("MERGE (p:Person {name: $name})", args[0][0])
-        self.assertEqual(args[1]["name"], "Krishna")
+        self.assertIn("MERGE (n:`Deity` {id: $id})", args[0][0])
+        self.assertEqual(args[1]["id"], "Deity:krishna")
+        self.assertEqual(args[1]["attributes"]["name"], "Krishna")
 
     def test_graph_retriever(self) -> None:
         retriever = GraphRetriever(self.mock_driver)

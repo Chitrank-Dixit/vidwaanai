@@ -57,7 +57,7 @@ class GraphManager:
                 raise Exception("Neo4j driver is not initialized")
 
             with driver.session() as session:
-                result = session.run(query, parameters or {})
+                result = session.run(query, parameters or {})  # type: ignore
                 return [record.data() for record in result]
         except Exception as e:
             logger.error(f"Error executing graph query: {str(e)}")

@@ -13,7 +13,7 @@ from src.core.config import settings
 try:
     from llama_index.core import Settings
 
-    Settings.num_workers = settings.LLAMA_INDEX_NUM_WORKERS
+    Settings.num_workers = settings.LLAMA_INDEX_NUM_WORKERS  # type: ignore
 except ImportError:
     pass  # LlamaIndex might not be installed or used in this env
 

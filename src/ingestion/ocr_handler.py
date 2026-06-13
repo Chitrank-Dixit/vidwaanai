@@ -27,8 +27,8 @@ class OCRHandler:
         self, pdf_path: str, lang: str = "hin", max_pages: Optional[int] = None
     ) -> List[Dict[str, Any]]:
         """Convert PDF pages to images and extract text using OCR (batched)."""
-        if convert_from_path is None:
-            raise ImportError("pdf2image not installed")
+        if convert_from_path is None or pytesseract is None:
+            raise ImportError("OCR dependencies not installed (pdf2image, pytesseract)")
 
         results: List[Dict[str, Any]] = []
         try:
