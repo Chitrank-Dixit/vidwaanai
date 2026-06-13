@@ -2,6 +2,13 @@
 
 A multilingual AI agent for Indian scriptures with CLI interface.
 
+## System Architecture Overview
+
+The VidwaanAI system consists of three main repositories:
+1. **[vidwaan-ai-mvp](file:///Users/chitrankdixit/Documents/personal_projects/vidwaan-ai-mvp)** (This Repository): Core RAG, vectorization, and knowledge graph backend (Postgres + Neo4j + FastAPI).
+2. **[vidwaan-ai-be](file:///Users/chitrankdixit/Documents/personal_projects/vidwaan-ai-be)**: Main Bun/Node API gateway and session/user manager (MongoDB).
+3. **[vidwaan-ai-fe](file:///Users/chitrankdixit/Documents/personal_projects/vidwaan-ai-fe)**: React + Vite front-end chat interface.
+
 ## Quick Start
 
 ### 1. Prerequisites
@@ -577,6 +584,51 @@ bash scripts/backup_vectorization.sh
 bash scripts/backup_graph.sh
 ```
 *Note: The graph backup script momentarily stops the Neo4j service.*
+
+### Data Restore
+To restore data from backed-up archives:
+
+**1. Extract Backup Archives:**
+```bash
+# Ingestion Backup
+tar -xzf data/backups/ingestion/<TIMESTAMP>.tar.gz -C data/backups/ingestion/
+
+# Vectorization Backup
+tar -xzf data/backups/vectorization/<TIMESTAMP>.tar.gz -C data/backups/vectorization/
+
+# Graph (Neo4j) Backup
+tar -xzf data/backups/graph/<TIMESTAMP>.tar.gz -C data/backups/graph/
+```
+
+**2. Restore Postgres Database:**
+Since tables have foreign keys and relationships, we first drop the existing tables and then import the dumps:
+```bash
+# 1. Drop existing tables to avoid conflicts
+docker exec vidwaan-db psql -U vidwaan_user -d vidwaan_db -c "DROP TABLE IF EXISTS scripture_embeddings, verses, scriptures, user_queries, veda_embeddings, mantras, suktas, mandalas, vedas, embeddings CASCADE;"
+
+# 2. Restore Ingestion Data (Vedas, Mantras, etc.)
+docker exec -i vidwaan-db psql -U vidwaan_user -d vidwaan_db < data/backups/ingestion/<TIMESTAMP>/ingestion_dump.sql
+
+# 3. Restore Vectorization Data (Embeddings)
+docker exec -i vidwaan-db psql -U vidwaan_user -d vidwaan_db < data/backups/vectorization/<TIMESTAMP>/vectorization.sql
+```
+
+**3. Restore Neo4j Graph Database:**
+To load the `.dump` file into Neo4j:
+```bash
+# 1. Stop active Neo4j service
+docker compose stop neo4j
+
+# 2. Run a temporary container to load the dump into the data volume
+docker run --rm \
+  -v vidwaan-neo4j-data:/data \
+  -v "$(pwd)/data/backups/graph/<TIMESTAMP>:/backups" \
+  neo4j:5.15-community \
+  neo4j-admin database load neo4j --from-path=/backups --overwrite-destination
+
+# 3. Start Neo4j service again
+docker compose up -d neo4j
+```
 
 ### MCP Server
 - `make -f Makefile-docker mcp-build`: Build MCP containers.
