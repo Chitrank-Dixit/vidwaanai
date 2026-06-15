@@ -17,7 +17,9 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as out:
                     if line.startswith("### Verse"):
                         current_verse = line.strip()
                         out.write(f"\n{current_verse}\n")
-                    elif line.strip().startswith("- **Original**:") or line.strip().startswith("- **Translation**:"):
+                    elif line.strip().startswith(
+                        "- **Original**:"
+                    ) or line.strip().startswith("- **Translation**:"):
                         out.write(line)
         else:
             out.write(f"\nBatch {batch_id} not found.\n")

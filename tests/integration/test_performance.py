@@ -9,20 +9,29 @@ class TestPerformance:
     @pytest.fixture
     def mock_deps(
         self,
-    ) -> Generator[tuple[MagicMock, MagicMock, MagicMock, MagicMock, MagicMock, MagicMock], None, None]:
+    ) -> Generator[
+        tuple[MagicMock, MagicMock, MagicMock, MagicMock, MagicMock, MagicMock],
+        None,
+        None,
+    ]:
         with (
             patch("src.agent.vidwaan_agent.DatabaseManager") as mock_db,
             patch("src.agent.vidwaan_agent.OpenAIClient") as mock_llm,
             patch("src.agent.vidwaan_agent.MultilingualSearch") as mock_multi,
             patch("src.agent.vidwaan_agent.VedaRetriever") as mock_veda,
             patch("src.agent.vidwaan_agent.EmbeddingManager") as mock_emb,
-            patch("src.retrieval.advanced_retrieval_pipeline.ContextAwareReranker") as mock_reranker,
+            patch(
+                "src.retrieval.advanced_retrieval_pipeline.ContextAwareReranker"
+            ) as mock_reranker,
         ):
             yield mock_db, mock_llm, mock_multi, mock_veda, mock_emb, mock_reranker
 
     @pytest.fixture
     def agent(
-        self, mock_deps: tuple[MagicMock, MagicMock, MagicMock, MagicMock, MagicMock, MagicMock]
+        self,
+        mock_deps: tuple[
+            MagicMock, MagicMock, MagicMock, MagicMock, MagicMock, MagicMock
+        ],
     ) -> VidwaanAI:
         mock_db, mock_llm, mock_multi, mock_veda, mock_emb, mock_reranker = mock_deps
         mock_db.return_value.get_all_verses.return_value = [

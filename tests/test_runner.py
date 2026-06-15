@@ -492,7 +492,7 @@ class VidwaanLanguageTestSuite:
             else:
                 avg_f1 = avg_precision = avg_recall = avg_time = 0
 
-            summary["by_language"][lang_code] = { # type: ignore
+            summary["by_language"][lang_code] = {  # type: ignore
                 "total_prompts": len(results),
                 "successful": len(successful),
                 "failed": len(failed),

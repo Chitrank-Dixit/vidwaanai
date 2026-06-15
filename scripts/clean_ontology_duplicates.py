@@ -22,7 +22,9 @@ import shutil
 import csv
 from collections import defaultdict
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "responses", "gemini"))
+BASE_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "responses", "gemini")
+)
 REPORT_PATH = os.path.join(BASE_DIR, "duplicates_report.csv")
 
 report_rows = []  # List of dicts for CSV
@@ -66,11 +68,13 @@ for json_path in glob.glob(os.path.join(BASE_DIR, "*.json")):
         # Update canonical entity attributes
         canon_ent["attributes"] = merged_attrs
         # Record report
-        report_rows.append({
-            "original_names": ", ".join([e["name"].strip() for e in occ]),
-            "canonical_name": canon_name,
-            "duplicate_count": len(occ) - 1
-        })
+        report_rows.append(
+            {
+                "original_names": ", ".join([e["name"].strip() for e in occ]),
+                "canonical_name": canon_name,
+                "duplicate_count": len(occ) - 1,
+            }
+        )
 
     # Remove duplicate entities (sorted descending to avoid index shift)
     if indices_to_remove:

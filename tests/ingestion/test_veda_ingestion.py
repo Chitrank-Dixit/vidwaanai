@@ -9,9 +9,7 @@ class TestVedaIngestion:
         parser = VedaParser()
         # Mock 2 pages
         pages = [
-            {
-                "text": "मंडल 1 सूक्त 1 mantra_header_ignore\nमंत्र 1\nअग्निमीळे पुरोहितं..."
-            },
+            {"text": "मंडल 1 सूक्त 1 mantra_header_ignore\nमंत्र 1\nअग्निमीळे पुरोहितं..."},
             {"text": "मंत्र 2\nअग्निः पूर्वेभिर्ऋषिभिर..."},
         ]
 

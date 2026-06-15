@@ -22,11 +22,13 @@ def optimize_database() -> None:
         with db._get_connection() as conn:
             with conn.cursor() as cursor:
                 # Check if index exists
-                cursor.execute("""
+                cursor.execute(
+                    """
                     SELECT 1
                     FROM pg_indexes
                     WHERE indexname = 'scripture_embeddings_embedding_hnsw_idx'
-                """)
+                """
+                )
 
                 if cursor.fetchone():
                     logger.info("HNSW index already exists.")
@@ -36,12 +38,14 @@ def optimize_database() -> None:
 
                 # Create HNSW index
                 # m=16, ef_construction=64 are good defaults for 768d vectors
-                cursor.execute("""
+                cursor.execute(
+                    """
                     CREATE INDEX scripture_embeddings_embedding_hnsw_idx 
                     ON scripture_embeddings 
                     USING hnsw (embedding vector_cosine_ops)
                     WITH (m = 16, ef_construction = 64);
-                """)
+                """
+                )
 
                 # Set search parameter
                 cursor.execute("SET hnsw.ef_search = 40;")

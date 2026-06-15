@@ -5,7 +5,9 @@ import glob
 import logging
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger("clean_duplicate_names")
 
 RESPONSE_DIRS = [
@@ -48,7 +50,6 @@ NORMALIZATION_MAP = {
     "vishvamitra": "Vishvamitra",
     "visvamitra": "Vishvamitra",
     "viśvāmitra": "Vishvamitra",
-    
     # Mahabharata & Gita Characters / Deities
     "krishna": "Krishna",
     "krsna": "Krishna",
@@ -83,7 +84,6 @@ NORMALIZATION_MAP = {
     "vedavyasa": "Vyasa",
     "pandu": "Pandu",
     "pāṇḍu": "Pandu",
-    
     # Places
     "hastinapura": "Hastinapura",
     "hastināpura": "Hastinapura",
@@ -91,7 +91,6 @@ NORMALIZATION_MAP = {
     "kurukshetra": "Kurukshetra",
     "ayodhya": "Ayodhya",
     "ayodhyā": "Ayodhya",
-    
     # Concepts
     "dharma": "Dharma",
     "karma": "Karma",
@@ -100,8 +99,9 @@ NORMALIZATION_MAP = {
     "moksha": "Moksha",
     "samsara": "Samsara",
     "yajna": "Yajna",
-    "rta": "Rta"
+    "rta": "Rta",
 }
+
 
 def clean_name(name: str) -> str:
     """Standardize name based on normalization map."""
@@ -109,29 +109,37 @@ def clean_name(name: str) -> str:
         return ""
     name_stripped = name.strip()
     name_lower = name_stripped.lower()
-    
+
     # Check direct match
     if name_lower in NORMALIZATION_MAP:
         return NORMALIZATION_MAP[name_lower]
-        
+
     # Check substring or partial match for common accented forms
     # e.g., 'Rāma' or 'Ráma' with extra spaces
-    cleaned = name_lower.replace("á", "a").replace("ā", "a").replace("ś", "sh").replace("ṣ", "sh")
+    cleaned = (
+        name_lower.replace("á", "a")
+        .replace("ā", "a")
+        .replace("ś", "sh")
+        .replace("ṣ", "sh")
+    )
     if cleaned in NORMALIZATION_MAP:
         return NORMALIZATION_MAP[cleaned]
-        
+
     return name_stripped
+
 
 def clean_file(filepath: str) -> bool:
     """Read a JSON file, normalize names and keys, and write back."""
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            
+
         modified = False
-        
+
         # 1. Normalize Nodes/Entities
-        nodes_key = "nodes" if "nodes" in data else ("entities" if "entities" in data else None)
+        nodes_key = (
+            "nodes" if "nodes" in data else ("entities" if "entities" in data else None)
+        )
         if nodes_key:
             for node in data[nodes_key]:
                 if "name" in node:
@@ -140,7 +148,7 @@ def clean_file(filepath: str) -> bool:
                     if old_name != new_name:
                         node["name"] = new_name
                         modified = True
-                
+
                 # Standardize ID if present
                 if "id" in node:
                     old_id = node["id"]
@@ -149,7 +157,7 @@ def clean_file(filepath: str) -> bool:
                     if old_id != new_id:
                         node["id"] = new_id
                         modified = True
-                        
+
         # 2. Normalize Relationships
         if "relationships" in data:
             for rel in data["relationships"]:
@@ -160,31 +168,35 @@ def clean_file(filepath: str) -> bool:
                         if old_val != new_val:
                             rel[key] = new_val
                             modified = True
-                            
+
         if modified:
             with open(filepath, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4, ensure_ascii=False)
             return True
-            
+
     except Exception as e:
         logger.error(f"Failed to clean file {filepath}: {e}")
-        
+
     return False
+
 
 def main():
     cleaned_count = 0
     total_files = 0
-    
+
     for r_dir in RESPONSE_DIRS:
         files = glob.glob(os.path.join(r_dir, "*.json"))
         total_files += len(files)
         logger.info(f"Scanning {len(files)} files in {r_dir}...")
-        
+
         for filepath in files:
             if clean_file(filepath):
                 cleaned_count += 1
-                
-    logger.info(f"Scan complete. Standardized duplicate spellings in {cleaned_count} out of {total_files} JSON files.")
+
+    logger.info(
+        f"Scan complete. Standardized duplicate spellings in {cleaned_count} out of {total_files} JSON files."
+    )
+
 
 if __name__ == "__main__":
     main()

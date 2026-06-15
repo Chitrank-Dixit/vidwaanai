@@ -19,12 +19,14 @@ def inspect_data() -> None:
 
     with db_manager._get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("""
+            cursor.execute(
+                """
                 SELECT v.id, s.name, v.chapter_number, v.verse_number, v.translation_en 
                 FROM verses v 
                 JOIN scriptures s ON v.scripture_id = s.id
                 LIMIT 50;
-            """)
+            """
+            )
             rows = cursor.fetchall()
 
             print(f"Found {len(rows)} verses:")

@@ -23,11 +23,13 @@ def generate_turtle(data):
     lines = [PREFIXES]
 
     # Metadata
-    lines.append(f"""
+    lines.append(
+        f"""
 <http://vidwaan.ai/ontology> rdf:type owl:Ontology ;
     rdfs:comment "Vidwaan AI Vedic Ontology generated via Multi-LLM Pipeline" ;
     owl:versionInfo "{datetime.date.today().isoformat()}" .
-""")
+"""
+    )
 
     nodes = data.get("nodes", [])
     relationships = data.get("relationships", [])

@@ -99,6 +99,11 @@ target-version = "py313"
 pythonVersion = "3.13"
 typeCheckingMode = "basic"
 
+[tool.mypy]
+python_version = "3.13"
+ignore_missing_imports = true
+exclude = ["tests", "scripts"]
+
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

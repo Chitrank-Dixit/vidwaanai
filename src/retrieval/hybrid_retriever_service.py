@@ -49,10 +49,12 @@ class HybridRetrieverService:
             with self.db_manager._get_connection() as conn:
                 with conn.cursor() as cursor:
                     # Fetch basic text data
-                    cursor.execute("""
+                    cursor.execute(
+                        """
                         SELECT id, text_hindi, translation_en, mantra_number 
                         FROM mantras
-                    """)
+                    """
+                    )
                     rows = cursor.fetchall()
 
                     corpus = []
