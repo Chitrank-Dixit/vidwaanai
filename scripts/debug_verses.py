@@ -4,8 +4,9 @@ import sys
 # Add src to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from src.db.db_manager import DatabaseManager
 from dotenv import load_dotenv
+
+from src.db.db_manager import DatabaseManager
 
 load_dotenv()
 

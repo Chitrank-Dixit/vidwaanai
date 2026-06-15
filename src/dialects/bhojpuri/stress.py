@@ -1,5 +1,4 @@
 import regex
-from typing import List
 
 
 class BhojpuriStressAnalyzer:
@@ -14,7 +13,7 @@ class BhojpuriStressAnalyzer:
         # Short vowels (Laghu)
         self.short_vowels = set("अ इ उ ऋ".split())
 
-    def get_syllables(self, word: str) -> List[str]:
+    def get_syllables(self, word: str) -> list[str]:
         """
         Split word into syllables.
         This is a simplified syllabification for Devanagari.

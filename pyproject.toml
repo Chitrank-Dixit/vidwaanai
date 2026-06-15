@@ -95,6 +95,10 @@ dev = [
 line-length = 88
 target-version = "py313"
 
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
 [tool.pyright]
 pythonVersion = "3.13"
 typeCheckingMode = "basic"

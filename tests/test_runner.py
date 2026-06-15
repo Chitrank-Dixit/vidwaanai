@@ -4,15 +4,14 @@ VidwaanAI Comprehensive Language Test Suite
 Runs 1,700 prompts across 17 languages and collects metrics
 """
 
+import argparse
 import json
-import time
 import logging
-import sys
 import os
+import sys
+import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
-import argparse
 
 # Add project root to path
 sys.path.append(os.getcwd())
@@ -114,10 +113,10 @@ class VidwaanLanguageTestSuite:
         for directory in directories:
             Path(directory).mkdir(parents=True, exist_ok=True)
 
-    def _load_config(self, config_path: str) -> Dict:
+    def _load_config(self, config_path: str) -> dict:
         """Load test configuration"""
         try:
-            with open(config_path, "r") as f:
+            with open(config_path) as f:
                 return json.load(f)
         except FileNotFoundError:
             logger.warning(f"Config file not found: {config_path}. Using defaults.")
@@ -129,7 +128,7 @@ class VidwaanLanguageTestSuite:
                 "verbose": True,
             }
 
-    def load_prompts(self, language_code: str) -> List[Dict]:
+    def load_prompts(self, language_code: str) -> list[dict]:
         """
         Load prompts for a language from JSON file
 
@@ -142,7 +141,7 @@ class VidwaanLanguageTestSuite:
         prompt_file = f"tests/prompt_suite/{language_code}_prompts.json"
 
         try:
-            with open(prompt_file, "r", encoding="utf-8") as f:
+            with open(prompt_file, encoding="utf-8") as f:
                 data = json.load(f)
                 self.prompts[language_code] = data.get("prompts", [])
                 logger.info(
@@ -153,7 +152,7 @@ class VidwaanLanguageTestSuite:
             logger.error(f"Prompt file not found: {prompt_file}")
             return []
 
-    def run_test(self, prompt: Dict, language_code: str, attempt: int = 1) -> Dict:
+    def run_test(self, prompt: dict, language_code: str, attempt: int = 1) -> dict:
         """
         Run a single test prompt against VidwaanAI
 
@@ -218,7 +217,7 @@ class VidwaanLanguageTestSuite:
 
     def _call_vidwaan_api(
         self, prompt_text: str, language_code: str, timeout: int
-    ) -> Dict:
+    ) -> dict:
         """
         Call VidwaanAI API with prompt
         """
@@ -266,8 +265,8 @@ class VidwaanLanguageTestSuite:
             raise e
 
     def _calculate_metrics(
-        self, response: Dict, prompt: Dict, language_code: str, processing_time: float
-    ) -> Dict:
+        self, response: dict, prompt: dict, language_code: str, processing_time: float
+    ) -> dict:
         """
         Calculate quality metrics for a response
 
@@ -342,7 +341,7 @@ class VidwaanLanguageTestSuite:
 
         return metrics
 
-    def _extract_keywords(self, text: str, keywords: List[str]) -> List[str]:
+    def _extract_keywords(self, text: str, keywords: list[str]) -> list[str]:
         """Extract which expected keywords appear in response text"""
         found = []
         text_lower = text.lower()
@@ -353,7 +352,7 @@ class VidwaanLanguageTestSuite:
 
     def _create_error_result(
         self, prompt_id: str, language_code: str, error_type: str, error_message: str
-    ) -> Dict:
+    ) -> dict:
         """Create error result entry"""
         return {
             "prompt_id": prompt_id,
@@ -366,8 +365,8 @@ class VidwaanLanguageTestSuite:
 
     def run_all_tests(
         self,
-        languages: Optional[List[str]] = None,
-        categories: Optional[List[str]] = None,
+        languages: list[str] | None = None,
+        categories: list[str] | None = None,
     ):
         """
         Run all tests for specified languages and categories
@@ -460,7 +459,7 @@ class VidwaanLanguageTestSuite:
 
         logger.info("Report generation complete. Check tests/results/")
 
-    def _calculate_summary_statistics(self) -> Dict:
+    def _calculate_summary_statistics(self) -> dict:
         """Calculate overall statistics"""
         summary = {
             "generation_date": datetime.now().isoformat(),
@@ -507,7 +506,7 @@ class VidwaanLanguageTestSuite:
 
         return summary
 
-    def _save_results(self, summary: Dict):
+    def _save_results(self, summary: dict):
         """Save all results to JSON files"""
         # Save summary
         with open("tests/results/results_summary.json", "w", encoding="utf-8") as f:
@@ -519,7 +518,7 @@ class VidwaanLanguageTestSuite:
 
         logger.info("Results saved to tests/results/")
 
-    def _generate_visualizations(self, summary: Dict):
+    def _generate_visualizations(self, summary: dict):
         """Generate visualization data for charts"""
         viz_data: dict[str, dict] = {
             "by_language_f1": {},

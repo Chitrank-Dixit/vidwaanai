@@ -11,7 +11,7 @@ def is_processed(file_path: str) -> bool:
         return False
 
     abs_path = os.path.abspath(file_path)
-    with open(TRACKING_FILE, "r") as f:
+    with open(TRACKING_FILE) as f:
         processed = f.read().splitlines()
 
     return abs_path in processed

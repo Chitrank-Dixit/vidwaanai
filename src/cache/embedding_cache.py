@@ -1,6 +1,6 @@
 import hashlib
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -11,7 +11,7 @@ class EmbeddingCache:
     """Cache for generated embeddings."""
 
     def __init__(self, max_size: int = 10000, ttl: int = 86400) -> None:
-        self.cache: Dict[str, Dict[str, Any]] = {}
+        self.cache: dict[str, dict[str, Any]] = {}
         self.max_size = max_size
         self.ttl = ttl
 
@@ -19,7 +19,7 @@ class EmbeddingCache:
         """Create a stable key for the text."""
         return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
-    def get(self, text: str) -> Optional[List[float]]:
+    def get(self, text: str) -> list[float] | None:
         """Get cached embedding."""
         key = self._make_key(text)
 
@@ -31,7 +31,7 @@ class EmbeddingCache:
                 del self.cache[key]
         return None
 
-    def set(self, text: str, embedding: List[float]) -> None:
+    def set(self, text: str, embedding: list[float]) -> None:
         """Cache embedding."""
         if len(self.cache) >= self.max_size:
             # Simple eviction: remove oldest

@@ -1,5 +1,6 @@
+from typing import Any
+
 import torch
-from typing import Any, Dict
 from transformers import MarianMTModel, MarianTokenizer
 
 from src.core.logger import get_logger
@@ -11,8 +12,8 @@ class ResponseTranslator:
     def __init__(self) -> None:
         # Load translation models lazily or on init
         # For MVP, we'll load on demand or keep a cache
-        self.models: Dict[str, Any] = {}
-        self.tokenizers: Dict[str, Any] = {}
+        self.models: dict[str, Any] = {}
+        self.tokenizers: dict[str, Any] = {}
 
         # Supported pairs (Source -> Target)
         # Using Helsinki-NLP models from Hugging Face
@@ -31,9 +32,7 @@ class ResponseTranslator:
                 self.tokenizers[model_name] = MarianTokenizer.from_pretrained(
                     model_name
                 )  # nosec B615
-                self.models[model_name] = MarianMTModel.from_pretrained(
-                    model_name
-                )  # nosec B615
+                self.models[model_name] = MarianMTModel.from_pretrained(model_name)  # nosec B615
             except Exception as e:
                 logger.error(f"Failed to load model {model_name}: {e}")
                 return None

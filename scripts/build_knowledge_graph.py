@@ -1,25 +1,26 @@
-import logging
-import sys
-import os
-import json
-import typing
 import argparse
-from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import json
+import logging
+import os
+import sys
 import time
+import typing
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from tqdm import tqdm
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
+from scripts.seed_ontology import OntologySeeder
 from src.core.config import settings
 from src.db.db_manager import DatabaseManager
-from src.graph.graph_builder import GraphBuilder
 from src.graph.entity_extractor import EntityExtractor
+from src.graph.graph_builder import GraphBuilder
+from src.graph.ontology import VEDIC_ONTOLOGY
 from src.graph.taxonomy_extractor import TaxonomyExtractor
 from src.llm.lmstudio_client import LMStudioClient
 from src.llm.openai_client import OpenAIClient
-from src.graph.ontology import VEDIC_ONTOLOGY
-from scripts.seed_ontology import OntologySeeder
 
 # Configure logging
 logging.basicConfig(
@@ -391,7 +392,7 @@ def main():
     start_offset = args.offset
     if not args.clear and os.path.exists(args.checkpoint_file):
         try:
-            with open(args.checkpoint_file, "r") as f:
+            with open(args.checkpoint_file) as f:
                 saved_offset = int(f.read().strip())
                 if saved_offset > start_offset:
                     start_offset = saved_offset
@@ -431,7 +432,7 @@ def main():
     if args.ontology_file and os.path.exists(args.ontology_file):
         logger.info(f"Loading ontology from file: {args.ontology_file}")
         try:
-            with open(args.ontology_file, "r") as f:
+            with open(args.ontology_file) as f:
                 raw_ont = json.load(f)
                 # If the file is the merged output (raw_entities.json), it has "nodes" list.
                 # We need to adapt flatten_ontology to handle this list of nodes directly

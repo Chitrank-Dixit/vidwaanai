@@ -1,8 +1,9 @@
 import functools
 import time
+from collections.abc import Callable
+from typing import Any, TypeVar
 
 from prometheus_client import Counter, Gauge, Histogram
-from typing import Any, Callable, List, TypeVar
 
 # Metrics definitions
 QUERY_COUNTER = Counter(
@@ -41,7 +42,7 @@ def track_query_latency(func: F) -> F:
     return wrapper  # type: ignore
 
 
-def record_retrieval_quality(scores: List[float]) -> None:
+def record_retrieval_quality(scores: list[float]) -> None:
     """Record average retrieval quality."""
     if scores:
         avg_score = sum(scores) / len(scores)

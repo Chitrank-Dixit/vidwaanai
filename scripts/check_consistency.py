@@ -60,7 +60,7 @@ def check_structure(data):
 
 def main():
     try:
-        with open(INPUT_FILE, "r") as f:
+        with open(INPUT_FILE) as f:
             data = json.load(f)
 
         print("Running Consistency Checks...")

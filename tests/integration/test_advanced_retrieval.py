@@ -1,13 +1,16 @@
-import pytest
+from collections.abc import Generator
+from typing import Any
 from unittest.mock import MagicMock, patch
-from typing import Generator, Dict, List, Any, Optional
+
+import pytest
+
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 from src.retrieval.hybrid_search import HybridSearch
 
 
 class TestAdvancedRetrievalIntegration:
     @pytest.fixture
-    def mock_components(self) -> Generator[Dict[str, MagicMock], None, None]:
+    def mock_components(self) -> Generator[dict[str, MagicMock]]:
         # Mock heavy components
         with (
             patch("src.retrieval.reranker.ContextAwareReranker") as MockReranker,
@@ -18,8 +21,8 @@ class TestAdvancedRetrievalIntegration:
 
             # Mock rerank to reverse the order for testing
             def side_effect_rerank(
-                query: str, docs: List[Dict[str, Any]], top_k: Optional[int] = None
-            ) -> List[Dict[str, Any]]:
+                query: str, docs: list[dict[str, Any]], top_k: int | None = None
+            ) -> list[dict[str, Any]]:
                 return list(reversed(docs))[:top_k] if top_k else list(reversed(docs))
 
             mock_reranker_instance.rerank.side_effect = side_effect_rerank
@@ -33,7 +36,7 @@ class TestAdvancedRetrievalIntegration:
 
             yield {"reranker": mock_reranker_instance, "hybrid": mock_hybrid_instance}
 
-    def test_pipeline_flow(self, mock_components: Dict[str, MagicMock]) -> None:
+    def test_pipeline_flow(self, mock_components: dict[str, MagicMock]) -> None:
         """Test the full flow of the pipeline"""
         # Patch CrossEncoder inside Reranker to avoid model load
         with patch("src.retrieval.reranker.CrossEncoder") as MockModel:

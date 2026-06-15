@@ -1,7 +1,7 @@
 import json
+import logging
 import os
 import sys
-import logging
 
 # Add src to python path to reuse GraphManager
 # Add src to python path to reuse GraphManager
@@ -26,7 +26,7 @@ def deploy_to_neo4j():
         logger.error(f"Failed to connect to Neo4j: {e}")
         return
 
-    with open(INPUT_FILE, "r") as f:
+    with open(INPUT_FILE) as f:
         data = json.load(f)
 
     nodes = data.get("nodes", [])

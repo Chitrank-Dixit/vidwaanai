@@ -4,18 +4,18 @@ Extract Ramayan ontology responses from manual batch query prompts (Batches 171-
 Group responses into 10-batch JSON files: 171-180, 181-190, 191-196.
 """
 
-import os
-import sys
 import json
 import logging
-from typing import Dict, Any, List
+import os
+import sys
+from typing import Any
 
 # Add project root to python path to import settings and clients
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from src.core.config import settings
-from src.llm.openai_client import OpenAIClient
 from src.llm.lmstudio_client import LMStudioClient
+from src.llm.openai_client import OpenAIClient
 
 # Set up logging
 logging.basicConfig(
@@ -57,7 +57,7 @@ def get_llm_client():
         return OpenAIClient(api_key=settings.OPENAI_API_KEY, model=settings.LLM_MODEL)
 
 
-def clean_json_response(raw_text: str) -> Dict[str, Any]:
+def clean_json_response(raw_text: str) -> dict[str, Any]:
     """Clean markdown code block wrapping from the LLM JSON response."""
     cleaned = raw_text.strip()
     if "```json" in cleaned:
@@ -67,10 +67,10 @@ def clean_json_response(raw_text: str) -> Dict[str, Any]:
     return json.loads(cleaned)
 
 
-def extract_from_file(client, filepath: str) -> Dict[str, Any]:
+def extract_from_file(client, filepath: str) -> dict[str, Any]:
     """Read prompt from file and query LLM for entity extraction."""
     logger.info(f"Processing prompt file: {filepath}")
-    with open(filepath, "r", encoding="utf-8") as f:
+    with open(filepath, encoding="utf-8") as f:
         prompt = f.read()
 
     # Query LLM (temperature=0.1 for high reproducibility/accuracy)
@@ -91,7 +91,7 @@ def extract_from_file(client, filepath: str) -> Dict[str, Any]:
         return {"entities": [], "relationships": []}
 
 
-def merge_responses(responses: List[Dict[str, Any]]) -> Dict[str, Any]:
+def merge_responses(responses: list[dict[str, Any]]) -> dict[str, Any]:
     """Merge multiple batch responses together, deduplicating entities by name."""
     merged = {"ontology": ONTOLOGY_HEADER, "entities": [], "relationships": []}
 

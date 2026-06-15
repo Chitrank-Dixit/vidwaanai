@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from langdetect import detect_langs
 
@@ -14,7 +14,7 @@ SUPPORTED_LANGUAGES = {
 }
 
 
-def detect_language(query: str) -> Dict[str, Any]:
+def detect_language(query: str) -> dict[str, Any]:
     """
     Detects the language of the given query.
 
@@ -49,7 +49,7 @@ def detect_language(query: str) -> Dict[str, Any]:
         }
 
 
-def preprocess_text(text: str, language: str = "en") -> Dict[str, Any]:
+def preprocess_text(text: str, language: str = "en") -> dict[str, Any]:
     """
     Preprocesses the text based on the specified language.
 
@@ -76,7 +76,7 @@ def preprocess_text(text: str, language: str = "en") -> Dict[str, Any]:
     }
 
 
-def get_supported_languages() -> List[Dict[str, str]]:
+def get_supported_languages() -> list[dict[str, str]]:
     """
     Returns a list of supported languages.
 

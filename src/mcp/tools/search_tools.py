@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Dict, List
+from typing import Any
 
 # Mock implementations for now, will integrate with actual VidwaanAI modules later
 # In a real implementation, we would import from src.retrieval, src.embeddings, etc.
@@ -7,7 +7,7 @@ from typing import Any, Dict, List
 logger = logging.getLogger("mcp_search_tools")
 
 
-def generate_embeddings(text: str, language: str = "en") -> Dict[str, Any]:
+def generate_embeddings(text: str, language: str = "en") -> dict[str, Any]:
     """
     Generates embeddings for the given text.
 
@@ -31,8 +31,8 @@ def generate_embeddings(text: str, language: str = "en") -> Dict[str, Any]:
 
 
 def search_documents(
-    embedding: List[float], language: str, top_k: int = 5
-) -> List[Dict[str, Any]]:
+    embedding: list[float], language: str, top_k: int = 5
+) -> list[dict[str, Any]]:
     """
     Searches for documents using the given embedding.
 
@@ -58,7 +58,7 @@ def search_documents(
     return results
 
 
-def hybrid_search(query: str, bm25_weight: float = 0.5) -> List[Dict[str, Any]]:
+def hybrid_search(query: str, bm25_weight: float = 0.5) -> list[dict[str, Any]]:
     """
     Performs hybrid search (Semantic + BM25).
 
@@ -80,7 +80,7 @@ def hybrid_search(query: str, bm25_weight: float = 0.5) -> List[Dict[str, Any]]:
     ]
 
 
-def get_search_strategies() -> List[str]:
+def get_search_strategies() -> list[str]:
     """
     Returns available search strategies.
     """

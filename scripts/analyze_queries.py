@@ -1,8 +1,9 @@
 import os
 import sys
+
 import psycopg2
-from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
+from psycopg2.extras import RealDictCursor
 from tabulate import tabulate  # type: ignore
 
 # Add project root to path

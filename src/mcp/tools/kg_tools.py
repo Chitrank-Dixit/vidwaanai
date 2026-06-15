@@ -1,7 +1,7 @@
-from typing import Any, Dict, List
+from typing import Any
 
 
-def query_knowledge_graph(query: str, language: str = "en") -> List[Dict[str, Any]]:
+def query_knowledge_graph(query: str, language: str = "en") -> list[dict[str, Any]]:
     """
     Executes a Cypher query or natural language query against the Knowledge Graph.
 
@@ -24,7 +24,7 @@ def query_knowledge_graph(query: str, language: str = "en") -> List[Dict[str, An
     ]
 
 
-def find_related_documents(document_id: str) -> List[Dict[str, Any]]:
+def find_related_documents(document_id: str) -> list[dict[str, Any]]:
     """
     Finds documents related to the given document ID via the Knowledge Graph.
 
@@ -44,7 +44,7 @@ def find_related_documents(document_id: str) -> List[Dict[str, Any]]:
     ]
 
 
-def get_entity_context(entity: str, entity_type: str = "Concept") -> Dict[str, Any]:
+def get_entity_context(entity: str, entity_type: str = "Concept") -> dict[str, Any]:
     """
     Retrieves context and definition for a specific entity.
 

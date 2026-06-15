@@ -1,7 +1,8 @@
-import logging
 import json
+import logging
+from typing import Any
+
 import redis
-from typing import Any, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -10,7 +11,7 @@ class RedisCache:
     """Redis-backed cache implementation."""
 
     def __init__(self, redis_url: str = "redis://localhost:6379", ttl: int = 3600):
-        self.client: Optional[redis.Redis[Any]] = None
+        self.client: redis.Redis[Any] | None = None
         try:
             self.client = redis.from_url(redis_url, decode_responses=True)
             self.ttl = ttl
@@ -19,7 +20,7 @@ class RedisCache:
             logger.error(f"Failed to connect to Redis: {e}")
             self.client = None
 
-    def get(self, key: str) -> Optional[Any]:
+    def get(self, key: str) -> Any | None:
         """Get value from cache."""
         if not self.client:
             return None
@@ -30,7 +31,7 @@ class RedisCache:
             logger.error(f"Redis get error: {e}")
             return None
 
-    def set(self, key: str, value: Any, ttl: Optional[int] = None) -> bool:
+    def set(self, key: str, value: Any, ttl: int | None = None) -> bool:
         """Set value in cache."""
         if not self.client:
             return False

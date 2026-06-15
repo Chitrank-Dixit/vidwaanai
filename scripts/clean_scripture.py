@@ -2,7 +2,6 @@ import argparse
 import logging
 import os
 import sys
-from typing import Optional
 
 # Add project root to path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -21,7 +20,7 @@ class ScriptureCleaner:
     def __init__(self, db_manager: DatabaseManager):
         self.db = db_manager
 
-    def clean_scripture(self, name: Optional[str] = None, code: Optional[str] = None):
+    def clean_scripture(self, name: str | None = None, code: str | None = None):
         """Clean up data for a scripture by name or code."""
         if not name and not code:
             logger.error("Must provide either name or code.")
@@ -43,9 +42,7 @@ class ScriptureCleaner:
         # If we only have the name, we can't easily identify the file unless we query the DB first *before* deleting.
         # Let's try to fetch source_path from DB before deleting.
 
-    def _get_source_path(
-        self, name: Optional[str], code: Optional[str]
-    ) -> Optional[str]:
+    def _get_source_path(self, name: str | None, code: str | None) -> str | None:
         try:
             with self.db._get_connection() as conn:
                 with conn.cursor() as cursor:
@@ -65,7 +62,7 @@ class ScriptureCleaner:
             logger.warning(f"Could not fetch source path: {e}")
         return None
 
-    def _clean_postgres(self, name: Optional[str], code: Optional[str]):
+    def _clean_postgres(self, name: str | None, code: str | None):
         logger.info("Cleaning Postgres data...")
         try:
             # Get source path first for file tracking cleanup
@@ -138,7 +135,7 @@ class ScriptureCleaner:
 
         try:
             # Read all lines
-            with open(TRACKING_FILE, "r") as f:
+            with open(TRACKING_FILE) as f:
                 lines = f.read().splitlines()
 
             # Filter out the matching path (fuzzy match or exact?)
@@ -163,7 +160,7 @@ class ScriptureCleaner:
         except Exception as e:
             logger.error(f"Tracking file cleanup failed: {e}")
 
-    def _clean_neo4j(self, name: Optional[str], code: Optional[str]):
+    def _clean_neo4j(self, name: str | None, code: str | None):
         if not settings.NEO4J_URI:
             logger.info("Neo4j URI not set, skipping Graph cleanup.")
             return

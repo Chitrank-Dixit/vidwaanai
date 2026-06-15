@@ -1,6 +1,8 @@
-import pytest
 import unittest
 from unittest.mock import MagicMock
+
+import pytest
+
 from src.retrieval.advanced_retrieval_pipeline import AdvancedRetrievalPipeline
 
 

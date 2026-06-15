@@ -1,9 +1,9 @@
 import time
+from collections.abc import Callable
 from functools import wraps
+from typing import Any, TypeVar
 
 from src.core.logger import get_logger
-
-from typing import Any, Callable, TypeVar
 
 logger = get_logger(__name__)
 

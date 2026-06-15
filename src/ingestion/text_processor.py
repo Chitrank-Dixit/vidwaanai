@@ -1,5 +1,6 @@
-from langdetect import detect
 import re
+
+from langdetect import detect
 
 
 class TextProcessor:

@@ -1,5 +1,6 @@
 from enum import Enum
-from typing import Any, Dict, Optional
+from typing import Any
+
 from pydantic import BaseModel, Field
 
 
@@ -61,8 +62,8 @@ class EntityNode(BaseModel):
     id: str  # Unique identifier (e.g., "entity:Agni")
     name: str  # Display name
     type: EntityType
-    description: Optional[str] = None
-    properties: Dict[str, Any] = Field(default_factory=dict)
+    description: str | None = None
+    properties: dict[str, Any] = Field(default_factory=dict)
 
 
 class RelationEdge(BaseModel):
@@ -71,6 +72,6 @@ class RelationEdge(BaseModel):
     source_id: str
     target_id: str
     type: RelationType
-    description: Optional[str] = None
-    properties: Dict[str, Any] = Field(default_factory=dict)
+    description: str | None = None
+    properties: dict[str, Any] = Field(default_factory=dict)
     weight: float = 1.0

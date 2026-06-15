@@ -1,7 +1,8 @@
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-from neo4j import GraphDatabase, Driver
+from neo4j import Driver, GraphDatabase
+
 from src.core.config import settings
 
 logger = logging.getLogger(__name__)
@@ -15,7 +16,7 @@ class GraphManager:
         self.uri = settings.NEO4J_URI
         self.user = settings.NEO4J_USER
         self.password = settings.NEO4J_PASSWORD
-        self.driver: Optional[Driver] = None
+        self.driver: Driver | None = None
 
         try:
             self.driver = GraphDatabase.driver(
@@ -44,8 +45,8 @@ class GraphManager:
             logger.info("Neo4j driver closed")
 
     def execute_query(
-        self, query: str, parameters: Optional[Dict[str, Any]] = None
-    ) -> List[Dict[str, Any]]:
+        self, query: str, parameters: dict[str, Any] | None = None
+    ) -> list[dict[str, Any]]:
         """Execute a Cypher query and return results as a list of dictionaries."""
         if not self.driver:
             raise Exception("Neo4j driver is not initialized")

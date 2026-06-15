@@ -1,18 +1,19 @@
-from fastapi import APIRouter, HTTPException, Depends
-from datetime import datetime
-from typing import Dict, Any
-import uuid
 import logging
+import uuid
+from datetime import datetime
+from typing import Any
 
+from fastapi import APIRouter, Depends, HTTPException
+
+from src.api.dependencies import get_agent_service
 from src.api.models import (
+    ErrorResponse,
     QueryRequest,
     QueryResponse,
-    ErrorResponse,
     SessionCreateRequest,
     SessionResponse,
 )
 from src.core.agent_service import AgentService
-from src.api.dependencies import get_agent_service
 
 # Initialize Router
 agent_router = APIRouter(prefix="/api/v1/agent", tags=["Agent"])
@@ -70,7 +71,7 @@ async def query_agent(
 )
 async def health_check(
     service: AgentService = Depends(get_agent_service),
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Health check endpoint.
     """

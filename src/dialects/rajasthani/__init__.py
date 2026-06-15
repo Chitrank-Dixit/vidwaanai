@@ -1,10 +1,10 @@
 import json
 import os
-from typing import List, Dict, Any, Set
+from typing import Any
 
-from src.language.language_processor import LanguageProcessor
-from src.dialects.rajasthani.tokenizer import RajasthaniTokenizer
 from src.dialects.rajasthani.normalizer import RajasthaniNormalizer
+from src.dialects.rajasthani.tokenizer import RajasthaniTokenizer
+from src.language.language_processor import LanguageProcessor
 
 
 class RajasthaniProcessor(LanguageProcessor):
@@ -16,7 +16,7 @@ class RajasthaniProcessor(LanguageProcessor):
     def __init__(self) -> None:
         self.tokenizer = RajasthaniTokenizer()
         self.normalizer = RajasthaniNormalizer()
-        self.stop_words: Set[str] = set()
+        self.stop_words: set[str] = set()
         self._load_resources()
 
     def _load_resources(self) -> None:
@@ -60,7 +60,7 @@ class RajasthaniProcessor(LanguageProcessor):
         )
         if os.path.exists(lexicon_path):
             try:
-                with open(lexicon_path, "r", encoding="utf-8") as f:
+                with open(lexicon_path, encoding="utf-8") as f:
                     data = json.load(f)
                     if "stop_words" in data:
                         self.stop_words.update(data["stop_words"])
@@ -77,7 +77,7 @@ class RajasthaniProcessor(LanguageProcessor):
         self.grammar = {}
         if os.path.exists(grammar_path):
             try:
-                with open(grammar_path, "r", encoding="utf-8") as f:
+                with open(grammar_path, encoding="utf-8") as f:
                     self.grammar = json.load(f)
             except Exception as e:
                 print(f"Warning: Failed to load Rajasthani grammar: {e}")
@@ -86,15 +86,15 @@ class RajasthaniProcessor(LanguageProcessor):
         """Normalize Rajasthani text."""
         return self.normalizer.normalize(text)
 
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str) -> list[str]:
         """Tokenize Rajasthani text."""
         return self.tokenizer.tokenize_words(text)
 
-    def remove_stopwords(self, tokens: List[str]) -> List[str]:
+    def remove_stopwords(self, tokens: list[str]) -> list[str]:
         """Remove stop words."""
         return [t for t in tokens if t not in self.stop_words]
 
-    def process(self, text: str) -> Dict[str, Any]:
+    def process(self, text: str) -> dict[str, Any]:
         """
         Full processing pipeline.
         """

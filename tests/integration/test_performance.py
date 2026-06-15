@@ -1,7 +1,9 @@
-import pytest
 import time
-from typing import Generator
-from unittest.mock import patch, MagicMock
+from collections.abc import Generator
+from unittest.mock import MagicMock, patch
+
+import pytest
+
 from src.agent.vidwaan_agent import VidwaanAI
 
 
@@ -10,9 +12,7 @@ class TestPerformance:
     def mock_deps(
         self,
     ) -> Generator[
-        tuple[MagicMock, MagicMock, MagicMock, MagicMock, MagicMock, MagicMock],
-        None,
-        None,
+        tuple[MagicMock, MagicMock, MagicMock, MagicMock, MagicMock, MagicMock]
     ]:
         with (
             patch("src.agent.vidwaan_agent.DatabaseManager") as mock_db,

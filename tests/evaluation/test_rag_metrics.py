@@ -1,15 +1,16 @@
-import pytest
 import json
 import os
 import time
 from unittest.mock import MagicMock, patch
-from deepeval.metrics import FaithfulnessMetric, AnswerRelevancyMetric
+
+import pytest
+from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric
 from deepeval.test_case import LLMTestCase
 
 # Load Golden Dataset
 DATASET_PATH = os.path.join(os.path.dirname(__file__), "golden_dataset.json")
 try:
-    with open(DATASET_PATH, "r") as f:
+    with open(DATASET_PATH) as f:
         GOLDEN_DATASET = json.load(f)
 except FileNotFoundError:
     GOLDEN_DATASET = []

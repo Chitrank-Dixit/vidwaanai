@@ -9,9 +9,10 @@ information (like entities and relations) and need to persist them as a graph.
 
 import json
 import logging
-from typing import Any, Dict, List
+from typing import Any
 
 from neo4j import GraphDatabase
+
 from src.graph.schema import EntityType, RelationType
 
 logger = logging.getLogger(__name__)
@@ -34,7 +35,7 @@ class GraphBuilder:
             session.run("MATCH (n) DETACH DELETE n")
             logger.info("Graph cleared")
 
-    def _sanitize_attributes(self, attributes: Dict[str, Any]) -> Dict[str, Any]:
+    def _sanitize_attributes(self, attributes: dict[str, Any]) -> dict[str, Any]:
         """Ensures attributes are Neo4j compatible (primitives or JSON strings)."""
         if attributes is None:
             return {}
@@ -43,7 +44,7 @@ class GraphBuilder:
         if not isinstance(attributes, dict):
             return {"value": str(attributes)}
 
-        sanitized: Dict[str, Any] = {}
+        sanitized: dict[str, Any] = {}
         for k, v in attributes.items():
             if isinstance(v, (str, int, float, bool)):
                 sanitized[k] = v
@@ -64,7 +65,7 @@ class GraphBuilder:
         return f"{entity_type}:{clean_name}"
 
     def create_entity(
-        self, name: str, entity_type: str, attributes: Dict[str, Any]
+        self, name: str, entity_type: str, attributes: dict[str, Any]
     ) -> str:
         """
         Generic method to create/merge an entity node.
@@ -105,7 +106,7 @@ class GraphBuilder:
         return node_id
 
     def create_relationship(
-        self, from_name: str, to_name: str, rel_type: str, attributes: Dict[str, Any]
+        self, from_name: str, to_name: str, rel_type: str, attributes: dict[str, Any]
     ) -> None:
         """
         Creates a relationship.
@@ -145,7 +146,7 @@ class GraphBuilder:
             )
             logger.debug(f"Merged Rel: {from_name} -> {to_name} ({rel_type})")
 
-    def create_entities_batch(self, entities: List[Dict[str, Any]]) -> None:
+    def create_entities_batch(self, entities: list[dict[str, Any]]) -> None:
         """
         Batch merge multiple entities.
         Args:
@@ -155,7 +156,7 @@ class GraphBuilder:
             return
 
         # Group by type to use efficient parameterized queries
-        by_type: Dict[str, List[Dict[str, Any]]] = {}
+        by_type: dict[str, list[dict[str, Any]]] = {}
         for ent in entities:
             etype = ent["type"]
             if etype not in [e.value for e in EntityType]:
@@ -180,7 +181,7 @@ class GraphBuilder:
                 session.run(query, batch=batch)  # type: ignore
                 logger.info(f"Batch Merged {len(batch)} nodes of type {etype}")
 
-    def create_relationships_batch(self, relationships: List[Dict[str, Any]]) -> None:
+    def create_relationships_batch(self, relationships: list[dict[str, Any]]) -> None:
         """
         Batch merge relationships.
         Args:
@@ -216,7 +217,7 @@ class GraphBuilder:
         # We can't easily group by type for the UNWIND if the type is dynamic in the relationship itself
         # unless we use APOC. Without APOC, we must group by relationship type.
 
-        by_type: Dict[str, List[Dict[str, Any]]] = {}
+        by_type: dict[str, list[dict[str, Any]]] = {}
         for item in prepared:
             rtype = item["type"]
             if rtype not in by_type:

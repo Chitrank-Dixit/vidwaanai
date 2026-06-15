@@ -1,18 +1,17 @@
 import argparse
-import logging
-import sys
-import os
 import json
-from typing import List, Dict
+import logging
+import os
+import sys
 
 # Add project root to path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-from src.ingestion.pdf_extractor import PdfExtractor
-from src.ingestion.text_processor import TextProcessor
-from src.ingestion.scripture_parsers import get_parser
-from src.db.db_manager import DatabaseManager
 from src.core.config import settings
+from src.db.db_manager import DatabaseManager
+from src.ingestion.pdf_extractor import PdfExtractor
+from src.ingestion.scripture_parsers import get_parser
+from src.ingestion.text_processor import TextProcessor
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -76,7 +75,7 @@ class ScriptureIngestionPipeline:
         self._store_verses(verses, name, code)
         logger.info(f"  ✓ Pipeline complete for {name}")
 
-    def _store_verses(self, verses: List[Dict], name: str, code: str):
+    def _store_verses(self, verses: list[dict], name: str, code: str):
         """Store parsed verses in database using Veda schema mapping."""
         try:
             with self.db._get_connection() as conn:
@@ -217,7 +216,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    from src.ingestion.utils import should_process, mark_processed
+    from src.ingestion.utils import mark_processed, should_process
 
     if not should_process(args.pdf, args.force):
         logger.info(

@@ -1,5 +1,4 @@
 import regex
-from typing import List
 
 
 class BhojpuriTokenizer:
@@ -17,7 +16,7 @@ class BhojpuriTokenizer:
         # Sentence splitter pattern
         self.sentence_pattern = regex.compile(r"(?<=[।॥?!.])\s+")
 
-    def tokenize_words(self, text: str) -> List[str]:
+    def tokenize_words(self, text: str) -> list[str]:
         """
         Tokenize text into words.
 
@@ -31,7 +30,7 @@ class BhojpuriTokenizer:
             return []
         return [str(match) for match in self.word_pattern.findall(text)]
 
-    def tokenize_sentences(self, text: str) -> List[str]:
+    def tokenize_sentences(self, text: str) -> list[str]:
         """
         Split text into sentences.
 

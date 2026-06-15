@@ -2,7 +2,7 @@ import json
 import os
 import sys
 import time
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,11 +14,11 @@ logger = get_logger(__name__)
 
 class QueryProfiler:
     def __init__(self) -> None:
-        self.results: List[Dict[str, Any]] = []
+        self.results: list[dict[str, Any]] = []
         logger.info("Initializing VidwaanAI agent...")
         try:
-            from src.core.config import settings
             from src.agent.vidwaan_agent import VidwaanAI
+            from src.core.config import settings
 
             self.agent = VidwaanAI(
                 db_url=settings.DATABASE_URL,
@@ -33,7 +33,7 @@ class QueryProfiler:
             logger.error(f"Failed to initialize agent: {e}")
             raise
 
-    def profile_query(self, query_text: str) -> Optional[Dict[str, Any]]:
+    def profile_query(self, query_text: str) -> dict[str, Any] | None:
         start_time = time.time()
 
         try:
@@ -55,7 +55,7 @@ class QueryProfiler:
             return None
 
     def profile_queries_from_file(self, file_path: str) -> None:
-        with open(file_path, "r") as f:
+        with open(file_path) as f:
             queries = f.readlines()
 
         for query in queries:
@@ -63,7 +63,7 @@ class QueryProfiler:
                 print(f"Profiling: {query.strip()}")
                 self.profile_query(query.strip())
 
-    def generate_report(self) -> Union[str, Dict[str, Any]]:
+    def generate_report(self) -> str | dict[str, Any]:
         if not self.results:
             return "No results to report"
 

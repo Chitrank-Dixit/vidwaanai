@@ -1,5 +1,5 @@
 import time
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -10,14 +10,14 @@ class LanguageEmbeddingCache:
     """Cache embeddings for multilingual queries"""
 
     def __init__(self, max_size: int = 10000, ttl: int = 86400) -> None:
-        self.cache: Dict[str, Dict[str, Any]] = {}
+        self.cache: dict[str, dict[str, Any]] = {}
         self.max_size = max_size
         self.ttl = ttl
 
     def _make_key(self, text: str, language: str) -> str:
         return f"{language}:{text}"
 
-    def get_embedding(self, text: str, language: str) -> Optional[List[float]]:
+    def get_embedding(self, text: str, language: str) -> list[float] | None:
         """Get cached embedding"""
         key = self._make_key(text, language)
 
@@ -29,7 +29,7 @@ class LanguageEmbeddingCache:
                 del self.cache[key]
         return None
 
-    def set_embedding(self, text: str, language: str, embedding: List[float]) -> None:
+    def set_embedding(self, text: str, language: str, embedding: list[float]) -> None:
         """Cache embedding"""
         if len(self.cache) >= self.max_size:
             # Simple eviction: remove oldest

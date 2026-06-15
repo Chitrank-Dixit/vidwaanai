@@ -1,6 +1,9 @@
+from collections.abc import Generator
+from typing import cast
+from unittest.mock import MagicMock, patch
+
 import pytest
-from typing import Generator, cast
-from unittest.mock import patch, MagicMock
+
 from src.agent.vidwaan_agent import VidwaanAI
 
 
@@ -8,7 +11,7 @@ class TestWorkflows:
     @pytest.fixture
     def mock_deps(
         self,
-    ) -> Generator[tuple[MagicMock, MagicMock, MagicMock], None, None]:
+    ) -> Generator[tuple[MagicMock, MagicMock, MagicMock]]:
         with (
             patch("src.agent.vidwaan_agent.DatabaseManager") as mock_db,
             patch("src.agent.vidwaan_agent.OpenAIClient") as mock_llm,

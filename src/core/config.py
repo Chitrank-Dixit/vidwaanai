@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -12,8 +10,8 @@ class Settings(BaseSettings):
     )
 
     # API keys
-    OPENAI_API_KEY: Optional[str] = None
-    KRUTRIM_API_KEY: Optional[str] = None
+    OPENAI_API_KEY: str | None = None
+    KRUTRIM_API_KEY: str | None = None
 
     # Database
     DATABASE_URL: str = (
@@ -25,7 +23,7 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "gpt-4-turbo"
 
     # NEW: Vyakyarth location hint (optional)
-    vyakyarth_model_path: Optional[str] = None  # e.g. "local"
+    vyakyarth_model_path: str | None = None  # e.g. "local"
 
     # NEW: LLM backend selector
     #   "openai"   -> use OpenAIClient

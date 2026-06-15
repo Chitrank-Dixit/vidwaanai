@@ -1,6 +1,6 @@
-import sys
-import os
 import logging
+import os
+import sys
 
 # Add src to python path to ensure imports work
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -28,8 +28,8 @@ def debug_pdf(file_path):
             ocr.extract_text_with_ocr(file_path)
             # Just take text from OCR results
             # Warning: OCR is slow, let's limit to first 1 page
-            from pdf2image import convert_from_path
             import pytesseract
+            from pdf2image import convert_from_path
 
             print("Converting PDF to image (page 1)...")
             images = convert_from_path(file_path, first_page=1, last_page=1)

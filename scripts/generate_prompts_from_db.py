@@ -1,6 +1,6 @@
+import argparse
 import os
 import sys
-import argparse
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))

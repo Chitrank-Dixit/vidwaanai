@@ -1,6 +1,7 @@
+from unittest.mock import Mock
+
 import pytest
 from fastapi.testclient import TestClient
-from unittest.mock import Mock
 
 from src.api.main import app
 from src.api.routes import get_agent_service

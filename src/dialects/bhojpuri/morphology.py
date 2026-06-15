@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Any
 
 
 class BhojpuriMorphologicalAnalyzer:
@@ -23,7 +23,7 @@ class BhojpuriMorphologicalAnalyzer:
             ("सन", "plural"),  # -san (plural marker sometimes)
         ]
 
-    def analyze(self, word: str) -> Dict[str, Any]:
+    def analyze(self, word: str) -> dict[str, Any]:
         """
         Analyze a word for its root and grammatical features.
 

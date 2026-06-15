@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 
 def generate_mock_data(batch_id, agent):

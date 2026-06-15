@@ -1,6 +1,8 @@
-import pytest
 from unittest.mock import MagicMock, patch
+
+import pytest
 import requests
+
 from src.llm.lmstudio_client import LMStudioClient
 
 

@@ -3,7 +3,7 @@
 import logging
 from contextlib import contextmanager
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from psycopg2.extras import RealDictCursor
 from psycopg2.pool import ThreadedConnectionPool
@@ -53,7 +53,7 @@ class DatabaseManager:
             if conn:
                 self.pool.putconn(conn)
 
-    def get_scriptures(self) -> List[Dict[str, Any]]:
+    def get_scriptures(self) -> list[dict[str, Any]]:
         """Get all loaded scriptures."""
         # This method implementation seems broken in original file (references undefined 'name'),
         # but I will update the connection usage pattern regardless.
@@ -104,8 +104,8 @@ class DatabaseManager:
         verse_num: int,
         text: str,
         translation: str,
-        themes: List[str],
-        speakers: List[str],
+        themes: list[str],
+        speakers: list[str],
     ) -> int:
         """Add a verse to database."""
         try:
@@ -144,7 +144,7 @@ class DatabaseManager:
             raise
 
     def add_embedding(
-        self, verse_id: int, embedding: List[float], language: str
+        self, verse_id: int, embedding: list[float], language: str
     ) -> None:
         """Add embedding for a verse."""
         try:
@@ -168,10 +168,10 @@ class DatabaseManager:
 
     def retrieve_verses(
         self,
-        query_embedding: List[float],
-        scripture_filter: Optional[str] = None,
+        query_embedding: list[float],
+        scripture_filter: str | None = None,
         top_k: int = 5,
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Retrieve verses similar to query embedding."""
         try:
             with self._get_connection() as conn:
@@ -261,7 +261,7 @@ class DatabaseManager:
         except Exception as e:
             logger.error(f"Error logging query: {str(e)}")
 
-    def get_all_verses(self) -> List[Dict[str, Any]]:
+    def get_all_verses(self) -> list[dict[str, Any]]:
         """Get all verses from database (both generic verses and Veda mantras)."""
         try:
             with self._get_connection() as conn:

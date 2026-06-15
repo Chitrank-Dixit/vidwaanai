@@ -1,16 +1,16 @@
-import sys
 import os
+import sys
 import time
 
 # Add src to python path to ensure imports work
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
+import logging
+from collections import defaultdict
+
+from src.core.config import settings
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
-from src.core.config import settings
-import logging
-from typing import List, Dict
-from collections import defaultdict
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -106,7 +106,7 @@ class ScriptureVectorizationPipeline:
             f"Vectorization complete. Processed {total_processed} chunks in {total_time:.2f}s."
         )
 
-    def _generate_chunks_for_mantra(self, mantra: Dict, sukta_map: Dict) -> List[Dict]:
+    def _generate_chunks_for_mantra(self, mantra: dict, sukta_map: dict) -> list[dict]:
         """Generate chunks without DB calls."""
         chunks = []
 
@@ -145,7 +145,7 @@ class ScriptureVectorizationPipeline:
 
         return chunks
 
-    def _process_and_insert_batch(self, batch_data: List[Dict]):
+    def _process_and_insert_batch(self, batch_data: list[dict]):
         """Embed and store a batch using bulk insert."""
         texts = [item["text"] for item in batch_data]
 

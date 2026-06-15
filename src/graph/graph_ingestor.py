@@ -1,10 +1,10 @@
 import logging
-from typing import List, Dict, Any, Optional
 import time
+from typing import Any
 
 from src.db.db_manager import DatabaseManager
-from src.graph.graph_builder import GraphBuilder
 from src.graph.entity_extractor import EntityExtractor
+from src.graph.graph_builder import GraphBuilder
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class GraphIngestor:
 
     def process_mantra(
         self, mantra_id: int, text: str, translation: str, source: str
-    ) -> Dict[str, int]:
+    ) -> dict[str, int]:
         """
         Process a single mantra: extract entities and push to graph.
         Returns stats about extracted items.
@@ -79,8 +79,8 @@ class GraphIngestor:
         }
 
     def ingest_all_mantras(
-        self, batch_size: int = 10, limit: Optional[int] = None
-    ) -> Dict[str, int]:
+        self, batch_size: int = 10, limit: int | None = None
+    ) -> dict[str, int]:
         """
         Ingest all mantras from the database.
         """
@@ -125,7 +125,7 @@ class GraphIngestor:
         logger.info(f"Ingestion complete in {duration:.2f}s. Stats: {stats}")
         return stats
 
-    def _fetch_mantras(self, limit: int, offset: int) -> List[Dict[str, Any]]:
+    def _fetch_mantras(self, limit: int, offset: int) -> list[dict[str, Any]]:
         """
         Helper to fetch mantras from DB.
         """

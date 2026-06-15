@@ -1,9 +1,10 @@
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open, patch
+
 from src.ingestion.utils import (
+    TRACKING_FILE,
     is_processed,
     mark_processed,
     should_process,
-    TRACKING_FILE,
 )
 from src.utils.confidence import calculate_confidence_score
 

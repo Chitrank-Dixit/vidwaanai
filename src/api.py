@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, cast
+from typing import Any, cast
 
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel
@@ -32,20 +32,20 @@ def get_agent() -> VidwaanAI:
 
 class QueryRequest(BaseModel):
     text: str
-    language: Optional[str] = "en"
-    scripture_filter: Optional[str] = None
+    language: str | None = "en"
+    scripture_filter: str | None = None
 
 
 class QueryResponse(BaseModel):
     answer: str
-    retrieved_verses: List[Dict[str, Any]]
+    retrieved_verses: list[dict[str, Any]]
     language: str
-    confidence: Dict[str, Any]
+    confidence: dict[str, Any]
     timestamp: str
 
 
 @app.get("/health")
-def health_check() -> Dict[str, str]:
+def health_check() -> dict[str, str]:
     return {"status": "healthy"}
 
 

@@ -1,8 +1,8 @@
 import hashlib
 import json
-import time
-from typing import Any, Dict, List, Optional, cast
 import os
+import time
+from typing import Any, cast
 
 from src.cache.redis_cache import RedisCache
 from src.core.logger import get_logger
@@ -14,26 +14,26 @@ class SearchCache:
     """Cache for retrieval results (before LLM generation)."""
 
     def __init__(
-        self, max_size: int = 1000, ttl: int = 3600, redis_url: Optional[str] = None
+        self, max_size: int = 1000, ttl: int = 3600, redis_url: str | None = None
     ) -> None:
         # If REDIS_URL env var is present or passed, use Redis
         self.redis_url = redis_url or os.getenv("REDIS_URL")
         self.redis = RedisCache(self.redis_url, ttl) if self.redis_url else None
 
         # Fallback in-memory cache
-        self.cache: Dict[str, Dict[str, Any]] = {}
+        self.cache: dict[str, dict[str, Any]] = {}
         self.max_size = max_size
         self.ttl = ttl
 
-    def _make_key(self, query: str, filters: Optional[Dict[str, Any]] = None) -> str:
+    def _make_key(self, query: str, filters: dict[str, Any] | None = None) -> str:
         """Create a stable key for query and filters."""
         key_content = {"q": query, "f": filters or {}}
         key_str = json.dumps(key_content, sort_keys=True)
         return "search:" + hashlib.sha256(key_str.encode("utf-8")).hexdigest()
 
     def get(
-        self, query: str, filters: Optional[Dict[str, Any]] = None
-    ) -> Optional[List[Dict[str, Any]]]:
+        self, query: str, filters: dict[str, Any] | None = None
+    ) -> list[dict[str, Any]] | None:
         """Get cached search results."""
         key = self._make_key(query, filters)
 
@@ -42,7 +42,7 @@ class SearchCache:
             val = self.redis.get(key)
             if val:
                 logger.info(f"Redis cache hit for {key}")
-                return cast(List[Dict[str, Any]], val)
+                return cast(list[dict[str, Any]], val)
 
         # Fallback to in-memory
         if key in self.cache:
@@ -56,8 +56,8 @@ class SearchCache:
     def set(
         self,
         query: str,
-        results: List[Dict[str, Any]],
-        filters: Optional[Dict[str, Any]] = None,
+        results: list[dict[str, Any]],
+        filters: dict[str, Any] | None = None,
     ) -> None:
         """Cache search results."""
         key = self._make_key(query, filters)

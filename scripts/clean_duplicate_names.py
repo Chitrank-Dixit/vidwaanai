@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import os
-import json
 import glob
+import json
 import logging
+import os
 
 # Set up logging
 logging.basicConfig(
@@ -131,7 +131,7 @@ def clean_name(name: str) -> str:
 def clean_file(filepath: str) -> bool:
     """Read a JSON file, normalize names and keys, and write back."""
     try:
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             data = json.load(f)
 
         modified = False

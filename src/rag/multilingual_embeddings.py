@@ -1,5 +1,3 @@
-from typing import List
-
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
@@ -17,7 +15,7 @@ class MultilingualEmbeddings:
 
     def embed_text(
         self, text: str, language: str = "en", is_document: bool = False
-    ) -> List[float]:
+    ) -> list[float]:
         """
         Embed text in multilingual space
         Works for any language supported by model
@@ -31,7 +29,7 @@ class MultilingualEmbeddings:
 
         return list(embedding.tolist())
 
-    def embed_corpus(self, texts: List[str], batch_size: int = 32) -> np.ndarray:
+    def embed_corpus(self, texts: list[str], batch_size: int = 32) -> np.ndarray:
         """
         Embed multiple texts efficiently
         Batch processing for faster embedding

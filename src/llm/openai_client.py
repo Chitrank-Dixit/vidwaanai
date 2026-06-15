@@ -1,8 +1,9 @@
 """OpenAI LLM client."""
 
+from openai import OpenAI
+
 from src.core.logger import get_logger
 from src.core.profiler import profile_function
-from openai import OpenAI
 
 logger = get_logger(__name__)
 

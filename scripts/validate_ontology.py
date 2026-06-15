@@ -1,12 +1,12 @@
 import json
 import os
 import sys
-from typing import Dict, Any, Set, List
+from typing import Any
 
 INPUT_FILE = "ontology_project/merged_output/raw_entities.json"
 
 
-def validate_nodes(nodes: List[Dict[str, Any]]) -> Set[str]:
+def validate_nodes(nodes: list[dict[str, Any]]) -> set[str]:
     valid_ids = set()
     errors = []
 
@@ -35,7 +35,7 @@ def validate_nodes(nodes: List[Dict[str, Any]]) -> Set[str]:
 
 
 def validate_relationships(
-    relationships: List[Dict[str, Any]], valid_node_ids: Set[str]
+    relationships: list[dict[str, Any]], valid_node_ids: set[str]
 ):
     errors = []
 
@@ -75,7 +75,7 @@ def main():
     print(f"Validating {INPUT_FILE}...")
 
     try:
-        with open(INPUT_FILE, "r") as f:
+        with open(INPUT_FILE) as f:
             data = json.load(f)
     except json.JSONDecodeError as e:
         print(f"Error: Invalid JSON format: {e}")

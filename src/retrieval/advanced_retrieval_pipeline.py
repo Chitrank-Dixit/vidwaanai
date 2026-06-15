@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 from src.retrieval.fuzzy_matcher import FuzzyMatcher
@@ -21,7 +21,7 @@ class AdvancedRetrievalPipeline:
         # Add more terms from corpus if available
         # self.known_terms.extend(...)
 
-    def retrieve(self, query: str, top_k: int = 10) -> List[Dict[str, Any]]:
+    def retrieve(self, query: str, top_k: int = 10) -> list[dict[str, Any]]:
         """Complete retrieval pipeline"""
         logger.info(f"Processing query: {query}")
 

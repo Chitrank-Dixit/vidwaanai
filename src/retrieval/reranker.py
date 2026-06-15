@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -25,8 +25,8 @@ class ContextAwareReranker:
             self.model = None
 
     def rerank(
-        self, query: str, documents: List[Dict[str, Any]], top_k: int = 5
-    ) -> List[Dict[str, Any]]:
+        self, query: str, documents: list[dict[str, Any]], top_k: int = 5
+    ) -> list[dict[str, Any]]:
         """Rerank documents using cross-encoder model"""
         if not self.model or not documents:
             return documents[:top_k]

@@ -1,7 +1,7 @@
 import logging
-import sys
 import os
-from typing import Any, Dict
+import sys
+from typing import Any
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -41,7 +41,7 @@ class OntologySeeder:
             for item in obj:
                 self._traverse_and_create(item)
 
-    def _create_entity_node(self, entity_data: Dict[str, Any]):
+    def _create_entity_node(self, entity_data: dict[str, Any]):
         try:
             name = entity_data["name"]
             ent_type = entity_data["type"]

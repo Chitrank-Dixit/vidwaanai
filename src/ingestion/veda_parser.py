@@ -1,6 +1,6 @@
-import re
-from typing import List, Dict, Any
 import logging
+import re
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -15,8 +15,8 @@ class VedaParser:
     }
 
     def parse_vedas(
-        self, pages: List[Dict[str, Any]], ved_code: str
-    ) -> List[Dict[str, Any]]:
+        self, pages: list[dict[str, Any]], ved_code: str
+    ) -> list[dict[str, Any]]:
         """Parse pages into mantra structure."""
         mantras = []
         current_mandala = 0
@@ -72,7 +72,7 @@ class VedaParser:
         logger.info(f"Parsed {len(mantras)} mantras for {ved_code}")
         return mantras
 
-    def _split_mantras(self, text: str) -> List[str]:
+    def _split_mantras(self, text: str) -> list[str]:
         """Split text into individual mantras."""
         # Split by common delimiters like double danda (||) or explicit 'Mantra' labels
         # The regex splits by 'मंत्र' keyword or danda punctuation, keeping the delimiter if needed?
@@ -89,7 +89,7 @@ class VedaParser:
             c.strip() for c in chunks if len(c.strip()) > 5
         ]  # Lower filter to 5 chars to match test data
 
-    def _extract_tags(self, text: str) -> List[str]:
+    def _extract_tags(self, text: str) -> list[str]:
         """Extract keywords/tags from mantra."""
         tags = []
         # Basic keyword mapping - can be expanded

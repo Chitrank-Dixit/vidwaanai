@@ -1,15 +1,16 @@
 import json
-from typing import Any
 import os
 import sys
+from typing import Any
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.evaluation.retriever_evaluator import RetrieverEvaluator
-from src.db.db_manager import DatabaseManager
-from src.core.logger import get_logger
 from dotenv import load_dotenv
+
+from src.core.logger import get_logger
+from src.db.db_manager import DatabaseManager
+from src.evaluation.retriever_evaluator import RetrieverEvaluator
 
 load_dotenv()
 
@@ -61,9 +62,9 @@ def run_evaluation() -> None:
         queries_file = os.path.join(base_dir, "tests", "test_queries.json")
         relevance_file = os.path.join(base_dir, "tests", "relevance_judgments.json")
 
-        with open(queries_file, "r") as f:
+        with open(queries_file) as f:
             test_data = json.load(f)
-        with open(relevance_file, "r") as f:
+        with open(relevance_file) as f:
             relevance_data = json.load(f)
 
         # Build relevance map

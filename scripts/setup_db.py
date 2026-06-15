@@ -3,6 +3,7 @@
 
 import os
 import sys
+
 import psycopg2
 from dotenv import load_dotenv
 
@@ -42,7 +43,7 @@ def setup_database() -> None:
         cursor = conn.cursor()
 
         # Read and execute init.sql
-        with open("database/init.sql", "r") as f:
+        with open("database/init.sql") as f:
             sql_commands = f.read()
 
         statements = [stmt.strip() for stmt in sql_commands.split(";") if stmt.strip()]

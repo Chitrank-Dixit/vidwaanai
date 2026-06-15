@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 
 class GraphRetriever:
@@ -9,7 +9,7 @@ class GraphRetriever:
 
     def find_teachings(
         self, person_name: str, concept_name: str, depth: int = 2
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Find all teachings by a person about a concept."""
         with self.driver.session() as session:
             result = session.run(
@@ -29,7 +29,7 @@ class GraphRetriever:
 
     def find_related_concepts(
         self, concept_name: str, depth: int = 2
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Find concepts related to a given concept."""
         with self.driver.session() as session:
             result = session.run(
@@ -48,7 +48,7 @@ class GraphRetriever:
 
     def find_person_connections(
         self, person1: str, person2: str, depth: int = 3
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Find how two persons are connected."""
         with self.driver.session() as session:
             result = session.run(
@@ -65,8 +65,8 @@ class GraphRetriever:
             return [record.data() for record in result]
 
     def get_context_subgraph(
-        self, entity_names: List[str], depth: int = 1
-    ) -> List[Dict[str, Any]]:
+        self, entity_names: list[str], depth: int = 1
+    ) -> list[dict[str, Any]]:
         """
         Get 1-hop subgraph for a list of entities to provide RAG context.
         Returns a list of relationships formatted as strings or dicts.
@@ -91,7 +91,7 @@ class GraphRetriever:
             )
             return [record.data() for record in result]
 
-    def format_subgraph_context(self, subgraph_data: List[Dict[str, Any]]) -> str:
+    def format_subgraph_context(self, subgraph_data: list[dict[str, Any]]) -> str:
         """
         Format subgraph results into a readable context string for the LLM.
         """

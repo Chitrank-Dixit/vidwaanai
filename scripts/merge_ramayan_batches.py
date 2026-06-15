@@ -34,7 +34,7 @@ def merge_files():
             filepath = os.path.join(source_dir, filename)
 
             if os.path.exists(filepath):
-                with open(filepath, "r") as f:
+                with open(filepath) as f:
                     content = f.read()
                     merged_content += f"\n\n--- Start of {filename} ---\n\n"
                     merged_content += content

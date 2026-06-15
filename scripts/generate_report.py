@@ -19,7 +19,7 @@ def generate_report():
         return
 
     try:
-        with open(report_path, "r") as f:
+        with open(report_path) as f:
             data = json.load(f)
 
         # Map flat metrics to expected structure

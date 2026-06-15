@@ -1,12 +1,14 @@
-import pytest
-from typing import Generator
+from collections.abc import Generator
 from unittest.mock import MagicMock, patch
+
+import pytest
+
 from src.db.db_manager import DatabaseManager
 
 
 class TestVectorDB:
     @pytest.fixture
-    def mock_pool(self) -> Generator[MagicMock, None, None]:
+    def mock_pool(self) -> Generator[MagicMock]:
         with patch("src.db.db_manager.ThreadedConnectionPool") as mock_pool_cls:
             yield mock_pool_cls
 

@@ -24,7 +24,7 @@ def check_metrics():
         print(f"❌ Report not found at {report_path}")
         sys.exit(1)
 
-    with open(report_path, "r") as f:
+    with open(report_path) as f:
         data = json.load(f)
 
     # Handle different schema versions (flat vs nested metrics)

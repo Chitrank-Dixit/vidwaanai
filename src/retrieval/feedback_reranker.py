@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -7,8 +7,8 @@ logger = get_logger(__name__)
 
 class FeedbackReranker:
     def __init__(self) -> None:
-        self.positive_feedback: Dict[str, List[str]] = {}
-        self.negative_feedback: Dict[str, List[str]] = {}
+        self.positive_feedback: dict[str, list[str]] = {}
+        self.negative_feedback: dict[str, list[str]] = {}
 
     def add_positive_feedback(self, query: str, doc_id: str) -> None:
         """User marked result as helpful"""
@@ -44,8 +44,8 @@ class FeedbackReranker:
         return (positive_count + doc_positive) / (positive_count + negative_count + 1)
 
     def rerank_with_feedback(
-        self, query: str, documents: List[Dict[str, Any]]
-    ) -> List[Dict[str, Any]]:
+        self, query: str, documents: list[dict[str, Any]]
+    ) -> list[dict[str, Any]]:
         """Rerank considering user feedback"""
 
         for doc in documents:

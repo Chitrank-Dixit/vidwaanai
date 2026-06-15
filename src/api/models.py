@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Field
-from typing import Optional, List, Dict, Any
 from datetime import datetime
+from typing import Any
+
+from pydantic import BaseModel, Field
 
 # --- Request Models ---
 
@@ -14,16 +15,16 @@ class QueryRequest(BaseModel):
         max_length=5000,
         description="The user's question about Vedic scriptures.",
     )
-    session_id: Optional[str] = Field(
+    session_id: str | None = Field(
         None, description="Session ID for conversation history context."
     )
-    context: Optional[Dict[str, Any]] = Field(
+    context: dict[str, Any] | None = Field(
         None, description="Optional extra context or filters."
     )
-    temperature: Optional[float] = Field(
+    temperature: float | None = Field(
         0.7, ge=0.0, le=1.0, description="LLM sampling temperature."
     )
-    max_tokens: Optional[int] = Field(
+    max_tokens: int | None = Field(
         1000, ge=50, le=4096, description="Max tokens for the answer."
     )
 
@@ -31,10 +32,8 @@ class QueryRequest(BaseModel):
 class SessionCreateRequest(BaseModel):
     """Request to create a new multi-turn session."""
 
-    title: Optional[str] = Field(
-        None, description="Optional title for the conversation."
-    )
-    metadata: Optional[Dict[str, Any]] = Field(
+    title: str | None = Field(None, description="Optional title for the conversation.")
+    metadata: dict[str, Any] | None = Field(
         None, description="Optional metadata for the session."
     )
 
@@ -49,8 +48,8 @@ class Source(BaseModel):
     title: str
     content: str
     confidence: float
-    entity_type: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
+    entity_type: str | None = None
+    metadata: dict[str, Any] | None = None
 
 
 class ReasoningStep(BaseModel):
@@ -68,8 +67,8 @@ class QueryResponse(BaseModel):
 
     answer: str
     confidence: float
-    sources: List[Source]
-    reasoning_trace: List[ReasoningStep]
+    sources: list[Source]
+    reasoning_trace: list[ReasoningStep]
     session_id: str
     timestamp: datetime
     processing_time_ms: float
@@ -88,5 +87,5 @@ class ErrorResponse(BaseModel):
 
     error_code: str
     error_message: str
-    details: Optional[Dict[str, Any]] = None
+    details: dict[str, Any] | None = None
     timestamp: datetime

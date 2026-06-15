@@ -1,5 +1,6 @@
-import sys
 import os
+import sys
+
 from neo4j import GraphDatabase
 
 # Add src to python path
@@ -9,7 +10,6 @@ from src.core.config import settings
 
 
 def verify_fix():
-
     print("Connecting to Neo4j for Ontology Verification...")
     try:
         driver = GraphDatabase.driver(

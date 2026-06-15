@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Any
 
 
 class MaithiliMorphologicalAnalyzer:
@@ -21,7 +21,7 @@ class MaithiliMorphologicalAnalyzer:
             ("मे", "locative"),  # -me (in)
         ]
 
-    def analyze(self, word: str) -> Dict[str, Any]:
+    def analyze(self, word: str) -> dict[str, Any]:
         """
         Analyze a word for its root and grammatical features.
 

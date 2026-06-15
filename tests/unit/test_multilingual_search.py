@@ -1,5 +1,6 @@
-import pytest
 import numpy as np
+import pytest
+
 from src.rag.multilingual_search import MultilingualSearch
 
 

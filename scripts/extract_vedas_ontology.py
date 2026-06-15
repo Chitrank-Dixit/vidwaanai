@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import os
-import re
+import glob
 import json
 import logging
-import glob
+import os
+import re
 
 # Set up logging
 logging.basicConfig(
@@ -237,7 +237,7 @@ def extract_relationships_from_entities(entities_present: set) -> list:
 def parse_batch_file(filepath: str) -> str:
     if not os.path.exists(filepath):
         return ""
-    with open(filepath, "r", encoding="utf-8") as f:
+    with open(filepath, encoding="utf-8") as f:
         return f.read()
 
 

@@ -66,6 +66,7 @@ first-run: install-dev docker db model data
 
 format:
 	@echo "$(YELLOW)Formatting code...$(RESET)"
+	@$(RUFF) format src tests scripts
 	@$(RUFF) check --fix src tests scripts
 
 lint:

@@ -1,17 +1,18 @@
-import pytest
 import os
 import sys
-from typing import Dict, Any
+from typing import Any
 from unittest.mock import MagicMock
+
+import pytest
 from fastapi.testclient import TestClient
 
 # Add src to python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from src.api.main import app
 from src.core.config import Settings
 from src.db.db_manager import DatabaseManager
 from src.retrieval.veda_retriever import VedaRetriever
-from src.api.main import app
 
 
 @pytest.fixture
@@ -221,7 +222,7 @@ def client() -> TestClient:
 
 
 @pytest.fixture
-def sample_verse() -> Dict[str, Any]:
+def sample_verse() -> dict[str, Any]:
     return {
         "id": 1,
         "scripture_id": 1,

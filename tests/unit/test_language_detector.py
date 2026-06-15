@@ -1,5 +1,7 @@
-import pytest
 import time
+
+import pytest
+
 from src.language.language_detector import LanguageDetector
 
 

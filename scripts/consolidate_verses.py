@@ -9,7 +9,7 @@ with open(OUTPUT_FILE, "w", encoding="utf-8") as out:
         filepath = os.path.join(QUERIES_DIR, filename)
         if os.path.exists(filepath):
             out.write(f"\n================ BATCH {batch_id} ================\n")
-            with open(filepath, "r", encoding="utf-8") as f:
+            with open(filepath, encoding="utf-8") as f:
                 lines = f.readlines()
                 current_verse = ""
                 in_verse = False

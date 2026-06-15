@@ -1,6 +1,7 @@
 # scripts/wait-for-postgres.py
 import os
 import time
+
 import psycopg2
 from psycopg2 import OperationalError
 

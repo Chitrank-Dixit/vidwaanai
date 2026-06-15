@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -27,7 +27,7 @@ class HybridSearch:
         self.bm25_weight = bm25_weight
         self.semantic_weight = semantic_weight
 
-    def normalize_scores(self, results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def normalize_scores(self, results: list[dict[str, Any]]) -> list[dict[str, Any]]:
         """Normalize scores to 0-1 range."""
         if not results:
             return results
@@ -49,20 +49,20 @@ class HybridSearch:
 
     def reciprocal_rank_fusion(
         self,
-        bm25_results: List[Dict[str, Any]],
-        semantic_results: List[Dict[str, Any]],
+        bm25_results: list[dict[str, Any]],
+        semantic_results: list[dict[str, Any]],
         k: int = 60,
         top_k: int = 10,
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """
         Combine results using Reciprocal Rank Fusion (RRF).
         Score = 1 / (k + rank)
         """
-        combined_scores: Dict[str, float] = {}
-        doc_map: Dict[str, Dict[str, Any]] = {}
+        combined_scores: dict[str, float] = {}
+        doc_map: dict[str, dict[str, Any]] = {}
 
         # Helper to process list
-        def process_list(results: List[Dict[str, Any]]) -> None:
+        def process_list(results: list[dict[str, Any]]) -> None:
             for rank, doc in enumerate(results):
                 doc_id = str(doc["id"])
                 if doc_id not in doc_map:
@@ -89,11 +89,11 @@ class HybridSearch:
     def combine_results(
         self,
         query: str,
-        bm25_results: List[Dict[str, Any]],
-        semantic_results: List[Dict[str, Any]],
+        bm25_results: list[dict[str, Any]],
+        semantic_results: list[dict[str, Any]],
         top_k: int = 10,
         fusion_method: str = "weighted",
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Combine and re-rank BM25 and semantic results."""
 
         if fusion_method == "rrf":
@@ -167,7 +167,7 @@ class HybridSearch:
 
     def search(
         self, query: str, top_k: int = 10, fusion_method: str = "weighted"
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Perform hybrid search."""
         # Fetch more candidates for reranking
         bm25_results = self.bm25_search.search(query, top_k=top_k * 2)

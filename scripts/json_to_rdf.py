@@ -1,5 +1,5 @@
-import json
 import datetime
+import json
 
 INPUT_FILE = "ontology_project/merged_output/raw_entities.json"
 OUTPUT_FILE = "ontology_project/merged_output/ontology.ttl"
@@ -81,7 +81,7 @@ def generate_turtle(data):
 
 def main():
     try:
-        with open(INPUT_FILE, "r") as f:
+        with open(INPUT_FILE) as f:
             data = json.load(f)
 
         ttl_content = generate_turtle(data)

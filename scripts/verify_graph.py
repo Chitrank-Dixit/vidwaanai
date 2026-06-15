@@ -1,6 +1,7 @@
 import logging
-import sys
 import os
+import sys
+
 from neo4j import GraphDatabase
 
 # Add src to python path

@@ -1,5 +1,3 @@
-from typing import List
-
 from src.core.logger import get_logger
 
 logger = get_logger(__name__)
@@ -31,7 +29,7 @@ class SynonymHandler:
             "gita": ["bhagavad gita", "song of god"],
         }
 
-    def get_synonyms(self, term: str) -> List[str]:
+    def get_synonyms(self, term: str) -> list[str]:
         """Get synonyms for a term"""
         term_lower = term.lower()
 

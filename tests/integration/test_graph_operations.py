@@ -1,5 +1,7 @@
+from collections.abc import Generator
+
 import pytest
-from typing import Generator
+
 from src.graph.graph_builder import GraphBuilder
 
 # Mark as integration test
@@ -8,7 +10,7 @@ pytestmark = pytest.mark.integration
 
 class TestGraphOperations:
     @pytest.fixture(scope="class")
-    def graph_builder(self) -> Generator[GraphBuilder, None, None]:
+    def graph_builder(self) -> Generator[GraphBuilder]:
         # Use test Neo4j URI from settings
         from src.core.config import settings
 
@@ -21,7 +23,7 @@ class TestGraphOperations:
         builder.close()
 
     @pytest.fixture(autouse=True)
-    def clean_graph(self, graph_builder: GraphBuilder) -> Generator[None, None, None]:
+    def clean_graph(self, graph_builder: GraphBuilder) -> Generator[None]:
         """Clean graph before each test."""
         graph_builder.clear_graph()
         yield

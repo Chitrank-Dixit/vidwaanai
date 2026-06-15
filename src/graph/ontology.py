@@ -1,6 +1,6 @@
-from typing import Dict, Any
+from typing import Any
 
-VEDIC_ONTOLOGY: Dict[str, Any] = {
+VEDIC_ONTOLOGY: dict[str, Any] = {
     "DEITIES": {
         "TRIAD": {
             "BRAHMA": {

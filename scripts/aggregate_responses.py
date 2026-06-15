@@ -1,8 +1,8 @@
-import json
 import glob
+import json
 import os
-from typing import Dict, List, Any
 import typing
+from typing import Any
 
 # Configuration
 RESPONSE_DIRS = [
@@ -13,14 +13,14 @@ RESPONSE_DIRS = [
 OUTPUT_FILE = "ontology_project/merged_output/raw_entities.json"
 
 
-def load_json_files(directories: List[str]) -> List[Dict[str, Any]]:
+def load_json_files(directories: list[str]) -> list[dict[str, Any]]:
     all_data = []
     for directory in directories:
         files = glob.glob(os.path.join(directory, "*.json"))
         print(f"Found {len(files)} files in {directory}")
         for filepath in files:
             try:
-                with open(filepath, "r") as f:
+                with open(filepath) as f:
                     data = json.load(f)
                     # Validate basic structure
                     if "nodes" in data or "relationships" in data or "entities" in data:
@@ -36,8 +36,8 @@ def load_json_files(directories: List[str]) -> List[Dict[str, Any]]:
     return all_data
 
 
-def merge_data(data_list: List[Dict[str, Any]]) -> Dict[str, List[Dict[str, Any]]]:
-    merged: Dict[str, typing.Any] = {"nodes": [], "relationships": []}
+def merge_data(data_list: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    merged: dict[str, typing.Any] = {"nodes": [], "relationships": []}
 
     seen_nodes = set()
 

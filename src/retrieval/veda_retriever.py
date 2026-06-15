@@ -1,5 +1,6 @@
-from typing import List, Dict, Optional, Any
 import logging
+from typing import Any
+
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
 
@@ -10,14 +11,14 @@ class VedaRetriever:
     """Retrieve Veda mantras using semantic search."""
 
     def __init__(
-        self, db_manager: DatabaseManager, embedder: Optional[VedaEmbedder] = None
+        self, db_manager: DatabaseManager, embedder: VedaEmbedder | None = None
     ):
         self.db = db_manager
         self.embedder = embedder or VedaEmbedder()
 
     def search(
         self, query: str, language: str = "hi", top_k: int = 5, threshold: float = 0.5
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """
         Search for mantras similar to query.
         """

@@ -1,14 +1,14 @@
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
+
 from src.chunking.veda_chunker import VedaChunker
 
 
 @pytest.fixture
 def mock_db_manager():
     mock = MagicMock()
-    mock._get_connection.return_value.__enter__.return_value.cursor.return_value.__enter__.return_value = (
-        MagicMock()
-    )
+    mock._get_connection.return_value.__enter__.return_value.cursor.return_value.__enter__.return_value = MagicMock()
     return mock
 
 

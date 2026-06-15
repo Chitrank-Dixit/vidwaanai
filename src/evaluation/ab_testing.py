@@ -1,5 +1,6 @@
 import random
-from typing import Any, Callable, Dict, List, Optional
+from collections.abc import Callable
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -8,24 +9,22 @@ logger = get_logger(__name__)
 
 class ABTesting:
     def __init__(self) -> None:
-        self.variant_a_results: List[Dict[str, Any]] = []
-        self.variant_b_results: List[Dict[str, Any]] = []
+        self.variant_a_results: list[dict[str, Any]] = []
+        self.variant_b_results: list[dict[str, Any]] = []
 
     def run_test(
         self,
-        queries: List[str],
-        variant_a: Callable[[str], Dict[str, Any]],
-        variant_b: Callable[[str], Dict[str, Any]],
-        num_samples: Optional[int] = None,
-    ) -> Dict[str, Any]:
+        queries: list[str],
+        variant_a: Callable[[str], dict[str, Any]],
+        variant_b: Callable[[str], dict[str, Any]],
+        num_samples: int | None = None,
+    ) -> dict[str, Any]:
         """Run A/B test on variants"""
 
         if num_samples is None:
             num_samples = len(queries)
 
-        test_queries = random.sample(
-            queries, min(num_samples, len(queries))
-        )  # nosec B311
+        test_queries = random.sample(queries, min(num_samples, len(queries)))  # nosec B311
         logger.info(f"Starting A/B test with {len(test_queries)} queries")
 
         for query in test_queries:
@@ -38,8 +37,8 @@ class ABTesting:
         return self.generate_report()
 
     def evaluate_variant(
-        self, query: str, variant_func: Callable[[str], Dict[str, Any]]
-    ) -> Dict[str, Any]:
+        self, query: str, variant_func: Callable[[str], dict[str, Any]]
+    ) -> dict[str, Any]:
         """Evaluate single query with variant"""
         import time
 
@@ -73,9 +72,9 @@ class ABTesting:
                 "time": time.time() - start_time,
             }
 
-    def generate_report(self) -> Dict[str, Any]:
+    def generate_report(self) -> dict[str, Any]:
         """Generate A/B test report"""
-        report: Dict[str, Any] = {
+        report: dict[str, Any] = {
             "variant_a": {
                 "avg_time": self.calculate_avg("time", self.variant_a_results),
                 "success_rate": self.calculate_success_rate(self.variant_a_results),
@@ -105,12 +104,12 @@ class ABTesting:
 
         return report
 
-    def calculate_avg(self, metric: str, results: List[Dict[str, Any]]) -> float:
+    def calculate_avg(self, metric: str, results: list[dict[str, Any]]) -> float:
         """Calculate average metric"""
         valid = [r[metric] for r in results if r.get("success") and metric in r]
         return sum(valid) / len(valid) if valid else 0.0
 
-    def calculate_success_rate(self, results: List[Dict[str, Any]]) -> float:
+    def calculate_success_rate(self, results: list[dict[str, Any]]) -> float:
         """Calculate success rate"""
         if not results:
             return 0.0

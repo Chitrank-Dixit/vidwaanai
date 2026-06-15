@@ -15,11 +15,11 @@ Run with:
     python scripts/clean_ontology_duplicates.py
 """
 
-import os
-import json
-import glob
-import shutil
 import csv
+import glob
+import json
+import os
+import shutil
 from collections import defaultdict
 
 BASE_DIR = os.path.abspath(
@@ -34,7 +34,7 @@ for json_path in glob.glob(os.path.join(BASE_DIR, "*.json")):
     backup_path = json_path + ".bak"
     shutil.copy2(json_path, backup_path)
 
-    with open(json_path, "r", encoding="utf-8") as f:
+    with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
 
     entities = data.get("entities", [])

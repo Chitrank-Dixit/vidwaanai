@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """VidwaanAI CLI Entry Point."""
 
-from typing import Optional
-
 import typer
 from rich.console import Console
 from rich.table import Table
@@ -31,7 +29,7 @@ console = Console()
 logger = get_logger(__name__)
 
 # Initialize agent (lazy loading)
-agent: Optional[VidwaanAI] = None
+agent: VidwaanAI | None = None
 
 
 def get_agent() -> VidwaanAI:
@@ -63,10 +61,10 @@ def get_agent() -> VidwaanAI:
 @profile_function
 def query_handler(
     question: str = typer.Argument(..., help="Question about Indian scriptures"),
-    language: Optional[str] = typer.Option(
+    language: str | None = typer.Option(
         "en", "--language", "-l", help="Query language"
     ),
-    scripture: Optional[str] = typer.Option(
+    scripture: str | None = typer.Option(
         None, "--scripture", "-s", help="Specific scripture"
     ),
     verbose: bool = typer.Option(

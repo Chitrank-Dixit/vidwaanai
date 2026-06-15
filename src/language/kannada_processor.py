@@ -1,5 +1,3 @@
-from typing import List
-
 import regex
 
 from src.language.language_processor import LanguageProcessor
@@ -34,12 +32,12 @@ class KannadaProcessor(LanguageProcessor):
         normalized = regex.sub(r"\s+", " ", text).strip()
         return str(normalized)
 
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str) -> list[str]:
         """Tokenize Kannada text"""
         # Split on whitespace and punctuation
         tokens = regex.findall(r"\b\w+\b", text)
         return list(tokens)
 
-    def remove_stopwords(self, tokens: List[str]) -> List[str]:
+    def remove_stopwords(self, tokens: list[str]) -> list[str]:
         """Remove Kannada stop words"""
         return [token for token in tokens if token.lower() not in self.stop_words]

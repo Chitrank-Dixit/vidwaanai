@@ -1,11 +1,12 @@
-import sys
-import os
 import logging
+import os
+import sys
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from fastapi.testclient import TestClient
+
 from src.api.main import app
 
 logging.basicConfig(level=logging.INFO)

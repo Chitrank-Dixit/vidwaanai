@@ -1,5 +1,6 @@
 import logging
-from typing import Any, Dict, List
+from typing import Any
+
 from src.graph.graph_manager import GraphManager
 from src.graph.schema import RelationType
 
@@ -17,7 +18,7 @@ class GraphReasoningService:
     def __init__(self, graph_manager: GraphManager) -> None:
         self.gm = graph_manager
 
-    def get_entity_details(self, entity_id: str, depth: int = 1) -> Dict[str, Any]:
+    def get_entity_details(self, entity_id: str, depth: int = 1) -> dict[str, Any]:
         """Fetch entity with its neighborhood."""
         # Check if entity exists
         query_node = "MATCH (n) WHERE n.id = $id RETURN n"
@@ -71,7 +72,7 @@ class GraphReasoningService:
 
     def find_shortest_path(
         self, start_id: str, end_id: str, max_hops: int = 5
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Find Shortest Path between two nodes."""
         query = f"""
         MATCH (start {{id: $start_id}}), (end {{id: $end_id}})
@@ -103,7 +104,7 @@ class GraphReasoningService:
 
         return {"found": True, "length": length, "nodes": nodes, "relationships": rels}
 
-    def search_entities(self, name_query: str, limit: int = 10) -> List[Dict[str, Any]]:
+    def search_entities(self, name_query: str, limit: int = 10) -> list[dict[str, Any]]:
         """Fuzzy search for entities by name."""
         query = """
         MATCH (n)
@@ -114,7 +115,7 @@ class GraphReasoningService:
         result = self.gm.execute_query(query, {"q": name_query, "limit": limit})
         return [dict(r["n"].items()) for r in result]
 
-    def reason_about_entity(self, entity_id: str, hops: int = 2) -> Dict[str, Any]:
+    def reason_about_entity(self, entity_id: str, hops: int = 2) -> dict[str, Any]:
         """
         Explore implications around an entity.
         Finds nodes connected up to `hops` distance,
@@ -156,7 +157,7 @@ class GraphReasoningService:
 
         return {"entity_id": entity_id, "implications": paths}
 
-    def get_hierarchy(self, concept_id: str) -> Dict[str, Any]:
+    def get_hierarchy(self, concept_id: str) -> dict[str, Any]:
         """
         Resolve IS_A / PART_OF hierarchy.
         Find parents (generalization) and children (specialization).
