@@ -1,8 +1,8 @@
-import re
 import logging
-from typing import Dict, Any, List, Set, Tuple
-from src.graph.ontology import VEDIC_ONTOLOGY
+import re
+from typing import Any
 
+from src.graph.ontology import VEDIC_ONTOLOGY
 
 logger = logging.getLogger(__name__)
 
@@ -13,8 +13,8 @@ class TaxonomyExtractor:
     """
 
     def __init__(self) -> None:
-        self.lookup_map: Dict[str, Dict[str, Any]] = {}
-        self.patterns: List[Tuple[str, str]] = []  # List of (pattern, entity_id)
+        self.lookup_map: dict[str, dict[str, Any]] = {}
+        self.patterns: list[tuple[str, str]] = []  # List of (pattern, entity_id)
         self._build_lookup_map()
 
     def _build_lookup_map(self) -> None:
@@ -67,12 +67,12 @@ class TaxonomyExtractor:
             f"TaxonomyExtractor initialized with {len(self.lookup_map)} entities"
         )
 
-    def extract(self, text: str) -> List[Dict[str, Any]]:
+    def extract(self, text: str) -> list[dict[str, Any]]:
         """
         Scan text and return list of found entities.
         """
-        found_entities: List[Dict[str, Any]] = []
-        found_ids: Set[str] = set()
+        found_entities: list[dict[str, Any]] = []
+        found_ids: set[str] = set()
 
         lower_text = text.lower()
 

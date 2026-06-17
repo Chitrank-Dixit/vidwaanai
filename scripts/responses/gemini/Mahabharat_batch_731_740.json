@@ -1,0 +1,141 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Kripa",
+            "type": "Character",
+            "attributes": {
+                "description": "A family preceptor of the Kurus who fought on the Kaurava side."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Kurukshetra War",
+            "type": "Event",
+            "attributes": {
+                "description": "The great 18-day battle between the Pandavas and Kauravas."
+            }
+        },
+        {
+            "name": "Mahabharata",
+            "type": "Text",
+            "attributes": {
+                "description": "The monumental Sanskrit epic detailing the history of the Kuru dynasty."
+            }
+        },
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, supreme deity, ally of the Pandavas, and teacher of Arjuna."
+            }
+        },
+        {
+            "name": "Arjuna",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Pandava prince, the archer disciple of Sri Krishna on the battlefield of Kurukshetra."
+            }
+        },
+        {
+            "name": "Yudhishthira",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest Pandava prince, known for his adherence to truth and righteousness."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, father of Arjuna, who grants celestial weapons."
+            }
+        },
+        {
+            "name": "Karna",
+            "type": "Character",
+            "attributes": {
+                "description": "Great warrior and ally of Duryodhana, son of Surya and Kunti."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Yudhishthira",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Yudhishthira and Arjuna are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Yudhishthira",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Arjuna and Yudhishthira are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna acts as Arjuna's charioteer, guide, and spiritual teacher."
+            }
+        },
+        {
+            "from": "Yudhishthira",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Yudhishthira participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Arjuna participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Karna",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Karna participated as a major combatant in the Kurukshetra War."
+            }
+        }
+    ]
+}

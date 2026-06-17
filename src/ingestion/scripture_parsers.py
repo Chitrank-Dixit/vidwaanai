@@ -1,6 +1,6 @@
-import re
 import logging
-from typing import List, Dict, Optional, Any
+import re
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 class BaseScriptureParser:
     """Base class for parsing varying scripture structures."""
 
-    PATTERNS: Dict[str, Optional[str]] = {
+    PATTERNS: dict[str, str | None] = {
         "l1_node": r"",  # Top level (Mandala, Kanda, Skanda)
         "l2_node": r"",  # Mid level (Sukta, Sarga, Adhyaya)
         "verse": r"",  # Verse level (Mantra, Shloka)
@@ -19,7 +19,7 @@ class BaseScriptureParser:
         self.current_l2 = 0
         self.verse_count = 0
 
-    def parse(self, pages: List[Dict[str, Any]], code: str) -> List[Dict[str, Any]]:
+    def parse(self, pages: list[dict[str, Any]], code: str) -> list[dict[str, Any]]:
         """Parse pages into verse structure."""
         verses = []
         self.current_l1 = 0
@@ -71,7 +71,7 @@ class BaseScriptureParser:
         logger.info(f"Parsed {len(verses)} verses")
         return verses
 
-    def _split_verses(self, text: str) -> List[str]:
+    def _split_verses(self, text: str) -> list[str]:
         """Split text into individual verses."""
         # Standard splitting by double danda (||) common in Sanskrit
         # Also handle potential 'Mantra X' headers if defined
@@ -80,7 +80,7 @@ class BaseScriptureParser:
         chunks = re.split(r"(?:[\॥\|]{1,2})", text)
         return [c.strip() for c in chunks if len(c.strip()) > 5]
 
-    def _extract_tags(self, text: str) -> List[str]:
+    def _extract_tags(self, text: str) -> list[str]:
         """Tag extraction - can overlap with VedaParser logic."""
         tags = []
         keywords = {
@@ -108,7 +108,7 @@ class GitaParser(BaseScriptureParser):
             "verse": r"श्लोक\s*[:=]?\s*(\d+)",
         }
 
-    def _split_verses(self, text: str) -> List[str]:
+    def _split_verses(self, text: str) -> list[str]:
         # Gita verses often labeled 'श्लोक X' or just text with ||
         # For now, default danda split, but maybe prioritize 'श्लोक' header
         return super()._split_verses(text)
@@ -163,14 +163,14 @@ def get_parser(scripture_type: str) -> BaseScriptureParser:
         return PuranaParser()
     else:
         # Default or Veda
-        from src.ingestion.veda_parser import VedaParser
-
         # VedaParser matches the interface but is standalone.
         # Ideally we wrap it or return it if interfaces align.
         # VedaParser.parse_vedas signature is same.
         # We need to adapt VedaParser to BaseScriptureParser interface or cast it
         # Since VedaParser is different, let's allow return type Union or cast
         from typing import cast
+
+        from src.ingestion.veda_parser import VedaParser
 
         # For now, suppressing type error or assuming VedaParser will be refactored to inherit
         # cast(BaseScriptureParser, VedaParser())

@@ -1,0 +1,3570 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha, eldest prince of Ayodhya, exiled to the forest; protagonist of the Ramayana"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, son of Sumitra, loyal companion in exile"
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, princess of Videha (Mithila), called the Maithil dame"
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Revered hermit-sage who counsels Rama and directs him to Panchavati"
+            }
+        },
+        {
+            "name": "Jatayu",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty vulture king, old friend of Dasharatha, guardian and ally of Rama; son of Aruna; self-identifies as son of Shyeni lineage"
+            }
+        },
+        {
+            "name": "Sampati",
+            "type": "Character",
+            "attributes": {
+                "description": "Elder son of Aruna, brother of Jatayu"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, Lakshmana, Bharata, and Shatrughna"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha and Kaikeyi; grieves Rama's exile and lives austerely at Ayodhya"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest son of Dasharatha, brother of Rama"
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Second queen of Dasharatha, mother of Bharata, whose plot caused Rama's exile"
+            }
+        },
+        {
+            "name": "Sumitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha and mother of Lakshmana"
+            }
+        },
+        {
+            "name": "Surpanakha",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasi (giantess) who encounters Rama at Panchavati; sister of Ravana (the Ten-necked tyrant)"
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "The Ten-necked demon tyrant; brother of Surpanakha"
+            }
+        },
+        {
+            "name": "Aruna",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vinata, red as the dawn; father of Sampati and Jatayu"
+            }
+        },
+        {
+            "name": "Garuda",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vinata; divine eagle, swift of flight"
+            }
+        },
+        {
+            "name": "Vinata",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Daksha via Shuki-Nala lineage; wife of Kashyapa; mother of Aruna and Garuda"
+            }
+        },
+        {
+            "name": "Airavata",
+            "type": "Character",
+            "attributes": {
+                "description": "Divine elephant of Indra; born of Iravati (daughter of Bhadramada)"
+            }
+        },
+        {
+            "name": "Kashyapa",
+            "type": "Character",
+            "attributes": {
+                "description": "Primordial sage, son of Marichi; married eight daughters of Daksha; progenitor of gods, demons, humans, and animals"
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; father of sixty daughters, eight of whom married Kashyapa"
+            }
+        },
+        {
+            "name": "Kardam",
+            "type": "Character",
+            "attributes": {
+                "description": "First-born Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Vikrit",
+            "type": "Character",
+            "attributes": {
+                "description": "Second Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Sesha",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Sankhya",
+            "type": "Character",
+            "attributes": {
+                "description": "Fourth Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Bahuputra",
+            "type": "Character",
+            "attributes": {
+                "description": "Fifth Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Sthanu",
+            "type": "Character",
+            "attributes": {
+                "description": "Sixth Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Marichi",
+            "type": "Character",
+            "attributes": {
+                "description": "Seventh Lord of Life; father of Kashyapa"
+            }
+        },
+        {
+            "name": "Atri",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Kratu",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Pulastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; ancestor of Ravana"
+            }
+        },
+        {
+            "name": "Angiras",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; celestial sage"
+            }
+        },
+        {
+            "name": "Prachetas",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Pulaha",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Vivasvat",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; sun deity; praised of men"
+            }
+        },
+        {
+            "name": "Arishmanemi",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Aditi",
+            "type": "Character",
+            "attributes": {
+                "description": "First wife of Kashyapa; mother of thirty-three gods — Vasus, Adityas, Rudras, and the twin Ashvins"
+            }
+        },
+        {
+            "name": "Diti",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of the Daityas (demons)"
+            }
+        },
+        {
+            "name": "Danu",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of Asvagriva"
+            }
+        },
+        {
+            "name": "Kalaka",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of Narak and Kalak"
+            }
+        },
+        {
+            "name": "Tamra",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of five daughters: Kraunchi, Bhasi, Shyeni, Shuki, Dhritarashtri"
+            }
+        },
+        {
+            "name": "Anala",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of all fruit-bearing trees"
+            }
+        },
+        {
+            "name": "Krodhavasa",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa, swift to ire; mother of ten daughters including Mrighi, Surasa, Kadru, etc."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa (daughter of Daksha); mother of the four human castes — Brahman, Kshatriya, Vaishya, Shudra"
+            }
+        },
+        {
+            "name": "Kraunchi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of cranes and owls"
+            }
+        },
+        {
+            "name": "Bhasi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of water fowl"
+            }
+        },
+        {
+            "name": "Shyeni",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of vultures and hawks; ancestress of Jatayu's lineage"
+            }
+        },
+        {
+            "name": "Shuki",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; grandmother of Vinata via daughter Nala"
+            }
+        },
+        {
+            "name": "Dhritarashtri",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of all swans, geese, and river-haunting ducks"
+            }
+        },
+        {
+            "name": "Nala",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Shuki; mother of Vinata"
+            }
+        },
+        {
+            "name": "Mrighi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of deer"
+            }
+        },
+        {
+            "name": "Mrigamanda",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of bears, yaks, and mountain roe"
+            }
+        },
+        {
+            "name": "Hari",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of lions and wild monkeys"
+            }
+        },
+        {
+            "name": "Bhadramada",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of Iravati"
+            }
+        },
+        {
+            "name": "Sharduli",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of leopards, langurs, and tigers"
+            }
+        },
+        {
+            "name": "Shveta",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of the eight directional guardian elephants"
+            }
+        },
+        {
+            "name": "Matangi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of elephants (Matangas)"
+            }
+        },
+        {
+            "name": "Surabhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of two celestial daughters: Gandharvi and Rohini"
+            }
+        },
+        {
+            "name": "Surasa",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of hooded serpents"
+            }
+        },
+        {
+            "name": "Kadru",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa (also called daughter of Kashyapa elsewhere); mother of countless snakes"
+            }
+        },
+        {
+            "name": "Iravati",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Bhadramada; mother of Airavata, the elephant of Indra"
+            }
+        },
+        {
+            "name": "Gandharvi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Surabhi; mother of horses"
+            }
+        },
+        {
+            "name": "Rohini",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Surabhi; mother of cattle / kine"
+            }
+        },
+        {
+            "name": "Asvagriva",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Danu"
+            }
+        },
+        {
+            "name": "Narak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kalaka"
+            }
+        },
+        {
+            "name": "Kalak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kalaka"
+            }
+        },
+        {
+            "name": "Daityas",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon race born of Diti; their empire once spread over earth, woods, and ocean"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods; owner of Airavata the divine elephant"
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also called Shiva; adored by all worlds; associated with Nandi and Uma-Parvati"
+            }
+        },
+        {
+            "name": "Nandi",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief chamberlain and attendant of Shiva/Rudra"
+            }
+        },
+        {
+            "name": "Uma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also called Parvati; consort of Rudra/Shiva; daughter of Himalaya"
+            }
+        },
+        {
+            "name": "Kandarpa",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of love (Kamadeva); Rama's youthful grace is compared to his"
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of the dead; the south is said to be his residence; the sun turns toward his domain in winter"
+            }
+        },
+        {
+            "name": "Vasus",
+            "type": "Deity",
+            "attributes": {
+                "description": "Group of eight celestial gods born of Aditi"
+            }
+        },
+        {
+            "name": "Adityas",
+            "type": "Deity",
+            "attributes": {
+                "description": "Twelve solar gods born of Aditi"
+            }
+        },
+        {
+            "name": "Rudras",
+            "type": "Deity",
+            "attributes": {
+                "description": "Eleven storm gods born of Aditi"
+            }
+        },
+        {
+            "name": "Ashvins",
+            "type": "Deity",
+            "attributes": {
+                "description": "Twin heavenly physicians born of Aditi"
+            }
+        },
+        {
+            "name": "Chitra",
+            "type": "Character",
+            "attributes": {
+                "description": "A star; described as a dear delight of the Moon (Lord of Night)"
+            }
+        },
+        {
+            "name": "Panchavati",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest grove four leagues from Agastya's hermitage; recommended by Agastya as Rama's dwelling; site of Surpanakha's encounter"
+            }
+        },
+        {
+            "name": "Godavari",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river near Panchavati; Rama and his companions bathe here"
+            }
+        },
+        {
+            "name": "Saryu",
+            "type": "Place",
+            "attributes": {
+                "description": "Silver river at Ayodhya where Bharata bathes"
+            }
+        },
+        {
+            "name": "Himalaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain range; described as the treasure-house of frost and cold; father of Uma/Parvati"
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal capital of Dasharatha's kingdom; where Bharata remains during Rama's exile"
+            }
+        },
+        {
+            "name": "Videha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Sita's origin (Mithila); she is called the Videhan/Maithil dame"
+            }
+        },
+        {
+            "name": "Agastya's Hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "The hermitage of sage Agastya from which Panchavati is four leagues away"
+            }
+        },
+        {
+            "name": "Rama's Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama's banishment to the forest by Dasharatha at Kaikeyi's behest; context for the entire narrative"
+            }
+        },
+        {
+            "name": "Agastya's Counsel",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XIII — Agastya directs Rama, Lakshmana, and Sita to settle in Panchavati"
+            }
+        },
+        {
+            "name": "Meeting of Jatayu",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XIV — Rama and Lakshmana encounter Jatayu, who reveals his lineage and pledges to guard Sita"
+            }
+        },
+        {
+            "name": "Building of the Hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XV (Panchavatí) — Lakshmana builds a cottage at Panchavati for Rama and Sita"
+            }
+        },
+        {
+            "name": "Winter Description",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XVI — Lakshmana describes the winter season to Rama while walking to the Godavari"
+            }
+        },
+        {
+            "name": "Surpanakha's Arrival",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XVII — Surpanakha, Ravana's sister, arrives at Panchavati and is captivated by Rama"
+            }
+        },
+        {
+            "name": "Jatayu's Genealogy Recitation",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XIV — Jatayu narrates the primordial lineage of the Prajapatis, Kashyapa, and all creation"
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Virtue and righteous duty; Rama is described as 'true to virtue's path'"
+            }
+        },
+        {
+            "name": "Four Varnas",
+            "type": "Concept",
+            "attributes": {
+                "description": "The four human castes born of Manu — Brahmans (mouth), Kshatriyas (chest), Vaishyas (thighs), Shudras (feet)"
+            }
+        },
+        {
+            "name": "Amrita",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine nectar of immortality; Bharata's speech is compared to Amrita"
+            }
+        },
+        {
+            "name": "Prajapatis",
+            "type": "Concept",
+            "attributes": {
+                "description": "The great Lords of Life — first-born progenitors of all creation, recited by Jatayu"
+            }
+        },
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "The epic Sanskrit narrative from which all these verses are drawn (Cantos XIII–XVII, verses 863–882)"
+            }
+        },
+        {
+            "name": "Sugreeva",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara king, younger brother of Bali, son of Riksharajas; exiled by Bali and later restored as king of Kishkindha with Rama's help; commands the army that searches for Sita"
+            }
+        },
+        {
+            "name": "Vali",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara king of Kishkindha, eldest son of Riksharajas and Indra's son; possessor of a golden chain from Indra; slain by Rama's arrow while fighting Sugreeva"
+            }
+        },
+        {
+            "name": "Angad",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Bali; heir apparent; leads the southern search party for Sita; noble, brave, and installed as co-ruler by Sugreeva"
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of the Wind God (Vayu); wisest and mightiest Vanara; entrusted with Rama's ring and the mission to find Sita; leaps across the ocean to Lanka"
+            }
+        },
+        {
+            "name": "Tara",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Bali; wife who counselled Bali not to fight; her name means 'star'; later reconciled with Sugreeva"
+            }
+        },
+        {
+            "name": "Ruma",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Sugreeva, taken by Bali; restored to Sugreeva after Bali's fall"
+            }
+        },
+        {
+            "name": "Riksharajas",
+            "type": "Character",
+            "attributes": {
+                "description": "Father of Bali and Sugreeva; former Vanara king"
+            }
+        },
+        {
+            "name": "Jambavan",
+            "type": "Character",
+            "attributes": {
+                "description": "Aged and mighty bear-king; leads the southern army; rallies Hanuman to leap to Lanka"
+            }
+        },
+        {
+            "name": "Nila",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Fire (Agni); Vanara chief; sent by Sugreeva to assemble armies from the northern posts"
+            }
+        },
+        {
+            "name": "Susena",
+            "type": "Character",
+            "attributes": {
+                "description": "Wise Vanara physician who heals Lakshmana; Sugreeva's general who searches the west"
+            }
+        },
+        {
+            "name": "Gandhamadan",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara chief in the southern search party; encourages the Vanaras to renew their toil"
+            }
+        },
+        {
+            "name": "Satabali",
+            "type": "Character",
+            "attributes": {
+                "description": "Fierce Vanara chief sent to lead the northern search with vast armies"
+            }
+        },
+        {
+            "name": "Mainda",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara chief; listed among the leaders who accompany Rama back to Ayodhya"
+            }
+        },
+        {
+            "name": "Dvivida",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara chief; listed among the leaders on the Pushpaka Vimana return journey"
+            }
+        },
+        {
+            "name": "Gavaksha",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara warrior in Rama's allied army"
+            }
+        },
+        {
+            "name": "Kausalya",
+            "type": "Character",
+            "attributes": {
+                "description": "First queen of Dasharatha; Rama's mother; greeted on Rama's return"
+            }
+        },
+        {
+            "name": "Vibhishana",
+            "type": "Character",
+            "attributes": {
+                "description": "Righteous brother of Ravana; defects to Rama's side; provides crucial intelligence; crowned king of Lanka after Ravana's death; owns the Pushpaka Vimana after Ravana"
+            }
+        },
+        {
+            "name": "Mandodari",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief queen of Ravana; weeps at his death; seen by Sita/Rama on the Pushpaka flight back"
+            }
+        },
+        {
+            "name": "Indrajit",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Ravana; also called Meghanada; powerful warrior who uses serpent-arrow weapon to wound Lakshmana"
+            }
+        },
+        {
+            "name": "Kumbhakarna",
+            "type": "Character",
+            "attributes": {
+                "description": "Giant brother of Ravana; sleeps for months; awakened for the Lanka battle; slain by Rama"
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon chief of Janasthana; brother of Ravana; slain by Rama in Dandaka forest"
+            }
+        },
+        {
+            "name": "Dushana",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon commander under Khara in Janasthana; killed by Rama"
+            }
+        },
+        {
+            "name": "Trisiras",
+            "type": "Character",
+            "attributes": {
+                "description": "Three-headed demon, companion of Khara in Janasthana battle"
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Uncle of Ravana; takes form of the golden deer to lure Rama away from Sita; killed by Rama's arrow"
+            }
+        },
+        {
+            "name": "Viradha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon of Dandaka forest; first monster Rama encounters in exile; slain by Rama"
+            }
+        },
+        {
+            "name": "Kabandha",
+            "type": "Character",
+            "attributes": {
+                "description": "Giant headless demon with long arms; killed by Rama in the forest near Janasthana; directed Rama to Sugreeva"
+            }
+        },
+        {
+            "name": "Mayavi",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon son of Dundubhi; fought with Bali for a woman's love; fled into a cave; killed by Bali; his cave episode caused Sugreeva's exile"
+            }
+        },
+        {
+            "name": "Dundubhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Buffalo-demon of mountain size; challenged Ocean and Himalaya to fight; finally met and slain by Bali; his carcass was thrown a league by Bali"
+            }
+        },
+        {
+            "name": "Matanga",
+            "type": "Character",
+            "attributes": {
+                "description": "Holy sage whose hermitage was defiled by Bali throwing Dundubhi's carcass; cursed Bali to die if he approached Rishyamuka; his grove sheltered Sugreeva safely"
+            }
+        },
+        {
+            "name": "Nishakar",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient sage who did 8000 seasons of penance on Vindhya hill; encountered by Sampati in his story"
+            }
+        },
+        {
+            "name": "Svayamprabha",
+            "type": "Character",
+            "attributes": {
+                "description": "Ascetic woman who guards Maya's enchanted cave (the golden forest) on behalf of the apsara Hema; leads the lost Vanaras out of the cave and to the ocean shore"
+            }
+        },
+        {
+            "name": "Maya",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief artificer of the Danava race; built the enchanted golden cave using skills obtained by penance from Brahma; killed by Indra's thunderbolt for loving Hema"
+            }
+        },
+        {
+            "name": "Matali",
+            "type": "Character",
+            "attributes": {
+                "description": "Indra's charioteer; descends from heaven to lend Indra's divine chariot to Rama for the final battle with Ravana"
+            }
+        },
+        {
+            "name": "Suparsva",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sampati; brings Sampati food and reports seeing Ravana carrying Sita southward over the ocean"
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator God; granted Maya the boon of knowledge; the Pushpaka Vimana is described as fashioned by his creative mind; dwells beyond the northern ocean"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver God; his three strides symbolising the rising, zenith, and setting of the sun are referenced in the description of the eastern mountain (Jatarupam)"
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of the sea; his realm is the ocean; Sampati asks to be led to offer libations at the sea (Varuna's home)"
+            }
+        },
+        {
+            "name": "Kubera",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of Wealth; brother of Ravana (son of Vishravas); his celestial palace on Kailasa is described in the northern search canto; the Pushpaka Vimana was originally his, seized by Ravana"
+            }
+        },
+        {
+            "name": "Vayu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Wind God; father of Hanuman; Hanuman's might and speed are attributed to his divine parentage"
+            }
+        },
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "Sun God (Vivasvat); burns Sampati's wings in the myth of the brothers' flight; Agastya's hymn to Surya (Aditya Hridayam) is recited before the final battle"
+            }
+        },
+        {
+            "name": "Ananta",
+            "type": "Character",
+            "attributes": {
+                "description": "Also called Sesha; cosmic serpent with a thousand heads; supports the earth; described in the eastern search canto resting on Mount Jatarupam; gods bow to him"
+            }
+        },
+        {
+            "name": "Apsaras",
+            "type": "Deity",
+            "attributes": {
+                "description": "Nymphs of Paradise; play in Kubera's lotus pools on Kailasa; Hema is an apsara for whom Maya's cave was built"
+            }
+        },
+        {
+            "name": "Hema",
+            "type": "Character",
+            "attributes": {
+                "description": "Celestial nymph (apsara); for whose love Maya built the enchanted cave; after Indra killed Maya, Brahma bestowed the cave to Hema"
+            }
+        },
+        {
+            "name": "Kishkindha",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain city and capital of the Vanara kingdom; Bali's royal town; Sugreeva is restored as its king after Bali's death"
+            }
+        },
+        {
+            "name": "Rishyamuka",
+            "type": "Place",
+            "attributes": {
+                "description": "Hill near Matanga's hermitage; Sugreeva lives here in exile because Matanga's curse prevents Bali from approaching; Rama first meets Sugreeva here"
+            }
+        },
+        {
+            "name": "Prasravana",
+            "type": "Place",
+            "attributes": {
+                "description": "Hill near Kishkindha where Rama and Lakshmana spend the rainy season while waiting for Sugreeva to act on his promise"
+            }
+        },
+        {
+            "name": "Malyavat",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain (possibly Malaya range) where Rama observes the onset of the rains and mourns Sita"
+            }
+        },
+        {
+            "name": "Vindhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Major mountain range in central India; the southern search army passes through it; Sampati falls on Vindhya after his wings are burnt"
+            }
+        },
+        {
+            "name": "Mahendra",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain on the eastern coast; Hanuman takes his great leap to Lanka from Mahendra's peak; Sampati's son Suparsva stood on Mahendra and saw Ravana carrying Sita"
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Island city of Ravana; situated on Trikuta mountain surrounded by the southern ocean; built by Vishwakarma; captured after the great battle"
+            }
+        },
+        {
+            "name": "Trikuta",
+            "type": "Place",
+            "attributes": {
+                "description": "Three-peaked mountain on which Lanka is enthroned; seen from the Pushpaka Vimana on Rama's return journey"
+            }
+        },
+        {
+            "name": "Nandigrama",
+            "type": "Place",
+            "attributes": {
+                "description": "Village where Bharata waits in austerity with Rama's sandals on the throne; from which Bharata goes out to meet Rama"
+            }
+        },
+        {
+            "name": "Dandaka",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest where Rama spent exile; Viradha, Surpanakha encounter, Jatayu's death all occur here"
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Part of Dandaka forest; Khara's base; where Jatayu died fighting Ravana"
+            }
+        },
+        {
+            "name": "Pampa",
+            "type": "Place",
+            "attributes": {
+                "description": "Lotus-covered lake near Rishyamuka where Rama mourns Sita in the melancholy season"
+            }
+        },
+        {
+            "name": "Kailasa",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain of Shiva; also site of Kubera's palace; described in the northern search canto"
+            }
+        },
+        {
+            "name": "Meru",
+            "type": "Place",
+            "attributes": {
+                "description": "Cosmic golden mountain at the centre of Jambudvipa; Vishnu's second step rests on its crest; 84,000 yojanas high"
+            }
+        },
+        {
+            "name": "Gomati",
+            "type": "Place",
+            "attributes": {
+                "description": "River near Ayodhya; the Pushpaka crosses it as it returns"
+            }
+        },
+        {
+            "name": "Narmada",
+            "type": "Place",
+            "attributes": {
+                "description": "River (modern Nerbudda) in the southern search route; Sugreeva directs the search army through its valley"
+            }
+        },
+        {
+            "name": "Maya's Enchanted Cave",
+            "type": "Place",
+            "attributes": {
+                "description": "Magical underground forest of golden trees and silver streams built by the Danava architect Maya; guarded by Svayamprabha; the Vanaras wander in it for a month"
+            }
+        },
+        {
+            "name": "Jambudvipa",
+            "type": "Place",
+            "attributes": {
+                "description": "The central continent; contains Meru at its centre; referenced in the description of the cosmic geography during the eastern search"
+            }
+        },
+        {
+            "name": "North Kurus",
+            "type": "Place",
+            "attributes": {
+                "description": "Blessed northern land of the holy spirits; described in the northern search canto as a paradise of golden lilies, pearl-decked maidens, and jewelled streams"
+            }
+        },
+        {
+            "name": "Sugreeva's Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto IX — Sugreeva narrates how Bali drove him from the kingdom after mistakenly believing Sugreeva had usurped the throne while Bali was in Mayavi's cave"
+            }
+        },
+        {
+            "name": "Dundubhi Episode",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XI — Bali kills the buffalo-demon Dundubhi; the carcass thrown near Matanga's hermitage; Matanga's curse prevents Bali from entering Rishyamuka"
+            }
+        },
+        {
+            "name": "Test of the Palm Trees",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XII — Rama pierces seven palm trees with one arrow to prove his might to the doubting Sugreeva; the arrow passes through six subterranean realms and returns to the quiver"
+            }
+        },
+        {
+            "name": "Rama-Sugreeva Alliance",
+            "type": "Event",
+            "attributes": {
+                "description": "Alliance forged between Rama and Sugreeva: Rama will slay Bali; Sugreeva will help find Sita"
+            }
+        },
+        {
+            "name": "First Battle of Bali and Sugreeva",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XII — Sugreeva challenges Bali; Rama cannot shoot because the brothers look identical; Sugreeva retreats to Rishyamuka wounded"
+            }
+        },
+        {
+            "name": "Fall of Bali",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XVI — Rama's arrow pierces Bali's chest while Bali fights Sugreeva (wearing a garland to distinguish him); Bali delivers his famous speech before dying"
+            }
+        },
+        {
+            "name": "Bali's Speech",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XVII — Dying Bali rebukes Rama for shooting from hiding; Rama explains the justice of the act; Bali is reconciled and dies attaining Brahma's worlds"
+            }
+        },
+        {
+            "name": "Sugreeva's Coronation",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XXVI — Sugreeva is anointed king of Kishkindha with full Aryan coronation rites; Angad is made co-ruler; Rama cannot enter the city due to his 14-year forest vow"
+            }
+        },
+        {
+            "name": "Rainy Season on Prasravana",
+            "type": "Event",
+            "attributes": {
+                "description": "Cantos XXVII-XXVIII — Rama and Lakshmana spend the four-month rainy season in a cave on Prasravana hill; Rama mourns Sita"
+            }
+        },
+        {
+            "name": "Hanuman's Counsel to Sugreeva",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XXIX — Hanuman rebukes the pleasure-absorbed Sugreeva and urges him to repay Rama's help by launching the search"
+            }
+        },
+        {
+            "name": "Dispatch of Search Armies",
+            "type": "Event",
+            "attributes": {
+                "description": "Cantos XL-XLIII — Sugreeva sends four armies to the east, south, west, and north to search for Sita; describes cosmic geography of all four directions"
+            }
+        },
+        {
+            "name": "Hanuman Given Rama's Ring",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XLIV — Rama gives Hanuman his signet ring as a token for Sita; gives special counsel to Hanuman above all others"
+            }
+        },
+        {
+            "name": "Sampati Episode",
+            "type": "Event",
+            "attributes": {
+                "description": "Cantos LVI-LX — Sampati, brother of Jatayu, reveals Sita's location in Ravana's Lanka after hearing of Jatayu's death; his son Suparsva had seen Ravana carrying Sita"
+            }
+        },
+        {
+            "name": "Enchanted Cave Episode",
+            "type": "Event",
+            "attributes": {
+                "description": "Cantos L-LII — The southern army stumbles into Maya's magic cave, wanders for a month; Svayamprabha feeds them and miraculously leads them out"
+            }
+        },
+        {
+            "name": "Hanuman's Leap to Lanka",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanuman takes his great leap of 100 leagues across the ocean from Mahendra's peak to Lanka; passes through sky, meets obstacles"
+            }
+        },
+        {
+            "name": "Hanuman Finds Sita",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanuman locates Sita imprisoned in Ravana's Ashoka grove in Lanka; gives her Rama's ring; receives Chudamani jewel for Rama"
+            }
+        },
+        {
+            "name": "Lanka Burns",
+            "type": "Event",
+            "attributes": {
+                "description": "After Ravana's court burns Hanuman's tail, Hanuman sets Lanka ablaze before returning to report to Rama"
+            }
+        },
+        {
+            "name": "Building of the Bridge",
+            "type": "Event",
+            "attributes": {
+                "description": "Nala (son of Vishwakarma) architects a bridge 100 leagues long across the ocean from the Indian shore to Lanka; the Vanara armies cross it"
+            }
+        },
+        {
+            "name": "Battle of Lanka",
+            "type": "Event",
+            "attributes": {
+                "description": "The great battle between Rama's Vanara-bear army and Ravana's demon forces at Lanka; spanning many cantos; includes deaths of Indrajit, Kumbhakarna, and finally Ravana"
+            }
+        },
+        {
+            "name": "Lakshmana Healed",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto CII — Lakshmana is gravely wounded by a serpent-weapon; Hanuman flies to Mahodaya/Himalaya, uproots the entire peak carrying healing herbs; Susena heals Lakshmana"
+            }
+        },
+        {
+            "name": "Indra's Chariot for Rama",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto CIII — Indra sends his divine chariot with Matali as charioteer so Rama can fight Ravana on equal footing from a chariot"
+            }
+        },
+        {
+            "name": "Aditya Hridayam",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto CVI — Agastya appears on the battlefield and recites the Aditya Hridayam (hymn to the Sun) to Rama, infusing him with strength for the final duel with Ravana"
+            }
+        },
+        {
+            "name": "Ravana Slain",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama slays the ten-headed Ravana with the divine Brahmastra arrow described by Agastya; the world is freed from the demon's tyranny"
+            }
+        },
+        {
+            "name": "Return on Pushpaka Vimana",
+            "type": "Event",
+            "attributes": {
+                "description": "Cantos CXXIII-CXXV — Vibhishana gives the divine chariot Pushpaka to Rama; Rama, Sita, Lakshmana, Sugreeva, Vibhishana, and their allies fly back to Ayodhya; Rama points out landmarks below"
+            }
+        },
+        {
+            "name": "Meeting with Bharata",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto CXXIX — Rama lands at Nandigrama; emotional reunion with Bharata who has kept the sandals; Rama is joyfully welcomed back to Ayodhya"
+            }
+        },
+        {
+            "name": "Pushpaka Vimana",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine flying chariot originally owned by Kubera, seized by Ravana; gifted by Vibhishana to Rama after the victory; carries Rama's entire party back to Ayodhya"
+            }
+        },
+        {
+            "name": "Nala's Bridge (Setu)",
+            "type": "Concept",
+            "attributes": {
+                "description": "Bridge built by Nala across 100 leagues of ocean from the Indian coast to Lanka; sacred to all worlds for all time; Hanuman rests on Hiranyanabha/Mainaka island midway"
+            }
+        },
+        {
+            "name": "Rama's Signet Ring",
+            "type": "Concept",
+            "attributes": {
+                "description": "Token given by Rama to Hanuman as proof of identity for Sita; bears Rama's name; Sita recognises it and trusts Hanuman"
+            }
+        },
+        {
+            "name": "Bali's Golden Chain",
+            "type": "Concept",
+            "attributes": {
+                "description": "Golden chain given to Bali by his father Indra/Mahendra as a divine gift; preserved Bali's life even as he lay wounded; still gleaming as he died"
+            }
+        },
+        {
+            "name": "Brahmastra",
+            "type": "Concept",
+            "attributes": {
+                "description": "Supreme divine weapon used by Rama to slay Ravana in the final duel; its impact is described as like Yama's discus ending the world"
+            }
+        },
+        {
+            "name": "Abhisheka",
+            "type": "Concept",
+            "attributes": {
+                "description": "Royal coronation rite performed for Sugreeva at Kishkindha and anticipated for Rama at Ayodhya; involves sacred water poured by Vanara chiefs"
+            }
+        },
+        {
+            "name": "Exile (Vanavasa)",
+            "type": "Concept",
+            "attributes": {
+                "description": "Fourteen-year forest exile of Rama; the vow that prevents him from entering cities during this period; context for the entire Kishkindha and Lanka episodes"
+            }
+        },
+        {
+            "name": "Aditya Hridayam Hymn",
+            "type": "Text",
+            "attributes": {
+                "description": "Sacred hymn to the Sun recited by Agastya to Rama before the final battle; embedded within the Ramayana"
+            }
+        },
+        {
+            "name": "Sama Veda",
+            "type": "Text",
+            "attributes": {
+                "description": "Third of the four Vedas; its sacred chants begin in the Sravana/rainy month; mentioned in the description of the rainy season"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is the eldest son of King Dasharatha"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is a son of Dasharatha"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is a son of Dasharatha by Kaikeyi"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna is the youngest son of Dasharatha"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sumitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is the son of queen Sumitra"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is the son of Queen Kaikeyi"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama and Sita are husband and wife"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Videha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita is the Videhan princess from Mithila"
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surpanakha and Ravana share the same mother; they are siblings"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Agastya counsels Rama to settle in Panchavati, four leagues away from his hermitage"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Panchavati",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Agastya recommends Panchavati as a fair and tranquil dwelling place for Rama, Lakshmana, and Sita"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Godavari",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Agastya tells Rama that Godavari's pure stream flows near Panchavati"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Agastya's Counsel",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Agastya delivers the counsel directing Rama to Panchavati (Canto XIII)"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Agastya's Counsel",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama receives Agastya's directions reverently"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama, Lakshmana, and Sita settle in Panchavati during exile"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lakshmana builds a cottage for Rama at Panchavati"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita lives with Rama in Panchavati; Agastya says she will be happy there"
+            }
+        },
+        {
+            "from": "Panchavati",
+            "to": "Godavari",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Panchavati is situated near the banks of the Godavari river"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama is exiled to the forest by Dasharatha at Kaikeyi's behest"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana accompanies Rama loyally during the exile"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sita accompanies Rama into forest exile"
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyi's demand caused Dasharatha to banish Rama"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Building of the Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana builds the cottage at Panchavati with bamboo, hardened earth, and thatch"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Building of the Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama selects the site and receives the completed hermitage with joy"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu was an old friend of King Dasharatha, loved by him in days of old"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu pledges to guard Sita and act as ally and helper to Rama, for his father's friendship's sake"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Aruna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu is a son of Aruna (who is red as the morn)"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Aruna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sampati is the firstborn son of Aruna"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Sampati",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu and Sampati are brothers, both sons of Aruna"
+            }
+        },
+        {
+            "from": "Aruna",
+            "to": "Vinata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aruna is a son of Vinata"
+            }
+        },
+        {
+            "from": "Garuda",
+            "to": "Vinata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Garuda is a son of Vinata, born alongside Aruna"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Meeting of Jatayu",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Jatayu reveals his identity, narrates his lineage, and pledges guardianship to Rama (Canto XIV)"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Meeting of Jatayu",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama venerates the great vulture as a friend of his father and embraces him"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Jatayu's Genealogy Recitation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Jatayu recounts the primordial genealogy to Rama, tracing all creation from the Prajapatis"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Shyeni",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu identifies himself as son of Shyeni (Tamra's daughter, mother of vultures/hawks)"
+            }
+        },
+        {
+            "from": "Marichi",
+            "to": "Kashyapa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa is a descendant of Marichi, one of the Lords of Life"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Aditi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is one of sixty daughters of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Diti",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Diti is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Danu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Danu is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Kalaka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kalaka is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Tamra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Tamra is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Anala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Anala is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Krodhavasa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krodhavasa is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Manu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manu is a daughter of Daksha who married Kashyapa"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Aditi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Aditi; she bore him the thirty-three gods"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Diti",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Diti; she bore the Daityas"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Danu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Danu; she bore Asvagriva"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Kalaka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Kalaka; she bore Narak and Kalak"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Tamra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Tamra; she bore five daughters"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Anala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Anala; she is mother of all fruit-bearing trees"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Krodhavasa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Krodhavasa; she bore ten daughters"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Manu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Manu; she gave birth to the four human castes"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Vasus",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the Vasus"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Adityas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the twelve Adityas"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Rudras",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the eleven Rudras"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Ashvins",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the twin Ashvins"
+            }
+        },
+        {
+            "from": "Diti",
+            "to": "Daityas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Diti is the mother of the Daitya demon race"
+            }
+        },
+        {
+            "from": "Danu",
+            "to": "Asvagriva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Danu bore Asvagriva as her son"
+            }
+        },
+        {
+            "from": "Kalaka",
+            "to": "Narak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kalaka bore Narak"
+            }
+        },
+        {
+            "from": "Kalaka",
+            "to": "Kalak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kalaka bore Kalak"
+            }
+        },
+        {
+            "from": "Manu",
+            "to": "Four Varnas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manu gave birth to the four human castes: Brahmans from mouth, Kshatriyas from chest, Vaishyas from thighs, Shudras from feet"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Kraunchi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kraunchi is a daughter of Tamra"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Bhasi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhasi is a daughter of Tamra"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Shyeni",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shyeni is a daughter of Tamra; mother of vultures and hawks"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Shuki",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shuki is a daughter of Tamra"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Dhritarashtri",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dhritarashtri is a daughter of Tamra; mother of swans and geese"
+            }
+        },
+        {
+            "from": "Shuki",
+            "to": "Nala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nala is the daughter of Shuki"
+            }
+        },
+        {
+            "from": "Nala",
+            "to": "Vinata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vinata is born of Nala (Shuki's daughter)"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Mrighi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mrighi is a daughter of Krodhavasa; mother of deer"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Mrigamanda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mrigamanda is a daughter of Krodhavasa; mother of bears and yaks"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Hari",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hari is a daughter of Krodhavasa; mother of lions and monkeys"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Bhadramada",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhadramada is a daughter of Krodhavasa; mother of Iravati"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Sharduli",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sharduli is a daughter of Krodhavasa; mother of leopards, langurs, and tigers"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Shveta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shveta is a daughter of Krodhavasa; mother of the eight guardian elephants of the directions"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Matangi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Matangi is a daughter of Krodhavasa; mother of elephants"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Surabhi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surabhi is a daughter of Krodhavasa; heavenly divine mother"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Surasa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surasa is a daughter of Krodhavasa; mother of hooded serpents"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Kadru",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kadru is a daughter of Krodhavasa; mother of all snakes"
+            }
+        },
+        {
+            "from": "Bhadramada",
+            "to": "Iravati",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Iravati is born of Bhadramada"
+            }
+        },
+        {
+            "from": "Iravati",
+            "to": "Airavata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Iravati gave birth to Airavata, the great elephant of Indra"
+            }
+        },
+        {
+            "from": "Airavata",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Airavata is the divine elephant belonging to Indra; ranked among the warders of the earth"
+            }
+        },
+        {
+            "from": "Surabhi",
+            "to": "Gandharvi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gandharvi is the daughter of Surabhi; mother of horses"
+            }
+        },
+        {
+            "from": "Surabhi",
+            "to": "Rohini",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rohini is the daughter of Surabhi; mother of cattle/kine"
+            }
+        },
+        {
+            "from": "Rudra",
+            "to": "Nandi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nandi is the chief attendant and chamberlain of Rudra (Shiva)"
+            }
+        },
+        {
+            "from": "Rudra",
+            "to": "Uma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Uma (Parvati) is the consort of Rudra/Shiva"
+            }
+        },
+        {
+            "from": "Uma",
+            "to": "Himalaya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Uma/Parvati is the daughter of King Himalaya"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rudra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama returning from the Godavari bath with Lakshmana and Sita is compared to Rudra with Nandi and Uma"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Kandarpa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama's youthful grace is compared to that of Kandarpa, the God of Love"
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Surpanakha wanders to Rama's leafy shed at Panchavati"
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Surpanakha's Arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Surpanakha arrives at Rama's hermitage and is captivated by him (Canto XVII)"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Surpanakha's Arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama candidly tells Surpanakha his identity, lineage, and family"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Rama is the central hero of the Ramayana epic"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Agastya's Counsel",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XIII of the Ramayana narrates Agastya's counsel"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Meeting of Jatayu",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XIV of the Ramayana narrates the meeting with Jatayu"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Building of the Hermitage",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XV narrates the building of the hermitage at Panchavati"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Winter Description",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XVI narrates Lakshmana's poetic description of winter"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Surpanakha's Arrival",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XVII narrates Surpanakha's arrival and encounter with Rama"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharata remains in Ayodhya grieving Rama's exile, living austerely"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Saryu",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharata bathes in the silver Saryu river at Ayodhya"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is praised for following Rama's virtuous footsteps and renouncing all royal pleasures"
+            }
+        },
+        {
+            "from": "Yama",
+            "to": "Himalaya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "In winter the sun turns toward Yama's south, while Himalaya is truly the Lord of Snow"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ikshvaku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama belongs to the old Ikshvaku royal lineage"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ikshvaku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is praised as first in Ikshvaku's princely race"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Vali",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers; sons of Riksharajas; Bali exiled Sugreeva and stole his wife Ruma; later Sugreeva is restored after Bali's death"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Riksharajas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sugreeva is the younger son of Riksharajas"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Riksharajas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bali is the eldest son of Riksharajas"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bali is the son of Indra (Mahendra, Sakra); inherits divine strength and the golden chain from Indra"
+            }
+        },
+        {
+            "from": "Angad",
+            "to": "Vali",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Angad is Bali's son; heir apparent; installed as co-ruler by Sugreeva at Rama's instruction"
+            }
+        },
+        {
+            "from": "Angad",
+            "to": "Tara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Angad is the son of Bali and Tara"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Vayu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman is the son of the Wind God Vayu; inherits unparalleled speed and strength from his divine father"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Jatayu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sampati is the elder brother of Jatayu; both are sons of Aruna; screened Jatayu with his wings during their flight toward the sun"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Suparsva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Suparsva is the son of Sampati who feeds him and reports seeing Ravana carry Sita southward"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Vibhishana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vibhishana is the righteous younger brother of Ravana; defects to Rama's side"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Kubera",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ravana and Kubera are brothers, both sons of the sage Vishravas"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Kumbhakarna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kumbhakarna is Ravana's giant brother; sleeps for months; awakened for the Lanka battle and slain by Rama"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Indrajit",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indrajit (Meghanada) is Ravana's son; Lanka's greatest warrior; wounds Lakshmana with a serpent-weapon"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Mandodari",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mandodari is Ravana's chief queen; mourns his death"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Surpanakha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surpanakha is Ravana's sister; her disfigurement motivates Ravana to abduct Sita"
+            }
+        },
+        {
+            "from": "Dundubhi",
+            "to": "Mayavi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mayavi is the son of Dundubhi the buffalo-demon"
+            }
+        },
+        {
+            "from": "Nala",
+            "to": "Vishwakarma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nala is the son of Vishwakarma the divine architect; inherits the skill to build the ocean bridge"
+            }
+        },
+        {
+            "from": "Nila",
+            "to": "Agni",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nila is the son of the Fire God Agni"
+            }
+        },
+        {
+            "from": "Maya",
+            "to": "Hema",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Maya built the enchanted cave for the love of the apsara Hema; killed by Indra for this love"
+            }
+        },
+        {
+            "from": "Svayamprabha",
+            "to": "Hema",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Svayamprabha guards Maya's cave on behalf of Hema, whom she loves"
+            }
+        },
+        {
+            "from": "Yama",
+            "to": "Surya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Yama (God of Death) is the son of Vivasvat (Surya, the Sun God)"
+            }
+        },
+        {
+            "from": "Kubera",
+            "to": "Vishravas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kubera is the son of Vishravas; Lord of Wealth; brother of Ravana"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sugreeva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama and Sugreeva forge a mutual alliance: Rama kills Bali; Sugreeva helps find Sita"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vibhishana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vibhishana defects to Rama's side and becomes a crucial ally; Rama installs him as king of Lanka after the victory"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Jatayu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu was Dasharatha's friend and Rama's protector; died fighting Ravana to save Sita; Rama performed his funeral rites"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman is Rama's greatest devotee and agent; finds Sita in Lanka and serves as chief envoy"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Sugreeva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman is Sugreeva's wisest minister and chosen friend on Rishyamuka; it was Hanuman who advised Sugreeva to take shelter on the hill"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sampati aids Rama's mission by revealing Sita's location in Lanka from his long-sighted vantage; enables the whole Lanka campaign"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Kishkindha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kishkindha is Sugreeva's kingdom; Bali ruled it and Sugreeva reclaims it after Bali's death"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Kishkindha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bali is the king of Kishkindha until his death by Rama's arrow"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Rishyamuka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sugreeva lives in exile on Rishyamuka hill under Matanga's curse that keeps Bali away"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Prasravana",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama and Lakshmana dwell in a cave on Prasravana hill during the four-month rainy season"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita is imprisoned in Ravana's Ashoka grove in Lanka; guarded by rakshasis"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lanka is Ravana's island fortress city on the Trikuta mountain surrounded by the ocean"
+            }
+        },
+        {
+            "from": "Lanka",
+            "to": "Trikuta",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lanka is enthroned on the three-peaked Trikuta mountain; seen from above on the Pushpaka Vimana"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Nandigrama",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharata keeps watch at Nandigrama near Ayodhya with Rama's sandals on the throne during the exile"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Vindhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sampati fell on Vindhya's hill after his wings were burnt by the sun; lived there until the Vanaras arrived"
+            }
+        },
+        {
+            "from": "Matanga",
+            "to": "Rishyamuka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Matanga's hermitage is on Rishyamuka hill; his curse makes it Bali's forbidden zone"
+            }
+        },
+        {
+            "from": "Svayamprabha",
+            "to": "Maya's Enchanted Cave",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Svayamprabha lives in and guards Maya's enchanted cave; leads the Vanaras out when they are lost"
+            }
+        },
+        {
+            "from": "Kubera",
+            "to": "Kailasa",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kubera's golden palace stands on Kailasa; described in the northern search canto"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ayodhya is Rama's home city; he returns to it after 14 years on the Pushpaka Vimana"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Mahendra",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Hanuman takes the great leap to Lanka from Mahendra's summit"
+            }
+        },
+        {
+            "from": "Nala's Bridge (Setu)",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Nala's bridge extends 100 leagues across the ocean from the Indian shore to Lanka"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Sugreeva's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva is the victim of exile; banished by Bali after being misunderstood"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Sugreeva's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bali drove Sugreeva into exile, stole his wife Ruma, and denied his pleas for forgiveness"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Dundubhi Episode",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bali kills Dundubhi, hurls the carcass near Matanga's hermitage, causing Matanga's curse"
+            }
+        },
+        {
+            "from": "Matanga",
+            "to": "Dundubhi Episode",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Matanga discovers his hermitage defiled by Dundubhi's blood; curses Bali to die on entering the grove"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Test of the Palm Trees",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama pierces seven palm trees with a single arrow to prove his might to Sugreeva"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Test of the Palm Trees",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva requests the test; is convinced of Rama's power by the arrow passing through all seven trees and six subterranean realms"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama-Sugreeva Alliance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama swears to kill Bali and restore Sugreeva's kingdom and wife in exchange for help finding Sita"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Rama-Sugreeva Alliance",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva swears to help find Sita in exchange for Rama's help against Bali"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Fall of Bali",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bali is struck by Rama's arrow while fighting Sugreeva at Kishkindha's gate; delivers his speech and dies"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Fall of Bali",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama shoots Bali from behind a tree while Bali is engaged with Sugreeva"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Fall of Bali",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva challenges Bali again, wearing a garland to distinguish himself; Bali is shot by Rama's arrow"
+            }
+        },
+        {
+            "from": "Tara",
+            "to": "Fall of Bali",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Tara tried to dissuade Bali from fighting; mourns his death"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Bali's Speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bali rebukes Rama for shooting from hiding; reconciles before death; attains Brahma's worlds"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Bali's Speech",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama answers Bali's rebuke, justifying the slaying as righteous punishment for Bali's wrongs to his brother"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Sugreeva's Coronation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva is anointed king of Kishkindha with full coronation rites; Angad made co-ruler"
+            }
+        },
+        {
+            "from": "Angad",
+            "to": "Sugreeva's Coronation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Angad is installed as co-ruler (yuvaraja) of Kishkindha during the coronation"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rainy Season on Prasravana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama and Lakshmana spend the rains on Prasravana; Rama laments Sita; Lakshmana cheers him"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Hanuman's Counsel to Sugreeva",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman rebukes Sugreeva for neglecting Rama's cause; urges him to dispatch the search armies"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Dispatch of Search Armies",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva commands four armies to search all directions for Sita; describes the cosmic geography of the world"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Dispatch of Search Armies",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman leads the southern army (nominally under Angad) toward Lanka"
+            }
+        },
+        {
+            "from": "Angad",
+            "to": "Dispatch of Search Armies",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Angad serves as the nominal commander of the crucial southern search army"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Hanuman Given Rama's Ring",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama gives Hanuman his signet ring as a recognition token for Sita"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Hanuman Given Rama's Ring",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman receives Rama's ring and special counsel before departing for Lanka"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Sampati Episode",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sampati reveals Sita's location after hearing of Jatayu's death; thereby enables the Lanka mission"
+            }
+        },
+        {
+            "from": "Angad",
+            "to": "Sampati Episode",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Angad speaks to Sampati, tells the story of the war against Ravana; receives the news of Sita's location"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Enchanted Cave Episode",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman leads the Vanaras through Maya's enchanted cave; addresses Svayamprabha"
+            }
+        },
+        {
+            "from": "Svayamprabha",
+            "to": "Enchanted Cave Episode",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Svayamprabha feeds the Vanaras and miraculously teleports them out of the cave to the ocean shore"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Hanuman's Leap to Lanka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman takes his famous leap of 100 leagues over the ocean from Mahendra to Lanka"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Hanuman Finds Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman finds Sita in the Ashoka grove, gives Rama's ring, receives her Chudamani jewel"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Hanuman Finds Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sita receives Hanuman as Rama's messenger; gives her Chudamani crest-jewel as a token for Rama"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Lanka Burns",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman sets Lanka ablaze with his burning tail after Ravana's court tries to humiliate him"
+            }
+        },
+        {
+            "from": "Nala",
+            "to": "Building of the Bridge",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Nala designs and oversees construction of the 100-league bridge across the ocean"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Building of the Bridge",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama commands the bridge construction after reaching the ocean shore"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Battle of Lanka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama leads the Vanara-bear army across the bridge into Lanka; fights Ravana in the climactic duel"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Battle of Lanka",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ravana commands the defence of Lanka; fights Rama in the final duel and is slain"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Lakshmana Healed",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman flies to the Himalaya, uproots the healing-herb mountain, and brings it to Susena"
+            }
+        },
+        {
+            "from": "Susena",
+            "to": "Lakshmana Healed",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Susena identifies and prepares the healing herb from the mountain Hanuman brings; Lakshmana is revived"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Lakshmana Healed",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana is healed by the fragrant herb and rises fresh and strong"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Indra's Chariot for Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Indra sends Matali with his divine chariot, bow, armour, and weapons for Rama's final fight with Ravana"
+            }
+        },
+        {
+            "from": "Matali",
+            "to": "Indra's Chariot for Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Matali descends to Rama's side with Indra's chariot and equips him for battle"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Indra's Chariot for Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama mounts Indra's chariot and resumes the equal duel with the chariot-borne Ravana"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Aditya Hridayam",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Agastya appears on the battlefield and recites the Aditya Hridayam hymn to Rama"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Aditya Hridayam",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama receives the Aditya Hridayam from Agastya and is renewed with strength"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ravana Slain",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama slays Ravana with the Brahmastra in the final duel; ends the Lanka war"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Ravana Slain",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ravana is killed by Rama's Brahmastra after a prolonged battle"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Return on Pushpaka Vimana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama, Sita, and all allies fly back to Ayodhya on the Pushpaka Vimana"
+            }
+        },
+        {
+            "from": "Vibhishana",
+            "to": "Return on Pushpaka Vimana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Vibhishana gives the Pushpaka Vimana to Rama and accompanies him to Ayodhya"
+            }
+        },
+        {
+            "from": "Sugreeva",
+            "to": "Return on Pushpaka Vimana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sugreeva and his Vanara chiefs ride the Pushpaka back to Ayodhya with Rama"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Meeting with Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama is joyfully received by Bharata at Nandigrama; returns his sandals; proceeds to Ayodhya"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Meeting with Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharata has maintained the kingdom in Rama's name; returns the sandals and prostrates himself at Rama's feet"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Meeting with Bharata",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman flies ahead to announce Rama's approach to Bharata; describes all that befell Rama"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Sugreeva's Exile",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Cantos IX-X narrate Sugreeva's story of exile and Bali's tyranny (batches 61-62)"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Fall of Bali",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Cantos XVI-XVII narrate the fall of Bali and his dying speech (batch 62)"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Hanuman's Leap to Lanka",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The Sundara Kanda narrates Hanuman's leap and Lanka mission (batches 71-75)"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Battle of Lanka",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "The Yuddha Kanda narrates the great battle (batches 78-89)"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Return on Pushpaka Vimana",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Cantos CXXIII-CXXIX narrate the return to Ayodhya (batch 90)"
+            }
+        },
+        {
+            "from": "Pushpaka Vimana",
+            "to": "Kubera",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Pushpaka was originally built for Kubera; seized by Ravana; eventually gifted to Rama by Vibhishana"
+            }
+        },
+        {
+            "from": "Nala's Bridge (Setu)",
+            "to": "Nala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The bridge is built by Nala with his divine architectural skill inherited from Vishwakarma"
+            }
+        },
+        {
+            "from": "Brahmastra",
+            "to": "Ravana Slain",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The Brahmastra is the weapon Rama uses to finally slay Ravana"
+            }
+        },
+        {
+            "from": "Bali's Golden Chain",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra gave the golden chain to his son Bali as a divine protective gift; it preserved Bali's beauty even in death"
+            }
+        },
+        {
+            "from": "Rama's Signet Ring",
+            "to": "Hanuman Finds Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama's ring is the token Hanuman gives Sita to prove he is Rama's true envoy"
+            }
+        },
+        {
+            "from": "Exile (Vanavasa)",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama's 14-year forest exile is the foundational context; it is why he cannot enter cities and why Bharata rules as regent"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Rama is understood as an avatar (incarnation) of Vishnu; the text alludes to this in comparing Rama's might to Vishnu's never-conquered strength"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Lakshmana",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 93 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1220",
+                    "0.1222",
+                    "0.1224",
+                    "0.1227",
+                    "0.1228",
+                    "0.1232",
+                    "0.1239",
+                    "0.1240",
+                    "0.1249",
+                    "0.1253"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Sita",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 115 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1223",
+                    "0.1246",
+                    "0.1291",
+                    "0.1292",
+                    "0.1296",
+                    "0.1300",
+                    "0.1321",
+                    "0.1323",
+                    "0.1336",
+                    "0.1337"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Hanuman",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 83 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1217",
+                    "0.1225",
+                    "0.1261",
+                    "0.1263",
+                    "0.1280",
+                    "0.1294",
+                    "0.1295",
+                    "0.1297",
+                    "0.1308",
+                    "0.1309"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Sugreeva",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 185 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1201",
+                    "0.1203",
+                    "0.1204",
+                    "0.1205",
+                    "0.1206",
+                    "0.1207",
+                    "0.1208",
+                    "0.1216",
+                    "0.1217",
+                    "0.1218"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Vali",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 85 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1201",
+                    "0.1203",
+                    "0.1205",
+                    "0.1207",
+                    "0.1208",
+                    "0.1210",
+                    "0.1211",
+                    "0.1212",
+                    "0.1213",
+                    "0.1215"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Ravana",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 201 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1245",
+                    "0.1285",
+                    "0.1293",
+                    "0.1300",
+                    "0.1323",
+                    "0.1333",
+                    "0.1336",
+                    "0.1337",
+                    "0.1342",
+                    "0.1343"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Vibhishana",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 68 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1481",
+                    "0.1482",
+                    "0.1506",
+                    "0.1507",
+                    "0.1510",
+                    "0.1542",
+                    "0.1543",
+                    "0.1544",
+                    "0.1545",
+                    "0.1548"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Angad",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 89 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1232",
+                    "0.1252",
+                    "0.1253",
+                    "0.1254",
+                    "0.1255",
+                    "0.1256",
+                    "0.1258",
+                    "0.1260",
+                    "0.1261",
+                    "0.1262"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Sampati",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 15 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1311",
+                    "0.1381",
+                    "0.1386",
+                    "0.1387",
+                    "0.1389",
+                    "0.1390",
+                    "0.1391",
+                    "0.1393",
+                    "0.1395",
+                    "0.1397"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Jatayu",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 10 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1381",
+                    "0.1382",
+                    "0.1383",
+                    "0.1384",
+                    "0.1386",
+                    "0.1392",
+                    "0.1393",
+                    "0.1395",
+                    "0.1785",
+                    "0.1793"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Tara",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 51 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1212",
+                    "0.1225",
+                    "0.1230",
+                    "0.1231",
+                    "0.1233",
+                    "0.1234",
+                    "0.1241",
+                    "0.1244",
+                    "0.1252",
+                    "0.1253"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Dundubhi",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 8 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1208",
+                    "0.1209",
+                    "0.1210",
+                    "0.1211",
+                    "0.1213",
+                    "0.1215",
+                    "0.1217",
+                    "0.1218"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Matanga",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 3 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1213",
+                    "0.1214",
+                    "0.1215"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Jambavan",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 17 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1344",
+                    "0.1389",
+                    "0.1401",
+                    "0.1402",
+                    "0.1408",
+                    "0.1439",
+                    "0.1515",
+                    "0.1516",
+                    "0.1526",
+                    "0.1528"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Nala",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 12 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1225",
+                    "0.1312",
+                    "0.1335",
+                    "0.1526",
+                    "0.1584",
+                    "0.1586",
+                    "0.1597",
+                    "0.1600",
+                    "0.1670",
+                    "0.1694"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Nila",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 27 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1225",
+                    "0.1270",
+                    "0.1297",
+                    "0.1312",
+                    "0.1334",
+                    "0.1344",
+                    "0.1526",
+                    "0.1527",
+                    "0.1533",
+                    "0.1589"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Indra",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 124 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1210",
+                    "0.1211",
+                    "0.1213",
+                    "0.1220",
+                    "0.1226",
+                    "0.1227",
+                    "0.1234",
+                    "0.1237",
+                    "0.1238",
+                    "0.1239"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Brahma",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 49 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1239",
+                    "0.1280",
+                    "0.1318",
+                    "0.1340",
+                    "0.1342",
+                    "0.1351",
+                    "0.1352",
+                    "0.1353",
+                    "0.1357",
+                    "0.1370"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Vishnu",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 2 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1407",
+                    "0.1771"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Yama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 26 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1238",
+                    "0.1245",
+                    "0.1264",
+                    "0.1270",
+                    "0.1319",
+                    "0.1337",
+                    "0.1348",
+                    "0.1354",
+                    "0.1382",
+                    "0.1466"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Varuna",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 12 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1374",
+                    "0.1389",
+                    "0.1526",
+                    "0.1532",
+                    "0.1538",
+                    "0.1597",
+                    "0.1650",
+                    "0.1680",
+                    "0.1689",
+                    "0.1746"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Agastya",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 5 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1345",
+                    "0.1346",
+                    "0.1347",
+                    "0.1751",
+                    "0.1786"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Bharat",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 22 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1247",
+                    "0.1249",
+                    "0.1253",
+                    "0.1293",
+                    "0.1441",
+                    "0.1479",
+                    "0.1541",
+                    "0.1742",
+                    "0.1775",
+                    "0.1780"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Kishkindha",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 22 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1203",
+                    "0.1204",
+                    "0.1205",
+                    "0.1211",
+                    "0.1220",
+                    "0.1221",
+                    "0.1224",
+                    "0.1225",
+                    "0.1227",
+                    "0.1267"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Lanka",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 115 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1321",
+                    "0.1335",
+                    "0.1346",
+                    "0.1347",
+                    "0.1387",
+                    "0.1402",
+                    "0.1408",
+                    "0.1420",
+                    "0.1421",
+                    "0.1424"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Rishyamuka",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 7 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1207",
+                    "0.1215",
+                    "0.1217",
+                    "0.1222",
+                    "0.1224",
+                    "0.1273",
+                    "0.1361"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Ayodhya",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 16 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1293",
+                    "0.1337",
+                    "0.1490",
+                    "0.1530",
+                    "0.1679",
+                    "0.1742",
+                    "0.1777",
+                    "0.1779",
+                    "0.1781",
+                    "0.1783"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Vindhya",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 16 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1311",
+                    "0.1332",
+                    "0.1344",
+                    "0.1350",
+                    "0.1361",
+                    "0.1363",
+                    "0.1366",
+                    "0.1367",
+                    "0.1373",
+                    "0.1381"
+                ]
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Himalaya",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Mentioned in 12 verses across batches 61-90",
+                "verse_ids": [
+                    "0.1209",
+                    "0.1210",
+                    "0.1219",
+                    "0.1233",
+                    "0.1327",
+                    "0.1352",
+                    "0.1355",
+                    "0.1361",
+                    "0.1412",
+                    "0.1413"
+                ]
+            }
+        }
+    ]
+}

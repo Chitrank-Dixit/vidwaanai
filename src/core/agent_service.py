@@ -1,15 +1,15 @@
 import logging
 import time
-from typing import Dict, Any, List, Optional
+from typing import Any
 
 from src.core.config import settings
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
+from src.graph.entity_extractor import EntityExtractor
+from src.graph.graph_builder import GraphBuilder
+from src.graph.graph_retriever import GraphRetriever
 from src.llm.lmstudio_client import LMStudioClient
 from src.llm.openai_client import OpenAIClient
-from src.graph.graph_builder import GraphBuilder
-from src.graph.entity_extractor import EntityExtractor
-from src.graph.graph_retriever import GraphRetriever
 from src.retrieval.hybrid_retriever_service import HybridRetrieverService
 
 # You may need a GraphQuerier or similar class for reading graph data efficiently
@@ -66,8 +66,8 @@ class AgentService:
         """
 
     def process_query(
-        self, question: str, session_id: Optional[str] = None
-    ) -> Dict[str, Any]:
+        self, question: str, session_id: str | None = None
+    ) -> dict[str, Any]:
         """
         Main RAG pipeline entry point.
         """
@@ -198,8 +198,8 @@ class AgentService:
         }
 
     def _search_vector_db(
-        self, embedding: List[float], top_k: int = 5
-    ) -> List[Dict[str, Any]]:
+        self, embedding: list[float], top_k: int = 5
+    ) -> list[dict[str, Any]]:
         """Search mantras by vector similarity."""
         results = []
         with self.db._get_connection() as conn:

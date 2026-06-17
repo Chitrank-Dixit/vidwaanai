@@ -1,0 +1,313 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating the life and battles of Rama."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya and central hero, known for valor and righteousness."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama and his loyal companion."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, symbol of virtue and devotion."
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon leader commanding forces in Janasthana."
+            }
+        },
+        {
+            "name": "Dushana",
+            "type": "Character",
+            "attributes": {
+                "description": "Commander of Khara's army."
+            }
+        },
+        {
+            "name": "Trishira",
+            "type": "Character",
+            "attributes": {
+                "description": "Three-headed demon warrior under Khara."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, wielder of the thunderbolt."
+            }
+        },
+        {
+            "name": "Airavata",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine elephant mount of Indra."
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "A fierce form of Shiva associated with destruction."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death and ruler of the underworld."
+            }
+        },
+        {
+            "name": "Rahu",
+            "type": "Concept",
+            "attributes": {
+                "description": "Mythical being associated with eclipses."
+            }
+        },
+        {
+            "name": "Pulastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancestor of the Rakshasas."
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Region within Dandaka forest ruled by Khara."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest where Rama resides during exile."
+            }
+        },
+        {
+            "name": "Hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "Rama's dwelling place in the forest."
+            }
+        },
+        {
+            "name": "Rakshasas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demonic beings opposing Rama."
+            }
+        },
+        {
+            "name": "Omens of Doom",
+            "type": "Event",
+            "attributes": {
+                "description": "Inauspicious signs appearing before battle."
+            }
+        },
+        {
+            "name": "Battle with Khara",
+            "type": "Event",
+            "attributes": {
+                "description": "Major battle where Rama fights Khara and his army."
+            }
+        },
+        {
+            "name": "Death of Dushana",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Dushana in battle."
+            }
+        },
+        {
+            "name": "Death of Trishira",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills the three-headed demon Trishira."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Epic centers on Rama's deeds."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers fighting together."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife relationship."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Dushana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dushana is commander under Khara."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Trishira",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Trishira is a chief under Khara."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Battle with Khara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Leads demon army against Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Battle with Khara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fights and destroys demon army."
+            }
+        },
+        {
+            "from": "Dushana",
+            "to": "Death of Dushana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Killed by Rama in battle."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Death of Dushana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Slays Dushana."
+            }
+        },
+        {
+            "from": "Trishira",
+            "to": "Death of Trishira",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Killed by Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Death of Trishira",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Slays Trishira."
+            }
+        },
+        {
+            "from": "Janasthana",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janasthana lies within Dandaka forest."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Hermitage",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama resides in forest hermitage."
+            }
+        },
+        {
+            "from": "Omens of Doom",
+            "to": "Battle with Khara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Omens precede the battle."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Khara compares his strength to Indra."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Airavata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Airavata is Indra's mount."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rudra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama compared to Rudra in wrath."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rakshasas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama destroys demons in battle."
+            }
+        },
+        {
+            "from": "Battle with Khara",
+            "to": "Yama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Slain demons are sent to Yama's realm."
+            }
+        },
+        {
+            "from": "Rahu",
+            "to": "Khara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Khara compared to Rahu attacking the moon."
+            }
+        }
+    ]
+}

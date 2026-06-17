@@ -34,6 +34,43 @@ if [ "$1" == "custom" ]; then
     set -- "$PLAYBOOK" "" "$EXTRA_VARS"
 fi
 
+# Special handling for 'ontology' workflow
+if [ "$1" == "ontology" ]; then
+    shift
+    PLAYBOOK="ontology_manual_workflow.yml"
+    TAGS=""
+    
+    while [[ "$#" -gt 0 ]]; do
+        case $1 in
+            --step) 
+                if [[ "$2" == "generate" ]]; then
+                    TAGS="generate"
+                elif [[ "$2" == "deploy" ]]; then
+                    TAGS="deploy"
+                else
+                    echo "Unknown step: $2. Use 'generate' or 'deploy'."
+                    exit 1
+                fi
+                shift 
+                ;;
+            --scripture)
+                EXTRA_VARS="scripture=$2"
+                shift
+                ;;
+            *) echo "Unknown parameter: $1"; exit 1 ;;
+        esac
+        shift
+    done
+    
+    if [[ -z "$TAGS" ]]; then
+        echo "Usage: $0 ontology --step [generate|deploy]"
+        exit 1
+    fi
+    
+    # Set arguments for main logic
+    set -- "$PLAYBOOK" "$TAGS" "$EXTRA_VARS"
+fi
+
 set -euo pipefail
 
 # Colors

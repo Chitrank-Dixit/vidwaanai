@@ -1,0 +1,542 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating Rama's journey"
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, avatar of Vishnu"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama"
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya"
+            }
+        },
+        {
+            "name": "Sugriva",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara king and ally of Rama"
+            }
+        },
+        {
+            "name": "Vali",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Sugriva, powerful vanara king"
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara warrior, son of Wind God"
+            }
+        },
+        {
+            "name": "Kabandha",
+            "type": "Character",
+            "attributes": {
+                "description": "Cursed demon (Danu)"
+            }
+        },
+        {
+            "name": "Jatayu",
+            "type": "Character",
+            "attributes": {
+                "description": "Vulture king"
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka"
+            }
+        },
+        {
+            "name": "Tara",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Bali"
+            }
+        },
+        {
+            "name": "Angada",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Bali"
+            }
+        },
+        {
+            "name": "Matanga",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage who cursed Bali"
+            }
+        },
+        {
+            "name": "Dundubhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon defeated by Bali"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of gods"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god"
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death"
+            }
+        },
+        {
+            "name": "Pampa Lake",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred lake near Rishyamuka"
+            }
+        },
+        {
+            "name": "Rishyamuka Mountain",
+            "type": "Place",
+            "attributes": {
+                "description": "Refuge of Sugriva"
+            }
+        },
+        {
+            "name": "Kishkindha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Vanaras"
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest region"
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest of exile"
+            }
+        },
+        {
+            "name": "Sita Abduction",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana abducts Sita"
+            }
+        },
+        {
+            "name": "Jatayu Death",
+            "type": "Event",
+            "attributes": {
+                "description": "Jatayu dies fighting Ravana"
+            }
+        },
+        {
+            "name": "Kabandha Encounter",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Kabandha"
+            }
+        },
+        {
+            "name": "Kabandha Liberation",
+            "type": "Event",
+            "attributes": {
+                "description": "Kabandha regains divine form"
+            }
+        },
+        {
+            "name": "Alliance Formation",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama forms alliance with Sugriva"
+            }
+        },
+        {
+            "name": "Sugriva Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Sugriva exiled by Bali"
+            }
+        },
+        {
+            "name": "Bali Dundubhi Fight",
+            "type": "Event",
+            "attributes": {
+                "description": "Bali kills Dundubhi"
+            }
+        },
+        {
+            "name": "Bali Curse",
+            "type": "Event",
+            "attributes": {
+                "description": "Matanga curses Bali"
+            }
+        },
+        {
+            "name": "Bali Sugriva Battle",
+            "type": "Event",
+            "attributes": {
+                "description": "Battle between Bali and Sugriva"
+            }
+        },
+        {
+            "name": "Bali Death",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Bali"
+            }
+        },
+        {
+            "name": "Hanuman Meeting",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanuman meets Rama"
+            }
+        },
+        {
+            "name": "Sita Search",
+            "type": "Event",
+            "attributes": {
+                "description": "Search mission for Sita"
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty"
+            }
+        },
+        {
+            "name": "Fate",
+            "type": "Concept",
+            "attributes": {
+                "description": "Inevitable destiny"
+            }
+        },
+        {
+            "name": "Grief",
+            "type": "Concept",
+            "attributes": {
+                "description": "Emotional suffering"
+            }
+        },
+        {
+            "name": "Friendship",
+            "type": "Concept",
+            "attributes": {
+                "description": "Alliance and loyalty"
+            }
+        },
+        {
+            "name": "Valour",
+            "type": "Concept",
+            "attributes": {
+                "description": "Courage in battle"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Main hero"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Vali",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Tara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Spouses"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Divine incarnation"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Sita Abduction",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Abducts Sita"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Jatayu Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Dies protecting Sita"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Kabandha Encounter",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Kabandha"
+            }
+        },
+        {
+            "from": "Kabandha",
+            "to": "Kabandha Liberation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Freed from curse"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Alliance Formation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Forms alliance with Sugriva"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Alliance Formation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Alliance with Rama"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Sugriva Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Exiled by Bali"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Sugriva Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Expels Sugriva"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Bali Dundubhi Fight",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Dundubhi"
+            }
+        },
+        {
+            "from": "Matanga",
+            "to": "Bali Curse",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Curses Bali"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Bali Sugriva Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fights Bali"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Bali Sugriva Battle",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Fights Sugriva"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Bali Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Bali"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Bali Death",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Killed by Rama"
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Hanuman Meeting",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Meets Rama"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita Search",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Search for Sita"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Sita Search",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Helps search"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Exile"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Rishyamuka Mountain",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Refuge"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Kishkindha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Kingdom"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Pampa Lake",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Search journey"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Embodiment of righteousness"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Grief",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Laments Sita"
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Friendship",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Alliance with Rama"
+            }
+        },
+        {
+            "from": "Vali",
+            "to": "Valour",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Great warrior"
+            }
+        },
+        {
+            "from": "All",
+            "to": "Fate",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Subject to destiny"
+            }
+        }
+    ]
+}

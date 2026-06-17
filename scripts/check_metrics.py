@@ -24,7 +24,7 @@ def check_metrics():
         print(f"❌ Report not found at {report_path}")
         sys.exit(1)
 
-    with open(report_path, "r") as f:
+    with open(report_path) as f:
         data = json.load(f)
 
     # Handle different schema versions (flat vs nested metrics)
@@ -42,7 +42,7 @@ def check_metrics():
 
     failed = False
     print("\n🔍 Checking Quality Gate Thresholds...")
-    print(f"{'-'*40}")
+    print(f"{'-' * 40}")
 
     for metric, threshold in THRESHOLDS.items():
         val = metrics.get(metric, 0)
@@ -51,7 +51,7 @@ def check_metrics():
             failed = True
         print(f"{metric:<25}: {val:.4f} (Target: >={threshold}) {status}")
 
-    print(f"{'-'*40}")
+    print(f"{'-' * 40}")
 
     if failed:
         print("🚨 Quality Gate FAILED. Metrics are below acceptable thresholds.")

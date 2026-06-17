@@ -1,0 +1,292 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating the life and deeds of Rama."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, central hero known for righteousness and valor."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, devoted companion."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, daughter of Janaka."
+            }
+        },
+        {
+            "name": "Surpanakha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demoness, sister of Ravana, capable of changing form."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka, brother of Surpanakha."
+            }
+        },
+        {
+            "name": "Kumbhakarna",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Ravana, known for his immense size and long sleep."
+            }
+        },
+        {
+            "name": "Vibhishana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Ravana, righteous among the demons."
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon chief residing in Janasthana."
+            }
+        },
+        {
+            "name": "Dushana",
+            "type": "Character",
+            "attributes": {
+                "description": "Commander of Khara's army."
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Region in Dandaka forest ruled by Khara."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "A vast forest inhabited by sages and demons."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death and ruler of the underworld."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, also called Shakra."
+            }
+        },
+        {
+            "name": "Rakshasas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demonic beings who oppose sages and heroes."
+            }
+        },
+        {
+            "name": "Mutilation of Surpanakha",
+            "type": "Event",
+            "attributes": {
+                "description": "Lakshmana cuts off Surpanakha's nose and ears."
+            }
+        },
+        {
+            "name": "Battle with Khara's Forces",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama fights and kills Khara's demon army."
+            }
+        },
+        {
+            "name": "Omens of Doom",
+            "type": "Event",
+            "attributes": {
+                "description": "Inauspicious signs appearing before the battle."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Narrative centers around Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers traveling together."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife relationship."
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sibling relationship."
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Kumbhakarna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sibling relationship."
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Vibhishana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sibling relationship."
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Khara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sibling/allied demon relationship."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Dushana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Commander under Khara."
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Mutilation of Surpanakha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Cuts off Surpanakha's nose and ears."
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Mutilation of Surpanakha",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Victim of mutilation."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Battle with Khara's Forces",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Leads demon army against Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Battle with Khara's Forces",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Defeats Khara's army."
+            }
+        },
+        {
+            "from": "Dushana",
+            "to": "Battle with Khara's Forces",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Commands demon forces in battle."
+            }
+        },
+        {
+            "from": "Janasthana",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janasthana is within Dandaka forest."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama resides in forest during exile."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Janasthana",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Khara rules from Janasthana."
+            }
+        },
+        {
+            "from": "Omens of Doom",
+            "to": "Battle with Khara's Forces",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Omens appear before the battle."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rakshasas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama opposes and fights demons."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Yama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Khara threatens to send Rama to Yama's realm."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Khara compares his strength against Indra."
+            }
+        }
+    ]
+}

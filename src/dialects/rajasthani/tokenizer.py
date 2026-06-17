@@ -1,5 +1,4 @@
 import regex
-from typing import List
 
 
 class RajasthaniTokenizer:
@@ -16,7 +15,7 @@ class RajasthaniTokenizer:
         # Sentence splitter pattern
         self.sentence_pattern = regex.compile(r"(?<=[।॥?!.])\s+")
 
-    def tokenize_words(self, text: str) -> List[str]:
+    def tokenize_words(self, text: str) -> list[str]:
         """
         Tokenize text into words.
 
@@ -30,7 +29,7 @@ class RajasthaniTokenizer:
             return []
         return [str(match) for match in self.word_pattern.findall(text)]
 
-    def tokenize_sentences(self, text: str) -> List[str]:
+    def tokenize_sentences(self, text: str) -> list[str]:
         """
         Split text into sentences.
 

@@ -1,14 +1,14 @@
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 
 def calculate_confidence_score(
-    question_embedding: List[float],
-    retrieved_verses: List[Dict[str, Any]],
+    question_embedding: list[float],
+    retrieved_verses: list[dict[str, Any]],
     generated_answer: str,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Calculate confidence score for RAG answer based on multiple factors.
 

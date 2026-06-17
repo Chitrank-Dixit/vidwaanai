@@ -1,6 +1,7 @@
-from pypdf import PdfReader
-from typing import List, Dict, Optional, Any
 import logging
+from typing import Any
+
+from pypdf import PdfReader
 
 logger = logging.getLogger(__name__)
 
@@ -8,7 +9,7 @@ logger = logging.getLogger(__name__)
 class PdfExtractor:
     """Extract text from Veda PDFs (Hindi)."""
 
-    def extract_pdf(self, pdf_path: str) -> List[str]:
+    def extract_pdf(self, pdf_path: str) -> list[str]:
         """Extract all text from PDF."""
         reader = PdfReader(pdf_path)
         pages = []
@@ -19,12 +20,12 @@ class PdfExtractor:
         return pages
 
     def extract_with_metadata(
-        self, pdf_path: str, max_pages: Optional[int] = None
-    ) -> List[Dict[str, Any]]:
+        self, pdf_path: str, max_pages: int | None = None
+    ) -> list[dict[str, Any]]:
         """Extract text with page metadata. Fallback to OCR if empty."""
         try:
             reader = PdfReader(pdf_path)
-            results: List[Dict[str, Any]] = []
+            results: list[dict[str, Any]] = []
             total_text_len = 0
 
             total_pages = len(reader.pages)
@@ -50,20 +51,24 @@ class PdfExtractor:
 
             return results
         except Exception as e:
-            logger.warning(f"pypdf failed to extract text from {pdf_path}: {e}. Attempting OCR fallback...")
+            logger.warning(
+                f"pypdf failed to extract text from {pdf_path}: {e}. Attempting OCR fallback..."
+            )
             try:
                 return self._fallback_to_ocr(pdf_path, max_pages)
             except Exception as ocr_error:
                 logger.error(f"OCR fallback also failed: {ocr_error}")
                 raise e  # Raise original error if OCR also fails
 
-    def _fallback_to_ocr(self, pdf_path: str, max_pages: Optional[int] = None) -> List[Dict[str, Any]]:
+    def _fallback_to_ocr(
+        self, pdf_path: str, max_pages: int | None = None
+    ) -> list[dict[str, Any]]:
         """Helper to run OCR."""
         try:
             from src.ingestion.ocr_handler import OCRHandler
+
             ocr = OCRHandler()
             return ocr.extract_text_with_ocr(pdf_path, max_pages=max_pages)
         except ImportError:
             logger.error("OCR dependencies missing. Cannot run fallback.")
             raise
-

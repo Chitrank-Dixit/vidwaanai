@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -7,10 +7,10 @@ logger = get_logger(__name__)
 
 class RetrieverEvaluator:
     def __init__(self) -> None:
-        self.results: List[Dict[str, Any]] = []
+        self.results: list[dict[str, Any]] = []
 
     def precision_at_k(
-        self, retrieved: List[str], relevant: List[str], k: int = 10
+        self, retrieved: list[str], relevant: list[str], k: int = 10
     ) -> float:
         """Precision@K: proportion of retrieved docs that are relevant"""
         top_k = retrieved[:k]
@@ -22,7 +22,7 @@ class RetrieverEvaluator:
         return len(retrieved_set & relevant_set) / k
 
     def recall_at_k(
-        self, retrieved: List[str], relevant: List[str], k: int = 10
+        self, retrieved: list[str], relevant: list[str], k: int = 10
     ) -> float:
         """Recall@K: proportion of relevant docs that are retrieved"""
         top_k = retrieved[:k]
@@ -34,7 +34,7 @@ class RetrieverEvaluator:
 
         return len(retrieved_set & relevant_set) / len(relevant_set)
 
-    def mrr(self, retrieved: List[str], relevant: List[str]) -> float:
+    def mrr(self, retrieved: list[str], relevant: list[str]) -> float:
         """Mean Reciprocal Rank: rank of first relevant result"""
         relevant_set = set(str(r) for r in relevant)
         for i, doc in enumerate(retrieved):
@@ -42,7 +42,7 @@ class RetrieverEvaluator:
                 return 1.0 / (i + 1)
         return 0.0
 
-    def ndcg(self, retrieved: List[str], relevant: List[str], k: int = 10) -> float:
+    def ndcg(self, retrieved: list[str], relevant: list[str], k: int = 10) -> float:
         """NDCG@K: normalized ranking quality metric"""
         top_k = retrieved[:k]
         relevant_set = set(str(r) for r in relevant)
@@ -57,8 +57,8 @@ class RetrieverEvaluator:
         return dcg / idcg if idcg > 0 else 0.0
 
     def evaluate_query(
-        self, query: str, retrieved: List[str], relevant: List[str]
-    ) -> Dict[str, Any]:
+        self, query: str, retrieved: list[str], relevant: list[str]
+    ) -> dict[str, Any]:
         """Evaluate single query"""
         return {
             "query": query,
@@ -70,7 +70,7 @@ class RetrieverEvaluator:
             "num_relevant": len(relevant),
         }
 
-    def generate_report(self) -> Dict[str, Any]:
+    def generate_report(self) -> dict[str, Any]:
         """Generate aggregated evaluation report"""
         if not self.results:
             return {}

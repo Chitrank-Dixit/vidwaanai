@@ -1,7 +1,9 @@
+from collections.abc import Generator
+from unittest.mock import MagicMock
+
 import pytest
 from fastapi.testclient import TestClient
-from unittest.mock import MagicMock
-from typing import Generator
+
 from src.api.main import app
 from src.api.routes import get_agent_service
 
@@ -12,7 +14,7 @@ class TestE2E:
         return TestClient(app)
 
     @pytest.fixture
-    def mock_agent(self) -> Generator[MagicMock, None, None]:
+    def mock_agent(self) -> Generator[MagicMock]:
         mock = MagicMock()
         app.dependency_overrides[get_agent_service] = lambda: mock
         yield mock

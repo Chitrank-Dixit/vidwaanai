@@ -1,6 +1,7 @@
+from unittest.mock import MagicMock, patch
+
 import pytest
 from fastapi.testclient import TestClient
-from unittest.mock import patch, MagicMock
 
 from src.api.main import app
 
@@ -23,7 +24,6 @@ def mock_external_deps():
         patch("src.core.agent_service.LMStudioClient") as MockLLM,
         patch("src.core.agent_service.GraphBuilder") as MockGraph,
     ):
-
         # Setup mocks
         db_instance = MockDB.return_value
         # Mock connection context manager

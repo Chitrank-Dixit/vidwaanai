@@ -2,6 +2,13 @@
 
 A multilingual AI agent for Indian scriptures with CLI interface.
 
+## System Architecture Overview
+
+The VidwaanAI system consists of three main repositories:
+1. **[vidwaan-ai-mvp](file:///Users/chitrankdixit/Documents/personal_projects/vidwaan-ai-mvp)** (This Repository): Core RAG, vectorization, and knowledge graph backend (Postgres + Neo4j + FastAPI).
+2. **[vidwaan-ai-be](file:///Users/chitrankdixit/Documents/personal_projects/vidwaan-ai-be)**: Main Bun/Node API gateway and session/user manager (MongoDB).
+3. **[vidwaan-ai-fe](file:///Users/chitrankdixit/Documents/personal_projects/vidwaan-ai-fe)**: React + Vite front-end chat interface.
+
 ## Quick Start
 
 ### 1. Prerequisites
@@ -9,7 +16,20 @@ A multilingual AI agent for Indian scriptures with CLI interface.
 - Python 3.10+
 - OpenAI API key
 
-### 2. Setup Environment
+### 2. System Dependencies (OCR Support)
+To ingest scanned PDFs (like Mahabharat), you need `tesseract` and `poppler`.
+
+**macOS:**
+```bash
+brew install tesseract poppler
+```
+
+**Ubuntu/Debian:**
+```bash
+sudo apt-get install tesseract-ocr poppler-utils
+```
+
+### 3. Setup Environment
 ```bash
 cp .env.example .env
 # Edit .env and add your OpenAI API key
@@ -146,6 +166,43 @@ You can run specific steps of the workflow using **tags** (2nd argument). This i
 | **Knowledge Graph Only** | `build_graph` | `bash scripts/run_ansible_workflow.sh full_workflow.yml build_graph` |
 | **Ingestion + Force** | `ingest_files` | `bash scripts/run_ansible_workflow.sh full_workflow.yml ingest_files "force_ingestion=true"` |
 
+#### 5. Modular Workflows
+For better control, you can run the ingestion/vectorization and graph building steps independently using the dedicated playbooks. This uses `uv` to run `ansible-playbook` ensuring all dependencies are met.
+
+**Ingest and Vectorize Only:**
+```bash
+uv run ansible-playbook ansible/playbooks/ingest_and_vectorize_workflow.yml
+```
+
+**Build Knowledge Graph Only:**
+```bash
+uv run ansible-playbook ansible/playbooks/building_graph_workflow.yml
+```
+
+#### 6. Ontology Manual Workflow (Multi-LLM)
+This workflow manages the creation of the **Vedic Ontology** using a human-in-the-loop process with multiple LLMs.
+
+**Why Use This?**
+-   **Precision**: Automated extraction often misses nuanced Vedic concepts or relationships. Manual verification with powerful LLMs (like GPT-4, Claude 3) ensures high accuracy.
+-   **Control**: Allows you to focus on specific scriptures (e.g., *Ramayan*) one at a time.
+-   **Integration**: Seamlessly bridges the gap between your raw queries and the Neo4j Knowledge Graph.
+
+**Step 1: Generate Prompts**
+Verifies that query batch files are ready and provides instructions for manual execution.
+```bash
+# Generate prompts from 20 random verses
+bash scripts/run_ansible_workflow.sh ontology --step generate
+
+# Generate prompts specifically for "Ramayan" verses
+bash scripts/run_ansible_workflow.sh ontology --step generate --scripture "Ramayan"
+```
+
+**Step 2: Deploy (After Manual Querying)**
+Once you have saved the JSON responses from Perplexity/Gemini/ChatGPT to `scripts/responses/`, run this step to aggregate, convert, and deploy the ontology to Neo4j.
+```bash
+bash scripts/run_ansible_workflow.sh ontology --step deploy
+```
+
 ### Directory Structure
 - `ansible/playbooks/`: Workflow definitions
 - `ansible/roles/`: Individual task roles (docker_setup, docker_testing, etc.)
@@ -248,13 +305,50 @@ uv run python scripts/build_knowledge_graph.py --limit 10
 uv run python scripts/build_knowledge_graph.py
 ```
 
+**Checkpointing & Resume:**
+The build script automatically maintains a checkpoint file (`graph_build.checkpoint`).
+-   **Interrupted?** Run the command again to resume from the last processed batch.
+-   **Fresh Start?** Use `--clear` to wipe the graph and the checkpoint.
+
+
 #### 3. Verify Graph
 Check the status of nodes and relationships.
 ```bash
+# Basic Verification (Counts of nodes/relationships)
 uv run python scripts/verify_graph.py
+
+# Detailed Ontology Verification (Checks isolation, specific relations)
+uv run python scripts/verify_ontology.py
 ```
 
-#### 4. API Endpoints
+#### 4. Step-by-Step Ontology Verification Process
+To manually verify that the ontology is correctly applied and relationships exist:
+
+1.  **Check Connection**: Ensure Neo4j is running.
+2.  **Run Verification Script**:
+    ```bash
+    uv run python scripts/verify_ontology.py
+    ```
+    *Expected Output*:
+    -   Graphs Totals: Nodes > 0, Relationships > 0.
+    -   TEXT -> MENTIONS -> CONCEPT: Should show explicit links (e.g., `Verse ... --[MENTIONS]-> Dharma`).
+    -   Isolated Nodes: Should be 0 (or very low).
+    -   Internal Relations: Concepts should link to other concepts (e.g., `Rama --[MANIFESTS_AS]-> Vishnu`).
+
+3.  **Manual Cypher Checks**:
+    Open Neo4j Browser (http://localhost:7474) and run:
+
+    *Check Text-Concept Links:*
+    ```cypher
+    MATCH (t:Text)-[r:MENTIONS]->(c:Concept) RETURN t.name, c.name LIMIT 20
+    ```
+
+    *Check Concept Hierarchy:*
+    ```cypher
+    MATCH (c1:Concept)-[r]->(c2:Concept) RETURN c1.name, type(r), c2.name LIMIT 20
+    ```
+
+#### 5. API Endpoints
 The Graph Reasoning Service is exposed via REST APIs.
 
 | Method | Endpoint | Description |
@@ -368,8 +462,8 @@ This project uses a `Makefile` to streamline common development tasks. Below are
 
 ### Code Quality
 - `make lint`: Run code linting using `ruff`.
-- `make format`: Format code using `black` and `ruff`.
-- `make check`: Run type checks using `mypy`.
+- `make format`: Format code using `ruff`.
+- `make check`: Run type checks using `pyright`.
 - `make test-code`: Run unit tests on the framework.
 
 ### Workflows
@@ -407,6 +501,7 @@ This project also provides a `Makefile-docker` for managing containerized develo
 
 ### Setup
 - `make -f Makefile-docker docker-first-run`: Initialize DB and load data.
+- `make -f Makefile-docker docker-reset-data`: **CAUTION** Clears ALL data from Postgres and Neo4j.
 
 ### Generate & Test
 - `make -f Makefile-docker docker-generate`: Generate prompts inside Docker.
@@ -444,7 +539,8 @@ Arguments:
 - `make -f Makefile-f Makefile-docker docker-workflow-quick`: Quick workflow version.
 
 ### Knowledge Graph
-- `make -f Makefile-docker docker-graph-build`: Build knowledge graph.
+- `make -f Makefile-docker docker-graph-build`: Build knowledge graph (incremental).
+- `make -f Makefile-docker docker-graph-rebuild`: Rebuild knowledge graph from scratch (Clear DB + Seed Ontology + Build).
 
 ### Testing
 - `make -f Makefile-docker docker-test-unit`: Run unit tests.
@@ -469,6 +565,70 @@ Arguments:
 - `make -f Makefile-docker docker-cache-clear`: Clear caches.
 - `make -f Makefile-docker docker-cache-prune`: Prune Docker volumes.
 - `make -f Makefile-docker docker-clean-all`: Full cleanup.
+
+### Data Backup
+To backup specific components of your data:
+
+**1. Ingestion Only (Text & Metadata):**
+```bash
+bash scripts/backup_ingestion.sh
+```
+
+**2. Vectorization Only (Embeddings):**
+```bash
+bash scripts/backup_vectorization.sh
+```
+
+**3. Knowledge Graph Only (Neo4j):**
+```bash
+bash scripts/backup_graph.sh
+```
+*Note: The graph backup script momentarily stops the Neo4j service.*
+
+### Data Restore
+To restore data from backed-up archives:
+
+**1. Extract Backup Archives:**
+```bash
+# Ingestion Backup
+tar -xzf data/backups/ingestion/<TIMESTAMP>.tar.gz -C data/backups/ingestion/
+
+# Vectorization Backup
+tar -xzf data/backups/vectorization/<TIMESTAMP>.tar.gz -C data/backups/vectorization/
+
+# Graph (Neo4j) Backup
+tar -xzf data/backups/graph/<TIMESTAMP>.tar.gz -C data/backups/graph/
+```
+
+**2. Restore Postgres Database:**
+Since tables have foreign keys and relationships, we first drop the existing tables and then import the dumps:
+```bash
+# 1. Drop existing tables to avoid conflicts
+docker exec vidwaan-db psql -U vidwaan_user -d vidwaan_db -c "DROP TABLE IF EXISTS scripture_embeddings, verses, scriptures, user_queries, veda_embeddings, mantras, suktas, mandalas, vedas, embeddings CASCADE;"
+
+# 2. Restore Ingestion Data (Vedas, Mantras, etc.)
+docker exec -i vidwaan-db psql -U vidwaan_user -d vidwaan_db < data/backups/ingestion/<TIMESTAMP>/ingestion_dump.sql
+
+# 3. Restore Vectorization Data (Embeddings)
+docker exec -i vidwaan-db psql -U vidwaan_user -d vidwaan_db < data/backups/vectorization/<TIMESTAMP>/vectorization.sql
+```
+
+**3. Restore Neo4j Graph Database:**
+To load the `.dump` file into Neo4j:
+```bash
+# 1. Stop active Neo4j service
+docker compose stop neo4j
+
+# 2. Run a temporary container to load the dump into the data volume
+docker run --rm \
+  -v vidwaan-neo4j-data:/data \
+  -v "$(pwd)/data/backups/graph/<TIMESTAMP>:/backups" \
+  neo4j:5.15-community \
+  neo4j-admin database load neo4j --from-path=/backups --overwrite-destination
+
+# 3. Start Neo4j service again
+docker compose up -d neo4j
+```
 
 ### MCP Server
 - `make -f Makefile-docker mcp-build`: Build MCP containers.

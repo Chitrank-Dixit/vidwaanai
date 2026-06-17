@@ -1,25 +1,25 @@
 import json
-from typing import Any
 
 # ruff: noqa: E402
-
 import os
 import sys
+from typing import Any
+
 from dotenv import load_dotenv
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
+from src.core.logger import get_logger  # noqa: E402
+from src.db.db_manager import DatabaseManager  # noqa: E402
 from src.evaluation.retriever_evaluator import RetrieverEvaluator  # noqa: E402
+from src.rag.embeddings import EmbeddingManager  # noqa: E402
 from src.retrieval.advanced_retrieval_pipeline import (
     AdvancedRetrievalPipeline,
 )  # noqa: E402
 from src.retrieval.bm25_search import BM25Search  # noqa: E402
 from src.retrieval.hybrid_search import HybridSearch  # noqa: E402
-from src.db.db_manager import DatabaseManager  # noqa: E402
-from src.rag.embeddings import EmbeddingManager  # noqa: E402
-from src.core.logger import get_logger  # noqa: E402
 
 logger = get_logger(__name__)
 
@@ -56,7 +56,7 @@ def run_evaluation() -> None:
     pipeline = AdvancedRetrievalPipeline(hybrid_search)
 
     # Load test queries
-    with open("scripts/test_benchmark_queries.json", "r") as f:
+    with open("scripts/test_benchmark_queries.json") as f:
         test_data = json.load(f)
 
     for test_query in test_data["queries"]:

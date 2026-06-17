@@ -1,15 +1,15 @@
 import logging
-import sys
 import os
+import sys
 
 # Ensure src is in path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.core.config import settings
 from src.db.db_manager import DatabaseManager
+from src.graph.entity_extractor import EntityExtractor
 from src.graph.graph_builder import GraphBuilder
 from src.graph.graph_ingestor import GraphIngestor
-from src.graph.entity_extractor import EntityExtractor
 from src.llm.openai_client import OpenAIClient
 
 # Setup Logging

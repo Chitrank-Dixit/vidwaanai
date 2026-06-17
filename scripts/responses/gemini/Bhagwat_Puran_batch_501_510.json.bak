@@ -1,0 +1,109 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The solar deity, source of light and life."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Narada",
+            "type": "Character",
+            "attributes": {
+                "description": "The divine sage and messenger of the gods."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Devi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme goddess, representing cosmic energy and female divinity."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "The king of the gods and ruler of Svarga (heaven)."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual fire sacrifices and offerings."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator deity of the Hindu trimurti."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Brahma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahma creates the universe under the guidance of Vishnu."
+            }
+        },
+        {
+            "from": "Narada",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sage Narada is a devoted follower/avatara of Vishnu."
+            }
+        }
+    ]
+}

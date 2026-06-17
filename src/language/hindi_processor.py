@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 import nltk
 import regex
@@ -48,16 +48,16 @@ class HindiProcessor(LanguageProcessor):
         normalized = regex.sub(r"\s+", " ", text).strip()
         return str(normalized)
 
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str) -> list[str]:
         """Tokenize Hindi text"""
         # Split on whitespace and punctuation
         tokens = regex.findall(r"\b\w+\b", text)
         return list(tokens)
 
-    def remove_stopwords(self, tokens: List[str]) -> List[str]:
+    def remove_stopwords(self, tokens: list[str]) -> list[str]:
         """Remove Hindi stop words"""
         return [token for token in tokens if token.lower() not in self.stop_words]
 
     # Legacy support for existing calls (if any)
-    def preprocess_hindi(self, text: str) -> Dict[str, Any]:
+    def preprocess_hindi(self, text: str) -> dict[str, Any]:
         return self.preprocess(text)

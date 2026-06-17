@@ -1,8 +1,9 @@
 import json
 import logging
-from typing import Any, Dict, List
+from typing import Any
 
 import spacy
+
 from src.graph.schema import EntityType, RelationType
 
 logger = logging.getLogger(__name__)
@@ -24,7 +25,7 @@ class EntityExtractor:
 
     def extract_entities(
         self, verse_text: str, translation: str, scripture_name: str
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Extract entities and relationships using LLM with Schema enforcement.
         """
@@ -78,12 +79,7 @@ Ensure "from" and "to" match extracted entity names exactly.
             logger.debug(f"Raw response: {response}")
             return {"entities": [], "relationships": []}
 
-        except Exception as e:
-            logger.error(f"Failed to parse entity extraction response: {e}")
-            logger.debug(f"Raw response: {response}")
-            return {"entities": [], "relationships": []}
-
-    def extract_with_spacy(self, text: str) -> List[Dict[str, Any]]:
+    def extract_with_spacy(self, text: str) -> list[dict[str, Any]]:
         """
         Extract standard entities using SpaCy.
         Returns mapped entities: PERSON, ORG, GPE, LOC, EVENT
@@ -109,7 +105,7 @@ Ensure "from" and "to" match extracted entity names exactly.
 
         return entities
 
-    def extract_from_query(self, query: str) -> List[Dict[str, Any]]:
+    def extract_from_query(self, query: str) -> list[dict[str, Any]]:
         """
         Extract entities from a user query using Hybrid approach (SpaCy + LLM).
         """

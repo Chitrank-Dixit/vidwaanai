@@ -1,9 +1,9 @@
-from typing import Any, Dict, List
+from typing import Any
 
 
 def generate_answer(
-    context: List[str], query: str, language: str = "en"
-) -> Dict[str, Any]:
+    context: list[str], query: str, language: str = "en"
+) -> dict[str, Any]:
     """
     Generates an answer based on the provided context and query.
 
@@ -22,7 +22,7 @@ def generate_answer(
     }
 
 
-def summarize_results(documents: List[str], language: str = "en") -> Dict[str, Any]:
+def summarize_results(documents: list[str], language: str = "en") -> dict[str, Any]:
     """
     Summarizes a list of documents.
 
@@ -40,7 +40,7 @@ def summarize_results(documents: List[str], language: str = "en") -> Dict[str, A
     }
 
 
-def translate_answer(answer: str, target_language: str) -> Dict[str, Any]:
+def translate_answer(answer: str, target_language: str) -> dict[str, Any]:
     """
     Translates an answer to the target language.
 

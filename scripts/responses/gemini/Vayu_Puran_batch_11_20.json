@@ -1,0 +1,174 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Devi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme goddess, representing cosmic energy and female divinity."
+            }
+        },
+        {
+            "name": "Surya",
+            "type": "Deity",
+            "attributes": {
+                "description": "The solar deity, source of light and life."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "A creator patriarch (Prajapati), son of Brahma."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual fire sacrifices and offerings."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "The destroyer deity of the Hindu trimurti, major deity of Shaiva Puranas."
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "The fire god, acting as the mediator between humans and gods in rituals."
+            }
+        },
+        {
+            "name": "Ganga",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred river deity, who descended from heaven to purify souls."
+            }
+        },
+        {
+            "name": "Yuga",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic age cyclical divisions (Satya, Treta, Dvapara, Kali)."
+            }
+        },
+        {
+            "name": "Creation",
+            "type": "Event",
+            "attributes": {
+                "description": "The cosmic creation process described in the Sarga sections of Puranas."
+            }
+        },
+        {
+            "name": "Mahapuranas",
+            "type": "Text",
+            "attributes": {
+                "description": "The genre of 18 major Hindu encyclopedic scriptures."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator deity of the Hindu trimurti."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Manvantara",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic era ruled by a specific Manu, consisting of 71 Mahayugas."
+            }
+        },
+        {
+            "name": "Kashi",
+            "type": "Place",
+            "attributes": {
+                "description": "The sacred city of Shiva, center of pilgrimage."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Brahma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahma creates the universe under the guidance of Vishnu."
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shiva and Vishnu represent the complementary forces of destruction and preservation."
+            }
+        },
+        {
+            "from": "Devi",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Devi (as Parvati or Sati) is the consort of Shiva."
+            }
+        },
+        {
+            "from": "Ganga",
+            "to": "Shiva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shiva holds Ganga in his matted locks to ease her descent."
+            }
+        }
+    ]
+}

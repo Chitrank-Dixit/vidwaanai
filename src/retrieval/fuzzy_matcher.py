@@ -1,5 +1,5 @@
 from difflib import SequenceMatcher
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 
@@ -14,7 +14,7 @@ class FuzzyMatcher:
         """Calculate similarity between two texts"""
         return SequenceMatcher(None, text1.lower(), text2.lower()).ratio()
 
-    def find_similar(self, query: str, corpus: List[str]) -> List[Dict[str, Any]]:
+    def find_similar(self, query: str, corpus: list[str]) -> list[dict[str, Any]]:
         """Find similar texts in corpus"""
         results = []
 
@@ -25,7 +25,7 @@ class FuzzyMatcher:
 
         return sorted(results, key=lambda x: x["similarity"], reverse=True)
 
-    def correct_query(self, query: str, known_terms: List[str]) -> str:
+    def correct_query(self, query: str, known_terms: list[str]) -> str:
         """Correct query typos based on known terms"""
         if not known_terms:
             return query

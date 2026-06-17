@@ -3,6 +3,7 @@
 
 import os
 import sys
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,10 +14,10 @@ def test_imports() -> bool:
     print("Testing imports...")
     try:
         import fastapi  # noqa: F401
-        import typer  # noqa: F401
         import llama_index  # noqa: F401
-        from sentence_transformers import SentenceTransformer  # noqa: F401
         import psycopg2  # noqa: F401
+        import typer  # noqa: F401
+        from sentence_transformers import SentenceTransformer  # noqa: F401
 
         print("✓ All imports successful")
         return True

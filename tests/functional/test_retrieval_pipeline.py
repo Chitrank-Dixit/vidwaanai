@@ -1,6 +1,8 @@
-import pytest
-from src.db.db_manager import DatabaseManager
 from typing import Any
+
+import pytest
+
+from src.db.db_manager import DatabaseManager
 
 # Mark as functional test
 pytestmark = pytest.mark.functional

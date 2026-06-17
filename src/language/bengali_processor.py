@@ -1,5 +1,6 @@
+from typing import Any
+
 import regex
-from typing import Any, Dict, List
 
 from src.language.language_processor import LanguageProcessor
 
@@ -104,16 +105,16 @@ class BengaliProcessor(LanguageProcessor):
 
         return str(normalized)
 
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str) -> list[str]:
         """Tokenize Bengali text"""
         tokens = regex.findall(r"\b\w+\b", text)
         return list(tokens)
 
-    def remove_stopwords(self, tokens: List[str]) -> List[str]:
+    def remove_stopwords(self, tokens: list[str]) -> list[str]:
         """Remove Bengali stop words"""
         return [token for token in tokens if token.lower() not in self.stop_words]
 
-    def preprocess(self, text: str) -> Dict[str, Any]:
+    def preprocess(self, text: str) -> dict[str, Any]:
         """Complete Bengali preprocessing"""
         normalized = self.normalize(text)
         tokens = self.tokenize(normalized)

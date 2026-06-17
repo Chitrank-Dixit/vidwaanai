@@ -1,0 +1,468 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of the Raghu dynasty searching for Sita."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother and companion of Rama."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama abducted by Ravana."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasa king of Lanka and abductor of Sita."
+            }
+        },
+        {
+            "name": "Sugriva",
+            "type": "Character",
+            "attributes": {
+                "description": "Vanara king allied with Rama."
+            }
+        },
+        {
+            "name": "Hanuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vayu and foremost Vanara hero."
+            }
+        },
+        {
+            "name": "Angada",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vali and Vanara prince."
+            }
+        },
+        {
+            "name": "Jambavan",
+            "type": "Character",
+            "attributes": {
+                "description": "Wise bear-chief guiding the Vanaras."
+            }
+        },
+        {
+            "name": "Tara",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen associated with Sugriva and Angada."
+            }
+        },
+        {
+            "name": "Ruma",
+            "type": "Character",
+            "attributes": {
+                "description": "Consort of Sugriva."
+            }
+        },
+        {
+            "name": "Vali",
+            "type": "Character",
+            "attributes": {
+                "description": "Former Vanara king slain by Rama."
+            }
+        },
+        {
+            "name": "Sampati",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Jatayu who reveals Sita's location."
+            }
+        },
+        {
+            "name": "Jatayu",
+            "type": "Character",
+            "attributes": {
+                "description": "Vulture king who fought Ravana."
+            }
+        },
+        {
+            "name": "Mainaka",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain rising from the sea to aid Hanuman."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Island kingdom ruled by Ravana."
+            }
+        },
+        {
+            "name": "Kishkindha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of the Vanaras."
+            }
+        },
+        {
+            "name": "Vindhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain range crossed during the southern search."
+            }
+        },
+        {
+            "name": "Mahendra Mountain",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain from which Hanuman leaps across the ocean."
+            }
+        },
+        {
+            "name": "Kailasa",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred mountain frequently referenced in comparisons."
+            }
+        },
+        {
+            "name": "Meru",
+            "type": "Place",
+            "attributes": {
+                "description": "Mythical cosmic mountain."
+            }
+        },
+        {
+            "name": "Ocean",
+            "type": "Place",
+            "attributes": {
+                "description": "Sea separating Bharatavarsha and Lanka."
+            }
+        },
+        {
+            "name": "Pushpaka",
+            "type": "Concept",
+            "attributes": {
+                "description": "Celestial aerial chariot associated with Ravana."
+            }
+        },
+        {
+            "name": "Vayu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Wind god and father of Hanuman."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator deity granting boons."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Supreme deity referenced through cosmic exploits."
+            }
+        },
+        {
+            "name": "Varuna",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of the ocean."
+            }
+        },
+        {
+            "name": "Surasa",
+            "type": "Character",
+            "attributes": {
+                "description": "Serpent mother who tests Hanuman during his leap."
+            }
+        },
+        {
+            "name": "Sinhika",
+            "type": "Character",
+            "attributes": {
+                "description": "Demoness who seizes shadows in the ocean."
+            }
+        },
+        {
+            "name": "Svayamprabha",
+            "type": "Character",
+            "attributes": {
+                "description": "Ascetic guardian of the enchanted cave."
+            }
+        },
+        {
+            "name": "Maya",
+            "type": "Character",
+            "attributes": {
+                "description": "Danava architect who built the magical cave complex."
+            }
+        },
+        {
+            "name": "Search for Sita",
+            "type": "Event",
+            "attributes": {
+                "description": "Expedition by Vanara forces to locate Sita."
+            }
+        },
+        {
+            "name": "Hanuman's Leap",
+            "type": "Event",
+            "attributes": {
+                "description": "Hanuman's leap across the ocean toward Lanka."
+            }
+        },
+        {
+            "name": "Sita's Abduction",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana abducts Sita from the forest."
+            }
+        },
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Epic narrative describing Rama's journey and exploits."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama searches for his abducted wife Sita."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ravana abducted and imprisoned Sita in Lanka."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Vayu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hanuman is described as the son of the Wind God."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Hanuman's Leap",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman leaps across the ocean to Lanka."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Search for Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Hanuman leads the successful southern search."
+            }
+        },
+        {
+            "from": "Angada",
+            "to": "Search for Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Angada commands the southern Vanara contingent."
+            }
+        },
+        {
+            "from": "Jambavan",
+            "to": "Hanuman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jambavan inspires Hanuman to realize his strength."
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sugriva allies with Rama and mobilizes Vanara armies."
+            }
+        },
+        {
+            "from": "Sugriva",
+            "to": "Kishkindha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sugriva rules the Vanara kingdom of Kishkindha."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ravana resides in Lanka."
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita is held captive in Lanka."
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sampati reveals Sita's location to the Vanaras."
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Jatayu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sampati is the brother of Jatayu."
+            }
+        },
+        {
+            "from": "Mainaka",
+            "to": "Hanuman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mainaka offers rest to Hanuman during his leap."
+            }
+        },
+        {
+            "from": "Surasa",
+            "to": "Hanuman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surasa tests Hanuman's intelligence and power."
+            }
+        },
+        {
+            "from": "Sinhika",
+            "to": "Hanuman",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sinhika attacks Hanuman by seizing his shadow."
+            }
+        },
+        {
+            "from": "Svayamprabha",
+            "to": "Vindhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Svayamprabha guards the enchanted cave near Vindhya."
+            }
+        },
+        {
+            "from": "Maya",
+            "to": "Svayamprabha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Maya constructed the magical cave complex guarded by Svayamprabha."
+            }
+        },
+        {
+            "from": "Hanuman",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Hanuman reaches Lanka during his mission."
+            }
+        },
+        {
+            "from": "Pushpaka",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The Pushpaka aerial car belongs to Ravana."
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is repeatedly compared with Vishnu and his exploits."
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Epic narrative centers on Rama."
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Hanuman",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Hanuman's exploits form a major narrative section."
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Lanka",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Lanka is the stronghold of Ravana."
+            }
+        },
+        {
+            "from": "Search for Sita",
+            "to": "Lanka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The search eventually identifies Lanka as Sita's location."
+            }
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.profiler import profile_function
 
@@ -11,7 +11,7 @@ class TextChunker:
         self.chunk_overlap = chunk_overlap
 
     @profile_function
-    def chunk_text(self, text: str) -> List[str]:
+    def chunk_text(self, text: str) -> list[str]:
         """Split text into overlapping chunks."""
         if not text:
             return []
@@ -33,7 +33,7 @@ class TextChunker:
 
         return chunks
 
-    def create_documents(self, text: str, metadata: Dict[str, Any]) -> List[Any]:
+    def create_documents(self, text: str, metadata: dict[str, Any]) -> list[Any]:
         """Create document objects with metadata (mock implementation)."""
         # In a real scenario, this would return Document objects
         # For now, we'll return a simple object or dict
@@ -41,7 +41,7 @@ class TextChunker:
         documents = []
 
         class Document:
-            def __init__(self, text: str, metadata: Dict[str, Any]) -> None:
+            def __init__(self, text: str, metadata: dict[str, Any]) -> None:
                 self.text = text
                 self.metadata = metadata
 

@@ -2,7 +2,7 @@ import hashlib
 import json
 import logging
 from collections import OrderedDict
-from typing import Any, Dict, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -12,11 +12,11 @@ class QueryCache:
 
     def __init__(self, capacity: int = 100):
         self.capacity = capacity
-        self.cache: OrderedDict[str, Dict[str, Any]] = OrderedDict()
+        self.cache: OrderedDict[str, dict[str, Any]] = OrderedDict()
         logger.info(f"Query cache initialized with capacity {capacity}")
 
     def _generate_key(
-        self, question: str, language: str, scripture_filter: Optional[str] = None
+        self, question: str, language: str, scripture_filter: str | None = None
     ) -> str:
         """Generate a unique cache key."""
         key_data = {"q": question.strip().lower(), "l": language, "s": scripture_filter}
@@ -24,8 +24,8 @@ class QueryCache:
         return hashlib.sha256(key_str.encode()).hexdigest()
 
     def get(
-        self, question: str, language: str, scripture_filter: Optional[str] = None
-    ) -> Optional[Dict[str, Any]]:
+        self, question: str, language: str, scripture_filter: str | None = None
+    ) -> dict[str, Any] | None:
         """Retrieve a result from the cache."""
         key = self._generate_key(question, language, scripture_filter)
         if key in self.cache:
@@ -39,8 +39,8 @@ class QueryCache:
         self,
         question: str,
         language: str,
-        result: Dict[str, Any],
-        scripture_filter: Optional[str] = None,
+        result: dict[str, Any],
+        scripture_filter: str | None = None,
     ) -> None:
         """Store a result in the cache."""
         key = self._generate_key(question, language, scripture_filter)

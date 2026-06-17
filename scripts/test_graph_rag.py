@@ -1,12 +1,12 @@
 import logging
-import sys
 import os
+import sys
 
 # Add src to python path
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-from src.core.config import settings
 from src.agent.vidwaan_agent import VidwaanAI
+from src.core.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

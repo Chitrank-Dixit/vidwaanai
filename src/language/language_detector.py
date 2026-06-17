@@ -1,5 +1,3 @@
-from typing import Tuple
-
 from langdetect import DetectorFactory, detect_langs
 
 from src.core.logger import get_logger
@@ -31,7 +29,7 @@ class LanguageDetector:
     }
 
     @staticmethod
-    def detect_language(text: str) -> Tuple[str, str, float]:
+    def detect_language(text: str) -> tuple[str, str, float]:
         """
         Detect language of text
         Returns: (language_code, language_name, confidence)

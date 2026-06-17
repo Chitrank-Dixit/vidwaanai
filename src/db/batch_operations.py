@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 import psycopg2.extras
 
@@ -14,7 +14,7 @@ class BatchOperations:
     def __init__(self, db_manager: DatabaseManager):
         self.db = db_manager
 
-    def batch_insert_verses(self, verses: List[Dict[str, Any]]) -> int:
+    def batch_insert_verses(self, verses: list[dict[str, Any]]) -> int:
         """Batch insert verses."""
         if not verses:
             return 0
@@ -48,7 +48,7 @@ class BatchOperations:
             logger.error(f"Batch insert verses failed: {e}")
             raise
 
-    def batch_insert_embeddings(self, embeddings_data: List[Dict[str, Any]]) -> int:
+    def batch_insert_embeddings(self, embeddings_data: list[dict[str, Any]]) -> int:
         """Batch insert embeddings."""
         if not embeddings_data:
             return 0

@@ -1,0 +1,323 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Karna",
+            "type": "Character",
+            "attributes": {
+                "description": "Great warrior and ally of Duryodhana, son of Surya and Kunti."
+            }
+        },
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Mahabharata",
+            "type": "Text",
+            "attributes": {
+                "description": "The monumental Sanskrit epic detailing the history of the Kuru dynasty."
+            }
+        },
+        {
+            "name": "Bhima",
+            "type": "Character",
+            "attributes": {
+                "description": "Second Pandava brother, known for his colossal physical strength."
+            }
+        },
+        {
+            "name": "Ashwatthama",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dronacharya, powerful warrior and survivor of the Kurukshetra War."
+            }
+        },
+        {
+            "name": "Kurukshetra War",
+            "type": "Event",
+            "attributes": {
+                "description": "The great 18-day battle between the Pandavas and Kauravas."
+            }
+        },
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, supreme deity, ally of the Pandavas, and teacher of Arjuna."
+            }
+        },
+        {
+            "name": "Arjuna",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Pandava prince, the archer disciple of Sri Krishna on the battlefield of Kurukshetra."
+            }
+        },
+        {
+            "name": "Duryodhana",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Dhritarashtra and leader of the Kaurava faction."
+            }
+        },
+        {
+            "name": "Nakula",
+            "type": "Character",
+            "attributes": {
+                "description": "Fourth Pandava prince, twin of Sahadeva, known for his beauty and expertise with swords."
+            }
+        },
+        {
+            "name": "Sahadeva",
+            "type": "Character",
+            "attributes": {
+                "description": "Fifth Pandava prince, twin of Nakula, renowned for his wisdom and astrological skills."
+            }
+        },
+        {
+            "name": "Drona",
+            "type": "Character",
+            "attributes": {
+                "description": "The royal preceptor and teacher of military arts to both Pandavas and Kauravas."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Bhima",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhima and Arjuna are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Bhima",
+            "to": "Nakula",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhima and Nakula are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Bhima",
+            "to": "Sahadeva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhima and Sahadeva are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Bhima",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Arjuna and Bhima are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Nakula",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Arjuna and Nakula are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Sahadeva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Arjuna and Sahadeva are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Nakula",
+            "to": "Bhima",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nakula and Bhima are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Nakula",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nakula and Arjuna are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Nakula",
+            "to": "Sahadeva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nakula and Sahadeva are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Sahadeva",
+            "to": "Bhima",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sahadeva and Bhima are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Sahadeva",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sahadeva and Arjuna are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Sahadeva",
+            "to": "Nakula",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sahadeva and Nakula are brothers (the Pandavas)."
+            }
+        },
+        {
+            "from": "Duryodhana",
+            "to": "Karna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Karna is Duryodhana's closest friend and key ally."
+            }
+        },
+        {
+            "from": "Bhima",
+            "to": "Drona",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Drona is the teacher of Bhima."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Drona",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Drona is the teacher of Arjuna."
+            }
+        },
+        {
+            "from": "Nakula",
+            "to": "Drona",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Drona is the teacher of Nakula."
+            }
+        },
+        {
+            "from": "Sahadeva",
+            "to": "Drona",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Drona is the teacher of Sahadeva."
+            }
+        },
+        {
+            "from": "Duryodhana",
+            "to": "Drona",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Drona is the teacher of Duryodhana."
+            }
+        },
+        {
+            "from": "Krishna",
+            "to": "Arjuna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krishna acts as Arjuna's charioteer, guide, and spiritual teacher."
+            }
+        },
+        {
+            "from": "Bhima",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bhima participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Arjuna",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Arjuna participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Nakula",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Nakula participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Sahadeva",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sahadeva participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Duryodhana",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Duryodhana participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Drona",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Drona participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Karna",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Karna participated as a major combatant in the Kurukshetra War."
+            }
+        },
+        {
+            "from": "Ashwatthama",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ashwatthama participated as a major combatant in the Kurukshetra War."
+            }
+        }
+    ]
+}

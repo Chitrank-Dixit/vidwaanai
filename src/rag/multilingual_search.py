@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 
@@ -28,7 +28,7 @@ class MultilingualSearch:
     def __init__(self) -> None:
         self.detector = LanguageDetector()
         self.embeddings = MultilingualEmbeddings()
-        self.processors: Dict[str, Any] = {
+        self.processors: dict[str, Any] = {
             "hi": HindiProcessor(),
             "gu": GujaratiProcessor(),
             "ta": TamilProcessor(),
@@ -46,7 +46,7 @@ class MultilingualSearch:
             "kok": KonkaniProcessor(),
         }
 
-    def process_query(self, query: str) -> Dict[str, Any]:
+    def process_query(self, query: str) -> dict[str, Any]:
         """Process query for any language"""
         # Detect language
         lang_code, lang_name, confidence = self.detector.detect_language(query)
@@ -78,7 +78,7 @@ class MultilingualSearch:
 
     def search(
         self, query: str, corpus_embeddings: np.ndarray, top_k: int = 10
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """
         Search across multilingual corpus.
         Note: This assumes corpus_embeddings is a numpy array of all document embeddings.

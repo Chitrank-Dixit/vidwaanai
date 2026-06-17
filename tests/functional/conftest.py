@@ -1,6 +1,7 @@
 import pytest
-from src.db.db_manager import DatabaseManager
+
 from src.core.config import settings
+from src.db.db_manager import DatabaseManager
 
 
 @pytest.fixture(scope="session", autouse=True)

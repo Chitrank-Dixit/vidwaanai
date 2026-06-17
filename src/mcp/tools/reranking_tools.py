@@ -1,9 +1,9 @@
-from typing import Any, Dict, List
+from typing import Any
 
 
 def rerank_results(
-    query: str, results: List[Dict[str, Any]], strategy: str = "cross-encoder"
-) -> List[Dict[str, Any]]:
+    query: str, results: list[dict[str, Any]], strategy: str = "cross-encoder"
+) -> list[dict[str, Any]]:
     """
     Reranks the given results based on the query.
 
@@ -43,7 +43,7 @@ def calculate_relevance_score(query: str, document: str) -> float:
     return 0.85
 
 
-def get_reranking_models() -> List[str]:
+def get_reranking_models() -> list[str]:
     """
     Returns available reranking models.
     """

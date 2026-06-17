@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 import numpy as np
 from rank_bm25 import BM25Okapi
@@ -9,7 +9,7 @@ logger = get_logger(__name__)
 
 
 class BM25Search:
-    def __init__(self, corpus: List[Dict[str, Any]]):
+    def __init__(self, corpus: list[dict[str, Any]]):
         """
         Initialize BM25 search.
 
@@ -23,11 +23,11 @@ class BM25Search:
         logger.info(f"Initializing BM25 with {len(corpus)} documents")
         self.bm25 = BM25Okapi(self.tokenized_corpus)
 
-    def _tokenize(self, text: str) -> List[str]:
+    def _tokenize(self, text: str) -> list[str]:
         """Simple tokenization."""
         return text.lower().split()
 
-    def search(self, query: str, top_k: int = 10) -> List[Dict[str, Any]]:
+    def search(self, query: str, top_k: int = 10) -> list[dict[str, Any]]:
         """
         Search using BM25.
 

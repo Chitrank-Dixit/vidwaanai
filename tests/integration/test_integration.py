@@ -1,22 +1,25 @@
+from collections.abc import Generator
+from typing import cast
+from unittest.mock import MagicMock, patch
+
 import pytest
-from typing import Generator, cast
-from unittest.mock import patch, MagicMock
+
 from src.agent.vidwaan_agent import VidwaanAI
 
 
 class TestIntegration:
     @pytest.fixture
-    def mock_db(self) -> Generator[MagicMock, None, None]:
+    def mock_db(self) -> Generator[MagicMock]:
         with patch("src.agent.vidwaan_agent.DatabaseManager") as mock:
             yield mock
 
     @pytest.fixture
-    def mock_llm(self) -> Generator[MagicMock, None, None]:
+    def mock_llm(self) -> Generator[MagicMock]:
         with patch("src.agent.vidwaan_agent.OpenAIClient") as mock:
             yield mock
 
     @pytest.fixture
-    def mock_multilingual(self) -> Generator[MagicMock, None, None]:
+    def mock_multilingual(self) -> Generator[MagicMock]:
         with patch("src.agent.vidwaan_agent.MultilingualSearch") as mock:
             yield mock
 

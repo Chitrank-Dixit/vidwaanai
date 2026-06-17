@@ -1,29 +1,30 @@
-import time
-import threading
+import os
 import random
 import sys
-import os
+import threading
+import time
+from typing import Any
+
 from dotenv import load_dotenv
-from typing import Any, Dict, List
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 load_dotenv()
 
-from src.main import get_agent  # noqa: E402
 from src.core.logger import get_logger  # noqa: E402
+from src.main import get_agent  # noqa: E402
 
 logger = get_logger(__name__)
 
 
 class LoadTester:
     def __init__(
-        self, queries: List[str], concurrency: int = 10, duration_sec: int = 30
+        self, queries: list[str], concurrency: int = 10, duration_sec: int = 30
     ) -> None:
         self.queries = queries
         self.concurrency = concurrency
         self.duration_sec = duration_sec
-        self.stats: Dict[str, Any] = {
+        self.stats: dict[str, Any] = {
             "total_requests": 0,
             "successful_requests": 0,
             "failed_requests": 0,
@@ -73,7 +74,7 @@ class LoadTester:
         self._print_report()
 
     def _print_report(self) -> None:
-        latencies: List[float] = self.stats["latencies"]
+        latencies: list[float] = self.stats["latencies"]
         if not latencies:
             print("No successful requests.")
             return

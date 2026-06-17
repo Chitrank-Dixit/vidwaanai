@@ -1,0 +1,19 @@
+---
+- name: Vidwaan AI - Ingest and Vectorize Workflow
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  tasks:
+    - name: Include Ingestion Tasks
+      ansible.builtin.include_role:
+        name: ingestion
+        tasks_from: ingest_files
+      tags: ingestion
+
+    - name: Include Vectorization Tasks
+      ansible.builtin.include_role:
+        name: ingestion
+        tasks_from: vectorize
+      tags: vectorize

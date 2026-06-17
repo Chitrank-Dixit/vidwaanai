@@ -1,10 +1,11 @@
 import asyncio
 import sys
 from contextlib import asynccontextmanager
-from typing import Any, Dict, List, Optional
+from typing import Any
+
+from mcp.client.stdio import stdio_client
 
 from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
 
 
 class VidwaanMCPClient:
@@ -21,10 +22,10 @@ class VidwaanMCPClient:
             args=["-m", "src.mcp.server"],
             env=None,  # Inherit env
         )
-        self.session: Optional[ClientSession] = None
+        self.session: ClientSession | None = None
         self._exit_stack = None
 
-    @asynccontextmanager
+    @asynccontextmanager  # type: ignore
     async def connect(self) -> Any:
         """
         Connects to the MCP server via stdio.
@@ -35,7 +36,7 @@ class VidwaanMCPClient:
                 await session.initialize()
                 yield self
 
-    async def list_tools(self) -> List[Any]:
+    async def list_tools(self) -> list[Any]:
         """
         Lists available tools.
         """
@@ -44,7 +45,7 @@ class VidwaanMCPClient:
         result = await self.session.list_tools()
         return list(result.tools)
 
-    async def call_tool(self, name: str, arguments: Dict[str, Any]) -> Any:
+    async def call_tool(self, name: str, arguments: dict[str, Any]) -> Any:
         """
         Calls a tool by name with arguments.
         """

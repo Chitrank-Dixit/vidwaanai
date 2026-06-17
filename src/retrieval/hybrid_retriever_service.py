@@ -1,11 +1,11 @@
 import logging
-from typing import List, Dict, Any, Optional
+from typing import Any
 
 from src.db.db_manager import DatabaseManager
-from src.retrieval.bm25_search import BM25Search
-from src.retrieval.veda_retriever import VedaRetriever
-from src.retrieval.hybrid_search import HybridSearch
 from src.embeddings.veda_embedder import VedaEmbedder
+from src.retrieval.bm25_search import BM25Search
+from src.retrieval.hybrid_search import HybridSearch
+from src.retrieval.veda_retriever import VedaRetriever
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +20,7 @@ class HybridRetrieverService:
         self,
         db_manager: DatabaseManager,
         enable_bm25: bool = True,
-        embedder: Optional[VedaEmbedder] = None,
+        embedder: VedaEmbedder | None = None,
     ):
         self.db_manager = db_manager
 
@@ -29,7 +29,7 @@ class HybridRetrieverService:
 
         # Initialize BM25 (lazy load or eager load?)
         # Eager load for MVP: fetch all text from DB
-        self.bm25_search: Optional[BM25Search] = None
+        self.bm25_search: BM25Search | None = None
         if enable_bm25:
             self._initialize_bm25()
 
@@ -83,7 +83,7 @@ class HybridRetrieverService:
         top_k: int = 10,
         strategy: str = "hybrid",
         fusion_method: str = "weighted",
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """
         Unified search method.
         strategy: 'hybrid', 'vector', 'keyword'

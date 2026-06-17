@@ -1,0 +1,1495 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha, eldest prince of Ayodhya, exiled to the forest; protagonist of the Ramayana"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, son of Sumitra, loyal companion in exile"
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, princess of Videha (Mithila), called the Maithil dame"
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Revered hermit-sage who counsels Rama and directs him to Panchavati"
+            }
+        },
+        {
+            "name": "Jatayu",
+            "type": "Character",
+            "attributes": {
+                "description": "Mighty vulture king, old friend of Dasharatha, guardian and ally of Rama; son of Aruna; self-identifies as son of Shyeni lineage"
+            }
+        },
+        {
+            "name": "Sampati",
+            "type": "Character",
+            "attributes": {
+                "description": "Elder son of Aruna, brother of Jatayu"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya, father of Rama, Lakshmana, Bharata, and Shatrughna"
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Dasharatha and Kaikeyi; grieves Rama's exile and lives austerely at Ayodhya"
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest son of Dasharatha, brother of Rama"
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Second queen of Dasharatha, mother of Bharata, whose plot caused Rama's exile"
+            }
+        },
+        {
+            "name": "Sumitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Dasharatha and mother of Lakshmana"
+            }
+        },
+        {
+            "name": "Surpanakha",
+            "type": "Character",
+            "attributes": {
+                "description": "Rakshasi (giantess) who encounters Rama at Panchavati; sister of Ravana (the Ten-necked tyrant)"
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "The Ten-necked demon tyrant; brother of Surpanakha"
+            }
+        },
+        {
+            "name": "Aruna",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vinata, red as the dawn; father of Sampati and Jatayu"
+            }
+        },
+        {
+            "name": "Garuda",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Vinata; divine eagle, swift of flight"
+            }
+        },
+        {
+            "name": "Vinata",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Daksha via Shuki-Nala lineage; wife of Kashyapa; mother of Aruna and Garuda"
+            }
+        },
+        {
+            "name": "Airavata",
+            "type": "Character",
+            "attributes": {
+                "description": "Divine elephant of Indra; born of Iravati (daughter of Bhadramada)"
+            }
+        },
+        {
+            "name": "Kashyapa",
+            "type": "Character",
+            "attributes": {
+                "description": "Primordial sage, son of Marichi; married eight daughters of Daksha; progenitor of gods, demons, humans, and animals"
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; father of sixty daughters, eight of whom married Kashyapa"
+            }
+        },
+        {
+            "name": "Kardam",
+            "type": "Character",
+            "attributes": {
+                "description": "First-born Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Vikrit",
+            "type": "Character",
+            "attributes": {
+                "description": "Second Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Sesha",
+            "type": "Character",
+            "attributes": {
+                "description": "Third Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Sankhya",
+            "type": "Character",
+            "attributes": {
+                "description": "Fourth Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Bahuputra",
+            "type": "Character",
+            "attributes": {
+                "description": "Fifth Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Sthanu",
+            "type": "Character",
+            "attributes": {
+                "description": "Sixth Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Marichi",
+            "type": "Character",
+            "attributes": {
+                "description": "Seventh Lord of Life; father of Kashyapa"
+            }
+        },
+        {
+            "name": "Atri",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Kratu",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Pulastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; ancestor of Ravana"
+            }
+        },
+        {
+            "name": "Angiras",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; celestial sage"
+            }
+        },
+        {
+            "name": "Prachetas",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Pulaha",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Vivasvat",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life; sun deity; praised of men"
+            }
+        },
+        {
+            "name": "Arishmanemi",
+            "type": "Character",
+            "attributes": {
+                "description": "Lord of Life in the primordial genealogy"
+            }
+        },
+        {
+            "name": "Aditi",
+            "type": "Character",
+            "attributes": {
+                "description": "First wife of Kashyapa; mother of thirty-three gods — Vasus, Adityas, Rudras, and the twin Ashvins"
+            }
+        },
+        {
+            "name": "Diti",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of the Daityas (demons)"
+            }
+        },
+        {
+            "name": "Danu",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of Asvagriva"
+            }
+        },
+        {
+            "name": "Kalaka",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of Narak and Kalak"
+            }
+        },
+        {
+            "name": "Tamra",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of five daughters: Kraunchi, Bhasi, Shyeni, Shuki, Dhritarashtri"
+            }
+        },
+        {
+            "name": "Anala",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa; mother of all fruit-bearing trees"
+            }
+        },
+        {
+            "name": "Krodhavasa",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa, swift to ire; mother of ten daughters including Mrighi, Surasa, Kadru, etc."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Kashyapa (daughter of Daksha); mother of the four human castes — Brahman, Kshatriya, Vaishya, Shudra"
+            }
+        },
+        {
+            "name": "Kraunchi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of cranes and owls"
+            }
+        },
+        {
+            "name": "Bhasi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of water fowl"
+            }
+        },
+        {
+            "name": "Shyeni",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of vultures and hawks; ancestress of Jatayu's lineage"
+            }
+        },
+        {
+            "name": "Shuki",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; grandmother of Vinata via daughter Nala"
+            }
+        },
+        {
+            "name": "Dhritarashtri",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Tamra; mother of all swans, geese, and river-haunting ducks"
+            }
+        },
+        {
+            "name": "Nala",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Shuki; mother of Vinata"
+            }
+        },
+        {
+            "name": "Mrighi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of deer"
+            }
+        },
+        {
+            "name": "Mrigamanda",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of bears, yaks, and mountain roe"
+            }
+        },
+        {
+            "name": "Hari",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of lions and wild monkeys"
+            }
+        },
+        {
+            "name": "Bhadramada",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of Iravati"
+            }
+        },
+        {
+            "name": "Sharduli",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of leopards, langurs, and tigers"
+            }
+        },
+        {
+            "name": "Shveta",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of the eight directional guardian elephants"
+            }
+        },
+        {
+            "name": "Matangi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of elephants (Matangas)"
+            }
+        },
+        {
+            "name": "Surabhi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of two celestial daughters: Gandharvi and Rohini"
+            }
+        },
+        {
+            "name": "Surasa",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa; mother of hooded serpents"
+            }
+        },
+        {
+            "name": "Kadru",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Krodhavasa (also called daughter of Kashyapa elsewhere); mother of countless snakes"
+            }
+        },
+        {
+            "name": "Iravati",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Bhadramada; mother of Airavata, the elephant of Indra"
+            }
+        },
+        {
+            "name": "Gandharvi",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Surabhi; mother of horses"
+            }
+        },
+        {
+            "name": "Rohini",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Surabhi; mother of cattle / kine"
+            }
+        },
+        {
+            "name": "Asvagriva",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Danu"
+            }
+        },
+        {
+            "name": "Narak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kalaka"
+            }
+        },
+        {
+            "name": "Kalak",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Kalaka"
+            }
+        },
+        {
+            "name": "Daityas",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon race born of Diti; their empire once spread over earth, woods, and ocean"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods; owner of Airavata the divine elephant"
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also called Shiva; adored by all worlds; associated with Nandi and Uma-Parvati"
+            }
+        },
+        {
+            "name": "Nandi",
+            "type": "Character",
+            "attributes": {
+                "description": "Chief chamberlain and attendant of Shiva/Rudra"
+            }
+        },
+        {
+            "name": "Uma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also called Parvati; consort of Rudra/Shiva; daughter of Himalaya"
+            }
+        },
+        {
+            "name": "Kandarpa",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of love (Kamadeva); Rama's youthful grace is compared to his"
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "Lord of the dead; the south is said to be his residence; the sun turns toward his domain in winter"
+            }
+        },
+        {
+            "name": "Vasus",
+            "type": "Deity",
+            "attributes": {
+                "description": "Group of eight celestial gods born of Aditi"
+            }
+        },
+        {
+            "name": "Adityas",
+            "type": "Deity",
+            "attributes": {
+                "description": "Twelve solar gods born of Aditi"
+            }
+        },
+        {
+            "name": "Rudras",
+            "type": "Deity",
+            "attributes": {
+                "description": "Eleven storm gods born of Aditi"
+            }
+        },
+        {
+            "name": "Ashvins",
+            "type": "Deity",
+            "attributes": {
+                "description": "Twin heavenly physicians born of Aditi"
+            }
+        },
+        {
+            "name": "Chitra",
+            "type": "Character",
+            "attributes": {
+                "description": "A star; described as a dear delight of the Moon (Lord of Night)"
+            }
+        },
+        {
+            "name": "Panchavati",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest grove four leagues from Agastya's hermitage; recommended by Agastya as Rama's dwelling; site of Surpanakha's encounter"
+            }
+        },
+        {
+            "name": "Godavari",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river near Panchavati; Rama and his companions bathe here"
+            }
+        },
+        {
+            "name": "Saryu",
+            "type": "Place",
+            "attributes": {
+                "description": "Silver river at Ayodhya where Bharata bathes"
+            }
+        },
+        {
+            "name": "Himalaya",
+            "type": "Place",
+            "attributes": {
+                "description": "Mountain range; described as the treasure-house of frost and cold; father of Uma/Parvati"
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Royal capital of Dasharatha's kingdom; where Bharata remains during Rama's exile"
+            }
+        },
+        {
+            "name": "Videha",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Sita's origin (Mithila); she is called the Videhan/Maithil dame"
+            }
+        },
+        {
+            "name": "Agastya's Hermitage",
+            "type": "Place",
+            "attributes": {
+                "description": "The hermitage of sage Agastya from which Panchavati is four leagues away"
+            }
+        },
+        {
+            "name": "Rama's Exile",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama's banishment to the forest by Dasharatha at Kaikeyi's behest; context for the entire narrative"
+            }
+        },
+        {
+            "name": "Agastya's Counsel",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XIII — Agastya directs Rama, Lakshmana, and Sita to settle in Panchavati"
+            }
+        },
+        {
+            "name": "Meeting of Jatayu",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XIV — Rama and Lakshmana encounter Jatayu, who reveals his lineage and pledges to guard Sita"
+            }
+        },
+        {
+            "name": "Building of the Hermitage",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XV (Panchavatí) — Lakshmana builds a cottage at Panchavati for Rama and Sita"
+            }
+        },
+        {
+            "name": "Winter Description",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XVI — Lakshmana describes the winter season to Rama while walking to the Godavari"
+            }
+        },
+        {
+            "name": "Surpanakha's Arrival",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XVII — Surpanakha, Ravana's sister, arrives at Panchavati and is captivated by Rama"
+            }
+        },
+        {
+            "name": "Jatayu's Genealogy Recitation",
+            "type": "Event",
+            "attributes": {
+                "description": "Canto XIV — Jatayu narrates the primordial lineage of the Prajapatis, Kashyapa, and all creation"
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Virtue and righteous duty; Rama is described as 'true to virtue's path'"
+            }
+        },
+        {
+            "name": "Four Varnas",
+            "type": "Concept",
+            "attributes": {
+                "description": "The four human castes born of Manu — Brahmans (mouth), Kshatriyas (chest), Vaishyas (thighs), Shudras (feet)"
+            }
+        },
+        {
+            "name": "Amrita",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine nectar of immortality; Bharata's speech is compared to Amrita"
+            }
+        },
+        {
+            "name": "Prajapatis",
+            "type": "Concept",
+            "attributes": {
+                "description": "The great Lords of Life — first-born progenitors of all creation, recited by Jatayu"
+            }
+        },
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "The epic Sanskrit narrative from which all these verses are drawn (Cantos XIII–XVII, verses 863–882)"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is the eldest son of King Dasharatha"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is a son of Dasharatha"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is a son of Dasharatha by Kaikeyi"
+            }
+        },
+        {
+            "from": "Shatrughna",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shatrughna is the youngest son of Dasharatha"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Sumitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Lakshmana is the son of queen Sumitra"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Kaikeyi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is the son of Queen Kaikeyi"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama and Sita are husband and wife"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Videha",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita is the Videhan princess from Mithila"
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Ravana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surpanakha and Ravana share the same mother; they are siblings"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Agastya counsels Rama to settle in Panchavati, four leagues away from his hermitage"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Panchavati",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Agastya recommends Panchavati as a fair and tranquil dwelling place for Rama, Lakshmana, and Sita"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Godavari",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Agastya tells Rama that Godavari's pure stream flows near Panchavati"
+            }
+        },
+        {
+            "from": "Agastya",
+            "to": "Agastya's Counsel",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Agastya delivers the counsel directing Rama to Panchavati (Canto XIII)"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Agastya's Counsel",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama receives Agastya's directions reverently"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rama, Lakshmana, and Sita settle in Panchavati during exile"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Lakshmana builds a cottage for Rama at Panchavati"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sita lives with Rama in Panchavati; Agastya says she will be happy there"
+            }
+        },
+        {
+            "from": "Panchavati",
+            "to": "Godavari",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Panchavati is situated near the banks of the Godavari river"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama is exiled to the forest by Dasharatha at Kaikeyi's behest"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana accompanies Rama loyally during the exile"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Sita accompanies Rama into forest exile"
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Rama's Exile",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyi's demand caused Dasharatha to banish Rama"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Building of the Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Lakshmana builds the cottage at Panchavati with bamboo, hardened earth, and thatch"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Building of the Hermitage",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama selects the site and receives the completed hermitage with joy"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu was an old friend of King Dasharatha, loved by him in days of old"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu pledges to guard Sita and act as ally and helper to Rama, for his father's friendship's sake"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Aruna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu is a son of Aruna (who is red as the morn)"
+            }
+        },
+        {
+            "from": "Sampati",
+            "to": "Aruna",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sampati is the firstborn son of Aruna"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Sampati",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu and Sampati are brothers, both sons of Aruna"
+            }
+        },
+        {
+            "from": "Aruna",
+            "to": "Vinata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aruna is a son of Vinata"
+            }
+        },
+        {
+            "from": "Garuda",
+            "to": "Vinata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Garuda is a son of Vinata, born alongside Aruna"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Meeting of Jatayu",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Jatayu reveals his identity, narrates his lineage, and pledges guardianship to Rama (Canto XIV)"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Meeting of Jatayu",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama venerates the great vulture as a friend of his father and embraces him"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Jatayu's Genealogy Recitation",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Jatayu recounts the primordial genealogy to Rama, tracing all creation from the Prajapatis"
+            }
+        },
+        {
+            "from": "Jatayu",
+            "to": "Shyeni",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Jatayu identifies himself as son of Shyeni (Tamra's daughter, mother of vultures/hawks)"
+            }
+        },
+        {
+            "from": "Marichi",
+            "to": "Kashyapa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa is a descendant of Marichi, one of the Lords of Life"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Aditi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is one of sixty daughters of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Diti",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Diti is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Danu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Danu is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Kalaka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kalaka is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Tamra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Tamra is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Anala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Anala is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Krodhavasa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Krodhavasa is a daughter of Daksha"
+            }
+        },
+        {
+            "from": "Daksha",
+            "to": "Manu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manu is a daughter of Daksha who married Kashyapa"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Aditi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Aditi; she bore him the thirty-three gods"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Diti",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Diti; she bore the Daityas"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Danu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Danu; she bore Asvagriva"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Kalaka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Kalaka; she bore Narak and Kalak"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Tamra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Tamra; she bore five daughters"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Anala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Anala; she is mother of all fruit-bearing trees"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Krodhavasa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Krodhavasa; she bore ten daughters"
+            }
+        },
+        {
+            "from": "Kashyapa",
+            "to": "Manu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kashyapa married Manu; she gave birth to the four human castes"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Vasus",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the Vasus"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Adityas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the twelve Adityas"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Rudras",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the eleven Rudras"
+            }
+        },
+        {
+            "from": "Aditi",
+            "to": "Ashvins",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Aditi is the mother of the twin Ashvins"
+            }
+        },
+        {
+            "from": "Diti",
+            "to": "Daityas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Diti is the mother of the Daitya demon race"
+            }
+        },
+        {
+            "from": "Danu",
+            "to": "Asvagriva",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Danu bore Asvagriva as her son"
+            }
+        },
+        {
+            "from": "Kalaka",
+            "to": "Narak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kalaka bore Narak"
+            }
+        },
+        {
+            "from": "Kalaka",
+            "to": "Kalak",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kalaka bore Kalak"
+            }
+        },
+        {
+            "from": "Manu",
+            "to": "Four Varnas",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Manu gave birth to the four human castes: Brahmans from mouth, Kshatriyas from chest, Vaishyas from thighs, Shudras from feet"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Kraunchi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kraunchi is a daughter of Tamra"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Bhasi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhasi is a daughter of Tamra"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Shyeni",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shyeni is a daughter of Tamra; mother of vultures and hawks"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Shuki",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shuki is a daughter of Tamra"
+            }
+        },
+        {
+            "from": "Tamra",
+            "to": "Dhritarashtri",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dhritarashtri is a daughter of Tamra; mother of swans and geese"
+            }
+        },
+        {
+            "from": "Shuki",
+            "to": "Nala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nala is the daughter of Shuki"
+            }
+        },
+        {
+            "from": "Nala",
+            "to": "Vinata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Vinata is born of Nala (Shuki's daughter)"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Mrighi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mrighi is a daughter of Krodhavasa; mother of deer"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Mrigamanda",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Mrigamanda is a daughter of Krodhavasa; mother of bears and yaks"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Hari",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Hari is a daughter of Krodhavasa; mother of lions and monkeys"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Bhadramada",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bhadramada is a daughter of Krodhavasa; mother of Iravati"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Sharduli",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Sharduli is a daughter of Krodhavasa; mother of leopards, langurs, and tigers"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Shveta",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Shveta is a daughter of Krodhavasa; mother of the eight guardian elephants of the directions"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Matangi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Matangi is a daughter of Krodhavasa; mother of elephants"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Surabhi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surabhi is a daughter of Krodhavasa; heavenly divine mother"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Surasa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Surasa is a daughter of Krodhavasa; mother of hooded serpents"
+            }
+        },
+        {
+            "from": "Krodhavasa",
+            "to": "Kadru",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Kadru is a daughter of Krodhavasa; mother of all snakes"
+            }
+        },
+        {
+            "from": "Bhadramada",
+            "to": "Iravati",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Iravati is born of Bhadramada"
+            }
+        },
+        {
+            "from": "Iravati",
+            "to": "Airavata",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Iravati gave birth to Airavata, the great elephant of Indra"
+            }
+        },
+        {
+            "from": "Airavata",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Airavata is the divine elephant belonging to Indra; ranked among the warders of the earth"
+            }
+        },
+        {
+            "from": "Surabhi",
+            "to": "Gandharvi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gandharvi is the daughter of Surabhi; mother of horses"
+            }
+        },
+        {
+            "from": "Surabhi",
+            "to": "Rohini",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rohini is the daughter of Surabhi; mother of cattle/kine"
+            }
+        },
+        {
+            "from": "Rudra",
+            "to": "Nandi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Nandi is the chief attendant and chamberlain of Rudra (Shiva)"
+            }
+        },
+        {
+            "from": "Rudra",
+            "to": "Uma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Uma (Parvati) is the consort of Rudra/Shiva"
+            }
+        },
+        {
+            "from": "Uma",
+            "to": "Himalaya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Uma/Parvati is the daughter of King Himalaya"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rudra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama returning from the Godavari bath with Lakshmana and Sita is compared to Rudra with Nandi and Uma"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Kandarpa",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama's youthful grace is compared to that of Kandarpa, the God of Love"
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Panchavati",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Surpanakha wanders to Rama's leafy shed at Panchavati"
+            }
+        },
+        {
+            "from": "Surpanakha",
+            "to": "Surpanakha's Arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Surpanakha arrives at Rama's hermitage and is captivated by him (Canto XVII)"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Surpanakha's Arrival",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama candidly tells Surpanakha his identity, lineage, and family"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Rama is the central hero of the Ramayana epic"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Agastya's Counsel",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XIII of the Ramayana narrates Agastya's counsel"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Meeting of Jatayu",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XIV of the Ramayana narrates the meeting with Jatayu"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Building of the Hermitage",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XV narrates the building of the hermitage at Panchavati"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Winter Description",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XVI narrates Lakshmana's poetic description of winter"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Surpanakha's Arrival",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Canto XVII narrates Surpanakha's arrival and encounter with Rama"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharata remains in Ayodhya grieving Rama's exile, living austerely"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Saryu",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Bharata bathes in the silver Saryu river at Ayodhya"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is praised for following Rama's virtuous footsteps and renouncing all royal pleasures"
+            }
+        },
+        {
+            "from": "Yama",
+            "to": "Himalaya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "In winter the sun turns toward Yama's south, while Himalaya is truly the Lord of Snow"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ikshvaku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama belongs to the old Ikshvaku royal lineage"
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Ikshvaku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata is praised as first in Ikshvaku's princely race"
+            }
+        }
+    ]
+}

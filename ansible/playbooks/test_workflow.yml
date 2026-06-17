@@ -1,0 +1,81 @@
+---
+- name: Vidwaan AI - Test Workflow (Sanity Check)
+  hosts: localhost
+  gather_facts: true
+  vars_files:
+    - "{{ playbook_dir }}/../group_vars/docker_hosts.yml"
+  
+  pre_tasks:
+    - name: Workflow header
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          VIDWAAN AI - SANITY CHECK WORKFLOW
+          Started at: {{ ansible_date_time.iso8601 }}
+          Focus: Ingestion (Gita limit=5), Vectorization, Graph
+          ===================================================
+  
+  tasks:
+    # 1. Setup Database (Ensure clean state or running state)
+    # We use docker_setup to ensure tables exist
+    - name: Setup database
+      ansible.builtin.include_role:
+        name: docker_setup
+        tasks_from: first_run
+      tags: setup
+
+    # 2. Ingestion (Limited to Gita, 5 pages)
+    - name: Ingest Bhagavad Gita (Sanity Limit)
+      ansible.builtin.shell: |
+        uv run python -u scripts/ingest_scripture.py \
+          --pdf "data/bhagwat_geeta/bhagwat_geeta.pdf" \
+          --name "Bhagavad Gita" \
+          --code "gita" \
+          --type "gita" \
+          --limit 5 \
+          --force 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/test_ingestion.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: ingest_out
+      changed_when: true
+
+    # 3. Vectorization (Filtered to Gita)
+    - name: Run Vectorization (Gita Only)
+      ansible.builtin.shell: |
+        uv run python -u scripts/vectorize_vedas_and_scriptures.py \
+          --scripture "Bhagavad Gita" \
+          --batch-size 10 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/test_vectorization.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: vector_out
+      changed_when: true
+
+    # 4. Build Graph (Limited and Filtered)
+    - name: Build Knowledge Graph (Gita Only, Limit 50)
+      ansible.builtin.shell: |
+        uv run python -u scripts/build_knowledge_graph.py \
+          --scripture "Bhagavad Gita" \
+          --limit 50 \
+          --clear 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/test_graph.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: graph_out
+      changed_when: true
+      
+    # 5. Verify Graph (Ontology Fix Verification)
+    - name: Verify Graph Ontology
+      ansible.builtin.shell: |
+        uv run python -u scripts/verify_ontology.py 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/test_verification.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      register: verify_out
+      changed_when: verify_out.rc == 0
+
+  post_tasks:
+    - name: Workflow completion
+      ansible.builtin.debug:
+        msg: |
+          ===================================================
+          SANITY CHECK COMPLETED
+          Logs: {{ playbook_dir }}/../../output/logs/
+          ===================================================

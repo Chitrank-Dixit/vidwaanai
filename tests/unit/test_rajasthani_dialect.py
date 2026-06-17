@@ -1,11 +1,11 @@
 import pytest
+
 from src.dialects.rajasthani import (
     RajasthaniProcessor,
 )
 
 
 class TestRajasthaniDialect:
-
     @pytest.fixture
     def processor(self):
         return RajasthaniProcessor()

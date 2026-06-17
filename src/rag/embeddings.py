@@ -2,7 +2,6 @@
 
 import logging
 import os
-from typing import List, Union
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
@@ -31,8 +30,8 @@ class EmbeddingManager:
             raise
 
     def embed_text(
-        self, text: Union[str, List[str]], normalize: bool = True
-    ) -> Union[List[float], List[List[float]]]:
+        self, text: str | list[str], normalize: bool = True
+    ) -> list[float] | list[list[float]]:
         """Generate embeddings for text."""
         try:
             embeddings = self.model.encode(
@@ -59,7 +58,7 @@ class EmbeddingManager:
             logger.error(f"Error generating embeddings: {str(e)}")
             raise
 
-    def embed_batch(self, texts: List[str], batch_size: int = 32) -> List[List[float]]:
+    def embed_batch(self, texts: list[str], batch_size: int = 32) -> list[list[float]]:
         """Generate embeddings for a batch of texts."""
         try:
             embeddings = []
@@ -79,7 +78,7 @@ class EmbeddingManager:
             raise
 
     @staticmethod
-    def similarity(embedding1: List[float], embedding2: List[float]) -> float:
+    def similarity(embedding1: list[float], embedding2: list[float]) -> float:
         """Calculate cosine similarity."""
         arr1 = np.array(embedding1)
         arr2 = np.array(embedding2)

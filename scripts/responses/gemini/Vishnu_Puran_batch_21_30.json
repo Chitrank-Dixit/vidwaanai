@@ -1,0 +1,123 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The preserver deity of the Hindu trimurti, major deity of Vaishnava Puranas."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "The god of death and justice."
+            }
+        },
+        {
+            "name": "Manu",
+            "type": "Character",
+            "attributes": {
+                "description": "The progenitor of humanity and ruler of each Manvantara."
+            }
+        },
+        {
+            "name": "Daksha",
+            "type": "Character",
+            "attributes": {
+                "description": "A creator patriarch (Prajapati), son of Brahma."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Yajna",
+            "type": "Concept",
+            "attributes": {
+                "description": "Ritual fire sacrifices and offerings."
+            }
+        },
+        {
+            "name": "Mahapuranas",
+            "type": "Text",
+            "attributes": {
+                "description": "The genre of 18 major Hindu encyclopedic scriptures."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "The creator deity of the Hindu trimurti."
+            }
+        },
+        {
+            "name": "Devi",
+            "type": "Deity",
+            "attributes": {
+                "description": "The supreme goddess, representing cosmic energy and female divinity."
+            }
+        },
+        {
+            "name": "Yuga",
+            "type": "Concept",
+            "attributes": {
+                "description": "Cosmic age cyclical divisions (Satya, Treta, Dvapara, Kali)."
+            }
+        },
+        {
+            "name": "Creation",
+            "type": "Event",
+            "attributes": {
+                "description": "The cosmic creation process described in the Sarga sections of Puranas."
+            }
+        },
+        {
+            "name": "Prahlada",
+            "type": "Character",
+            "attributes": {
+                "description": "A saintly prince, devotee of Vishnu, saved from his demon father Hiranyakashipu."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Brahma",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brahma creates the universe under the guidance of Vishnu."
+            }
+        },
+        {
+            "from": "Prahlada",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Prahlada is saved by Vishnu in his Narasimha incarnation."
+            }
+        }
+    ]
+}

@@ -1,9 +1,11 @@
+from collections.abc import Generator
+from unittest.mock import MagicMock, patch
+
 import pytest
+
 from src.agent.vidwaan_agent import VidwaanAI
 from src.db.db_manager import DatabaseManager
 from src.graph.graph_builder import GraphBuilder
-from unittest.mock import MagicMock, patch
-from typing import Generator
 
 # Mark as e2e test
 pytestmark = pytest.mark.e2e
@@ -17,7 +19,7 @@ class TestCompleteQuery:
         return DatabaseManager(settings.DATABASE_URL)
 
     @pytest.fixture(scope="class")
-    def graph_builder(self) -> Generator[GraphBuilder, None, None]:
+    def graph_builder(self) -> Generator[GraphBuilder]:
         from src.core.config import settings
 
         uri = settings.NEO4J_URI

@@ -2,7 +2,7 @@
 
 import logging
 from datetime import datetime
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 from neo4j import GraphDatabase
 
@@ -34,13 +34,14 @@ class VidwaanAI:
         self,
         db_url: str,
         openai_key: str,
-        krutrim_key: Optional[str] = None,
+        krutrim_key: str | None = None,
         use_lmstudio: bool = True,
-        lmstudio_url: Optional[str] = None,
+        lmstudio_url: str | None = None,
         enable_graph_rag: bool = False,
-        neo4j_uri: Optional[str] = None,
-        neo4j_user: Optional[str] = None,
-        neo4j_password: Optional[str] = None,
+        neo4j_uri: str | None = None,
+        neo4j_user: str | None = None,
+        neo4j_password: str | None = None,
+        llm_timeout: int = 120,
     ):
         """Initialize VidwaanAI agent."""
         self.db = DatabaseManager(db_url)
@@ -50,22 +51,24 @@ class VidwaanAI:
         # Keep EmbeddingManager for legacy support if needed, but MultilingualSearch handles embedding now
         # self.embeddings = EmbeddingManager()
 
-        self.llm: Union[LMStudioClient, OpenAIClient]
+        self.llm: LMStudioClient | OpenAIClient
         if use_lmstudio:
-            self.llm = LMStudioClient(base_url=lmstudio_url or "http://localhost:8000")
+            self.llm = LMStudioClient(
+                base_url=lmstudio_url or "http://localhost:8000", timeout=llm_timeout
+            )
         else:
             self.llm = OpenAIClient(api_key=openai_key)
         self.router = QueryRouter()
         self.cache = QueryCache()
-        self.retrieval_pipeline: Optional[AdvancedRetrievalPipeline] = None
-        self.hybrid_retriever: Optional[HybridSearch] = None
+        self.retrieval_pipeline: AdvancedRetrievalPipeline | None = None
+        self.hybrid_retriever: HybridSearch | None = None
 
         # Hybrid Search (BM25 + Vector)
         try:
             verses = self.db.get_all_verses()
             self.bm25_search = BM25Search(verses)
 
-            def vector_search_func(query: str, top_k: int) -> List[Dict[str, Any]]:
+            def vector_search_func(query: str, top_k: int) -> list[dict[str, Any]]:
                 # Use multilingual embedding
                 query_data = self.multilingual_search.process_query(query)
                 emb = query_data["embedding"]
@@ -88,7 +91,7 @@ class VidwaanAI:
             self.hybrid_retriever = None
 
         # Veda Retrieval Setup
-        self.veda_retriever: Optional[VedaRetriever] = None
+        self.veda_retriever: VedaRetriever | None = None
         try:
             self.veda_retriever = VedaRetriever(self.db)
             logger.info("Veda Retriever initialized")
@@ -122,9 +125,9 @@ class VidwaanAI:
         self,
         question: str,
         language: str = "en",
-        scripture_filter: Optional[str] = None,
+        scripture_filter: str | None = None,
         verbose: bool = False,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Process a user query and return response."""
 
         try:
@@ -206,7 +209,7 @@ class VidwaanAI:
                             graph_lines = ["**Knowledge Graph Context:**"]
                             for rel in subgraph:
                                 # Format: "Krishna (Person) --[TEACHES]--> Arjuna (Person)"
-                                line = f"{rel['source']} ({rel.get('source_type',['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type',['Entity'])[0]})"
+                                line = f"{rel['source']} ({rel.get('source_type', ['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type', ['Entity'])[0]})"
                                 graph_lines.append(line)
                             graph_context = "\n".join(graph_lines)
                             logger.info(
@@ -293,11 +296,11 @@ class VidwaanAI:
             logger.error(f"Error processing query: {str(e)}")
             raise
 
-    def get_loaded_scriptures(self) -> List[Dict[str, Any]]:
+    def get_loaded_scriptures(self) -> list[dict[str, Any]]:
         """Get list of loaded scriptures."""
         return self.db.get_scriptures()
 
-    def _format_context(self, verses: List[Dict[str, Any]], language: str) -> str:
+    def _format_context(self, verses: list[dict[str, Any]], language: str) -> str:
         """Format retrieved verses as context."""
         if not verses:
             return "No relevant verses found."
@@ -310,7 +313,7 @@ class VidwaanAI:
 
         return "\n\n".join(context_parts)
 
-    def _calculate_confidence(self, verses: List[Dict[str, Any]]) -> str:
+    def _calculate_confidence(self, verses: list[dict[str, Any]]) -> str:
         """Calculate confidence score."""
         if not verses:
             return "0%"

@@ -1,7 +1,7 @@
 from src.mcp.tools.language_tools import (
     detect_language,
-    preprocess_text,
     get_supported_languages,
+    preprocess_text,
 )
 
 

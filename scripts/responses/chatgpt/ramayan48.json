@@ -1,0 +1,386 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic describing the life and battles of Rama."
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, central hero and warrior of righteousness."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama, loyal companion."
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Rama, known for beauty and virtue."
+            }
+        },
+        {
+            "name": "Khara",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon chief ruling Janasthana."
+            }
+        },
+        {
+            "name": "Dushana",
+            "type": "Character",
+            "attributes": {
+                "description": "Commander under Khara, slain by Rama."
+            }
+        },
+        {
+            "name": "Trishira",
+            "type": "Character",
+            "attributes": {
+                "description": "Three-headed demon warrior serving Khara."
+            }
+        },
+        {
+            "name": "Akampana",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon who survives and informs Ravana about the battle."
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka and ruler of the Rakshasas."
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon advisor to Ravana, associated with Tataka."
+            }
+        },
+        {
+            "name": "Agastya",
+            "type": "Character",
+            "attributes": {
+                "description": "Great sage who gifted Rama a divine bow."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, associated with thunderbolt and Airavata."
+            }
+        },
+        {
+            "name": "Yama",
+            "type": "Deity",
+            "attributes": {
+                "description": "God of death and ruler of the underworld."
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Supreme deity, often compared to Rama in strength."
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Fierce form of Shiva associated with destruction."
+            }
+        },
+        {
+            "name": "Namuchi",
+            "type": "Character",
+            "attributes": {
+                "description": "Asura slain by Indra."
+            }
+        },
+        {
+            "name": "Vritra",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon slain by Indra, associated with drought."
+            }
+        },
+        {
+            "name": "Bala",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon slain by Indra."
+            }
+        },
+        {
+            "name": "Rakshasas",
+            "type": "Concept",
+            "attributes": {
+                "description": "Demonic beings opposed to Rama."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty upheld by Rama."
+            }
+        },
+        {
+            "name": "Janasthana",
+            "type": "Place",
+            "attributes": {
+                "description": "Region in Dandaka forest ruled by Khara."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest where Rama resides during exile."
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital of Ravana's kingdom."
+            }
+        },
+        {
+            "name": "Tatakas Grove",
+            "type": "Place",
+            "attributes": {
+                "description": "Region associated with Maricha and Tataka."
+            }
+        },
+        {
+            "name": "Battle with Khara",
+            "type": "Event",
+            "attributes": {
+                "description": "Battle where Rama destroys Khara and his army."
+            }
+        },
+        {
+            "name": "Death of Khara",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Khara in combat."
+            }
+        },
+        {
+            "name": "Report to Ravana",
+            "type": "Event",
+            "attributes": {
+                "description": "Akampana informs Ravana about Khara's defeat."
+            }
+        },
+        {
+            "name": "Plan to Abduct Sita",
+            "type": "Event",
+            "attributes": {
+                "description": "Ravana plans to abduct Sita after hearing of Rama's strength."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Epic centers around Rama."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers fighting together."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife relationship."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Dushana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Dushana is subordinate commander."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Trishira",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Trishira is a chief under Khara."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Battle with Khara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama defeats Khara's army."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Battle with Khara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Khara leads demon army."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Death of Khara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama kills Khara."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Death of Khara",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Khara is slain in battle."
+            }
+        },
+        {
+            "from": "Akampana",
+            "to": "Report to Ravana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Reports defeat of demons."
+            }
+        },
+        {
+            "from": "Report to Ravana",
+            "to": "Ravana",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Ravana receives news."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Plan to Abduct Sita",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Plans to abduct Sita."
+            }
+        },
+        {
+            "from": "Plan to Abduct Sita",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Target of abduction."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Maricha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Seeks help from Maricha."
+            }
+        },
+        {
+            "from": "Janasthana",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Janasthana lies within Dandaka forest."
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ravana rules Lanka."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama acts according to righteousness."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama compared to Vishnu in strength."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Rudra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama compared to Rudra in battle fury."
+            }
+        },
+        {
+            "from": "Khara",
+            "to": "Indra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Comparison with Indra in battle."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Namuchi",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra slew Namuchi."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Vritra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra slew Vritra."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Bala",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Indra slew Bala."
+            }
+        }
+    ]
+}

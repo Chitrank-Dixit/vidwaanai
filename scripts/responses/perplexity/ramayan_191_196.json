@@ -1,0 +1,164 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Michael Hart",
+            "type": "Character",
+            "attributes": {
+                "description": "The founder and originator of the Project Gutenberg concept of a free electronic library."
+            }
+        },
+        {
+            "name": "Gregory B. Newby",
+            "type": "Character",
+            "attributes": {
+                "description": "Director and Chief Executive of the Project Gutenberg Literary Archive Foundation."
+            }
+        },
+        {
+            "name": "Juliet Sutherland",
+            "type": "Character",
+            "attributes": {
+                "description": "Volunteer who produced the Project Gutenberg TEI edition of the Ramayana translation."
+            }
+        },
+        {
+            "name": "John Bruno Hare",
+            "type": "Character",
+            "attributes": {
+                "description": "Volunteer who produced the Project Gutenberg TEI edition of the Ramayana translation."
+            }
+        },
+        {
+            "name": "David King",
+            "type": "Character",
+            "attributes": {
+                "description": "Volunteer who produced the Project Gutenberg TEI edition of the Ramayana translation."
+            }
+        },
+        {
+            "name": "Project Gutenberg",
+            "type": "Text",
+            "attributes": {
+                "description": "A digital library of public domain and licensed electronic works."
+            }
+        },
+        {
+            "name": "Project Gutenberg License",
+            "type": "Text",
+            "attributes": {
+                "description": "The legal agreement governing the distribution and use of Project Gutenberg works."
+            }
+        },
+        {
+            "name": "Fairbanks",
+            "type": "Place",
+            "attributes": {
+                "description": "Location of the principal office of the Project Gutenberg Literary Archive Foundation in Alaska."
+            }
+        },
+        {
+            "name": "Salt Lake City",
+            "type": "Place",
+            "attributes": {
+                "description": "Location of the business office of the Project Gutenberg Literary Archive Foundation in Utah."
+            }
+        },
+        {
+            "name": "Public Domain",
+            "type": "Concept",
+            "attributes": {
+                "description": "Creative works to which no exclusive intellectual property rights apply."
+            }
+        },
+        {
+            "name": "TEI Edition Production",
+            "type": "Event",
+            "attributes": {
+                "description": "The creation and digitization of the electronic version of the Ramayana translation."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Michael Hart",
+            "to": "Project Gutenberg",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Michael Hart is the founder of Project Gutenberg."
+            }
+        },
+        {
+            "from": "Gregory B. Newby",
+            "to": "Project Gutenberg",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Gregory B. Newby is the Chief Executive and Director."
+            }
+        },
+        {
+            "from": "Juliet Sutherland",
+            "to": "TEI Edition Production",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Juliet produced the TEI edition."
+            }
+        },
+        {
+            "from": "John Bruno Hare",
+            "to": "TEI Edition Production",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "John produced the TEI edition."
+            }
+        },
+        {
+            "from": "David King",
+            "to": "TEI Edition Production",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "David produced the TEI edition."
+            }
+        },
+        {
+            "from": "Project Gutenberg",
+            "to": "Project Gutenberg License",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Project Gutenberg works are governed by the license."
+            }
+        },
+        {
+            "from": "Project Gutenberg",
+            "to": "Fairbanks",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The principal office of the Foundation is located in Fairbanks."
+            }
+        },
+        {
+            "from": "Project Gutenberg",
+            "to": "Salt Lake City",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "The business office of the Foundation is located in Salt Lake City."
+            }
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List
+from typing import Any
 
 
 class LanguageProcessor(ABC):
@@ -11,16 +11,16 @@ class LanguageProcessor(ABC):
         pass
 
     @abstractmethod
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str) -> list[str]:
         """Tokenize text for language"""
         pass
 
     @abstractmethod
-    def remove_stopwords(self, tokens: List[str]) -> List[str]:
+    def remove_stopwords(self, tokens: list[str]) -> list[str]:
         """Remove stop words for language"""
         pass
 
-    def preprocess(self, text: str) -> Dict[str, Any]:
+    def preprocess(self, text: str) -> dict[str, Any]:
         """Complete preprocessing pipeline"""
         # Normalize
         normalized = self.normalize(text)

@@ -1,0 +1,225 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "The eldest son of Dasaratha, known for matchless fame, breaking Shiva's bow, and unwavering devotion to Dharma.",
+                "traits": [
+                    "Virtuous",
+                    "Patient",
+                    "Strong",
+                    "Duteous"
+                ]
+            }
+        },
+        {
+            "name": "Sita",
+            "type": "Character",
+            "attributes": {
+                "description": "Daughter of Janaka, found in a furrow of the earth; wife of Rama.",
+                "origin": "Teeming furrow of the earth"
+            }
+        },
+        {
+            "name": "King Dasaratha",
+            "type": "Character",
+            "attributes": {
+                "description": "Monarch of Ayodhya and father of Rama, Bharat, Lakshmana, and Shatrughna.",
+                "state": "Grief-stricken by the exile of his son"
+            }
+        },
+        {
+            "name": "King Janaka",
+            "type": "Character",
+            "attributes": {
+                "description": "Ruler of Mithila and father of Sita and Urmila.",
+                "legacy": "Guardian of the Great Bow of Rudra"
+            }
+        },
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "A mighty sage and former king who attained the rank of Brahman through fierce austerities.",
+                "role": "Guide to Rama and Lakshmana"
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Dasaratha's youngest queen who demands Rama's exile and Bharat's throning.",
+                "motivation": "Securing her son's future at the urging of Manthara"
+            }
+        },
+        {
+            "name": "Manthara",
+            "type": "Character",
+            "attributes": {
+                "description": "A hump-backed slave-born handmaid who plots against Rama."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Son of Sumitra and devoted brother of Rama; characterized by fierce loyalty and quick temper."
+            }
+        },
+        {
+            "name": "Parashurama",
+            "type": "Character",
+            "attributes": {
+                "description": "The 'Rama with the Axe' who challenges Rama and is eventually debarred from heavenly worlds.",
+                "lineage": "Son of Jamadagni"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "The Lord of Gods, whose bow is eventually mastered by Rama."
+            }
+        },
+        {
+            "name": "Rudra",
+            "type": "Deity",
+            "attributes": {
+                "description": "Also known as Shiva, the bearer of the bow broken by Rama at Mithila."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "The sacred duty and moral order that governs Rama's actions."
+            }
+        },
+        {
+            "name": "Fate",
+            "type": "Concept",
+            "attributes": {
+                "description": "The resistless power described by Rama as the reason for his sudden change in fortune."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "The capital of the Ikshvaku dynasty."
+            }
+        },
+        {
+            "name": "Dandaka Forest",
+            "type": "Place",
+            "attributes": {
+                "description": "The wild forest where Rama is sentenced to spend 14 years in exile."
+            }
+        },
+        {
+            "name": "Breaking of the Bow",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama strings and snaps the celestial bow of Shiva, winning Sita's hand."
+            }
+        },
+        {
+            "name": "The Two Boons",
+            "type": "Event",
+            "attributes": {
+                "description": "Kaikeyi's demand for Bharat's kingship and Rama's 14-year banishment."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Rama",
+            "to": "Sita",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband and Wife"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "King Dasaratha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Son and Father"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Rama is identified with Vishnu's might"
+            }
+        },
+        {
+            "from": "Sita",
+            "to": "King Janaka",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Daughter and Father"
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "Manthara",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Queen and advisor/maid"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Breaking of the Bow",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama performed the feat"
+            }
+        },
+        {
+            "from": "King Dasaratha",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Ruler of the city"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dandaka Forest",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Sentenced to live there for 14 years"
+            }
+        },
+        {
+            "from": "Kaikeyi",
+            "to": "The Two Boons",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kaikeyi demanded the boons"
+            }
+        },
+        {
+            "from": "Parashurama",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Challenger and rival"
+            }
+        },
+        {
+            "from": "Lakshmana",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Devoted brother and companion"
+            }
+        }
+    ]
+}

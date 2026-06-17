@@ -1,7 +1,9 @@
-import pytest
-from typing import Generator
+from collections.abc import Generator
 from unittest.mock import MagicMock, patch
+
+import pytest
 from fastapi.testclient import TestClient
+
 from src.api.main import app
 from src.api.routes import get_agent_service
 
@@ -12,7 +14,7 @@ class TestAPIEndpoints:
         return TestClient(app)
 
     @pytest.fixture
-    def mock_agent(self) -> Generator[MagicMock, None, None]:
+    def mock_agent(self) -> Generator[MagicMock]:
         # Override the get_agent dependency
         mock_agent_instance = MagicMock()
         app.dependency_overrides[get_agent_service] = lambda: mock_agent_instance

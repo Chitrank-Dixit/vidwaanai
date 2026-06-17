@@ -1,11 +1,11 @@
 import pytest
+
 from src.dialects.maithili import (
     MaithiliProcessor,
 )
 
 
 class TestMaithiliDialect:
-
     @pytest.fixture
     def processor(self):
         return MaithiliProcessor()

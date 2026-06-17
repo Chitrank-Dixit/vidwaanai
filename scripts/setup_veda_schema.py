@@ -1,6 +1,6 @@
 import logging
-import sys
 import os
+import sys
 
 # Add src to python path to ensure imports work
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))

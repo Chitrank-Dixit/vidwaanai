@@ -1,8 +1,9 @@
 import os
 import sys
+from typing import Any
+
 import psycopg2
 from dotenv import load_dotenv
-from typing import Any, Optional
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -13,7 +14,7 @@ from src.core.logger import get_logger  # noqa: E402
 logger = get_logger(__name__)
 
 
-def explain_query(query_text: str, params: Optional[tuple[Any, ...]] = None) -> None:
+def explain_query(query_text: str, params: tuple[Any, ...] | None = None) -> None:
     db_url = os.getenv("DATABASE_URL")
     if not db_url:
         logger.error("DATABASE_URL not set")

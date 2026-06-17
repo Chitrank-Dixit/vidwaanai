@@ -1,0 +1,101 @@
+{
+    "ontology": {
+        "entity_types": [
+            "Deity",
+            "Concept",
+            "Character",
+            "Place",
+            "Event",
+            "Text"
+        ],
+        "relationship_types": [
+            "MENTIONS",
+            "IS_AVATAR_OF",
+            "RELATED_TO",
+            "LOCATED_AT",
+            "PARTICIPATED_IN"
+        ]
+    },
+    "entities": [
+        {
+            "name": "Karma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Action and its corresponding consequences."
+            }
+        },
+        {
+            "name": "Mahabharata",
+            "type": "Text",
+            "attributes": {
+                "description": "The monumental Sanskrit epic detailing the history of the Kuru dynasty."
+            }
+        },
+        {
+            "name": "Yudhishthira",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest Pandava prince, known for his adherence to truth and righteousness."
+            }
+        },
+        {
+            "name": "Kripa",
+            "type": "Character",
+            "attributes": {
+                "description": "A family preceptor of the Kurus who fought on the Kaurava side."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Universal cosmic order and righteous duty."
+            }
+        },
+        {
+            "name": "Krishna",
+            "type": "Deity",
+            "attributes": {
+                "description": "Avatara of Vishnu, supreme deity, ally of the Pandavas, and teacher of Arjuna."
+            }
+        },
+        {
+            "name": "Bhagavad Gita",
+            "type": "Text",
+            "attributes": {
+                "description": "The sacred dialogue spoken by Krishna to Arjuna before the Kurukshetra War."
+            }
+        },
+        {
+            "name": "Kurukshetra War",
+            "type": "Event",
+            "attributes": {
+                "description": "The great 18-day battle between the Pandavas and Kauravas."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, father of Arjuna, who grants celestial weapons."
+            }
+        },
+        {
+            "name": "Bhakti",
+            "type": "Concept",
+            "attributes": {
+                "description": "The spiritual path of love, devotion, and surrender to the Divine."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Yudhishthira",
+            "to": "Kurukshetra War",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Yudhishthira participated as a major combatant in the Kurukshetra War."
+            }
+        }
+    ]
+}

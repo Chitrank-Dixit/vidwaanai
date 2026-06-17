@@ -1,0 +1,11 @@
+---
+- name: Build Knowledge Graph
+  ansible.builtin.shell: |
+    uv run python -u scripts/build_knowledge_graph.py 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/kg_build.log"
+  args:
+    chdir: "{{ playbook_dir }}/../.."
+  register: kg_build_output
+  changed_when: true
+  tags:
+    - ingestion
+    - build_graph

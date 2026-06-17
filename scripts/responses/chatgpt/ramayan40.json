@@ -1,0 +1,243 @@
+{
+    "entities": [
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Eldest son of King Dasaratha, exemplar of truth and duty, living in forest exile."
+            }
+        },
+        {
+            "name": "Bharat",
+            "type": "Character",
+            "attributes": {
+                "description": "Younger brother of Rama who urges him to return and rule Ayodhya."
+            }
+        },
+        {
+            "name": "Javali",
+            "type": "Character",
+            "attributes": {
+                "description": "A sage who argues from a materialistic, atheistic standpoint to persuade Rama."
+            }
+        },
+        {
+            "name": "Vashishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal sage of the Ikshvaku dynasty, expounds genealogy and cosmic origins."
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "Former king of Ayodhya, father of Rama, Bharata, Lakshmana, and Shatrughna."
+            }
+        },
+        {
+            "name": "Kaikeyi",
+            "type": "Character",
+            "attributes": {
+                "description": "Queen of Ayodhya whose boons caused Rama’s exile."
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama who accompanies him in exile."
+            }
+        },
+        {
+            "name": "Shatrughna",
+            "type": "Character",
+            "attributes": {
+                "description": "Youngest brother of Rama, accompanies Bharata."
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Capital city of the Ikshvaku dynasty and rightful kingdom of Rama."
+            }
+        },
+        {
+            "name": "Chitrakuta",
+            "type": "Place",
+            "attributes": {
+                "description": "Forest region where Rama resides during exile."
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of the gods, symbol of heavenly kingship."
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Self-existent creator god who brings forth the world."
+            }
+        },
+        {
+            "name": "Ikshvaku",
+            "type": "Character",
+            "attributes": {
+                "description": "Progenitor of the Ikshvaku dynasty, first king of Ayodhya."
+            }
+        },
+        {
+            "name": "Raghu",
+            "type": "Character",
+            "attributes": {
+                "description": "Illustrious ancestor of Rama in the Ikshvaku lineage."
+            }
+        },
+        {
+            "name": "Truth",
+            "type": "Concept",
+            "attributes": {
+                "description": "Supreme moral principle upheld by Rama as the foundation of duty and kingship."
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty governing moral conduct and royal obligation."
+            }
+        },
+        {
+            "name": "Forest Exile of Rama",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama’s voluntary exile undertaken to honor his father’s word."
+            }
+        },
+        {
+            "name": "Gift of the Sandals",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama gives his sandals to Bharata as symbolic authority over the kingdom."
+            }
+        },
+        {
+            "name": "Genealogy of Ikshvaku",
+            "type": "Text",
+            "attributes": {
+                "description": "Lineage discourse tracing Rama’s ancestry from Manu to Dasaratha."
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Javali",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Javali urges Rama to abandon exile and accept kingship."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Truth",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama declares truth as the supreme foundation of duty and rule."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama refuses to violate dharma by breaking his vow."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Forest Exile of Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Rama insists on completing his forest exile."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ayodhya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Ayodhya is Rama’s rightful kingdom which he refuses to claim prematurely."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Bharata implores Rama to return and rule."
+            }
+        },
+        {
+            "from": "Vashishtha",
+            "to": "Genealogy of Ikshvaku",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Vasistha recounts the lineage of the Ikshvaku dynasty."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ikshvaku",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama belongs to the Ikshvaku royal line."
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Raghu",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama is a descendant of Raghu."
+            }
+        },
+        {
+            "from": "Bharat",
+            "to": "Gift of the Sandals",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Bharata receives Rama’s sandals as regent of the kingdom."
+            }
+        },
+        {
+            "from": "Gift of the Sandals",
+            "to": "Ayodhya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "The sandals symbolically govern Ayodhya in Rama’s absence."
+            }
+        },
+        {
+            "from": "Dasharatha",
+            "to": "Rama",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Rama adheres to the promise made to his father."
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Rama’s potential kingship is compared to Indra’s heavenly rule."
+            }
+        }
+    ]
+}

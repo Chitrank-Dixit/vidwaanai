@@ -1,0 +1,143 @@
+# Manual Entity Extraction Prompt
+
+Please extract entities (Deities, Concepts, Characters, Locations, Events) and their relationships from the following verses.
+Return the output in strict JSON format.
+
+## Valid Schema
+- **Entity Types**: Deity, Concept, Character, Place, Event, Text
+- **Relationship Types**: MENTIONS, IS_AVATAR_OF, RELATED_TO, LOCATED_AT, PARTICIPATED_IN
+
+## JSON Format
+```json
+{
+  "entities": [
+    {"name": "EntityName", "type": "Type", "attributes": {"description": "..."}}
+  ],
+  "relationships": [
+    {"from": "Entity1", "to": "Entity2", "type": "RELATION", "attributes": {"context": "..."}}
+  ]
+}
+```
+
+## Verses to Analyze
+
+### Verse 1 (Ramayan 0.1201)
+- **Original**: Canto IX. Sugríva's Story. 1183 Canto IX. Sugríva's Story.562 “My brother, known by Báli's name, Had won by might a conqueror's fame. My father's eldest-born was he, Well honoured by his sire and me. My father died, and each sage lord Named Báli king with one accord; And he, by right of birth ordained, The sovereign of the Vánars reigned. He in his royal place controlled The kingdom of our sires of old, And I all faithful service lent To aid my brother's government. The fiend Máyáví,— him of yore To Dundubhi563 his mother bore,— For woman's love in strife engaged, A deadly war with Báli waged. When sleep had chained each weary frame To vast Kishkindhá564 gates he came, And, shouting through the shades of night, Challenged his foeman to the fight. My brother heard the furious shout, And wild with rage rushed madly out, Though fain would I and each sad wife Detain him from the deadly strife. He burned his demon foe to slay, 562 “Sugríva's story paints in vivid colours the manners, customs and ideas of the wild mountain tribes which inhabited Kishkindhya or the southern hills of the Deccan, of the people whom the poem calls monkeys, tribes altogether different in origin and civilization from the Indo-Sanskrit race.” G ORRESIO {FNS . 563 A fiend slain by Báli. 564 Báli's mountain city.
+- **Translation**: 
+
+---
+
+### Verse 2 (Ramayan 0.1202)
+- **Original**: 1184 The Ramayana And rushed impetuous to the fray. His weeping wives he thrust aside, And forth, impelled by fury, hied; While, by my love and duty led, I followed where my brother sped. Máyáví looked, and at the sight Fled from his foes in wild affright. The flying fiend we quickly viewed, And with swift feet his steps pursued. Then rose the moon, whose friendly ray Cast light upon our headlong way. By the soft beams was dimly shown A mighty cave with grass o'ergrown. Within its depths he sprang, and we The demon's form no more might see. My brother's breast was all aglow With fury when he missed the foe, And, turning, thus to me he said With senses all disquieted: “Here by the cavern's mouth remain; Keep ear and eye upon the strain, While I the dark recess explore And dip my brand in foeman's gore.” I heard his angry speech, and tried To turn him from his plan aside. He made me swear by both his feet, And sped within the dark retreat. While in the cave he stayed, and I Watched at the mouth, a year went by. For his return I looked in vain, And, moved by love, believed him slain. I mourned, by doubt and fear distressed, And greater horror seized my breast When from the cavern rolled a flood,
+- **Translation**: 
+
+---
+
+### Verse 3 (Ramayan 0.1203)
+- **Original**: Canto IX. Sugríva's Story. 1185 A carnage stream of froth and blood; And from the depths a sound of fear, The roar of demons, smote mine ear; But never rang my brother's shout Triumphant in the battle rout. I closed the cavern with a block, Huge as a hill, of shattered rock. Gave offerings due to Báli's shade, And sought Kishkindhá, sore dismayed. Long time with anxious care I tried From Báli's lords his fate to hide, But they, when once the tale was known, Placed me as king on Báli's throne. There for a while I justly reigned [334] And all with equal care ordained, When joyous from the demon slain My brother Báli came again. He found me ruling in his stead, And, fired with rage, his eyes grew red. He slew the lords who made me king, And spoke keen words to taunt and sting. The kingly rank and power I held My brother's rage with ease had quelled, But still, restrained by old respect For claims of birth, the thought I checked. Thus having struck the demon down Came Báli to his royal town. With meek respect, with humble speech, His haughty heart I strove to reach. But all my arts were tried in vain, No gentle word his lips would deign, Though to the ground I bent and set His feet upon my coronet: Still Báli in his rage and pride
+- **Translation**: 
+
+---
+
+### Verse 4 (Ramayan 0.1204)
+- **Original**: 1186 The Ramayana All signs of grace and love denied.” Canto X. Sugríva's Story. “I strove to soothe and lull to rest The fury of his troubled breast: “Well art thou come, dear lord,” I cried. “By whose strong arm thy foe has died. Forlorn I languished here, but now My saviour and defence art thou. Once more receive this regal shade565 Like the full moon in heaven displayed; And let the chouries,566 thus restored, Wave glorious o'er the rightful lord. I kept my watch, thy word obeyed, And by the cave a year I stayed. But when I saw that stream of blood Rush from the cavern in a flood, My sad heart broken with dismay, And every wandering sense astray, I barred the entrance with a stone,— A crag from some high mountain thrown— Turned from the spot I watched in vain, And to Kishkindhá came again. My deep distress and downcast mien By citizen and lord were seen. They made me king against my will: Forgive me if the deed was ill. 565 The canopy or royal umbrella, one of the usual Indian regalia. 566 Whisks made of the hair of the Yak or Bos grunniers, also regal insignia.
+- **Translation**: 
+
+---
+
+### Verse 5 (Ramayan 0.1205)
+- **Original**: Canto X. Sugríva's Story. 1187 True as I ever was I see My honoured king once more in thee; I only ruled a while the state When thou hadst left us desolate. This town with people, lords, and lands, Lay as a trust in guardian hands: And now, my gracious lord, accept The kingdom which thy servant kept. Forgive me, victor of the foe, Nor let thy wrath against me glow. See joining suppliant hands I pray, And at thy feet my head I lay. Believe my words: against my will The royal seat they made me fill. Unkinged they saw the city, hence They made me lord for her defence.” But Báli, though I humbly sued, Reviled me in his furious mood: “Out on thee, wretch!” in wrath he cried With many a bitter taunt beside. He summoned every lord, and all His subjects gathered at his call. Then forth his burning anger broke, And thus amid his friends he spoke: “I need not tell, for well ye know, How fierce Máyáví, fiend and foe, Came to Kishkindhá's gate by night, And dared me in his wrath to fight. I heard each word the demon said: Forth from my royal hall I sped; And, foe in brother's guise concealed, Sugríva followed to the field. The mighty demon through the shade
+- **Translation**: 
+
+---
+
+### Verse 6 (Ramayan 0.1206)
+- **Original**: 1188 The Ramayana Beheld me come with one to aid: Then shrinking from unequal fight, He turned his back in swiftest flight. From vengeful foes his life to save He sought the refuge of a cave. Then when I saw the fiend had fled Within that cavern dark and dread, Thus to my brother cruel-eyed, Impatient in my wrath, I cried: “I seek no more my royal town Till I have struck the demon down. Here by the cavern's mouth remain Until my hand the foe have slain.” Upon his faith my heart relied, And swift within the depths I hied. A year went by: in every spot I sought the fiend, but found him not. At length my foe I saw and slew, Whom long I feared when lost to view; And all his kinsmen by his side Beneath my vengeful fury died. The monster, as he reeled and fell, Poured forth his blood with roar and yell; And, filling all the cavern, dyed The portal with the crimson tide. Upon my foeman slain at last One look, one pitying look, I cast. I sought again the light of day: The cave was closed and left no way. To the barred mouth I sadly came, And called aloud Sugríva's name. But all was still: no voice replied,[335] And hope within my bosom died. With furious efforts, vain at first,
+- **Translation**: 
+
+---
+
+### Verse 7 (Ramayan 0.1207)
+- **Original**: Canto X. Sugríva's Story. 1189 Through bars of rock my way I burst. Then, free once more, the path that brought My feet in safety home I sought. 'Twas thus Sugríva dared despise The claim of brothers' friendly ties. With crags of rock he barred me in, And for himself the realm would win.” Thus Báli spoke in words severe; And then, unmoved by ruth or fear, Left me a single robe and sent His brother forth in banishment. He cast me out with scathe and scorn, And from my side my wife was torn. Now in great fear and ill at ease I roam this land with woods and seas, Or dwell on Rishyamúka's hill, And sorrow for my consort still. Thou hast the tale how first arose This bitter hate of brother foes. Such are the griefs neath which I pine, And all without a fault of mine. O swift to save in hour of fear, My prayer who dread this Báli, hear With gracious love assistance deign, And mine oppressor's arm restrain.” Then Raghu's son, the good and brave, With a gay laugh his answer gave: “These shafts of mine which ne'er can fail, Before whose sheen the sun grows pale, Winged by my fury, fleet and fierce, The wicked Báli's heart shall pierce. Yea, mark the words I speak, so long
+- **Translation**: 
+
+---
+
+### Verse 8 (Ramayan 0.1208)
+- **Original**: 1190 The Ramayana Shall live that wretch who joys in wrong, Until these angered eyes have seen The robber of thy darling queen. I, taught by equal suffering, know What waves of grief above thee flow. This hand thy captive wife shall free, And give thy kingdom back to thee.” Sugríva joyed as Ráma spoke, And valour in his breast awoke. His eye grew bright, his heart grew bold, And thus his wondrous tale he told: Canto XI. Dundubhi. “I doubt not, Prince, thy peerless might, Armed with these shafts so keen and bright, Like all-destroying fires of fate, The worlds could burn and devastate. But lend thou first thy mind and ear Of Báli's power and might to hear. How bold, how firm, in battle tried, Is Báli's heart; and then decide. From east to west, from south to north On restless errand hurrying forth, From farthest sea to sea he flies Before the sun has lit the skies. A mountain top he oft will seek, Tear from its root a towering peak, Hurl it aloft, as 'twere a ball, And catch it ere to earth it fall.
+- **Translation**: 
+
+---
+
+### Verse 9 (Ramayan 0.1209)
+- **Original**: Canto XI. Dundubhi. 1191 And many a tree that long has stood In health and vigour in the wood, His single arm to earth will throw, The marvels of his might to show. Shaped like a bull, a monster bore The name of Dundubhi of yore: He matched in size a mountain height, A thousand elephants in might. By pride of wondrous gifts impelled, And strength he deemed unparalleled, To Ocean, lord of stream and brook, Athirst for war, his way he took. He reached the king of rolling waves Whose gems are piled in sunless caves, And threw his challenge to the sea; “Come forth, O King, and fight with me.” He spoke, and from his ocean bed The righteous567 monarch heaved his head, And gave, sedate, his calm reply To him whom fate impelled to die: “Not mine, not mine the power,” he cried, “To cope with thee in battle tried; But listen to my voice, and seek The worthier foe of whom I speak. The Lord of Hills, where hermits live And love the home his forests give, Whose child isZankar's darling queen,568 The King of Snows is he I mean. Deep caves has he, and dark boughs shade 567 Righteous because he never transgresses his bounds, and “over his great tides Fidelity presides.” 568 Himálaya, the Lord of Snow, is the father of Umá the wife ofZiva orZankar.
+- **Translation**: 
+
+---
+
+### Verse 10 (Ramayan 0.1210)
+- **Original**: 1192 The Ramayana The torrent and the wild cascade. From him expect the fierce delight Which heroes feel in equal fight.” He deemed that fear checked ocean's king, And, like an arrow from the string, To the wild woods that clothe the side Of Lord Himálaya's hills he hied. Then Dundubhi, with hideous roar, Huge fragments from the summit tore Vast as Airávat,569 white with snow, And hurled them to the plains below. Then like a white cloud soft, serene, The Lord of Mountains' form was seen. It sat upon a lofty crest, And thus the furious fiend addressed: “Beseems thee not, O virtue's friend, My mountain tops to rive and rend;[336] For I, the hermit's calm retreat, For deeds of war am all unmeet.” The demon's eye with rage grew red, And thus in furious tone he said: “If thou from fear or sloth decline To match thy strength in war with mine, Where shall I find a champion, say, To meet me burning for the fray?” He spoke: Himálaya, skilled in lore Of eloquence, replied once more, And, angered in his righteous mind, Addressed the chief of demon kind: “The Vánar Báli, brave and wise, 569 Indra's celestial elephant.
+- **Translation**: 
+
+---
+
+### Verse 11 (Ramayan 0.1211)
+- **Original**: Canto XI. Dundubhi. 1193 Son of the God who rules the skies,570 Sways, glorious in his high renown, Kishkindhá his imperial town. Well may that valiant lord who knows Each art of war his might oppose To thine, in equal battle set, As Namuehi571 and Indra met. Go, if thy soul desire the fray; To Báli's city speed away, And that unconquered hero meet Whose fame is high for warlike feat.” He listened to the Lord of Snow, And, his proud heart with rage aglow, Sped swift away and lighted down By vast Kishkindhá, Báli's town. With pointed horns to strike and gore The semblance of a bull he bore, Huge as a cloud that downward bends Ere the full flood of rain descends. Impelled by pride and rage and hate, He thundered at Kishkindhá's gate; And with his bellowing, like the sound Of pealing drums, he shook the ground, He rent the earth and prostrate threw The trees that near the portal grew. King Báli from the bowers within Indignant heard the roar and din. Then, moonlike mid the stars, with all His dames he hurried to the wall; And to the fiend this speech, expressed In clear and measured words, addressed: 570 Báli was the son of Indra. See p. 28. 571 An Asur slain by Indra. See p. 261 Note. He is, like Vritra, a form of the demon of drought destroyed by the beneficent God of the firmament.
+- **Translation**: 
+
+---
+
+### Verse 12 (Ramayan 0.1212)
+- **Original**: 1194 The Ramayana “Know me for monarch. Báli styled, Of Vánar tribes that roam the wild. Say why dost thou this gate molest, And bellowing thus disturb our rest? I know thee, mighty fiend: beware And guard thy life with wiser care.” He spoke: and thus the fiend returned, While red with rage his eyeballs burned: “What! speak when all thy dames are nigh And hero-like thy foe defy? Come, meet me in the fight this day, And learn my strength by bold assay. Or shall I spare thee, and relent Until the coming night be spent? Take then the respite of a night And yield thee to each soft delight. Then, monarch of the Vánar race With loving arms thy friends embrace. Gifts on thy faithful lords bestow, Bid each and all farewell, and go. Show in the streets once more thy face, Install thy son to fill thy place. Dally a while with each dear dame; And then my strength thy pride shall tame For, should I smite thee drunk with wine Enamoured of those dames of thine, Beneath diseases bowed and bent, Or weak, unarmed, or negligent, My deed would merit hate and scorn As his who slays the child unborn.” Then Báli's soul with rage was fired, Queen Tára and the dames retired; And slowly, with a laugh of pride, The king of Vánars thus replied:
+- **Translation**: 
+
+---
+
+### Verse 13 (Ramayan 0.1213)
+- **Original**: Canto XI. Dundubhi. 1195 “Me, fiend, thou deemest drunk with wine: Unless thy fear the fight decline, Come, meet me in the fray, and test The spirit of my valiant breast.” He spoke in wrath and high disdain; And, laying down his golden chain, Gift of his sire Mahendra, dared The demon, for the fray prepared; Seized by the horns the monster, vast As a huge hill, and held him fast, Then fiercely dragged him round and round, And, shouting, hurled him to the ground. Blood streaming from his ears, he rose, And wild with fury strove the foes. Then Báli, match for Indra's might, With every arm renewed the fight. He fought with fists, and feet, and knees, With fragments of the rock, and trees. At last the monster's strength, assailed By Zakra's572 conquering offspring, failed. Him Báli raised with mighty strain And dashed upon the ground again; Where, bruised and shattered, in a tide Of rushing blood, the demon died. King Báli saw the lifeless corse, And bending, with tremendous force Raised the huge bulk from where it lay, And hurled it full a league away. As through the air the body flew, Some blood-drops, caught by gales that blew, Welled from his shattered jaw and fell By Saint Matanga's hermit cell: 572 Another name of Indra or Mahendra.
+- **Translation**: 
+
+---
+
+### Verse 14 (Ramayan 0.1214)
+- **Original**: 1196 The Ramayana Matanga saw, illustrious sage, Those drops defile his hermitage,[337] And, as he marvelled whence they came, Fierce anger filled his soul with flame: “Who is the villain, evil-souled, With childish thoughts unwise and bold, Who is the impious wretch,” he cried, “By whom my grove with blood is dyed?” Thus spoke Matanga in his rage, And hastened from the hermitage, When lo, before his wondering eyes Lay the dead bull of mountain size. His hermit soul was nothing slow The doer of the deed to know, And thus the Vánar in a burst Of wild tempestuous wrath he cursed: “Ne'er let that Vánar wander here, For, if he come, his death is near, Whose impious hand with blood has dyed The holy place where I abide, Who threw this demon corse and made A ruin of the pleasant shade. If e'er he plant his wicked feet Within one league of my retreat; Yea, if the villain come so nigh That very hour he needs must die. And let the Vánar lords who dwell In the dark woods that skirt my cell Obey my words, and speeding hence Find them some meeter residence. Here if they dare to stay, on all The terrors of my curse shall fall. They spoil the tender saplings, dear
+- **Translation**: 
+
+---
+
+### Verse 15 (Ramayan 0.1215)
+- **Original**: Canto XI. Dundubhi. 1197 As children which I cherish here, Mar root and branch and leaf and spray, And steal the ripening fruit away. One day I grant, no further hour, To-morrow shall my curse have power, And then each Vánar I may see A stone through countless years shall be.” The Vánars heard the curse and hied From sheltering wood and mountain side. King Báli marked their haste and dread, And to the flying leaders said: “Speak, Vánar chiefs, and tell me why From Saint Matanga's grove ye fly To gather round me: is it well With all who in those woodlands dwell?” He spoke: the Vánar leaders told King Báli with his chain of gold What curse the saint had on them laid, Which drove them from their ancient shade. Then royal Báli sought the sage, With reverent hands to soothe his rage. The holy man his suppliant spurned, And to his cell in anger turned. That curse on Báli sorely pressed, And long his conscious soul distressed. Him still the curse and terror keep Afar from Rishyamúka's steep. He dares not to the grove draw nigh, Nay scarce will hither turn his eye. We know what terrors warm him hence, And roam these woods in confidence. Look, Prince, before thee white and dry The demon's bones uncovered lie, Who, like a hill in bulk and length,
+- **Translation**: 
+
+---
+
+### Verse 16 (Ramayan 0.1216)
+- **Original**: 1198 The Ramayana Fell ruind for his pride of strength. See those high Sál trees seven in row That droop their mighty branches low, These at one grasp would Báli seize, And leafless shake the trembling trees. These tales I tell, O Prince, to show The matchless power that arms the foe. How canst thou hope to slay him? how Meet Báli in the battle now?” Sugríva spoke and sadly sighed: And Lakshma G with a laugh replied: “What show of power, what proof and test May still the doubts that fill thy breast?” He spoke. Sugríva thus replied: “See yonder Sál trees side by side. King Báli here would take his stand Grasping his bow with vigorous hand, And every arrow, keen and true, Would strike its tree and pierce it through. If Ráma now his bow will bend, And through one trunk an arrow send; Or if his arm can raise and throw Two hundred measures of his bow, Grasped by a foot and hurled through air, The demon bull that moulders there, My heart will own his might and fain Believe my foe already slain.”
+- **Translation**: 
+
+---
+
+### Verse 17 (Ramayan 0.1217)
+- **Original**: Canto XI. Dundubhi. 1199 Sugríva spoke inflamed with ire, Scanned Ráma with a glance of fire, Pondered a while in silent mood. And thus again his speech renewed: “All lands with Báli's glories ring, A valiant, strong, and mighty king; In conscious power unused to yield, A hero first in every field. His wondrous deeds his might declare, Deeds Gods might scarcely do or dare; And on this power reflecting still I roam on Rishyamúka's hill. Awed by my brother's might I rove, In doubt and fear, from grove to grove, While Hanumán, my chosen friend, And faithful lords my steps attend; And now, O true to friendship's tie, I hail in thee my best ally. My surest refuge from my foes, And steadfast as the Lord of Snows. Still, when I muse how strong and bold Is cruel Báli, evil-souled, But ne'er, O chief of Raghu's line, Have seen what strength in war is thine, Though in my heart I may not dare Doubt thy great might, despise, compare, Thoughts of his fearful deeds will rise And fill my soul with sad surmise. Speech, form, and trust which naught may move [338] Thy secret strength and glory prove, As smouldering ashes dimly show The dormant fires that live below.”
+- **Translation**: 
+
+---
+
+### Verse 18 (Ramayan 0.1218)
+- **Original**: 1200 The Ramayana He ceased: and Ráma answered, while Played o'er his lips a gracious smile: “Not yet convinced? This clear assay Shall drive each lingering doubt away.” Thus Ráma spoke his heart to cheer, To Dundubhi's vast frame drew near: He touched it with his foot in play And sent it twenty leagues away. Sugríva marked what easy force Hurled through the air that demon's corse Whose mighty bones were white and dried, And to the son of Raghu cried: “My brother Báli, when his might Was drunk and weary from the fight, Hurled forth the monster body, fresh With skin and sinews, blood and flesh. Now flesh and blood are dried away, The crumbling bones are light as hay, Which thou, O Raghu's son, hast sent Flying through air in merriment. This test alone is weak to show If thou be stronger or the foe. By thee a heap of mouldering bone, By him the recent corse was thrown. Thy strength, O Prince, is yet untried: Come, pierce one tree: let this decide. Prepare thy ponderous bow and bring Close to thine ear the straining string. On yonder Sál tree fix thine eye, And let the mighty arrow fly, I doubt not, chief, that I shall see Thy pointed shaft transfix the tree. Then come, assay the easy task, And do for love the thing I ask.
+- **Translation**: 
+
+---
+
+### Verse 19 (Ramayan 0.1219)
+- **Original**: Canto XII. The Palm Trees. 1201 Best of all lights, the Day-God fills With glory earth and sky: Himálaya is the lord of hills That heave their heads on high. The royal lion is the best Of beasts that tread the earth; And thou, O hero, art confessed First in heroic worth.” Canto XII. The Palm Trees. Then Ráma, that his friend might know His strength unrivalled, grasped his bow, That mighty bow the foe's dismay,— And on the string an arrow lay. Next on the tree his eye he bent, And forth the hurtling weapon went. Loosed from the matchless hero's hold, That arrow, decked with burning gold, Cleft the seven palms in line, and through The hill that rose behind them flew: Six subterranean realms it passed, And reached the lowest depth at last, Whence speeding back through earth and air It sought the quiver, and rested there.573 Upon the cloven trees amazed, The sovereign of the Vánars gazed. With all his chains and gold outspread Prostrate on earth he laid his head. 573 The Bengal recension makes it return in the form of a swan.
+- **Translation**: 
+
+---
+
+### Verse 20 (Ramayan 0.1220)
+- **Original**: 1202 The Ramayana Then, rising, palm to palm he laid In reverent act, obeisance made, And joyously to Ráma, best Of war-trained chiefs, these words addressed: “What champion, Raghu's son, may hope With thee in deadly fight to cope, Whose arrow, leaping from the bow, Cleaves tree and hill and earth below? Scarce might the Gods, arrayed for strife By Indra's self, escape, with life Assailed by thy victorious hand: And how may Báli hope to stand? All grief and care are past away, And joyous thoughts my bosom sway, Who have in thee a friend, renowned, As VaruG574 or as Indra, found. Then on! subdue,— 'tis friendship's claim,— My foe who bears a brother's name. Strike Báli down beneath thy feet: With suppliant hands I thus entreat.” Sugríva ceased, and Ráma pressed The grateful Vánar to his breast; And thoughts of kindred feeling woke In LakshmaG's bosom, as he spoke: “On to Kishkindhá, on with speed! Thou, Vánar King, our way shalt lead, Then challenge Báli forth to fight. 574 VaruGa is one of the oldest of the Vedic Gods, corresponding in name and partly in character to thePÁ±½yÂ of the Greeks and is often regarded as the supreme deity. He upholds heaven and earth, possesses extraordinary power and wisdom, sends his messengers through both worlds, numbers the very winkings of men's eyes, punishes transgressors whom he seizes with his deadly noose, and pardons the sins of those who are penitent. In later mythology he has become the God of the sea.
+- **Translation**: 
+
+---
+

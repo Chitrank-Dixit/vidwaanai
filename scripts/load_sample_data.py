@@ -3,8 +3,9 @@
 
 import os
 import sys
+from typing import Any
+
 from dotenv import load_dotenv
-from typing import Any, Dict
 
 load_dotenv()
 
@@ -22,7 +23,7 @@ def load_sample_data() -> None:
         embeddings = MultilingualEmbeddings()
 
         # Sample verses for demonstration
-        sample_data: Dict[str, Any] = {
+        sample_data: dict[str, Any] = {
             "Bhagavad Gita": {
                 "language": "sanskrit",
                 "verses": [
@@ -164,10 +165,14 @@ def load_sample_data() -> None:
                     embedding_sa = embedding_sa[0]
 
                 db_manager.add_embedding(
-                    verse_id=verse_id, embedding=embedding_en, language="en"  # type: ignore
+                    verse_id=verse_id,
+                    embedding=embedding_en,
+                    language="en",  # type: ignore
                 )
                 db_manager.add_embedding(
-                    verse_id=verse_id, embedding=embedding_sa, language="sa"  # type: ignore
+                    verse_id=verse_id,
+                    embedding=embedding_sa,
+                    language="sa",  # type: ignore
                 )
 
             print(f"✓ {scripture_name}: {len(data['verses'])} verses loaded")

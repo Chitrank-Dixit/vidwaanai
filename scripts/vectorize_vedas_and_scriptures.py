@@ -1,16 +1,16 @@
-import sys
 import os
+import sys
 import time
 
 # Add src to python path to ensure imports work
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
+import logging
+from collections import defaultdict
+
+from src.core.config import settings
 from src.db.db_manager import DatabaseManager
 from src.embeddings.veda_embedder import VedaEmbedder
-from src.core.config import settings
-import logging
-from typing import List, Dict
-from collections import defaultdict
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ class ScriptureVectorizationPipeline:
         self.embedder = VedaEmbedder()  # Uses default model
         self.batch_size = batch_size
 
-    def vectorize_all_scriptures(self, scripture_filter: str = None):
+    def vectorize_all_scriptures(self, scripture_filter: str | None = None):
         """Vectorize mantras/verses, optionally filtered by scripture name."""
         logger.info("Starting optimized scripture vectorization pipeline...")
         if scripture_filter:
@@ -39,15 +39,15 @@ class ScriptureVectorizationPipeline:
                     FROM mantras m
                     JOIN vedas v ON m.ved_id = v.id
                 """
-                
+
                 params = []
                 if scripture_filter:
                     # Case-insensitive partial match for flexibility
                     query += " WHERE v.name ILIKE %s"
                     params.append(f"%{scripture_filter}%")
-                
+
                 query += " ORDER BY m.id"
-                
+
                 logger.info("Fetching mantras...")
                 cursor.execute(query, tuple(params))
                 # Fetch as dictionaries for easier handling
@@ -106,7 +106,7 @@ class ScriptureVectorizationPipeline:
             f"Vectorization complete. Processed {total_processed} chunks in {total_time:.2f}s."
         )
 
-    def _generate_chunks_for_mantra(self, mantra: Dict, sukta_map: Dict) -> List[Dict]:
+    def _generate_chunks_for_mantra(self, mantra: dict, sukta_map: dict) -> list[dict]:
         """Generate chunks without DB calls."""
         chunks = []
 
@@ -145,7 +145,7 @@ class ScriptureVectorizationPipeline:
 
         return chunks
 
-    def _process_and_insert_batch(self, batch_data: List[Dict]):
+    def _process_and_insert_batch(self, batch_data: list[dict]):
         """Embed and store a batch using bulk insert."""
         texts = [item["text"] for item in batch_data]
 
@@ -181,13 +181,14 @@ class ScriptureVectorizationPipeline:
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--scripture", help="Filter by scripture name (e.g. 'Gita')")
-    parser.add_argument("--batch-size", type=int, default=128, help="Batch size")
+    parser.add_argument(
+        "--batch-size", type=int, default=32, help="Batch size (default: 32)"
+    )
     args = parser.parse_args()
 
     db = DatabaseManager(settings.DATABASE_URL)
-    pipeline = ScriptureVectorizationPipeline(
-        db, batch_size=args.batch_size
-    )
+    pipeline = ScriptureVectorizationPipeline(db, batch_size=args.batch_size)
     pipeline.vectorize_all_scriptures(scripture_filter=args.scripture)

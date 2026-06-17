@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.profiler import profile_function
 from src.graph.entity_extractor import EntityExtractor
@@ -25,7 +25,7 @@ class HybridSearch:
         self.alpha = alpha  # balance between graph and vector
 
     @profile_function
-    def search(self, query: str, top_k: int = 5) -> Dict[str, Any]:
+    def search(self, query: str, top_k: int = 5) -> dict[str, Any]:
         """
         Hybrid search combining graph and vector results.
 
@@ -108,7 +108,7 @@ class HybridSearch:
                     "sources": [],
                 }
 
-    def _extract_query_entities(self, query: str) -> List[Dict[str, Any]]:
+    def _extract_query_entities(self, query: str) -> list[dict[str, Any]]:
         """Extract entities from query using the extractor."""
         if hasattr(self.extractor, "extract_from_query"):
             return self.extractor.extract_from_query(query)
@@ -120,7 +120,7 @@ class HybridSearch:
         return []
 
     def _fuse_context(
-        self, graph_results: List[Dict[str, Any]], vector_results: List[Dict[str, Any]]
+        self, graph_results: list[dict[str, Any]], vector_results: list[dict[str, Any]]
     ) -> str:
         """Combine graph and vector results into a context string."""
         context_parts = []
@@ -143,7 +143,7 @@ class HybridSearch:
 
         return "\n".join(context_parts)
 
-    def _format_vector_context(self, vector_results: List[Dict[str, Any]]) -> str:
+    def _format_vector_context(self, vector_results: list[dict[str, Any]]) -> str:
         parts = ["--- Scripture Verses ---"]
         for verse in vector_results:
             parts.append(

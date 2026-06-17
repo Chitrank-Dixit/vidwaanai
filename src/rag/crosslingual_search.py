@@ -1,4 +1,4 @@
-from typing import Any, Dict, List
+from typing import Any
 
 from src.core.logger import get_logger
 from src.rag.multilingual_search import MultilingualSearch
@@ -18,10 +18,10 @@ class CrosslingualSearch:
     def search_across_languages(
         self,
         query: str,
-        target_languages: List[str],
+        target_languages: list[str],
         corpus_embeddings: Any,
         top_k: int = 10,
-    ) -> Dict[str, List[Dict[str, Any]]]:
+    ) -> dict[str, list[dict[str, Any]]]:
         """
         Search for same concept across multiple languages.
 

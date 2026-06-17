@@ -17,6 +17,17 @@
         state: directory
         mode: '0755'
 
+    - name: Clean Existing Scripture Data (Force Mode)
+      ansible.builtin.shell: |
+        echo "Cleaning data for {{ scripture_name }}..."
+        uv run python scripts/clean_scripture.py \
+          --name "{{ scripture_name }}" 2>&1 | tee -a "{{ playbook_dir }}/../../output/logs/custom_cleanup.log"
+      args:
+        chdir: "{{ playbook_dir }}/../.."
+      when: force_ingestion | default(false) | bool
+      register: cleanup_output
+      changed_when: true
+
     - name: Ingest Single Scripture
       ansible.builtin.shell: |
         echo "Ingesting {{ scripture_name }}..."
@@ -56,6 +67,7 @@
           ===================================================
           CUSTOM WORKFLOW COMPLETED
           Scripture: {{ scripture_name }}
+          Cleanup Status: {{ 'Skipped' if cleanup_output is skipped else ('Success' if cleanup_output.rc == 0 else 'Failed') }}
           Ingestion Status: {{ 'Success' if ingestion_output.rc == 0 else 'Failed' }}
           Vectorization Status: {{ 'Success' if vectorization_output.rc == 0 else 'Failed' }}
           Graph Build Status: {{ 'Success' if kg_build_output.rc == 0 else 'Failed' }}

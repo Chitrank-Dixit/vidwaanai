@@ -1,5 +1,7 @@
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
+
 from src.retrieval.veda_retriever import VedaRetriever
 
 
@@ -57,8 +59,8 @@ class TestVedaSearch:
         Marked safe to skip if no DB.
         """
         try:
-            from src.db.db_manager import DatabaseManager
             from src.core.config import settings
+            from src.db.db_manager import DatabaseManager
 
             db = DatabaseManager(settings.DATABASE_URL)
             retriever = VedaRetriever(db)

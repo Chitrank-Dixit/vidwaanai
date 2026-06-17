@@ -1,7 +1,9 @@
 from unittest.mock import MagicMock
+
 from fastapi.testclient import TestClient
-from src.api.main import app
+
 from src.api.dependencies import get_agent_service
+from src.api.main import app
 
 client = TestClient(app)
 

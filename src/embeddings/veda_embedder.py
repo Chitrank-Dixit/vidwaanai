@@ -1,6 +1,7 @@
-from sentence_transformers import SentenceTransformer
-from typing import List, Dict, Any
 import logging
+from typing import Any
+
+from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +22,7 @@ class VedaEmbedder:
             self.dimension = 1024
             raise
 
-    def embed_text(self, text: str, is_query: bool = True) -> List[float]:
+    def embed_text(self, text: str, is_query: bool = True) -> list[float]:
         """Embed single text string. E5 requires 'query: ' or 'passage: ' prefix."""
         if not text:
             return [0.0] * self.dimension
@@ -32,11 +33,11 @@ class VedaEmbedder:
         )
         from typing import cast
 
-        return cast(List[float], embedding.tolist())
+        return cast(list[float], embedding.tolist())
 
     def embed_batch(
-        self, texts: List[str], is_query: bool = False
-    ) -> List[List[float]]:
+        self, texts: list[str], is_query: bool = False
+    ) -> list[list[float]]:
         """Embed multiple texts efficiently. Default is_query=False for corpus/mantras."""
         if not texts:
             return []
@@ -44,18 +45,30 @@ class VedaEmbedder:
         prefix = "query: " if is_query else "passage: "
         prefixed_texts = [prefix + t for t in texts]
 
+        # Import settings inside method to avoid circular imports if any, or just rely on module import above?
+        # Module import 'from src.core.config import settings' wasn't there. I need to add it.
+        # Let's check imports first.
+
+        batch_size = 16  # Fallback
+        try:
+            from src.core.config import settings
+
+            batch_size = settings.EMBEDDING_BATCH_SIZE
+        except ImportError:
+            pass
+
         embeddings = self.model.encode(
             prefixed_texts,
             show_progress_bar=True,
-            batch_size=32,
+            batch_size=batch_size,
             normalize_embeddings=True,
         )
         # Cast for mypy as numpy tolist returns generic List or Any
         from typing import cast
 
-        return cast(List[List[float]], embeddings.tolist())
+        return cast(list[list[float]], embeddings.tolist())
 
-    def embed_context(self, mantras: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def embed_context(self, mantras: list[dict[str, Any]]) -> list[dict[str, Any]]:
         """Embed mantras with context (Mandala, Sukta info)."""
         texts = []
         for mantra in mantras:

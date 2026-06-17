@@ -1,11 +1,11 @@
 import pytest
+
 from src.dialects.bhojpuri import (
     BhojpuriProcessor,
 )
 
 
 class TestBhojpuriDialect:
-
     @pytest.fixture
     def processor(self):
         return BhojpuriProcessor()

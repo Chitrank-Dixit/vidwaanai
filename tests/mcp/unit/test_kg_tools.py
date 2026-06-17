@@ -1,7 +1,7 @@
 from src.mcp.tools.kg_tools import (
-    query_knowledge_graph,
     find_related_documents,
     get_entity_context,
+    query_knowledge_graph,
 )
 
 

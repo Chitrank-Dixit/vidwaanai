@@ -1,7 +1,7 @@
-from typing import Any, Dict, List
+from typing import Any
 
 
-def execute_rag_pipeline(query: str, config: Dict[str, Any]) -> Dict[str, Any]:
+def execute_rag_pipeline(query: str, config: dict[str, Any]) -> dict[str, Any]:
     """
     Executes the full RAG pipeline with the given configuration.
 
@@ -22,14 +22,14 @@ def execute_rag_pipeline(query: str, config: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def get_pipeline_strategies() -> List[str]:
+def get_pipeline_strategies() -> list[str]:
     """
     Returns available pipeline strategies.
     """
     return ["minimal", "standard", "advanced", "research"]
 
 
-def validate_pipeline_config(config: Dict[str, Any]) -> Dict[str, Any]:
+def validate_pipeline_config(config: dict[str, Any]) -> dict[str, Any]:
     """
     Validates a pipeline configuration.
 

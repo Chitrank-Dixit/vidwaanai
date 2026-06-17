@@ -1,11 +1,11 @@
 import json
 import os
-from typing import List, Dict, Any, Set
+from typing import Any
 
-from src.language.language_processor import LanguageProcessor
-from src.dialects.maithili.tokenizer import MaithiliTokenizer
-from src.dialects.maithili.normalizer import MaithiliNormalizer
 from src.dialects.maithili.morphology import MaithiliMorphologicalAnalyzer
+from src.dialects.maithili.normalizer import MaithiliNormalizer
+from src.dialects.maithili.tokenizer import MaithiliTokenizer
+from src.language.language_processor import LanguageProcessor
 
 
 class MaithiliProcessor(LanguageProcessor):
@@ -18,7 +18,7 @@ class MaithiliProcessor(LanguageProcessor):
         self.tokenizer = MaithiliTokenizer()
         self.normalizer = MaithiliNormalizer()
         self.morphology = MaithiliMorphologicalAnalyzer()
-        self.stop_words: Set[str] = set()
+        self.stop_words: set[str] = set()
         self._load_resources()
 
     def _load_resources(self) -> None:
@@ -72,7 +72,7 @@ class MaithiliProcessor(LanguageProcessor):
         )
         if os.path.exists(lexicon_path):
             try:
-                with open(lexicon_path, "r", encoding="utf-8") as f:
+                with open(lexicon_path, encoding="utf-8") as f:
                     data = json.load(f)
                     if "stop_words" in data:
                         self.stop_words.update(data["stop_words"])
@@ -89,7 +89,7 @@ class MaithiliProcessor(LanguageProcessor):
         self.grammar = {}
         if os.path.exists(grammar_path):
             try:
-                with open(grammar_path, "r", encoding="utf-8") as f:
+                with open(grammar_path, encoding="utf-8") as f:
                     self.grammar = json.load(f)
             except Exception as e:
                 print(f"Warning: Failed to load Maithili grammar: {e}")
@@ -98,11 +98,11 @@ class MaithiliProcessor(LanguageProcessor):
         """Normalize Maithili text."""
         return self.normalizer.normalize(text)
 
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str) -> list[str]:
         """Tokenize Maithili text."""
         return self.tokenizer.tokenize_words(text)
 
-    def remove_stopwords(self, tokens: List[str]) -> List[str]:
+    def remove_stopwords(self, tokens: list[str]) -> list[str]:
         """Remove stop words."""
         return [t for t in tokens if t not in self.stop_words]
 
@@ -110,11 +110,11 @@ class MaithiliProcessor(LanguageProcessor):
         """Get stem of a word."""
         return self.morphology.stem(word)
 
-    def analyze_morphology(self, word: str) -> Dict[str, Any]:
+    def analyze_morphology(self, word: str) -> dict[str, Any]:
         """Analyze morphology of a word."""
         return self.morphology.analyze(word)
 
-    def process(self, text: str) -> Dict[str, Any]:
+    def process(self, text: str) -> dict[str, Any]:
         """
         Full processing pipeline.
         """

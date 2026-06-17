@@ -1,5 +1,4 @@
 import regex
-from typing import Dict
 
 
 class MaithiliNormalizer:
@@ -10,7 +9,7 @@ class MaithiliNormalizer:
 
     def __init__(self) -> None:
         # Common normalization maps
-        self.normalization_map: Dict[str, str] = {
+        self.normalization_map: dict[str, str] = {
             "\u200c": "",  # Zero Width Non-Joiner
             "\u200d": "",  # Zero Width Joiner
             "\u0958": "\u0915\u093c",  # qa -> ka + nukta

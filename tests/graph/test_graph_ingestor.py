@@ -1,5 +1,7 @@
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
+
 from src.graph.graph_ingestor import GraphIngestor
 
 
@@ -33,9 +35,7 @@ def test_ingest_single_batch(mock_db, mock_builder, mock_extractor):
     # But let's mock _fetch_mantras for unit testing the loop logic if possible,
     # or better, mock the cursor return.
 
-    cursor = (
-        mock_db._get_connection.return_value.__enter__.return_value.cursor.return_value.__enter__.return_value
-    )
+    cursor = mock_db._get_connection.return_value.__enter__.return_value.cursor.return_value.__enter__.return_value
     # Use aliases 'text' and 'translation' as per the SQL query in _fetch_mantras
     cursor.description = [("id",), ("text",), ("translation",), ("source",)]
     cursor.fetchall.side_effect = [

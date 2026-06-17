@@ -1,6 +1,8 @@
-import pytest
-from unittest.mock import patch
 import os
+from unittest.mock import patch
+
+import pytest
+
 from src.cache.search_cache import SearchCache
 
 

@@ -1,10 +1,11 @@
+from typing import Any
+
 from fastapi import FastAPI
-from typing import Dict, Any
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.utils import get_openapi
+
 from src.api.routes import agent_router
 from src.api.search_routes import search_router
-
 
 # Initialize App
 app = FastAPI(
@@ -33,7 +34,7 @@ app.add_middleware(
 
 
 # Custom OpenAPI Schema
-def custom_openapi() -> Dict[str, Any]:
+def custom_openapi() -> dict[str, Any]:
     if app.openapi_schema:
         return app.openapi_schema
 
@@ -57,7 +58,7 @@ app.openapi = custom_openapi  # type: ignore
 
 
 @app.get("/", tags=["Health"])
-async def root() -> Dict[str, str]:
+async def root() -> dict[str, str]:
     """Root endpoint to verify API is running."""
     return {"message": "Vidwaan AI Agent API is running", "docs_url": "/docs"}
 

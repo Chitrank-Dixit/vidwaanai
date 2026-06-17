@@ -1,5 +1,7 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
+
 from src.core.agent_service import AgentService
 
 
@@ -14,7 +16,6 @@ def mock_agent_deps():
         patch("src.core.agent_service.EntityExtractor"),
         patch("src.core.agent_service.HybridRetrieverService"),
     ):
-
         # Mock return values
         mock_service = AgentService()
 

@@ -1,9 +1,10 @@
+from typing import Any
+
 from fastapi import APIRouter, Depends, HTTPException, Query
-from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 
-from src.core.agent_service import AgentService
 from src.api.dependencies import get_agent_service
+from src.core.agent_service import AgentService
 
 search_router = APIRouter(prefix="/api/v1/search", tags=["Search"])
 
@@ -11,15 +12,15 @@ search_router = APIRouter(prefix="/api/v1/search", tags=["Search"])
 class SearchResult(BaseModel):
     id: str
     text: str
-    translation: Optional[str] = None
+    translation: str | None = None
     source: str
     score: float
-    retrieval_method: Optional[str] = "hybrid"
-    metadata: Optional[Dict[str, Any]] = None
+    retrieval_method: str | None = "hybrid"
+    metadata: dict[str, Any] | None = None
 
 
 class SearchResponse(BaseModel):
-    results: List[SearchResult]
+    results: list[SearchResult]
     count: int
     strategy: str
 

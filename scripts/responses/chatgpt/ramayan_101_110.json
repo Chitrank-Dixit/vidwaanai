@@ -1,0 +1,459 @@
+{
+    "entities": [
+        {
+            "name": "Ramayana",
+            "type": "Text",
+            "attributes": {
+                "description": "Ancient Indian epic narrating the life of Rama"
+            }
+        },
+        {
+            "name": "Rama",
+            "type": "Character",
+            "attributes": {
+                "description": "Prince of Ayodhya, hero of Ramayana"
+            }
+        },
+        {
+            "name": "Lakshmana",
+            "type": "Character",
+            "attributes": {
+                "description": "Brother of Rama"
+            }
+        },
+        {
+            "name": "Dasharatha",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Ayodhya"
+            }
+        },
+        {
+            "name": "Vishvamitra",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage guiding Rama"
+            }
+        },
+        {
+            "name": "Vashishtha",
+            "type": "Character",
+            "attributes": {
+                "description": "Royal priest"
+            }
+        },
+        {
+            "name": "Ravana",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Lanka"
+            }
+        },
+        {
+            "name": "Maricha",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon assisting Ravana"
+            }
+        },
+        {
+            "name": "Subahu",
+            "type": "Character",
+            "attributes": {
+                "description": "Demon disrupting rituals"
+            }
+        },
+        {
+            "name": "Tataka",
+            "type": "Character",
+            "attributes": {
+                "description": "Demoness slain by Rama"
+            }
+        },
+        {
+            "name": "Ahalya",
+            "type": "Character",
+            "attributes": {
+                "description": "Wife of Gautama cursed and redeemed"
+            }
+        },
+        {
+            "name": "Gautama",
+            "type": "Character",
+            "attributes": {
+                "description": "Sage husband of Ahalya"
+            }
+        },
+        {
+            "name": "Janaka",
+            "type": "Character",
+            "attributes": {
+                "description": "King of Mithila"
+            }
+        },
+        {
+            "name": "Sagara",
+            "type": "Character",
+            "attributes": {
+                "description": "Ancient king"
+            }
+        },
+        {
+            "name": "Bhagiratha",
+            "type": "Character",
+            "attributes": {
+                "description": "King who brought Ganga"
+            }
+        },
+        {
+            "name": "Anshuman",
+            "type": "Character",
+            "attributes": {
+                "description": "Descendant of Sagara"
+            }
+        },
+        {
+            "name": "Dilipa",
+            "type": "Character",
+            "attributes": {
+                "description": "King in Sagara lineage"
+            }
+        },
+        {
+            "name": "Indra",
+            "type": "Deity",
+            "attributes": {
+                "description": "King of gods"
+            }
+        },
+        {
+            "name": "Vishnu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Preserver god"
+            }
+        },
+        {
+            "name": "Shiva",
+            "type": "Deity",
+            "attributes": {
+                "description": "Destroyer god"
+            }
+        },
+        {
+            "name": "Brahma",
+            "type": "Deity",
+            "attributes": {
+                "description": "Creator god"
+            }
+        },
+        {
+            "name": "Vayu",
+            "type": "Deity",
+            "attributes": {
+                "description": "Wind god"
+            }
+        },
+        {
+            "name": "Agni",
+            "type": "Deity",
+            "attributes": {
+                "description": "Fire god"
+            }
+        },
+        {
+            "name": "Ganga",
+            "type": "Place",
+            "attributes": {
+                "description": "Sacred river"
+            }
+        },
+        {
+            "name": "Ayodhya",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Rama"
+            }
+        },
+        {
+            "name": "Mithila",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Janaka"
+            }
+        },
+        {
+            "name": "Lanka",
+            "type": "Place",
+            "attributes": {
+                "description": "Kingdom of Ravana"
+            }
+        },
+        {
+            "name": "Kishkindha",
+            "type": "Place",
+            "attributes": {
+                "description": "Vanara kingdom"
+            }
+        },
+        {
+            "name": "Ganga Descent",
+            "type": "Event",
+            "attributes": {
+                "description": "Descent of river Ganga"
+            }
+        },
+        {
+            "name": "Tataka Slaying",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama kills Tataka"
+            }
+        },
+        {
+            "name": "Ahalya Redemption",
+            "type": "Event",
+            "attributes": {
+                "description": "Rama frees Ahalya"
+            }
+        },
+        {
+            "name": "Churning of Ocean",
+            "type": "Event",
+            "attributes": {
+                "description": "Samudra Manthan"
+            }
+        },
+        {
+            "name": "Sagara Sons Destruction",
+            "type": "Event",
+            "attributes": {
+                "description": "Sons burnt by Kapila"
+            }
+        },
+        {
+            "name": "Celestial Weapons",
+            "type": "Concept",
+            "attributes": {
+                "description": "Divine weapons granted to Rama"
+            }
+        },
+        {
+            "name": "Dharma",
+            "type": "Concept",
+            "attributes": {
+                "description": "Righteous duty"
+            }
+        }
+    ],
+    "relationships": [
+        {
+            "from": "Ramayana",
+            "to": "Rama",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Central character"
+            }
+        },
+        {
+            "from": "Ramayana",
+            "to": "Ravana",
+            "type": "MENTIONS",
+            "attributes": {
+                "context": "Antagonist"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Lakshmana",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Brothers"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dasharatha",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father-son"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishvamitra",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Guru-disciple"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Vishnu",
+            "type": "IS_AVATAR_OF",
+            "attributes": {
+                "context": "Divine incarnation"
+            }
+        },
+        {
+            "from": "Vishvamitra",
+            "to": "Rama",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Guides him"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Tataka Slaying",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Kills Tataka"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ahalya Redemption",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Frees Ahalya"
+            }
+        },
+        {
+            "from": "Tataka",
+            "to": "Tataka Slaying",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Killed by Rama"
+            }
+        },
+        {
+            "from": "Ahalya",
+            "to": "Ahalya Redemption",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Cursed and redeemed"
+            }
+        },
+        {
+            "from": "Indra",
+            "to": "Ahalya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Deception incident"
+            }
+        },
+        {
+            "from": "Gautama",
+            "to": "Ahalya",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Husband-wife"
+            }
+        },
+        {
+            "from": "Bhagiratha",
+            "to": "Ganga Descent",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Brings Ganga"
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Ganga Descent",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Receives Ganga"
+            }
+        },
+        {
+            "from": "Ganga",
+            "to": "Ganga Descent",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Flows to earth"
+            }
+        },
+        {
+            "from": "Sagara",
+            "to": "Sagara Sons Destruction",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Father of sons"
+            }
+        },
+        {
+            "from": "Kapila",
+            "type": "PARTICIPATED_IN",
+            "to": "Sagara Sons Destruction",
+            "attributes": {
+                "context": "Burns sons"
+            }
+        },
+        {
+            "from": "Vishnu",
+            "to": "Churning of Ocean",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Supports process"
+            }
+        },
+        {
+            "from": "Shiva",
+            "to": "Churning of Ocean",
+            "type": "PARTICIPATED_IN",
+            "attributes": {
+                "context": "Consumes poison"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Celestial Weapons",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Receives divine weapons"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Ayodhya",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Birthplace"
+            }
+        },
+        {
+            "from": "Janaka",
+            "to": "Mithila",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules kingdom"
+            }
+        },
+        {
+            "from": "Ravana",
+            "to": "Lanka",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Rules Lanka"
+            }
+        },
+        {
+            "from": "Bhagiratha",
+            "to": "Ganga",
+            "type": "LOCATED_AT",
+            "attributes": {
+                "context": "Brings river"
+            }
+        },
+        {
+            "from": "Rama",
+            "to": "Dharma",
+            "type": "RELATED_TO",
+            "attributes": {
+                "context": "Embodiment of righteousness"
+            }
+        }
+    ]
+}
