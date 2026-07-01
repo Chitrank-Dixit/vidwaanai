@@ -87,6 +87,15 @@ class GraphBuilder:
             entity_type = EntityType.CONCEPT.value
 
         node_id = self._generate_id(entity_type, name)
+
+        # Extract aliases if provided
+        new_aliases = (
+            attributes.pop("aliases", []) if isinstance(attributes, dict) else []
+        )
+        if isinstance(new_aliases, str):
+            new_aliases = [new_aliases]
+        new_aliases = [a for a in new_aliases if a]
+
         attributes = self._sanitize_attributes(attributes)
         attributes["name"] = name
         attributes["id"] = node_id
@@ -97,11 +106,21 @@ class GraphBuilder:
         query = f"""
         MERGE (n:`{entity_type}` {{id: $id}})
         SET n += $attributes
+        SET n.aliases = REDUCE(s = coalesce(n.aliases, []), x IN $new_aliases | 
+            CASE WHEN x IN s THEN s ELSE s + x END
+        )
         """
 
         with self.driver.session() as session:
-            session.run(query, id=node_id, attributes=attributes)  # type: ignore
-            logger.debug(f"Merged {entity_type}: {name} ({node_id})")
+            session.run(
+                query,  # type: ignore
+                id=node_id,
+                attributes=attributes,
+                new_aliases=new_aliases,
+            )
+            logger.debug(
+                f"Merged {entity_type}: {name} ({node_id}) with aliases {new_aliases}"
+            )
 
         return node_id
 
@@ -166,17 +185,31 @@ class GraphBuilder:
                 by_type[etype] = []
 
             node_id = self._generate_id(etype, ent["name"])
-            attrs = self._sanitize_attributes(ent.get("attributes", {}))
-            attrs["name"] = ent["name"]
-            attrs["id"] = node_id
-            by_type[etype].append(attrs)
+
+            # Extract aliases
+            attrs = ent.get("attributes", {})
+            new_aliases = attrs.pop("aliases", []) if isinstance(attrs, dict) else []
+            if isinstance(new_aliases, str):
+                new_aliases = [new_aliases]
+            new_aliases = [a for a in new_aliases if a]
+
+            sanitized_attrs = self._sanitize_attributes(attrs)
+            sanitized_attrs["name"] = ent["name"]
+            sanitized_attrs["id"] = node_id
+
+            by_type[etype].append(
+                {"id": node_id, "props": sanitized_attrs, "new_aliases": new_aliases}
+            )
 
         with self.driver.session() as session:
             for etype, batch in by_type.items():
                 query = f"""
-                UNWIND $batch AS props
-                MERGE (n:`{etype}` {{id: props.id}})
-                SET n += props
+                UNWIND $batch AS row
+                MERGE (n:`{etype}` {{id: row.id}})
+                SET n += row.props
+                SET n.aliases = REDUCE(s = coalesce(n.aliases, []), x IN row.new_aliases | 
+                    CASE WHEN x IN s THEN s ELSE s + x END
+                )
                 """
                 session.run(query, batch=batch)  # type: ignore
                 logger.info(f"Batch Merged {len(batch)} nodes of type {etype}")

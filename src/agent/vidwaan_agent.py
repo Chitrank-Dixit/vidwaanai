@@ -12,8 +12,10 @@ from src.cache.query_cache import QueryCache
 from src.core.monitoring import record_retrieval_quality, track_query_latency
 from src.db.db_manager import DatabaseManager
 from src.graph.entity_extractor import EntityExtractor
+from src.graph.graph_manager import GraphManager
 from src.graph.graph_retriever import GraphRetriever
 from src.graph.hybrid_search import HybridSearch as GraphHybridSearch
+from src.graph.reasoning_service import GraphReasoningService
 from src.llm.lmstudio_client import LMStudioClient
 from src.llm.openai_client import OpenAIClient
 from src.rag.embeddings import EmbeddingManager
@@ -107,6 +109,11 @@ class VidwaanAI:
                 )
                 self.graph_retriever = GraphRetriever(self.neo4j_driver)
                 self.entity_extractor = EntityExtractor(self.llm)
+
+                # Instantiate GraphManager and GraphReasoningService
+                self.graph_manager = GraphManager()
+                self.reasoning_service = GraphReasoningService(self.graph_manager)
+
                 self.graph_search = GraphHybridSearch(
                     self.graph_retriever,
                     self.db,
@@ -199,25 +206,92 @@ class VidwaanAI:
                     if entity_names:
                         logger.info(f"Graph RAG: Extracted entities: {entity_names}")
 
-                        # 2. Retrieve subgraph from Neo4j
-                        subgraph = self.graph_retriever.get_context_subgraph(
-                            entity_names
-                        )
+                        graph_lines = ["**Knowledge Graph Relational Context:**"]
 
-                        # 3. Format context string
-                        if subgraph:
-                            graph_lines = ["**Knowledge Graph Context:**"]
-                            for rel in subgraph:
-                                # Format: "Krishna (Person) --[TEACHES]--> Arjuna (Person)"
-                                line = f"{rel['source']} ({rel.get('source_type', ['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type', ['Entity'])[0]})"
-                                graph_lines.append(line)
+                        # 1. Search Neo4j for actual nodes matching query entities
+                        found_nodes = []
+                        for ent in query_entities:
+                            name = ent.get("name")
+                            if name:
+                                nodes = self.reasoning_service.search_entities(
+                                    name, limit=1
+                                )
+                                if nodes:
+                                    found_nodes.append(nodes[0])
+
+                        # 2. Find paths between entities (Multi-hop path resolution)
+                        paths_found = False
+                        if len(found_nodes) >= 2:
+                            for i in range(len(found_nodes)):
+                                for j in range(i + 1, len(found_nodes)):
+                                    path_res = (
+                                        self.reasoning_service.find_shortest_path(
+                                            found_nodes[i]["id"],
+                                            found_nodes[j]["id"],
+                                            max_hops=4,
+                                        )
+                                    )
+                                    if path_res.get("found") and path_res.get(
+                                        "relationships"
+                                    ):
+                                        paths_found = True
+                                        path_str = " -> ".join(
+                                            [
+                                                f"({r['start']}) -[{r['type']}]-> ({r['end']})"
+                                                for r in path_res["relationships"]
+                                            ]
+                                        )
+                                        graph_lines.append(
+                                            f"- Lineage/Path: {path_str}"
+                                        )
+
+                        # 3. Explore concept definitions, hierarchies, and causal implications
+                        implications_found = False
+                        for node in found_nodes:
+                            # Skip generic Text/Verse nodes for reasoning
+                            if node.get("id", "").startswith("Text:") or node.get(
+                                "id", ""
+                            ).startswith("Verse:"):
+                                continue
+
+                            # Retrieve implications up to 2 hops
+                            reasons = self.reasoning_service.reason_about_entity(
+                                node["id"], hops=2
+                            )
+                            if reasons.get("implications"):
+                                implications_found = True
+                                for imp in reasons["implications"]:
+                                    graph_lines.append(f"- Concept Flow: {imp}")
+
+                            # Retrieve parents/children hierarchy
+                            hierarchy = self.reasoning_service.get_hierarchy(node["id"])
+                            if hierarchy.get("parents"):
+                                parents_str = ", ".join(
+                                    [p["name"] for p in hierarchy["parents"]]
+                                )
+                                graph_lines.append(
+                                    f"- Category: {node['name']} is part of/categorized under {parents_str}"
+                                )
+                                implications_found = True
+
+                        # 4. Fallback to standard 1-hop subgraph if no paths/implications resolved
+                        if not paths_found and not implications_found:
+                            subgraph = self.graph_retriever.get_context_subgraph(
+                                entity_names
+                            )
+                            if subgraph:
+                                for rel in subgraph:
+                                    line = f"- {rel['source']} ({rel.get('source_type', ['Entity'])[0]}) --[{rel['relation']}]--> {rel['target']} ({rel.get('target_type', ['Entity'])[0]})"
+                                    graph_lines.append(line)
+
+                        if len(graph_lines) > 1:
                             graph_context = "\n".join(graph_lines)
                             logger.info(
-                                f"Graph RAG: Retrieved {len(subgraph)} relationships"
+                                f"Graph RAG: Built rich contextual graph summary: {len(graph_lines) - 1} lines"
                             )
                         else:
                             logger.info(
-                                "Graph RAG: No relationships found for entities"
+                                "Graph RAG: No relationships or implications found for entities"
                             )
                     else:
                         logger.info("Graph RAG: No entities found in query")

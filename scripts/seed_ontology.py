@@ -20,68 +20,110 @@ class OntologySeeder:
 
     def seed(self):
         logger.info("Starting Ontology Seeding...")
-        self._traverse_and_create(VEDIC_ONTOLOGY)
+        id_to_entity = {}
+
+        # Pass 1: Build lookup registry and create all entity nodes
+        logger.info("Pass 1: Creating entity nodes...")
+        self._collect_and_create_nodes(VEDIC_ONTOLOGY, id_to_entity)
+
+        # Pass 2: Create static relationships using registry
+        logger.info("Pass 2: Creating relationship links...")
+        self._create_relationships(VEDIC_ONTOLOGY, id_to_entity)
+
         logger.info("Ontology Seeding Complete.")
 
-    def _traverse_and_create(self, obj: Any):
+    def _collect_and_create_nodes(
+        self, obj: Any, id_to_entity: dict[str, dict[str, Any]]
+    ):
         if isinstance(obj, dict):
-            # Check if it's an entity definition
-            if "id" in obj and "type" in obj:
-                self._create_entity_node(obj)
+            if "id" in obj and "type" in obj and "name" in obj:
+                entity_id = obj["id"]
+                name = obj["name"]
+                ent_type = obj["type"]
 
-            # Recurse
+                # Registry lookup
+                id_to_entity[entity_id] = {"name": name, "type": ent_type}
+
+                # Prepare attributes
+                attributes = {
+                    k: v
+                    for k, v in obj.items()
+                    if k
+                    not in [
+                        "id",
+                        "type",
+                        "name",
+                        "parent_entity",
+                        "relation_types",
+                        "relations",
+                    ]
+                }
+
+                # Create Node
+                logger.info(f"Creating Entity: {name} ({ent_type})")
+                self.builder.create_entity(name, ent_type, attributes)
+
             for key, value in obj.items():
-                if key not in [
-                    "attributes",
-                    "relations",
-                    "components",
-                ]:  # details handled in create_entity
-                    self._traverse_and_create(value)
+                if key not in ["attributes", "relations", "components"]:
+                    self._collect_and_create_nodes(value, id_to_entity)
         elif isinstance(obj, list):
             for item in obj:
-                self._traverse_and_create(item)
+                self._collect_and_create_nodes(item, id_to_entity)
 
-    def _create_entity_node(self, entity_data: dict[str, Any]):
-        try:
-            name = entity_data["name"]
-            ent_type = entity_data["type"]
+    def _create_relationships(self, obj: Any, id_to_entity: dict[str, dict[str, Any]]):
+        if isinstance(obj, dict):
+            if "id" in obj and "name" in obj:
+                name = obj["name"]
 
-            # Prepare attributes
-            attributes = {
-                k: v
-                for k, v in entity_data.items()
-                if k not in ["id", "type", "name", "parent_entity", "relation_types"]
-            }
+                # 1. Handle parent_entity relationships (e.g. Manifestation/Avatar)
+                if "parent_entity" in obj:
+                    parent_id = obj["parent_entity"]
+                    if parent_id in id_to_entity:
+                        parent_info = id_to_entity[parent_id]
+                        parent_name = parent_info["name"]
 
-            # Create Node
-            logger.info(f"Creating Entity: {name} ({ent_type})")
-            # We use _generate_id logic internally in GraphBuilder, but here we might want to force specific IDs if needed.
-            # However, GraphBuilder._generate_id uses Type:Name.
-            # The ontology uses ids like "deity:vishnu" (lowercase).
-            # GraphBuilder generates "Deity:Vishnu".
-            # To match specific ontology IDs, we might need to adjust GraphBuilder or just let it generate its own and rely on Name matching.
-            # Let's stick to GraphBuilder's convention for consistency: Type:Name
+                        # Determine relation type
+                        rel_type = "MANIFESTS_AS"
+                        if (
+                            "relation_types" in obj
+                            and isinstance(obj["relation_types"], list)
+                            and obj["relation_types"]
+                        ):
+                            rel_type = obj["relation_types"][0]
 
-            self.builder.create_entity(name, ent_type, attributes)
+                        logger.info(
+                            f"Linking relationship: {name} --[{rel_type}]--> {parent_name}"
+                        )
+                        self.builder.create_relationship(
+                            from_name=name,
+                            to_name=parent_name,
+                            rel_type=rel_type,
+                            attributes={"source": "ontology_static"},
+                        )
 
-            # Handle static relationships defined in ontology
-            if "parent_entity" in entity_data:
-                entity_data["parent_entity"]  # e.g. "deity:vishnu"
-                # We need to resolve this to a name for GraphBuilder.create_relationship
-                # This assumes simple parsing: "type:name_key" -> name lookup?
-                # For now, let's assume the parent entity is already created or will be.
-                # Actually, GraphBuilder.create_relationship matches by NAME.
-                # So we need the NAME of the parent.
-                # In VEDIC_ONTOLOGY, parent_entity is "deity:vishnu".
-                # We need a lookup to find "Vishnu" from "deity:vishnu".
-                # This implies we might need a 2-pass approach or a lookup map.
+                # 2. Handle generic relations list (e.g. Atman --[IS_ASPECT_OF]-> Brahman)
+                if "relations" in obj and isinstance(obj["relations"], list):
+                    for rel_str in obj["relations"]:
+                        if ":" in rel_str:
+                            rel_type, target_id = rel_str.split(":", 1)
+                            if target_id in id_to_entity:
+                                target_name = id_to_entity[target_id]["name"]
+                                logger.info(
+                                    f"Linking relationship: {name} --[{rel_type}]--> {target_name}"
+                                )
+                                self.builder.create_relationship(
+                                    from_name=name,
+                                    to_name=target_name,
+                                    rel_type=rel_type,
+                                    attributes={"source": "ontology_static"},
+                                )
 
-                # Simple hack: split by ':' and title case the name part? "vishnu" -> "Vishnu"
-                # This is risky.
-                pass
-
-        except Exception as e:
-            logger.error(f"Error creating entity {entity_data.get('name')}: {e}")
+            for key, value in obj.items():
+                if key not in ["attributes", "relations", "components"]:
+                    self._create_relationships(value, id_to_entity)
+        elif isinstance(obj, list):
+            for item in obj:
+                self._create_relationships(item, id_to_entity)
 
 
 def main():

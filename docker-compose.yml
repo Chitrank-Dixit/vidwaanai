@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: vidwaan_password
       POSTGRES_DB: vidwaan_db
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -35,7 +35,7 @@ services:
     build: .
     container_name: vidwaan-agent
     ports:
-      - "8001:8001"
+      - "8002:8001"
     environment:
       - DATABASE_URL=postgresql://vidwaan_user:vidwaan_password@db:5432/vidwaan_db
       - NEO4J_URI=bolt://neo4j:7687

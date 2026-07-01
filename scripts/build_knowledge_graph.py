@@ -223,25 +223,73 @@ def extract_from_verse_with_ontology(
         }
     )
 
+    # Text Hierarchy Nodes (Scripture -> Chapter -> Verse)
+    chapter_number = verse.get("chapter_number", 0)
+    if scripture and chapter_number:
+        # 1. Scripture Node
+        entities_accum.append(
+            {
+                "name": scripture,
+                "type": "Text",
+                "attributes": {"source": "hierarchy_seed", "title": scripture},
+            }
+        )
+
+        # 2. Chapter/Mandala Node
+        is_veda = "ved" in scripture.lower()
+        unit_name = "Mandala" if is_veda else "Chapter"
+        chapter_node_name = f"{scripture} {unit_name} {chapter_number}"
+
+        entities_accum.append(
+            {
+                "name": chapter_node_name,
+                "type": "Text",
+                "attributes": {
+                    "source": "hierarchy_seed",
+                    "number": chapter_number,
+                    "scripture": scripture,
+                },
+            }
+        )
+
+        # 3. Link Verse -> PART_OF -> Chapter
+        rels_accum.append(
+            {
+                "from": verse_node_name,
+                "to": chapter_node_name,
+                "type": "PART_OF",
+                "attributes": {"source": "hierarchy_seed"},
+            }
+        )
+
+        # 4. Link Chapter -> PART_OF -> Scripture
+        rels_accum.append(
+            {
+                "from": chapter_node_name,
+                "to": scripture,
+                "type": "PART_OF",
+                "attributes": {"source": "hierarchy_seed"},
+            }
+        )
+
     combined_text = (f"{text} {translation}").lower()
 
     # 0. Ontology Lookup (Deterministic linking)
     # Check if any ontology concept name is in the text
-    found_ontology_concepts = []
     for term, concept_info in ontology_lookup.items():
         # Simple substring match - can be improved with regex word boundaries
         if term in combined_text:
-            found_ontology_concepts.append(concept_info)
+            aliases = [term] if term != concept_info["name"].lower() else []
+
+            entities_accum.append(
+                {
+                    "name": concept_info["name"],
+                    "type": concept_info["type"],
+                    "attributes": {"aliases": aliases},
+                }
+            )
 
             # Create Relationship: Verse -> MENTIONS -> Concept
-            # Note: We assume Concept node exists (seeded) or we create a stub reference.
-            # GraphBuilder.create_relationships_batch needs identifiers.
-            # If we used create_entity_batch, we have names.
-            # If concept nodes are created with specific properties (like ID) in Neo4j,
-            # we need to ensure we link to them correctly.
-            # GraphBuilder usually links by NAME and TYPE if using `create_relationship(from_node_name, to_node_name...)` approach
-            # But `create_relationships_batch` takes raw dicts.
-
             rels_accum.append(
                 {
                     "from": verse_node_name,
@@ -261,6 +309,10 @@ def extract_from_verse_with_ontology(
     for entity in found_entities:
         # Check if this rule-based entity matches ontology
         ent_name_lower = entity["name"].lower()
+        aliases = []
+        if "matched_alias" in entity and entity["matched_alias"]:
+            aliases.append(entity["matched_alias"])
+
         if ent_name_lower in ontology_lookup:
             # It's a known concept! Use the official name/type
             official = ontology_lookup[ent_name_lower]
@@ -273,16 +325,11 @@ def extract_from_verse_with_ontology(
             {
                 "name": entity["name"],
                 "type": entity["type"],
-                "attributes": {"source": "taxonomy"},
+                "attributes": {"source": "taxonomy", "aliases": aliases},
             }
         )
 
-        # Rel: Entity -> MENTIONED_IN -> Verse (Inverted Logic in original code??)
-        # Original: Entity -> MENTIONED_IN -> Verse
-        # User Request: Text -> MENTIONS -> Concept
-        # Let's add BOTH or prefer User Request.
-        # User request said: "Text Nodes ... [MENTIONS] -> Concept Nodes"
-
+        # Rel: Verse -> MENTIONS -> Entity
         rels_accum.append(
             {
                 "from": verse_node_name,
@@ -300,15 +347,26 @@ def extract_from_verse_with_ontology(
             ext_rels = data.get("relationships", [])
 
             for ent in ext_entities:
+                original_extracted_name = ent["name"]
+                aliases = []
                 # Normalization against ontology
                 if ent["name"].lower() in ontology_lookup:
                     official = ontology_lookup[ent["name"].lower()]
                     ent["name"] = official["name"]
                     ent["type"] = official["type"]
+                    if original_extracted_name.lower() != official["name"].lower():
+                        aliases.append(original_extracted_name)
 
                 ent["attributes"] = ent.get("attributes", {})
                 ent["attributes"]["source_verse_id"] = verse_id
                 ent["attributes"]["scripture"] = scripture
+                if "aliases" not in ent["attributes"]:
+                    ent["attributes"]["aliases"] = aliases
+                else:
+                    for a in aliases:
+                        if a not in ent["attributes"]["aliases"]:
+                            ent["attributes"]["aliases"].append(a)
+
                 entities_accum.append(ent)
 
                 # Ensure we link this entity to the verse if not already explicit

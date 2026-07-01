@@ -80,7 +80,12 @@ class TaxonomyExtractor:
             if re.search(pattern, lower_text):
                 entity = self.lookup_map[name_key]
                 if entity["id"] not in found_ids:
-                    found_entities.append(entity)
+                    # Make a shallow copy to prevent modifying shared ontology config
+                    ent_copy = dict(entity)
+                    # If matched via synonym/alias, set matched_alias
+                    if name_key != entity.get("name", "").lower():
+                        ent_copy["matched_alias"] = name_key
+                    found_entities.append(ent_copy)
                     found_ids.add(entity["id"])
 
         return found_entities
