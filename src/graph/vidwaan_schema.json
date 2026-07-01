@@ -1,0 +1,40 @@
+{
+  "node_types": [
+    "Deity",
+    "Concept",
+    "Character",
+    "Location",
+    "Place",
+    "Event",
+    "Text",
+    "Teaching",
+    "Practice",
+    "Emotion",
+    "Quality",
+    "TimePeriod"
+  ],
+  "edge_types": [
+    "IS_A",
+    "PART_OF",
+    "CAUSES",
+    "LEADS_TO",
+    "MANIFESTS_AS",
+    "RELATED_TO",
+    "PARENT_OF",
+    "CHILD_OF",
+    "SPOUSE_OF",
+    "SIBLING_OF",
+    "TEACHER_OF",
+    "STUDENT_OF",
+    "DEVOTEE_OF",
+    "ENEMY_OF",
+    "ALLY_OF",
+    "MENTIONS",
+    "MENTIONED_IN",
+    "LOCATED_AT",
+    "HAPPENED_AT",
+    "OCCURRED_DURING",
+    "EXEMPLIFIES",
+    "OPPOSES"
+  ]
+}
