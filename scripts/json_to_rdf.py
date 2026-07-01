@@ -1,8 +1,9 @@
+import argparse
 import datetime
 import json
 
-INPUT_FILE = "ontology_project/merged_output/raw_entities.json"
-OUTPUT_FILE = "ontology_project/merged_output/ontology.ttl"
+DEFAULT_INPUT_FILE = "ontology_project/merged_output/raw_entities.json"
+DEFAULT_OUTPUT_FILE = "ontology_project/merged_output/ontology.ttl"
 
 PREFIXES = """@prefix : <http://vidwaan.ai/ontology/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -80,22 +81,38 @@ def generate_turtle(data):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Convert merged JSON ontology to RDF/Turtle format.")
+    parser.add_argument(
+        "--input",
+        type=str,
+        default=DEFAULT_INPUT_FILE,
+        help=f"Path to input merged JSON file (default: {DEFAULT_INPUT_FILE})",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default=DEFAULT_OUTPUT_FILE,
+        help=f"Path to write output RDF/Turtle file (default: {DEFAULT_OUTPUT_FILE})",
+    )
+    args = parser.parse_args()
+
     try:
-        with open(INPUT_FILE) as f:
+        with open(args.input) as f:
             data = json.load(f)
 
         ttl_content = generate_turtle(data)
 
-        with open(OUTPUT_FILE, "w") as f:
+        with open(args.output, "w") as f:
             f.write(ttl_content)
 
-        print(f"Successfully generated {OUTPUT_FILE}")
+        print(f"Successfully generated {args.output}")
 
     except FileNotFoundError:
-        print(f"Error: {INPUT_FILE} not found. Run aggregation first.")
+        print(f"Error: {args.input} not found. Run aggregation first.")
     except Exception as e:
         print(f"Error: {e}")
 
 
 if __name__ == "__main__":
     main()
+

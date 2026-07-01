@@ -15,9 +15,9 @@ logger = logging.getLogger(__name__)
 INPUT_FILE = "ontology_project/merged_output/raw_entities.json"
 
 
-def deploy_to_neo4j():
-    if not os.path.exists(INPUT_FILE):
-        logger.error(f"Input file {INPUT_FILE} not found. Run aggregation first.")
+def deploy_to_neo4j(input_file: str = INPUT_FILE):
+    if not os.path.exists(input_file):
+        logger.error(f"Input file {input_file} not found. Run aggregation first.")
         return
 
     try:
@@ -26,7 +26,7 @@ def deploy_to_neo4j():
         logger.error(f"Failed to connect to Neo4j: {e}")
         return
 
-    with open(INPUT_FILE) as f:
+    with open(input_file) as f:
         data = json.load(f)
 
     nodes = data.get("nodes", [])
@@ -109,4 +109,13 @@ def deploy_to_neo4j():
 
 
 if __name__ == "__main__":
-    deploy_to_neo4j()
+    import argparse
+    parser = argparse.ArgumentParser(description="Deploy aggregated scripture ontology to Neo4j.")
+    parser.add_argument(
+        "--input",
+        type=str,
+        default=INPUT_FILE,
+        help=f"Path to input merged JSON file (default: {INPUT_FILE})",
+    )
+    args = parser.parse_args()
+    deploy_to_neo4j(args.input)

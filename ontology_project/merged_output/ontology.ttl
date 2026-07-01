@@ -9,12 +9,12 @@
 
 <http://vidwaan.ai/ontology> rdf:type owl:Ontology ;
     rdfs:comment "Vidwaan AI Vedic Ontology generated via Multi-LLM Pipeline" ;
-    owl:versionInfo "2026-06-06" .
+    owl:versionInfo "2026-07-01" .
 
-:Concept rdf:type owl:Class .
-:Character rdf:type owl:Class .
 :Event rdf:type owl:Class .
 :Text rdf:type owl:Class .
+:Character rdf:type owl:Class .
+:Concept rdf:type owl:Class .
 :Place rdf:type owl:Class .
 :Deity rdf:type owl:Class .
 

@@ -1,16 +1,17 @@
+import argparse
 import glob
 import json
 import os
 import typing
 from typing import Any
 
-# Configuration
-RESPONSE_DIRS = [
+# Default Configuration
+DEFAULT_RESPONSE_DIRS = [
     "scripts/responses/perplexity",
     "scripts/responses/gemini",
     "scripts/responses/chatgpt",
 ]
-OUTPUT_FILE = "ontology_project/merged_output/raw_entities.json"
+DEFAULT_OUTPUT_FILE = "ontology_project/merged_output/raw_entities.json"
 
 
 def load_json_files(directories: list[str]) -> list[dict[str, Any]]:
@@ -77,12 +78,32 @@ def merge_data(data_list: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Aggregate scripture ontology extraction responses.")
+    parser.add_argument(
+        "--exclude-ramayan",
+        action="store_true",
+        help="Exclude Ramayana responses (stored under perplexity and chatgpt directories)",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default=DEFAULT_OUTPUT_FILE,
+        help=f"Path to write merged output JSON file (default: {DEFAULT_OUTPUT_FILE})",
+    )
+    args = parser.parse_args()
+
     print("Starting aggregation...")
 
-    # Ensure output directory exists
-    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    if args.exclude_ramayan:
+        response_dirs = ["scripts/responses/gemini"]
+        print("Excluding Ramayana responses (omitting chatgpt/ and perplexity/ directories).")
+    else:
+        response_dirs = DEFAULT_RESPONSE_DIRS
 
-    raw_data = load_json_files(RESPONSE_DIRS)
+    # Ensure output directory exists
+    os.makedirs(os.path.dirname(args.output), exist_ok=True)
+
+    raw_data = load_json_files(response_dirs)
     merged_data = merge_data(raw_data)
 
     node_count = len(merged_data["nodes"])
@@ -92,11 +113,12 @@ def main():
     print(f"Total Nodes: {node_count}")
     print(f"Total Relationships: {rel_count}")
 
-    with open(OUTPUT_FILE, "w") as f:
+    with open(args.output, "w") as f:
         json.dump(merged_data, f, indent=2, ensure_ascii=False)
 
-    print(f"Saved merged output to {OUTPUT_FILE}")
+    print(f"Saved merged output to {args.output}")
 
 
 if __name__ == "__main__":
     main()
+
